@@ -14,7 +14,7 @@ function love.load()
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')
 
-    -- load retro fonts
+    -- load fonts
     font50 = love.graphics.newFont(50)
     font80 = love.graphics.newFont(80)
     love.graphics.setFont(font80)
