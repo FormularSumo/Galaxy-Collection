@@ -10,6 +10,9 @@ require 'states/HomeState'
 VIRTUAL_WIDTH = 1080
 VIRTUAL_HEIGHT = 1920
 
+background = love.graphics.newVideo('Videos/Home background.ogg')
+-- background = love.video.newVideoStream('Videos/Home background.ogg')
+
 function love.load()
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')
@@ -28,7 +31,7 @@ function love.load()
 
     math.randomseed(os.time()) --Randomises randomiser each time program is run. 
 
-    -- initialize our virtual resolution
+    -- initialize virtual resolution
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
         vsync = true,
         fullscreen = true,
@@ -73,6 +76,9 @@ end
 function love.draw()
     push:start()
 
+    -- love.graphics.draw(background,0,0)
+    -- background:play()
+    
     gStateMachine:render()
 
     push:finish()
