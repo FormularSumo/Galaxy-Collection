@@ -23,6 +23,13 @@ function love.load()
     font80 = love.graphics.newFont(80)
     font80SW = love.graphics.newFont('Distant Galaxy.ttf',80)
     love.graphics.setFont(font80)
+
+    -- initialize virtual resolution
+    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
+        vsync = true,
+        fullscreen = true,
+        resizable = true
+    })
     
     -- initialize state machine with all state-returning functions
     gStateMachine = StateMachine {
@@ -33,12 +40,8 @@ function love.load()
 
     math.randomseed(os.time()) --Randomises randomiser each time program is run. 
 
-    -- initialize virtual resolution
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
-        vsync = true,
-        fullscreen = true,
-        resizable = true
-    })
+    P1_deck = {}
+    P2_deck = {}
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
