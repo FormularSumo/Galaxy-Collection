@@ -11,6 +11,7 @@ function Card:init(name,row,column)
     self.attack = _G[self.name]['attack']
     self.defense = _G[self.name]['defense']
     self.evade = _G[self.name]['evade']
+    self.range = _G[self.name]['range']
 end
 
 function Card:update()
