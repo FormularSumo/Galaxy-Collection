@@ -17,6 +17,8 @@ Battle1 = Button('Battle 1.png')
 
 background_video = love.graphics.newVideo('Videos/Stary background.ogv')
 
+desert_background = love.graphics.newImage('Desert_background.png')
+
 function love.load()
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')

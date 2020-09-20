@@ -26,6 +26,7 @@ function GameState:update(dt)
 end
 
 function GameState:render()
+    love.graphics.draw(desert_background)
     for k, pair in pairs(P1_deck) do
         P1_deck[k]:render()
     end
