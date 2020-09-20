@@ -25,6 +25,11 @@ function love.load()
     font80SW = love.graphics.newFont('Distant Galaxy.ttf',80)
     love.graphics.setFont(font80)
 
+    sounds = {
+        ['cool music'] = love.audio.newSource('Cool Music/cool music.mp3','stream')
+    }
+
+
     -- initialize virtual resolution
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
         vsync = true,
