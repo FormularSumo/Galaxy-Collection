@@ -15,6 +15,8 @@ VIRTUAL_HEIGHT = 1080
 
 Battle1 = Button('Battle 1.png')
 
+
+
 function love.load()
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')
@@ -26,7 +28,7 @@ function love.load()
     love.graphics.setFont(font80)
 
     sounds = {
-        ['cool music'] = love.audio.newSource('Cool Music/cool music.mp3','stream')
+        ['cool music'] = love.audio.newSource('Music/cool music.mp3','stream')
     }
 
 
