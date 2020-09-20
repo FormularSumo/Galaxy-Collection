@@ -9,3 +9,9 @@ AnakinF3 = {
     ['defense'] = 17354,
     ['evade'] = 0.05,
 }
+
+BabyYoda = {
+    ['attack'] = 9761,
+    ['defense'] = 9430,
+    ['evade'] = 0,
+}
