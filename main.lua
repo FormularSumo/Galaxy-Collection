@@ -7,8 +7,8 @@ require 'states/BaseState'
 require 'states/GameState'
 require 'states/HomeState'
 
-VIRTUAL_WIDTH = 1080
-VIRTUAL_HEIGHT = 1920
+VIRTUAL_WIDTH = 1920
+VIRTUAL_HEIGHT = 1080
 
 background = love.graphics.newVideo('Videos/Home background.ogg')
 -- background = love.video.newVideoStream('Videos/Home background.ogg')
