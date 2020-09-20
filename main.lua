@@ -10,8 +10,6 @@ require 'states/HomeState'
 VIRTUAL_WIDTH = 1920
 VIRTUAL_HEIGHT = 1080
 
-background = love.graphics.newVideo('Videos/Home background.ogg')
--- background = love.video.newVideoStream('Videos/Home background.ogg')
 
 function love.load()
     -- app window title
@@ -68,9 +66,17 @@ function love.keypressed(key)
     end
 end
 
+function love.keyboard.wasPressed(key)
+    return love.keyboard.keysPressed[key] 
+end
+
 function love.mousereleased(x,y,button)
     love.mouse.buttonsPressed[button] = true
     mouseLastX,mouseLastY = love.mouse.getPosition()
+end
+
+function love.touchpressed()
+    love.mouse.buttonsPressed[1] = true
 end
 
 function love.update(dt)
@@ -82,11 +88,6 @@ end
 
 function love.draw()
     push:start()
-
-    -- love.graphics.draw(background,0,0)
-    -- background:play()
-    
     gStateMachine:render()
-
     push:finish()
 end
