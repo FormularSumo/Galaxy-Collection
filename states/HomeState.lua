@@ -14,10 +14,10 @@ end
 
 function HomeState:update(dt)
     testForBackgroundImageLoop()
-    -- Battle1:update()
+    Battle1:update()
 end
 
 function HomeState:render()
     love.graphics.draw(background_video,0,0)
-    -- Battle1:render()
+    Battle1:render()
 end

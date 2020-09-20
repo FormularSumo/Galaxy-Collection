@@ -2,6 +2,8 @@ push = require 'push'
 
 Class = require 'class'
 
+require 'Button'
+require 'Characters/Character stats'
 require 'StateMachine'
 require 'states/BaseState'
 require 'states/GameState'
@@ -10,6 +12,7 @@ require 'states/HomeState'
 VIRTUAL_WIDTH = 1920
 VIRTUAL_HEIGHT = 1080
 
+Battle1 = Button('Battle 1.png')
 
 function love.load()
     -- app window title
