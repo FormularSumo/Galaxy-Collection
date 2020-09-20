@@ -15,7 +15,7 @@ VIRTUAL_HEIGHT = 1080
 
 Battle1 = Button('Battle 1.png')
 
-
+background_video = love.graphics.newVideo('Videos/Stary background.ogv')
 
 function love.load()
     -- app window title
@@ -28,8 +28,11 @@ function love.load()
     love.graphics.setFont(font80)
 
     sounds = {
+        ['Imperial March'] = love.audio.newSource('Music/Imperial March.mp3','stream'),
         ['cool music'] = love.audio.newSource('Music/cool music.mp3','stream')
     }
+
+    love.audio.setVolume(1)
 
 
     -- initialize virtual resolution

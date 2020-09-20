@@ -2,8 +2,8 @@ HomeState = Class{__includes = BaseState}
 
 
 function HomeState:init()
-    background_video = love.graphics.newVideo('Videos/Stary background.ogv')
     background_video:play()
+    sounds['Imperial March']:play()
 end
 
 local function testForBackgroundImageLoop()
