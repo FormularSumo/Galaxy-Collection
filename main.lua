@@ -40,6 +40,7 @@ function love.load()
     })
 
     love.keyboard.keysPressed = {}
+    love.mouse.buttonsPressed = {}
 end
 
 
@@ -67,10 +68,15 @@ function love.keypressed(key)
     end
 end
 
+function love.mousereleased(x,y,button)
+    love.mouse.buttonsPressed[button] = true
+    mouseLastX,mouseLastY = love.mouse.getPosition()
+end
 
 function love.update(dt)
     gStateMachine:update(dt)
     love.keyboard.keysPressed = {}
+    love.mouse.buttonsPressed = {}
 end
 
 
