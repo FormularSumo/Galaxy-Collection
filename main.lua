@@ -2,6 +2,7 @@ push = require 'push'
 
 Class = require 'class'
 
+require 'Card'
 require 'Button'
 require 'Characters/Character stats'
 require 'StateMachine'
