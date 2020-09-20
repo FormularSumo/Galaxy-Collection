@@ -1,10 +1,10 @@
-HomeState = Class{__includes = BaseState}
+GameState = Class{__includes = BaseState}
 
 
-function HomeState:init()
+function GameState:init()
     
 end
 
-function HomeState:update(dt)
+function GameState:update(dt)
 
 end
