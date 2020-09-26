@@ -96,6 +96,7 @@ end
 
 function love.touchpressed()
     love.mouse.buttonsPressed[1] = true
+    mouseLastX,mouseLastY = love.mouse.getPosition()
 end
 
 function love.update(dt)
