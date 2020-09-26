@@ -3,7 +3,7 @@ HomeState = Class{__includes = BaseState}
 
 function HomeState:init()
     background_video:play()
-    sounds['Imperial March']:play()
+    sounds['Imperial March piano only']:play()
 end
 
 local function testForBackgroundImageLoop()
