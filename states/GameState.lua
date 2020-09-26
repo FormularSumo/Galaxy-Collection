@@ -8,7 +8,7 @@ function GameState:init()
     P1_deck[3] = Card('BenKenobi',4,3)
     P1_deck[4] = Card('C3P0',4,4)
     P1_deck[5] = Card('Chewbacca',4,5)
-    sounds['Imperial March']:pause()
+    sounds['Imperial March piano only']:pause()
     sounds['cool music']:play()
 end
 
