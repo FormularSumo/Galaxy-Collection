@@ -63,7 +63,6 @@ end
 
 function love.resize(w, h)
     push:resize(w, h)
-    Current_window_width, Current_window_height = love.graphics.getDimensions()
 end
 
 
