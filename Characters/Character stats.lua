@@ -39,3 +39,17 @@ Chewbacca = {
     ['evade'] = 0.04,
     ['range'] = 2
 }
+
+DarthSidiousReborn = {
+    ['attack'] = 19846,
+    ['defense'] = 19656,
+    ['evade'] = 0,
+    ['range'] = 1
+}
+
+DarthVader = {
+    ['attack'] = 18440,
+    ['defense'] = 18673,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
