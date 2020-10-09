@@ -13,12 +13,13 @@ end
 function Button:update()
     if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
         if  self.name == 'Battle 1.png' then
+            for i = 0,17,1 do
+                _G.P2_deck_cards[i] = 'Ewok'
+            end
             gStateMachine:change('game')
         end
     end
-    for i = 0,17,1 do
-        _G.P2_deck_cards[i] = 'Ewok'
-    end
+
     _G.P1_deck_cards[0] = 'AhsokaS7'
     _G.P1_deck_cards[1] = 'AnakinF3'
     _G.P1_deck_cards[2] = 'BabyYoda'
