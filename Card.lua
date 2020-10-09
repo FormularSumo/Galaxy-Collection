@@ -15,7 +15,7 @@ function Card:init(name,row,column)
 end
 
 function Card:update()
-    self.x = ((VIRTUAL_WIDTH / 6) * self.column) + (self.width / 6)
+    self.x = ((VIRTUAL_WIDTH / 12) * self.column) + (self.width / 12)
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 6 / 4))
 end
 

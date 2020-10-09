@@ -2,22 +2,27 @@ GameState = Class{__includes = BaseState}
 
 
 function GameState:init()
-    P1_deck[0] = Card('AhsokaS7',0,2)
-    P1_deck[1] = Card('AnakinF3',1,2)
-    P1_deck[2] = Card('BabyYoda',2,2)
-    P1_deck[3] = Card('BenKenobi',3,2)
-    P1_deck[4] = Card('C3P0',4,2)
-    P1_deck[5] = Card('Chewbacca',5,2)
-    P1_deck[6] = Card('DarthSidiousReborn',0,1)
-    P1_deck[7] = Card('DarthVader',1,1)
-    P1_deck[8] = Card('Ewok',2,1)
-    P1_deck[9] = Card('FarmboyLuke',3,1)
-    P1_deck[10] = Card('HanSoloOld',4,1)
-    P1_deck[11] = Card('Hondo',5,1)
-    -- P2_deck[0] = Card(_G[P2_deck_cards][0],0,2)
-    -- P2_deck[1] = Card(P2_deck_cards[1],1,2)
-    -- P2_deck[2] = Card(P2_deck_cards[2],2,2)
-    -- P2_deck[3] = Card(P2_deck_cards[3],3,2)
+    for i=0,17,1 do
+        if i < 6 then
+            P1column = 5
+            P2column = 6
+            row = i
+        elseif i < 12 then
+            P1column = 4
+            P2column = 7
+            row = i - 6
+        else
+            P1column = 3
+            P2column = 8
+            row = i - 12
+        end
+        if P1_deck_cards[i] ~= none then
+            P1_deck[i] = Card(P1_deck_cards[i],row,P1column)
+        end
+        if P2_deck_cards[i] ~= none then
+            P2_deck[i] = Card(P2_deck_cards[i],row,P2column)
+        end
+    end
     sounds['Imperial March piano only']:pause()
     sounds['cool music']:play()
 end
