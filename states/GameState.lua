@@ -2,20 +2,16 @@ GameState = Class{__includes = BaseState}
 
 
 function GameState:init()
+    P1column = 5
+    P2column = 6
+    row_correctment = 0
     for i=0,17,1 do
-        if i < 6 then
-            P1column = 5
-            P2column = 6
-            row = i
-        elseif i < 12 then
-            P1column = 4
-            P2column = 7
-            row = i - 6
-        else
-            P1column = 3
-            P2column = 8
-            row = i - 12
+        if i % 6 == 0 and i ~= 0 then
+            P1column = 5 - i / 6 
+            P2column = 6 + i / 6 
+            row_correctment = i
         end
+        row = i - row_correctment
         if P1_deck_cards[i] ~= none then
             P1_deck[i] = Card(P1_deck_cards[i],row,P1column)
         end
