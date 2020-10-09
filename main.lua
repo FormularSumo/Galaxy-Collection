@@ -31,6 +31,7 @@ function love.load()
 
     sounds = {
         ['Imperial March piano only'] = love.audio.newSource('Music/Imperial March piano only.mp3','stream'),
+        ['Imperial March duet'] = love.audio.newSource('Music/Imperial March duet.mp3','stream'),
         ['cool music'] = love.audio.newSource('Music/cool music.mp3','stream')
     }
 

@@ -8,7 +8,7 @@ function Button:init(name,x,y)
     self.x = VIRTUAL_WIDTH / 2 - self.width / 2 
     self.y = VIRTUAL_HEIGHT / 2 - self.height / 2 - 450
     -- for i = 0,3,1 do
-    --     P2_deck_cards[tonumber(0)] = 'Ewok'
+    --     P2_deck_cards[0] = 'Ewok'
     -- end
 end
 

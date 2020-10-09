@@ -4,6 +4,7 @@ HomeState = Class{__includes = BaseState}
 function HomeState:init()
     background_video:play()
     sounds['Imperial March piano only']:play()
+    played = true
 end
 
 local function testForBackgroundImageLoop()
@@ -15,6 +16,10 @@ end
 function HomeState:update(dt)
     testForBackgroundImageLoop()
     Battle1:update()
+    if sounds['Imperial March piano only']:isPlaying() == false and played == false then
+        sounds['Imperial March duet']:play()
+        played = true
+    end
 end
 
 function HomeState:render()
