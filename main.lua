@@ -55,6 +55,9 @@ function love.load()
 
     P1_deck = {}
     P2_deck = {}
+    P1_deck_cards = {}
+    P2_deck_cards = {}
+
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}

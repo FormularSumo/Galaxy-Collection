@@ -7,14 +7,21 @@ function Button:init(name,x,y)
     self.height = self.image:getHeight()
     self.x = VIRTUAL_WIDTH / 2 - self.width / 2 
     self.y = VIRTUAL_HEIGHT / 2 - self.height / 2 - 450
+    -- for i = 0,3,1 do
+    --     P2_deck_cards[tonumber(0)] = 'Ewok'
+    -- end
 end
 
 function Button:update()
     if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-        gStateMachine:change('game')
+        if  self.name == 'Battle 1.png' then
+            gStateMachine:change('game')
+        end
     end
+
 end
 
 function Button:render()
     love.graphics.draw(self.image, self.x, self.y)
+    -- love.graphics.print(,100,100)
 end

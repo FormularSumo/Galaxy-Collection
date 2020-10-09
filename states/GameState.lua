@@ -14,6 +14,10 @@ function GameState:init()
     P1_deck[9] = Card('FarmboyLuke',3,1)
     P1_deck[10] = Card('HanSoloOld',4,1)
     P1_deck[11] = Card('Hondo',5,1)
+    -- P2_deck[0] = Card(_G[P2_deck_cards][0],0,2)
+    -- P2_deck[1] = Card(P2_deck_cards[1],1,2)
+    -- P2_deck[2] = Card(P2_deck_cards[2],2,2)
+    -- P2_deck[3] = Card(P2_deck_cards[3],3,2)
     sounds['Imperial March piano only']:pause()
     sounds['cool music']:play()
 end
@@ -21,6 +25,9 @@ end
 function GameState:update(dt)
     for k, pair in pairs(P1_deck) do
         P1_deck[k]:update()
+    end 
+    for k, pair in pairs(P2_deck) do
+        P2_deck[k]:update()
     end 
     if love.keyboard.wasPressed('m') then 
         if sounds['cool music']:isPlaying() then
@@ -36,4 +43,8 @@ function GameState:render()
     for k, pair in pairs(P1_deck) do
         P1_deck[k]:render()
     end
+    for k, pair in pairs(P2_deck) do
+        P2_deck[k]:render()
+    end
+    -- love.graphics.print(_G[P2_deck_cards], 100, 100)
 end
