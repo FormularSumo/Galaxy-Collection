@@ -37,7 +37,7 @@ Chewbacca = {
     ['attack'] = 14210,
     ['defense'] = 10345,
     ['evade'] = 0.04,
-    ['range'] = 2
+    ['range'] = 3
 }
 
 DarthSidiousReborn = {
@@ -52,4 +52,32 @@ DarthVader = {
     ['defense'] = 18673,
     ['evade'] = 0.03,
     ['range'] = 1
+}
+
+Ewok = {
+    ['attack'] = 1254,
+    ['defense'] = 975,
+    ['evade'] = 0.2,
+    ['range'] = 1
+}
+
+FarmboyLuke = {
+    ['attack'] = 14987,
+    ['defense'] = 9467,
+    ['evade'] = 0.07,
+    ['range'] = 3
+}
+
+HanSoloOld = {
+    ['attack'] = 15546,
+    ['defense'] = 7565,
+    ['evade'] = 0.8,
+    ['range'] = 3
+}
+
+Hondo = {
+    ['attack'] = 8754,
+    ['defense'] = 9132,
+    ['evade'] = 0.5,
+    ['range'] = 3
 }
