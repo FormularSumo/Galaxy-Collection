@@ -19,22 +19,6 @@ function Button:update()
             gStateMachine:change('game')
         end
     end
-
-    _G.P1_deck_cards[0] = 'AhsokaS7'
-    _G.P1_deck_cards[1] = 'AnakinF3'
-    _G.P1_deck_cards[2] = 'BabyYoda'
-    _G.P1_deck_cards[3] = 'BenKenobi'
-    _G.P1_deck_cards[4] = 'C3P0'
-    _G.P1_deck_cards[5] = 'Chewbacca'
-    _G.P1_deck_cards[6] = 'DarthSidiousReborn'
-    _G.P1_deck_cards[7] = 'DarthVader'
-    _G.P1_deck_cards[8] = 'Ewok'
-    _G.P1_deck_cards[9] = 'FarmboyLuke'
-    _G.P1_deck_cards[10] = 'HanSoloOld'
-    _G.P1_deck_cards[11] = 'Hondo'
-    for i = 11,17,1 do
-        _G.P1_deck_cards[i] = 'Ewok'
-    end
 end
 
 function Button:render()

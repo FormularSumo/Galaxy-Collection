@@ -13,10 +13,10 @@ function GameState:init()
         end
         row = i - row_correctment
         if P1_deck_cards[i] ~= none then
-            P1_deck[i] = Card(P1_deck_cards[i],row,P1column)
+            P1_deck[i] = Card(P1_deck_cards[i],row,P1column,1,i)
         end
         if P2_deck_cards[i] ~= none then
-            P2_deck[i] = Card(P2_deck_cards[i],row,P2column)
+            P2_deck[i] = Card(P2_deck_cards[i],row,P2column,2,i)
         end
     end
     sounds['Imperial March piano only']:pause()
