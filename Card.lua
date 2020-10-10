@@ -19,10 +19,10 @@ function Card:init(name,row,column,team,number)
 end
 
 function Card:update(dt,move)
-    self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 10
+    self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     if self.column > 5 then
-        self.x = self.x + 20
+        self.x = self.x + 40
     end
     if move == true then
         if self.team == 1 then
@@ -59,7 +59,7 @@ end
 function Card:render()
     love.graphics.draw(self.image,self.x,self.y,0,0.115,sx)
     love.graphics.setFont(font80SW)
-    love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
+    -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
     -- love.graphics.print(self.attack, self.x, self.y)
     -- love.graphics.print(self.defense, self.x, self.y)
     -- love.graphics.print(self.evade, self.x, self.y)
