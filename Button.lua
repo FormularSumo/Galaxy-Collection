@@ -14,7 +14,7 @@ function Button:update()
     if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
         if  self.name == 'Battle 1.png' then
             for i = 0,17,1 do
-                _G.P2_deck_cards[i] = 'Ewok'
+                P2_deck_cards[i] = 'Ewok'
             end
             gStateMachine:change('game')
         end
