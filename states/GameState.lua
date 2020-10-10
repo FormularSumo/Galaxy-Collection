@@ -23,7 +23,7 @@ function GameState:init()
         end
     next_round_P1_deck = P1_deck
     end
-    P1_deck[4].health = 0
+    -- P1_deck[4].health = 0
 end
 
 function GameState:update(dt)

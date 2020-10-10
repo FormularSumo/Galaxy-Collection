@@ -57,7 +57,7 @@ function Card:update(dt,move)
 end
 
 function Card:render()
-    love.graphics.draw(self.image,self.x,self.y,0,0.115,sx)
+    love.graphics.draw(self.image,self.x,self.y,0,1,sx)
     love.graphics.setFont(font80SW)
     -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
     -- love.graphics.print(self.attack, self.x, self.y)

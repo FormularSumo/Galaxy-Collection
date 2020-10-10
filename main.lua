@@ -17,7 +17,7 @@ Battle1 = Button('Battle 1.png')
 
 background_video = love.graphics.newVideo('Videos/Stary background.ogv')
 
-desert_background = love.graphics.newImage('Desert_background.png')
+desert_background = love.graphics.newImage('Backgrounds/Desert_background.png')
 
 function love.load()
     -- app window title
@@ -60,13 +60,13 @@ function love.load()
     P1_deck_cards = {}
     P2_deck_cards = {}
 
-    -- P1_deck_cards[0] = 'AhsokaS7'
+    P1_deck_cards[0] = 'AhsokaS7'
     P1_deck_cards[1] = 'AnakinF3'
     P1_deck_cards[2] = 'BabyYoda'
     P1_deck_cards[3] = 'BenKenobi'
     P1_deck_cards[4] = 'C3P0'
     P1_deck_cards[5] = 'Chewbacca'
-    -- P1_deck_cards[6] = 'DarthSidiousReborn'
+    P1_deck_cards[6] = 'DarthSidiousReborn'
     P1_deck_cards[7] = 'DarthVader'
     P1_deck_cards[8] = 'Ewok'
     P1_deck_cards[9] = 'FarmboyLuke'
