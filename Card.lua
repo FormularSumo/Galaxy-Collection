@@ -5,8 +5,8 @@ function Card:init(name,row,column,team,number)
     self.row = row
     self.column = column
     self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
-    self.width = self.image:getWidth() / 8.7
-    self.height = self.image:getHeight() / 8.7
+    self.width = self.image:getWidth()
+    self.height = self.image:getHeight()
     self.x = 0
     self.y = 0
     self.team = team 
