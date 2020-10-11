@@ -14,12 +14,12 @@ local function testForBackgroundImageLoop()
 end
 
 function HomeState:update(dt)
-    testForBackgroundImageLoop()
-    Battle1:update()
     if sounds['Imperial March piano only']:isPlaying() == false and played == false then
         sounds['Imperial March duet']:play()
         played = true
     end
+    testForBackgroundImageLoop()
+    Battle1:update()
 end
 
 function HomeState:render()
