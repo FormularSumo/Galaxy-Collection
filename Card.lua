@@ -7,7 +7,7 @@ function Card:init(name,row,column,team,number)
     self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
-    self.x = 0
+    self.x = -150
     self.y = 0
     self.team = team 
     self.number = number
@@ -58,7 +58,11 @@ end
 
 function Card:render()
     love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-    love.graphics.setFont(font80SW)
+    love.graphics.setColor(0.3,0.3,0.3)
+    love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
+    love.graphics.setColor(1,0.820,0)
+    love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
+    love.graphics.setColor(1,1,1)
     -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
     -- love.graphics.print(self.attack, self.x, self.y)
     -- love.graphics.print(self.defense, self.x, self.y)

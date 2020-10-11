@@ -6,13 +6,13 @@ function GameState:init()
     sounds['Imperial March piano only']:pause()
     sounds['Imperial March duet']:pause()
     sounds['cool music']:play()
-    P1column = 0
-    P2column = 11
+    P1column = -1
+    P2column = 12
     row_correctment = 0
     for i=0,17,1 do
         if i % 6 == 0 and i ~= 0 then
-            P1column = 0 - i / 6 
-            P2column = 11 + i / 6 
+            P1column = -1 - i / 6 
+            P2column = 12 + i / 6 
             row_correctment = i
         end
         row = i - row_correctment
@@ -24,7 +24,10 @@ function GameState:init()
         end
     next_round_P1_deck = P1_deck
     end
-    -- P1_deck[4].health = 0
+    P1_deck[0].health = 500
+    P1_deck[1].health = 250
+    P1_deck[2].health = 10 
+    P1_deck[3].health = 990
 end
 
 function GameState:update(dt)
