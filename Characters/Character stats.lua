@@ -68,10 +68,11 @@ FarmboyLuke = {
     ['range'] = 3
 }
 
-HanSoloOld = {
+ HanSoloOld = {
     ['attack'] = 15546,
     ['defense'] = 7565,
     ['evade'] = 0.8,
+    ['evade'] = 0.08,
     ['range'] = 3
 }
 
@@ -79,5 +80,54 @@ Hondo = {
     ['attack'] = 8754,
     ['defense'] = 9132,
     ['evade'] = 0.5,
+    ['evade'] = 0.05,
     ['range'] = 3
 }
+
+JediKnightLuke = {
+    ['attack'] = 13241,
+    ['defense'] = 13016,
+    ['evade'] = 0.05,
+    ['range'] = 1
+}
+
+KyloRen = {
+    ['attack'] = 18293,
+    ['defense'] = 17624,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
+MaceWindu = {
+    ['attack'] = 18001,
+    ['defense'] = 17874,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
+ObiWanKenobi = {
+    ['attack'] = 17421,
+    ['defense'] = 18864,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
+R2D2 = {
+    ['attack'] = 9241,
+    ['defense'] = 8165,
+    ['evade'] = 0.15,
+    ['range'] = 1
+}
+
+Rey = {
+    ['attack'] = 18024,
+    ['defense'] = 18015,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
+Yoda = {
+    ['attack'] = 17684,
+    ['defense'] = 18435,
+    ['evade'] = 0.12,
+    ['range'] = 1
