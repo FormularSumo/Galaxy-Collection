@@ -2,6 +2,7 @@ GameState = Class{__includes = BaseState}
 timer = -1
 
 function GameState:init()
+    sand_dunes:play()
     sounds['Imperial March piano only']:pause()
     sounds['Imperial March duet']:pause()
     sounds['cool music']:play()
@@ -51,7 +52,8 @@ function GameState:update(dt)
 end
 
 function GameState:render()
-    love.graphics.draw(desert_background)
+    love.graphics.draw(sand_dunes,0,0)
+    -- love.graphics.draw(desert_background)
     for k, pair in pairs(P1_deck) do
         P1_deck[k]:render()
     end

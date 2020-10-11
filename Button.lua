@@ -16,6 +16,7 @@ function Button:update()
             for i = 0,17,1 do
                 P2_deck_cards[i] = 'Ewok'
             end
+            P2_deck_cards[3] = 'Yoda'
             gStateMachine:change('game')
         end
     end

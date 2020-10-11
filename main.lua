@@ -17,6 +17,8 @@ Battle1 = Button('Battle 1.png')
 
 background_video = love.graphics.newVideo('Videos/Stary background.ogv')
 
+sand_dunes = love.graphics.newVideo('Videos/Sand Dunes.ogv')
+
 desert_background = love.graphics.newImage('Backgrounds/Desert_background.png')
 
 function love.load()
@@ -72,9 +74,15 @@ function love.load()
     P1_deck_cards[9] = 'FarmboyLuke'
     P1_deck_cards[10] = 'HanSoloOld'
     P1_deck_cards[11] = 'Hondo'
-    for i = 12,17,1 do
-        P1_deck_cards[i] = 'Ewok'
-    end
+    P1_deck_cards[12] = 'JediKnightLuke'
+    P1_deck_cards[13] = 'KyloRen'
+    P1_deck_cards[14] = 'MaceWindu'
+    P1_deck_cards[15] = 'ObiWanKenobi'
+    P1_deck_cards[16] = 'R2D2'
+    P1_deck_cards[17] = 'Rey'
+    -- for i = 12,17,1 do
+    --     P1_deck_cards[i] = 'Ewok'
+    -- end
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
