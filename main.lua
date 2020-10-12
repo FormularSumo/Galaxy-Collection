@@ -15,7 +15,7 @@ VIRTUAL_HEIGHT = 1080
 
 Battle1 = Button('Battle 1.png')
 
-background_video = love.graphics.newVideo('Videos/Stary background.ogv')
+background_video = love.graphics.newVideo('Videos/Stary Background.ogv')
 
 sand_dunes = love.graphics.newVideo('Videos/Sand Dunes.ogv')
 
