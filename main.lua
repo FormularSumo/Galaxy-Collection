@@ -80,9 +80,6 @@ function love.load()
     P1_deck_cards[15] = 'ObiWanKenobi'
     P1_deck_cards[16] = 'R2D2'
     P1_deck_cards[17] = 'Rey'
-    -- for i = 12,17,1 do
-    --     P1_deck_cards[i] = 'Ewok'
-    -- end
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
