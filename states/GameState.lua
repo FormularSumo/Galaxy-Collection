@@ -22,12 +22,14 @@ function GameState:init()
         if P2_deck_cards[i] ~= none then
             P2_deck[i] = Card(P2_deck_cards[i],row,P2column,2,i)
         end
-    next_round_P1_deck = P1_deck
     end
+    next_round_P1_deck = P1_deck
+    next_round_P2_deck = P2_deck
     P1_deck[0].health = 500
     P1_deck[1].health = 250
     P1_deck[2].health = 10 
     P1_deck[3].health = 990
+    P2_deck[0].health = 750
 end
 
 function GameState:update(dt)
@@ -36,6 +38,7 @@ function GameState:update(dt)
         timer = timer - 1
         move = true
         P1_deck = next_round_P1_deck
+        P2_deck = next_round_P2_deck
     else
         move = false
     end
