@@ -19,10 +19,15 @@ function HomeState:update(dt)
         played = true
     end
     testForBackgroundImageLoop()
-    Battle1:update()
+    for k, pair in pairs(buttons) do
+        pair:update()
+    end
 end
 
 function HomeState:render()
     love.graphics.draw(background_video,0,0)
-    Battle1:render()
+    for k, pair in pairs(buttons) do
+        pair:render()
+    end
+    print(P1_deck_cards)
 end

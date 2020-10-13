@@ -13,7 +13,9 @@ require 'states/HomeState'
 VIRTUAL_WIDTH = 1920
 VIRTUAL_HEIGHT = 1080
 
-Battle1 = Button('Battle 1.png')
+buttons = {}
+buttons[0] = Button('Battle 1.png')
+buttons[1] = Button('Button2.png',50,50)
 
 background_video = love.graphics.newVideo('Videos/Stary Background.ogv')
 
@@ -63,27 +65,33 @@ function love.load()
     P1_deck_cards = {}
     P2_deck_cards = {}
 
-    P1_deck_cards[0] = 'AhsokaS7'
-    P1_deck_cards[1] = 'AnakinF3'
-    P1_deck_cards[2] = 'BabyYoda'
-    P1_deck_cards[3] = 'BenKenobi'
-    P1_deck_cards[4] = 'C3P0'
-    P1_deck_cards[5] = 'Chewbacca'
-    P1_deck_cards[6] = 'DarthSidiousReborn'
-    P1_deck_cards[7] = 'DarthVader'
-    P1_deck_cards[8] = 'Ewok'
-    P1_deck_cards[9] = 'FarmboyLuke'
-    P1_deck_cards[10] = 'HanSoloOld'
-    P1_deck_cards[11] = 'Hondo'
-    P1_deck_cards[12] = 'JediKnightLuke'
-    P1_deck_cards[13] = 'KyloRen'
-    P1_deck_cards[14] = 'MaceWindu'
-    P1_deck_cards[15] = 'ObiWanKenobi'
-    P1_deck_cards[16] = 'R2D2'
-    P1_deck_cards[17] = 'Rey'
-
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
+end
+
+function split(s, delimiter)
+    result = {};
+    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+        table.insert(result, match);
+    end
+    return result
+end
+
+function P1_deck_edit(position,name)
+    P1_deck_file = love.filesystem.read('Player 1 deck.txt')
+    P1_deck_cards_original = split(P1_deck_file,',')
+    
+    for k, pair in pairs(P1_deck_cards_original) do  
+        P1_deck_cards[k-1] = pair
+    end
+
+    P1_deck_cards[position] = tostring(name)
+    P1_deck_cards_string = ''
+    for k, pair in pairs(P1_deck_cards) do
+        P1_deck_cards_string = P1_deck_cards_string .. pair .. ','
+    end
+
+    love.filesystem.write('Player 1 Deck.txt',P1_deck_cards_string)
 end
 
 

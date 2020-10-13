@@ -5,9 +5,14 @@ function Button:init(name,x,y)
     self.image = love.graphics.newImage('Buttons/' .. self.name)
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
-    self.x = VIRTUAL_WIDTH / 2 - self.width / 2 
-    self.y = VIRTUAL_HEIGHT / 2 - self.height / 2 - 450
-
+    if x == nil then
+        self.x = VIRTUAL_WIDTH / 2 - self.width / 2 
+    else self.x = x
+    end
+    if y == nil then
+        self.y = VIRTUAL_HEIGHT / 2 - self.height / 2 - 450
+    else self.y = y
+    end
 end
 
 function Button:update()
@@ -18,11 +23,12 @@ function Button:update()
             end
             P2_deck_cards[3] = 'Yoda'
             gStateMachine:change('game')
+        elseif self.name == 'Button2.png' then
+            P1_deck_edit(2,'AhsokaS7')
         end
     end
 end
 
 function Button:render()
     love.graphics.draw(self.image, self.x, self.y)
-    -- love.graphics.print(,100,100)
 end

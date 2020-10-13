@@ -2,10 +2,19 @@ GameState = Class{__includes = BaseState}
 timer = -1
 
 function GameState:init()
-    sand_dunes:play()
     sounds['Imperial March piano only']:pause()
     sounds['Imperial March duet']:pause()
     sounds['cool music']:play()
+    sand_dunes:play()
+
+    -- love.filesystem.remove('Player 1 deck.txt')
+    P1_deck_file = love.filesystem.read('Player 1 deck.txt')
+    P1_deck_cards_original = split(P1_deck_file,',')
+
+    for k, pair in pairs(P1_deck_cards_original) do  
+        P1_deck_cards[k-1] = pair
+    end
+
     P1column = -1
     P2column = 12
     row_correctment = 0
