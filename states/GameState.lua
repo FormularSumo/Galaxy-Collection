@@ -1,5 +1,6 @@
 GameState = Class{__includes = BaseState}
 timer = -1
+timer2 = -1
 
 function GameState:init()
     sounds['Imperial March piano only']:pause()
@@ -35,19 +36,41 @@ function GameState:init()
     next_round_P1_deck = P1_deck
     next_round_P2_deck = P2_deck
     P1_deck[0].health = 500
-    P1_deck[1].health = 250
-    P1_deck[2].health = 10 
+    P1_deck[1].health = 0 
+    P1_deck[7].health = 0 
+    P1_deck[13].health = 0 
     P1_deck[3].health = 990
     P2_deck[0].health = 750
 end
 
 function GameState:update(dt)
     timer = timer + dt 
+    timer2 = timer2 + dt
     if timer >= 1 then
         timer = timer - 1
         move = true
         P1_deck = next_round_P1_deck
         P2_deck = next_round_P2_deck
+        if timer2 > 3 then
+            if P1_deck[2] == nil and P1_deck[8] == nil and P1_deck[14] == nil then
+                P1_deck[1].row = 2
+                P1_deck[7].row = 2
+                P1_deck[13].row = 2
+                P1_deck[2] = P1_deck[1]
+                P1_deck[8] = P1_deck[7]
+                P1_deck[14] = P1_deck[13]
+                P1_deck[1],P1_deck[7],P1_deck[13] = nil
+            end
+            if P1_deck[1] == nil and P1_deck[7] == nil and P1_deck[13] == nil then
+                P1_deck[0].row = 1
+                P1_deck[6].row = 1
+                P1_deck[12].row = 1    
+                P1_deck[1] = P1_deck[0]
+                P1_deck[7] = P1_deck[6]
+                P1_deck[13] = P1_deck[12]
+                P1_deck[0],P1_deck[6],P1_deck[12] = nil
+            end
+        end
     else
         move = false
     end
