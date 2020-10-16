@@ -38,9 +38,62 @@ function GameState:init()
     P1_deck[0].health = 0
     P1_deck[2].health = 0 
     P1_deck[8].health = 0 
+    P2_deck[0].health = 0
+    P2_deck[2].health = 0 
+    P2_deck[8].health = 0 
     P1_deck[14].health = 0 
-    P1_deck[3].health = 990
+    P2_deck[14].health = 0 
+
+    -- P1_deck[5].health = 0
+    -- P1_deck[11].health = 0 
+    -- P1_deck[13].health = 0 
 end
+
+function CheckP1RowUpEmpty(x)
+    if P1_deck[x+1] == nil and P1_deck[x+7] == nil and P1_deck[x+13] == nil then
+    row = x+1
+        for i=0,2,1 do
+            if P1_deck[x] ~= nil then
+                P1_deck[x].row = row
+                P1_deck[x+1] = P1_deck[x]
+                P1_deck[x+1].number = x+1
+                P1_deck[x] = nil
+                x = x + 6
+            end
+        end
+    end
+end
+
+function CheckP2RowUpEmpty(x)
+    if P2_deck[x+1] == nil and P2_deck[x+7] == nil and P2_deck[x+13] == nil then
+    row = x+1
+        for i=0,2,1 do
+            if P2_deck[x] ~= nil then
+                P2_deck[x].row = row
+                P2_deck[x+1] = P2_deck[x]
+                P2_deck[x+1].number = x+1
+                P2_deck[x] = nil
+                x = x + 6
+            end
+        end
+    end
+end
+
+-- function CheckP1RowDownEmpty(x)
+--     if P1_deck[x+5] == nil and P1_deck[x+11] == nil and P1_deck[x+17] == nil then
+--     row = x-1
+--         for i=0,2,1 do
+--             if P1_deck[x] ~= nil then
+--                 P1_deck[x].row = row
+--                 P1_deck[x-1] = P1_deck[x]
+--                 P1_deck[x-1].number = x-1
+--                 P1_deck[x] = nil
+--                 x = x + 6
+--             end
+--         end
+--     end
+-- end
+
 
 function GameState:update(dt)
     timer = timer + dt 
@@ -51,50 +104,12 @@ function GameState:update(dt)
         P1_deck = next_round_P1_deck
         P2_deck = next_round_P2_deck
         if timer2 > 3 then
-            if P1_deck[2] == nil and P1_deck[8] == nil and P1_deck[14] == nil then
-                x = 1
-                for i=0,2,1 do
-                    if P1_deck[x] ~= nil then
-                        P1_deck[x].row = 2
-                        P1_deck[x+1] = P1_deck[x]
-                        P1_deck[x+1].number = x+1
-                        P1_deck[x] = nil
-                        x = x + 6
-                    end
-                end
-
-                -- P1_deck[7].row = 2
-                -- P1_deck[13].row = 2
-                -- P1_deck[8] = P1_deck[7]
-                -- P1_deck[14] = P1_deck[13]
-                -- P1_deck[2].number = 2
-                -- P1_deck[8].number = 8
-                -- P1_deck[14].number = 14
-                -- ,P1_deck[7],P1_deck[13] = nil
-            end
-            if P1_deck[1] == nil and P1_deck[7] == nil and P1_deck[13] == nil then
-                x = 0
-                for i=0,2,1 do
-                    if P1_deck[x] ~= nil then
-                        P1_deck[x].row = 1
-                        P1_deck[x+1] = P1_deck[x]
-                        P1_deck[x+1].number = x+1
-                        P1_deck[x] = nil
-                        x = x + 6
-                    end
-                end
-
-                -- P1_deck[0].row = 1
-                -- P1_deck[6].row = 1
-                -- P1_deck[12].row = 1    
-                -- P1_deck[1] = P1_deck[0]
-                -- P1_deck[7] = P1_deck[6]
-                -- P1_deck[13] = P1_deck[12]
-                -- P1_deck[1].number = 1
-                -- P1_deck[7].number = 7
-                -- P1_deck[13].number = 13
-                -- P1_deck[0],P1_deck[6],P1_deck[12] = nil
-            end
+            CheckP1RowUpEmpty(1)
+            CheckP1RowUpEmpty(0)
+            CheckP2RowUpEmpty(1)
+            CheckP2RowUpEmpty(0)
+            -- CheckP1RowDownEmpty(4)
+            -- CheckP1RowDownEmpty(5)
         end
     else
         move = false
