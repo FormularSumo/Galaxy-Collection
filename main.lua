@@ -17,7 +17,7 @@ buttons = {}
 buttons[0] = Button('Battle 1.png')
 buttons[1] = Button('Button2.png',50,50)
 
-background_video = love.graphics.newVideo('Videos/Stary Background.ogv')
+background_video = love.graphics.newVideo('Videos/Starry Background.ogv')
 
 sand_dunes = love.graphics.newVideo('Videos/Sand Dunes.ogv')
 
