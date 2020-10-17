@@ -68,7 +68,7 @@ function love.load()
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
 
-    love.filesystem.remove('Player 1 deck.txt')
+    -- love.filesystem.remove('Player 1 deck.txt')
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
     if P1_deck_file == nil then
