@@ -8,13 +8,7 @@ function GameState:init()
     sounds['cool music']:play()
     sand_dunes:play()
 
-    -- love.filesystem.remove('Player 1 deck.txt')
-    P1_deck_file = love.filesystem.read('Player 1 deck.txt')
-    P1_deck_cards_original = split(P1_deck_file,',')
-
-    for k, pair in pairs(P1_deck_cards_original) do  
-        P1_deck_cards[k-1] = pair
-    end
+    read_P1_deck()
 
     P1column = -1
     P2column = 12
@@ -35,22 +29,22 @@ function GameState:init()
     end
     next_round_P1_deck = P1_deck
     next_round_P2_deck = P2_deck
-    P1_deck[0].health = 0
-    P1_deck[2].health = 0 
-    P1_deck[8].health = 0 
-    P2_deck[0].health = 0
-    P2_deck[2].health = 0 
-    P2_deck[8].health = 0 
+    -- P1_deck[0].health = 0
+    -- P1_deck[2].health = 0 
+    -- P1_deck[8].health = 0 
+    -- P2_deck[0].health = 0
+    -- P2_deck[2].health = 0 
+    -- P2_deck[8].health = 0 
 
-    P1_deck[14].health = 0 
-    P2_deck[14].health = 0 
+    -- P1_deck[14].health = 0 
+    -- P2_deck[14].health = 0 
 
-    P1_deck[3].health = 0
-    P1_deck[9].health = 0 
-    P1_deck[15].health = 0 
-    P2_deck[3].health = 0
-    P2_deck[9].health = 0 
-    P2_deck[15].health = 0 
+    -- P1_deck[3].health = 0
+    -- P1_deck[9].health = 0 
+    -- P1_deck[15].health = 0 
+    -- P2_deck[3].health = 0
+    -- P2_deck[9].health = 0 
+    -- P2_deck[15].health = 0 
 end
 
 function CheckP1RowUpEmpty(x)

@@ -67,6 +67,16 @@ function love.load()
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
+
+    love.filesystem.remove('Player 1 deck.txt')
+
+    P1_deck_file = love.filesystem.read('Player 1 deck.txt')
+    if P1_deck_file == nil then
+        love.filesystem.write('Player 1 deck.txt',',,,,,,,,,,,,,,,,,,')
+    end
+
+    mouseLastX = 0
+    mouseLastY = 0
 end
 
 function split(s, delimiter)
@@ -81,7 +91,7 @@ function P1_deck_edit(position,name)
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
     P1_deck_cards_original = split(P1_deck_file,',')
     
-    for k, pair in pairs(P1_deck_cards_original) do  
+    for k, pair in pairs(P1_deck_cards_original) do 
         P1_deck_cards[k-1] = pair
     end
 
@@ -92,6 +102,20 @@ function P1_deck_edit(position,name)
     end
 
     love.filesystem.write('Player 1 Deck.txt',P1_deck_cards_string)
+    
+    read_P1_deck()
+end
+
+function read_P1_deck()
+    P1_deck_cards = {}
+    P1_deck_file = love.filesystem.read('Player 1 deck.txt')
+    P1_deck_cards_original = split(P1_deck_file,',')
+
+    for k, pair in pairs(P1_deck_cards_original) do 
+        if pair ~= '' then
+            P1_deck_cards[k-1] = pair
+        end
+    end
 end
 
 
