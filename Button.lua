@@ -25,7 +25,24 @@ function Button:update()
             P2_deck_cards[3] = 'Yoda'
             gStateMachine:change('game')
         elseif self.name == 'Button2.png' then
-            P1_deck_edit(2,'AhsokaS7')
+            P1_deck_edit(0,'AhsokaS7')
+            P1_deck_edit(1,'AnakinF3')
+            P1_deck_edit(2,'BabyYoda')
+            P1_deck_edit(3,'BenKenobi')
+            P1_deck_edit(4,'C3P0')
+            P1_deck_edit(5,'Chewbacca')
+            P1_deck_edit(6,'DarthSidiousReborn')
+            P1_deck_edit(7,'DarthVader')
+            P1_deck_edit(8,'Ewok')
+            P1_deck_edit(9,'FarmboyLuke')
+            P1_deck_edit(10,'HanSoloOld')
+            P1_deck_edit(11,'Hondo')
+            P1_deck_edit(12,'JediKnightLuke')
+            P1_deck_edit(13,'KyloRen')
+            P1_deck_edit(14,'MaceWindu')
+            P1_deck_edit(15,'ObiWanKenobi')
+            P1_deck_edit(16,'R2D2')
+            P1_deck_edit(17,'Rey')
         end
     end
 end

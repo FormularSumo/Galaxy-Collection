@@ -29,22 +29,24 @@ function GameState:init()
     end
     next_round_P1_deck = P1_deck
     next_round_P2_deck = P2_deck
-    -- P1_deck[0].health = 0
-    -- P1_deck[2].health = 0 
-    -- P1_deck[8].health = 0 
-    -- P2_deck[0].health = 0
-    -- P2_deck[2].health = 0 
-    -- P2_deck[8].health = 0 
+    P1_deck[2].health = 0
+    P1_deck[8].health = 0 
+    P1_deck[14].health = 0 
+    P2_deck[2].health = 0
+    P2_deck[8].health = 0 
+    P2_deck[14].health = 0 
 
-    -- P1_deck[14].health = 0 
-    -- P2_deck[14].health = 0 
+    P1_deck[0].health = 0 
+    P2_deck[0].health = 0 
+    P1_deck[5].health = 0 
+    P2_deck[5].health = 0 
 
-    -- P1_deck[3].health = 0
-    -- P1_deck[9].health = 0 
-    -- P1_deck[15].health = 0 
-    -- P2_deck[3].health = 0
-    -- P2_deck[9].health = 0 
-    -- P2_deck[15].health = 0 
+    P1_deck[3].health = 0
+    P1_deck[9].health = 0 
+    P1_deck[15].health = 0 
+    P2_deck[3].health = 0
+    P2_deck[9].health = 0 
+    P2_deck[15].health = 0 
 end
 
 function CheckP1RowUpEmpty(x)
