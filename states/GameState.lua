@@ -41,12 +41,16 @@ function GameState:init()
     P2_deck[0].health = 0
     P2_deck[2].health = 0 
     P2_deck[8].health = 0 
+
     P1_deck[14].health = 0 
     P2_deck[14].health = 0 
 
-    -- P1_deck[5].health = 0
-    -- P1_deck[11].health = 0 
-    -- P1_deck[13].health = 0 
+    P1_deck[3].health = 0
+    P1_deck[9].health = 0 
+    P1_deck[15].health = 0 
+    P2_deck[3].health = 0
+    P2_deck[9].health = 0 
+    P2_deck[15].health = 0 
 end
 
 function CheckP1RowUpEmpty(x)
@@ -79,21 +83,35 @@ function CheckP2RowUpEmpty(x)
     end
 end
 
--- function CheckP1RowDownEmpty(x)
---     if P1_deck[x+5] == nil and P1_deck[x+11] == nil and P1_deck[x+17] == nil then
---     row = x-1
---         for i=0,2,1 do
---             if P1_deck[x] ~= nil then
---                 P1_deck[x].row = row
---                 P1_deck[x-1] = P1_deck[x]
---                 P1_deck[x-1].number = x-1
---                 P1_deck[x] = nil
---                 x = x + 6
---             end
---         end
---     end
--- end
+function CheckP1RowDownEmpty(x)
+    if P1_deck[x+5] == nil and P1_deck[x+11] == nil and P1_deck[x+17] == nil then
+    row = x-1
+        for i=0,2,1 do
+            if P1_deck[x] ~= nil then
+                P1_deck[x].row = row
+                P1_deck[x-1] = P1_deck[x]
+                P1_deck[x-1].number = x-1
+                P1_deck[x] = nil
+                x = x + 6
+            end
+        end
+    end
+end
 
+function CheckP2RowDownEmpty(x)
+    if P2_deck[x+5] == nil and P2_deck[x+11] == nil and P2_deck[x+17] == nil then
+    row = x-1
+        for i=0,2,1 do
+            if P2_deck[x] ~= nil then
+                P2_deck[x].row = row
+                P2_deck[x-1] = P2_deck[x]
+                P2_deck[x-1].number = x-1
+                P2_deck[x] = nil
+                x = x + 6
+            end
+        end
+    end
+end
 
 function GameState:update(dt)
     timer = timer + dt 
@@ -108,8 +126,10 @@ function GameState:update(dt)
             CheckP1RowUpEmpty(0)
             CheckP2RowUpEmpty(1)
             CheckP2RowUpEmpty(0)
-            -- CheckP1RowDownEmpty(4)
-            -- CheckP1RowDownEmpty(5)
+            CheckP1RowDownEmpty(4)
+            CheckP1RowDownEmpty(5)
+            CheckP2RowDownEmpty(4)
+            CheckP2RowDownEmpty(5)
         end
     else
         move = false
