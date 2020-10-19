@@ -29,5 +29,4 @@ function HomeState:render()
     for k, pair in pairs(buttons) do
         pair:render()
     end
-    print(P1_deck_cards)
 end
