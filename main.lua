@@ -10,20 +10,21 @@ require 'states/BaseState'
 require 'states/GameState'
 require 'states/HomeState'
 
-VIRTUAL_WIDTH = 1920
-VIRTUAL_HEIGHT = 1080
-
-buttons = {}
-buttons[0] = Button('Battle 1.png')
-buttons[1] = Button('Button2.png',50,50)
-
-background_video = love.graphics.newVideo('Videos/Starry Background.ogv')
-
-sand_dunes = love.graphics.newVideo('Videos/Sand Dunes.ogv')
-
-desert_background = love.graphics.newImage('Backgrounds/Desert_background.png')
-
 function love.load()
+    VIRTUAL_WIDTH = 1920
+    VIRTUAL_HEIGHT = 1080
+
+    background_video = love.graphics.newVideo('Videos/Starry Background.ogv')
+
+    sand_dunes = love.graphics.newVideo('Videos/Sand Dunes.ogv')
+
+    desert_background = love.graphics.newImage('Backgrounds/Desert_background.png')
+    
+    buttons = {
+        ['Battle1'] = Button('Battle 1.png'),
+        ['Prebuilt deck'] = Button('Button2.png',50,50)
+    }
+
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')
 
