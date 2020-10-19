@@ -11,8 +11,35 @@ require 'states/GameState'
 require 'states/HomeState'
 
 function love.load()
+    -- app window title
+    love.window.setTitle('Star Wars Force Collection Remake')
+    
     VIRTUAL_WIDTH = 1920
     VIRTUAL_HEIGHT = 1080
+
+    math.randomseed(os.time()) --Randomises randomiser each time program is run. 
+
+    -- initialize virtual resolution
+    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
+        vsync = true,
+        fullscreen = true,
+        resizable = true
+    })
+
+    -- load fonts
+    font50 = love.graphics.newFont(50)
+    font80 = love.graphics.newFont(80)
+    font80SW = love.graphics.newFont('Distant Galaxy.ttf',80)
+    love.graphics.setFont(font80)
+
+    love.audio.setVolume(1)
+
+
+    sounds = {
+        ['Imperial March piano only'] = love.audio.newSource('Music/Imperial March piano only.mp3','stream'),
+        ['Imperial March duet'] = love.audio.newSource('Music/Imperial March duet.mp3','stream'),
+        ['cool music'] = love.audio.newSource('Music/cool music.mp3','stream')
+    }
 
     background_video = love.graphics.newVideo('Videos/Starry Background.ogv')
 
@@ -25,40 +52,6 @@ function love.load()
         ['Prebuilt deck'] = Button('Button2.png',50,50)
     }
 
-    -- app window title
-    love.window.setTitle('Star Wars Force Collection Remake')
-
-    -- load fonts
-    font50 = love.graphics.newFont(50)
-    font80 = love.graphics.newFont(80)
-    font80SW = love.graphics.newFont('Distant Galaxy.ttf',80)
-    love.graphics.setFont(font80)
-
-    sounds = {
-        ['Imperial March piano only'] = love.audio.newSource('Music/Imperial March piano only.mp3','stream'),
-        ['Imperial March duet'] = love.audio.newSource('Music/Imperial March duet.mp3','stream'),
-        ['cool music'] = love.audio.newSource('Music/cool music.mp3','stream')
-    }
-
-    love.audio.setVolume(1)
-
-
-    -- initialize virtual resolution
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
-        vsync = true,
-        fullscreen = true,
-        resizable = true
-    })
-    
-    -- initialize state machine with all state-returning functions
-    gStateMachine = StateMachine {
-        ['home'] = function() return HomeState() end,
-        ['game'] = function() return GameState() end,
-    }
-    gStateMachine:change('home')
-
-    math.randomseed(os.time()) --Randomises randomiser each time program is run. 
-
     P1_deck = {}
     P2_deck = {}
     next_round_P1_deck = {}
@@ -68,6 +61,9 @@ function love.load()
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
+    mouseLastX = 0
+    mouseLastY = 0
+
 
     -- love.filesystem.remove('Player 1 deck.txt')
 
@@ -76,8 +72,12 @@ function love.load()
         love.filesystem.write('Player 1 deck.txt',',,,,,,,,,,,,,,,,,,')
     end
 
-    mouseLastX = 0
-    mouseLastY = 0
+    -- initialize state machine with all state-returning functions
+    gStateMachine = StateMachine {
+        ['home'] = function() return HomeState() end,
+        ['game'] = function() return GameState() end,
+    }
+    gStateMachine:change('home')
 end
 
 function split(s, delimiter)
