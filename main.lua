@@ -33,8 +33,6 @@ function love.load()
     love.graphics.setFont(font80)
 
     love.audio.setVolume(1)
-
-
     sounds = {
         ['Imperial March piano only'] = love.audio.newSource('Music/Imperial March piano only.mp3','stream'),
         ['Imperial March duet'] = love.audio.newSource('Music/Imperial March duet.mp3','stream'),
@@ -48,8 +46,8 @@ function love.load()
     desert_background = love.graphics.newImage('Backgrounds/Desert_background.png')
     
     buttons = {
-        ['Battle1'] = Button('Battle 1.png'),
-        ['Prebuilt deck'] = Button('Button2.png',50,50)
+        ['Battle 1'] = Button('Battle 1'),
+        ['Prebuilt deck'] = Button('Prebuilt deck',50,50)
     }
 
     P1_deck = {}
@@ -63,7 +61,6 @@ function love.load()
     love.mouse.buttonsPressed = {}
     mouseLastX = 0
     mouseLastY = 0
-
 
     -- love.filesystem.remove('Player 1 deck.txt')
 
@@ -123,7 +120,6 @@ end
 function love.resize(w, h)
     push:resize(w, h)
 end
-
 
 function love.keypressed(key)
     love.keyboard.keysPressed[key] = true

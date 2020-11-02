@@ -2,7 +2,7 @@ Button = Class{}
 
 function Button:init(name,x,y)
     self.name = name
-    self.image = love.graphics.newImage('Buttons/' .. self.name)
+    self.image = love.graphics.newImage('Buttons/' .. self.name .. '.png')
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
     if x == nil then
@@ -17,13 +17,13 @@ end
 
 function Button:update()
     if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-        if self.name == 'Battle 1.png' then
+        if self.name == 'Battle 1' then
             for i = 0,17,1 do
                 P2_deck_cards[i] = 'Ewok'
             end
             P2_deck_cards[3] = 'Yoda'
             gStateMachine:change('game')
-        elseif self.name == 'Button2.png' then
+        elseif self.name == 'Prebuilt deck' then
             P1_deck_edit(0,'AhsokaS7')
             P1_deck_edit(1,'AnakinF3')
             P1_deck_edit(2,'BabyYoda')
