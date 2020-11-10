@@ -34,9 +34,9 @@ function love.load()
 
     love.audio.setVolume(1)
     sounds = {
-        ['Imperial March piano only'] = love.audio.newSource('Music/Imperial March piano only.mp3','stream'),
+        ['Imperial March piano only'] = love.audio.newSource('Music/Imperial March piano only.flac','stream'),
         ['Imperial March duet'] = love.audio.newSource('Music/Imperial March duet.mp3','stream'),
-        ['cool music'] = love.audio.newSource('Music/cool music.mp3','stream')
+        ['Battle music 1'] = love.audio.newSource('Music/Battle music 1.ogg','stream')
     }
 
     background_video = love.graphics.newVideo('Videos/Starry Background.ogv')

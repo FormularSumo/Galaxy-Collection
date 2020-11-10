@@ -5,7 +5,7 @@ timer2 = -1
 function GameState:init()
     sounds['Imperial March piano only']:pause()
     sounds['Imperial March duet']:pause()
-    sounds['cool music']:play()
+    sounds['Battle music 1']:play()
     sand_dunes:play()
 
     read_P1_deck()
@@ -137,10 +137,10 @@ function GameState:update(dt)
         P2_deck[k]:update(dt,move)
     end 
     if love.keyboard.wasPressed('m') then 
-        if sounds['cool music']:isPlaying() then
-            sounds['cool music']:pause()
+        if sounds['Battle music 1']:isPlaying() then
+            sounds['Battle music 1']:pause()
         else
-            sounds['cool music']:play()
+            sounds['Battle music 1']:play()
         end
     end                   
 end
