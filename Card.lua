@@ -34,13 +34,17 @@ function Card:update(dt,turn)
                 next_round_P1_deck[self.number] = nil
                 self.number = self.number - 6
             end
-            if self.range == 1 and self.column == 5 then
+            if self.column == 5 then
                 if P2_deck[self.number] ~= nil then
-                    damage = ((self.attack - P2_deck[self.number].defense) / 1000) ^ 2
+                    damage = ((self.attack - P2_deck[self.number].defense) / 1000) ^ 3
                     if damage > 0 then
                         P2_deck[self.number].health = P2_deck[self.number].health - (damage + 10)
                     end
-                    P2_deck[self.number].defense = P2_deck[self.number].defense - (damage + (self.attack / 100))
+                    if P2_deck[self.number].defense > 0 then
+                        P2_deck[self.number].defense = P2_deck[self.number].defense - ((self.attack ^ (1/2)) * 5)
+                    else
+                        P2_deck[self.number].defense = 0
+                    end
                 end
             end
         else
@@ -52,13 +56,17 @@ function Card:update(dt,turn)
                 next_round_P2_deck[self.number] = nil
                 self.number = self.number - 6
             end
-            if self.range == 1 and self.column == 6 then
+            if self.column == 6 then
                 if P1_deck[self.number] ~= nil then
-                    damage = ((self.attack - P1_deck[self.number].defense) / 1000) ^ 2
+                    damage = ((self.attack - P1_deck[self.number].defense) / 1000) ^ 3
                     if damage > 0 then
                         P1_deck[self.number].health = P1_deck[self.number].health - (damage + 10)
                     end
-                    P1_deck[self.number].defense = P1_deck[self.number].defense - (damage + (self.attack / 100))
+                    if P1_deck[self.number].defense > 0 then
+                        P1_deck[self.number].defense = P1_deck[self.number].defense - ((self.attack ^ (1/2)) * 5)
+                    else 
+                        P1_deck[self.number].defense = 0
+                    end
                 end
             end
         end
@@ -81,6 +89,21 @@ function Card:render()
     love.graphics.setColor(1,0.820,0)
     love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
     love.graphics.setColor(1,1,1)
+    if self.number == 3 then
+        if self.team == 1 then
+            if P2_deck[self.number] ~= nil then
+                love.graphics.print(((self.attack - P2_deck[self.number].defense) / 1000) ^ 3)
+            end
+            love.graphics.print((self.attack ^ (1/2) * 5),0,100)
+            love.graphics.print(self.defense,0,200)
+        elseif self.team == 2 then
+            if P1_deck[self.number] ~= nil then
+                love.graphics.print(((self.attack - P1_deck[self.number].defense) / 1000)^ 3,1000)
+            end
+            love.graphics.print((self.attack ^ (1/2) * 5),1000,100)
+            love.graphics.print(self.defense,1000,200)
+        end       
+    end
     -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
     -- love.graphics.print(self.attack, self.x, self.y)
     -- love.graphics.print(self.defense, self.x, self.y)
