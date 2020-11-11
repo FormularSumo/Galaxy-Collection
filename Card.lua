@@ -34,6 +34,15 @@ function Card:update(dt,turn)
                 next_round_P1_deck[self.number] = nil
                 self.number = self.number - 6
             end
+            if self.range == 1 and self.column == 5 then
+                if P2_deck[self.number] ~= nil then
+                    damage = ((self.attack - P2_deck[self.number].defense) / 1000) ^ 2
+                    if damage > 0 then
+                        P2_deck[self.number].health = P2_deck[self.number].health - (damage + 10)
+                    end
+                    P2_deck[self.number].defense = P2_deck[self.number].defense - (damage + (self.attack / 100))
+                end
+            end
         else
             if (self.number < 6 and self.column > 6) or (self.number < 12 and self.column > 7) or (self.number < 18 and self.column > 8) then
                 self.column = self.column - 1
@@ -42,6 +51,15 @@ function Card:update(dt,turn)
                 next_round_P2_deck[self.number - 6] = P2_deck[self.number]
                 next_round_P2_deck[self.number] = nil
                 self.number = self.number - 6
+            end
+            if self.range == 1 and self.column == 6 then
+                if P1_deck[self.number] ~= nil then
+                    damage = ((self.attack - P1_deck[self.number].defense) / 1000) ^ 2
+                    if damage > 0 then
+                        P1_deck[self.number].health = P1_deck[self.number].health - (damage + 10)
+                    end
+                    P1_deck[self.number].defense = P1_deck[self.number].defense - (damage + (self.attack / 100))
+                end
             end
         end
     end
