@@ -114,7 +114,7 @@ function GameState:update(dt)
     timer2 = timer2 + dt
     if timer >= 1 then
         timer = timer - 1
-        move = true
+        turn = true
         P1_deck = next_round_P1_deck
         P2_deck = next_round_P2_deck
         if timer2 > 3 then
@@ -128,13 +128,13 @@ function GameState:update(dt)
             CheckP2RowDownEmpty(5)
         end
     else
-        move = false
+        turn = false
     end
     for k, pair in pairs(P1_deck) do
-        P1_deck[k]:update(dt,move)
+        P1_deck[k]:update(dt,turn)
     end 
     for k, pair in pairs(P2_deck) do
-        P2_deck[k]:update(dt,move)
+        P2_deck[k]:update(dt,turn)
     end 
     if love.keyboard.wasPressed('m') then 
         if sounds['Battle music 1']:isPlaying() then

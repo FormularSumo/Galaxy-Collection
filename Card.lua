@@ -18,13 +18,13 @@ function Card:init(name,row,column,team,number)
     self.range = _G[self.name]['range']
 end
 
-function Card:update(dt,move)
+function Card:update(dt,turn)
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     if self.column > 5 then
         self.x = self.x + 40
     end
-    if move == true then
+    if turn == true then
         if self.team == 1 then
             if (self.number < 6 and self.column < 5) or (self.number < 12 and self.column < 4) or (self.number < 18 and self.column < 3) then
                 self.column = self.column + 1
