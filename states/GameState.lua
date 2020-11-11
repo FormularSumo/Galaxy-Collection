@@ -110,32 +110,50 @@ function CheckP2RowDownEmpty(x)
 end
 
 function GameState:update(dt)
-    timer = timer + dt 
-    timer2 = timer2 + dt
-    if timer >= 1 then
-        timer = timer - 1
-        turn = true
-        P1_deck = next_round_P1_deck
-        P2_deck = next_round_P2_deck
-        if timer2 > 3 then
-            CheckP1RowUpEmpty(1)
-            CheckP1RowUpEmpty(0)
-            CheckP2RowUpEmpty(1)
-            CheckP2RowUpEmpty(0)
-            CheckP1RowDownEmpty(4)
-            CheckP1RowDownEmpty(5)
-            CheckP2RowDownEmpty(4)
-            CheckP2RowDownEmpty(5)
+    for k, pair in pairs(buttons) do
+        if pair.should_render == 'gamestate' then
+            pair:update()
         end
-    else
-        turn = false
     end
-    for k, pair in pairs(P1_deck) do
-        P1_deck[k]:update(dt,turn)
-    end 
-    for k, pair in pairs(P2_deck) do
-        P2_deck[k]:update(dt,turn)
-    end 
+    if pause == false then
+        timer = timer + dt 
+        timer2 = timer2 + dt
+        if timer >= 1 then
+            timer = timer - 1
+            P1_deck = next_round_P1_deck
+            P2_deck = next_round_P2_deck
+            if timer2 > 3 then
+                CheckP1RowUpEmpty(1)
+                CheckP1RowUpEmpty(0)
+                CheckP2RowUpEmpty(1)
+                CheckP2RowUpEmpty(0)
+                CheckP1RowDownEmpty(4)
+                CheckP1RowDownEmpty(5)
+                CheckP2RowDownEmpty(4)
+                CheckP2RowDownEmpty(5)
+            end
+            for k, pair in pairs(P1_deck) do
+                P1_deck[k]:move()
+            end 
+            for k, pair in pairs(P2_deck) do
+                P2_deck[k]:move()
+            end 
+            for k, pair in pairs(P1_deck) do
+                P1_deck[k]:attack1()
+            end 
+            for k, pair in pairs(P2_deck) do
+                P2_deck[k]:attack1()
+            end 
+        end
+
+        for k, pair in pairs(P1_deck) do
+            P1_deck[k]:update()
+        end 
+        for k, pair in pairs(P2_deck) do
+            P2_deck[k]:update()
+        end 
+    end
+
     if love.keyboard.wasPressed('m') then 
         if sounds['Battle music 1']:isPlaying() then
             sounds['Battle music 1']:pause()
@@ -159,4 +177,20 @@ function GameState:render()
     -- love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
     -- love.graphics.setColor(255, 255, 255, 255)
     -- love.graphics.setFont(font80SW)
+    for k, pair in pairs(buttons) do
+        if pair.should_render == 'gamestate' then
+            pair:render()
+        end
+    end
+    if pause == true then
+        sounds['Battle music 1']:pause()
+        sand_dunes:pause()
+    else
+        if sounds['Battle music 1']:isPlaying() == false then
+            sounds['Battle music 1']:play()
+        end
+        if sand_dunes:isPlaying() == false then
+            sand_dunes:play()
+        end
+    end
 end

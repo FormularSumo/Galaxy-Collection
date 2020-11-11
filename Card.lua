@@ -18,68 +18,77 @@ function Card:init(name,row,column,team,number)
     self.range = _G[self.name]['range']
 end
 
-function Card:update(dt,turn)
+function Card:update()
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     if self.column > 5 then
         self.x = self.x + 40
     end
-    if turn == true then
+    if self.health <= 0 then
         if self.team == 1 then
-            if (self.number < 6 and self.column < 5) or (self.number < 12 and self.column < 4) or (self.number < 18 and self.column < 3) then
-                self.column = self.column + 1
-            end
-            if P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
-                next_round_P1_deck[self.number - 6] = P1_deck[self.number]
-                next_round_P1_deck[self.number] = nil
-                self.number = self.number - 6
-            end
-            if self.column == 5 then
-                if P2_deck[self.number] ~= nil then
-                    damage = ((self.attack - P2_deck[self.number].defense) / 1000) ^ 3
-                    if damage > 0 then
-                        P2_deck[self.number].health = P2_deck[self.number].health - (damage + 10)
-                    end
-                    if P2_deck[self.number].defense > 0 then
-                        P2_deck[self.number].defense = P2_deck[self.number].defense - ((self.attack ^ (1/2)) * 5)
-                    else
-                        P2_deck[self.number].defense = 0
-                    end
+            next_round_P1_deck[self.number] = next_round_P1_deck[self.number-6]
+            next_round_P1_deck[self.number-6] = next_round_P1_deck[self.number-12]
+            next_round_P1_deck[self.number-12] = nil
+        else
+            next_round_P2_deck[self.number] = next_round_P2_deck[self.number-6]
+            next_round_P2_deck[self.number-6] = next_round_P2_deck[self.number-12]
+            next_round_P2_deck[self.number-12] = nil
+        end
+    end    
+end
+
+function Card:move()
+    if self.team == 1 then
+        if (self.number < 6 and self.column < 5) or (self.number < 12 and self.column < 4) or (self.number < 18 and self.column < 3) then
+            self.column = self.column + 1
+        end
+        if P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
+            next_round_P1_deck[self.number - 6] = P1_deck[self.number]
+            next_round_P1_deck[self.number] = nil
+            self.number = self.number - 6
+        end
+    else
+        if (self.number < 6 and self.column > 6) or (self.number < 12 and self.column > 7) or (self.number < 18 and self.column > 8) then
+            self.column = self.column - 1
+        end
+        if P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
+            next_round_P2_deck[self.number - 6] = P2_deck[self.number]
+            next_round_P2_deck[self.number] = nil
+            self.number = self.number - 6
+        end
+    end
+end
+
+function Card:attack1()
+    if self.team == 1 then
+        if self.column == 5 then
+            if P2_deck[self.number] ~= nil then
+                damage = ((self.attack - P2_deck[self.number].defense) / 1000) ^ 3
+                if damage > 0 then
+                    P2_deck[self.number].health = P2_deck[self.number].health - (damage + 10)
+                end
+                if P2_deck[self.number].defense > 0 then
+                    P2_deck[self.number].defense = P2_deck[self.number].defense - ((self.attack ^ (1/2)) * 5)
+                else
+                    P2_deck[self.number].defense = 0
                 end
             end
-        else
-            if (self.number < 6 and self.column > 6) or (self.number < 12 and self.column > 7) or (self.number < 18 and self.column > 8) then
-                self.column = self.column - 1
-            end
-            if P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
-                next_round_P2_deck[self.number - 6] = P2_deck[self.number]
-                next_round_P2_deck[self.number] = nil
-                self.number = self.number - 6
-            end
-            if self.column == 6 then
-                if P1_deck[self.number] ~= nil then
-                    damage = ((self.attack - P1_deck[self.number].defense) / 1000) ^ 3
-                    if damage > 0 then
-                        P1_deck[self.number].health = P1_deck[self.number].health - (damage + 10)
-                    end
-                    if P1_deck[self.number].defense > 0 then
-                        P1_deck[self.number].defense = P1_deck[self.number].defense - ((self.attack ^ (1/2)) * 5)
-                    else 
-                        P1_deck[self.number].defense = 0
-                    end
+        end
+    else
+        if self.column == 6 then
+            if P1_deck[self.number] ~= nil then
+                damage = ((self.attack - P1_deck[self.number].defense) / 1000) ^ 3
+                if damage > 0 then
+                    P1_deck[self.number].health = P1_deck[self.number].health - (damage + 10)
+                end
+                if P1_deck[self.number].defense > 0 then
+                    P1_deck[self.number].defense = P1_deck[self.number].defense - ((self.attack ^ (1/2)) * 5)
+                else 
+                    P1_deck[self.number].defense = 0
                 end
             end
         end
     end
-    if self.health <= 0 then
-        if self.team == 1 then
-            next_round_P1_deck[self.number] = next_round_P1_deck[self.number-6]
-            next_round_P1_deck[self.number-6] = nil 
-        else
-            next_round_P2_deck[self.number] = next_round_P2_deck[self.number-6]
-            next_round_P2_deck[self.number-6] = nil 
-        end
-    end    
 end
 
 function Card:render()

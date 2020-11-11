@@ -1,16 +1,21 @@
 Button = Class{}
 
-function Button:init(name,x,y)
+function Button:init(name,x,y,render)
     self.name = name
     self.image = love.graphics.newImage('Buttons/' .. self.name .. '.png')
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
+    self.should_render = render
     if x == nil then
-        self.x = VIRTUAL_WIDTH / 2 - self.width / 2 
+        self.x = 0
+    elseif x == 'centre' then
+        self.x = VIRTUAL_WIDTH / 2 - self.width / 2
     else self.x = x
     end
     if y == nil then
-        self.y = VIRTUAL_HEIGHT / 2 - self.height / 2 - 450
+        self.y = 0
+    elseif y == 'centre' then
+        self.y = VIRTUAL_HEIGHT / 2 - self.height / 2
     else self.y = y
     end
 end
@@ -42,6 +47,12 @@ function Button:update()
             P1_deck_edit(15,'ObiWanKenobi')
             P1_deck_edit(16,'R2D2')
             P1_deck_edit(17,'Rey')
+        elseif self.name == 'Pause' then
+            if pause == false then
+                pause = true
+            else
+                pause = false
+            end
         end
     end
 end

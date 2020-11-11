@@ -46,8 +46,9 @@ function love.load()
     desert_background = love.graphics.newImage('Backgrounds/Desert_background.png')
     
     buttons = {
-        ['Battle 1'] = Button('Battle 1'),
-        ['Prebuilt deck'] = Button('Prebuilt deck',50,50)
+        ['Battle 1'] = Button('Battle 1','centre',100,'homestate'),
+        ['Prebuilt deck'] = Button('Prebuilt deck',50,50,'homestate'),
+        ['Pause'] = Button('Pause','centre',920,'gamestate')
     }
 
     P1_deck = {}
@@ -61,6 +62,7 @@ function love.load()
     love.mouse.buttonsPressed = {}
     mouseLastX = 0
     mouseLastY = 0
+    pause = false
 
     -- love.filesystem.remove('Player 1 deck.txt')
 

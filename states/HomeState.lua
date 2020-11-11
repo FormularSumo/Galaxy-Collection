@@ -20,13 +20,17 @@ function HomeState:update(dt)
     end
     testForBackgroundImageLoop()
     for k, pair in pairs(buttons) do
-        pair:update()
+        if pair.should_render == 'homestate' then
+            pair:update()
+        end
     end
 end
 
 function HomeState:render()
     love.graphics.draw(background_video,0,0)
     for k, pair in pairs(buttons) do
-        pair:render()
+        if pair.should_render == 'homestate' then
+            pair:render()
+        end
     end
 end
