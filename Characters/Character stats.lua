@@ -68,7 +68,7 @@ FarmboyLuke = {
     ['range'] = 3
 }
 
- HanSoloOld = {
+HanSoloOld = {
     ['attack'] = 15546,
     ['defense'] = 7565,
     ['evade'] = 0.8,
