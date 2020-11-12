@@ -50,14 +50,14 @@ function GameState:init()
 end
 
 function CheckP1RowUpEmpty(x)
-    if P1_deck[x+1] == nil and P1_deck[x+7] == nil and P1_deck[x+13] == nil then
+    if next_round_P1_deck[x+1] == nil and next_round_P1_deck[x+7] == nil and next_round_P1_deck[x+13] == nil then
     row = x+1
         for i=0,2,1 do
-            if P1_deck[x] ~= nil then
-                P1_deck[x].row = row
-                P1_deck[x+1] = P1_deck[x]
-                P1_deck[x+1].number = x+1
-                P1_deck[x] = nil
+            if next_round_P1_deck[x] ~= nil then
+                next_round_P1_deck[x].row = row
+                next_round_P1_deck[x+1] = next_round_P1_deck[x]
+                next_round_P1_deck[x+1].number = x+1
+                next_round_P1_deck[x] = nil
                 x = x + 6
             end
         end
@@ -65,14 +65,14 @@ function CheckP1RowUpEmpty(x)
 end
 
 function CheckP2RowUpEmpty(x)
-    if P2_deck[x+1] == nil and P2_deck[x+7] == nil and P2_deck[x+13] == nil then
+    if next_round_P2_deck[x+1] == nil and next_round_P2_deck[x+7] == nil and next_round_P2_deck[x+13] == nil then
     row = x+1
         for i=0,2,1 do
-            if P2_deck[x] ~= nil then
-                P2_deck[x].row = row
-                P2_deck[x+1] = P2_deck[x]
-                P2_deck[x+1].number = x+1
-                P2_deck[x] = nil
+            if next_round_P2_deck[x] ~= nil then
+                next_round_P2_deck[x].row = row
+                next_round_P2_deck[x+1] = next_round_P2_deck[x]
+                next_round_P2_deck[x+1].number = x+1
+                next_round_P2_deck[x] = nil
                 x = x + 6
             end
         end
@@ -80,14 +80,14 @@ function CheckP2RowUpEmpty(x)
 end
 
 function CheckP1RowDownEmpty(x)
-    if P1_deck[x+5] == nil and P1_deck[x+11] == nil and P1_deck[x+17] == nil then
+    if next_round_P1_deck[x+5] == nil and next_round_P1_deck[x+11] == nil and next_round_P1_deck[x+17] == nil then
     row = x-1
         for i=0,2,1 do
-            if P1_deck[x] ~= nil then
-                P1_deck[x].row = row
-                P1_deck[x-1] = P1_deck[x]
-                P1_deck[x-1].number = x-1
-                P1_deck[x] = nil
+            if next_round_P1_deck[x] ~= nil then
+                next_round_P1_deck[x].row = row
+                next_round_P1_deck[x-1] = next_round_P1_deck[x]
+                next_round_P1_deck[x-1].number = x-1
+                next_round_P1_deck[x] = nil
                 x = x + 6
             end
         end
@@ -95,14 +95,14 @@ function CheckP1RowDownEmpty(x)
 end
 
 function CheckP2RowDownEmpty(x)
-    if P2_deck[x+5] == nil and P2_deck[x+11] == nil and P2_deck[x+17] == nil then
+    if next_round_P2_deck[x+5] == nil and next_round_P2_deck[x+11] == nil and next_round_P2_deck[x+17] == nil then
     row = x-1
         for i=0,2,1 do
-            if P2_deck[x] ~= nil then
-                P2_deck[x].row = row
-                P2_deck[x-1] = P2_deck[x]
-                P2_deck[x-1].number = x-1
-                P2_deck[x] = nil
+            if next_round_P2_deck[x] ~= nil then
+                next_round_P2_deck[x].row = row
+                next_round_P2_deck[x-1] = next_round_P2_deck[x]
+                next_round_P2_deck[x-1].number = x-1
+                next_round_P2_deck[x] = nil
                 x = x + 6
             end
         end
@@ -122,16 +122,6 @@ function GameState:update(dt)
             timer = timer - 1
             P1_deck = next_round_P1_deck
             P2_deck = next_round_P2_deck
-            if timer2 > 3 then
-                CheckP1RowUpEmpty(1)
-                CheckP1RowUpEmpty(0)
-                CheckP2RowUpEmpty(1)
-                CheckP2RowUpEmpty(0)
-                CheckP1RowDownEmpty(4)
-                CheckP1RowDownEmpty(5)
-                CheckP2RowDownEmpty(4)
-                CheckP2RowDownEmpty(5)
-            end
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:move()
             end 
@@ -144,6 +134,36 @@ function GameState:update(dt)
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:attack1()
             end 
+            if timer2 > 3 then
+                CheckP1RowUpEmpty(1)
+                CheckP1RowUpEmpty(0)
+                CheckP2RowUpEmpty(1)
+                CheckP2RowUpEmpty(0)
+                CheckP1RowDownEmpty(4)
+                CheckP1RowDownEmpty(5)
+                CheckP2RowDownEmpty(4)
+                CheckP2RowDownEmpty(5)
+            end
+            -- if timer2 > 4.9 and timer2 < 5.1 then
+            --     P1_deck[2].health = 0
+            --     P1_deck[8].health = 0 
+            --     P1_deck[14].health = 0 
+            --     P2_deck[2].health = 0
+            --     P2_deck[8].health = 0 
+            --     P2_deck[14].health = 0 
+    
+            --     P1_deck[0].health = 0 
+            --     P2_deck[0].health = 0 
+            --     P1_deck[5].health = 0 
+            --     P2_deck[5].health = 0 
+    
+            --     P1_deck[3].health = 0
+            --     P1_deck[9].health = 0 
+            --     P1_deck[15].health = 0 
+            --     P2_deck[3].health = 0
+            --     P2_deck[9].health = 0 
+            --     P2_deck[15].health = 0 
+            -- end
         end
 
         for k, pair in pairs(P1_deck) do
