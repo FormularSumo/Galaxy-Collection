@@ -64,9 +64,8 @@ function Card:attack1()
         if self.column == 5 then
             if P2_deck[self.number] ~= nil then
                 damage = ((self.attack - P2_deck[self.number].defense) / 1000) ^ 3
-                if damage > 0 then
-                    P2_deck[self.number].health = P2_deck[self.number].health - (damage + 10)
-                end
+                if damage < 0 then damage = 0 end
+                P2_deck[self.number].health = P2_deck[self.number].health - (damage + 5)
                 if P2_deck[self.number].defense > 0 then
                     P2_deck[self.number].defense = P2_deck[self.number].defense - ((self.attack ^ (1/2)) * 5)
                 else
@@ -78,9 +77,8 @@ function Card:attack1()
         if self.column == 6 then
             if P1_deck[self.number] ~= nil then
                 damage = ((self.attack - P1_deck[self.number].defense) / 1000) ^ 3
-                if damage > 0 then
-                    P1_deck[self.number].health = P1_deck[self.number].health - (damage + 10)
-                end
+                if damage < 0 then damage = 0 end
+                P1_deck[self.number].health = P1_deck[self.number].health - (damage + 5)
                 if P1_deck[self.number].defense > 0 then
                     P1_deck[self.number].defense = P1_deck[self.number].defense - ((self.attack ^ (1/2)) * 5)
                 else 
