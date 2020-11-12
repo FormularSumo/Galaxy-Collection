@@ -152,7 +152,7 @@ function love.mousereleased(x,y,button)
     mouseLastX,mouseLastY = push:toGame(mouseLastX,mouseLastY)
 end
 
-function love.touchpressed()
+function love.touchreleased()
     love.mouse.buttonsPressed[1] = true
     mouseLastX,mouseLastY = love.mouse.getPosition()
     mouseLastX,mouseLastY = push:toGame(mouseLastX,mouseLastY)
