@@ -16,6 +16,7 @@ function Card:init(name,row,column,team,number)
     self.defense = _G[self.name]['defense']
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
+    self.alive = true
 end
 
 function Card:update()
@@ -24,16 +25,17 @@ function Card:update()
     if self.column > 5 then
         self.x = self.x + 40
     end
-    if self.health <= 0 then
+    if self.health <= 0 and self.alive == true then
         if self.team == 1 then
-            next_round_P1_deck[self.number] = next_round_P1_deck[self.number-6]
-            next_round_P1_deck[self.number-6] = next_round_P1_deck[self.number-12]
-            next_round_P1_deck[self.number-12] = nil
+            next_round_P1_deck[self.number] = nil
+            -- next_round_P1_deck[self.number-6] = next_round_P1_deck[self.number-12]
+            -- next_round_P1_deck[self.number-12] = nil
         else
-            next_round_P2_deck[self.number] = next_round_P2_deck[self.number-6]
-            next_round_P2_deck[self.number-6] = next_round_P2_deck[self.number-12]
-            next_round_P2_deck[self.number-12] = nil
+            next_round_P2_deck[self.number] = nil
+            -- next_round_P2_deck[self.number-6] = next_round_P2_deck[self.number-12]
+            -- next_round_P2_deck[self.number-12] = nil
         end
+        self.alive = false
     end    
 end
 
@@ -42,7 +44,7 @@ function Card:move()
         if (self.number < 6 and self.column < 5) or (self.number < 12 and self.column < 4) or (self.number < 18 and self.column < 3) then
             self.column = self.column + 1
         end
-        if P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        if next_round_P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
             next_round_P1_deck[self.number - 6] = P1_deck[self.number]
             next_round_P1_deck[self.number] = nil
             self.number = self.number - 6
@@ -51,7 +53,7 @@ function Card:move()
         if (self.number < 6 and self.column > 6) or (self.number < 12 and self.column > 7) or (self.number < 18 and self.column > 8) then
             self.column = self.column - 1
         end
-        if P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        if next_round_P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
             next_round_P2_deck[self.number - 6] = P2_deck[self.number]
             next_round_P2_deck[self.number] = nil
             self.number = self.number - 6
