@@ -75,7 +75,7 @@ function CheckRowAboveEmpty(player,x)
     else
         next_round_deck = next_round_P2_deck
     end
-    if next_round_deck[x+5] == nil and next_round_deck[x+11] == nil and next_round_deck[x+17] == nil then
+    if next_round_deck[x-1] == nil and next_round_deck[x+5] == nil and next_round_deck[x+11] == nil then
     row = x-1
         for i=0,2,1 do
             if next_round_deck[x] ~= nil then
@@ -106,12 +106,12 @@ function GameState:update(dt)
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:move()
             end 
-            for k, pair in pairs(P1_deck) do
-                P1_deck[k]:attack1()
-            end 
-            for k, pair in pairs(P2_deck) do
-                P2_deck[k]:attack1()
-            end 
+            -- for k, pair in pairs(P1_deck) do
+            --     P1_deck[k]:attack1()
+            -- end 
+            -- for k, pair in pairs(P2_deck) do
+            --     P2_deck[k]:attack1()
+            -- end 
             if timer2 > 3 then
                 CheckRowBelowEmpty(1,1)
                 CheckRowBelowEmpty(1,0)
@@ -145,8 +145,8 @@ function GameState:update(dt)
                 -- P1_deck[16].health = 0 
                 -- P2_deck[16].health = 0 
     
-                -- P1_deck[3].health = 0
-                -- P1_deck[9].health = 0 
+                P1_deck[3].health = 0
+                P1_deck[9].health = 0 
                 -- P1_deck[15].health = 0 
                 -- P2_deck[3].health = 0
                 -- P2_deck[9].health = 0 
@@ -173,17 +173,17 @@ function GameState:update(dt)
         end
     end   
     
-    -- P1_cards_alive = ''
-    -- for k, pair in pairs(next_round_P1_deck) do
-    --     P1_cards_alive = P1_cards_alive .. pair.name .. '\n'
-    -- end
-    -- love.filesystem.write('Player 1 alive units',P1_cards_alive)
+    P1_cards_alive = ''
+    for k, pair in pairs(next_round_P1_deck) do
+        P1_cards_alive = P1_cards_alive .. pair.name .. '\n'
+    end
+    love.filesystem.write('Player 1 alive units',P1_cards_alive)
 
-    -- P2_cards_alive = ''
-    -- for k, pair in pairs(next_round_P2_deck) do
-    --     P2_cards_alive = P2_cards_alive .. pair.name .. '\n'
-    -- end
-    -- love.filesystem.write('Player 2 alive units',P2_cards_alive)
+    P2_cards_alive = ''
+    for k, pair in pairs(next_round_P2_deck) do
+        P2_cards_alive = P2_cards_alive .. pair.name .. '\n'
+    end
+    love.filesystem.write('Player 2 alive units',P2_cards_alive)
 end
 
 function GameState:render()
