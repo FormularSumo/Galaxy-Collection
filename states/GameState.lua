@@ -145,8 +145,8 @@ function GameState:update(dt)
                 -- P1_deck[16].health = 0 
                 -- P2_deck[16].health = 0 
     
-                P1_deck[3].health = 0
-                P1_deck[9].health = 0 
+                -- P1_deck[3].health = 0
+                -- P1_deck[9].health = 0 
                 -- P1_deck[15].health = 0 
                 -- P2_deck[3].health = 0
                 -- P2_deck[9].health = 0 
