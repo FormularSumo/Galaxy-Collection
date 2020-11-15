@@ -123,17 +123,17 @@ function GameState:update(dt)
                 CheckRowAboveEmpty(2,5)
             end
             if timer2 > 5.9 and timer2 < 6.1 then
-                P1_deck[2].health = 0
-                P1_deck[8].health = 0 
-                P1_deck[14].health = 0 
-                P2_deck[2].health = 0
-                P2_deck[8].health = 0 
-                P2_deck[14].health = 0 
+                -- P1_deck[2].health = 0
+                -- P1_deck[8].health = 0 
+                -- P1_deck[14].health = 0 
+                -- P2_deck[2].health = 0
+                -- P2_deck[8].health = 0 
+                -- P2_deck[14].health = 0 
     
-                P1_deck[1].health = 0 
-                P2_deck[1].health = 0 
-                P1_deck[4].health = 0 
-                P2_deck[4].health = 0 
+                -- P1_deck[1].health = 0 
+                -- P2_deck[1].health = 0 
+                -- P1_deck[4].health = 0 
+                -- P2_deck[4].health = 0 
 
                 -- P1_deck[7].health = 0 
                 -- P2_deck[7].health = 0 
@@ -145,12 +145,12 @@ function GameState:update(dt)
                 -- P1_deck[16].health = 0 
                 -- P2_deck[16].health = 0 
     
-                P1_deck[3].health = 0
-                P1_deck[9].health = 0 
-                P1_deck[15].health = 0 
-                P2_deck[3].health = 0
-                P2_deck[9].health = 0 
-                P2_deck[15].health = 0 
+                -- P1_deck[3].health = 0
+                -- P1_deck[9].health = 0 
+                -- P1_deck[15].health = 0 
+                -- P2_deck[3].health = 0
+                -- P2_deck[9].health = 0 
+                -- P2_deck[15].health = 0 
             end
         end
 
