@@ -1,6 +1,7 @@
 GameState = Class{__includes = BaseState}
 timer = -1
 timer2 = -1
+timer3 = -1.9
 
 function GameState:init()
     sounds['Imperial March piano only']:pause()
@@ -98,20 +99,17 @@ function GameState:update(dt)
     if pause == false then
         timer = timer + dt 
         timer2 = timer2 + dt
+        timer3 = timer3 + dt
+
         if timer >= 1 then
             timer = timer - 1
+            
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:move()
             end 
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:move()
             end 
-            -- for k, pair in pairs(P1_deck) do
-            --     P1_deck[k]:attack1()
-            -- end 
-            -- for k, pair in pairs(P2_deck) do
-            --     P2_deck[k]:attack1()
-            -- end 
             if timer2 > 3 then
                 CheckRowBelowEmpty(1,1)
                 CheckRowBelowEmpty(1,0)
@@ -122,68 +120,59 @@ function GameState:update(dt)
                 CheckRowAboveEmpty(2,4)
                 CheckRowAboveEmpty(2,5)
             end
-            if timer2 > 5.9 and timer2 < 6.1 then
-                -- P1_deck[2].health = 0
-                -- P1_deck[8].health = 0 
-                -- P1_deck[14].health = 0 
-                -- P2_deck[2].health = 0
-                -- P2_deck[8].health = 0 
-                -- P2_deck[14].health = 0 
-    
-                -- P1_deck[1].health = 0 
-                -- P2_deck[1].health = 0 
-                -- P1_deck[4].health = 0 
-                -- P2_deck[4].health = 0 
-
-                -- P1_deck[7].health = 0 
-                -- P2_deck[7].health = 0 
-                -- P1_deck[10].health = 0 
-                -- P2_deck[10].health = 0 
-
-                -- P1_deck[13].health = 0 
-                -- P2_deck[13].health = 0 
-                -- P1_deck[16].health = 0 
-                -- P2_deck[16].health = 0 
-    
-                -- P1_deck[3].health = 0
-                -- P1_deck[9].health = 0 
-                -- P1_deck[15].health = 0 
-                -- P2_deck[3].health = 0
-                -- P2_deck[9].health = 0 
-                -- P2_deck[15].health = 0 
-            end
+            for k, pair in pairs(P1_deck) do
+                P1_deck[k]:update(timer2)
+            end 
+            for k, pair in pairs(P2_deck) do
+                P2_deck[k]:update(timer2)
+            end 
+            
+            P1_deck = next_round_P1_deck
+            P2_deck = next_round_P2_deck
         end
 
-        -- P1_deck = next_round_P1_deck
-        -- P2_deck = next_round_P2_deck
+        if timer3 >= 1 then
+            timer3 = timer3 - 1
+
+            for k, pair in pairs(P1_deck) do
+                P1_deck[k]:attack1()
+            end 
+            for k, pair in pairs(P2_deck) do
+                P2_deck[k]:attack1()
+            end 
+            P1_deck = next_round_P1_deck
+            P2_deck = next_round_P2_deck
+        end
 
         for k, pair in pairs(P1_deck) do
-            P1_deck[k]:update()
+            P1_deck[k]:update(timer2)
         end 
         for k, pair in pairs(P2_deck) do
-            P2_deck[k]:update()
+            P2_deck[k]:update(timer2)
         end 
+        P1_deck = next_round_P1_deck
+        P2_deck = next_round_P2_deck
     end
 
-    if love.keyboard.wasPressed('m') then 
-        if sounds['Battle music 1']:isPlaying() then
-            sounds['Battle music 1']:pause()
-        else
-            sounds['Battle music 1']:play()
-        end
-    end   
+    -- if love.keyboard.wasPressed('m') then -- commented out because it doesn't work due to code below that plays/pauses music when pause button is clicked.
+    --     if sounds['Battle music 1']:isPlaying() then
+    --         sounds['Battle music 1']:pause()
+    --     else
+    --         sounds['Battle music 1']:play()
+    --     end
+    -- end   
     
-    P1_cards_alive = ''
-    for k, pair in pairs(next_round_P1_deck) do
-        P1_cards_alive = P1_cards_alive .. pair.name .. '\n'
-    end
-    love.filesystem.write('Player 1 alive units',P1_cards_alive)
+    -- P1_cards_alive = ''
+    -- for k, pair in pairs(next_round_P1_deck) do
+    --     P1_cards_alive = P1_cards_alive .. pair.name .. '\n'
+    -- end
+    -- love.filesystem.write('Player 1 alive units',P1_cards_alive)
 
-    P2_cards_alive = ''
-    for k, pair in pairs(next_round_P2_deck) do
-        P2_cards_alive = P2_cards_alive .. pair.name .. '\n'
-    end
-    love.filesystem.write('Player 2 alive units',P2_cards_alive)
+    -- P2_cards_alive = ''
+    -- for k, pair in pairs(next_round_P2_deck) do
+    --     P2_cards_alive = P2_cards_alive .. pair.name .. '\n'
+    -- end
+    -- love.filesystem.write('Player 2 alive units',P2_cards_alive)
 end
 
 function GameState:render()

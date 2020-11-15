@@ -19,7 +19,7 @@ function Card:init(name,row,column,team,number)
     self.alive = true
 end
 
-function Card:update()
+function Card:update(timer2)
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     if self.column > 5 then
@@ -28,15 +28,18 @@ function Card:update()
     if self.health <= 0 and self.alive == true then
         if self.team == 1 then
             next_round_P1_deck[self.number] = nil
-            -- next_round_P1_deck[self.number-6] = next_round_P1_deck[self.number-12]
-            -- next_round_P1_deck[self.number-12] = nil
         else
             next_round_P2_deck[self.number] = nil
-            -- next_round_P2_deck[self.number-6] = next_round_P2_deck[self.number-12]
-            -- next_round_P2_deck[self.number-12] = nil
-        end
+        end 
         self.alive = false
-    end    
+    end
+    if timer2 > 6 then 
+        if self.team == 1 then
+            self.number = self.row + (math.abs(6 - self.column)) * 6 - 6
+        else
+            self.number = self.row + (self.column - 5) * 6 - 6
+        end
+    end
 end
 
 function Card:move()
@@ -45,18 +48,18 @@ function Card:move()
             self.column = self.column + 1
         end
         if next_round_P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
-            next_round_P1_deck[self.number - 6] = P1_deck[self.number]
+            self.column = self.column + 1
+            next_round_P1_deck[self.number-6] = next_round_P1_deck[self.number]
             next_round_P1_deck[self.number] = nil
-            self.number = self.number - 6
         end
     else
         if (self.number < 6 and self.column > 6) or (self.number < 12 and self.column > 7) or (self.number < 18 and self.column > 8) then
             self.column = self.column - 1
         end
         if next_round_P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
-            next_round_P2_deck[self.number - 6] = P2_deck[self.number]
+            self.column = self.column - 1
+            next_round_P2_deck[self.number-6] = next_round_P2_deck[self.number]
             next_round_P2_deck[self.number] = nil
-            self.number = self.number - 6
         end
     end
 end
