@@ -103,6 +103,13 @@ MaceWindu = {
     ['range'] = 1
 }
 
+Maul = {
+    ['attack'] = 18325,
+    ['defense'] = 17583,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
 ObiWanKenobi = {
     ['attack'] = 17421,
     ['defense'] = 18864,
@@ -133,7 +140,6 @@ Yoda = {
 
 -- Characters to be added
 
--- Maul
 -- Dooku
 -- Rex
 -- Fetts
