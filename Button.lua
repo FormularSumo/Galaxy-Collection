@@ -26,7 +26,12 @@ function Button:update()
             for i = 0,17,1 do
                 P2_deck_cards[i] = 'Ewok'
             end
+            -- P2_deck_cards[0] = 'AnakinF3'
+            -- P2_deck_cards[1] = 'ObiWanKenobi'
+            -- P2_deck_cards[2] = 'KyloRen'
             P2_deck_cards[3] = 'Yoda'
+            -- P2_deck_cards[4] = 'BabyYoda'
+            -- P2_deck_cards[5] = 'DarthSidiousReborn'
             gStateMachine:change('game')
         elseif self.name == 'Prebuilt deck' then
             P1_deck_edit(0,'AhsokaS7')

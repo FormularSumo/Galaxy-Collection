@@ -7,7 +7,7 @@ AhsokaS7 = {
 
 AnakinF3 = {
     ['attack'] = 18524,
-    ['defense'] = 17354,
+    ['defense'] = 17454,
     ['evade'] = 0.05,
     ['range'] = 1
 }
@@ -36,7 +36,7 @@ C3P0 = {
 Chewbacca = {
     ['attack'] = 14210,
     ['defense'] = 10345,
-    ['evade'] = 0.04,
+    ['evade'] = 0.02,
     ['range'] = 3
 }
 
@@ -50,7 +50,7 @@ DarthSidiousReborn = {
 DarthVader = {
     ['attack'] = 18440,
     ['defense'] = 18673,
-    ['evade'] = 0.03,
+    ['evade'] = 0.04,
     ['range'] = 1
 }
 
@@ -64,23 +64,21 @@ Ewok = {
 FarmboyLuke = {
     ['attack'] = 14987,
     ['defense'] = 9467,
-    ['evade'] = 0.07,
+    ['evade'] = 0.02,
     ['range'] = 3
 }
 
 HanSoloOld = {
     ['attack'] = 15546,
     ['defense'] = 7565,
-    ['evade'] = 0.8,
-    ['evade'] = 0.08,
+    ['evade'] = 0.02,
     ['range'] = 3
 }
 
 Hondo = {
     ['attack'] = 8754,
     ['defense'] = 9132,
-    ['evade'] = 0.5,
-    ['evade'] = 0.05,
+    ['evade'] = 0.02,
     ['range'] = 3
 }
 
@@ -99,16 +97,16 @@ KyloRen = {
 }
 
 MaceWindu = {
-    ['attack'] = 18001,
-    ['defense'] = 17874,
-    ['evade'] = 0.03,
+    ['attack'] = 18601,
+    ['defense'] = 18574,
+    ['evade'] = 0.04,
     ['range'] = 1
 }
 
 ObiWanKenobi = {
     ['attack'] = 17421,
     ['defense'] = 18864,
-    ['evade'] = 0.03,
+    ['evade'] = 0.04,
     ['range'] = 1
 }
 
@@ -127,8 +125,33 @@ Rey = {
 }
 
 Yoda = {
-    ['attack'] = 17684,
-    ['defense'] = 18435,
+    ['attack'] = 18584,
+    ['defense'] = 18735,
     ['evade'] = 0.12,
     ['range'] = 1
 }
+
+-- Characters to be added
+
+-- Maul
+-- Dooku
+-- Rex
+-- Fetts
+-- Din Djarin
+-- Ventress
+-- Kryze
+-- Rebels
+-- Grievous
+-- Padmé
+-- Leia
+-- Some jedi (republic)
+-- Nightsisters
+-- Cad
+-- IG assasin droid
+-- Crossbow + blind guy
+-- Lando
+-- Cody - clones
+-- Opress / Vizsla
+-- Droids
+-- Mandalorian(s)
+-- More bounty hunters
