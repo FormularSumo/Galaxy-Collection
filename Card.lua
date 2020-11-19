@@ -17,6 +17,8 @@ function Card:init(name,row,column,team,number)
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
     self.alive = true
+    self.attack_roll = 0
+    self.dodge = false
 end
 
 function Card:update(timer2)
@@ -65,16 +67,22 @@ function Card:move()
 end
 
 function Card:attack1()
+    self.attack_roll = math.random(100) / 100
     if self.team == 1 then
         if self.column == 5 then
             if P2_deck[self.number] ~= nil then
-                damage = ((self.attack - P2_deck[self.number].defense) / 1000) ^ 3
-                if damage < 0 then damage = 0 end
-                P2_deck[self.number].health = P2_deck[self.number].health - (damage + 5)
-                if P2_deck[self.number].defense > 0 then
-                    P2_deck[self.number].defense = P2_deck[self.number].defense - (self.attack ^ (1/3) * 30)
+                if self.attack_roll > P2_deck[self.number].evade then
+                    P2_deck[self.number].dodge = false
+                    damage = ((self.attack - P2_deck[self.number].defense) / 1000) ^ 3
+                    if damage < 0 then damage = 0 end
+                    P2_deck[self.number].health = P2_deck[self.number].health - (damage + 5)
+                    if P2_deck[self.number].defense > 0 then
+                        P2_deck[self.number].defense = P2_deck[self.number].defense - (self.attack ^ (1/3) * 30)
+                    else
+                        P2_deck[self.number].defense = 0
+                    end
                 else
-                    P2_deck[self.number].defense = 0
+                    P2_deck[self.number].dodge = true
                 end
             end
         end
@@ -98,23 +106,28 @@ function Card:render()
     love.graphics.draw(self.image,self.x,self.y,0,1,sx)
     love.graphics.setColor(0.3,0.3,0.3)
     love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
-    love.graphics.setColor(1,0.820,0)
+    if self.dodge == false then
+        love.graphics.setColor(1,0.82,0)
+    else
+        love.graphics.setColor(1,1,1)
+    end
     love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
     love.graphics.setColor(1,1,1)
     -- if self.number == 3 then
-    --     if self.team == 1 then
-    --         if P2_deck[self.number] ~= nil then
+        -- if self.team == 1 then
+            -- if P2_deck[self.number] ~= nil then
     --             love.graphics.print(((self.attack - P2_deck[self.number].defense) / 1000) ^ 3)
-    --         end
+                -- love.graphics.print(self.attack_roll .. ' ' .. P2_deck[self.number].evade)
+            -- end
     --         love.graphics.print((self.attack ^ (1/3) * 30),0,100)
     --         love.graphics.print(self.defense,0,200)
-    --     elseif self.team == 2 then
+        -- elseif self.team == 2 then
     --         if P1_deck[self.number] ~= nil then
     --             love.graphics.print(((self.attack - P1_deck[self.number].defense) / 1000)^ 3,1000)
     --         end
     --         love.graphics.print((self.attack ^ (1/3) * 30),1000,100)
     --         love.graphics.print(self.defense,1000,200)
-    --     end       
+        -- end       
     -- end
     -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
     -- love.graphics.print(self.attack, self.x, self.y)
