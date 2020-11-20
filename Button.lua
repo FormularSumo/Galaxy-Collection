@@ -28,7 +28,7 @@ function Button:update()
             end
             -- P2_deck_cards[0] = 'AnakinF3'
             -- P2_deck_cards[1] = 'ObiWanKenobi'
-            -- P2_deck_cards[2] = 'KyloRen'
+            P2_deck_cards[2] = 'Maul'
             P2_deck_cards[3] = 'Yoda'
             -- P2_deck_cards[4] = 'BabyYoda'
             -- P2_deck_cards[5] = 'DarthSidiousReborn'
