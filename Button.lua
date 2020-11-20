@@ -26,32 +26,32 @@ function Button:update()
             for i = 0,17,1 do
                 P2_deck_cards[i] = 'Ewok'
             end
-            -- P2_deck_cards[0] = 'AnakinF3'
-            -- P2_deck_cards[1] = 'ObiWanKenobi'
-            P2_deck_cards[2] = 'Maul'
-            P2_deck_cards[3] = 'Yoda'
-            -- P2_deck_cards[4] = 'BabyYoda'
-            -- P2_deck_cards[5] = 'DarthSidiousReborn'
+            P2_deck_cards[0] = 'Ewok'
+            P2_deck_cards[1] = 'Maul'
+            P2_deck_cards[2] = 'DarthVader'
+            P2_deck_cards[3] = 'DarthSidiousReborn'
+            P2_deck_cards[4] = 'KyloRen'
+            P2_deck_cards[5] = 'Ewok'
             gStateMachine:change('game')
         elseif self.name == 'Prebuilt deck' then
             P1_deck_edit(0,'AhsokaS7')
             P1_deck_edit(1,'AnakinF3')
-            P1_deck_edit(2,'BabyYoda')
-            P1_deck_edit(3,'BenKenobi')
-            P1_deck_edit(4,'C3P0')
-            P1_deck_edit(5,'Chewbacca')
-            P1_deck_edit(6,'DarthSidiousReborn')
-            P1_deck_edit(7,'DarthVader')
-            P1_deck_edit(8,'Ewok')
-            P1_deck_edit(9,'FarmboyLuke')
-            P1_deck_edit(10,'HanSoloOld')
-            P1_deck_edit(11,'Hondo')
-            P1_deck_edit(12,'JediKnightLuke')
-            P1_deck_edit(13,'KyloRen')
-            P1_deck_edit(14,'MaceWindu')
-            P1_deck_edit(15,'ObiWanKenobi')
-            P1_deck_edit(16,'R2D2')
-            P1_deck_edit(17,'Rey')
+            P1_deck_edit(2,'MaceWindu')
+            P1_deck_edit(3,'Yoda')
+            P1_deck_edit(4,'ObiWanKenobi')
+            P1_deck_edit(5,'Rey')
+            P1_deck_edit(6,'BabyYoda')
+            P1_deck_edit(7,'JediKnightLuke')
+            P1_deck_edit(8,'BenKenobi')
+            P1_deck_edit(9,'Ewok')
+            P1_deck_edit(10,'R2D2')
+            P1_deck_edit(11,'C3P0')
+            P1_deck_edit(12,'Ewok')
+            P1_deck_edit(13,'FarmboyLuke')
+            P1_deck_edit(14,'HanSoloOld')
+            P1_deck_edit(15,'Chewbacca')
+            P1_deck_edit(16,'Hondo')
+            P1_deck_edit(17,'Ewok')
         elseif self.name == 'Pause' then
             if pause == false then
                 pause = true
