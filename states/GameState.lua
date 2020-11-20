@@ -135,6 +135,15 @@ function GameState:update(dt)
             timer3 = timer3 - 1
 
             for k, pair in pairs(P1_deck) do
+                P1_deck[k].dodge = 0
+                P1_deck[k].attacks_taken = 0
+            end 
+            for k, pair in pairs(P2_deck) do
+                P2_deck[k].dodge = 0
+                P2_deck[k].attacks_taken = 0
+            end 
+
+            for k, pair in pairs(P1_deck) do
                 P1_deck[k]:attack1()
             end 
             for k, pair in pairs(P2_deck) do
