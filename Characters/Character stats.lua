@@ -151,23 +151,3 @@ Yoda = {
     ['evade'] = 0.12,
     ['range'] = 1
 }
-
-- [ ] Rex
-- [ ] Fetts
-- [ ] Din Djarin
-- [ ] Ventress
-- [ ] Kryze
-- [ ] Rebels
-- [ ] Padmé
-- [ ] Leia
-- [ ] Some jedi (Republic)
-- [ ] Nightsisters
-- [ ] Cad
-- [ ] IG assasin droid
-- [ ] Crossbow + blind guy
-- [ ] Lando
-- [ ] Cody - clones
-- [ ] Opress / Vizsla
-- [ ] Droids
-- [ ] Mandalorian(s)
-- [ ] More bounty hunters
