@@ -88,10 +88,10 @@ function Card:attack1()
         if self.target ~= -1 then
             self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
             if self.attack_roll > self.enemy_deck[self.target].evade then
-                self.damage = ((self.attack - self.enemy_deck[self.target].defense) / 1000)
+                self.damage = ((self.attack - self.enemy_deck[self.target].defense) / 800)
                 if self.damage < 0 then self.damage = 0 end
                 self.damage = (self.damage ^ 3)
-                self.defence_down = (self.attack / 80) * (self.attack / self.enemy_deck[self.target].defense) ^ 3
+                self.defence_down = (self.attack / 100) * (self.attack / self.enemy_deck[self.target].defense) ^ 3
                 if self.target ~= self.number then 
                     self.damage = self.damage / 2 
                     self.defence_down = self.defence_down / 2 
@@ -116,6 +116,7 @@ function Card:render()
     love.graphics.setColor(0.3,0.3,0.3)
     love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
     self.colour = self.dodge / self.attacks_taken
+    self.colour = self.colour + (1-self.colour) / 2
     if self.dodge == 0 then
         love.graphics.setColor(1,0.82,0)
     else

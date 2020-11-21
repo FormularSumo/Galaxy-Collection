@@ -1,5 +1,5 @@
 AhsokaS7 = {
-    ['attack'] = 18454,
+    ['attack'] = 18464,
     ['defense'] = 17420,
     ['evade'] = 0.1,
     ['range'] = 1
