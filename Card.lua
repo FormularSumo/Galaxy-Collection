@@ -78,9 +78,9 @@ function Card:attack1()
     if self.column == 5 or self.column == 6 then
         if self.enemy_deck[self.number] ~= nil then
             self.target = self.number
-        elseif self.enemy_deck[self.number-1] ~= nil and self.enemy_deck[self.number-1].column == 6 then
+        elseif self.enemy_deck[self.number-1] ~= nil and (self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5) then
             self.target = self.number-1
-        elseif self.enemy_deck[self.number+1] ~= nil and self.enemy_deck[self.number+1].column == 6 then 
+        elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
             self.target = self.number+1
         end
         if self.target ~= -1 then

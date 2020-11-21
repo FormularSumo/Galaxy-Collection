@@ -1,6 +1,6 @@
 AhsokaS7 = {
-    ['attack'] = 19254,
-    ['defense'] = 16320,
+    ['attack'] = 18254,
+    ['defense'] = 17320,
     ['evade'] = 0.1,
     ['range'] = 1
 }
@@ -66,6 +66,13 @@ FarmboyLuke = {
     ['defense'] = 9467,
     ['evade'] = 0.02,
     ['range'] = 3
+}
+
+GeneralGrievous = {
+    ['attack'] = 19231,
+    ['defense'] = 16958,
+    ['evade'] = 0.05,
+    ['range'] = 1
 }
 
 HanSoloOld = {
@@ -147,7 +154,6 @@ Yoda = {
 -- Ventress
 -- Kryze
 -- Rebels
--- Grievous
 -- Padmé
 -- Leia
 -- Some jedi (republic)
