@@ -105,7 +105,7 @@ JediKnightLuke = {
 
 KyloRen = {
     ['attack'] = 18293,
-    ['defense'] = 17624,
+    ['defense'] = 17664,
     ['evade'] = 0.04,
     ['range'] = 1
 }
