@@ -57,7 +57,7 @@ function CheckRowBelowEmpty(player,x)
         next_round_deck = next_round_P2_deck
     end
     if next_round_deck[x+1] == nil and next_round_deck[x+7] == nil and next_round_deck[x+13] == nil then
-    row = x+1
+        row = x+1
         for i=0,2,1 do
             if next_round_deck[x] ~= nil then
                 next_round_deck[x].row = row
@@ -76,8 +76,10 @@ function CheckRowAboveEmpty(player,x)
     else
         next_round_deck = next_round_P2_deck
     end
+    if (not(next_round_deck[x-2] == nil and next_round_deck[x+4] == nil and next_round_deck[x+10]) == nil) or not(
+        next_round_deck[x-3] == nil and next_round_deck[x+3] == nil and next_round_deck[x+9] == nil) and x == 3 then return end
     if next_round_deck[x-1] == nil and next_round_deck[x+5] == nil and next_round_deck[x+11] == nil then
-    row = x-1
+        row = x-1
         for i=0,2,1 do
             if next_round_deck[x] ~= nil then
                 next_round_deck[x].row = row
@@ -115,8 +117,10 @@ function GameState:update(dt)
                 CheckRowBelowEmpty(1,0)
                 CheckRowBelowEmpty(2,1)
                 CheckRowBelowEmpty(2,0)
+                CheckRowAboveEmpty(1,3)
                 CheckRowAboveEmpty(1,4)
                 CheckRowAboveEmpty(1,5)
+                CheckRowAboveEmpty(2,3)
                 CheckRowAboveEmpty(2,4)
                 CheckRowAboveEmpty(2,5)
             end
