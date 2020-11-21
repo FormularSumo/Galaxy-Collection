@@ -23,11 +23,11 @@ end
 function Button:update()
     if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
         if self.name == 'Battle 1' then
-            for i = 0,17,1 do
+            for i = 6,17,1 do
                 P2_deck_cards[i] = 'Ewok'
             end
-            P2_deck_cards[0] = 'Ewok'
-            P2_deck_cards[1] = 'Maul'
+            P2_deck_cards[0] = 'Maul'
+            P2_deck_cards[1] = 'CountDooku'
             P2_deck_cards[2] = 'DarthVader'
             P2_deck_cards[3] = 'DarthSidiousReborn'
             P2_deck_cards[4] = 'GeneralGrievous'

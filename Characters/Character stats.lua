@@ -40,6 +40,13 @@ Chewbacca = {
     ['range'] = 3
 }
 
+CountDooku = {
+    ['attack'] = 18324,
+    ['defense'] = 18491,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
 DarthSidiousReborn = {
     ['attack'] = 19846,
     ['defense'] = 19656,
@@ -147,7 +154,6 @@ Yoda = {
 
 -- Characters to be added
 
--- Dooku
 -- Rex
 -- Fetts
 -- Din Djarin
@@ -156,7 +162,7 @@ Yoda = {
 -- Rebels
 -- Padmé
 -- Leia
--- Some jedi (republic)
+-- Some jedi (Republic)
 -- Nightsisters
 -- Cad
 -- IG assasin droid
