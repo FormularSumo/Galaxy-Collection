@@ -1,13 +1,13 @@
 AhsokaS7 = {
-    ['attack'] = 18254,
-    ['defense'] = 17320,
+    ['attack'] = 18454,
+    ['defense'] = 17420,
     ['evade'] = 0.1,
     ['range'] = 1
 }
 
 AnakinF3 = {
     ['attack'] = 18524,
-    ['defense'] = 17454,
+    ['defense'] = 17554,
     ['evade'] = 0.05,
     ['range'] = 1
 }
@@ -48,8 +48,8 @@ CountDooku = {
 }
 
 DarthSidiousReborn = {
-    ['attack'] = 19846,
-    ['defense'] = 19656,
+    ['attack'] = 19446,
+    ['defense'] = 19256,
     ['evade'] = 0,
     ['range'] = 1
 }

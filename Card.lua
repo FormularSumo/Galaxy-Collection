@@ -88,14 +88,15 @@ function Card:attack1()
         if self.target ~= -1 then
             self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
             if self.attack_roll > self.enemy_deck[self.target].evade then
-                self.damage = ((self.attack - self.enemy_deck[self.target].defense) / 1000) ^ 3
+                self.damage = ((self.attack - self.enemy_deck[self.target].defense) / 1000)
                 if self.damage < 0 then self.damage = 0 end
-                self.defence_down = (self.attack ^ (1/3) * 30)
+                self.damage = (self.damage ^ 3)
+                self.defence_down = (self.attack / 80) * (self.attack / self.enemy_deck[self.target].defense) ^ 3
                 if self.target ~= self.number then 
                     self.damage = self.damage / 2 
                     self.defence_down = self.defence_down / 2 
                 end
-                self.enemy_deck[self.target].health = self.enemy_deck[self.target].health - (self.damage + 5)
+                self.enemy_deck[self.target].health = self.enemy_deck[self.target].health - (self.damage + 1)
                 if self.enemy_deck[self.target].defense > 0 then
                     self.enemy_deck[self.target].defense = self.enemy_deck[self.target].defense - self.defence_down
                     if self.enemy_deck[self.target].defense < 0 then self.enemy_deck[self.target].defense = 0 end
@@ -123,15 +124,15 @@ function Card:render()
     love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
     love.graphics.setColor(1,1,1)
 
-    -- if self.number == 0 then
+    -- if self.number == 2 then
     --     if self.team == 1 then
     --         love.graphics.print(self.damage)
     --         love.graphics.print(self.defence_down,0,100)
     --         love.graphics.print(self.defense,0,200)
     --     elseif self.team == 2 then
-    --         love.graphics.print(self.damage,1500)
-    --         love.graphics.print(self.defence_down,1500,100)
-    --         love.graphics.print(self.defense,1500,200)
+    --         love.graphics.print(self.damage,1600)
+    --         love.graphics.print(self.defence_down,1600,100)
+    --         love.graphics.print(self.defense,1600,200)
     --     end       
     -- end
     -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
