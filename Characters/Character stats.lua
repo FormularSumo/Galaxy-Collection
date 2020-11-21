@@ -152,24 +152,22 @@ Yoda = {
     ['range'] = 1
 }
 
--- Characters to be added
-
--- Rex
--- Fetts
--- Din Djarin
--- Ventress
--- Kryze
--- Rebels
--- Padmé
--- Leia
--- Some jedi (Republic)
--- Nightsisters
--- Cad
--- IG assasin droid
--- Crossbow + blind guy
--- Lando
--- Cody - clones
--- Opress / Vizsla
--- Droids
--- Mandalorian(s)
--- More bounty hunters
+- [ ] Rex
+- [ ] Fetts
+- [ ] Din Djarin
+- [ ] Ventress
+- [ ] Kryze
+- [ ] Rebels
+- [ ] Padmé
+- [ ] Leia
+- [ ] Some jedi (Republic)
+- [ ] Nightsisters
+- [ ] Cad
+- [ ] IG assasin droid
+- [ ] Crossbow + blind guy
+- [ ] Lando
+- [ ] Cody - clones
+- [ ] Opress / Vizsla
+- [ ] Droids
+- [ ] Mandalorian(s)
+- [ ] More bounty hunters
