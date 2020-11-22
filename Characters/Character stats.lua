@@ -26,6 +26,13 @@ BenKenobi = {
     ['range'] = 1
 }
 
+BobaFett = {
+    ['attack'] = 18112,
+    ['defense'] = 16043,
+    ['evade'] = 0.15,
+    ['range'] = 5
+}
+
 C3P0 = {
     ['attack'] = 735,
     ['defense'] = 1024,
@@ -69,7 +76,7 @@ Ewok = {
 }
 
 FarmboyLuke = {
-    ['attack'] = 14987,
+    ['attack'] = 13987,
     ['defense'] = 9467,
     ['evade'] = 0.02,
     ['range'] = 3

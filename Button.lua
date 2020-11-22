@@ -32,6 +32,7 @@ function Button:update()
             P2_deck_cards[3] = 'DarthSidiousReborn'
             P2_deck_cards[4] = 'GeneralGrievous'
             P2_deck_cards[5] = 'KyloRen'
+            P2_deck_cards[8] = 'BobaFett'
             gStateMachine:change('game')
         elseif self.name == 'Prebuilt deck' then
             P1_deck_edit(0,'AhsokaS7')
@@ -42,8 +43,8 @@ function Button:update()
             P1_deck_edit(5,'Rey')
             P1_deck_edit(6,'Ewok')
             P1_deck_edit(7,'BabyYoda')
-            P1_deck_edit(8,'BenKenobi')
-            P1_deck_edit(9,'JediKnightLuke')
+            P1_deck_edit(8,'JediKnightLuke')
+            P1_deck_edit(9,'BenKenobi')
             P1_deck_edit(10,'R2D2')
             P1_deck_edit(11,'C3P0')
             P1_deck_edit(12,'Ewok')
