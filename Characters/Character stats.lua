@@ -110,6 +110,13 @@ JediKnightLuke = {
     ['range'] = 1
 }
 
+JangoFett = {
+    ['attack'] = 18136,
+    ['defense'] = 16064,
+    ['evade'] = 0.15,
+    ['range'] = 5
+}
+
 KyloRen = {
     ['attack'] = 18293,
     ['defense'] = 17664,
