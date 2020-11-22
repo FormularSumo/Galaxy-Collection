@@ -28,8 +28,8 @@ function Button:update()
             end
             P2_deck_cards[0] = 'Maul'
             P2_deck_cards[1] = 'CountDooku'
-            P2_deck_cards[2] = 'DarthVader'
-            P2_deck_cards[3] = 'DarthSidiousReborn'
+            P2_deck_cards[2] = 'DarthSidiousReborn'
+            P2_deck_cards[3] = 'DarthVader'
             P2_deck_cards[4] = 'GeneralGrievous'
             P2_deck_cards[5] = 'KyloRen'
             P2_deck_cards[8] = 'BobaFett'
@@ -37,8 +37,8 @@ function Button:update()
         elseif self.name == 'Prebuilt deck' then
             P1_deck_edit(0,'AhsokaS7')
             P1_deck_edit(1,'AnakinF3')
-            P1_deck_edit(2,'MaceWindu')
-            P1_deck_edit(3,'Yoda')
+            P1_deck_edit(2,'Yoda')
+            P1_deck_edit(3,'MaceWindu')
             P1_deck_edit(4,'ObiWanKenobi')
             P1_deck_edit(5,'Rey')
             P1_deck_edit(6,'Ewok')
@@ -47,11 +47,11 @@ function Button:update()
             P1_deck_edit(9,'BenKenobi')
             P1_deck_edit(10,'R2D2')
             P1_deck_edit(11,'C3P0')
-            P1_deck_edit(12,'Ewok')
-            P1_deck_edit(13,'FarmboyLuke')
-            P1_deck_edit(14,'HanSoloOld')
-            P1_deck_edit(15,'Chewbacca')
-            P1_deck_edit(16,'Hondo')
+            P1_deck_edit(12,'Hondo')
+            P1_deck_edit(13,'Chewbacca')
+            P1_deck_edit(14,'TheMandalorian')
+            P1_deck_edit(15,'HanSoloOld')
+            P1_deck_edit(16,'FarmboyLuke')
             P1_deck_edit(17,'Ewok')
         elseif self.name == 'Pause' then
             if pause == false then

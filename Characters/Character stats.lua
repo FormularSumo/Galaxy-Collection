@@ -152,6 +152,13 @@ Rey = {
     ['range'] = 1
 }
 
+TheMandalorian = {
+    ['attack'] = 17943,
+    ['defense'] = 16528,
+    ['evade'] = 0.15,
+    ['range'] = 5
+}
+
 Yoda = {
     ['attack'] = 18584,
     ['defense'] = 18735,
