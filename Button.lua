@@ -49,12 +49,12 @@ function Button:update()
             P1_deck_edit(9,'BenKenobi')
             P1_deck_edit(10,'R2D2')
             P1_deck_edit(11,'C3P0')
-            P1_deck_edit(12,'Hondo')
-            P1_deck_edit(13,'Chewbacca')
-            P1_deck_edit(14,'TheMandalorian')
-            P1_deck_edit(15,'HanSoloOld')
-            P1_deck_edit(16,'FarmboyLuke')
-            P1_deck_edit(17,'Ewok')
+            P1_deck_edit(12,'FarmboyLuke')
+            P1_deck_edit(13,'HanSoloOld')
+            P1_deck_edit(14,'CaptainRex')
+            P1_deck_edit(15,'TheMandalorian')
+            P1_deck_edit(16,'Chewbacca')
+            P1_deck_edit(17,'Hondo')
         elseif self.name == 'Pause' then
             if pause == false then
                 pause = true

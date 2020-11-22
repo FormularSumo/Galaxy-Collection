@@ -40,6 +40,13 @@ C3P0 = {
     ['range'] = 1
 }
 
+CaptainRex = {
+    ['attack'] = 17443,
+    ['defense'] = 17538,
+    ['evade'] = 0.03,
+    ['range'] = 3
+}
+
 Chewbacca = {
     ['attack'] = 14210,
     ['defense'] = 10345,
@@ -86,7 +93,7 @@ FarmboyLuke = {
     ['attack'] = 13987,
     ['defense'] = 9467,
     ['evade'] = 0.02,
-    ['range'] = 3
+    ['range'] = 5
 }
 
 GeneralGrievous = {
