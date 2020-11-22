@@ -68,6 +68,13 @@ DarthVader = {
     ['range'] = 1
 }
 
+DarthNoScoper = {
+    ['attack'] = 25387,
+    ['defense'] = 24568,
+    ['evade'] = 0,
+    ['range'] = 1
+}
+
 Ewok = {
     ['attack'] = 1254,
     ['defense'] = 975,
