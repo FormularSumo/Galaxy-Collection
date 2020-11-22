@@ -159,6 +159,13 @@ Rey = {
     ['range'] = 1
 }
 
+SavageOpress = {
+    ['attack'] = 18456,
+    ['defense'] = 17349,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
 TheMandalorian = {
     ['attack'] = 17943,
     ['defense'] = 16528,
