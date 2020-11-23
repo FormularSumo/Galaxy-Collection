@@ -29,8 +29,8 @@ function love.load()
     -- load fonts
     font50 = love.graphics.newFont(50)
     font80 = love.graphics.newFont(80)
-    font80SW = love.graphics.newFont('Distant Galaxy.ttf',80)
-    font80SW_runes = love.graphics.newFont('Aurebesh Bold.ttf',80)
+    font80SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',80)
+    font80SW_runes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
     love.graphics.setFont(font80)
 
     love.audio.setVolume(1)
