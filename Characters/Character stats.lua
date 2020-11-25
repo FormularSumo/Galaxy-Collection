@@ -40,6 +40,13 @@ C3P0 = {
     ['range'] = 1
 }
 
+CadBane = {
+    ['attack'] = 18014,
+    ['defense'] = 16241,
+    ['evade'] = 0.15,
+    ['range'] = 5
+}
+
 CaptainRex = {
     ['attack'] = 17443,
     ['defense'] = 17538,

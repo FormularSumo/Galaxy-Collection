@@ -35,6 +35,7 @@ function Button:update()
             P2_deck_cards[7] = 'JangoFett'
             P2_deck_cards[8] = 'SavageOpress'
             P2_deck_cards[9] = 'BobaFett'
+            P2_deck_cards[10] = 'CadBane'
             gStateMachine:change('game')
         elseif self.name == 'Prebuilt deck' then
             P1_deck_edit(0,'AhsokaS7')
