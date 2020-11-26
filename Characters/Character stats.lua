@@ -117,6 +117,13 @@ GeneralGrievous = {
     ['range'] = 1
 }
 
+Greedo = {
+    ['attack'] = 9942,
+    ['defense'] = 8653,
+    ['evade'] = 0.03,
+    ['range'] = 3
+}
+
 HanSoloOld = {
     ['attack'] = 15546,
     ['defense'] = 7565,

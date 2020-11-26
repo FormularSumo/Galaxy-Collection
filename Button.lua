@@ -32,6 +32,7 @@ function Button:update()
             P2_deck_cards[3] = 'DarthVader'
             P2_deck_cards[4] = 'GeneralGrievous'
             P2_deck_cards[5] = 'KyloRen'
+            P2_deck_cards[6] = 'Greedo'
             P2_deck_cards[7] = 'JangoFett'
             P2_deck_cards[8] = 'SavageOpress'
             P2_deck_cards[9] = 'BobaFett'
