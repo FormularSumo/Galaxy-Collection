@@ -187,6 +187,13 @@ ObiWanKenobi = {
     ['range'] = 1
 }
 
+PreVizsla = {
+    ['attack'] = 17836,
+    ['defense'] = 17874,
+    ['evade'] = 0.10,
+    ['range'] = 1
+}
+
 R2D2 = {
     ['attack'] = 9241,
     ['defense'] = 8165,

@@ -32,12 +32,19 @@ function Button:update()
             P2_deck_cards[3] = 'DarthVader'
             P2_deck_cards[4] = 'GeneralGrievous'
             P2_deck_cards[5] = 'KyloRen'
-            P2_deck_cards[6] = 'MagnaGuard'
-            P2_deck_cards[7] = 'JangoFett'
+            -- P2_deck_cards[6] = ''
+            P2_deck_cards[7] = 'MagnaGuard'
             P2_deck_cards[8] = 'SavageOpress'
-            P2_deck_cards[9] = 'BobaFett'
-            P2_deck_cards[10] = 'CadBane'
-            P2_deck_cards[11] = 'Greedo'
+            P2_deck_cards[9] = 'PreVizsla'
+            -- P2_deck_cards[10] = ''
+            -- P2_deck_cards[11] = ''
+            -- P2_deck_cards[12] = ''
+            P2_deck_cards[13] = 'CadBane'
+            P2_deck_cards[14] = 'JangoFett'
+            P2_deck_cards[15] = 'BobaFett'
+            P2_deck_cards[16] = 'Greedo'
+            -- P2_deck_cards[17] = ''
+
             gStateMachine:change('game')
         elseif self.name == 'Prebuilt deck' then
             P1_deck_edit(0,'AhsokaS7')
