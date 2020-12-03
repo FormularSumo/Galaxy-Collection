@@ -19,6 +19,13 @@ B1BattleDroid = {
     ['range'] = 3
 }
 
+B2SuperBattleDroid = {
+    ['attack'] = 8085,
+    ['defense'] = 8024,
+    ['evade'] = 0.01,
+    ['range'] = 3
+}
+
 BabyYoda = {
     ['attack'] = 9761,
     ['defense'] = 9430,
