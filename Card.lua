@@ -113,17 +113,19 @@ end
 
 function Card:render()
     love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-    love.graphics.setColor(0.3,0.3,0.3)
-    love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
-    self.colour = self.dodge / self.attacks_taken
-    self.colour = self.colour + (1-self.colour) / 2
-    if self.dodge == 0 then
-        love.graphics.setColor(1,0.82,0)
-    else
-        love.graphics.setColor(self.colour,self.colour,self.colour)
+    if self.health < 1000 then
+        love.graphics.setColor(0.3,0.3,0.3)
+        love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
+        self.colour = self.dodge / self.attacks_taken
+        self.colour = self.colour + (1-self.colour) / 2
+        if self.dodge == 0 then
+            love.graphics.setColor(1,0.82,0)
+        else
+            love.graphics.setColor(self.colour,self.colour,self.colour)
+        end
+        love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
+        love.graphics.setColor(1,1,1)
     end
-    love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
-    love.graphics.setColor(1,1,1)
 
     -- if self.number == 2 then
     --     if self.team == 1 then
