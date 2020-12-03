@@ -166,6 +166,13 @@ MaceWindu = {
     ['range'] = 1
 }
 
+MagnaGuard = {
+    ['attack'] = 13452,
+    ['defense'] = 12784,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
 Maul = {
     ['attack'] = 18325,
     ['defense'] = 17583,
