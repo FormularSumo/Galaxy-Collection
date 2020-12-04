@@ -19,6 +19,13 @@ B1BattleDroid = {
     ['range'] = 3
 }
 
+B2RPSuperBattleDroid = {
+    ['attack'] = 8285,
+    ['defense'] = 7424,
+    ['evade'] = 0.08,
+    ['range'] = 5
+}
+
 B2SuperBattleDroid = {
     ['attack'] = 8085,
     ['defense'] = 8024,

@@ -38,12 +38,12 @@ function Button:update()
             P2_deck_cards[9] = 'PreVizsla'
             -- P2_deck_cards[10] = ''
             -- P2_deck_cards[11] = ''
-            P2_deck_cards[12] = 'B2SuperBattleDroid'
+            P2_deck_cards[12] = 'B2RPSuperBattleDroid'
             P2_deck_cards[13] = 'CadBane'
             P2_deck_cards[14] = 'JangoFett'
             P2_deck_cards[15] = 'BobaFett'
             P2_deck_cards[16] = 'Greedo'
-            -- P2_deck_cards[17] = ''
+            P2_deck_cards[17] = 'B2SuperBattleDroid'
 
             gStateMachine:change('game')
         elseif self.name == 'Prebuilt deck' then
