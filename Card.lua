@@ -18,7 +18,7 @@ function Card:init(name,row,column,team,number)
     self.range = _G[self.name]['range']
     self.alive = true
     self.attack_roll = 0
-    self.target = -1
+    self.target = nil
     self.dodge = 0
     self.attacks_taken = 0
     if self.team == 1 then
@@ -85,7 +85,7 @@ function Card:attack()
         elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
             self.target = self.number+1
         end
-        if self.target ~= -1 then
+        if self.target ~= nil then
             self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
             if self.attack_roll > self.enemy_deck[self.target].evade then
                 self.damage = ((self.offense - self.enemy_deck[self.target].defense) / 800)
@@ -106,7 +106,7 @@ function Card:attack()
             else
                 self.enemy_deck[self.target].dodge = self.enemy_deck[self.target].dodge + 1
             end
-            self.target = -1
+            self.target = nil
         end
     end
 end
