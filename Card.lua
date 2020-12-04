@@ -12,7 +12,7 @@ function Card:init(name,row,column,team,number)
     self.team = team 
     self.number = number
     self.health = 1000
-    self.attack = _G[self.name]['attack']
+    self.offense = _G[self.name]['offense']
     self.defense = _G[self.name]['defense']
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
@@ -75,7 +75,7 @@ function Card:move()
     end
 end
 
-function Card:attack1()
+function Card:attack()
     self.attack_roll = math.random(100) / 100
     if self.column == 5 or self.column == 6 then
         if self.enemy_deck[self.number] ~= nil then
@@ -88,10 +88,10 @@ function Card:attack1()
         if self.target ~= -1 then
             self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
             if self.attack_roll > self.enemy_deck[self.target].evade then
-                self.damage = ((self.attack - self.enemy_deck[self.target].defense) / 800)
+                self.damage = ((self.offense - self.enemy_deck[self.target].defense) / 800)
                 if self.damage < 0 then self.damage = 0 end
                 self.damage = (self.damage ^ 3)
-                self.defence_down = (self.attack / 100) * (self.attack / self.enemy_deck[self.target].defense) ^ 3
+                self.defence_down = (self.offense / 100) * (self.offense / self.enemy_deck[self.target].defense) ^ 3
                 if self.target ~= self.number then 
                     self.damage = self.damage / 2 
                     self.defence_down = self.defence_down / 2 
@@ -139,7 +139,7 @@ function Card:render()
     --     end       
     -- end
     -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
-    -- love.graphics.print(self.attack, self.x, self.y)
+    -- love.graphics.print(self.offense, self.x, self.y)
     -- love.graphics.print(self.defense, self.x, self.y)
     -- love.graphics.print(self.evade, self.x, self.y)
     -- love.graphics.print(tostring(self.y),100,0)

@@ -267,10 +267,10 @@ function GameState:update(dt)
             end 
 
             for k, pair in pairs(P1_deck) do
-                P1_deck[k]:attack1()
+                P1_deck[k]:attack()
             end 
             for k, pair in pairs(P2_deck) do
-                P2_deck[k]:attack1()
+                P2_deck[k]:attack()
             end 
             P1_deck = next_round_P1_deck
             P2_deck = next_round_P2_deck

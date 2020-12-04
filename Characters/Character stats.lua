@@ -1,257 +1,257 @@
 AhsokaS7 = {
-    ['attack'] = 18464,
+    ['offense'] = 18464,
     ['defense'] = 17420,
     ['evade'] = 0.1,
     ['range'] = 1
 }
 
 AnakinF3 = {
-    ['attack'] = 18524,
+    ['offense'] = 18524,
     ['defense'] = 17554,
     ['evade'] = 0.05,
     ['range'] = 1
 }
 
 AsajjVentress = {
-    ['attack'] = 18349,
+    ['offense'] = 18349,
     ['defense'] = 17527,
     ['evade'] = 0.07,
     ['range'] = 1
 }
 
 B1BattleDroid = {
-    ['attack'] = 1302,
+    ['offense'] = 1302,
     ['defense'] = 1205,
     ['evade'] = 0.02,
     ['range'] = 3
 }
 
 B2RPSuperBattleDroid = {
-    ['attack'] = 8285,
+    ['offense'] = 8285,
     ['defense'] = 7424,
     ['evade'] = 0.08,
     ['range'] = 5
 }
 
 B2SuperBattleDroid = {
-    ['attack'] = 8085,
+    ['offense'] = 8085,
     ['defense'] = 8024,
     ['evade'] = 0.01,
     ['range'] = 3
 }
 
 BabyYoda = {
-    ['attack'] = 9761,
+    ['offense'] = 9761,
     ['defense'] = 9430,
     ['evade'] = 0,
     ['range'] = 1
 }
 
 BenKenobi = {
-    ['attack'] = 12549,
+    ['offense'] = 12549,
     ['defense'] = 13674,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 BobaFett = {
-    ['attack'] = 18112,
+    ['offense'] = 18112,
     ['defense'] = 16043,
     ['evade'] = 0.15,
     ['range'] = 5
 }
 
 C3P0 = {
-    ['attack'] = 735,
+    ['offense'] = 735,
     ['defense'] = 1024,
     ['evade'] = 0.01,
     ['range'] = 1
 }
 
 CadBane = {
-    ['attack'] = 18014,
+    ['offense'] = 18014,
     ['defense'] = 16241,
     ['evade'] = 0.15,
     ['range'] = 5
 }
 
 CaptainRex = {
-    ['attack'] = 17443,
+    ['offense'] = 17443,
     ['defense'] = 17538,
     ['evade'] = 0.03,
     ['range'] = 3
 }
 
 Chewbacca = {
-    ['attack'] = 14210,
+    ['offense'] = 14210,
     ['defense'] = 10345,
     ['evade'] = 0.02,
     ['range'] = 3
 }
 
 CountDooku = {
-    ['attack'] = 18324,
+    ['offense'] = 18324,
     ['defense'] = 18491,
     ['evade'] = 0.04,
     ['range'] = 1
 }
 
 DarthSidiousReborn = {
-    ['attack'] = 19446,
+    ['offense'] = 19446,
     ['defense'] = 19256,
     ['evade'] = 0,
     ['range'] = 1
 }
 
 DarthVader = {
-    ['attack'] = 18440,
+    ['offense'] = 18440,
     ['defense'] = 18673,
     ['evade'] = 0.04,
     ['range'] = 1
 }
 
 DarthNoScoper = {
-    ['attack'] = 25387,
+    ['offense'] = 25387,
     ['defense'] = 24568,
     ['evade'] = 0,
     ['range'] = 1
 }
 
 Droideka = {
-    ['attack'] = 13768,
+    ['offense'] = 13768,
     ['defense'] = 13943,
     ['evade'] = 0,
     ['range'] = 2
 }
 
 Ewok = {
-    ['attack'] = 1254,
+    ['offense'] = 1254,
     ['defense'] = 975,
     ['evade'] = 0.2,
     ['range'] = 1
 }
 
 FarmboyLuke = {
-    ['attack'] = 13987,
+    ['offense'] = 13987,
     ['defense'] = 9467,
     ['evade'] = 0.02,
     ['range'] = 5
 }
 
 GeneralGrievous = {
-    ['attack'] = 19231,
+    ['offense'] = 19231,
     ['defense'] = 16958,
     ['evade'] = 0.05,
     ['range'] = 1
 }
 
 Greedo = {
-    ['attack'] = 9942,
+    ['offense'] = 9942,
     ['defense'] = 8653,
     ['evade'] = 0.03,
     ['range'] = 3
 }
 
 HanSoloOld = {
-    ['attack'] = 15546,
+    ['offense'] = 15546,
     ['defense'] = 7565,
     ['evade'] = 0.02,
     ['range'] = 3
 }
 
 Hondo = {
-    ['attack'] = 8754,
+    ['offense'] = 8754,
     ['defense'] = 9132,
     ['evade'] = 0.02,
     ['range'] = 3
 }
 
 JediKnightLuke = {
-    ['attack'] = 18137,
+    ['offense'] = 18137,
     ['defense'] = 18039,
     ['evade'] = 0.04,
     ['range'] = 1
 }
 
 JangoFett = {
-    ['attack'] = 18136,
+    ['offense'] = 18136,
     ['defense'] = 16064,
     ['evade'] = 0.15,
     ['range'] = 5
 }
 
 KyloRen = {
-    ['attack'] = 18293,
+    ['offense'] = 18293,
     ['defense'] = 17664,
     ['evade'] = 0.04,
     ['range'] = 1
 }
 
 MaceWindu = {
-    ['attack'] = 18601,
+    ['offense'] = 18601,
     ['defense'] = 18574,
     ['evade'] = 0.04,
     ['range'] = 1
 }
 
 MagnaGuard = {
-    ['attack'] = 13452,
+    ['offense'] = 13452,
     ['defense'] = 12784,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 Maul = {
-    ['attack'] = 18325,
+    ['offense'] = 18325,
     ['defense'] = 17583,
     ['evade'] = 0.04,
     ['range'] = 1
 }
 
 ObiWanKenobi = {
-    ['attack'] = 17421,
+    ['offense'] = 17421,
     ['defense'] = 18864,
     ['evade'] = 0.04,
     ['range'] = 1
 }
 
 PreVizsla = {
-    ['attack'] = 17836,
+    ['offense'] = 17836,
     ['defense'] = 17874,
     ['evade'] = 0.10,
     ['range'] = 1
 }
 
 R2D2 = {
-    ['attack'] = 9241,
+    ['offense'] = 9241,
     ['defense'] = 8165,
     ['evade'] = 0.15,
     ['range'] = 1
 }
 
 Rey = {
-    ['attack'] = 18024,
+    ['offense'] = 18024,
     ['defense'] = 18015,
     ['evade'] = 0.04,
     ['range'] = 1
 }
 
 SavageOpress = {
-    ['attack'] = 18456,
+    ['offense'] = 18456,
     ['defense'] = 17349,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 TheMandalorian = {
-    ['attack'] = 17943,
+    ['offense'] = 17943,
     ['defense'] = 16528,
     ['evade'] = 0.15,
     ['range'] = 5
 }
 
 Yoda = {
-    ['attack'] = 18584,
+    ['offense'] = 18584,
     ['defense'] = 18735,
     ['evade'] = 0.12,
     ['range'] = 1
