@@ -12,6 +12,13 @@ AnakinF3 = {
     ['range'] = 1
 }
 
+AsajjVentress = {
+    ['attack'] = 18349,
+    ['defense'] = 17527,
+    ['evade'] = 0.07,
+    ['range'] = 1
+}
+
 B1BattleDroid = {
     ['attack'] = 1302,
     ['defense'] = 1205,
