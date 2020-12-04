@@ -117,6 +117,13 @@ DarthNoScoper = {
     ['range'] = 1
 }
 
+Droideka = {
+    ['attack'] = 13768,
+    ['defense'] = 13943,
+    ['evade'] = 0,
+    ['range'] = 2
+}
+
 Ewok = {
     ['attack'] = 1254,
     ['defense'] = 975,
