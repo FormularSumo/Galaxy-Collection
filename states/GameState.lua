@@ -62,7 +62,6 @@ function CheckRowBelowEmpty(player,x)
             if next_round_deck[x] ~= nil then
                 next_round_deck[x].row = row
                 next_round_deck[x+1] = next_round_deck[x]
-                next_round_deck[x+1].number = x+1
                 next_round_deck[x] = nil
                 x = x + 6
             end
@@ -84,13 +83,67 @@ function CheckRowAboveEmpty(player,x)
             if next_round_deck[x] ~= nil then
                 next_round_deck[x].row = row
                 next_round_deck[x-1] = next_round_deck[x]
-                next_round_deck[x-1].number = x-1
                 next_round_deck[x] = nil
                 x = x + 6
             end
         end
     end
 end
+
+function Check2TopRowsEmpty(player)
+    if player == 1 then
+        next_round_deck = next_round_P1_deck
+    else
+        next_round_deck = next_round_P2_deck
+    end
+    if next_round_deck[0] == nil and next_round_deck[6] == nil and next_round_deck[12] == nil and
+    next_round_deck[1] == nil and next_round_deck[7] == nil and next_round_deck[13] == nil and
+    not(next_round_deck[4] == nil and next_round_deck[10] == nil and next_round_deck[16] == nil) and
+    not(next_round_deck[5] == nil and next_round_deck[11] == nil and next_round_deck[17] == nil) then
+        y = 2
+        for i=0,4,1 do
+            x = y
+            row = x-1
+            for i=0,2,1 do
+                if next_round_deck[x] ~= nil then
+                    next_round_deck[x].row = row
+                    next_round_deck[x-1] = next_round_deck[x]
+                    next_round_deck[x] = nil
+                    x = x + 6
+                end
+            end
+            y = y + 1
+        end
+    end
+end
+
+function Check2BottomRowsEmpty(player)
+    if player == 1 then
+        next_round_deck = next_round_P1_deck
+    else
+        next_round_deck = next_round_P2_deck
+    end
+    if next_round_deck[4] == nil and next_round_deck[10] == nil and next_round_deck[16] == nil and
+    next_round_deck[5] == nil and next_round_deck[10] == nil and next_round_deck[17] == nil and
+    not(next_round_deck[0] == nil and next_round_deck[6] == nil and next_round_deck[12] == nil) and
+    not(next_round_deck[1] == nil and next_round_deck[7] == nil and next_round_deck[13] == nil) then
+        y = 4
+        for i=0,4,1 do
+            x = y
+            row = x+1
+            for i=0,2,1 do
+                if next_round_deck[x] ~= nil then
+                    next_round_deck[x].row = row
+                    next_round_deck[x+1] = next_round_deck[x]
+                    next_round_deck[x] = nil
+                    x = x + 6
+                end
+            end
+            y = y - 1
+        end
+    end
+end
+
 
 function GameState:update(dt)
     for k, pair in pairs(buttons) do
@@ -123,6 +176,10 @@ function GameState:update(dt)
                 CheckRowAboveEmpty(2,3)
                 CheckRowAboveEmpty(2,4)
                 CheckRowAboveEmpty(2,5)
+                Check2TopRowsEmpty(0)
+                Check2TopRowsEmpty(1)
+                Check2BottomRowsEmpty(0)
+                Check2BottomRowsEmpty(1)
             end
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:update(timer2)
