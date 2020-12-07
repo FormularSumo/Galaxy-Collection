@@ -107,12 +107,7 @@ function Card:attack()
             self.ranged_attack_roll = math.random() * self.total_probability
             i = 0
             for k, pair in pairs(self.possible_targets) do
-                if self.possible_targets[next(self.possible_targets,k)] == nil then
-                    if self.ranged_attack_roll < self.possible_targets[k] then
-                        self.target = k
-                        break
-                    end
-                elseif self.ranged_attack_roll < self.possible_targets[k] then
+                if self.ranged_attack_roll < self.possible_targets[k] then
                     self.target = k
                     break
                 end
