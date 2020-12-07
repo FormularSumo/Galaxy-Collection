@@ -18,7 +18,8 @@ function Card:init(name,row,column,team,number)
     self.range = _G[self.name]['range']
     self.alive = true
     self.attack_roll = 0
-    self.target = nil
+    self.ranged_attack_roll = 0
+    self.possible_targets = {}
     self.dodge = 0
     self.attacks_taken = 0
     if self.team == 1 then
@@ -75,8 +76,11 @@ function Card:move()
     end
 end
 
+function Card:distance(target)
+    return math.abs(self.column - self.enemy_deck[target].column) + math.abs(self.row - self.enemy_deck[target].row)
+end
+
 function Card:attack()
-    self.attack_roll = math.random(100) / 100
     if self.column == 5 or self.column == 6 then
         if self.enemy_deck[self.number] ~= nil then
             self.target = self.number
@@ -85,29 +89,60 @@ function Card:attack()
         elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
             self.target = self.number+1
         end
-        if self.target ~= nil then
-            self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
-            if self.attack_roll > self.enemy_deck[self.target].evade then
-                self.damage = ((self.offense - self.enemy_deck[self.target].defense) / 800)
-                if self.damage < 0 then self.damage = 0 end
-                self.damage = (self.damage ^ 3)
-                self.defence_down = (self.offense / 100) * (self.offense / self.enemy_deck[self.target].defense) ^ 3
-                if self.target ~= self.number then 
-                    self.damage = self.damage / 2 
-                    self.defence_down = self.defence_down / 2 
+
+    else
+        if self.enemy_deck[self.number] ~= nil then if self:distance(self.number) > self.range then return end end
+        if self.range > 1 then
+            self.possible_targets = {}
+            self.total_probability = 0
+            i = 0
+            for k, pair in pairs(self.enemy_deck) do
+                distance = self:distance(k)
+                if distance <= self.range then
+                    self.possible_targets[k] = self.total_probability + self.range/distance
+                    self.total_probability = self.total_probability + self.range/distance
                 end
-                self.enemy_deck[self.target].health = self.enemy_deck[self.target].health - (self.damage + 1)
-                if self.enemy_deck[self.target].defense > 0 then
-                    self.enemy_deck[self.target].defense = self.enemy_deck[self.target].defense - self.defence_down
-                    if self.enemy_deck[self.target].defense < 0 then self.enemy_deck[self.target].defense = 0 end
-                else
-                    self.enemy_deck[self.target].defense = 0
-                end
-            else
-                self.enemy_deck[self.target].dodge = self.enemy_deck[self.target].dodge + 1
+                i = i + 1
             end
-            self.target = nil
+            self.ranged_attack_roll = math.random() * self.total_probability
+            i = 0
+            for k, pair in pairs(self.possible_targets) do
+                if self.possible_targets[next(self.possible_targets,k)] == nil then
+                    if self.ranged_attack_roll < self.possible_targets[k] then
+                        self.target = k
+                        break
+                    end
+                elseif self.ranged_attack_roll < self.possible_targets[k] then
+                    self.target = k
+                    break
+                end
+            end
         end
+    end
+
+    if self.target ~= nil then
+        self.attack_roll = math.random(100) / 100
+        self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
+        if self.attack_roll > self.enemy_deck[self.target].evade then
+            self.damage = ((self.offense - self.enemy_deck[self.target].defense) / 800)
+            if self.damage < 0 then self.damage = 0 end
+            self.damage = (self.damage ^ 3)
+            self.defence_down = (self.offense / 100) * (self.offense / self.enemy_deck[self.target].defense) ^ 3
+            if self.target ~= self.number then 
+                self.damage = self.damage / 2 
+                self.defence_down = self.defence_down / 2 
+            end
+            self.enemy_deck[self.target].health = self.enemy_deck[self.target].health - (self.damage + 1)
+            if self.enemy_deck[self.target].defense > 0 then
+                self.enemy_deck[self.target].defense = self.enemy_deck[self.target].defense - self.defence_down
+                if self.enemy_deck[self.target].defense < 0 then self.enemy_deck[self.target].defense = 0 end
+            else
+                self.enemy_deck[self.target].defense = 0
+            end
+        else
+            self.enemy_deck[self.target].dodge = self.enemy_deck[self.target].dodge + 1
+        end
+        self.target = nil
     end
 end
 
@@ -127,8 +162,25 @@ function Card:render()
         love.graphics.setColor(1,1,1)
     end
 
-    -- if self.number == 2 then
+    -- if self.number == 15 then
     --     if self.team == 1 then
+    --         if self.possible_targets ~= nil then
+    --             y = 100
+    --             for k, pair in pairs(self.possible_targets) do
+    --                 y = y + 100
+    --                 love.graphics.print(tostring(k) .. ' ' .. tostring(pair),0,y)
+    --                 love.graphics.print(self.ranged_attack_roll,800,100)
+    --                 love.graphics.print(self.total_probability,0,100)
+    --             end
+    --         end
+    --         love.graphics.print(self.name,0,0)
+    --     end
+    -- end
+    -- if self.number == 3 then
+    --     if self.team == 1 then
+    --         love.graphics.print(self.attacks_taken)
+    --     end
+    -- end
     --         love.graphics.print(self.damage)
     --         love.graphics.print(self.defence_down,0,100)
     --         love.graphics.print(self.defense,0,200)
