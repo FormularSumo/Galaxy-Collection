@@ -68,7 +68,8 @@ function love.load()
     -- love.filesystem.remove('Player 1 deck.txt')
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
-    if P1_deck_file == nil then
+
+    if tostring(P1_deck_cards) == nil then -- if player doesn't have a deck file create with with each card blank
         love.filesystem.write('Player 1 deck.txt',',,,,,,,,,,,,,,,,,,')
     end
 
@@ -91,19 +92,24 @@ end
 function P1_deck_edit(position,name)
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
     P1_deck_cards_original = split(P1_deck_file,',')
-    
     for k, pair in pairs(P1_deck_cards_original) do 
         P1_deck_cards[k-1] = pair
     end
-
+    length = #P1_deck_cards
     P1_deck_cards[position] = tostring(name)
     P1_deck_cards_string = ''
+    x = -1
     for k, pair in pairs(P1_deck_cards) do
-        P1_deck_cards_string = P1_deck_cards_string .. pair .. ','
+        x = x + 1
+        if x < length then
+            P1_deck_cards_string = P1_deck_cards_string .. pair .. ','
+        else
+            P1_deck_cards_string = P1_deck_cards_string .. pair --stops extra comma being written
+        end
     end
 
     love.filesystem.write('Player 1 Deck.txt',P1_deck_cards_string)
-    
+
     read_P1_deck()
 end
 

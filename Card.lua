@@ -171,9 +171,10 @@ function Card:render()
     --         love.graphics.print(self.name,0,0)
     --     end
     -- end
-    -- if self.number == 3 then
-    --     if self.team == 1 then
+    -- if self.number == 2 then
+    --     if self.team == 2 then
     --         love.graphics.print(self.attacks_taken)
+    --         love.graphics.print(self.defense,0,100)
     --     end
     -- end
     --         love.graphics.print(self.damage)
