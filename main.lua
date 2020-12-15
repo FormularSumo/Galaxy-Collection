@@ -52,6 +52,7 @@ function love.load()
         ['Pause'] = Button('Pause','centre',920,'gamestate')
     }
 
+    love.filesystem.setIdentity('Star Wars Force Collection Remake')
     P1_deck = {}
     P2_deck = {}
     next_round_P1_deck = {}
@@ -64,8 +65,6 @@ function love.load()
     mouseLastX = 0
     mouseLastY = 0
     pause = false
-
-    -- love.filesystem.remove('Player 1 deck.txt')
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
 
@@ -108,7 +107,7 @@ function P1_deck_edit(position,name)
         end
     end
 
-    love.filesystem.write('Player 1 Deck.txt',P1_deck_cards_string)
+    love.filesystem.write('Player 1 deck.txt',P1_deck_cards_string)
 
     read_P1_deck()
 end
