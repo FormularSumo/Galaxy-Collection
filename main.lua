@@ -69,7 +69,7 @@ function love.load()
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
 
-    if tostring(P1_deck_cards) == nil then -- if player doesn't have a deck file create with with each card blank
+    if P1_deck_file == nil then
         love.filesystem.write('Player 1 deck.txt',',,,,,,,,,,,,,,,,,,')
     end
 
