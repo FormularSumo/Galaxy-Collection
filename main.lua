@@ -155,14 +155,20 @@ end
 
 function love.mousereleased(x,y,button)
     love.mouse.buttonsPressed[button] = true
-    mouseLastX,mouseLastY = love.mouse.getPosition()
-    mouseLastX,mouseLastY = push:toGame(mouseLastX,mouseLastY)
+    mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+    if mouseLastX == nil or mouseLastY == nil then
+        mouseLastX = -1
+        mouseLastY = -1
+    end
 end
 
 function love.touchreleased()
     love.mouse.buttonsPressed[1] = true
-    mouseLastX,mouseLastY = love.mouse.getPosition()
-    mouseLastX,mouseLastY = push:toGame(mouseLastX,mouseLastY)
+    mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+    if mouseLastX == nil or mouseLastY == nil then
+        mouseLastX = -1
+        mouseLastY = -1
+    end
 end
 
 function love.update(dt)
