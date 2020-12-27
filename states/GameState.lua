@@ -284,15 +284,7 @@ function GameState:update(dt)
         end 
         P1_deck = next_round_P1_deck
         P2_deck = next_round_P2_deck
-    end
-
-    -- if love.keyboard.wasPressed('m') then -- commented out because it doesn't work due to code below that plays/pauses music when pause button is clicked.
-    --     if sounds['Battle music 1']:isPlaying() then
-    --         sounds['Battle music 1']:pause()
-    --     else
-    --         sounds['Battle music 1']:play()
-    --     end
-    -- end   
+    end  
     
     -- P1_cards_alive = ''
     -- for k, pair in pairs(next_round_P1_deck) do

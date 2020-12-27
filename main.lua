@@ -65,6 +65,7 @@ function love.load()
     mouseLastX = 0
     mouseLastY = 0
     pause = false
+    focus = true
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
 
@@ -170,12 +171,26 @@ function love.touchreleased()
     end
 end
 
+function love.focus(InFocus)
+    if InFocus then
+        focus = true
+    else
+        focus = false
+    end
+end
+
 function love.update(dt)
+    if love.keyboard.wasPressed('m') then
+        if love.audio.getVolume() == 1 then
+            love.audio.setVolume(0)
+        else
+            love.audio.setVolume(1)
+        end
+    end 
     gStateMachine:update(dt)
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
 end
-
 
 function love.draw()
     push:start()
