@@ -1,11 +1,10 @@
 GameState = Class{__includes = BaseState}
+
 timer = -1
 timer2 = -1
 timer3 = -1.9
 
 function GameState:init()
-    sounds['Imperial March piano only']:pause()
-    sounds['Imperial March duet']:pause()
     sounds['Battle music 1']:play()
     sand_dunes:play()
 
@@ -333,4 +332,10 @@ function GameState:render()
             sand_dunes:play()
         end
     end
+end
+
+function GameState:exit()
+    love.audio.stop()
+    sand_dunes:pause()
+    sand_dunes:rewind()
 end

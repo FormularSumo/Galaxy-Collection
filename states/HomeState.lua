@@ -1,6 +1,5 @@
 HomeState = Class{__includes = BaseState}
 
-
 function HomeState:init()
     background_video:play()
     sounds['Imperial March piano only']:play()
@@ -33,4 +32,10 @@ function HomeState:render()
             pair:render()
         end
     end
+end
+
+function HomeState:exit()
+    love.audio.stop()
+    background_video:pause()
+    background_video:rewind()
 end
