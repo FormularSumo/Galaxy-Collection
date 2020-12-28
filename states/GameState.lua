@@ -205,7 +205,7 @@ end
 
 function GameState:update(dt)
     for k, pair in pairs(buttons) do
-        if pair.should_render == 'gamestate' then
+        if pair.render_gamestate == 'gamestate' then
             pair:update()
         end
     end
@@ -318,7 +318,7 @@ function GameState:render()
     -- love.graphics.setColor(255, 255, 255, 255)
     -- love.graphics.setFont(font80SW)
     for k, pair in pairs(buttons) do
-        if pair.should_render == 'gamestate' then
+        if pair.render_gamestate == 'gamestate' then
             pair:render()
         end
     end

@@ -1,11 +1,11 @@
 Button = Class{}
 
-function Button:init(name,x,y,render)
+function Button:init(name,x,y,render_gamestate)
     self.name = name
     self.image = love.graphics.newImage('Buttons/' .. self.name .. '.png')
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
-    self.should_render = render
+    self.render_gamestate = render_gamestate --Which gamestate should draw the button
     if x == nil then
         self.x = 0
     elseif x == 'centre' then
@@ -22,49 +22,7 @@ end
 
 function Button:update()
     if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-        if self.name == 'Battle 1' then
-            P2_deck_cards[0] = 'Maul'
-            P2_deck_cards[1] = 'CountDooku'
-            P2_deck_cards[2] = 'DarthSidiousReborn'
-            P2_deck_cards[3] = 'DarthVader'
-            P2_deck_cards[4] = 'GeneralGrievous'
-            P2_deck_cards[5] = 'KyloRen'
-            P2_deck_cards[6] = 'Droideka'
-            P2_deck_cards[7] = 'PreVizsla'
-            P2_deck_cards[8] = 'SavageOpress'
-            P2_deck_cards[9] = 'AsajjVentress'
-            P2_deck_cards[10] = 'MagnaGuard'
-            P2_deck_cards[11] = 'B1BattleDroid'
-            P2_deck_cards[12] = 'B2RPSuperBattleDroid'
-            P2_deck_cards[13] = 'CadBane'
-            P2_deck_cards[14] = 'JangoFett'
-            P2_deck_cards[15] = 'BobaFett'
-            P2_deck_cards[16] = 'Greedo'
-            P2_deck_cards[17] = 'B2SuperBattleDroid'
-
-            gStateMachine:change('game')
-        elseif self.name == 'Prebuilt deck' then
-            P1_deck_edit(0,'AhsokaS7')
-            P1_deck_edit(1,'AnakinF3')
-            P1_deck_edit(2,'Yoda')
-            P1_deck_edit(3,'MaceWindu')
-            P1_deck_edit(4,'ObiWanKenobi')
-            P1_deck_edit(5,'Rey')
-            P1_deck_edit(6,'Ewok')
-            P1_deck_edit(7,'BabyYoda')
-            P1_deck_edit(8,'JediKnightLuke')
-            P1_deck_edit(9,'BenKenobi')
-            P1_deck_edit(10,'R2D2')
-            P1_deck_edit(11,'C3P0')
-            P1_deck_edit(12,'FarmboyLuke')
-            P1_deck_edit(13,'HanSoloOld')
-            P1_deck_edit(14,'CaptainRex')
-            P1_deck_edit(15,'TheMandalorian')
-            P1_deck_edit(16,'Chewbacca')
-            P1_deck_edit(17,'Hondo')
-        elseif self.name == 'Pause' then
-            pause()
-        end
+        _G[self.name]()
     end
 end
 

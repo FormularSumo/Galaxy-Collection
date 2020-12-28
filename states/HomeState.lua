@@ -7,7 +7,7 @@ function HomeState:init()
     played = false
 end
 
-local function testForBackgroundImageLoop()
+local function testForBackgroundImageLoop() --Replays the background video each time it ends
     if background_video:isPlaying() then return end
     background_video:rewind()
     background_video:play()
@@ -20,7 +20,7 @@ function HomeState:update(dt)
     end
     testForBackgroundImageLoop()
     for k, pair in pairs(buttons) do
-        if pair.should_render == 'homestate' then
+        if pair.render_gamestate == 'homestate' then
             pair:update()
         end
     end
@@ -29,7 +29,7 @@ end
 function HomeState:render()
     love.graphics.draw(background_video,0,0)
     for k, pair in pairs(buttons) do
-        if pair.should_render == 'homestate' then
+        if pair.render_gamestate == 'homestate' then
             pair:render()
         end
     end
