@@ -33,7 +33,6 @@ function love.load()
     font80SW_runes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
     love.graphics.setFont(font80)
 
-    love.audio.setVolume(1)
     sounds = {
         ['Imperial March piano only'] = love.audio.newSource('Music/Imperial March piano only.oga','stream'),
         ['Imperial March duet'] = love.audio.newSource('Music/Imperial March duet.mp3','stream'),
