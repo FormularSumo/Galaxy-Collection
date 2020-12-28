@@ -63,11 +63,7 @@ function Button:update()
             P1_deck_edit(16,'Chewbacca')
             P1_deck_edit(17,'Hondo')
         elseif self.name == 'Pause' then
-            if pause == false then
-                pause = true
-            else
-                pause = false
-            end
+            pause()
         end
     end
 end

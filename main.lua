@@ -64,7 +64,7 @@ function love.load()
     love.mouse.buttonsPressed = {}
     mouseLastX = 0
     mouseLastY = 0
-    pause = false
+    paused = false
     focus = true
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
@@ -176,6 +176,14 @@ function love.focus(InFocus)
         focus = true
     else
         focus = false
+    end
+end
+
+function pause()
+    if paused == false then
+        paused = true
+    else
+        paused = false
     end
 end
 

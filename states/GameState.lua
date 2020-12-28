@@ -209,7 +209,7 @@ function GameState:update(dt)
             pair:update()
         end
     end
-    if pause == false then
+    if paused == false then
         timer = timer + dt 
         timer2 = timer2 + dt
         timer3 = timer3 + dt
@@ -285,7 +285,11 @@ function GameState:update(dt)
         P1_deck = next_round_P1_deck
         P2_deck = next_round_P2_deck
     end  
-    
+
+    if love.keyboard.wasPressed('space') then
+        pause()
+    end
+
     -- P1_cards_alive = ''
     -- for k, pair in pairs(next_round_P1_deck) do
     --     P1_cards_alive = P1_cards_alive .. pair.name .. '\n'
@@ -318,7 +322,7 @@ function GameState:render()
             pair:render()
         end
     end
-    if pause == true then
+    if paused == true then
         sounds['Battle music 1']:pause()
         sand_dunes:pause()
     else
