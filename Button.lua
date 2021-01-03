@@ -2,15 +2,14 @@ Button = Class{}
 
 function Button:init(func,text,font,bg_image,x,y,render_gamestate)
     self.func = func
-    self.text = text
+    self.textstring = text
     self.font = font 
     if self.font == nil then 
         self.font = love.graphics.getFont()
     end
+    self.text = love.graphics.newText(self.font,self.textstring)
     self.render_gamestate = render_gamestate --Which gamestate should draw the button
-    self.width = self.font:getWidth(self.text)
-    self.height = self.font:getHeight()
-    
+    self.width,self.height = self.text:getDimensions()
     if x == 'centre' then
         self.textx = VIRTUAL_WIDTH / 2 - self.width / 2
     else 
@@ -52,5 +51,5 @@ function Button:render()
     if self.bg_image ~= nil then
         love.graphics.draw(self.bg_image, self.x, self.y)
     end
-    love.graphics.print(self.text, self.font, self.textx, self.texty)
+    love.graphics.draw(self.text, self.textx, self.texty)
 end
