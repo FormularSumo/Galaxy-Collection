@@ -1,31 +1,56 @@
 Button = Class{}
 
-function Button:init(name,x,y,render_gamestate)
-    self.name = name
-    self.image = love.graphics.newImage('Buttons/' .. self.name .. '.png')
-    self.width = self.image:getWidth()
-    self.height = self.image:getHeight()
+function Button:init(func,text,font,bg_image,x,y,render_gamestate)
+    self.func = func
+    self.text = text
+    self.font = font 
+    if self.font == nil then 
+        self.font = love.graphics.getFont()
+    end
     self.render_gamestate = render_gamestate --Which gamestate should draw the button
-    if x == nil then
-        self.x = 0
-    elseif x == 'centre' then
-        self.x = VIRTUAL_WIDTH / 2 - self.width / 2
-    else self.x = x
+    self.width = self.font:getWidth(self.text)
+    self.height = self.font:getHeight()
+    
+    if x == 'centre' then
+        self.textx = VIRTUAL_WIDTH / 2 - self.width / 2
+    else 
+        self.textx = x 
     end
-    if y == nil then
-        self.y = 0
-    elseif y == 'centre' then
-        self.y = VIRTUAL_HEIGHT / 2 - self.height / 2
-    else self.y = y
+    if y == 'centre' then
+        self.texty = VIRTUAL_HEIGHT / 2 - self.height / 2
+    else 
+        self.texty = y 
     end
+
+    if bg_image ~= nil then
+        self.bg_image = love.graphics.newImage('Buttons/' .. bg_image .. '.png')
+        self.imagewidth,self.imageheight = self.bg_image:getDimensions()
+        if x == 'centre' then
+            self.x = VIRTUAL_WIDTH / 2 - self.imagewidth / 2
+        else 
+            self.x = x - (self.imagewidth - self.width) / 2
+        end
+        if y == 'centre' then
+            self.y = VIRTUAL_WIDTH / 2 - self.imageheight / 2
+        else 
+            self.y = y - (self.imageheight - self.height) / 2
+        end
+        self.width = self.imagewidth
+        self.height = self.imageheight
+    end
+    if self.y == nil then self.y = self.texty end
+    if self.x == nil then self.x = self.textx end
 end
 
 function Button:update()
     if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-        _G[self.name]()
+        _G[self.func]()
     end
 end
 
 function Button:render()
-    love.graphics.draw(self.image, self.x, self.y)
+    if self.bg_image ~= nil then
+        love.graphics.draw(self.bg_image, self.x, self.y)
+    end
+    love.graphics.print(self.text, self.font, self.textx, self.texty)
 end

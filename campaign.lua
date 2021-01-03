@@ -1,4 +1,4 @@
-function battle1() --The 1st level of the gaem campaign, will in future be all Ewoks I think, currently these characters to make an interesting fight vs pre-built deck
+function battle1() --The 1st level of the game campaign, will in future be all Ewoks I think, currently these characters to make an interesting fight vs pre-built deck
     P2_deck_cards[0] = 'Maul'
     P2_deck_cards[1] = 'CountDooku'
     P2_deck_cards[2] = 'DarthSidiousReborn'

@@ -32,6 +32,7 @@ function love.load()
     font80 = love.graphics.newFont(80)
     font80SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',80)
     font80SW_runes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
+    font100 = love.graphics.newFont(100)
     love.graphics.setFont(font80)
 
     sounds = {
@@ -47,9 +48,9 @@ function love.load()
     desert_background = love.graphics.newImage('Backgrounds/Desert_background.png')
     
     buttons = {
-        ['battle1'] = Button('battle1','centre',100,'homestate'),
-        ['prebuilt_deck'] = Button('prebuilt_deck',50,50,'homestate'),
-        ['pause'] = Button('pause','centre',920,'gamestate')
+        ['Battle 1'] = Button('battle1','Battle 1',font80,nil,'centre',100,'homestate'),
+        ['Prebuilt Deck'] = Button('prebuilt_deck','Create a pre-built deck',font50,nil,50,120,'homestate'),
+        ['Pause'] = Button('pause','Pause',font100,nil,'centre',920,'gamestate')
     }
 
     love.filesystem.setIdentity('Star Wars Force Collection Remake')
