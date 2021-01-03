@@ -63,6 +63,7 @@ function love.load()
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
+    mouseDown = false
     mouseLastX = 0
     mouseLastY = 0
     paused = false
@@ -172,6 +173,11 @@ function love.touchreleased()
     end
 end
 
+function love.touchpressed()
+    mouseDown = true
+    mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+end
+
 function love.focus(InFocus)
     if InFocus then
         focus = true
@@ -196,9 +202,14 @@ function love.update(dt)
             love.audio.setVolume(1)
         end
     end 
+    if love.mouse.isDown(1,2,3) then
+        mouseDown = true
+        mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+    end
     gStateMachine:update(dt)
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
+    mouseDown = false
 end
 
 function love.draw()

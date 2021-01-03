@@ -39,17 +39,23 @@ function Button:init(func,text,font,bg_image,x,y,render_gamestate)
     end
     if self.y == nil then self.y = self.texty end
     if self.x == nil then self.x = self.textx end
+    self.scaling = 1
 end
 
 function Button:update()
     if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
         _G[self.func]()
     end
+    if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
+        self.scaling = 1.1
+    else
+        self.scaling = 1
+    end
 end
 
 function Button:render()
     if self.bg_image ~= nil then
-        love.graphics.draw(self.bg_image, self.x, self.y)
+        love.graphics.draw(self.bg_image, self.x, self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
     end
-    love.graphics.draw(self.text, self.textx, self.texty)
+    love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
 end
