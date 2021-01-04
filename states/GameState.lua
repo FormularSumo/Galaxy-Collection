@@ -11,6 +11,7 @@ function GameState:init()
     read_P1_deck()
 
     winner = 'none'
+    gamespeed = 1
     P1column = -1
     P2column = 12
     row_correctment = 0
@@ -30,6 +31,8 @@ function GameState:init()
     end
     next_round_P1_deck = P1_deck
     next_round_P2_deck = P2_deck
+    gui['Pause'] = Button('pause','Pause',font100,nil,'centre',920)
+    gui['Gamespeed Slider'] = Slider(1591,20,300,12,'gamespeed_slider',0.3,0.3,0.3,0,0,0,0.25)
     -- P1_deck[2].health = 0
     -- P1_deck[8].health = 0 
     -- P1_deck[14].health = 0 
@@ -204,11 +207,7 @@ end
 
 
 function GameState:update(dt)
-    for k, pair in pairs(buttons) do
-        if pair.renderstate == 'gamestate' then
-            pair:update()
-        end
-    end
+    dt = dt * gamespeed
     if paused == false and winner == 'none' then
         timer = timer + dt 
         timer2 = timer2 + dt
@@ -336,11 +335,6 @@ function GameState:render()
             P2_deck[k]:render()
         end
     end
-    for k, pair in pairs(buttons) do
-        if pair.renderstate == 'gamestate' then
-            pair:render()
-        end
-    end
     if winner ~= 'none' then 
         love.graphics.print('Winner: ' .. winner)
     end
@@ -355,4 +349,5 @@ function GameState:exit()
     love.audio.stop()
     sand_dunes:pause()
     sand_dunes:rewind()
+    gui = {}
 end

@@ -4,6 +4,8 @@ function HomeState:init()
     background_video:play()
     sounds['Imperial March piano only']:play()
     played = false
+    gui['Battle 1'] = Button('battle1','Battle 1',font80,nil,'centre',100)
+    gui['Prebuilt Deck'] = Button('prebuilt_deck','Create a pre-built deck',font50,nil,50,120)
 end
 
 local function testForBackgroundImageLoop() --Replays the background video each time it ends
@@ -18,24 +20,15 @@ function HomeState:update(dt)
         played = true
     end
     testForBackgroundImageLoop()
-    for k, pair in pairs(buttons) do
-        if pair.renderstate == 'homestate' then
-            pair:update()
-        end
-    end
 end
 
 function HomeState:render()
     love.graphics.draw(background_video,0,0)
-    for k, pair in pairs(buttons) do
-        if pair.renderstate == 'homestate' then
-            pair:render()
-        end
-    end
 end
 
 function HomeState:exit()
     love.audio.stop()
     background_video:pause()
     background_video:rewind()
+    gui = {}
 end

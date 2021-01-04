@@ -1,6 +1,6 @@
 Button = Class{}
 
-function Button:init(func,text,font,bg_image,x,y,renderstate)
+function Button:init(func,text,font,bg_image,x,y)
     self.func = func
     self.textstring = text
     self.font = font 
@@ -8,7 +8,6 @@ function Button:init(func,text,font,bg_image,x,y,renderstate)
         self.font = love.graphics.getFont()
     end
     self.text = love.graphics.newText(self.font,self.textstring)
-    self.renderstate = renderstate --Which state should draw the button
     self.width,self.height = self.text:getDimensions()
     if x == 'centre' then
         self.textx = VIRTUAL_WIDTH / 2 - self.width / 2

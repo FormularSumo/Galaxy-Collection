@@ -4,12 +4,14 @@ Class = require 'class'
 
 require 'Card'
 require 'Button'
+require 'Slider'
 require 'Characters/Character stats'
 require 'StateMachine'
 require 'states/BaseState'
 require 'states/GameState'
 require 'states/HomeState'
 require 'campaign'
+require 'other functions'
 
 function love.load()
     -- app window title
@@ -47,11 +49,7 @@ function love.load()
 
     desert_background = love.graphics.newImage('Backgrounds/Desert_background.png')
     
-    buttons = {
-        ['Battle 1'] = Button('battle1','Battle 1',font80,nil,'centre',100,'homestate'),
-        ['Prebuilt Deck'] = Button('prebuilt_deck','Create a pre-built deck',font50,nil,50,120,'homestate'),
-        ['Pause'] = Button('pause','Pause',font100,nil,'centre',920,'gamestate')
-    }
+    gui = {}
 
     love.filesystem.setIdentity('Star Wars Force Collection Remake')
     P1_deck = {}
@@ -176,7 +174,7 @@ end
 function love.touchpressed()
     mouseDown = true
     mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
-     if mouseLastX == nil or mouseLastY == nil then
+    if mouseLastX == nil or mouseLastY == nil then
         mouseLastX = -1
         mouseLastY = -1
     end
@@ -187,14 +185,6 @@ function love.focus(InFocus)
         focus = true
     else
         focus = false
-    end
-end
-
-function pause()
-    if paused == false then
-        paused = true
-    else
-        paused = false
     end
 end
 
@@ -214,6 +204,9 @@ function love.update(dt)
             mouseLastY = -1
         end
     end
+    for k, pair in pairs(gui) do
+        pair:update()
+    end
     gStateMachine:update(dt)
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
@@ -223,5 +216,8 @@ end
 function love.draw()
     push:start()
     gStateMachine:render()
+    for k, pair in pairs(gui) do
+        pair:render()
+    end
     push:finish()
 end
