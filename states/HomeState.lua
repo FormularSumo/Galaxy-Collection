@@ -19,7 +19,7 @@ function HomeState:update(dt)
     end
     testForBackgroundImageLoop()
     for k, pair in pairs(buttons) do
-        if pair.render_gamestate == 'homestate' then
+        if pair.renderstate == 'homestate' then
             pair:update()
         end
     end
@@ -28,7 +28,7 @@ end
 function HomeState:render()
     love.graphics.draw(background_video,0,0)
     for k, pair in pairs(buttons) do
-        if pair.render_gamestate == 'homestate' then
+        if pair.renderstate == 'homestate' then
             pair:render()
         end
     end

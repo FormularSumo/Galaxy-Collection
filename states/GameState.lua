@@ -10,6 +10,7 @@ function GameState:init()
 
     read_P1_deck()
 
+    winner = 'none'
     P1column = -1
     P2column = 12
     row_correctment = 0
@@ -204,11 +205,11 @@ end
 
 function GameState:update(dt)
     for k, pair in pairs(buttons) do
-        if pair.render_gamestate == 'gamestate' then
+        if pair.renderstate == 'gamestate' then
             pair:update()
         end
     end
-    if paused == false then
+    if paused == false and winner == 'none' then
         timer = timer + dt 
         timer2 = timer2 + dt
         timer3 = timer3 + dt
@@ -288,39 +289,27 @@ function GameState:update(dt)
     if love.keyboard.wasPressed('space') then
         pause()
     end
+   
+    if winner == 'none' then
+        P1_cards_alive = ''
+        for k, pair in pairs(P1_deck) do
+            P1_cards_alive = P1_cards_alive .. pair.name .. '\n'
+        end
+        if P1_cards_alive == '' then P1_deck = nil end
 
-    -- P1_cards_alive = ''
-    -- for k, pair in pairs(next_round_P1_deck) do
-    --     P1_cards_alive = P1_cards_alive .. pair.name .. '\n'
-    -- end
-    -- love.filesystem.write('Player 1 alive units',P1_cards_alive)
+        P2_cards_alive = ''
+        for k, pair in pairs(P2_deck) do
+            P2_cards_alive = P2_cards_alive .. pair.name .. '\n'
+        end
+        if P2_cards_alive == '' then P2_deck = nil end
 
-    -- P2_cards_alive = ''
-    -- for k, pair in pairs(next_round_P2_deck) do
-    --     P2_cards_alive = P2_cards_alive .. pair.name .. '\n'
-    -- end
-    -- love.filesystem.write('Player 2 alive units',P2_cards_alive)
-end
-
-function GameState:render()
-    love.graphics.draw(sand_dunes,0,0)
-    -- love.graphics.draw(desert_background)
-    for k, pair in pairs(P1_deck) do
-        P1_deck[k]:render()
-    end
-    for k, pair in pairs(P2_deck) do
-        P2_deck[k]:render()
-    end
-    -- love.graphics.setFont(font50)
-    -- love.graphics.setColor(0, 255, 0, 255)
-    -- love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
-    -- love.graphics.setColor(255, 255, 255, 255)
-    -- love.graphics.setFont(font80SW)
-    for k, pair in pairs(buttons) do
-        if pair.render_gamestate == 'gamestate' then
-            pair:render()
+        if P1_deck == nil then
+            winner = 'P2'
+        elseif P2_deck == nil then
+            winner = 'P1'
         end
     end
+
     if paused == true then
         sounds['Battle music 1']:pause()
         sand_dunes:pause()
@@ -332,6 +321,34 @@ function GameState:render()
             sand_dunes:play()
         end
     end
+end
+
+function GameState:render()
+    love.graphics.draw(sand_dunes,0,0)
+    -- love.graphics.draw(desert_background)
+    if P1_deck ~= nil then
+        for k, pair in pairs(P1_deck) do
+            P1_deck[k]:render()
+        end
+    end
+    if P2_deck ~= nil then
+        for k, pair in pairs(P2_deck) do
+            P2_deck[k]:render()
+        end
+    end
+    for k, pair in pairs(buttons) do
+        if pair.renderstate == 'gamestate' then
+            pair:render()
+        end
+    end
+    if winner ~= 'none' then 
+        love.graphics.print('Winner: ' .. winner)
+    end
+    -- love.graphics.setFont(font50)
+    -- love.graphics.setColor(0, 255, 0, 255)
+    -- love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
+    -- love.graphics.setColor(255, 255, 255, 255)
+    -- love.graphics.setFont(font80SW)
 end
 
 function GameState:exit()
