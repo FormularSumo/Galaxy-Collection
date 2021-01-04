@@ -176,6 +176,10 @@ end
 function love.touchpressed()
     mouseDown = true
     mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+     if mouseLastX == nil or mouseLastY == nil then
+        mouseLastX = -1
+        mouseLastY = -1
+    end
 end
 
 function love.focus(InFocus)
@@ -205,6 +209,10 @@ function love.update(dt)
     if love.mouse.isDown(1,2,3) then
         mouseDown = true
         mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+        if mouseLastX == nil or mouseLastY == nil then
+            mouseLastX = -1
+            mouseLastY = -1
+        end
     end
     gStateMachine:update(dt)
     love.keyboard.keysPressed = {}
