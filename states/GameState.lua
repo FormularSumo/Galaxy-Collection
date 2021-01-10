@@ -302,7 +302,9 @@ function GameState:update(dt)
         end
         if P2_cards_alive == '' then P2_deck = nil end
 
-        if P1_deck == nil then
+        if P1_deck == nil and P2_deck == nil then 
+            winner = 'Draw'
+        elseif P1_deck == nil then
             winner = 'P2'
         elseif P2_deck == nil then
             winner = 'P1'
