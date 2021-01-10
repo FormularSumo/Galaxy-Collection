@@ -302,15 +302,10 @@ function GameState:update(dt)
         end
         if P2_cards_alive == '' then P2_deck = nil end
 
-        if P1_deck == nil or P2_deck == nil then
-            gui['Main Menu'] = Button('return_to_main_menu','Main menu',font80,nil,10,100,0,0,0)
-            if P1_deck == nil and P2_deck == nil then 
-                winner = 'Draw'
-            elseif P1_deck == nil then
-                winner = 'P2'
-            elseif P2_deck == nil then
-                winner = 'P1'
-            end
+        if P1_deck == nil then
+            winner = 'P2'
+        elseif P2_deck == nil then
+            winner = 'P1'
         end
     end
 
