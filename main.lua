@@ -20,8 +20,9 @@ function love.load()
     VIRTUAL_WIDTH = 1920
     VIRTUAL_HEIGHT = 1080
 
-    math.randomseed(os.time()) --Randomises randomiser each time program is run. 
-
+    math.randomseed(tonumber(tostring(os.time()):reverse():sub(1,6))) --Randomises randomiser each time program is run. String is reversed to preserve low bits in time (eg second, millisecodns) rather than high bits (years, hours) when rounding - see http://lua-users.org/wiki/MathLibraryTutorial
+    math.random()
+    
     -- initialize virtual resolution
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
         vsync = true,
