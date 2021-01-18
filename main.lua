@@ -52,10 +52,6 @@ function love.load()
     gui = {}
 
     love.filesystem.setIdentity('Star Wars Force Collection Remake')
-    P1_deck = {}
-    P2_deck = {}
-    next_round_P1_deck = {}
-    next_round_P2_deck = {}
     P1_deck_cards = {}
     P2_deck_cards = {}
 

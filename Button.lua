@@ -1,6 +1,6 @@
 Button = Class{}
 
-function Button:init(func,text,font,bg_image,x,y)
+function Button:init(func,text,font,bg_image,x,y,r,g,b)
     self.func = func
     self.textstring = text
     self.font = font 
@@ -11,13 +11,13 @@ function Button:init(func,text,font,bg_image,x,y)
     self.width,self.height = self.text:getDimensions()
     if x == 'centre' then
         self.textx = VIRTUAL_WIDTH / 2 - self.width / 2
-    else 
-        self.textx = x 
+    else
+        self.textx = x
     end
     if y == 'centre' then
         self.texty = VIRTUAL_HEIGHT / 2 - self.height / 2
-    else 
-        self.texty = y 
+    else
+        self.texty = y
     end
 
     if bg_image ~= nil then
@@ -36,6 +36,9 @@ function Button:init(func,text,font,bg_image,x,y)
         self.width = self.imagewidth
         self.height = self.imageheight
     end
+    if r == nil then self.r = 1 else self.r = r end
+    if g == nil then self.g = 1 else self.g = g end
+    if b == nil then self.b = 1 else self.b = b end
     if self.y == nil then self.y = self.texty end
     if self.x == nil then self.x = self.textx end
     self.scaling = 1
@@ -56,5 +59,7 @@ function Button:render()
     if self.bg_image ~= nil then
         love.graphics.draw(self.bg_image, self.x, self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
     end
+    love.graphics.setColor(self.r,self.g,self.b)
     love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+    love.graphics.setColor(1,1,1)
 end

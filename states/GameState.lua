@@ -1,20 +1,22 @@
 GameState = Class{__includes = BaseState}
 
-timer = -1
-timer2 = -1
-timer3 = -1.9
-
 function GameState:init()
+    timer = -1
+    timer2 = -1
+    timer3 = -1.9
+
     sounds['Battle music 1']:play()
     sand_dunes:play()
 
     read_P1_deck()
-
+    P1_deck = {}
+    P2_deck = {}
     winner = 'none'
     gamespeed = 1
     P1column = -1
     P2column = 12
     row_correctment = 0
+
     for i=0,17,1 do
         if i % 6 == 0 and i ~= 0 then
             P1column = -1 - i / 6 
@@ -29,9 +31,10 @@ function GameState:init()
             P2_deck[i] = Card(P2_deck_cards[i],row,P2column,2,i)
         end
     end
+    
     next_round_P1_deck = P1_deck
     next_round_P2_deck = P2_deck
-    gui['Pause'] = Button('pause','Pause',font100,nil,'centre',920)
+    gui['Pause'] = Button('pause','Pause',font100,nil,1591,30,0,0,0)
     gui['Gamespeed Slider'] = Slider(1591,20,300,12,'gamespeed_slider',0.3,0.3,0.3,0,0,0,0.25)
     -- P1_deck[2].health = 0
     -- P1_deck[8].health = 0 
@@ -302,12 +305,15 @@ function GameState:update(dt)
         end
         if P2_cards_alive == '' then P2_deck = nil end
 
-        if P1_deck == nil and P2_deck == nil then 
-            winner = 'Draw'
-        elseif P1_deck == nil then
-            winner = 'P2'
-        elseif P2_deck == nil then
-            winner = 'P1'
+        if P1_deck == nil or P2_deck == nil then
+            gui['Main Menu'] = Button('return_to_main_menu','Main menu',font80,nil,10,100,0,0,0)
+            if P1_deck == nil and P2_deck == nil then 
+                winner = 'Draw'
+            elseif P1_deck == nil then
+                winner = 'P2'
+            elseif P2_deck == nil then
+                winner = 'P1'
+            end
         end
     end
 
@@ -338,7 +344,7 @@ function GameState:render()
         end
     end
     if winner ~= 'none' then 
-        love.graphics.print('Winner: ' .. winner,10,10)
+        love.graphics.print({{0,0,0},'Winner: ' .. winner},10,10)
     end
     -- love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 10, 10)
 end
@@ -348,4 +354,8 @@ function GameState:exit()
     sand_dunes:pause()
     sand_dunes:rewind()
     gui = {}
+    P1_deck = nil
+    P2_deck = nil
+    next_round_P1_deck = nil
+    next_round_P2_deck = nil
 end
