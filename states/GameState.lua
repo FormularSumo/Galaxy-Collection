@@ -4,6 +4,7 @@ function GameState:init()
     timer = -1
     timer2 = -1
     timer3 = -1.9
+    paused = false
 
     sounds['Battle music 1']:play()
     sand_dunes:play()

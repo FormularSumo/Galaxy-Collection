@@ -61,7 +61,6 @@ function love.load()
     mouseDown = false
     mouseLastX = 0
     mouseLastY = 0
-    paused = false
     focus = true
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
