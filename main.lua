@@ -62,6 +62,7 @@ function love.load()
     mouseLastX = 0
     mouseLastY = 0
     focus = true
+    joysticks = love.joystick.getJoysticks()
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
 
@@ -170,6 +171,17 @@ function love.touchreleased()
     end
 end
 
+function love.joystickreleased(joystick,button)
+    if button == 1 then
+        love.mouse.buttonsPressed[1] = true
+        mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+        if mouseLastX == nil or mouseLastY == nil then
+            mouseLastX = -1
+            mouseLastY = -1
+        end
+    end
+end
+
 function love.focus(InFocus)
     if InFocus then
         focus = true
@@ -180,7 +192,7 @@ end
 
 function love.update(dt)
     --Handle inputs
-    if love.mouse.isDown(1,2,3) then
+    if love.mouse.isDown(1,2,3) or joysticks[1]:isDown(1) then
         mouseDown = true
         mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
         if mouseLastX == nil or mouseLastY == nil then
@@ -189,6 +201,29 @@ function love.update(dt)
         end
     end
 
+    if joysticks[1] then
+        leftx = dt * 1000 * joysticks[1]:getGamepadAxis('leftx')
+        lefty = dt * 1000 * joysticks[1]:getGamepadAxis('lefty')
+        if focus and (leftx > 1 or leftx < -1 or lefty > 1 or lefty < -1) then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and buffer because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
+            love.mouse.setPosition(
+                love.mouse.getX() + (dt * 1000 * joysticks[1]:getGamepadAxis('leftx')),
+                love.mouse.getY() + (dt * 1000 * joysticks[1]:getGamepadAxis('lefty')))
+        end
+
+        if joysticks[1]:isGamepadDown('dpleft') then
+            love.mouse.setPosition(love.mouse.getX()-(dt*1000),love.mouse.getY())
+        end
+        if joysticks[1]:isGamepadDown('dpright') then
+            love.mouse.setPosition(love.mouse.getX()+(dt*1000),love.mouse.getY())
+        end
+        if joysticks[1]:isGamepadDown('dpup') then
+            love.mouse.setPosition(love.mouse.getX(),love.mouse.getY()-(dt*1000))
+        end
+        if joysticks[1]:isGamepadDown('dpdown') then
+            love.mouse.setPosition(love.mouse.getX(),love.mouse.getY()+(dt*1000))
+        end
+    end
+    
     --Update GUI elements
     for k, pair in pairs(gui) do
         pair:update()

@@ -1,9 +1,5 @@
 function pause()
-    if paused == false then
-        paused = true
-    else
-        paused = false
-    end
+    paused = not paused
 end
 
 function gamespeed_slider(percentage)
