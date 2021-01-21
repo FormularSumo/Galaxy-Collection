@@ -14,6 +14,9 @@ require 'campaign'
 require 'other functions'
 
 function love.load()
+    --Operating System
+    OS = love.system.getOS()
+
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')
     
@@ -147,6 +150,12 @@ function love.keypressed(key)
             love.audio.setVolume(1)
         end
     end 
+
+    --Escape on Android is mapped to the back key so can't be used for toggling fullscreen (well it can, but I don't want it to)
+    if key == 'escape' and OS ~= Android then
+        love.window.setFullscreen(false)
+        love.window.maximize()
+    end
 end
 
 function love.keyboard.wasPressed(key)
