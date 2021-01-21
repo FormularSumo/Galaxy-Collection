@@ -192,7 +192,7 @@ end
 
 function love.update(dt)
     --Handle inputs
-    if love.mouse.isDown(1,2,3) or joysticks[1]:isDown(1) then
+    if love.mouse.isDown(1,2,3) then
         mouseDown = true
         mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
         if mouseLastX == nil or mouseLastY == nil then
@@ -201,7 +201,17 @@ function love.update(dt)
         end
     end
 
+    -- If a joysticks is connected, otherwise don't both running all the joystick-input code
     if joysticks[1] then
+        if joysticks[1]:isDown(1) then 
+            mouseDown = true
+            mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+            if mouseLastX == nil or mouseLastY == nil then
+                mouseLastX = -1
+                mouseLastY = -1
+            end
+        end
+        
         leftx = dt * 1000 * joysticks[1]:getGamepadAxis('leftx')
         lefty = dt * 1000 * joysticks[1]:getGamepadAxis('lefty')
         if focus and (leftx > 1 or leftx < -1 or lefty > 1 or lefty < -1) then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and buffer because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
