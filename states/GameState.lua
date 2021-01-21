@@ -6,8 +6,11 @@ function GameState:init()
     timer3 = -1.9
     paused = false
 
+    videos['sand_dunes'] = love.graphics.newVideo('Videos/Sand Dunes.ogv')
+    sounds['Battle music 1'] = love.audio.newSource('Music/Battle music 1.mp3','stream')
+
     sounds['Battle music 1']:play()
-    sand_dunes:play()
+    videos['sand_dunes']:play()
 
     read_P1_deck()
     P1_deck = {}
@@ -320,20 +323,19 @@ function GameState:update(dt)
 
     if paused == true then
         sounds['Battle music 1']:pause()
-        sand_dunes:pause()
+        videos['sand_dunes']:pause()
     else
         if sounds['Battle music 1']:isPlaying() == false then
             sounds['Battle music 1']:play()
         end
-        if sand_dunes:isPlaying() == false then
-            sand_dunes:play()
+        if videos['sand_dunes']:isPlaying() == false then
+            videos['sand_dunes']:play()
         end
     end
 end
 
 function GameState:render()
-    love.graphics.draw(sand_dunes,0,0)
-    -- love.graphics.draw(desert_background)
+    love.graphics.draw(videos['sand_dunes'],0,0)
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
             P1_deck[k]:render()
@@ -352,11 +354,12 @@ end
 
 function GameState:exit()
     love.audio.stop()
-    sand_dunes:pause()
-    sand_dunes:rewind()
-    gui = {}
     P1_deck = nil
     P2_deck = nil
     next_round_P1_deck = nil
     next_round_P2_deck = nil
+    gui = {}
+    sounds = {}
+    videos = {}
+    collectgarbage()
 end

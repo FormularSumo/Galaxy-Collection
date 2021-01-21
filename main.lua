@@ -40,20 +40,10 @@ function love.load()
     font80SW_runes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
     font100 = love.graphics.newFont(100)
     love.graphics.setFont(font80)
-
-    sounds = {
-        ['Imperial March piano only'] = love.audio.newSource('Music/Imperial March piano only.oga','stream'),
-        ['Imperial March duet'] = love.audio.newSource('Music/Imperial March duet.mp3','stream'),
-        ['Battle music 1'] = love.audio.newSource('Music/Battle music 1.mp3','stream')
-    }
-
-    background_video = love.graphics.newVideo('Videos/Starry Background.ogv')
-
-    sand_dunes = love.graphics.newVideo('Videos/Sand Dunes.ogv')
-
-    desert_background = love.graphics.newImage('Backgrounds/Desert_background.png')
     
-    gui = {}
+    gui = {}    
+    sounds = {}
+    videos = {}
 
     love.filesystem.setIdentity('Star Wars Force Collection Remake')
     P1_deck_cards = {}
@@ -177,11 +167,7 @@ function love.joystickreleased(joystick,button)
 end
 
 function love.focus(InFocus)
-    if InFocus then
-        focus = true
-    else
-        focus = false
-    end
+    focus = InFocus
 end
 
 function love.update(dt)
@@ -190,7 +176,7 @@ function love.update(dt)
         update_mouse_position()
     end
 
-    -- If a joysticks is connected, otherwise don't both running all the joystick-input code
+    -- If a joysticks is connected run, otherwise don't both running all the joystick-input code
     if joysticks[1] then
         if joysticks[1]:isDown(1) then 
             update_mouse_position()
