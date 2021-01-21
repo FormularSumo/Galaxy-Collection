@@ -138,6 +138,14 @@ function love.keypressed(key)
             love.window.maximize()
         end
     end
+
+    if key == 'm' then
+        if love.audio.getVolume() == 1 then
+            love.audio.setVolume(0)
+        else
+            love.audio.setVolume(1)
+        end
+    end 
 end
 
 function love.keyboard.wasPressed(key)
@@ -162,15 +170,6 @@ function love.touchreleased()
     end
 end
 
-function love.touchpressed()
-    mouseDown = true
-    mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
-    if mouseLastX == nil or mouseLastY == nil then
-        mouseLastX = -1
-        mouseLastY = -1
-    end
-end
-
 function love.focus(InFocus)
     if InFocus then
         focus = true
@@ -180,13 +179,7 @@ function love.focus(InFocus)
 end
 
 function love.update(dt)
-    if love.keyboard.wasPressed('m') then
-        if love.audio.getVolume() == 1 then
-            love.audio.setVolume(0)
-        else
-            love.audio.setVolume(1)
-        end
-    end 
+    --Handle inputs
     if love.mouse.isDown(1,2,3) then
         mouseDown = true
         mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
@@ -195,10 +188,16 @@ function love.update(dt)
             mouseLastY = -1
         end
     end
+
+    --Update GUI elements
     for k, pair in pairs(gui) do
         pair:update()
     end
+
+    --Update state machine
     gStateMachine:update(dt)
+
+    --Reset table of clicked keys/mousebuttons so last frame's inputs aren't used next frame
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
     mouseDown = false
