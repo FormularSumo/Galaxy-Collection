@@ -142,7 +142,7 @@ function love.keypressed(key)
     end 
 
     --Escape on Android is mapped to the back key so can't be used for toggling fullscreen (well it can, but I don't want it to)
-    if key == 'escape' and OS ~= Android then
+    if key == 'escape' and OS ~= 'Android' then
         love.window.setFullscreen(false)
         love.window.maximize()
     end
