@@ -164,30 +164,15 @@ end
 
 function love.mousereleased(x,y,button)
     love.mouse.buttonsPressed[button] = true
-    mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
-    if mouseLastX == nil or mouseLastY == nil then
-        mouseLastX = -1
-        mouseLastY = -1
-    end
 end
 
 function love.touchreleased()
     love.mouse.buttonsPressed[1] = true
-    mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
-    if mouseLastX == nil or mouseLastY == nil then
-        mouseLastX = -1
-        mouseLastY = -1
-    end
 end
 
 function love.joystickreleased(joystick,button)
     if button == 1 then
         love.mouse.buttonsPressed[1] = true
-        mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
-        if mouseLastX == nil or mouseLastY == nil then
-            mouseLastX = -1
-            mouseLastY = -1
-        end
     end
 end
 
@@ -202,23 +187,13 @@ end
 function love.update(dt)
     --Handle inputs
     if love.mouse.isDown(1,2,3) then
-        mouseDown = true
-        mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
-        if mouseLastX == nil or mouseLastY == nil then
-            mouseLastX = -1
-            mouseLastY = -1
-        end
+        update_mouse_position()
     end
 
     -- If a joysticks is connected, otherwise don't both running all the joystick-input code
     if joysticks[1] then
         if joysticks[1]:isDown(1) then 
-            mouseDown = true
-            mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
-            if mouseLastX == nil or mouseLastY == nil then
-                mouseLastX = -1
-                mouseLastY = -1
-            end
+            update_mouse_position()
         end
         
         leftx = dt * 1000 * joysticks[1]:getGamepadAxis('leftx')

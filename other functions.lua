@@ -10,6 +10,15 @@ function return_to_main_menu()
     gStateMachine:change('home')
 end
 
+function update_mouse_position()
+    mouseDown = true
+    mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+    if mouseLastX == nil or mouseLastY == nil then
+        mouseLastX = -1
+        mouseLastY = -1
+    end
+end
+
 function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
     P1_deck_edit(0,'AhsokaS7')
     P1_deck_edit(1,'AnakinF3')
