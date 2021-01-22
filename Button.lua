@@ -2,46 +2,81 @@ Button = Class{}
 
 function Button:init(func,text,font,bg_image,x,y,r,g,b)
     self.func = func
-    self.textstring = text
     self.font = font 
+    self.scaling = 1
+    if bg_image == nil then self.has_picture = false else self.has_picture = true end
+    if x == 'centre' then self.centrex = true else self.centrex = false end
+    if y == 'centre' then self.centrey = true else self.centrey = false end
     if self.font == nil then 
         self.font = love.graphics.getFont()
     end
-    self.text = love.graphics.newText(self.font,self.textstring)
-    self.width,self.height = self.text:getDimensions()
-    if x == 'centre' then
-        self.textx = VIRTUAL_WIDTH / 2 - self.width / 2
+
+    self.text = love.graphics.newText(self.font,text)
+    self.textwidth,self.textheight = self.text:getDimensions()
+    if self.centrex then
+        self.textx = VIRTUAL_WIDTH / 2 - self.textwidth / 2
     else
         self.textx = x
     end
-    if y == 'centre' then
-        self.texty = VIRTUAL_HEIGHT / 2 - self.height / 2
+    if self.centrey then
+        self.texty = VIRTUAL_HEIGHT / 2 - self.textheight / 2
     else
         self.texty = y
     end
 
-    if bg_image ~= nil then
+    if self.has_picture == true then
         self.bg_image = love.graphics.newImage('Buttons/' .. bg_image .. '.png')
         self.imagewidth,self.imageheight = self.bg_image:getDimensions()
         if x == 'centre' then
-            self.x = VIRTUAL_WIDTH / 2 - self.imagewidth / 2
+            self.imagex = VIRTUAL_WIDTH / 2 - self.imagewidth / 2
         else 
-            self.x = x - (self.imagewidth - self.width) / 2
+            self.imagex = x - (self.imagewidth - self.textwidth) / 2
         end
         if y == 'centre' then
-            self.y = VIRTUAL_WIDTH / 2 - self.imageheight / 2
+            self.imagey = VIRTUAL_WIDTH / 2 - self.imageheight / 2
         else 
-            self.y = y - (self.imageheight - self.height) / 2
+            self.imagey = y - (self.imageheight - self.textheight) / 2
         end
-        self.width = self.imagewidth
-        self.height = self.imageheight
+        self.height = math.max(self.imageheight,self.textheight)
+        self.width = math.max(self.imagewidth,self.textwidth)
+        self.y = math.min(self.imagey,self.texty)
+        self.x = math.min(self.imagex,self.textx)
+    else
+        self.height = self.textheight
+        self.width = self.textwidth
+        self.y = self.texty
+        self.x = self.textx
     end
     if r == nil then self.r = 1 else self.r = r end
     if g == nil then self.g = 1 else self.g = g end
     if b == nil then self.b = 1 else self.b = b end
-    if self.y == nil then self.y = self.texty end
-    if self.x == nil then self.x = self.textx end
-    self.scaling = 1
+end
+
+function Button:update_text(text)
+    self.text = love.graphics.newText(self.font,text)
+    self.textwidth,self.textheight = self.text:getDimensions()
+    if self.centrex then
+        self.textx = VIRTUAL_WIDTH / 2 - self.textwidth / 2
+    end
+    if self.centrey then
+        self.texty = VIRTUAL_HEIGHT / 2 - self.textheight / 2
+    end
+    if self.has_picture then
+        if self.centrex then
+            self.imagex = VIRTUAL_WIDTH / 2 - self.imagewidth / 2
+        else 
+            self.imagex = self.textx - (self.imagewidth - self.textwidth) / 2
+        end
+        self.height = math.max(self.imageheight,self.textheight)
+        self.width = math.max(self.imagewidth,self.textwidth)
+        self.y = math.min(self.imagey,self.y)
+        self.x = math.min(self.imagex,self.x)
+    else
+        self.height = self.textheight
+        self.width = self.textwidth
+        self.y = self.texty
+        self.x = self.textx
+    end
 end
 
 function Button:update()
@@ -49,7 +84,7 @@ function Button:update()
         _G[self.func]()
     end
     if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-        self.scaling = 1.1
+        self.scaling = 1.08
     else
         self.scaling = 1
     end
@@ -57,9 +92,9 @@ end
 
 function Button:render()
     if self.bg_image ~= nil then
-        love.graphics.draw(self.bg_image, self.x, self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
+        love.graphics.draw(self.bg_image, self.imagex, self.imagey,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
     end
     love.graphics.setColor(self.r,self.g,self.b)
-    love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+    love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.textwidth,(-1+self.scaling)/2*self.textheight)
     love.graphics.setColor(1,1,1)
 end

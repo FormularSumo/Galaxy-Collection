@@ -41,9 +41,13 @@ function love.load()
     font100 = love.graphics.newFont(100)
     love.graphics.setFont(font80)
     
-    gui = {}    
-    sounds = {}
+    gui = {}
+    songs = {}
     videos = {}
+    current_song = 0
+    next_song = 1
+    paused = false
+    pause_on_lose_focus = true
 
     love.filesystem.setIdentity('Star Wars Force Collection Remake')
     P1_deck_cards = {}
@@ -168,6 +172,7 @@ end
 
 function love.focus(InFocus)
     focus = InFocus
+    if pause_on_lose_focus then pause(not focus) end --Pause/play game if pause_on_lose_focus setting is on
 end
 
 function love.update(dt)
@@ -201,6 +206,15 @@ function love.update(dt)
         end
         if joysticks[1]:isGamepadDown('dpdown') then
             love.mouse.setPosition(love.mouse.getX(),love.mouse.getY()+(dt*1000))
+        end
+    end
+
+    --Manage song queue
+    if songs[0] ~= nil then
+        if songs[current_song]:isPlaying() == false and paused == false and next_song <= queue_length then
+            songs[next_song]:play()
+            current_song = next_song
+            next_song = next_song + 1
         end
     end
     

@@ -2,15 +2,16 @@ HomeState = Class{__includes = BaseState}
 
 function HomeState:init()
     videos['background_video'] = love.graphics.newVideo('Videos/Starry Background.ogv')
-    sounds['Imperial March piano only'] = love.audio.newSource('Music/Imperial March piano only.oga','stream')
-    sounds['Imperial March duet'] = love.audio.newSource('Music/Imperial March duet.mp3','stream')
+    songs[0] = love.audio.newSource('Music/Imperial March piano only.oga','stream')
+    songs[1] = love.audio.newSource('Music/Imperial March duet.mp3','stream')
 
     videos['background_video']:play()
-    sounds['Imperial March piano only']:play()
-    played = false
+    songs[0]:play()
+    queue_length = 1
     
     gui['Battle 1'] = Button('battle1','Battle 1',font80,nil,'centre',100)
     gui['Prebuilt Deck'] = Button('prebuilt_deck','Create a pre-built deck',font50,nil,50,120)
+    gui['Toggle pause on lose focus'] = Button('toggle_pause_on_lose_focus', 'Pause on losing Window focus: ' .. tostring(pause_on_lose_focus),font50,nil,'centre',800)
 end
 
 local function testForBackgroundImageLoop() --Replays the background video each time it ends
@@ -20,10 +21,6 @@ local function testForBackgroundImageLoop() --Replays the background video each 
 end
 
 function HomeState:update(dt)
-    if sounds['Imperial March piano only']:isPlaying() == false and played == false and focus == true then
-        sounds['Imperial March duet']:play()
-        played = true
-    end
     testForBackgroundImageLoop()
 end
 

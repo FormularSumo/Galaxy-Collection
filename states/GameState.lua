@@ -4,13 +4,13 @@ function GameState:init()
     timer = -1
     timer2 = -1
     timer3 = -1.9
-    paused = false
 
     videos['sand_dunes'] = love.graphics.newVideo('Videos/Sand Dunes.ogv')
-    sounds['Battle music 1'] = love.audio.newSource('Music/Battle music 1.mp3','stream')
+    songs[0] = love.audio.newSource('Music/Battle music 1.mp3','stream')
 
-    sounds['Battle music 1']:play()
     videos['sand_dunes']:play()
+    songs[0]:play()
+    queue_length = 0
 
     read_P1_deck()
     P1_deck = {}
@@ -322,12 +322,8 @@ function GameState:update(dt)
     end
 
     if paused == true then
-        sounds['Battle music 1']:pause()
         videos['sand_dunes']:pause()
     else
-        if sounds['Battle music 1']:isPlaying() == false then
-            sounds['Battle music 1']:play()
-        end
         if videos['sand_dunes']:isPlaying() == false then
             videos['sand_dunes']:play()
         end
