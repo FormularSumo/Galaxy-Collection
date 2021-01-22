@@ -20,9 +20,9 @@ function exit_state()
     collectgarbage()
 end
 
-function toggle_pause_on_lose_focus()
-    pause_on_lose_focus = not pause_on_lose_focus
-    gui['Toggle pause on lose focus']:update_text('Pause on losing Window focus: ' .. tostring(pause_on_lose_focus))
+function toggle_pause_on_loose_focus()
+    pause_on_loose_focus = not pause_on_loose_focus
+    gui['Toggle pause on loose focus']:update_text('Pause on losing Window focus: ' .. tostring(pause_on_loose_focus))
 end
 
 function gamespeed_slider(percentage)

@@ -47,7 +47,7 @@ function love.load()
     current_song = 0
     next_song = 1
     paused = false
-    pause_on_lose_focus = true
+    pause_on_loose_focus = true
 
     love.filesystem.setIdentity('Star Wars Force Collection Remake')
     P1_deck_cards = {}
@@ -172,7 +172,7 @@ end
 
 function love.focus(InFocus)
     focus = InFocus
-    if pause_on_lose_focus then pause(not focus) end --Pause/play game if pause_on_lose_focus setting is on
+    if pause_on_loose_focus then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
 end
 
 function love.update(dt)
