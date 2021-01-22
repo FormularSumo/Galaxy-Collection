@@ -32,9 +32,5 @@ function HomeState:render()
 end
 
 function HomeState:exit()
-    love.audio.stop()
-    gui = {}
-    sounds = {}
-    videos = {}
-    collectgarbage()
+    exit_state()
 end

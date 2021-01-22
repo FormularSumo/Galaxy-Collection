@@ -2,6 +2,14 @@ function pause()
     paused = not paused
 end
 
+function exit_state()
+    love.audio.stop()
+    gui = {}
+    sounds = {}
+    videos = {}
+    collectgarbage()
+end
+
 function gamespeed_slider(percentage)
     gamespeed = percentage * 4
 end

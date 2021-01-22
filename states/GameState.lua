@@ -353,13 +353,9 @@ function GameState:render()
 end
 
 function GameState:exit()
-    love.audio.stop()
     P1_deck = nil
     P2_deck = nil
     next_round_P1_deck = nil
     next_round_P2_deck = nil
-    gui = {}
-    sounds = {}
-    videos = {}
-    collectgarbage()
+    exit_state()
 end
