@@ -137,6 +137,7 @@ function love.keypressed(key)
         end
     end
 
+    --M mutes/unmutes
     if key == 'm' then
         if love.audio.getVolume() == 1 then
             love.audio.setVolume(0)
@@ -145,7 +146,7 @@ function love.keypressed(key)
         end
     end 
 
-    --Escape on Android is mapped to the back key so can't be used for toggling fullscreen (well it can, but I don't want it to)
+    --Escape on Android is mapped to the back key so shouldn't be used for exiting fullscreen
     if key == 'escape' and OS ~= 'Android' then
         love.window.setFullscreen(false)
         love.window.maximize()
