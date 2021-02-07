@@ -110,7 +110,7 @@ DarthVader = {
     ['range'] = 1
 }
 
-DarthNoScoper = {
+DarthNoscoper = {
     ['offense'] = 25387,
     ['defense'] = 24568,
     ['evade'] = 0,
