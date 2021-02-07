@@ -1,19 +1,19 @@
-push = require 'push'
-
-Class = require 'class'
-
-require 'Card'
-require 'Button'
-require 'Slider'
-require 'Characters/Character stats'
-require 'StateMachine'
-require 'states/BaseState'
-require 'states/GameState'
-require 'states/HomeState'
-require 'campaign'
-require 'other functions'
-
 function love.load()
+    --Libraries and other files that are required
+    push = require 'push'
+    Class = require 'class'
+    
+    require 'Card'
+    require 'Button'
+    require 'Slider'
+    require 'Characters/Character stats'
+    require 'StateMachine'
+    require 'states/BaseState'
+    require 'states/GameState'
+    require 'states/HomeState'
+    require 'campaign'
+    require 'other functions'
+
     --Operating System
     OS = love.system.getOS()
 
