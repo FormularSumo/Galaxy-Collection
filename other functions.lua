@@ -42,6 +42,12 @@ function update_mouse_position()
     end
 end
 
+function testForBackgroundImageLoop(video,seek) --Replays the inputted video if it's finished
+    if video:isPlaying() then return end
+    video:seek(seek)
+    video:play()
+end
+
 function open_deck_editor()
     gStateMachine:change('deckedit')
 end
