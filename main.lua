@@ -10,9 +10,11 @@ function love.load()
     require 'StateMachine'
     require 'states/BaseState'
     require 'states/GameState'
+    require 'states/DeckeditState'
     require 'states/HomeState'
     require 'campaign'
     require 'other functions'
+    require 'Card editor'
 
     --Operating System
     OS = love.system.getOS()
@@ -71,6 +73,7 @@ function love.load()
     gStateMachine = StateMachine {
         ['home'] = function() return HomeState() end,
         ['game'] = function() return GameState() end,
+        ['deckedit'] = function() return DeckeditState() end,
     }
     gStateMachine:change('home')
 end

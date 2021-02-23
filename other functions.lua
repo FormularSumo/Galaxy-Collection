@@ -48,6 +48,10 @@ function testForBackgroundImageLoop(video,seek) --Replays the inputted video if 
     video:play()
 end
 
+function open_deck_editor()
+    gStateMachine:change('deckedit')
+end
+
 function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
     P1_deck_edit(0,'AhsokaS7')
     P1_deck_edit(1,'AnakinF3')
