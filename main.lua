@@ -45,7 +45,7 @@ function love.load()
     
     gui = {}
     songs = {}
-    videos = {}
+    background = {}
     current_song = 0
     next_song = 1
     paused = false
@@ -221,7 +221,19 @@ function love.update(dt)
             next_song = next_song + 1
         end
     end
-    
+
+    --Manage background video looping and pausing
+    if background['Type'] == 'video' then
+        if paused == true then
+            background['Background']:pause()
+        else
+            if background['Background']:isPlaying() == false then
+                background['Background']:play()
+            end
+            testForBackgroundImageLoop(background['Background'],background['Seek'])
+        end
+    end
+
     --Update GUI elements
     for k, pair in pairs(gui) do
         pair:update()
@@ -238,6 +250,7 @@ end
 
 function love.draw()
     push:start()
+    love.graphics.draw(background['Background'],0,0)
     gStateMachine:render()
     for k, pair in pairs(gui) do
         pair:render()

@@ -5,10 +5,8 @@ function GameState:init()
     timer2 = -1
     timer3 = -1.9
 
-    videos['Sand Dunes'] = love.graphics.newVideo('Videos/Sand Dunes.ogv')
     songs[0] = love.audio.newSource('Music/Battle music 1.mp3','stream')
 
-    videos['Sand Dunes']:play()
     songs[0]:play()
     queue_length = 0
 
@@ -320,19 +318,9 @@ function GameState:update(dt)
             end
         end
     end
-
-    if paused == true then
-        videos['Sand Dunes']:pause()
-    else
-        if videos['Sand Dunes']:isPlaying() == false then
-            videos['Sand Dunes']:play()
-        end
-        testForBackgroundImageLoop(videos['Sand Dunes'],2)
-    end
 end
 
 function GameState:render()
-    love.graphics.draw(videos['Sand Dunes'],0,0)
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
             P1_deck[k]:render()

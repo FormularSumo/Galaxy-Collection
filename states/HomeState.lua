@@ -1,11 +1,12 @@
 HomeState = Class{__includes = BaseState}
 
 function HomeState:init()
-    videos['Starry Sky'] = love.graphics.newVideo('Videos/Starry Sky.ogv')
+    background['Background'] = love.graphics.newVideo('Backgrounds/Starry Sky.ogv')
+    background['Type'] = 'video'
+    background['Seek'] = 0
     songs[0] = love.audio.newSource('Music/Imperial March piano only.oga','stream')
     songs[1] = love.audio.newSource('Music/Imperial March duet.mp3','stream')
 
-    videos['Starry Sky']:play()
     songs[0]:play()
     queue_length = 1
     
@@ -16,11 +17,9 @@ function HomeState:init()
 end
 
 function HomeState:update()
-    testForBackgroundImageLoop(videos['Starry Sky'],0)
 end
 
 function HomeState:render()
-    love.graphics.draw(videos['Starry Sky'],0,0)
 end
 
 function HomeState:exit()
