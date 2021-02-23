@@ -17,7 +17,8 @@ function DeckeditState:init()
             P1_deck[i] = Card_editor(P1_deck_cards[i],row,P1column,i)
         end
     end
-    background = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
+    background['Background']= love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
+    background['Type'] = 'photo'
     gui['Main Menu'] = Button('return_to_main_menu','Main menu',font80,nil,'centre',110,1,1,1)
 end
 
@@ -25,7 +26,6 @@ function DeckeditState:update()
 end
 
 function DeckeditState:render()
-    love.graphics.draw(background,0,0)
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
             P1_deck[k]:render()
@@ -34,6 +34,5 @@ function DeckeditState:render()
 end
 
 function DeckeditState:exit()
-    background = nil
     exit_state()
 end
