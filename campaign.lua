@@ -17,6 +17,9 @@ function battle1() --The 1st level of the game campaign, will in future be all E
     P2_deck_cards[15] = 'BobaFett'
     P2_deck_cards[16] = 'Greedo'
     P2_deck_cards[17] = 'B2SuperBattleDroid'
+    background['Background'] = love.graphics.newVideo('Backgrounds/Sand Dunes.ogv')
+    background['Type'] = 'video'
+    background['Seek'] = 2
 
     gStateMachine:change('game')
 end
