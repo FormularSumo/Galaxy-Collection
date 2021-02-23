@@ -1,5 +1,15 @@
 GameState = Class{__includes = BaseState}
 
+function GameState:enter(Background)
+    background['Type'] = Background[2]
+    background['Seek'] = Background[3]
+    if background['Type'] == 'video' then
+        background['Background'] = love.graphics.newVideo(tostring('Backgrounds/' .. Background[1] .. '.ogv'))
+    else
+        background['Background'] = love.graphics.newImage(tostring('Backgrounds/' .. Background[1] .. '.jpg'))
+    end
+end
+
 function GameState:init()
     timer = -1
     timer2 = -1

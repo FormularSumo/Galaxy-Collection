@@ -13,6 +13,7 @@ function exit_state()
     love.audio.stop()
     gui = {}
     songs = {}
+    background = {}
     current_song = 0
     next_song = 1
     paused = false
