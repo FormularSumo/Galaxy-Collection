@@ -103,6 +103,13 @@ CountDooku = {
     ['range'] = 1
 }
 
+DarkTrooper = {
+    ['offense'] = 15071,
+    ['defense'] = 15958,
+    ['evade'] = 0.02,
+    ['range'] = 2
+}
+
 DarthSidiousReborn = {
     ['offense'] = 19446,
     ['defense'] = 19256,
