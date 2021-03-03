@@ -1,3 +1,10 @@
+AhsokaPadawan = {
+    ['offense'] = 15882,
+    ['defense'] = 15234,
+    ['evade'] = 0.1,
+    ['range'] = 1
+}
+
 AhsokaS7 = {
     ['offense'] = 18464,
     ['defense'] = 17420,
@@ -127,7 +134,7 @@ Droideka = {
 Ewok = {
     ['offense'] = 1254,
     ['defense'] = 975,
-    ['evade'] = 0.2,
+    ['evade'] = 0.1,
     ['range'] = 1
 }
 
