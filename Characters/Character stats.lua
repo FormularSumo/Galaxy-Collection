@@ -55,8 +55,8 @@ BabyYoda = {
 }
 
 BenKenobi = {
-    ['offense'] = 12549,
-    ['defense'] = 13674,
+    ['offense'] = 17034,
+    ['defense'] = 18243,
     ['evade'] = 0.03,
     ['range'] = 1
 }
