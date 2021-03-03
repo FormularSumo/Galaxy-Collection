@@ -195,7 +195,7 @@ KyloRen = {
 }
 
 MaceWindu = {
-    ['offense'] = 18601,
+    ['offense'] = 18801,
     ['defense'] = 18574,
     ['evade'] = 0.04,
     ['range'] = 1
