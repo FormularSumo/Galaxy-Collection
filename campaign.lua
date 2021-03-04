@@ -11,12 +11,12 @@ function battle1() --The 1st level of the game campaign, will in future be all E
     P2_deck_cards[9] = 'AsajjVentress'
     P2_deck_cards[10] = 'DarkTrooper'
     P2_deck_cards[11] = 'Droideka'
-    P2_deck_cards[12] = 'B2RPSuperBattleDroid'
+    P2_deck_cards[12] = 'RedGuard'
     P2_deck_cards[13] = 'CadBane'
     P2_deck_cards[14] = 'JangoFett'
     P2_deck_cards[15] = 'BobaFett'
     P2_deck_cards[16] = 'ImperialGuard'
-    P2_deck_cards[17] = 'B2SuperBattleDroid'
+    P2_deck_cards[17] = 'B2RPSuperBattleDroid'
 
     gStateMachine:change('game',{'Sand Dunes', 'video', 2})
 end
