@@ -8,6 +8,11 @@ function GameState:enter(Background)
     else
         background['Background'] = love.graphics.newImage(tostring('Backgrounds/' .. Background[1] .. '.jpg'))
     end
+    if Background[4] == nil then r = 0 else r = Background[4] end
+    if Background[5] == nil then g = 0 else g = Background[5] end
+    if Background[6] == nil then b = 0 else b = Background[6] end
+    gui['Pause'] = Button('pause','Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
+    gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
 end
 
 function GameState:init()
@@ -46,8 +51,6 @@ function GameState:init()
     
     next_round_P1_deck = P1_deck
     next_round_P2_deck = P2_deck
-    gui['Pause'] = Button('pause','Pause',font100,nil,1591,60,0,0,0) -- 35 pixels from right as font100:getWidth('Pause') = 294
-    gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,0,0,0,0.25,0.25)
     -- P1_deck[2].health = 0
     -- P1_deck[8].health = 0 
     -- P1_deck[14].health = 0 
@@ -318,7 +321,7 @@ function GameState:update(dt)
         if P2_cards_alive == '' then P2_deck = nil end
 
         if P1_deck == nil or P2_deck == nil then
-            gui['Main Menu'] = Button('return_to_main_menu','Main menu',font80,nil,35,110,0,0,0)
+            gui['Main Menu'] = Button('return_to_main_menu','Main menu',font80,nil,35,110,r,g,b)
             if P1_deck == nil and P2_deck == nil then 
                 winner = 'Draw'
             elseif P1_deck == nil then
@@ -342,7 +345,7 @@ function GameState:render()
         end
     end
     if winner ~= 'none' then 
-        love.graphics.print({{0,0,0},'Winner: ' .. winner},35,20)
+        love.graphics.print({{r,g,b},'Winner: ' .. winner},35,20)
     end
     -- love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 10, 10)
 end

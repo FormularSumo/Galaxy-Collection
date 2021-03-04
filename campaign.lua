@@ -18,7 +18,7 @@ function battle1() --The 1st level of the game campaign, will in future be all E
     P2_deck_cards[16] = 'RoyalGuard'
     P2_deck_cards[17] = 'B2RPSuperBattleDroid'
 
-    gStateMachine:change('game',{'Sand Dunes', 'video', 2})
+    gStateMachine:change('game',{'Sand Dunes', 'video', 2, 0, 0, 0})
 end
 
 function throne_room() --The 1st level of the game campaign, will in future be all Ewoks I think, currently these characters to make an interesting fight vs pre-built deck
@@ -27,5 +27,5 @@ function throne_room() --The 1st level of the game campaign, will in future be a
     P2_deck_cards[3] = 'DarthVader'
     P2_deck_cards[4] = 'RoyalGuard'
    
-    gStateMachine:change('game',{'Endor', 'photo', 0})
+    gStateMachine:change('game',{'Death Star Control Room', 'photo', 0, 1, 1 ,1})
 end
