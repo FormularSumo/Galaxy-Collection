@@ -181,8 +181,8 @@ Hondo = {
 }
 
 JediKnightLuke = {
-    ['offense'] = 18137,
-    ['defense'] = 18039,
+    ['offense'] = 18237,
+    ['defense'] = 18139,
     ['evade'] = 0.04,
     ['range'] = 1
 }
