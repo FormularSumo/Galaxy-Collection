@@ -153,7 +153,7 @@ Ewok = {
 }
 
 FarmboyLuke = {
-    ['offense'] = 11987,
+    ['offense'] = 10987,
     ['defense'] = 7467,
     ['evade'] = 0.02,
     ['range'] = 5
@@ -167,9 +167,9 @@ GeneralGrievous = {
 }
 
 Greedo = {
-    ['offense'] = 9942,
-    ['defense'] = 8653,
-    ['evade'] = 0.03,
+    ['offense'] = 9142,
+    ['defense'] = 8253,
+    ['evade'] = 0.02,
     ['range'] = 3
 }
 

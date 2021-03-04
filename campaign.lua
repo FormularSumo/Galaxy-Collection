@@ -22,7 +22,7 @@ function battle1() --The 1st level of the game campaign, will in future be all E
 end
 
 function throne_room() --The 1st level of the game campaign, will in future be all Ewoks I think, currently these characters to make an interesting fight vs pre-built deck
-    P2_deck_cards[1] = 'RoyalGuard  '
+    P2_deck_cards[1] = 'RoyalGuard'
     P2_deck_cards[2] = 'DarthSidious'
     P2_deck_cards[3] = 'DarthVader'
     P2_deck_cards[4] = 'RoyalGuard'
