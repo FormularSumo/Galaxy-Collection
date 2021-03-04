@@ -240,7 +240,7 @@ PreVizsla = {
     ['offense'] = 17836,
     ['defense'] = 17874,
     ['evade'] = 0.10,
-    ['range'] = 2
+    ['range'] = 1
 }
 
 R2D2 = {
