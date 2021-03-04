@@ -69,8 +69,8 @@ BobaFett = {
 }
 
 C3P0 = {
-    ['offense'] = 735,
-    ['defense'] = 1024,
+    ['offense'] = 335,
+    ['defense'] = 824,
     ['evade'] = 0.01,
     ['range'] = 1
 }
