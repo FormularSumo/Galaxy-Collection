@@ -110,6 +110,13 @@ DarkTrooper = {
     ['range'] = 2
 }
 
+DarthSidious = {
+    ['offense'] = 18731,
+    ['defense'] = 18673,
+    ['evade'] = 0.05,
+    ['range'] = 1
+}
+
 DarthSidiousReborn = {
     ['offense'] = 19446,
     ['defense'] = 19256,
@@ -209,7 +216,7 @@ KyloRen = {
 }
 
 MaceWindu = {
-    ['offense'] = 18801,
+    ['offense'] = 18901,
     ['defense'] = 18574,
     ['evade'] = 0.04,
     ['range'] = 1

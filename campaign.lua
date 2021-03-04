@@ -1,7 +1,7 @@
 function battle1() --The 1st level of the game campaign, will in future be all Ewoks I think, currently these characters to make an interesting fight vs pre-built deck
     P2_deck_cards[0] = 'Maul'
     P2_deck_cards[1] = 'CountDooku'
-    P2_deck_cards[2] = 'DarthSidiousReborn'
+    P2_deck_cards[2] = 'DarthSidious'
     P2_deck_cards[3] = 'DarthVader'
     P2_deck_cards[4] = 'GeneralGrievous'
     P2_deck_cards[5] = 'SavageOpress'
@@ -19,4 +19,13 @@ function battle1() --The 1st level of the game campaign, will in future be all E
     P2_deck_cards[17] = 'B2RPSuperBattleDroid'
 
     gStateMachine:change('game',{'Sand Dunes', 'video', 2})
+end
+
+function throne_room() --The 1st level of the game campaign, will in future be all Ewoks I think, currently these characters to make an interesting fight vs pre-built deck
+    P2_deck_cards[1] = 'ImperialGuard'
+    P2_deck_cards[2] = 'DarthSidious'
+    P2_deck_cards[3] = 'DarthVader'
+    P2_deck_cards[4] = 'ImperialGuard'
+   
+    gStateMachine:change('game',{'Endor', 'photo', 0})
 end
