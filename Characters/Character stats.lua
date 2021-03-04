@@ -174,8 +174,8 @@ HanSoloOld = {
 }
 
 Hondo = {
-    ['offense'] = 8754,
-    ['defense'] = 9132,
+    ['offense'] = 11454,
+    ['defense'] = 11732,
     ['evade'] = 0.02,
     ['range'] = 3
 }

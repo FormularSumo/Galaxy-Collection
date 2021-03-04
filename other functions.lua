@@ -67,10 +67,10 @@ function prebuilt_deck() --Doesn't belong here, will either be deleted or moved 
     P1_deck_edit(9,'BenKenobi')
     P1_deck_edit(10,'BabyYoda')
     P1_deck_edit(11,'Ewok')
-    P1_deck_edit(12,'FarmboyLuke')
+    P1_deck_edit(12,'Hondo')
     P1_deck_edit(13,'HanSoloOld')
     P1_deck_edit(14,'CaptainRex')
     P1_deck_edit(15,'TheMandalorian')
     P1_deck_edit(16,'Chewbacca')
-    P1_deck_edit(17,'Hondo')
+    P1_deck_edit(17,'FarmboyLuke')
 end
