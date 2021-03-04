@@ -11,7 +11,7 @@ function HomeState:init()
     queue_length = 1
     
     gui['Maxed Out Dark Side'] = Button('maxed_dark_side','Maxed Out Dark Side',font80,nil,'centre',80)
-    gui['Empreror\'s Throne Room'] = Button('throne_room','Empreror\'s Throne Room',font80,nil,'centre',220)
+    gui['Emperor\'s Throne Room'] = Button('throne_room','Emperor\'s Throne Room',font80,nil,'centre',220)
     gui['Endor'] = Button('endor','Endor',font80,nil,'centre',360)
     gui['Prebuilt Deck'] = Button('prebuilt_deck','Create a pre-built deck',font50,nil,'centre',750)
     gui['Toggle pause on loose focus'] = Button('toggle_pause_on_loose_focus', 'Pause on losing Window focus: ' .. tostring(pause_on_loose_focus),font50,nil,'centre',900)
