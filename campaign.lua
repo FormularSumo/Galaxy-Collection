@@ -15,17 +15,17 @@ function battle1() --The 1st level of the game campaign, will in future be all E
     P2_deck_cards[13] = 'CadBane'
     P2_deck_cards[14] = 'JangoFett'
     P2_deck_cards[15] = 'BobaFett'
-    P2_deck_cards[16] = 'ImperialGuard'
+    P2_deck_cards[16] = 'RoyalGuard'
     P2_deck_cards[17] = 'B2RPSuperBattleDroid'
 
     gStateMachine:change('game',{'Sand Dunes', 'video', 2})
 end
 
 function throne_room() --The 1st level of the game campaign, will in future be all Ewoks I think, currently these characters to make an interesting fight vs pre-built deck
-    P2_deck_cards[1] = 'ImperialGuard'
+    P2_deck_cards[1] = 'RoyalGuard  '
     P2_deck_cards[2] = 'DarthSidious'
     P2_deck_cards[3] = 'DarthVader'
-    P2_deck_cards[4] = 'ImperialGuard'
+    P2_deck_cards[4] = 'RoyalGuard'
    
     gStateMachine:change('game',{'Endor', 'photo', 0})
 end

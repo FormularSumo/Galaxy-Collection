@@ -187,13 +187,6 @@ Hondo = {
     ['range'] = 3
 }
 
-ImperialGuard = {
-    ['offense'] = 13537,
-    ['defense'] = 13684,
-    ['evade'] = 0.03,
-    ['range'] = 1
-}
-
 JediKnightLuke = {
     ['offense'] = 18237,
     ['defense'] = 18139,
@@ -268,6 +261,14 @@ Rey = {
     ['offense'] = 17924,
     ['defense'] = 17915,
     ['evade'] = 0.04,
+    ['range'] = 1
+}
+
+
+RoyalGuard = {
+    ['offense'] = 13537,
+    ['defense'] = 13684,
+    ['evade'] = 0.03,
     ['range'] = 1
 }
 
