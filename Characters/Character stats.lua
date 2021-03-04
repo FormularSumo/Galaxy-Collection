@@ -146,8 +146,8 @@ Ewok = {
 }
 
 FarmboyLuke = {
-    ['offense'] = 13987,
-    ['defense'] = 9467,
+    ['offense'] = 11987,
+    ['defense'] = 7467,
     ['evade'] = 0.02,
     ['range'] = 5
 }
