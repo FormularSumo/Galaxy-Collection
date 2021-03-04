@@ -180,6 +180,13 @@ Hondo = {
     ['range'] = 3
 }
 
+ImperialGuard = {
+    ['offense'] = 13537,
+    ['defense'] = 13684,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
 JediKnightLuke = {
     ['offense'] = 18237,
     ['defense'] = 18139,
