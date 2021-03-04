@@ -1,6 +1,6 @@
 Slider = Class{}
 
-function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage)
+function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap)
     self.x = x
     self.y = y
     self.width = width
@@ -13,6 +13,17 @@ function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage)
     self.b2 = b2
     self.g2 = g2
     self.percentage = percentage
+    if trap ~= nil then 
+        self.trap3 = trap
+        self.trap1 = trap - 0.03
+        self.trap2 = trap + 0.03
+    else 
+        self.trap1 = 0
+        self.trap2 = 0
+        self.trap3 = 0
+    end
+    
+    self.trap3 = (self.trap1 + self.trap2) / 2
     self.diameter_to_circle = 3
     self.radius_to_circle = self.diameter_to_circle / 2
     self.clickablex = self.x - self.height * self.radius_to_circle
@@ -27,7 +38,7 @@ function Slider:update()
         self.percentage = (mouseLastX - self.x) / self.width
         if self.percentage < 0.001 then self.percentage = 0.001 
         elseif self.percentage > 1 then self.percentage = 1
-        elseif self.percentage > 0.22 and self.percentage < 0.28 then self.percentage = 0.25 end
+        elseif self.percentage > self.trap1 and self.percentage < self.trap2 then self.percentage = self.trap3 end
         _G[self.func](self.percentage)
     else
         clicked = false

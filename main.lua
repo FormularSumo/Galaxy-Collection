@@ -73,6 +73,11 @@ function love.load()
         pause_on_loose_focus = true
     end
 
+    Volume_level = love.filesystem.read('Volume level.txt')
+    if Volume_level ~= nil then
+        love.audio.setVolume(Volume_level)
+        Volume_level = nil
+    end
     -- initialize state machine with all state-returning functions
     gStateMachine = StateMachine {
         ['home'] = function() return HomeState() end,
@@ -145,11 +150,13 @@ function love.keypressed(key)
 
     --M mutes/unmutes
     if key == 'm' then
-        if love.audio.getVolume() == 1 then
-            love.audio.setVolume(0)
+        if love.audio.getVolume() == 0 then
+            love.audio.setVolume(0.5)
         else
-            love.audio.setVolume(1)
+            love.audio.setVolume(0)
         end
+        love.filesystem.write('Volume level.txt', love.audio.getVolume())
+        gui['Volume Slider'].percentage = love.audio.getVolume()
     end 
 
     --Escape on Android is mapped to the back key so shouldn't be used for exiting fullscreen

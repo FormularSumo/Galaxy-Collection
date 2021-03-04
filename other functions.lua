@@ -30,6 +30,11 @@ function gamespeed_slider(percentage)
     gamespeed = percentage * 4
 end
 
+function volume_slider(percentage)
+    love.audio.setVolume(percentage)
+    love.filesystem.write('Volume level.txt', love.audio.getVolume())
+end
+
 function return_to_main_menu()
     gStateMachine:change('home')
 end
