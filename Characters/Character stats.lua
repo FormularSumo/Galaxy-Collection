@@ -243,6 +243,13 @@ R2D2 = {
     ['range'] = 1
 }
 
+RedGuard = {
+    ['offense'] = 9243,
+    ['defense'] = 9985,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
 Rey = {
     ['offense'] = 17924,
     ['defense'] = 17915,
