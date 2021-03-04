@@ -195,7 +195,7 @@ JangoFett = {
 }
 
 KyloRen = {
-    ['offense'] = 18293,
+    ['offense'] = 18193,
     ['defense'] = 17664,
     ['evade'] = 0.04,
     ['range'] = 1
@@ -244,14 +244,14 @@ R2D2 = {
 }
 
 Rey = {
-    ['offense'] = 18024,
-    ['defense'] = 18015,
+    ['offense'] = 17924,
+    ['defense'] = 17915,
     ['evade'] = 0.04,
     ['range'] = 1
 }
 
 SavageOpress = {
-    ['offense'] = 18456,
+    ['offense'] = 18526,
     ['defense'] = 17349,
     ['evade'] = 0.03,
     ['range'] = 1
