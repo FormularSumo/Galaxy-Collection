@@ -355,5 +355,6 @@ function GameState:exit()
     P2_deck = nil
     next_round_P1_deck = nil
     next_round_P2_deck = nil
+    P2_deck_cards = {}
     exit_state()
 end
