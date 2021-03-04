@@ -23,6 +23,7 @@ end
 function toggle_pause_on_loose_focus()
     pause_on_loose_focus = not pause_on_loose_focus
     gui['Toggle pause on loose focus']:update_text('Pause on losing Window focus: ' .. tostring(pause_on_loose_focus))
+    love.filesystem.write('Pause on loose focus setting.txt',tostring(pause_on_loose_focus))
 end
 
 function gamespeed_slider(percentage)

@@ -47,7 +47,6 @@ function love.load()
     current_song = 0
     next_song = 1
     paused = false
-    pause_on_loose_focus = true
 
     love.filesystem.setIdentity('Star Wars Force Collection Remake')
     P1_deck_cards = {}
@@ -65,6 +64,13 @@ function love.load()
 
     if P1_deck_file == nil then
         love.filesystem.write('Player 1 deck.txt',',,,,,,,,,,,,,,,,,,')
+    end
+
+    pause_on_loose_focus = (love.filesystem.read('Pause on loose focus setting.txt'))
+    if pause_on_loose_focus == 'false' then
+        pause_on_loose_focus = false
+    else
+        pause_on_loose_focus = true
     end
 
     -- initialize state machine with all state-returning functions
