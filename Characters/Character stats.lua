@@ -107,7 +107,7 @@ DarkTrooper = {
     ['offense'] = 15071,
     ['defense'] = 15958,
     ['evade'] = 0.02,
-    ['range'] = 2
+    ['range'] = 1
 }
 
 DarthSidious = {
@@ -287,8 +287,8 @@ SavageOpress = {
 }
 
 TheMandalorian = {
-    ['offense'] = 17943,
-    ['defense'] = 16528,
+    ['offense'] = 16443,
+    ['defense'] = 15028,
     ['evade'] = 0.15,
     ['range'] = 5
 }
