@@ -156,7 +156,9 @@ function love.keypressed(key)
             love.audio.setVolume(0)
         end
         love.filesystem.write('Volume level.txt', love.audio.getVolume())
-        gui['Volume Slider'].percentage = love.audio.getVolume()
+        if gui['Volume Slider'] ~= nil then
+            gui['Volume Slider'].percentage = love.audio.getVolume()
+        end
     end 
 
     --Escape on Android is mapped to the back key so shouldn't be used for exiting fullscreen
