@@ -152,6 +152,13 @@ Ewok = {
     ['range'] = 1
 }
 
+EzraBridger = {
+    ['offense'] = 9573,
+    ['defense'] = 9319,
+    ['evade'] = 0.05,
+    ['range'] = 1
+}
+
 FarmboyLuke = {
     ['offense'] = 10987,
     ['defense'] = 7467,
