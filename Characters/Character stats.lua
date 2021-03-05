@@ -237,8 +237,8 @@ ObiWanKenobi = {
 }
 
 PreVizsla = {
-    ['offense'] = 17836,
-    ['defense'] = 17874,
+    ['offense'] = 17436,
+    ['defense'] = 17474,
     ['evade'] = 0.10,
     ['range'] = 1
 }
