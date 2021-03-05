@@ -62,8 +62,8 @@ BenKenobi = {
 }
 
 BobaFett = {
-    ['offense'] = 18112,
-    ['defense'] = 16043,
+    ['offense'] = 16612,
+    ['defense'] = 14543,
     ['evade'] = 0.15,
     ['range'] = 5
 }
