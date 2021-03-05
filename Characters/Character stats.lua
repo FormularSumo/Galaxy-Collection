@@ -76,9 +76,9 @@ C3P0 = {
 }
 
 CadBane = {
-    ['offense'] = 18014,
-    ['defense'] = 16241,
-    ['evade'] = 0.15,
+    ['offense'] = 16714,
+    ['defense'] = 14141,
+    ['evade'] = 0.13,
     ['range'] = 5
 }
 
