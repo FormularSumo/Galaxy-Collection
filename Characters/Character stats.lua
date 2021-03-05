@@ -13,15 +13,15 @@ AhsokaS7 = {
 }
 
 AnakinF3 = {
-    ['offense'] = 18524,
-    ['defense'] = 17554,
+    ['offense'] = 18924,
+    ['defense'] = 17954,
     ['evade'] = 0.05,
     ['range'] = 1
 }
 
 AsajjVentress = {
-    ['offense'] = 18349,
-    ['defense'] = 17527,
+    ['offense'] = 18249,
+    ['defense'] = 17427,
     ['evade'] = 0.07,
     ['range'] = 1
 }
@@ -55,8 +55,8 @@ BabyYoda = {
 }
 
 BenKenobi = {
-    ['offense'] = 17034,
-    ['defense'] = 18243,
+    ['offense'] = 17314,
+    ['defense'] = 18523,
     ['evade'] = 0.03,
     ['range'] = 1
 }
@@ -97,8 +97,8 @@ Chewbacca = {
 }
 
 CountDooku = {
-    ['offense'] = 18324,
-    ['defense'] = 18491,
+    ['offense'] = 18224,
+    ['defense'] = 18391,
     ['evade'] = 0.04,
     ['range'] = 1
 }
@@ -125,8 +125,8 @@ DarthSidiousReborn = {
 }
 
 DarthVader = {
-    ['offense'] = 18440,
-    ['defense'] = 18673,
+    ['offense'] = 18400,
+    ['defense'] = 18643,
     ['evade'] = 0.04,
     ['range'] = 1
 }
@@ -167,8 +167,8 @@ FarmboyLuke = {
 }
 
 GeneralGrievous = {
-    ['offense'] = 19231,
-    ['defense'] = 16958,
+    ['offense'] = 19001,
+    ['defense'] = 16902,
     ['evade'] = 0.05,
     ['range'] = 1
 }
@@ -195,8 +195,8 @@ Hondo = {
 }
 
 JediKnightLuke = {
-    ['offense'] = 18237,
-    ['defense'] = 18139,
+    ['offense'] = 18437,
+    ['defense'] = 18339,
     ['evade'] = 0.04,
     ['range'] = 1
 }
@@ -244,8 +244,8 @@ ObiWanKenobi = {
 }
 
 PreVizsla = {
-    ['offense'] = 17436,
-    ['defense'] = 17474,
+    ['offense'] = 17336,
+    ['defense'] = 17374,
     ['evade'] = 0.10,
     ['range'] = 1
 }
@@ -294,8 +294,8 @@ TheMandalorian = {
 }
 
 Yoda = {
-    ['offense'] = 18584,
-    ['defense'] = 18735,
+    ['offense'] = 18384,
+    ['defense'] = 18535,
     ['evade'] = 0.12,
     ['range'] = 1
 }
