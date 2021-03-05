@@ -55,11 +55,11 @@ function testForBackgroundImageLoop(video,seek) --Replays the inputted video if 
 end
 
 function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
-    P1_deck_edit(0,'JediKnightLuke')
+    P1_deck_edit(0,'ObiWanKenobi')
     P1_deck_edit(1,'AnakinF3')
     P1_deck_edit(2,'MaceWindu')
     P1_deck_edit(3,'Yoda')
-    P1_deck_edit(4,'ObiWanKenobi')
+    P1_deck_edit(4,'JediKnightLuke')
     P1_deck_edit(5,'AhsokaS7')
     P1_deck_edit(6,'EzraBridger')
     P1_deck_edit(7,'AhsokaPadawan')
