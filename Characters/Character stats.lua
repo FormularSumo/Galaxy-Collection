@@ -1,5 +1,5 @@
 AhsokaPadawan = {
-    ['offense'] = 15882,
+    ['offense'] = 16082,
     ['defense'] = 15234,
     ['evade'] = 0.1,
     ['range'] = 1
@@ -83,8 +83,8 @@ CadBane = {
 }
 
 CaptainRex = {
-    ['offense'] = 17443,
-    ['defense'] = 17538,
+    ['offense'] = 15443,
+    ['defense'] = 15538,
     ['evade'] = 0.03,
     ['range'] = 3
 }
