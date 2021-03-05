@@ -195,8 +195,8 @@ JediKnightLuke = {
 }
 
 JangoFett = {
-    ['offense'] = 18136,
-    ['defense'] = 16064,
+    ['offense'] = 17536,
+    ['defense'] = 15464,
     ['evade'] = 0.15,
     ['range'] = 5
 }
