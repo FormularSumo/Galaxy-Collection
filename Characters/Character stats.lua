@@ -293,6 +293,13 @@ RoyalGuard = {
     ['range'] = 1
 }
 
+SabineWrenDarksaber = {
+    ['offense'] = 14231,
+    ['defense'] = 14180,
+    ['evade'] = 0.05,
+    ['range'] = 1
+}
+
 SavageOpress = {
     ['offense'] = 18526,
     ['defense'] = 17349,
