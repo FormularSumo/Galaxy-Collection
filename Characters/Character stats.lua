@@ -27,8 +27,8 @@ AsajjVentress = {
 }
 
 B1BattleDroid = {
-    ['offense'] = 1302,
-    ['defense'] = 1205,
+    ['offense'] = 2302,
+    ['defense'] = 2205,
     ['evade'] = 0.02,
     ['range'] = 3
 }
@@ -153,8 +153,8 @@ ElitePraetorianGuard = {
 }
 
 Ewok = {
-    ['offense'] = 1254,
-    ['defense'] = 975,
+    ['offense'] = 2254,
+    ['defense'] = 1975,
     ['evade'] = 0.1,
     ['range'] = 1
 }
