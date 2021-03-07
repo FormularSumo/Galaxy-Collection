@@ -145,6 +145,13 @@ Droideka = {
     ['range'] = 2
 }
 
+ElitePraetorianGuard = {
+    ['offense'] = 15049,
+    ['defense'] = 15039,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
 Ewok = {
     ['offense'] = 1254,
     ['defense'] = 975,
@@ -211,7 +218,7 @@ JangoFett = {
 KananJarrus = {
     ['offense'] = 16049,
     ['defense'] = 16103,
-    ['evade'] = 0.4,
+    ['evade'] = 0.04,
     ['range'] = 1  
 }
 
