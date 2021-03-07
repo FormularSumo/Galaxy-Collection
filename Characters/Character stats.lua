@@ -1,18 +1,18 @@
-AhsokaPadawan = {
+AhsokaTanoPadawan = {
     ['offense'] = 16082,
     ['defense'] = 15234,
     ['evade'] = 0.1,
     ['range'] = 1
 }
 
-AhsokaS7 = {
+AhsokaTanoS7 = {
     ['offense'] = 18464,
     ['defense'] = 17420,
     ['evade'] = 0.1,
     ['range'] = 1
 }
 
-AnakinROTS = {
+AnakinSkywalkerROTS = {
     ['offense'] = 18924,
     ['defense'] = 17954,
     ['evade'] = 0.05,
