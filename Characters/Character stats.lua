@@ -208,6 +208,13 @@ JangoFett = {
     ['range'] = 5
 }
 
+KananJarrus = {
+    ['offense'] = 16049,
+    ['defense'] = 16103,
+    ['evade'] = 0.4,
+    ['range'] = 1  
+}
+
 KyloRen = {
     ['offense'] = 18193,
     ['defense'] = 17664,
