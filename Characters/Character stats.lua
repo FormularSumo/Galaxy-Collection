@@ -61,9 +61,16 @@ BenKenobi = {
     ['range'] = 1
 }
 
-BobaFett = {
+BobaFettROTJ = {
     ['offense'] = 16612,
     ['defense'] = 14543,
+    ['evade'] = 0.15,
+    ['range'] = 5
+}
+
+BobaFettMandalorian = {
+    ['offense'] = 17601,
+    ['defense'] = 16048,
     ['evade'] = 0.15,
     ['range'] = 5
 }
