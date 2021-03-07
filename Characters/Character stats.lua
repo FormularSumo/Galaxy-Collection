@@ -201,7 +201,7 @@ HanSoloOld = {
     ['range'] = 3
 }
 
-Hondo = {
+HondoOhnaka = {
     ['offense'] = 11454,
     ['defense'] = 11732,
     ['evade'] = 0.02,
