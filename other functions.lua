@@ -56,7 +56,7 @@ end
 
 function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
     P1_deck_edit(0,'ObiWanKenobi')
-    P1_deck_edit(1,'AnakinF3')
+    P1_deck_edit(1,'AnakinROTS')
     P1_deck_edit(2,'MaceWindu')
     P1_deck_edit(3,'Yoda')
     P1_deck_edit(4,'JediKnightLuke')
@@ -66,7 +66,7 @@ function prebuilt_deck() --Doesn't belong here, will either be deleted or moved 
     P1_deck_edit(8,'Rey')
     P1_deck_edit(9,'BenKenobi')
     P1_deck_edit(10,'AhsokaPadawan')
-    P1_deck_edit(11,'EzraBridger')
+    P1_deck_edit(11,'EzraBridgerS2')
     P1_deck_edit(12,'Hondo')
     P1_deck_edit(13,'HanSoloOld')
     P1_deck_edit(14,'CaptainRex')

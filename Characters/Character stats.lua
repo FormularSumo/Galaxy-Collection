@@ -12,7 +12,7 @@ AhsokaS7 = {
     ['range'] = 1
 }
 
-AnakinF3 = {
+AnakinROTS = {
     ['offense'] = 18924,
     ['defense'] = 17954,
     ['evade'] = 0.05,
@@ -152,7 +152,7 @@ Ewok = {
     ['range'] = 1
 }
 
-EzraBridger = {
+EzraBridgerS2 = {
     ['offense'] = 9573,
     ['defense'] = 9319,
     ['evade'] = 0.05,
