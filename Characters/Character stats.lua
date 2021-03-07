@@ -208,7 +208,7 @@ Hondo = {
     ['range'] = 3
 }
 
-JediKnightLuke = {
+LukeSkywalkerROTJ = {
     ['offense'] = 18437,
     ['defense'] = 18339,
     ['evade'] = 0.04,

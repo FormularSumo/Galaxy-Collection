@@ -59,7 +59,7 @@ function prebuilt_deck() --Doesn't belong here, will either be deleted or moved 
     P1_deck_edit(1,'AnakinSkywalkerROTS')
     P1_deck_edit(2,'MaceWindu')
     P1_deck_edit(3,'Yoda')
-    P1_deck_edit(4,'JediKnightLuke')
+    P1_deck_edit(4,'LukeSkywalkerROTJ')
     P1_deck_edit(5,'AhsokaTanoS7')
     P1_deck_edit(6,'SabineWrenDarksaber')
     P1_deck_edit(7,'KananJarrus')
