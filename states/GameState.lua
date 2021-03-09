@@ -18,7 +18,7 @@ end
 function GameState:init()
     timer = -1
     move_timer = -1
-    aim_timer = -1.4
+    aim_timer = -1
     attack_timer = -1.9
 
     songs[0] = love.audio.newSource('Music/Battle music 1.mp3','stream')
@@ -365,7 +365,15 @@ function GameState:render()
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
             if P1_deck[k].laser ~= nil then
-                P1_deck[k].laser.render()
+                P1_deck[k].laser:render()
+            end
+        end
+    end
+
+    if P2_deck ~= nil then
+        for k, pair in pairs(P2_deck) do
+            if P2_deck[k].laser ~= nil then
+                P2_deck[k].laser:render()
             end
         end
     end

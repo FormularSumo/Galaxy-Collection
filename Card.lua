@@ -57,7 +57,6 @@ function Card:update(dt,timer)
     end
     if self.laser ~= nil then
         self.laser:update(dt)
-        -- self.laser:render()
     end
 end
 
@@ -118,7 +117,11 @@ function Card:aim()
                     break
                 end
             end
-            -- self.laser = Laser(self.x,self.y,self.enemy_deck[self.target].x,self.enemy_deck[self.target].y,self.laser_image)
+            self.centrex = self.x + self.width / 2
+            self.centrey = self.x + self.height / 2
+            if self.target ~= nil then
+                self.laser = Laser(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.laser_image, self.team, self.width, self.height)
+            end
         end
     end
 end
@@ -148,6 +151,7 @@ function Card:attack()
         end
         self.target = nil
     end
+    self.laser = nil
 end
 
 function Card:render()
@@ -165,6 +169,10 @@ function Card:render()
         love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
         love.graphics.setColor(1,1,1)
     end
+
+    -- if self.number == 15 and self.team == 2 and self.laser ~= nil then
+    --     love.graphics.print(self.laser.angle)
+    -- end
 
     -- if self.number == 15 then
     --     if self.team == 1 then
