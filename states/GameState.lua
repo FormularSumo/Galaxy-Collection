@@ -17,10 +17,15 @@ end
 
 function GameState:init()
     timer = -1
-    timer2 = -1
-    timer3 = -1.9
+    move_timer = -1
+    aim_timer = -1.4
+    attack_timer = -1.9
 
     songs[0] = love.audio.newSource('Music/Battle music 1.mp3','stream')
+    
+    BlueLaser = love.graphics.newImage('Graphics/Blue Laser.png')
+    GreeLaser = love.graphics.newImage('Graphics/Green Laser.png')
+    RedLaser = love.graphics.newImage('Graphics/Red Laser.png')
 
     songs[0]:play()
     queue_length = 0
@@ -227,12 +232,13 @@ end
 function GameState:update(dt)
     dt = dt * gamespeed
     if paused == false and winner == 'none' then
-        timer = timer + dt 
-        timer2 = timer2 + dt
-        timer3 = timer3 + dt
+        timer = timer + dt
+        move_timer = move_timer + dt
+        aim_timer = aim_timer + dt
+        attack_timer = attack_timer + dt
 
-        if timer >= 1 then
-            timer = timer - 1
+        if move_timer >= 1 then
+            move_timer = move_timer - 1
             
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:move()
@@ -240,7 +246,7 @@ function GameState:update(dt)
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:move()
             end 
-            if timer2 > 3 then
+            if timer > 3 then
                 CheckRowBelowEmpty(1,1)
                 CheckRowBelowEmpty(1,0)
                 CheckRowBelowEmpty(2,1)
@@ -261,18 +267,29 @@ function GameState:update(dt)
                 CheckOnlyRow1and2Remain(1)
             end
             for k, pair in pairs(P1_deck) do
-                P1_deck[k]:update(timer2)
+                P1_deck[k]:update(dt,timer)
             end 
             for k, pair in pairs(P2_deck) do
-                P2_deck[k]:update(timer2)
+                P2_deck[k]:update(dt,timer)
             end 
             
             P1_deck = next_round_P1_deck
             P2_deck = next_round_P2_deck
         end
 
-        if timer3 >= 1 then
-            timer3 = timer3 - 1
+        if aim_timer >= 1 then
+            aim_timer = aim_timer - 1
+
+            for k, pair in pairs(P1_deck) do
+                P1_deck[k]:aim()
+            end 
+            for k, pair in pairs(P2_deck) do
+                P2_deck[k]:aim()
+            end
+        end
+
+        if attack_timer >= 1 then
+            attack_timer = attack_timer - 1
 
             for k, pair in pairs(P1_deck) do
                 P1_deck[k].dodge = 0
@@ -294,10 +311,10 @@ function GameState:update(dt)
         end
 
         for k, pair in pairs(P1_deck) do
-            P1_deck[k]:update(timer2)
+            P1_deck[k]:update(dt,timer)
         end 
         for k, pair in pairs(P2_deck) do
-            P2_deck[k]:update(timer2)
+            P2_deck[k]:update(dt,timer)
         end 
         P1_deck = next_round_P1_deck
         P2_deck = next_round_P2_deck
@@ -344,10 +361,19 @@ function GameState:render()
             P2_deck[k]:render()
         end
     end
+
+    if P1_deck ~= nil then
+        for k, pair in pairs(P1_deck) do
+            if P1_deck[k].laser ~= nil then
+                P1_deck[k].laser.render()
+            end
+        end
+    end
+
     if winner ~= 'none' then 
         love.graphics.print({{r,g,b},'Winner: ' .. winner},35,20)
     end
-    -- love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 10, 10)
+    -- love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.move_timer.getFPS())}, font50, 10, 10)
 end
 
 function GameState:exit()
@@ -356,5 +382,8 @@ function GameState:exit()
     next_round_P1_deck = nil
     next_round_P2_deck = nil
     P2_deck_cards = {}
+    BlueLaser = nil
+    GreenLaser = nil
+    RedLaser = nil
     exit_state()
 end

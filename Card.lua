@@ -16,6 +16,7 @@ function Card:init(name,row,column,team,number)
     self.defense = _G[self.name]['defense']
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
+    self.laser_image = RedLaser
     self.alive = true
     self.attack_roll = 0
     self.ranged_attack_roll = 0
@@ -24,14 +25,16 @@ function Card:init(name,row,column,team,number)
     self.attacks_taken = 0
     if self.team == 1 then
         self.enemy_deck = P2_deck
+        self.laser = P1_lasers
     else
         self.enemy_deck = P1_deck
+        self.laser = P2_lasers
     end
     self.damage = 0
     self.defence_down = 0
 end
 
-function Card:update(timer2)
+function Card:update(dt,timer)
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     if self.column > 5 then
@@ -45,12 +48,16 @@ function Card:update(timer2)
         end 
         self.alive = false
     end
-    if timer2 > 6 then 
+    if timer > 6 then
         if self.team == 1 then
             self.number = self.row + (math.abs(6 - self.column)) * 6 - 6
         else
             self.number = self.row + (self.column - 5) * 6 - 6
         end
+    end
+    if self.laser ~= nil then
+        self.laser:update(dt)
+        -- self.laser:render()
     end
 end
 
@@ -80,7 +87,7 @@ function Card:distance(target)
     return math.abs(self.column - self.enemy_deck[target].column) + math.abs(self.row - self.enemy_deck[target].row)
 end
 
-function Card:attack()
+function Card:aim()
     if self.column == 5 or self.column == 6 then
         if self.enemy_deck[self.number] ~= nil then
             self.target = self.number
@@ -89,7 +96,6 @@ function Card:attack()
         elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
             self.target = self.number+1
         end
-
     else
         if self.enemy_deck[self.number] ~= nil then if self:distance(self.number) > self.range then return end end
         if self.range > 1 then
@@ -112,9 +118,12 @@ function Card:attack()
                     break
                 end
             end
+            -- self.laser = Laser(self.x,self.y,self.enemy_deck[self.target].x,self.enemy_deck[self.target].y,self.laser_image)
         end
     end
+end
 
+function Card:attack()
     if self.target ~= nil then
         self.attack_roll = math.random(100) / 100
         self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1

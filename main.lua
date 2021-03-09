@@ -13,6 +13,7 @@ function love.load()
     require 'states/HomeState'
     require 'campaign'
     require 'other functions'
+    require 'Laser'
 
     --Operating System
     OS = love.system.getOS()
