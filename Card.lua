@@ -96,7 +96,6 @@ function Card:aim()
             self.target = self.number+1
         end
     else
-        if self.enemy_deck[self.number] ~= nil then if self:distance(self.number) > self.range then return end end
         if self.range > 1 then
             self.possible_targets = {}
             self.total_probability = 0
