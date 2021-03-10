@@ -14,7 +14,7 @@ function Laser:init(x,y,finalx,finaly,laser,team,xoffset,yoffset)
     self.y = y + yoffset / 2
     self.finaly = finaly + yoffset / 2
 
-    self.laser = laser
+    self.image = laser
     self.x_distance = tonumber(self.finalx-self.x)
     self.y_distance = tonumber(self.finaly-self.y)
     -- self.angle = math.rad(self.y_distance / self.x_distance * 180)
@@ -32,6 +32,6 @@ end
 
 function Laser:render()
     if self.timer > 0 then
-        love.graphics.draw(self.laser,self.x,self.y)
+        love.graphics.draw(self.image,self.x,self.y)
     end
 end

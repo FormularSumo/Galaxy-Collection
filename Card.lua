@@ -16,7 +16,14 @@ function Card:init(name,row,column,team,number)
     self.defense = _G[self.name]['defense']
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
-    self.laser_image = RedLaser
+    self.laser_colour = _G[self.name]['laser_colour']
+    if self.laser_colour == 'Red' then
+        self.laser_image = RedLaser
+    elseif self.laser_colour == 'Blue' then
+        self.laser_image = BlueLaser
+    else
+        self.laser_image = GreenLaser
+    end
     self.alive = true
     self.attack_roll = 0
     self.ranged_attack_roll = 0
@@ -169,8 +176,15 @@ function Card:render()
         love.graphics.setColor(1,1,1)
     end
 
-    -- if self.number == 15 and self.team == 2 and self.laser ~= nil then
-    --     love.graphics.print(self.laser.angle)
+    -- if self.number == 13 and self.team == 1 then
+        -- love.graphics.print(self.laser.angle)
+        -- love.graphics.print(self:distance(1))
+        -- x = 0
+        -- for k, pair in pairs(self.possible_targets) do
+        --     x = x + 100
+        --     love.graphics.print(k,0,x)
+        -- end
+        -- love.graphics.print(self.laser_colour)
     -- end
 
     -- if self.number == 15 then

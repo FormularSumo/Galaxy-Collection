@@ -30,21 +30,24 @@ B1BattleDroid = {
     ['offense'] = 2302,
     ['defense'] = 2205,
     ['evade'] = 0.02,
-    ['range'] = 3
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
 }
 
 B2RPSuperBattleDroid = {
     ['offense'] = 8285,
     ['defense'] = 7424,
     ['evade'] = 0.08,
-    ['range'] = 5
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
 }
 
 B2SuperBattleDroid = {
     ['offense'] = 8085,
     ['defense'] = 8024,
     ['evade'] = 0.01,
-    ['range'] = 3
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
 }
 
 BabyYoda = {
@@ -65,14 +68,16 @@ BobaFettROTJ = {
     ['offense'] = 16612,
     ['defense'] = 14543,
     ['evade'] = 0.15,
-    ['range'] = 5
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
 }
 
 BobaFettMandalorian = {
     ['offense'] = 17601,
     ['defense'] = 16048,
     ['evade'] = 0.15,
-    ['range'] = 5
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
 }
 
 C3P0 = {
@@ -86,21 +91,24 @@ CadBane = {
     ['offense'] = 16714,
     ['defense'] = 14141,
     ['evade'] = 0.13,
-    ['range'] = 5
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
 }
 
 CaptainRex = {
     ['offense'] = 15443,
     ['defense'] = 15538,
     ['evade'] = 0.03,
-    ['range'] = 3
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
 }
 
 Chewbacca = {
     ['offense'] = 14210,
     ['defense'] = 10345,
     ['evade'] = 0.02,
-    ['range'] = 3
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
 }
 
 CountDooku = {
@@ -177,7 +185,8 @@ FarmboyLuke = {
     ['offense'] = 10987,
     ['defense'] = 7467,
     ['evade'] = 0.02,
-    ['range'] = 5
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
 }
 
 GeneralGrievous = {
@@ -191,21 +200,24 @@ Greedo = {
     ['offense'] = 9142,
     ['defense'] = 8253,
     ['evade'] = 0.02,
-    ['range'] = 3
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
 }
 
 HanSoloOld = {
     ['offense'] = 15546,
     ['defense'] = 7565,
     ['evade'] = 0.02,
-    ['range'] = 3
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
 }
 
 HondoOhnaka = {
     ['offense'] = 11454,
     ['defense'] = 11732,
     ['evade'] = 0.02,
-    ['range'] = 3
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
 }
 
 LukeSkywalkerROTJ = {
@@ -219,7 +231,8 @@ JangoFett = {
     ['offense'] = 17536,
     ['defense'] = 15464,
     ['evade'] = 0.15,
-    ['range'] = 5
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
 }
 
 KananJarrus = {
@@ -318,7 +331,8 @@ TheMandalorian = {
     ['offense'] = 16443,
     ['defense'] = 15028,
     ['evade'] = 0.15,
-    ['range'] = 5
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
 }
 
 Yoda = {

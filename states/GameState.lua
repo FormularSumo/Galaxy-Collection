@@ -24,7 +24,7 @@ function GameState:init()
     songs[0] = love.audio.newSource('Music/Battle music 1.mp3','stream')
     
     BlueLaser = love.graphics.newImage('Graphics/Blue Laser.png')
-    GreeLaser = love.graphics.newImage('Graphics/Green Laser.png')
+    GreenLaser = love.graphics.newImage('Graphics/Green Laser.png')
     RedLaser = love.graphics.newImage('Graphics/Red Laser.png')
 
     songs[0]:play()
