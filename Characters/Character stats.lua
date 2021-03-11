@@ -157,7 +157,8 @@ Droideka = {
     ['offense'] = 13768,
     ['defense'] = 13943,
     ['evade'] = 0,
-    ['range'] = 2
+    ['range'] = 2,
+    ['laser_colour'] = 'Red'
 }
 
 ElitePraetorianGuard = {
