@@ -2,6 +2,8 @@ function love.load()
     --Libraries and other files that are required
     push = require 'push'
     Class = require 'class'
+    bitser = require 'bitser/bitser'
+    -- bitser.registerClass(Class)
     
     require 'Card'
     require 'Button'
@@ -62,6 +64,9 @@ function love.load()
     joysticks = love.joystick.getJoysticks()
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
+    -- love.filesystem.write('P1_deck_file.txt',bitser.dumps(P1_deck_file))
+    -- P1_deck_file = read_P1_deck()
+    -- love.filesystem.write('Player 1 deck.txt',bitser.dumps(P1_deck_file))
 
     if P1_deck_file == nil then
         love.filesystem.write('Player 1 deck.txt',',,,,,,,,,,,,,,,,,,')
@@ -96,6 +101,7 @@ function split(s, delimiter)
 end
 
 function P1_deck_edit(position,name)
+    --P1_deck_file = bitser.loads('Player 1 deck.txt')
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
     P1_deck_cards_original = split(P1_deck_file,',')
     for k, pair in pairs(P1_deck_cards_original) do 
@@ -114,6 +120,7 @@ function P1_deck_edit(position,name)
         end
     end
 
+    --love.filesystem.write('Player 1 deck.txt',bitser.dumps(P1_deck_cards))
     love.filesystem.write('Player 1 deck.txt',P1_deck_cards_string)
 
     read_P1_deck()
@@ -129,6 +136,7 @@ function read_P1_deck()
             P1_deck_cards[k-1] = pair
         end
     end
+    --P1_deck_file = bitser.loads('Player 1 deck backup.txt')
 end
 
 
@@ -268,5 +276,6 @@ function love.draw()
     for k, pair in pairs(gui) do
         pair:render()
     end
+    -- love.graphics.print(P1_deck_cards)
     push:finish()
 end

@@ -176,15 +176,12 @@ function Card:render()
         love.graphics.setColor(1,1,1)
     end
 
-    -- if self.number == 13 and self.team == 1 then
-        -- love.graphics.print(self.laser.angle)
-        -- love.graphics.print(self:distance(1))
-        -- x = 0
-        -- for k, pair in pairs(self.possible_targets) do
-        --     x = x + 100
-        --     love.graphics.print(k,0,x)
-        -- end
-        -- love.graphics.print(self.laser_colour)
+    -- if self.number == 15 and self.team == 1 and self.laser ~= nil then
+    --     love.graphics.print(math.deg(self.laser.angle))
+    --     love.graphics.print(self.laser.x_distance,0,100)
+    --     love.graphics.print(self.laser.y_distance,0,200)
+    --     love.graphics.print(self.laser.third_side,0,300)
+    --     love.graphics.print((((self.laser.x_distance ^ 2) + (self.laser.y_distance ^ 2)) - (self.laser.third_side ^ 2)) / (2 * self.laser.x_distance * self.laser.y_distance),0,400)
     -- end
 
     -- if self.number == 15 then
