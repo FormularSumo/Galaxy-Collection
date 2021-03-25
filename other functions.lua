@@ -21,9 +21,9 @@ function exit_state()
 end
 
 function toggle_pause_on_loose_focus()
-    pause_on_loose_focus = not pause_on_loose_focus
-    gui['Toggle pause on loose focus']:update_text('Pause on losing Window focus: ' .. tostring(pause_on_loose_focus))
-    love.filesystem.write('Pause on loose focus setting.txt',tostring(pause_on_loose_focus))
+    Settings['pause_on_loose_focus'] = not Settings['pause_on_loose_focus']
+    gui['Toggle pause on loose focus']:update_text('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']))
+    bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
 function gamespeed_slider(percentage)
@@ -32,7 +32,8 @@ end
 
 function volume_slider(percentage)
     love.audio.setVolume(percentage)
-    love.filesystem.write('Volume level.txt', love.audio.getVolume())
+    Settings['volume_level'] = percentage
+    bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
 function return_to_main_menu()

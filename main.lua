@@ -63,25 +63,22 @@ function love.load()
     focus = true
     joysticks = love.joystick.getJoysticks()
 
-    P1_deck_file = love.filesystem.read('Player 1 deck.txt')
+    if love.filesystem.read('Settings.txt') == nil then
+        Settings = {
+            ['pause_on_loose_focus'] = true,
+            ['volume_level'] = 0.5
+        }
+        love.filesystem.write('Settings.txt',bitser.dumps(Settings))
+    end
 
-    if P1_deck_file == nil then
+    Settings = bitser.loadLoveFile('Settings.txt')
+    love.audio.setVolume(Settings['volume_level'])
+
+    if love.filesystem.read('Player 1 deck.txt') == nil then
         P1_deck_cards = {}
         love.filesystem.write('Player 1 deck.txt',bitser.dumps(P1_deck_cards))
     end
 
-    pause_on_loose_focus = (love.filesystem.read('Pause on loose focus setting.txt'))
-    if pause_on_loose_focus == 'false' then
-        pause_on_loose_focus = false
-    else
-        pause_on_loose_focus = true
-    end
-
-    Volume_level = love.filesystem.read('Volume level.txt')
-    if Volume_level ~= nil then
-        love.audio.setVolume(Volume_level)
-        Volume_level = nil
-    end
     -- initialize state machine with all state-returning functions
     gStateMachine = StateMachine {
         ['home'] = function() return HomeState() end,
@@ -135,7 +132,8 @@ function love.keypressed(key)
         else
             love.audio.setVolume(0)
         end
-        love.filesystem.write('Volume level.txt', love.audio.getVolume())
+        Settings['volume_level'] = love.audio.getVolume()
+        bitser.dumpLoveFile('Settings.txt', Settings)
         if gui['Volume Slider'] ~= nil then
             gui['Volume Slider'].percentage = love.audio.getVolume()
         end
@@ -168,7 +166,7 @@ end
 
 function love.focus(InFocus)
     focus = InFocus
-    if pause_on_loose_focus then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
+    if Settings['pause_on_loose_focus'] then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
 end
 
 function love.update(dt)
