@@ -64,12 +64,10 @@ function love.load()
     joysticks = love.joystick.getJoysticks()
 
     P1_deck_file = love.filesystem.read('Player 1 deck.txt')
-    -- love.filesystem.write('P1_deck_file.txt',bitser.dumps(P1_deck_file))
-    -- P1_deck_file = read_P1_deck()
-    -- love.filesystem.write('Player 1 deck.txt',bitser.dumps(P1_deck_file))
 
     if P1_deck_file == nil then
-        love.filesystem.write('Player 1 deck.txt',',,,,,,,,,,,,,,,,,,')
+        P1_deck_cards = {}
+        love.filesystem.write('Player 1 deck.txt',bitser.dumps(P1_deck_cards))
     end
 
     pause_on_loose_focus = (love.filesystem.read('Pause on loose focus setting.txt'))
@@ -101,42 +99,15 @@ function split(s, delimiter)
 end
 
 function P1_deck_edit(position,name)
-    --P1_deck_file = bitser.loads('Player 1 deck.txt')
-    P1_deck_file = love.filesystem.read('Player 1 deck.txt')
-    P1_deck_cards_original = split(P1_deck_file,',')
-    for k, pair in pairs(P1_deck_cards_original) do 
-        P1_deck_cards[k-1] = pair
-    end
-    length = #P1_deck_cards
-    P1_deck_cards[position] = tostring(name)
-    P1_deck_cards_string = ''
-    x = -1
-    for k, pair in pairs(P1_deck_cards) do
-        x = x + 1
-        if x < length then
-            P1_deck_cards_string = P1_deck_cards_string .. pair .. ','
-        else
-            P1_deck_cards_string = P1_deck_cards_string .. pair --stops extra comma being written
-        end
-    end
-
-    --love.filesystem.write('Player 1 deck.txt',bitser.dumps(P1_deck_cards))
-    love.filesystem.write('Player 1 deck.txt',P1_deck_cards_string)
-
     read_P1_deck()
+    
+    P1_deck_cards[position] = name
+
+    bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
 end
 
 function read_P1_deck()
-    P1_deck_cards = {}
-    P1_deck_file = love.filesystem.read('Player 1 deck.txt')
-    P1_deck_cards_original = split(P1_deck_file,',')
-
-    for k, pair in pairs(P1_deck_cards_original) do 
-        if pair ~= '' then
-            P1_deck_cards[k-1] = pair
-        end
-    end
-    --P1_deck_file = bitser.loads('Player 1 deck backup.txt')
+    P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
 end
 
 
@@ -276,6 +247,5 @@ function love.draw()
     for k, pair in pairs(gui) do
         pair:render()
     end
-    -- love.graphics.print(P1_deck_cards)
     push:finish()
 end
