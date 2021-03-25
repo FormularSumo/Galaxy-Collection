@@ -33,6 +33,9 @@ end
 function volume_slider(percentage)
     love.audio.setVolume(percentage)
     Settings['volume_level'] = percentage
+end
+
+function volume_slider2()
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 

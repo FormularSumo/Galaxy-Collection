@@ -16,7 +16,7 @@ function HomeState:init()
     gui['Maxed'] = Button('maxed','Maxed',font80,nil,'centre',500)
     gui['Prebuilt Deck'] = Button('prebuilt_deck','Create a pre-built deck',font50,nil,'centre',750)
     gui['Toggle pause on loose focus'] = Button('toggle_pause_on_loose_focus', 'Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']),font50,nil,'centre',900)
-    gui['Volume Slider'] = Slider(100,1000,300,12,'volume_slider',0.3,0.3,0.3,1,1,1,tostring(love.audio.getVolume()),0.5)
+    gui['Volume Slider'] = Slider(100,1000,300,12,'volume_slider',0.3,0.3,0.3,1,1,1,Settings['volume_level'],0.5,'volume_slider2')
 end
 
 function HomeState:update()
