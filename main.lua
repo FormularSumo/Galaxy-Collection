@@ -87,14 +87,6 @@ function love.load()
     gStateMachine:change('home')
 end
 
-function split(s, delimiter)
-    result = {};
-    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
-        table.insert(result, match);
-    end
-    return result
-end
-
 function P1_deck_edit(position,name)
     read_P1_deck()
     
