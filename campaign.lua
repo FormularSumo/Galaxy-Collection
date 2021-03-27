@@ -51,12 +51,12 @@ function maxed()
     P2_deck_cards[9] = 'CountDooku'
     P2_deck_cards[10] = 'AhsokaTanoS7'
     P2_deck_cards[11] = 'GeneralGrievous'
-    P2_deck_cards[12] = 'CadBane'
+    P2_deck_cards[12] = 'BobaFettROTJ'
     P2_deck_cards[13] = 'TheMandalorian'
     P2_deck_cards[14] = 'BobaFettMandalorian'
     P2_deck_cards[15] = 'JangoFett'
-    P2_deck_cards[16] = 'BobaFettROTJ'
-    P2_deck_cards[17] = 'CaptainRex'
+    P2_deck_cards[16] = 'BoKatan'
+    P2_deck_cards[17] = 'CadBane'
 
     gStateMachine:change('game',{'Death Star Control Room', 'photo', 0, 1, 1 ,1})
 end
