@@ -27,24 +27,24 @@ AsajjVentress = {
 }
 
 B1BattleDroid = {
-    ['offense'] = 2302,
-    ['defense'] = 2205,
+    ['offense'] = 3302,
+    ['defense'] = 3205,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
 
 B2RPSuperBattleDroid = {
-    ['offense'] = 8285,
-    ['defense'] = 7424,
+    ['offense'] = 9285,
+    ['defense'] = 8924,
     ['evade'] = 0.08,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
 }
 
 B2SuperBattleDroid = {
-    ['offense'] = 8085,
-    ['defense'] = 8024,
+    ['offense'] = 9085,
+    ['defense'] = 9524,
     ['evade'] = 0.01,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -192,8 +192,8 @@ ElitePraetorianGuard = {
 }
 
 Ewok = {
-    ['offense'] = 2254,
-    ['defense'] = 1975,
+    ['offense'] = 3254,
+    ['defense'] = 2975,
     ['evade'] = 0.1,
     ['range'] = 1
 }
@@ -207,7 +207,7 @@ EzraBridgerS2 = {
 
 FarmboyLuke = {
     ['offense'] = 10987,
-    ['defense'] = 7467,
+    ['defense'] = 7067,
     ['evade'] = 0.02,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
