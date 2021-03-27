@@ -13,14 +13,17 @@ function GameState:enter(Background)
     if Background[6] == nil then b = 0 else b = Background[6] end
     gui['Pause'] = Button('pause','Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
     gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
+
+    if background['Seek'] > 1 then
+        timer = 0 - (background['Seek'] - 1)
+    else
+        timer = 0
+    end
+    move_aim_timer = timer
+    attack_timer = timer - 0.9
 end
 
 function GameState:init()
-    timer = -1
-    move_timer = -1
-    aim_timer = -1
-    attack_timer = -1.9
-
     songs[0] = love.audio.newSource('Music/Battle music 1.mp3','stream')
     
     BlueLaser = love.graphics.newImage('Graphics/Blue Laser.png')
@@ -233,12 +236,11 @@ function GameState:update(dt)
     dt = dt * gamespeed
     if paused == false and winner == 'none' then
         timer = timer + dt
-        move_timer = move_timer + dt
-        aim_timer = aim_timer + dt
+        move_aim_timer = move_aim_timer + dt
         attack_timer = attack_timer + dt
 
-        if move_timer >= 1 then
-            move_timer = move_timer - 1
+        if move_aim_timer >= 1 then
+            move_aim_timer = move_aim_timer - 1
             
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:move()
@@ -275,10 +277,6 @@ function GameState:update(dt)
             
             P1_deck = next_round_P1_deck
             P2_deck = next_round_P2_deck
-        end
-
-        if aim_timer >= 1 then
-            aim_timer = aim_timer - 1
 
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:aim()
@@ -381,7 +379,7 @@ function GameState:render()
     if winner ~= 'none' then 
         love.graphics.print({{r,g,b},'Winner: ' .. winner},35,20)
     end
-    -- love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.move_timer.getFPS())}, font50, 10, 10)
+    -- love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 10, 10)
 end
 
 function GameState:exit()
