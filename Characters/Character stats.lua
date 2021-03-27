@@ -105,7 +105,7 @@ CaptainRex = {
 
 Chewbacca = {
     ['offense'] = 14210,
-    ['defense'] = 10345,
+    ['defense'] = 11345,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -209,6 +209,14 @@ Greedo = {
     ['offense'] = 9142,
     ['defense'] = 8253,
     ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
+HanSolo = {
+    ['offense'] = 15529,
+    ['defense'] = 9648,
+    ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
