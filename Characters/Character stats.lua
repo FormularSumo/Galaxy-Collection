@@ -126,6 +126,14 @@ Chopper = {
     ['range'] = 1,
 }
 
+CloneTrooperPhase1 = {
+    ['offense'] = 9473,
+    ['defense'] = 9094,
+    ['evade'] = 0.2,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 CloneTrooperPhase2 = {
     ['offense'] = 9786,
     ['defense'] = 9481,
