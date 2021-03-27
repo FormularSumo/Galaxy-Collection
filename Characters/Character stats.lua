@@ -279,6 +279,13 @@ Maul = {
     ['range'] = 1
 }
 
+MotherTalzin = {
+    ['offense'] = 17538,
+    ['defense'] = 14460,
+    ['evade'] = 0.01,
+    ['range'] = 1
+}
+
 ObiWanKenobi = {
     ['offense'] = 17421,
     ['defense'] = 18864,
