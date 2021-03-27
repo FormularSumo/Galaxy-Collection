@@ -397,6 +397,22 @@ SenateGuard = {
     ['range'] = 1
 }
 
+StormtrooperOriginal = {
+    ['offense'] = 6984,
+    ['defense'] = 6248,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
+StormtrooperSequel = {
+    ['offense'] = 7152,
+    ['defense'] = 6547,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 TheMandalorian = {
     ['offense'] = 16443,
     ['defense'] = 15028,
