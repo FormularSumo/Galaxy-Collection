@@ -180,8 +180,6 @@ function Card:render()
     --     love.graphics.print(math.deg(self.laser.angle))
     --     love.graphics.print(self.laser.x_distance,0,100)
     --     love.graphics.print(self.laser.y_distance,0,200)
-    --     love.graphics.print(self.laser.third_side,0,300)
-    --     love.graphics.print((((self.laser.x_distance ^ 2) + (self.laser.y_distance ^ 2)) - (self.laser.third_side ^ 2)) / (2 * self.laser.x_distance * self.laser.y_distance),0,400)
     -- end
 
     -- if self.number == 15 then

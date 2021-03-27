@@ -18,7 +18,7 @@ function Laser:init(x,y,finalx,finaly,laser,team,xoffset,yoffset)
     self.x_distance = tonumber(self.finalx-self.x)
     self.y_distance = tonumber(self.finaly-self.y)
     -- self.third_side = math.sqrt(self.y_distance ^ 2 + self.x_distance ^ 2)
-    -- self.angle = math.atan(self.third_side/self.x_distance)
+    self.angle = math.atan(self.y_distance/self.x_distance)
     -- if self.angle == nil then self.angle = math.rad(90) end
     -- self.delay = math.random(0,4.5) / 10
     self.timer = 0
@@ -34,6 +34,6 @@ end
 
 function Laser:render()
     if self.timer > 0 then
-        love.graphics.draw(self.image,self.x,self.y)
+        love.graphics.draw(self.image,self.x,self.y,self.angle)
     end
 end
