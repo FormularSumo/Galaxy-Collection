@@ -126,6 +126,14 @@ Chopper = {
     ['range'] = 1,
 }
 
+CloneTrooperPhase2 = {
+    ['offense'] = 9786,
+    ['defense'] = 9481,
+    ['evade'] = 0.2,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 CommanderCody = {
     ['offense'] = 15319,
     ['defense'] = 15371,
