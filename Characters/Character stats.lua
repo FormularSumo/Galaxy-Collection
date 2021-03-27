@@ -119,6 +119,13 @@ Chewbacca = {
     ['laser_colour'] = 'Red'
 }
 
+Chopper = {
+    ['offense'] = 8426,
+    ['defense'] = 7958,
+    ['evade'] = 0.15,
+    ['range'] = 1,
+}
+
 CommanderCody = {
     ['offense'] = 15319,
     ['defense'] = 15371,
