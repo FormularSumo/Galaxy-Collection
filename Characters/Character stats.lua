@@ -80,6 +80,14 @@ BobaFettMandalorian = {
     ['laser_colour'] = 'Red'
 }
 
+BoKatan = {
+    ['offense'] = 16547,
+    ['defense'] = 14768,
+    ['evade'] = 0.15,
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
+}
+
 C3P0 = {
     ['offense'] = 335,
     ['defense'] = 824,
@@ -288,8 +296,8 @@ Maul = {
 }
 
 MotherTalzin = {
-    ['offense'] = 17538,
-    ['defense'] = 14460,
+    ['offense'] = 17638,
+    ['defense'] = 14650,
     ['evade'] = 0.01,
     ['range'] = 1
 }
