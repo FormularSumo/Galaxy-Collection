@@ -68,7 +68,7 @@ function love.load()
             ['pause_on_loose_focus'] = true,
             ['volume_level'] = 0.5
         }
-        love.filesystem.write('Settings.txt',bitser.dumps(Settings))
+        bitser.dumpLoveFile('Settings.txt',Settings)
     end
 
     Settings = bitser.loadLoveFile('Settings.txt')
@@ -76,7 +76,7 @@ function love.load()
 
     if love.filesystem.read('Player 1 deck.txt') == nil then
         P1_deck_cards = {}
-        love.filesystem.write('Player 1 deck.txt',bitser.dumps(P1_deck_cards))
+        bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
     end
 
     -- initialize state machine with all state-returning functions
