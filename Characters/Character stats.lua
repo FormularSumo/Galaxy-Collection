@@ -274,6 +274,14 @@ KyloRen = {
     ['range'] = 1
 }
 
+Leia = {
+    ['offense'] = 15048,
+    ['defense'] = 9153,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 MaceWindu = {
     ['offense'] = 18901,
     ['defense'] = 18574,
