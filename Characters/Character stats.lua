@@ -215,7 +215,7 @@ Greedo = {
 
 HanSoloOld = {
     ['offense'] = 15546,
-    ['defense'] = 7565,
+    ['defense'] = 8565,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -339,6 +339,13 @@ SabineWrenDarksaber = {
 SavageOpress = {
     ['offense'] = 18526,
     ['defense'] = 17349,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
+SenateGuard = {
+    ['offense'] = 8024,
+    ['defense'] = 8067,
     ['evade'] = 0.03,
     ['range'] = 1
 }
