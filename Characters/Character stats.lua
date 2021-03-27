@@ -111,6 +111,14 @@ Chewbacca = {
     ['laser_colour'] = 'Red'
 }
 
+CommanderCody = {
+    ['offense'] = 15319,
+    ['defense'] = 15371,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 CountDooku = {
     ['offense'] = 18224,
     ['defense'] = 18391,

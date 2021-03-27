@@ -14,7 +14,7 @@ function GameState:enter(Background)
     gui['Pause'] = Button('pause','Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
     gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
 
-    if background['Seek'] > 1 then
+    if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
         timer = 0 - (background['Seek'] - 1)
     else
         timer = 0

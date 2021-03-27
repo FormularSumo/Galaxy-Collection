@@ -3,7 +3,6 @@ function love.load()
     push = require 'push'
     Class = require 'class'
     bitser = require 'bitser/bitser'
-    -- bitser.registerClass(Class)
     
     require 'Card'
     require 'Button'
