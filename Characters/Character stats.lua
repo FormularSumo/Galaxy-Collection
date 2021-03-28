@@ -285,8 +285,8 @@ HondoOhnaka = {
 }
 
 IG88 = {
-    ['offense'] = 16205,
-    ['defense'] = 14978,
+    ['offense'] = 14205,
+    ['defense'] = 11178,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
