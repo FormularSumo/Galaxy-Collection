@@ -4,8 +4,8 @@ function HomeState:init()
     background['Background'] = love.graphics.newVideo('Backgrounds/Starry Sky.ogv')
     background['Type'] = 'video'
     background['Seek'] = 0
-    songs[0] = love.audio.newSource('Music/The Mandalorian.mp3','stream')
-    songs[1] = love.audio.newSource('Music/Binary Sunset.mp3','stream')
+    songs[0] = love.audio.newSource('Music/The Mandalorian.oga','stream')
+    songs[1] = love.audio.newSource('Music/Binary Sunset.oga','stream')
 
     songs[0]:play()
     queue_length = 1
