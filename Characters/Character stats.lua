@@ -268,6 +268,14 @@ HanSoloOld = {
     ['laser_colour'] = 'Red'
 }
 
+HeraSyndulla = {
+    ['offense'] = 14189,
+    ['defense'] = 11038,
+    ['evade'] = 0.05,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 HondoOhnaka = {
     ['offense'] = 11454,
     ['defense'] = 11732,
