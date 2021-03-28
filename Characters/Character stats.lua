@@ -111,6 +111,14 @@ CaptainRex = {
     ['laser_colour'] = 'Blue'
 }
 
+CaraDune = {
+    ['offense'] = 16223,
+    ['defense'] = 14864,
+    ['evade'] = 0.05,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 Chewbacca = {
     ['offense'] = 14210,
     ['defense'] = 11345,
