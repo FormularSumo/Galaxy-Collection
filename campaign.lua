@@ -18,7 +18,7 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     P2_deck_cards[16] = 'RoyalGuard'
     P2_deck_cards[17] = 'B2RPSuperBattleDroid'
 
-    gStateMachine:change('game',{'Sand Dunes', 'video', 2, 0, 0, 0})
+    gStateMachine:change('game',{'Sand Dunes', 'video', 2, 0, 0, 0, 'Binary Sunset.mp3'})
 end
 
 function throne_room()
@@ -27,7 +27,7 @@ function throne_room()
     P2_deck_cards[3] = 'DarthVader'
     P2_deck_cards[4] = 'RoyalGuard'
    
-    gStateMachine:change('game',{'Death Star Control Room', 'photo', 0, 1, 1 ,1})
+    gStateMachine:change('game',{'Death Star Control Room', 'photo', 0, 1, 1 ,1, 'Imperial March piano only.oga'})
 end
 
 function endor()
@@ -35,7 +35,7 @@ function endor()
         P2_deck_cards[i] = 'Ewok'
     end
    
-    gStateMachine:change('game',{'Endor', 'photo', 0, 1, 1 ,1})
+    gStateMachine:change('game',{'Endor', 'photo', 0, 1, 1 ,1, 'Battle music 1.mp3'})
 end
 
 function maxed()
@@ -58,5 +58,5 @@ function maxed()
     P2_deck_cards[16] = 'BoKatan'
     P2_deck_cards[17] = 'CadBane'
 
-    gStateMachine:change('game',{'Death Star Control Room', 'photo', 0, 1, 1 ,1})
+    gStateMachine:change('game',{'Death Star Control Room', 'photo', 0, 1, 1 ,1, 'Imperial March duet.mp3'})
 end

@@ -8,6 +8,11 @@ function GameState:enter(Background)
     else
         background['Background'] = love.graphics.newImage(tostring('Backgrounds/' .. Background[1] .. '.jpg'))
     end
+
+    songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
+    songs[0]:play()
+    queue_length = 0
+
     if Background[4] == nil then r = 0 else r = Background[4] end
     if Background[5] == nil then g = 0 else g = Background[5] end
     if Background[6] == nil then b = 0 else b = Background[6] end
@@ -23,15 +28,10 @@ function GameState:enter(Background)
     attack_timer = timer - 0.9
 end
 
-function GameState:init()
-    songs[0] = love.audio.newSource('Music/Battle music 1.mp3','stream')
-    
+function GameState:init()  
     BlueLaser = love.graphics.newImage('Graphics/Blue Laser.png')
     GreenLaser = love.graphics.newImage('Graphics/Green Laser.png')
     RedLaser = love.graphics.newImage('Graphics/Red Laser.png')
-
-    songs[0]:play()
-    queue_length = 0
 
     read_P1_deck()
     P1_deck = {}
