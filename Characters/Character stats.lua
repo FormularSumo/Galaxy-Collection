@@ -222,6 +222,14 @@ ElitePraetorianGuard = {
     ['range'] = 1
 }
 
+EliteSenateCommando = {
+    ['offense'] = 9034,
+    ['defense'] = 9124,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 Ewok = {
     ['offense'] = 3254,
     ['defense'] = 2975,
@@ -237,8 +245,7 @@ EzraBridgerS2 = {
 }
 
 FarmboyLuke = {
-    ['offense'] = 10987,
-    ['defense'] = 7067,
+    ['offense'] = 9987,
     ['evade'] = 0.02,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
