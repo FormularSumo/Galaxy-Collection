@@ -57,6 +57,7 @@ function love.load()
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
     mouseDown = false
+    mouseTrapped = false
     mouseLastX = 0
     mouseLastY = 0
     focus = true
@@ -226,6 +227,7 @@ function love.update(dt)
     --Reset table of clicked keys/mousebuttons so last frame's inputs aren't used next frame
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
+    if mouseDown == false then mouseTrapped = false end
     mouseDown = false
 end
 

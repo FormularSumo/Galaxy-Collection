@@ -80,11 +80,12 @@ function Button:update_text(text)
 end
 
 function Button:update()
-    if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
+    if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height and mouseTrapped == self.func then
         _G[self.func]()
     end
-    if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
+    if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height and (mouseTrapped == false or mouseTrapped == self.func) then
         self.scaling = 1.08
+        mouseTrapped = self.func
     else
         self.scaling = 1
     end
