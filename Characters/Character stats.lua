@@ -371,6 +371,14 @@ PreVizsla = {
     ['range'] = 1
 }
 
+Padme = {
+    ['offense'] = 14768,
+    ['defense'] = 9427,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 R2D2 = {
     ['offense'] = 9241,
     ['defense'] = 8165,
