@@ -315,6 +315,13 @@ IG11 = {
     ['laser_colour'] = 'Red'
 }
 
+JabbaTheHutt = {
+    ['offense'] = 249,
+    ['defense'] = 513,
+    ['evade'] = 0,
+    ['range'] = 1
+}
+
 JangoFett = {
     ['offense'] = 17536,
     ['defense'] = 15464,
