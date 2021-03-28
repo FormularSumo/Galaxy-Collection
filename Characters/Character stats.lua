@@ -443,3 +443,11 @@ Yoda = {
     ['evade'] = 0.12,
     ['range'] = 1
 }
+
+Zeb = {
+    ['offense'] = 14229,
+    ['defense'] = 11169,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}

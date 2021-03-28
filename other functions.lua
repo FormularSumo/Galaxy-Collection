@@ -76,5 +76,5 @@ function prebuilt_deck() --Doesn't belong here, will either be deleted or moved 
     P1_deck_edit(14,'BobaFettMandalorian')
     P1_deck_edit(15,'TheMandalorian')
     P1_deck_edit(16,'CaptainRex')
-    P1_deck_edit(17,'Chewbacca')
+    P1_deck_edit(17,'HanSolo')
 end
