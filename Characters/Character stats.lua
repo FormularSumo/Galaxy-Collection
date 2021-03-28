@@ -1,3 +1,10 @@
+AhsokaTanoFulcrum = {
+    ['offense'] = 18469,
+    ['defense'] = 18384,
+    ['evade'] = 0.1,
+    ['range'] = 1
+}
+
 AhsokaTanoPadawan = {
     ['offense'] = 16082,
     ['defense'] = 15234,
