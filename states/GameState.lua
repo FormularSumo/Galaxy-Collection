@@ -4,9 +4,9 @@ function GameState:enter(Background)
     background['Type'] = Background[2]
     background['Seek'] = Background[3]
     if background['Type'] == 'video' then
-        background['Background'] = love.graphics.newVideo(tostring('Backgrounds/' .. Background[1] .. '.ogv'))
+        background['Background'] = love.graphics.newVideo('Backgrounds/' .. Background[1])
     else
-        background['Background'] = love.graphics.newImage(tostring('Backgrounds/' .. Background[1] .. '.jpg'))
+        background['Background'] = love.graphics.newImage('Backgrounds/' .. Background[1])
     end
 
     songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
