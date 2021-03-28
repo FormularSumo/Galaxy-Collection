@@ -236,6 +236,14 @@ GeneralGrievous = {
     ['range'] = 1
 }
 
+GrandAdmiralThrawn = {
+    ['offense'] = 16271,
+    ['defense'] = 15524,
+    ['evade'] = 0.05,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 Greedo = {
     ['offense'] = 9142,
     ['defense'] = 8253,
