@@ -292,6 +292,14 @@ IG88 = {
     ['laser_colour'] = 'Red'
 }
 
+IG11 = {
+    ['offense'] = 16205,
+    ['defense'] = 14978,
+    ['evade'] = 0.04,
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
+}
+
 JangoFett = {
     ['offense'] = 17536,
     ['defense'] = 15464,
