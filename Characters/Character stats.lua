@@ -284,11 +284,12 @@ HondoOhnaka = {
     ['laser_colour'] = 'Red'
 }
 
-LukeSkywalkerROTJ = {
-    ['offense'] = 18437,
-    ['defense'] = 18339,
+IG88 = {
+    ['offense'] = 16205,
+    ['defense'] = 14978,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
 }
 
 JangoFett = {
@@ -319,6 +320,13 @@ Leia = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
+}
+
+LukeSkywalkerROTJ = {
+    ['offense'] = 18437,
+    ['defense'] = 18339,
+    ['evade'] = 0.04,
+    ['range'] = 1
 }
 
 MaceWindu = {
