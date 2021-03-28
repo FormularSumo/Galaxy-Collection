@@ -246,6 +246,7 @@ EzraBridgerS2 = {
 
 FarmboyLuke = {
     ['offense'] = 9987,
+    ['defense'] = 6567,
     ['evade'] = 0.02,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
