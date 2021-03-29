@@ -402,19 +402,26 @@ ObiWanKenobi = {
     ['range'] = 1
 }
 
-PreVizsla = {
-    ['offense'] = 17336,
-    ['defense'] = 17374,
-    ['evade'] = 0.10,
-    ['range'] = 1
-}
-
 Padme = {
     ['offense'] = 14768,
     ['defense'] = 9427,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
+}
+
+PloKoon = {
+    ['offense'] = 18037,
+    ['defense'] = 17792,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
+PreVizsla = {
+    ['offense'] = 17336,
+    ['defense'] = 17374,
+    ['evade'] = 0.10,
+    ['range'] = 1
 }
 
 R2D2 = {
@@ -432,8 +439,8 @@ RedGuard = {
 }
 
 Rey = {
-    ['offense'] = 17924,
-    ['defense'] = 17915,
+    ['offense'] = 17914,
+    ['defense'] = 17905,
     ['evade'] = 0.04,
     ['range'] = 1
 }
@@ -464,6 +471,13 @@ SenateGuard = {
     ['offense'] = 8024,
     ['defense'] = 8067,
     ['evade'] = 0.03,
+    ['range'] = 1
+}
+
+ShaakTi = {
+    ['offense'] = 17826,
+    ['defense'] = 18003,
+    ['evade'] = 0.04,
     ['range'] = 1
 }
 
