@@ -390,6 +390,14 @@ KyloRen = {
     ['range'] = 1
 }
 
+LandoCalrissian = {
+    ['offense'] = 9136,
+    ['defense'] = 9058,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 Leia = {
     ['offense'] = 15048,
     ['defense'] = 9153,
