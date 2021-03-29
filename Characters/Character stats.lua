@@ -516,6 +516,13 @@ PreVizsla = {
     ['range'] = 1
 }
 
+QuiGonJinn = {
+    ['offense'] = 17824,
+    ['defense'] = 17999,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
 R2D2 = {
     ['offense'] = 9241,
     ['defense'] = 8165,
