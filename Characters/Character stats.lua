@@ -582,6 +582,13 @@ StormtrooperSequel = {
     ['laser_colour'] = 'Red'
 }
 
+SupremeLeaderSnoke = {
+    ['offense'] = 18468,
+    ['defense'] = 18452,
+    ['evade'] = 0.01,
+    ['range'] = 1
+}
+
 Talia = {
     ['offense'] = 9718,
     ['defense'] = 9518,
