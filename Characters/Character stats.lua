@@ -407,6 +407,13 @@ KananJarrus = {
     ['range'] = 1  
 }
 
+KitFisto = {
+    ['offense'] = 17801,
+    ['defense'] = 18078,
+    ['evade'] = 0.05,
+    ['range'] = 1  
+}
+
 KyloRen = {
     ['offense'] = 18193,
     ['defense'] = 17664,
