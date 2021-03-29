@@ -534,6 +534,13 @@ StormtrooperSequel = {
     ['laser_colour'] = 'Red'
 }
 
+Talia = {
+    ['offense'] = 9718,
+    ['defense'] = 9518,
+    ['evade'] = 0.06,
+    ['range'] = 1
+}
+
 TheMandalorian = {
     ['offense'] = 16443,
     ['defense'] = 15028,
@@ -541,6 +548,7 @@ TheMandalorian = {
     ['range'] = 5,
     ['laser_colour'] = 'Red'
 }
+
 
 Yoda = {
     ['offense'] = 18384,
