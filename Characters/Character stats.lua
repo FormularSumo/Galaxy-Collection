@@ -267,6 +267,13 @@ GeneralGrievous = {
     ['range'] = 1
 }
 
+GeonosianBroodAlpha = {
+    ['offense'] = 9964,
+    ['defense'] = 9615,
+    ['evade'] = 0.15,
+    ['range'] = 1
+}
+
 GrandAdmiralThrawn = {
     ['offense'] = 16271,
     ['defense'] = 15524,
