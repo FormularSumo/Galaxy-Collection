@@ -98,7 +98,7 @@ BoKatan = {
 Bossk = {
     ['offense'] = 15013,
     ['defense'] = 15748,
-    ['evade'] = 0.05,
+    ['evade'] = 0.04,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
 }
@@ -129,7 +129,7 @@ CaptainRex = {
 CaraDune = {
     ['offense'] = 16193,
     ['defense'] = 14814,
-    ['evade'] = 0.05,
+    ['evade'] = 0.04,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
@@ -184,21 +184,21 @@ CommandoDroid = {
 CountDooku = {
     ['offense'] = 18224,
     ['defense'] = 18391,
-    ['evade'] = 0.04,
+    ['evade'] = 0.05,
     ['range'] = 1
 }
 
 DarkTrooper = {
     ['offense'] = 15071,
     ['defense'] = 15958,
-    ['evade'] = 0.02,
+    ['evade'] = 0.15,
     ['range'] = 1
 }
 
 DarthSidious = {
     ['offense'] = 18731,
-    ['defense'] = 18673,
-    ['evade'] = 0.05,
+    ['defense'] = 18653,
+    ['evade'] = 0.07,
     ['range'] = 1
 }
 
@@ -287,7 +287,7 @@ GamorreanGuard = {
 GeneralGrievous = {
     ['offense'] = 19001,
     ['defense'] = 16902,
-    ['evade'] = 0.05,
+    ['evade'] = 0.06,
     ['range'] = 1
 }
 
@@ -396,7 +396,7 @@ JangoFett = {
 JynErso = {
     ['offense'] = 14513,
     ['defense'] = 14349,
-    ['evade'] = 0.04,
+    ['evade'] = 0.05,
     ['range'] = 1
 }
 
@@ -475,7 +475,7 @@ MoffGideon = {
 MotherTalzin = {
     ['offense'] = 17638,
     ['defense'] = 14650,
-    ['evade'] = 0.01,
+    ['evade'] = 0.08,
     ['range'] = 1
 }
 
@@ -512,7 +512,7 @@ PoeDameron = {
 PreVizsla = {
     ['offense'] = 17336,
     ['defense'] = 17374,
-    ['evade'] = 0.10,
+    ['evade'] = 0.15,
     ['range'] = 1
 }
 
