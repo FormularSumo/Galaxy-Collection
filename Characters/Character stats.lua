@@ -361,6 +361,13 @@ JangoFett = {
     ['laser_colour'] = 'Red'
 }
 
+JynErso = {
+    ['offense'] = 14513,
+    ['defense'] = 14349,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
 KananJarrus = {
     ['offense'] = 16049,
     ['defense'] = 16103,
