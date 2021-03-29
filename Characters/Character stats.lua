@@ -260,6 +260,14 @@ FarmboyLuke = {
     ['laser_colour'] = 'Red'
 }
 
+Finn = {
+    ['offense'] = 9044,
+    ['defense'] = 9137,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 GamorreanGuard = {
     ['offense'] = 7543,
     ['defense'] = 7813,
@@ -452,6 +460,14 @@ PloKoon = {
     ['defense'] = 17792,
     ['evade'] = 0.04,
     ['range'] = 1
+}
+
+PoeDameron = {
+    ['offense'] = 9128,
+    ['defense'] = 9039,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
 }
 
 PreVizsla = {
