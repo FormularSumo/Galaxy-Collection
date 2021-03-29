@@ -165,6 +165,14 @@ CommanderCody = {
     ['laser_colour'] = 'Blue'
 }
 
+CommandoDroid = {
+    ['offense'] = 13614,
+    ['defense'] = 12078,
+    ['evade'] = 0.05,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 CountDooku = {
     ['offense'] = 18224,
     ['defense'] = 18391,
