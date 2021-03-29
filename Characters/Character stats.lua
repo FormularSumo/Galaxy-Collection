@@ -252,6 +252,14 @@ FarmboyLuke = {
     ['laser_colour'] = 'Red'
 }
 
+GamorreanGuard = {
+    ['offense'] = 7543,
+    ['defense'] = 7813,
+    ['evade'] = 0.01,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 GeneralGrievous = {
     ['offense'] = 19001,
     ['defense'] = 16902,
