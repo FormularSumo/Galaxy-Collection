@@ -136,7 +136,7 @@ CaraDune = {
 
 Chewbacca = {
     ['offense'] = 14210,
-    ['defense'] = 11345,
+    ['defense'] = 12345,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -174,8 +174,8 @@ CommanderCody = {
 }
 
 CommandoDroid = {
-    ['offense'] = 13614,
-    ['defense'] = 12078,
+    ['offense'] = 13514,
+    ['defense'] = 11978,
     ['evade'] = 0.05,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -459,8 +459,8 @@ MaceWindu = {
 }
 
 MagnaGuard = {
-    ['offense'] = 13452,
-    ['defense'] = 12784,
+    ['offense'] = 13352,
+    ['defense'] = 12684,
     ['evade'] = 0.03,
     ['range'] = 1
 }
@@ -643,7 +643,7 @@ Yoda = {
 
 Zeb = {
     ['offense'] = 14229,
-    ['defense'] = 11169,
+    ['defense'] = 12169,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
