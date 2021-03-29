@@ -314,6 +314,13 @@ GrandAdmiralThrawn = {
     ['laser_colour'] = 'Red'
 }
 
+GrandInquisitor = {
+    ['offense'] = 17819,
+    ['defense'] = 17864,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
 Greedo = {
     ['offense'] = 9142,
     ['defense'] = 8253,
@@ -514,6 +521,14 @@ PreVizsla = {
     ['defense'] = 17374,
     ['evade'] = 0.15,
     ['range'] = 1
+}
+
+PurgeTrooper = {
+    ['offense'] = 15614,
+    ['defense'] = 15483,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
 }
 
 QuiGonJinn = {
