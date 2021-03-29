@@ -398,7 +398,7 @@ LandoCalrissian = {
     ['laser_colour'] = 'Red'
 }
 
-Leia = {
+LeiaOrganaANH = {
     ['offense'] = 15048,
     ['defense'] = 9153,
     ['evade'] = 0.03,
