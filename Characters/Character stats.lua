@@ -34,8 +34,8 @@ AsajjVentress = {
 }
 
 B1BattleDroid = {
-    ['offense'] = 3302,
-    ['defense'] = 3205,
+    ['offense'] = 4502,
+    ['defense'] = 4205,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -44,7 +44,7 @@ B1BattleDroid = {
 B2RPSuperBattleDroid = {
     ['offense'] = 9285,
     ['defense'] = 8924,
-    ['evade'] = 0.08,
+    ['evade'] = 0.15,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
 }
@@ -119,16 +119,16 @@ CadBane = {
 }
 
 CaptainRex = {
-    ['offense'] = 15443,
-    ['defense'] = 15538,
+    ['offense'] = 15423,
+    ['defense'] = 15518,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Blue'
 }
 
 CaraDune = {
-    ['offense'] = 16223,
-    ['defense'] = 14864,
+    ['offense'] = 16193,
+    ['defense'] = 14814,
     ['evade'] = 0.05,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -247,8 +247,8 @@ EliteSenateCommando = {
 }
 
 Ewok = {
-    ['offense'] = 3254,
-    ['defense'] = 2975,
+    ['offense'] = 4254,
+    ['defense'] = 3975,
     ['evade'] = 0.1,
     ['range'] = 1
 }
@@ -294,7 +294,7 @@ GeneralGrievous = {
 GeneralLeiaOrgana = {
     ['offense'] = 9817,
     ['defense'] = 6871,
-    ['evade'] = 0.05,
+    ['evade'] = 0.07,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
@@ -325,7 +325,7 @@ Greedo = {
 GreefKarga = {
     ['offense'] = 9051,
     ['defense'] = 9134,
-    ['evade'] = 0.03,
+    ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
@@ -371,8 +371,8 @@ IG88 = {
 }
 
 IG11 = {
-    ['offense'] = 16205,
-    ['defense'] = 14978,
+    ['offense'] = 16105,
+    ['defense'] = 14888,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
@@ -424,7 +424,7 @@ KyloRen = {
 LandoCalrissian = {
     ['offense'] = 9136,
     ['defense'] = 9058,
-    ['evade'] = 0.02,
+    ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
