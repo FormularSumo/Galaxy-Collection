@@ -291,6 +291,14 @@ GeneralGrievous = {
     ['range'] = 1
 }
 
+GeneralLeiaOrgana = {
+    ['offense'] = 9817,
+    ['defense'] = 6871,
+    ['evade'] = 0.05,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 GeonosianBroodAlpha = {
     ['offense'] = 9964,
     ['defense'] = 9615,
