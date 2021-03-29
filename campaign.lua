@@ -10,7 +10,7 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     P2_deck_cards[8] = 'SavageOpress'
     P2_deck_cards[9] = 'KyloRen'
     P2_deck_cards[10] = 'PreVizsla'
-    P2_deck_cards[11] = 'DarkTrooper'
+    P2_deck_cards[11] = 'ElitePraetorianGuard'
     P2_deck_cards[12] = 'IG11'
     P2_deck_cards[13] = 'GrandAdmiralThrawn'
     P2_deck_cards[14] = 'JangoFett'

@@ -224,8 +224,8 @@ Droideka = {
 }
 
 ElitePraetorianGuard = {
-    ['offense'] = 15049,
-    ['defense'] = 15039,
+    ['offense'] = 15949,
+    ['defense'] = 15939,
     ['evade'] = 0.03,
     ['range'] = 1
 }
@@ -408,6 +408,13 @@ Maul = {
     ['offense'] = 18325,
     ['defense'] = 17583,
     ['evade'] = 0.04,
+    ['range'] = 1
+}
+
+MoffGideon = {
+    ['offense'] = 16378,
+    ['defense'] = 14873,
+    ['evade'] = 0.02,
     ['range'] = 1
 }
 
