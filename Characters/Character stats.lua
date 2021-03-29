@@ -648,3 +648,10 @@ Zeb = {
     ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
+
+ZilloBeast = {
+    ['offense'] = 18343,
+    ['defense'] = 20037,
+    ['evade'] = 0,
+    ['range'] = 1
+}
