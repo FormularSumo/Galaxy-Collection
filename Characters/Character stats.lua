@@ -95,6 +95,14 @@ BoKatan = {
     ['laser_colour'] = 'Red'
 }
 
+Bossk = {
+    ['offense'] = 15013,
+    ['defense'] = 15748,
+    ['evade'] = 0.05,
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
+}
+
 C3P0 = {
     ['offense'] = 335,
     ['defense'] = 824,
@@ -302,6 +310,14 @@ Greedo = {
     ['offense'] = 9142,
     ['defense'] = 8253,
     ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
+GreefKarga = {
+    ['offense'] = 9051,
+    ['defense'] = 9134,
+    ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
