@@ -92,40 +92,36 @@ function Card:distance(target)
 end
 
 function Card:aim()
-    if self.column == 5 or self.column == 6 then
-        if self.enemy_deck[self.number] ~= nil then
-            self.target = self.number
-        elseif self.enemy_deck[self.number-1] ~= nil and (self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5) then
+    if self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
+        self.target = self.number
+    elseif self.range == 1 then
+        if self.enemy_deck[self.number-1] ~= nil and (self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5) then
             self.target = self.number-1
         elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
             self.target = self.number+1
         end
     else
-        if self.range > 1 then
-            self.possible_targets = {}
-            self.total_probability = 0
-            i = 0
-            for k, pair in pairs(self.enemy_deck) do
-                distance = self:distance(k)
-                if distance <= self.range then
-                    self.possible_targets[k] = self.total_probability + self.range/distance
-                    self.total_probability = self.total_probability + self.range/distance
-                end
-                i = i + 1
+        self.possible_targets = {}
+        self.total_probability = 0
+        i = 0
+        for k, pair in pairs(self.enemy_deck) do
+            distance = self:distance(k)
+            if distance <= self.range then
+                self.possible_targets[k] = self.total_probability + self.range/distance
+                self.total_probability = self.total_probability + self.range/distance
             end
-            self.ranged_attack_roll = math.random() * self.total_probability
-            i = 0
-            for k, pair in pairs(self.possible_targets) do
-                if self.ranged_attack_roll < self.possible_targets[k] then
-                    self.target = k
-                    break
-                end
+            i = i + 1
+        end
+        self.ranged_attack_roll = math.random() * self.total_probability
+        i = 0
+        for k, pair in pairs(self.possible_targets) do
+            if self.ranged_attack_roll < self.possible_targets[k] then
+                self.target = k
+                break
             end
-            self.centrex = self.x + self.width / 2
-            self.centrey = self.x + self.height / 2
-            if self.target ~= nil then
-                self.laser = Laser(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.laser_image, self.team, self.width, self.height)
-            end
+        end
+        if self.target ~= nil then
+            self.laser = Laser(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.laser_image, self.team, self.width, self.height)
         end
     end
 end
@@ -139,7 +135,7 @@ function Card:attack()
             if self.damage < 0 then self.damage = 0 end
             self.damage = (self.damage ^ 3)
             self.defence_down = (self.offense / 100) * (self.offense / self.enemy_deck[self.target].defense) ^ 3
-            if self.target ~= self.number then 
+            if self.target ~= self.number and self.range == 1 then 
                 self.damage = self.damage / 2 
                 self.defence_down = self.defence_down / 2 
             end
