@@ -707,8 +707,8 @@ Talia = {
 }
 
 TheMandalorian = {
-    ['offense'] = 16443,
-    ['defense'] = 15028,
+    ['offense'] = 16043,
+    ['defense'] = 15728,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
