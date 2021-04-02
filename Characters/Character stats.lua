@@ -179,6 +179,14 @@ CaraDune = {
     ['laser_colour'] = 'Red'
 }
 
+Cardo = {
+    ['offense'] = 15551,
+    ['defense'] = 15416,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 CassianAndor = {
     ['offense'] = 14873,
     ['defense'] = 12130,
