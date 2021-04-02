@@ -801,6 +801,13 @@ TheMandalorian = {
     ['laser_colour'] = 'Red'
 }
 
+Trudgen = {
+    ['offense'] = 15617,
+    ['defense'] = 15358,
+    ['evade'] = 0.03,
+    ['range'] = 1,
+    ['laser_colour'] = 'Red'
+}
 
 Yoda = {
     ['offense'] = 18384,
