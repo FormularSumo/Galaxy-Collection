@@ -109,6 +109,14 @@ BobaFettMandalorian = {
     ['laser_colour'] = 'Red'
 }
 
+BodhiRook = {
+    ['offense'] = 9198,
+    ['defense'] = 8009,
+    ['evade'] = 0.02,
+    ['range'] = 2,
+    ['laser_colour'] = 'Red'
+}
+
 BoKatan = {
     ['offense'] = 16547,
     ['defense'] = 14768,
