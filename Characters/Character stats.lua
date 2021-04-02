@@ -40,6 +40,13 @@ AnakinSkywalkerROTS = {
     ['range'] = 1
 }
 
+ApLek = {
+    ['offense'] = 15526,
+    ['defense'] = 15503,
+    ['evade'] = 0.05,
+    ['range'] = 1
+}
+
 AsajjVentress = {
     ['offense'] = 18254,
     ['defense'] = 17432,
