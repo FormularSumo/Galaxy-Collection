@@ -163,6 +163,13 @@ Chopper = {
     ['range'] = 1,
 }
 
+ChirrutÎmwe = {
+    ['offense'] = 15520,
+    ['defense'] = 15520,
+    ['evade'] = 0.12,
+    ['range'] = 1,
+}
+
 CloneTrooperPhase1 = {
     ['offense'] = 9473,
     ['defense'] = 9094,
