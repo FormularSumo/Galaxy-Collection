@@ -5,6 +5,13 @@ AaylaSecura = {
     ['range'] = 1
 }
 
+AdiGallia = {
+    ['offense'] = 17951,
+    ['defense'] = 17848,
+    ['evade'] = 0.05,
+    ['range'] = 1
+}
+
 AhsokaTanoFulcrum = {
     ['offense'] = 18469,
     ['defense'] = 18384,
