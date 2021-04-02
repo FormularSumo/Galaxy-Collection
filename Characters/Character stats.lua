@@ -240,14 +240,6 @@ DarkTrooper = {
     ['range'] = 1
 }
 
-DeathTrooper = {
-    ['offense'] = 12348,
-    ['defense'] = 11848,
-    ['evade'] = 0.04,
-    ['range'] = 3,
-    ['laser_colour'] = 'Red'
-}
-
 DarthSidious = {
     ['offense'] = 18731,
     ['defense'] = 18653,
@@ -274,6 +266,22 @@ DarthNoscoper = {
     ['defense'] = 24568,
     ['evade'] = 0,
     ['range'] = 1
+}
+
+DeathTrooper = {
+    ['offense'] = 12348,
+    ['defense'] = 11848,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
+Dengar = {
+    ['offense'] = 15247,
+    ['defense'] = 9871,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
 }
 
 DirectorKrennic = {
