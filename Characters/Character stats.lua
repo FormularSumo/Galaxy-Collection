@@ -592,6 +592,14 @@ Padme = {
     ['laser_colour'] = 'Red'
 }
 
+Pao = {
+    ['offense'] = 9649,
+    ['defense'] = 9610,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 PloKoon = {
     ['offense'] = 18037,
     ['defense'] = 17792,
