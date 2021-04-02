@@ -275,6 +275,14 @@ EliteSenateCommando = {
     ['laser_colour'] = 'Blue'
 }
 
+Embo = {
+    ['offense'] = 13481,
+    ['defense'] = 14281,
+    ['evade'] = 0.05,
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
+}
+
 Ewok = {
     ['offense'] = 4254,
     ['defense'] = 3975,
