@@ -49,6 +49,7 @@ function update_mouse_position()
     if mouseLastX == nil or mouseLastY == nil then
         mouseLastX = -1
         mouseLastY = -1
+        mouseDown = false
     end
 end
 
