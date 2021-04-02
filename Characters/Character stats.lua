@@ -536,6 +536,14 @@ KitFisto = {
     ['range'] = 1  
 }
 
+Kuruk = {
+    ['offense'] = 16347,
+    ['defense'] = 14654,
+    ['evade'] = 0.03,
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
+}
+
 KyloRen = {
     ['offense'] = 18193,
     ['defense'] = 17664,
