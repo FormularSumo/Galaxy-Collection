@@ -574,6 +574,13 @@ SabineWrenDarksaber = {
     ['range'] = 1
 }
 
+SaeseeTiin = {
+    ['offense'] = 17952,
+    ['defense'] = 17901,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
 SavageOpress = {
     ['offense'] = 18526,
     ['defense'] = 17349,
