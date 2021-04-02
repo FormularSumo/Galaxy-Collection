@@ -93,6 +93,14 @@ BenKenobi = {
     ['range'] = 1
 }
 
+Bistan = {
+    ['offense'] = 9602,
+    ['defense'] = 9641,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 BobaFettROTJ = {
     ['offense'] = 16612,
     ['defense'] = 14543,
@@ -262,7 +270,7 @@ DarthNoscoper = {
 
 DirectorKrennic = {
     ['offense'] = 9806,
-    ['defense'] = 9497,
+    ['defense'] = 9427,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['laser_colour'] = 'Red'
