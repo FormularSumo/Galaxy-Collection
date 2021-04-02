@@ -219,9 +219,9 @@ CommanderCody = {
 }
 
 CommandoDroid = {
-    ['offense'] = 13514,
-    ['defense'] = 11978,
-    ['evade'] = 0.05,
+    ['offense'] = 12881,
+    ['defense'] = 11279,
+    ['evade'] = 0.07,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
