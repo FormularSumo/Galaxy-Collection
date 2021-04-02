@@ -59,24 +59,6 @@ function GameState:init()
     
     next_round_P1_deck = P1_deck
     next_round_P2_deck = P2_deck
-    -- P1_deck[2].health = 0
-    -- P1_deck[8].health = 0 
-    -- P1_deck[14].health = 0 
-    -- P2_deck[2].health = 0
-    -- P2_deck[8].health = 0 
-    -- P2_deck[14].health = 0 
-
-    -- P1_deck[0].health = 0 
-    -- P2_deck[0].health = 0 
-    -- P1_deck[5].health = 0 
-    -- P2_deck[5].health = 0 
-
-    -- P1_deck[3].health = 0
-    -- P1_deck[9].health = 0 
-    -- P1_deck[15].health = 0 
-    -- P2_deck[3].health = 0
-    -- P2_deck[9].health = 0 
-    -- P2_deck[15].health = 0 
 end
 
 function CheckRowBelowEmpty(player,x)
@@ -92,8 +74,8 @@ function CheckRowBelowEmpty(player,x)
                 next_round_deck[x].row = row
                 next_round_deck[x+1] = next_round_deck[x]
                 next_round_deck[x] = nil
-                x = x + 6
             end
+            x = x + 6
         end
     end
 end
@@ -113,8 +95,8 @@ function CheckRowAboveEmpty(player,x)
                 next_round_deck[x].row = row
                 next_round_deck[x-1] = next_round_deck[x]
                 next_round_deck[x] = nil
-                x = x + 6
             end
+            x = x + 6
         end
     end
 end
@@ -138,8 +120,8 @@ function Check2TopRowsEmpty(player)
                     next_round_deck[x].row = row
                     next_round_deck[x-1] = next_round_deck[x]
                     next_round_deck[x] = nil
-                    x = x + 6
                 end
+                x = x + 6
             end
             y = y + 1
         end
@@ -165,8 +147,8 @@ function Check2BottomRowsEmpty(player)
                     next_round_deck[x].row = row
                     next_round_deck[x+1] = next_round_deck[x]
                     next_round_deck[x] = nil
-                    x = x + 6
                 end
+                x = x + 6
             end
             y = y - 1
         end
@@ -194,8 +176,8 @@ function CheckOnlyRow1and2Remain(player)
                     next_round_deck[x].row = row
                     next_round_deck[x+1] = next_round_deck[x]
                     next_round_deck[x] = nil
-                    x = x + 6
                 end
+                x = x + 6
             end
             y = y - 1
         end
@@ -223,8 +205,8 @@ function CheckOnlyRow3and4Remain(player)
                     next_round_deck[x].row = row
                     next_round_deck[x-1] = next_round_deck[x]
                     next_round_deck[x] = nil
-                    x = x + 6
                 end
+                x = x + 6
             end
             y = y + 1
         end
@@ -259,14 +241,14 @@ function GameState:update(dt)
                 CheckRowAboveEmpty(2,3)
                 CheckRowAboveEmpty(2,4)
                 CheckRowAboveEmpty(2,5)
-                Check2TopRowsEmpty(0)
                 Check2TopRowsEmpty(1)
-                Check2BottomRowsEmpty(0)
+                Check2TopRowsEmpty(2)
                 Check2BottomRowsEmpty(1)
-                CheckOnlyRow3and4Remain(0)
+                Check2BottomRowsEmpty(2)
                 CheckOnlyRow3and4Remain(1)
-                CheckOnlyRow1and2Remain(0)
+                CheckOnlyRow3and4Remain(2)
                 CheckOnlyRow1and2Remain(1)
+                CheckOnlyRow1and2Remain(2)
             end
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:update(dt,timer)

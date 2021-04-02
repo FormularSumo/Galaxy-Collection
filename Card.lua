@@ -71,8 +71,7 @@ function Card:move()
     if self.team == 1 then
         if (self.number < 6 and self.column < 5) or (self.number < 12 and self.column < 4) or (self.number < 18 and self.column < 3) then
             self.column = self.column + 1
-        end
-        if next_round_P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        elseif next_round_P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column + 1
             next_round_P1_deck[self.number-6] = next_round_P1_deck[self.number]
             next_round_P1_deck[self.number] = nil
@@ -80,8 +79,7 @@ function Card:move()
     else
         if (self.number < 6 and self.column > 6) or (self.number < 12 and self.column > 7) or (self.number < 18 and self.column > 8) then
             self.column = self.column - 1
-        end
-        if next_round_P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        elseif next_round_P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column - 1
             next_round_P2_deck[self.number-6] = next_round_P2_deck[self.number]
             next_round_P2_deck[self.number] = nil
@@ -176,10 +174,12 @@ function Card:render()
         love.graphics.setColor(1,1,1)
     end
 
-    -- if self.number == 15 and self.team == 1 and self.laser ~= nil then
-    --     love.graphics.print(math.deg(self.laser.angle))
-    --     love.graphics.print(self.laser.x_distance,0,100)
-    --     love.graphics.print(self.laser.y_distance,0,200)
+    -- if self.number == 0 and self.team == 1 then
+    -- if self.name == 'QuiGonJinn' then 
+    --     love.graphics.print(self.health)
+    --     love.graphics.print(self.column,0,100)
+    --     love.graphics.print(self.row,0,200)
+    --     love.graphics.print(self.number,0,300)
     -- end
 
     -- if self.number == 15 then
