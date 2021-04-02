@@ -253,8 +253,8 @@ DarthNoscoper = {
 }
 
 Droideka = {
-    ['offense'] = 13768,
-    ['defense'] = 13943,
+    ['offense'] = 13268,
+    ['defense'] = 14043,
     ['evade'] = 0,
     ['range'] = 2,
     ['laser_colour'] = 'Red'
@@ -627,8 +627,8 @@ Rey = {
 
 
 RoyalGuard = {
-    ['offense'] = 13537,
-    ['defense'] = 13684,
+    ['offense'] = 13637,
+    ['defense'] = 13784,
     ['evade'] = 0.03,
     ['range'] = 1
 }
