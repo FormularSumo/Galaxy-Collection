@@ -340,7 +340,7 @@ GeneralLeiaOrgana = {
     ['offense'] = 9817,
     ['defense'] = 6871,
     ['evade'] = 0.07,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -355,7 +355,7 @@ GrandAdmiralThrawn = {
     ['offense'] = 16271,
     ['defense'] = 15524,
     ['evade'] = 0.05,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -370,7 +370,7 @@ Greedo = {
     ['offense'] = 9142,
     ['defense'] = 8253,
     ['evade'] = 0.02,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -386,7 +386,7 @@ HanSolo = {
     ['offense'] = 15529,
     ['defense'] = 9648,
     ['evade'] = 0.03,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -394,7 +394,7 @@ HanSoloOld = {
     ['offense'] = 15546,
     ['defense'] = 8565,
     ['evade'] = 0.02,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -402,7 +402,7 @@ HeraSyndulla = {
     ['offense'] = 14189,
     ['defense'] = 11038,
     ['evade'] = 0.05,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -410,7 +410,7 @@ HondoOhnaka = {
     ['offense'] = 11454,
     ['defense'] = 11732,
     ['evade'] = 0.02,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -492,7 +492,7 @@ LandoCalrissian = {
     ['offense'] = 9136,
     ['defense'] = 9058,
     ['evade'] = 0.03,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -500,7 +500,7 @@ LeiaOrganaANH = {
     ['offense'] = 15048,
     ['defense'] = 9153,
     ['evade'] = 0.03,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -564,7 +564,7 @@ Padme = {
     ['offense'] = 14768,
     ['defense'] = 9427,
     ['evade'] = 0.03,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
