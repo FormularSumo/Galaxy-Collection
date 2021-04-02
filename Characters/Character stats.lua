@@ -805,8 +805,14 @@ Trudgen = {
     ['offense'] = 15617,
     ['defense'] = 15358,
     ['evade'] = 0.03,
-    ['range'] = 1,
-    ['laser_colour'] = 'Red'
+    ['range'] = 1
+}
+
+Ushar = {
+    ['offense'] = 15482,
+    ['defense'] = 15488,
+    ['evade'] = 0.03,
+    ['range'] = 1
 }
 
 Yoda = {
