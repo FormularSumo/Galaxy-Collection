@@ -289,6 +289,14 @@ FarmboyLuke = {
     ['laser_colour'] = 'Red'
 }
 
+FennecShand = {
+    ['offense'] = 16427,
+    ['defense'] = 14223,
+    ['evade'] = 0.04,
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
+}
+
 Finn = {
     ['offense'] = 9044,
     ['defense'] = 9137,
