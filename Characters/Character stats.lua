@@ -472,6 +472,13 @@ LukeSkywalkerROTJ = {
     ['range'] = 1
 }
 
+LuminaraUnduli = {
+    ['offense'] = 17779,
+    ['defense'] = 17909,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
 MaceWindu = {
     ['offense'] = 18901,
     ['defense'] = 18574,
