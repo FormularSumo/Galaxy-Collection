@@ -7,7 +7,7 @@ AaylaSecura = {
 
 AdiGallia = {
     ['offense'] = 17951,
-    ['defense'] = 17848,
+    ['defense'] = 17854,
     ['evade'] = 0.05,
     ['range'] = 1
 }
@@ -41,8 +41,8 @@ AnakinSkywalkerROTS = {
 }
 
 AsajjVentress = {
-    ['offense'] = 18249,
-    ['defense'] = 17427,
+    ['offense'] = 18254,
+    ['defense'] = 17432,
     ['evade'] = 0.07,
     ['range'] = 1
 }
@@ -329,8 +329,8 @@ GrandAdmiralThrawn = {
 }
 
 GrandInquisitor = {
-    ['offense'] = 17819,
-    ['defense'] = 17864,
+    ['offense'] = 17909,
+    ['defense'] = 17896,
     ['evade'] = 0.04,
     ['range'] = 1
 }
@@ -560,8 +560,8 @@ PurgeTrooper = {
 }
 
 QuiGonJinn = {
-    ['offense'] = 17824,
-    ['defense'] = 17999,
+    ['offense'] = 17814,
+    ['defense'] = 17989,
     ['evade'] = 0.03,
     ['range'] = 1
 }
@@ -588,8 +588,8 @@ RedGuard = {
 }
 
 Rey = {
-    ['offense'] = 17914,
-    ['defense'] = 17905,
+    ['offense'] = 17899,
+    ['defense'] = 17890,
     ['evade'] = 0.04,
     ['range'] = 1
 }
