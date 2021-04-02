@@ -12,10 +12,10 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     P2_deck_cards[10] = 'GrandInquisitor'
     P2_deck_cards[11] = 'PreVizsla'
     P2_deck_cards[12] = 'PurgeTrooper'
-    P2_deck_cards[13] = 'GrandAdmiralThrawn'
+    P2_deck_cards[13] = 'Kuruk'
     P2_deck_cards[14] = 'JangoFett'
     P2_deck_cards[15] = 'BobaFettROTJ'
-    P2_deck_cards[16] = 'Kuruk'
+    P2_deck_cards[16] = 'Cardo'
     P2_deck_cards[17] = 'CadBane'
 
     gStateMachine:change('game',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
