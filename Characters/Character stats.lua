@@ -240,6 +240,14 @@ DarkTrooper = {
     ['range'] = 1
 }
 
+DeathTrooper = {
+    ['offense'] = 12348,
+    ['defense'] = 11848,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 DarthSidious = {
     ['offense'] = 18731,
     ['defense'] = 18653,
