@@ -545,6 +545,13 @@ QuiGonJinn = {
     ['range'] = 1
 }
 
+QuinlanVos = {
+    ['offense'] = 17980,
+    ['defense'] = 17855,
+    ['evade'] = 0.07,
+    ['range'] = 1
+}
+
 R2D2 = {
     ['offense'] = 9241,
     ['defense'] = 8165,
