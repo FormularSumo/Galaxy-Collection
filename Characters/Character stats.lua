@@ -513,7 +513,7 @@ LuminaraUnduli = {
 MaceWindu = {
     ['offense'] = 18901,
     ['defense'] = 18574,
-    ['evade'] = 0.04,
+    ['evade'] = 0.05,
     ['range'] = 1
 }
 
