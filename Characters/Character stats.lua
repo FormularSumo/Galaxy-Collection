@@ -260,6 +260,14 @@ DarthNoscoper = {
     ['range'] = 1
 }
 
+DirectorKrennic = {
+    ['offense'] = 9806,
+    ['defense'] = 9497,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['laser_colour'] = 'Red'
+}
+
 Droideka = {
     ['offense'] = 13268,
     ['defense'] = 14043,
