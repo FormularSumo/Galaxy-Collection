@@ -78,6 +78,14 @@ BabyYoda = {
     ['range'] = 1
 }
 
+BazeMalbus = {
+    ['offense'] = 15422,
+    ['defense'] = 15383,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 BenKenobi = {
     ['offense'] = 17314,
     ['defense'] = 18523,
@@ -291,7 +299,7 @@ FarmboyLuke = {
 
 FennecShand = {
     ['offense'] = 16427,
-    ['defense'] = 14223,
+    ['defense'] = 14383,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
