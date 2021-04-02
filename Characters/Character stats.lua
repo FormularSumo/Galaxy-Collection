@@ -823,6 +823,13 @@ Ushar = {
     ['range'] = 1
 }
 
+Vicrul = {
+    ['offense'] = 15492,
+    ['defense'] = 15470,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
 Yoda = {
     ['offense'] = 18384,
     ['defense'] = 18535,
