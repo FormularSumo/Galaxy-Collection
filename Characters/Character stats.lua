@@ -172,6 +172,14 @@ CaraDune = {
     ['laser_colour'] = 'Red'
 }
 
+CassianAndor = {
+    ['offense'] = 14873,
+    ['defense'] = 12130,
+    ['evade'] = 0.03,
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
+}
+
 Chewbacca = {
     ['offense'] = 14210,
     ['defense'] = 12345,
