@@ -676,6 +676,14 @@ ShaakTi = {
     ['range'] = 1
 }
 
+Shoretrooper = {
+    ['offense'] = 8013,
+    ['defense'] = 8127,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 Snowtrooper = {
     ['offense'] = 7634,
     ['defense'] = 7435,
