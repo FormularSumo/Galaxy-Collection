@@ -414,6 +414,13 @@ KananJarrus = {
     ['range'] = 1  
 }
 
+KiAdiMundi = {
+    ['offense'] = 17849,
+    ['defense'] = 18002,
+    ['evade'] = 0.04,
+    ['range'] = 1  
+}
+
 KitFisto = {
     ['offense'] = 17801,
     ['defense'] = 18078,
