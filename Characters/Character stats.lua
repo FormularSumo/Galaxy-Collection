@@ -855,6 +855,13 @@ TheMandalorian = {
     ['laser_colour'] = 'Red'
 }
 
+TuskenRaider = {
+    ['offense'] = 7420,
+    ['defense'] = 7380,
+    ['evade'] = 0.02,
+    ['range'] = 1
+}
+
 Trudgen = {
     ['offense'] = 15617,
     ['defense'] = 15358,
