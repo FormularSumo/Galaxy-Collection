@@ -1,11 +1,3 @@
-CloneTrooper501st = {
-    ['offense'] = 12165,
-    ['defense'] = 12018,
-    ['evade'] = 0.03,
-    ['range'] = 3,
-    ['laser_colour'] = 'Blue'
-}
-
 AaylaSecura = {
     ['offense'] = 17965,
     ['defense'] = 17846,
@@ -223,6 +215,14 @@ ChirrutÎmwe = {
     ['defense'] = 15520,
     ['evade'] = 0.12,
     ['range'] = 1,
+}
+
+CloneTrooper501st = {
+    ['offense'] = 12165,
+    ['defense'] = 12018,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
 }
 
 CloneTrooperPhase1 = {
@@ -668,6 +668,13 @@ PoeDameron = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Blue'
+}
+
+PoggleTheLesser = {
+    ['offense'] = 5108,
+    ['defense'] = 4547,
+    ['evade'] = 0.15,
+    ['range'] = 1
 }
 
 PreVizsla = {
