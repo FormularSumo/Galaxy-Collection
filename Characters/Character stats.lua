@@ -265,9 +265,9 @@ CommanderCody = {
 }
 
 CommanderWolffe = {
-    ['offense'] = 14211,
-    ['defense'] = 14195,
-    ['evade'] = 0.04,
+    ['offense'] = 12207,
+    ['defense'] = 12189,
+    ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Blue'
 }
