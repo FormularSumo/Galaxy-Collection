@@ -1,3 +1,11 @@
+CloneTrooper501st = {
+    ['offense'] = 12165,
+    ['defense'] = 12018,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 AaylaSecura = {
     ['offense'] = 17965,
     ['defense'] = 17846,
@@ -568,7 +576,7 @@ LandoCalrissian = {
 }
 
 LeiaOrganaANH = {
-    ['offense'] = 15048,
+    ['offense'] = 15028,
     ['defense'] = 9153,
     ['evade'] = 0.03,
     ['range'] = 2,
