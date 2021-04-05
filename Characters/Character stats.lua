@@ -232,6 +232,14 @@ CloneCommandoGregor = {
     ['laser_colour'] = 'Blue'
 }
 
+CloneTrooper322nd = {
+    ['offense'] = 12165,
+    ['defense'] = 12018,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 CloneTrooper501st = {
     ['offense'] = 12165,
     ['defense'] = 12018,
