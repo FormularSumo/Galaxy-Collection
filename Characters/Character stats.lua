@@ -724,6 +724,13 @@ PoggleTheLesser = {
     ['range'] = 1
 }
 
+PongKrell = {
+    ['offense'] = 18418,
+    ['defense'] = 17450,
+    ['evade'] = 0.04,
+    ['range'] = 1
+}
+
 PreVizsla = {
     ['offense'] = 17336,
     ['defense'] = 17374,
