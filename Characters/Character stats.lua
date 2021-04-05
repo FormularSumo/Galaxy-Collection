@@ -330,6 +330,14 @@ DeathTrooper = {
     ['laser_colour'] = 'Red'
 }
 
+DeathWatchMandalorian = {
+    ['offense'] = 13278,
+    ['defense'] = 10905,
+    ['evade'] = 0.15,
+    ['range'] = 5,
+    ['laser_colour'] = 'Red'
+}
+
 Dengar = {
     ['offense'] = 15247,
     ['defense'] = 9871,
