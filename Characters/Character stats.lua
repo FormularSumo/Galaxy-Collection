@@ -211,8 +211,8 @@ Chewbacca = {
 }
 
 Chopper = {
-    ['offense'] = 8426,
-    ['defense'] = 7958,
+    ['offense'] = 6526,
+    ['defense'] = 6558,
     ['evade'] = 0.15,
     ['range'] = 1,
 }
@@ -424,8 +424,8 @@ Finn = {
 }
 
 GamorreanGuard = {
-    ['offense'] = 7543,
-    ['defense'] = 7813,
+    ['offense'] = 6343,
+    ['defense'] = 6613,
     ['evade'] = 0.01,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -796,8 +796,8 @@ SavageOpress = {
 }
 
 SenateGuard = {
-    ['offense'] = 8024,
-    ['defense'] = 8067,
+    ['offense'] = 6524,
+    ['defense'] = 6567,
     ['evade'] = 0.03,
     ['range'] = 1
 }
@@ -864,8 +864,8 @@ TheMandalorian = {
 }
 
 TuskenRaider = {
-    ['offense'] = 7420,
-    ['defense'] = 7380,
+    ['offense'] = 6420,
+    ['defense'] = 6380,
     ['evade'] = 0.02,
     ['range'] = 1
 }
