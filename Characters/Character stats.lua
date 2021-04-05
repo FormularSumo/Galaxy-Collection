@@ -516,6 +516,14 @@ HondoOhnaka = {
     ['laser_colour'] = 'Red'
 }
 
+HothRebelSoldier = {
+    ['offense'] = 6617,
+    ['defense'] = 6428,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 IdenVersio = {
     ['offense'] = 14478,
     ['defense'] = 12916,
