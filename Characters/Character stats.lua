@@ -163,6 +163,13 @@ CadBane = {
     ['laser_colour'] = 'Red'
 }
 
+CaptainPhasma = {
+    ['offense'] = 12017,
+    ['defense'] = 12177,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
 CaptainRex = {
     ['offense'] = 15423,
     ['defense'] = 15518,
