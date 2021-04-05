@@ -508,6 +508,14 @@ HondoOhnaka = {
     ['laser_colour'] = 'Red'
 }
 
+IdenVersio = {
+    ['offense'] = 14478,
+    ['defense'] = 12916,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 IG88 = {
     ['offense'] = 14205,
     ['defense'] = 11178,
