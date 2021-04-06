@@ -58,5 +58,5 @@ function maxed()
     P2_deck_cards[16] = 'BobaFettROTJ'
     P2_deck_cards[17] = 'Kuruk'
 
-    gStateMachine:change('game',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March duet.mp3'})
+    gStateMachine:change('game',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
 end
