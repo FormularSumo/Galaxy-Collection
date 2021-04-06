@@ -224,6 +224,13 @@ ChirrutÎmwe = {
     ['range'] = 1,
 }
 
+CloneCommando = {
+    ['offense'] = 13876,
+    ['defense'] = 13846,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
 CloneCommandoGregor = {
     ['offense'] = 14211,
     ['defense'] = 14195,
@@ -231,6 +238,7 @@ CloneCommandoGregor = {
     ['range'] = 3,
     ['laser_colour'] = 'Blue'
 }
+
 
 CloneTrooper212th = {
     ['offense'] = 9874,
