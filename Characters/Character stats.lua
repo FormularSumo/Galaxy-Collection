@@ -63,6 +63,14 @@ ArcTrooperFives = {
     ['laser_colour'] = 'Blue'
 }
 
+ArcTrooperJesse = {
+    ['offense'] = 13864,
+    ['defense'] = 13855,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 AsajjVentress = {
     ['offense'] = 18254,
     ['defense'] = 17432,
