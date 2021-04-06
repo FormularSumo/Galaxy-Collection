@@ -572,6 +572,14 @@ HeraSyndulla = {
     ['laser_colour'] = 'Red'
 }
 
+Hevy = {
+    ['offense'] = 9509,
+    ['defense'] = 9103,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 HondoOhnaka = {
     ['offense'] = 11454,
     ['defense'] = 11732,
