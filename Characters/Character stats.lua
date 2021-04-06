@@ -47,6 +47,14 @@ ApLek = {
     ['range'] = 1
 }
 
+ArcTrooperEcho = {
+    ['offense'] = 13852,
+    ['defense'] = 13853,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 ArcTrooperFives = {
     ['offense'] = 13856,
     ['defense'] = 13852,
