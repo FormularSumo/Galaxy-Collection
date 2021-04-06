@@ -47,6 +47,14 @@ ApLek = {
     ['range'] = 1
 }
 
+ArcTrooperFives = {
+    ['offense'] = 13856,
+    ['defense'] = 13852,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 AsajjVentress = {
     ['offense'] = 18254,
     ['defense'] = 17432,
@@ -231,6 +239,7 @@ CloneCommando = {
     ['range'] = 3,
     ['laser_colour'] = 'Blue'
 }
+
 CloneCommandoGregor = {
     ['offense'] = 14211,
     ['defense'] = 14195,
@@ -238,7 +247,6 @@ CloneCommandoGregor = {
     ['range'] = 3,
     ['laser_colour'] = 'Blue'
 }
-
 
 CloneTrooper212th = {
     ['offense'] = 9874,
