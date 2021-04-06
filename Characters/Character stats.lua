@@ -313,8 +313,8 @@ CommanderCody = {
 }
 
 CommanderWolffe = {
-    ['offense'] = 12207,
-    ['defense'] = 12189,
+    ['offense'] = 12209,
+    ['defense'] = 12193,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Blue'
@@ -554,6 +554,14 @@ HanSoloOld = {
     ['evade'] = 0.02,
     ['range'] = 2,
     ['laser_colour'] = 'Red'
+}
+
+Hardcase = {
+    ['offense'] = 12354,
+    ['defense'] = 12046,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
 }
 
 HeraSyndulla = {
