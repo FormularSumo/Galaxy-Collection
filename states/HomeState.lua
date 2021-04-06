@@ -7,7 +7,7 @@ function HomeState:init()
     songs[0] = love.audio.newSource('Music/Across the stars.oga','stream')
     songs[1] = love.audio.newSource('Music/The Mandalorian.oga','stream')
     songs[2] = love.audio.newSource('Music/Cantina Band.oga','stream')
-    songs[3] = love.audio.newSource('Music/Imperial March Duet.mp3','stream')
+    songs[3] = love.audio.newSource('Music/Imperial March duet.mp3','stream')
 
     songs[0]:play()
     queue_length = 3
