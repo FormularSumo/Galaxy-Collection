@@ -902,6 +902,14 @@ Talia = {
     ['range'] = 1
 }
 
+Teedo = {
+    ['offense'] = 4013,
+    ['defense'] = 3874,
+    ['evade'] = 0.08,
+    ['range'] = 1
+}
+
+
 TheMandalorian = {
     ['offense'] = 16043,
     ['defense'] = 15728,
