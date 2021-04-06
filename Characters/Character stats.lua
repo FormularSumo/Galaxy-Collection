@@ -304,6 +304,14 @@ CommandoDroid = {
     ['laser_colour'] = 'Red'
 }
 
+CoruscantGuardCloneTrooper = {
+    ['offense'] = 9900,
+    ['defense'] = 9579,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 CountDooku = {
     ['offense'] = 18224,
     ['defense'] = 18391,
