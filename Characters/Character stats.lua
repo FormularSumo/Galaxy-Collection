@@ -663,6 +663,14 @@ KitFisto = {
     ['range'] = 1  
 }
 
+Kix = {
+    ['offense'] = 12092,
+    ['defense'] = 12093,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
 Kuruk = {
     ['offense'] = 16347,
     ['defense'] = 14654,
