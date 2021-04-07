@@ -651,6 +651,13 @@ Jawa = {
     ['laser_colour'] = 'Blue'
 }
 
+JaroTapal = {
+    ['offense'] = 17880,
+    ['defense'] = 18030,
+    ['evade'] = 0.03,
+    ['range'] = 1
+}
+
 JynErso = {
     ['offense'] = 14513,
     ['defense'] = 14349,
