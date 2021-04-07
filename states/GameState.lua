@@ -11,7 +11,7 @@ function GameState:enter(Background)
 
     songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
     songs[0]:play()
-    queue_length = 0
+    calculate_queue_length()
 
     if Background[4] == nil then r = 0 else r = Background[4] end
     if Background[5] == nil then g = 0 else g = Background[5] end

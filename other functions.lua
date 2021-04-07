@@ -59,6 +59,13 @@ function testForBackgroundImageLoop(video,seek) --Replays the inputted video if 
     video:play()
 end
 
+function calculate_queue_length()
+    queue_length = -1
+    for k, pair in pairs(songs) do
+        queue_length = queue_length + 1
+    end
+end
+
 function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
     P1_deck_edit(0,'LukeSkywalkerROTJ')
     P1_deck_edit(1,'AhsokaTanoFulcrum')

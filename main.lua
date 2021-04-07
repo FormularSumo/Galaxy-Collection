@@ -197,10 +197,14 @@ function love.update(dt)
 
     --Manage song queue
     if songs[0] ~= nil then
-        if songs[current_song]:isPlaying() == false and paused == false and next_song <= queue_length then
-            songs[next_song]:play()
-            current_song = next_song
-            next_song = next_song + 1
+        if songs[current_song]:isPlaying() == false and paused == false then
+            if next_song <= queue_length then
+                songs[next_song]:play()
+                current_song = next_song
+                next_song = next_song + 1
+            else
+                next_song = 0
+            end
         end
     end
 

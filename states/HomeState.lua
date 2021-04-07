@@ -10,7 +10,7 @@ function HomeState:init()
     songs[3] = love.audio.newSource('Music/Imperial March duet.mp3','stream')
 
     songs[0]:play()
-    queue_length = 3
+    calculate_queue_length()
     
     gui['Maxed Dark Side'] = Button('maxed_dark_side','Maxed Dark Side',font80,nil,'centre',80)
     gui['Emperor\'s Throne Room'] = Button('throne_room','Emperor\'s Throne Room',font80,nil,'centre',220)
