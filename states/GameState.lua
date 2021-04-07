@@ -32,6 +32,7 @@ function GameState:init()
     BlueLaser = love.graphics.newImage('Graphics/Blue Laser.png')
     GreenLaser = love.graphics.newImage('Graphics/Green Laser.png')
     RedLaser = love.graphics.newImage('Graphics/Red Laser.png')
+    Arrow = love.graphics.newImage('Graphics/Arrow.png')
 
     read_P1_deck()
     P1_deck = {}
@@ -373,5 +374,6 @@ function GameState:exit()
     BlueLaser = nil
     GreenLaser = nil
     RedLaser = nil
+    Arrow = nil
     exit_state()
 end
