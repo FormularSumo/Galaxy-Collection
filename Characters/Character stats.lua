@@ -710,7 +710,7 @@ FirstOrderStormtrooper = {
     ['laser_colour'] = 'Red'
 }
 
-FourLom = {
+FourLOM = {
     ['offense'] = 9956,
     ['defense'] = 9294,
     ['evade'] = 0.02,
