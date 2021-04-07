@@ -31,10 +31,13 @@ function throne_room()
 end
 
 function endor()
-    for i = 0, 17 ,1 do
-        P2_deck_cards[i] = 'WicketWWarrick'
-    end
-   
+    P2_deck_cards[0] = 'Tokkat'
+    P2_deck_cards[1] = 'Paploo'
+    P2_deck_cards[2] = 'WicketWWarrick'
+    P2_deck_cards[3] = 'Teebo'
+    P2_deck_cards[4] = 'ChiefChirpa'
+    P2_deck_cards[5] = 'Logray'
+
     gStateMachine:change('game',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Battle music 1.mp3'})
 end
 
