@@ -79,8 +79,8 @@ AsajjVentress = {
 }
 
 B1BattleDroid = {
-    ['offense'] = 4502,
-    ['defense'] = 4205,
+    ['offense'] = 5502,
+    ['defense'] = 3905,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -182,7 +182,7 @@ C3P0 = {
 CadBane = {
     ['offense'] = 16714,
     ['defense'] = 14141,
-    ['evade'] = 0.13,
+    ['evade'] = 0.15,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
 }
@@ -321,7 +321,7 @@ CommanderCody = {
 }
 
 CommanderWolffe = {
-    ['offense'] = 12209,
+    ['offense'] = 12259,
     ['defense'] = 12193,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -419,10 +419,10 @@ DirectorKrennic = {
 }
 
 Droideka = {
-    ['offense'] = 13268,
-    ['defense'] = 14043,
+    ['offense'] = 14268,
+    ['defense'] = 14393,
     ['evade'] = 0,
-    ['range'] = 2,
+    ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
 
@@ -526,9 +526,9 @@ GrandAdmiralThrawn = {
 }
 
 GrandInquisitor = {
-    ['offense'] = 17909,
-    ['defense'] = 17896,
-    ['evade'] = 0.04,
+    ['offense'] = 17889,
+    ['defense'] = 17876,
+    ['evade'] = 0.15,
     ['range'] = 1
 }
 
@@ -649,6 +649,13 @@ Jawa = {
     ['evade'] = 0.1,
     ['range'] = 2,
     ['laser_colour'] = 'Blue'
+}
+
+JaroTapal = {
+    ['offense'] = 17880,
+    ['defense'] = 18030,
+    ['evade'] = 0.03,
+    ['range'] = 1
 }
 
 JynErso = {
@@ -978,7 +985,7 @@ TuskenRaider = {
     ['offense'] = 6420,
     ['defense'] = 6380,
     ['evade'] = 0.02,
-    ['range'] = 1
+    ['range'] = 5
 }
 
 Trudgen = {
