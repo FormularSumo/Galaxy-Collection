@@ -32,7 +32,7 @@ end
 
 function endor()
     for i = 0, 17 ,1 do
-        P2_deck_cards[i] = 'Ewok'
+        P2_deck_cards[i] = 'WicketWWarrick'
     end
    
     gStateMachine:change('game',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Battle music 1.mp3'})

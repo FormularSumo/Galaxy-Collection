@@ -387,22 +387,6 @@ CloneTrooper501st = {
     ['laser_colour'] = 'Blue'
 }
 
-CloneTrooperPhase1 = {
-    ['offense'] = 9473,
-    ['defense'] = 9094,
-    ['evade'] = 0.2,
-    ['range'] = 3,
-    ['laser_colour'] = 'Blue'
-}
-
-CloneTrooperPhase2 = {
-    ['offense'] = 9786,
-    ['defense'] = 9481,
-    ['evade'] = 0.2,
-    ['range'] = 3,
-    ['laser_colour'] = 'Blue'
-}
-
 ColemanKcaj = {
     ['offense'] = 17320,
     ['defense'] = 18156,
@@ -644,13 +628,6 @@ EvenPiell = {
     ['range'] = 1
 }
 
-Ewok = {
-    ['offense'] = 4254,
-    ['defense'] = 3975,
-    ['evade'] = 0.1,
-    ['range'] = 1
-}
-
 EzraBridgerS2 = {
     ['offense'] = 9573,
     ['defense'] = 9319,
@@ -703,6 +680,13 @@ FirstOrderExecutioner = {
     ['range'] = 1
 }
 
+FirstOrderFlametrooper = {
+    ['offense'] = 10105,
+    ['defense'] = 7500,
+    ['evade'] = 0.01,
+    ['range'] = 1
+}
+
 FirstOrderRiotControlTrooper = {
     ['offense'] = 8056,
     ['defense'] = 10123,
@@ -713,6 +697,14 @@ FirstOrderRiotControlTrooper = {
 FirstOrderSnowtrooper = {
     ['offense'] = 8267,
     ['defense'] = 8267,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
+FirstOrderStormtrooper = {
+    ['offense'] = 7152,
+    ['defense'] = 6547,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
@@ -1127,7 +1119,7 @@ PabloJill = {
     ['range'] = 1
 }
 
-Padme = {
+PadmeAmidala = {
     ['offense'] = 14768,
     ['defense'] = 9427,
     ['evade'] = 0.03,
@@ -1148,6 +1140,22 @@ Paploo = {
     ['defense'] = 3974,
     ['evade'] = 0.1,
     ['range'] = 1
+}
+
+Phase1CloneTrooper = {
+    ['offense'] = 9473,
+    ['defense'] = 9094,
+    ['evade'] = 0.2,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
+}
+
+Phase2CloneTrooper = {
+    ['offense'] = 9786,
+    ['defense'] = 9481,
+    ['evade'] = 0.2,
+    ['range'] = 3,
+    ['laser_colour'] = 'Blue'
 }
 
 PloKoon = {
@@ -1348,14 +1356,6 @@ StormtrooperOriginal = {
     ['laser_colour'] = 'Red'
 }
 
-StormtrooperSequel = {
-    ['offense'] = 7152,
-    ['defense'] = 6547,
-    ['evade'] = 0.02,
-    ['range'] = 3,
-    ['laser_colour'] = 'Red'
-}
-
 SupremeLeaderSnoke = {
     ['offense'] = 18468,
     ['defense'] = 18452,
@@ -1480,6 +1480,13 @@ Waxer = {
     ['laser_colour'] = 'Blue'
 }
 
+WicketWWarrick = {
+    ['offense'] = 4254,
+    ['defense'] = 3975,
+    ['evade'] = 0.1,
+    ['range'] = 1
+}
+
 Wrecker = {
     ['offense'] = 16000,
     ['defense'] = 15030,
@@ -1494,7 +1501,7 @@ Yoda = {
     ['range'] = 1
 }
 
-Zeb = {
+GarazebOrrelios = {
     ['offense'] = 14229,
     ['defense'] = 12169,
     ['evade'] = 0.03,
