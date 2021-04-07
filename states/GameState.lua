@@ -362,7 +362,6 @@ function GameState:render()
     if winner ~= 'none' then 
         love.graphics.print({{r,g,b},'Winner: ' .. winner},35,20)
     end
-    -- love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 10, 10)
 end
 
 function GameState:exit()

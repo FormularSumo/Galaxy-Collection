@@ -20,6 +20,7 @@ function HomeState:init()
     if OS ~= 'Android' then
         gui['Toggle pause on loose focus'] = Button('toggle_pause_on_loose_focus', 'Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']),font60,nil,'centre',965)
     end
+    gui['FPS toggle'] = Button('toggle_FPS','FPS Counter',font50,nil,1590,1000)
     gui['Volume Slider'] = Slider(65,1000,300,12,'volume_slider',0.3,0.3,0.3,1,1,1,Settings['volume_level'],0.5,'volume_slider2')
 end
 

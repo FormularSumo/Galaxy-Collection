@@ -66,6 +66,11 @@ function calculate_queue_length()
     end
 end
 
+function toggle_FPS()
+    Settings['FPS_counter'] = not Settings['FPS_counter']
+    bitser.dumpLoveFile('Settings.txt',Settings)
+end
+
 function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
     P1_deck_edit(0,'LukeSkywalkerROTJ')
     P1_deck_edit(1,'AhsokaTanoFulcrum')

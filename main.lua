@@ -36,6 +36,7 @@ function love.load()
     })
 
     -- load fonts
+    font50 = love.graphics.newFont(50)
     font60 = love.graphics.newFont(60)
     font80 = love.graphics.newFont(80)
     font80SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',80)
@@ -66,7 +67,8 @@ function love.load()
     if love.filesystem.read('Settings.txt') == nil then
         Settings = {
             ['pause_on_loose_focus'] = true,
-            ['volume_level'] = 0.5
+            ['volume_level'] = 0.5,
+            ['FPS_counter'] = false
         }
         bitser.dumpLoveFile('Settings.txt',Settings)
     end
@@ -241,6 +243,9 @@ function love.draw()
     gStateMachine:render()
     for k, pair in pairs(gui) do
         pair:render()
+    end
+    if Settings['FPS_counter'] == true then
+        love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 940)
     end
     push:finish()
 end
