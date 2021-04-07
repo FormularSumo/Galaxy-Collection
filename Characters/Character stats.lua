@@ -710,6 +710,14 @@ FirstOrderStormtrooper = {
     ['laser_colour'] = 'Red'
 }
 
+FourLom = {
+    ['offense'] = 9956,
+    ['defense'] = 9294,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
 GamorreanGuard = {
     ['offense'] = 6343,
     ['defense'] = 6613,
@@ -1090,7 +1098,7 @@ NinetyNine = {
 }
 
 NuteGunray = {
-    ['offense'] = 4567,
+    ['offense'] = 4767,
     ['defense'] = 3975,
     ['evade'] = 0.1,
     ['range'] = 2,
