@@ -1503,7 +1503,7 @@ Wrecker = {
 }
 
 Yoda = {
-    ['offense'] = 18384,
+    ['offense'] = 18394,
     ['defense'] = 18535,
     ['evade'] = 0.12,
     ['range'] = 1
