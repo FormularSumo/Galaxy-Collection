@@ -1489,8 +1489,8 @@ Waxer = {
 }
 
 WicketWWarrick = {
-    ['offense'] = 4254,
-    ['defense'] = 3975,
+    ['offense'] = 4554,
+    ['defense'] = 3994,
     ['evade'] = 0.1,
     ['range'] = 1
 }
