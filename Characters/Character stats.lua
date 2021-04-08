@@ -76,7 +76,8 @@ AnakinSkywalkerROTS = {
     ['offense'] = 18924,
     ['defense'] = 17954,
     ['evade'] = 0.05,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 Aplek = {
@@ -582,7 +583,8 @@ DarthVader = {
     ['offense'] = 18400,
     ['defense'] = 18643,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 DarthNoscoper = {
@@ -1420,7 +1422,8 @@ SaeseeTiin = {
     ['offense'] = 17952,
     ['defense'] = 17901,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 SavageOpress = {

@@ -13,6 +13,10 @@ function GameState:init()
     YodaLightsaber = love.graphics.newImage('Graphics/YodaLightsaber.png')
     WhiteLightsaber = love.graphics.newImage('Graphics/WhiteLightsaber.png')
     PurpleLightsaber = love.graphics.newImage('Graphics/PurpleLightsaber.png')
+    YellowLightsaber = love.graphics.newImage('Graphics/YellowLightsaber.png')
+    GreenLightsaber = love.graphics.newImage('Graphics/GreenLightsaber.png')
+    BlueLightsaber = love.graphics.newImage('Graphics/BlueLightsaber.png')
+    RedLightsaber = love.graphics.newImage('Graphics/RedLightsaber.png')
 
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
