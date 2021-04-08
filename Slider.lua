@@ -1,10 +1,21 @@
 Slider = Class{}
 
 function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,func2)
-    self.x = x
-    self.y = y
     self.width = width
     self.height = height
+
+    if x == 'centre' then
+        self.x = VIRTUAL_WIDTH / 2 - self.width / 2
+    else
+        self.x = x 
+    end
+    if y == 'centre' then
+        self.y = VIRTUAL_HEIGHT / 2 - self.height / 2
+    else
+        self.y = y 
+    end
+
+
     self.func = func
     self.r1 = r1
     self.g1 = g1
