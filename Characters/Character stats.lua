@@ -312,7 +312,7 @@ CereJunda = {
 
 Chewbacca = {
     ['offense'] = 14210,
-    ['defense'] = 12345,
+    ['defense'] = 12169,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
