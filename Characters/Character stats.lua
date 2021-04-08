@@ -573,7 +573,7 @@ DwarfSpiderDroid = {
     ['offense'] = 15190,
     ['defense'] = 8959,
     ['evade'] = 0.02,
-    ['range'] =5,
+    ['range'] = 5,
     ['laser_colour'] = 'Red'
 }
 
