@@ -1030,12 +1030,11 @@ JangoFett = {
     ['laser_colour'] = 'Red'
 }
 
-Jawa = {
-    ['offense'] = 3587,
-    ['defense'] = 3871,
-    ['evade'] = 0.1,
-    ['range'] = 2,
-    ['laser_colour'] = 'Blue'
+JarJarBinks = {
+    ['offense'] = 5771,
+    ['defense'] = 2784,
+    ['evade'] = 0.08,
+    ['range'] = 1,
 }
 
 JaroTapal = {
@@ -1043,6 +1042,15 @@ JaroTapal = {
     ['defense'] = 18030,
     ['evade'] = 0.03,
     ['range'] = 1
+}
+
+
+Jawa = {
+    ['offense'] = 3587,
+    ['defense'] = 3871,
+    ['evade'] = 0.1,
+    ['range'] = 2,
+    ['laser_colour'] = 'Blue'
 }
 
 JynErso = {
