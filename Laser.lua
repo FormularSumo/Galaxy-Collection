@@ -18,6 +18,7 @@ function Laser:init(x,y,finalx,finaly,laser,team,xoffset,yoffset)
     self.x_distance = tonumber(self.finalx-self.x)
     self.y_distance = tonumber(self.finaly-self.y)
     self.angle = math.atan(self.y_distance/self.x_distance)
+    if team == 2 then self.angle = self.angle + math.rad(180) end
     -- self.delay = math.random(0,4.5) / 10
     self.timer = 0
 end
