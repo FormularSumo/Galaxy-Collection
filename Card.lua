@@ -16,30 +16,19 @@ function Card:init(name,row,column,team,number)
     self.defense = _G[self.name]['defense']
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
-    self.projectile = _G[self.name]['projectile']
-    self.weapon = _G[self.name]['weapon']
 
-    if self.projectile == 'Red' then
-        self.projectile_image = RedLaser
-    elseif self.projectile == 'Blue' then
-        self.projectile_image = BlueLaser
-    elseif self.projectile == 'Green' then
-        self.projectile_image = GreenLaser
-    elseif self.projectile == 'Lightning' then
-        self.projectile_image = Lightning
-    elseif self.projectile == 'Fire' then
-        self.projectile_image = Fire
-    elseif self.projectile == 'ForceBlast' then
-        self.projectile_image = ForceBlast
-    else
-        self.projectile_image = Arrow
-    end
+    self.projectile_image = _G[_G[self.name]['projectile']]
+    self.weapon_image = _G[_G[self.name]['weapon']]
 
-    if self.weapon == 'Darksaber' then
-        self.weapon_image = Darksaber
-    end
+    -- if self.projectile then
+    --     self.projectile_image = _G[self.projectile]
+    -- end
 
-    if self.weapon then
+    -- if self.weapon then
+    --     self.weapon_image = _G[self.weapon]
+    -- end
+
+    if self.weapon_image then
         self.weapon = Weapon(self.x, self.y, self.weapon_image, self.team, self.width, self.height)
     end
 
@@ -196,7 +185,7 @@ function Card:render()
         love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
         love.graphics.setColor(1,1,1)
     end
-    
+
     -- if self.number == 0 and self.team == 1 then
     -- if self.name == 'QuiGonJinn' then 
     --     love.graphics.print(self.health)
