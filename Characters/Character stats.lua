@@ -1073,7 +1073,7 @@ JaroTapal = {
     ['defense'] = 18030,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'BlueLightsaber'
+    ['weapon'] = 'DoubleBlueLightsaber'
 }
 
 
@@ -1374,7 +1374,7 @@ PongKrell = {
     ['defense'] = 17450,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'BlueLightsaber'
+    ['weapon'] = 'DoubleGreenLightsaber'
 }
 
 PreVizsla = {
