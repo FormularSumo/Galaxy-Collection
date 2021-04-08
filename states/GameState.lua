@@ -312,7 +312,7 @@ function GameState:update(dt)
         end 
         for k, pair in pairs(P2_deck) do
             P2_deck[k]:update(dt,timer)
-        end 
+        end
         P1_deck = next_round_P1_deck
         P2_deck = next_round_P2_deck
     end  
