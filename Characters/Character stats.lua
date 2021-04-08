@@ -1368,7 +1368,7 @@ SupremeLeaderSnoke = {
     ['offense'] = 18468,
     ['defense'] = 18452,
     ['evade'] = 0.01,
-    ['range'] = 1
+    ['range'] = 3
 }
 
 Talia = {
