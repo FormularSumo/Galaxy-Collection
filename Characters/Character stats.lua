@@ -1207,7 +1207,7 @@ NightsisterMerrin = {
     ['defense'] = 14756,
     ['evade'] = 0.08,
     ['range'] = 3,
-    ['laser_colour'] = 'Green'
+    ['laser_colour'] = 'Fire'
 }
 
 NinthSister = {
@@ -1245,7 +1245,7 @@ OldDaka = {
     ['defense'] = 3721,
     ['evade'] = 0.01,
     ['range'] = 3,
-    ['laser_colour'] = 'Green'
+    ['laser_colour'] = 'Fire'
 }
 
 PabloJill = {
