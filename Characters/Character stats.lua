@@ -442,7 +442,7 @@ CommanderGree = {
 }
 
 CommanderWolffe = {
-    ['offense'] = 12259,
+    ['offense'] = 12359,
     ['defense'] = 12193,
     ['evade'] = 0.03,
     ['range'] = 3,
