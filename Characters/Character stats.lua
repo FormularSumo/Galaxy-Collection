@@ -750,6 +750,14 @@ FirstOrderFlametrooper = {
     ['range'] = 1
 }
 
+FirstOrderJetTrooper = {
+    ['offense'] = 8695,
+    ['defense'] = 9456,
+    ['evade'] = 0.15,
+    ['range'] = 5
+    ['laser_colour'] = 'Red'
+}
+
 FirstOrderRiotControlTrooper = {
     ['offense'] = 8056,
     ['defense'] = 10123,
