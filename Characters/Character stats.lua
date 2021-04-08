@@ -13,7 +13,7 @@ AdiGallia = {
 }
 
 AdmiralAckbar = {
-    ['offense'] = 6550,
+    ['offense'] = 6650,
     ['defense'] = 6420,
     ['evade'] = 0.02,
     ['range'] = 2,
