@@ -169,7 +169,7 @@ BabyYoda = {
     ['defense'] = 9430,
     ['evade'] = 0,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['laser_colour'] = 'ForceBlast'
 }
 
 BalaTik = {
