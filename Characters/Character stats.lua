@@ -170,6 +170,13 @@ BazeMalbus = {
     ['laser_colour'] = 'Red'
 }
 
+Bendu = {
+    ['offense'] = 19012,
+    ['defense'] = 17967,
+    ['evade'] = 0.07,
+    ['range'] = 5
+}
+
 BenKenobi = {
     ['offense'] = 17304,
     ['defense'] = 18513,
