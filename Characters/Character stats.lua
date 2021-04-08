@@ -410,7 +410,7 @@ CommanderAppo = {
 }
 
 CommanderBly = {
-    ['offense'] = 12239,
+    ['offense'] = 12259,
     ['defense'] = 12213,
     ['evade'] = 0.03,
     ['range'] = 3,
