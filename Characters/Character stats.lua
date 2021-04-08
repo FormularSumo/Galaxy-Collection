@@ -1458,6 +1458,14 @@ SithTrooper = {
     ['laser_colour'] = 'Red'
 }
 
+SnapWexley = {
+    ['offense'] = 6100,
+    ['defense'] = 6501,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['laser_colour'] = 'Red'
+}
+
 Snowtrooper = {
     ['offense'] = 7634,
     ['defense'] = 7435,
