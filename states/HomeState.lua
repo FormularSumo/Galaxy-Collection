@@ -6,7 +6,7 @@ function HomeState:init()
     gui['Endor'] = Button('endor',nil,'Endor',font80,nil,'centre',360)
     gui['Maxed'] = Button('maxed',nil,'Maxed',font80,nil,'centre',500)
     gui['Prebuilt Deck'] = Button('prebuilt_deck',nil,'Create a pre-built deck',font80,nil,'centre',800)
-    gui['Settings'] = Button('switch_state',{'settings',true,true},'Settings',font80,nil,'centre',965)
+    gui['SettingsState'] = Button('switch_state',{'SettingsState',true,true},'Settings',font80,nil,'centre',965)
 end
 
 function HomeState:enter(partial)

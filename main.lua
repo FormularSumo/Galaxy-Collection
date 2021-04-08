@@ -85,11 +85,11 @@ function love.load()
 
     -- initialize state machine with all state-returning functions
     gStateMachine = StateMachine {
-        ['home'] = function() return HomeState() end,
-        ['game'] = function() return GameState() end,
-        ['settings'] = function() return SettingsState() end,
+        ['HomeState'] = function() return HomeState() end,
+        ['GameState'] = function() return GameState() end,
+        ['SettingsState'] = function() return SettingsState() end,
     }
-    gStateMachine:change('home')
+    gStateMachine:change('HomeState')
 end
 
 function P1_deck_edit(position,name)
