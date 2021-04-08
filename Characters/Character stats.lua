@@ -319,7 +319,7 @@ Chewbacca = {
 }
 
 Chopper = {
-    ['offense'] = 6526,
+    ['offense'] = 6656,
     ['defense'] = 6558,
     ['evade'] = 0.15,
     ['range'] = 1,
