@@ -1426,6 +1426,14 @@ StassAllie = {
     ['range'] = 1
 }
 
+SteelaGerrera = {
+    ['offense'] = 12744,
+    ['defense'] = 11412,
+    ['evade'] = 0.03,
+    ['range'] = 2
+    ['laser_colour'] = 'Red'
+}
+
 StormtrooperOriginal = {
     ['offense'] = 6484,
     ['defense'] = 6348,
