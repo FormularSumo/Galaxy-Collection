@@ -882,6 +882,14 @@ GreefKarga = {
     ['laser_colour'] = 'Red'
 }
 
+GuavianDeathGangSoldier = {
+    ['offense'] = 9002,
+    ['defense'] = 8457,
+    ['evade'] = 0.02,
+    ['range'] = 3
+    ['laser_colour'] = 'Red'
+}
+
 HanSolo = {
     ['offense'] = 15529,
     ['defense'] = 9648,
