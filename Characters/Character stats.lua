@@ -78,8 +78,8 @@ ApLek = {
 }
 
 AquaDroid = {
-    ['offense'] = 6345,
-    ['defense'] = 6620,
+    ['offense'] = 6115,
+    ['defense'] = 6400,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
