@@ -720,9 +720,9 @@ FourLOM = {
 
 GamorreanGuard = {
     ['offense'] = 6343,
-    ['defense'] = 6613,
+    ['defense'] = 6113,
     ['evade'] = 0.01,
-    ['range'] = 3,
+    ['range'] = 1,
     ['laser_colour'] = 'Red'
 }
 
