@@ -206,7 +206,7 @@ function love.update(dt)
     end
 
     --Manage background video looping and pausing
-    if background['Type'] == 'video' and background['Background'] then
+    if background['Type'] == 'video' then
         if paused == true then
             background['Background']:pause()
         else
