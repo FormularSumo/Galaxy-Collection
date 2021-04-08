@@ -171,6 +171,14 @@ BabyYoda = {
     ['range'] = 3
 }
 
+BalaTik = {
+    ['offense'] = 12920,
+    ['defense'] = 11250,
+    ['evade'] = 0.03,
+    ['range'] = 3
+    ['laser_colour'] = 'Red'
+}
+
 BarrissOffee = {
     ['offense'] = 15850,
     ['defense'] = 15453,
