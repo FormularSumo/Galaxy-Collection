@@ -1357,8 +1357,8 @@ StassAllie = {
 }
 
 StormtrooperOriginal = {
-    ['offense'] = 6984,
-    ['defense'] = 6248,
+    ['offense'] = 6484,
+    ['defense'] = 6348,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['laser_colour'] = 'Red'
