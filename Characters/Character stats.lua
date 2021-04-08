@@ -2,14 +2,16 @@ AaylaSecura = {
     ['offense'] = 17965,
     ['defense'] = 17846,
     ['evade'] = 0.06,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 AdiGallia = {
     ['offense'] = 17951,
     ['defense'] = 17854,
     ['evade'] = 0.05,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 AdmiralAckbar = {
@@ -39,7 +41,8 @@ AgenKolar = {
     ['offense'] = 18010,
     ['defense'] = 17856,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 AhsokaTanoFulcrum = {
@@ -54,14 +57,16 @@ AhsokaTanoPadawan = {
     ['offense'] = 16082,
     ['defense'] = 15234,
     ['evade'] = 0.1,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'YellowLightsaber'
 }
 
 AhsokaTanoS7 = {
     ['offense'] = 18464,
     ['defense'] = 17420,
     ['evade'] = 0.1,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 AirborneCloneTrooper = {
@@ -139,7 +144,8 @@ AsajjVentress = {
     ['offense'] = 18254,
     ['defense'] = 17432,
     ['evade'] = 0.07,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 B1BattleDroid = {
@@ -186,7 +192,8 @@ BarrissOffee = {
     ['offense'] = 15850,
     ['defense'] = 15453,
     ['evade'] = 0.1,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 BazeMalbus = {
@@ -209,7 +216,8 @@ BenKenobi = {
     ['offense'] = 17304,
     ['defense'] = 18513,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 BiggsDarklighter = {
@@ -295,7 +303,8 @@ CalKestis = {
     ['offense'] = 17346,
     ['defense'] = 14967,
     ['evade'] = 0.06,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 CaptainJag = {
@@ -450,14 +459,16 @@ ColemanKcaj = {
     ['offense'] = 17320,
     ['defense'] = 18156,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 ColemanTrebor = {
     ['offense'] = 16899,
     ['defense'] = 14424,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 CommanderAppo = {
@@ -553,7 +564,7 @@ CountDooku = {
     ['defense'] = 18391,
     ['evade'] = 0.05,
     ['range'] = 1,
-    ['weapon'] = 'Darksaber'
+    ['weapon'] = 'RedLightsaber'
 }
 
 DarkTrooper = {
@@ -591,7 +602,8 @@ DarthNoscoper = {
     ['offense'] = 25387,
     ['defense'] = 24568,
     ['evade'] = 0,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'PurpleLightsaber'
 }
 
 DeathTrooper = {
@@ -622,7 +634,8 @@ DepaBillaba = {
     ['offense'] = 17444,
     ['defense'] = 18113,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 DirectorKrennic = {
@@ -668,14 +681,16 @@ EethKoth = {
     ['offense'] = 17556,
     ['defense'] = 18010,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 EighthBrother = {
     ['offense'] = 17445,
     ['defense'] = 17411,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 ElitePraetorianGuard = {
@@ -712,21 +727,24 @@ EvenPiell = {
     ['offense'] = 17820,
     ['defense'] = 17235,
     ['evade'] = 0.07,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 EzraBridgerS2 = {
     ['offense'] = 9573,
     ['defense'] = 9319,
     ['evade'] = 0.05,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 EzraBridgerS4 = {
     ['offense'] = 16237,
     ['defense'] = 15648,
     ['evade'] = 0.05,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 FarmboyLuke = {
@@ -749,7 +767,8 @@ FifthBrother = {
     ['offense'] = 17679,
     ['defense'] = 17567,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 Finn = {
@@ -825,7 +844,8 @@ GeneralGrievous = {
     ['offense'] = 19001,
     ['defense'] = 16902,
     ['evade'] = 0.06,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 GeneralHux = {
@@ -879,7 +899,8 @@ GrandInquisitor = {
     ['offense'] = 17889,
     ['defense'] = 17876,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 GrandMoffTarkin = {
@@ -1013,7 +1034,8 @@ ImaGunDi = {
     ['offense'] = 17860,
     ['defense'] = 18049,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 ImperialJumpTrooper = {
@@ -1050,7 +1072,8 @@ JaroTapal = {
     ['offense'] = 17880,
     ['defense'] = 18030,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 
@@ -1073,28 +1096,32 @@ KananJarrus = {
     ['offense'] = 16049,
     ['defense'] = 16103,
     ['evade'] = 0.04,
-    ['range'] = 1  
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'  
 }
 
 Katooni = {
     ['offense'] = 10590,
     ['defense'] = 8990,
     ['evade'] = 0.1,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 KiAdiMundi = {
     ['offense'] = 17849,
     ['defense'] = 18002,
     ['evade'] = 0.04,
-    ['range'] = 1  
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'  
 }
 
 KitFisto = {
     ['offense'] = 17801,
     ['defense'] = 18078,
     ['evade'] = 0.05,
-    ['range'] = 1  
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'  
 }
 
 Kix = {
@@ -1155,14 +1182,16 @@ LukeSkywalkerROTJ = {
     ['offense'] = 18437,
     ['defense'] = 18339,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 LuminaraUnduli = {
     ['offense'] = 17779,
     ['defense'] = 17909,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 MaceWindu = {
@@ -1184,14 +1213,16 @@ Maul = {
     ['offense'] = 18325,
     ['defense'] = 17583,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 MoffGideon = {
     ['offense'] = 16378,
     ['defense'] = 14873,
     ['evade'] = 0.02,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Darksaber'
 }
 
 MotherTalzin = {
@@ -1221,7 +1252,8 @@ NinthSister = {
     ['offense'] = 17330,
     ['defense'] = 18406,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 NinetyNine = {
@@ -1244,7 +1276,8 @@ ObiWanKenobi = {
     ['offense'] = 17421,
     ['defense'] = 18864,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 OldDaka = {
@@ -1259,7 +1292,8 @@ PabloJill = {
     ['offense'] = 16889,
     ['defense'] = 14886,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 PadmeAmidala = {
@@ -1314,7 +1348,8 @@ PloKoon = {
     ['offense'] = 18037,
     ['defense'] = 17792,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 PoeDameron = {
@@ -1336,14 +1371,16 @@ PongKrell = {
     ['offense'] = 18418,
     ['defense'] = 17450,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 PreVizsla = {
     ['offense'] = 17336,
     ['defense'] = 17374,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Darksaber'
 }
 
 PurgeTrooper = {
@@ -1366,14 +1403,16 @@ QuiGonJinn = {
     ['offense'] = 17814,
     ['defense'] = 17989,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 QuinlanVos = {
     ['offense'] = 17980,
     ['defense'] = 17855,
     ['evade'] = 0.07,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 R2D2 = {
@@ -1394,7 +1433,8 @@ Rey = {
     ['offense'] = 17899,
     ['defense'] = 17890,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 RoyalGuard = {
@@ -1415,7 +1455,8 @@ SabineWrenDarksaber = {
     ['offense'] = 14231,
     ['defense'] = 14180,
     ['evade'] = 0.05,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Darksaber'
 }
 
 SaeseeTiin = {
@@ -1430,7 +1471,8 @@ SavageOpress = {
     ['offense'] = 18526,
     ['defense'] = 17349,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 SawGerrera = {
@@ -1468,14 +1510,16 @@ SeventhSister = {
     ['offense'] = 17556,
     ['defense'] = 17412,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 ShaakTi = {
     ['offense'] = 17826,
     ['defense'] = 18003,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
 }
 
 Shoretrooper = {
@@ -1514,7 +1558,8 @@ StassAllie = {
     ['offense'] = 17357,
     ['defense'] = 18134,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'GreenLightsaber'
 }
 
 SteelaGerrera = {
@@ -1560,7 +1605,8 @@ TaronMalicos = {
     ['offense'] = 17816,
     ['defense'] = 13887,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 TasuLeech = {
@@ -1636,7 +1682,8 @@ TrillaSuduri = {
     ['offense'] = 18254,
     ['defense'] = 17445,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'RedLightsaber'
 }
 
 Trudgen = {
