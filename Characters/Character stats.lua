@@ -456,6 +456,14 @@ CommanderGree = {
     ['laser_colour'] = 'Blue'
 }
 
+CommanderNeyo = {
+    ['offense'] = 12356,
+    ['defense'] = 12049,
+    ['evade'] = 0.03,
+    ['range'] = 3
+    ['laser_colour'] = 'Blue'
+}
+
 CommanderWolffe = {
     ['offense'] = 12359,
     ['defense'] = 12193,
