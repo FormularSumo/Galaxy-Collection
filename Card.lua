@@ -65,12 +65,9 @@ function Card:update(dt,timer)
     end
     if self.projectile ~= nil then
         self.projectile:update(dt)
-    end
+    end    
     if self.weapon then
-        self.weapon.x = self.x
-        self.weapon.y = self.y
-    end
-    if self.weapon then
+        self.weapon:updateposition(self.x,self.y)
         self.weapon:update(dt)
     end
 end

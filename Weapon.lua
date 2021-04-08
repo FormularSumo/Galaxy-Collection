@@ -3,16 +3,27 @@ Weapon = Class{__includes = BaseState}
 function Weapon:init(x,y,weapon,team,xoffset,yoffset)
     self.alive = true
     self.team = team
+    self.xoffset = xoffset
+    self.yoffset = yoffset
     if self.team == 1 then
-        self.x = x
+        self.x = x + self.xoffset
         self.angle = math.rad(30)
     else
         self.x = x
         self.angle = math.rad(-30)
     end
 
-    self.y = y + yoffset
+    self.y = y
     self.image = weapon
+end
+
+function Weapon:updateposition(x,y)
+    if self.team == 1 then
+        self.x = x + self.xoffset
+    else
+        self.x = x
+    end
+    self.y = y
 end
 
 function Weapon:update(dt)
