@@ -1019,6 +1019,13 @@ KananJarrus = {
     ['range'] = 1  
 }
 
+Katooni = {
+    ['offense'] = 10590,
+    ['defense'] = 8990,
+    ['evade'] = 0.1,
+    ['range'] = 1
+}
+
 KiAdiMundi = {
     ['offense'] = 17849,
     ['defense'] = 18002,
