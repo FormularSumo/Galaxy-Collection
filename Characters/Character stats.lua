@@ -1350,6 +1350,14 @@ SavageOpress = {
     ['range'] = 1
 }
 
+SawGerrera = {
+    ['offense'] = 13911,
+    ['defense'] = 10221,
+    ['evade'] = 0.02,
+    ['range'] = 2
+    ['laser_colour'] = 'Red'
+}
+
 ScoutBattalionCloneTrooper41st = {
     ['offense'] = 9925,
     ['defense'] = 9612,
