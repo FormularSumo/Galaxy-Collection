@@ -171,8 +171,8 @@ BazeMalbus = {
 }
 
 BenKenobi = {
-    ['offense'] = 17314,
-    ['defense'] = 18523,
+    ['offense'] = 17304,
+    ['defense'] = 18513,
     ['evade'] = 0.03,
     ['range'] = 1
 }
