@@ -765,7 +765,7 @@ GeonosianBroodAlpha = {
 }
 
 GovernorPryce = {
-    ['offense'] = 9964,
+    ['offense'] = 9234,
     ['defense'] = 8014,
     ['evade'] = 0.03,
     ['range'] = 2,
