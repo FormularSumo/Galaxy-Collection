@@ -208,6 +208,14 @@ BenKenobi = {
     ['range'] = 1
 }
 
+BiggsDarklighter = {
+    ['offense'] = 6115,
+    ['defense'] = 6400,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['laser_colour'] = 'Red'
+}
+
 Bistan = {
     ['offense'] = 9602,
     ['defense'] = 9641,
