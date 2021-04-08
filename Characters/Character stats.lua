@@ -152,7 +152,7 @@ BabyYoda = {
     ['offense'] = 9761,
     ['defense'] = 9430,
     ['evade'] = 0,
-    ['range'] = 1
+    ['range'] = 3
 }
 
 BarrissOffee = {
@@ -1234,7 +1234,7 @@ QuinlanVos = {
 
 R2D2 = {
     ['offense'] = 9241,
-    ['defense'] = 8165,
+    ['defense'] = 8765,
     ['evade'] = 0.15,
     ['range'] = 1
 }
