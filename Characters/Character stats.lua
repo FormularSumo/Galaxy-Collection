@@ -1463,6 +1463,14 @@ TaronMalicos = {
     ['range'] = 1
 }
 
+TasuLeech = {
+    ['offense'] = 13445,
+    ['defense'] = 10721,
+    ['evade'] = 0.03,
+    ['range'] = 3
+    ['laser_colour'] = 'Red'
+}
+
 Teebo = {
     ['offense'] = 4323,
     ['defense'] = 3912,
