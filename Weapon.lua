@@ -4,7 +4,7 @@ function Weapon:init(x,y,weapon,team,xoffset,yoffset)
     self.alive = true
     self.team = team
     if self.team == 1 then
-        self.x = x + xoffset
+        self.x = x
         self.angle = math.deg(30)
     else
         self.x = x
