@@ -7,15 +7,22 @@ function Weapon:init(x,y,column,weapon,team,xoffset,yoffset)
     self.yoffset = yoffset
     self.column = column
     if self.team == 1 then
-        self.x = x + self.xoffset
+        self.x = x + self.xoffset * 0.25
         self.angle = math.rad(210)
     else
-        self.x = x
+        self.x = x + self.xoffset * 0.75
         self.angle = math.rad(150)
     end
 
     self.y = y
     self.image = weapon
+    self.width,self.height = self.image:getDimensions()
+
+    if self.image == InquisitorLightsaber or self.image == DoubleRedLightsaber or self.image == DoubleBlueLightsaber or self.image == DoubleGreenLightsaber or self.image == DoubleYellowLightsaber then
+        self.double = true
+    else
+        self.double = false
+    end
 end
 
 function Weapon:updateposition(x,y,column)
@@ -59,6 +66,10 @@ end
 
 function Weapon:render()
     if (self.column == 5 or self.column == 6) and timer > 6.5 and self.target then
-        love.graphics.draw(self.image,self.x,self.y,self.angle)
+        if self.double then
+            love.graphics.draw(self.image,self.x-self.width/4,self.y-self.height/4,self.angle,1,1,self.width/2,self.height/2)
+        else
+            love.graphics.draw(self.image,self.x,self.y,self.angle)
+        end
     end
 end
