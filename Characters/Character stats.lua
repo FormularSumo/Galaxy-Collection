@@ -1152,7 +1152,8 @@ KyloRen = {
     ['offense'] = 18193,
     ['defense'] = 17664,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'CrossguardLightsaber'
 }
 
 LandoCalrissian = {
@@ -1229,7 +1230,8 @@ MotherTalzin = {
     ['offense'] = 17638,
     ['defense'] = 14660,
     ['evade'] = 0.08,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'MotherTalzinSword'
 }
 
 MoraloEval = {
