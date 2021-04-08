@@ -983,6 +983,14 @@ ImaGunDi = {
     ['range'] = 1
 }
 
+ImperialJumpTrooper = {
+    ['offense'] = 9191,
+    ['defense'] = 8566,
+    ['evade'] = 0.15,
+    ['range'] = 5
+    ['laser_colour'] = 'Red'
+}
+
 JabbaTheHutt = {
     ['offense'] = 249,
     ['defense'] = 513,
