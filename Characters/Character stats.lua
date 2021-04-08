@@ -1613,6 +1613,14 @@ Waxer = {
     ['laser_colour'] = 'Blue'
 }
 
+WedgeAntilles = {
+    ['offense'] = 6550,
+    ['defense'] = 6342,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['laser_colour'] = 'Red'
+}
+
 WicketWWarrick = {
     ['offense'] = 4554,
     ['defense'] = 3994,
