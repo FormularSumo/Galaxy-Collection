@@ -17,7 +17,7 @@ AdmiralAckbar = {
     ['defense'] = 6420,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 AdmiralPiett = {
@@ -25,7 +25,7 @@ AdmiralPiett = {
     ['defense'] = 4234,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 AgentKallus = {
@@ -68,7 +68,7 @@ AirborneCloneTrooper = {
     ['defense'] = 12045,
     ['evade'] = 0.07,
     ['range'] = 4,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 AnakinSkywalkerROTS = {
@@ -90,7 +90,7 @@ AquaDroid = {
     ['defense'] = 6400,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 ArcTrooper = {
@@ -98,7 +98,7 @@ ArcTrooper = {
     ['defense'] = 13735,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 ArcTrooperEcho = {
@@ -106,7 +106,7 @@ ArcTrooperEcho = {
     ['defense'] = 13853,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 ArcTrooperFives = {
@@ -114,7 +114,7 @@ ArcTrooperFives = {
     ['defense'] = 13852,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 ArcTrooperJesse = {
@@ -122,7 +122,7 @@ ArcTrooperJesse = {
     ['defense'] = 13855,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 ARFTrooper = {
@@ -130,7 +130,7 @@ ARFTrooper = {
     ['defense'] = 11099,
     ['evade'] = 0.04,
     ['range'] = 5,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 AsajjVentress = {
@@ -145,7 +145,7 @@ B1BattleDroid = {
     ['defense'] = 3905,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 B2RPSuperBattleDroid = {
@@ -153,7 +153,7 @@ B2RPSuperBattleDroid = {
     ['defense'] = 8924,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 B2SuperBattleDroid = {
@@ -161,7 +161,7 @@ B2SuperBattleDroid = {
     ['defense'] = 9524,
     ['evade'] = 0.01,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 BabyYoda = {
@@ -169,7 +169,7 @@ BabyYoda = {
     ['defense'] = 9430,
     ['evade'] = 0,
     ['range'] = 2,
-    ['laser_colour'] = 'ForceBlast'
+    ['projectile'] = 'ForceBlast'
 }
 
 BalaTik = {
@@ -177,7 +177,7 @@ BalaTik = {
     ['defense'] = 11250,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 BarrissOffee = {
@@ -192,7 +192,7 @@ BazeMalbus = {
     ['defense'] = 15383,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Bendu = {
@@ -200,7 +200,7 @@ Bendu = {
     ['defense'] = 17967,
     ['evade'] = 0.07,
     ['range'] = 5,
-    ['laser_colour'] = 'Lightning'
+    ['projectile'] = 'Lightning'
 }
 
 BenKenobi = {
@@ -215,7 +215,7 @@ BiggsDarklighter = {
     ['defense'] = 6400,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Bistan = {
@@ -223,7 +223,7 @@ Bistan = {
     ['defense'] = 9641,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 BobaFettROTJ = {
@@ -231,7 +231,7 @@ BobaFettROTJ = {
     ['defense'] = 14543,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 BobaFettMandalorian = {
@@ -239,7 +239,7 @@ BobaFettMandalorian = {
     ['defense'] = 16048,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 BodhiRook = {
@@ -247,7 +247,7 @@ BodhiRook = {
     ['defense'] = 8009,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Boil = {
@@ -255,7 +255,7 @@ Boil = {
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 BoKatan = {
@@ -263,7 +263,7 @@ BoKatan = {
     ['defense'] = 14768,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Bossk = {
@@ -271,7 +271,7 @@ Bossk = {
     ['defense'] = 15748,
     ['evade'] = 0.04,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 C3P0 = {
@@ -286,7 +286,7 @@ CadBane = {
     ['defense'] = 14141,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 CalKestis = {
@@ -301,7 +301,7 @@ CaptainJag = {
     ['defense'] = 12001,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CaptainPhasma = {
@@ -316,7 +316,7 @@ CaptainRex = {
     ['defense'] = 15518,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CaptainVaughn = {
@@ -324,7 +324,7 @@ CaptainVaughn = {
     ['defense'] = 12090,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CaraDune = {
@@ -332,7 +332,7 @@ CaraDune = {
     ['defense'] = 14814,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Cardo = {
@@ -340,7 +340,7 @@ Cardo = {
     ['defense'] = 15416,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 CassianAndor = {
@@ -348,7 +348,7 @@ CassianAndor = {
     ['defense'] = 12130,
     ['evade'] = 0.03,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 CereJunda = {
@@ -356,7 +356,7 @@ CereJunda = {
     ['defense'] = 14756,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Chewbacca = {
@@ -364,7 +364,7 @@ Chewbacca = {
     ['defense'] = 12169,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Chopper = {
@@ -393,7 +393,7 @@ CloneCommando = {
     ['defense'] = 13846,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CloneCommandoGregor = {
@@ -401,7 +401,7 @@ CloneCommandoGregor = {
     ['defense'] = 14195,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CloneJetTrooper = {
@@ -409,7 +409,7 @@ CloneJetTrooper = {
     ['defense'] = 12076,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CloneTrooper212th = {
@@ -417,7 +417,7 @@ CloneTrooper212th = {
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CloneTrooper322nd = {
@@ -425,7 +425,7 @@ CloneTrooper322nd = {
     ['defense'] = 12018,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CloneTrooper327th = {
@@ -433,7 +433,7 @@ CloneTrooper327th = {
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CloneTrooper501st = {
@@ -441,7 +441,7 @@ CloneTrooper501st = {
     ['defense'] = 12018,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 ColemanKcaj = {
@@ -463,7 +463,7 @@ CommanderAppo = {
     ['defense'] = 12070,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CommanderBacara = {
@@ -471,7 +471,7 @@ CommanderBacara = {
     ['defense'] = 12222,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CommanderBly = {
@@ -479,7 +479,7 @@ CommanderBly = {
     ['defense'] = 12213,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CommanderCody = {
@@ -487,7 +487,7 @@ CommanderCody = {
     ['defense'] = 15371,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CommanderFox = {
@@ -495,7 +495,7 @@ CommanderFox = {
     ['defense'] = 12050,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CommanderGree = {
@@ -503,7 +503,7 @@ CommanderGree = {
     ['defense'] = 12220,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CommanderNeyo = {
@@ -511,7 +511,7 @@ CommanderNeyo = {
     ['defense'] = 12049,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CommanderSato = {
@@ -519,7 +519,7 @@ CommanderSato = {
     ['defense'] = 6341,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 CommanderWolffe = {
@@ -527,7 +527,7 @@ CommanderWolffe = {
     ['defense'] = 12193,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CommandoDroid = {
@@ -535,7 +535,7 @@ CommandoDroid = {
     ['defense'] = 11279,
     ['evade'] = 0.07,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 CoruscantGuardCloneTrooper = {
@@ -543,7 +543,7 @@ CoruscantGuardCloneTrooper = {
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 CountDooku = {
@@ -565,7 +565,7 @@ DarthSidious = {
     ['defense'] = 18653,
     ['evade'] = 0.07,
     ['range'] = 2,
-    ['laser_colour'] = 'Lightning'
+    ['projectile'] = 'Lightning'
 }
 
 DarthSidiousReborn = {
@@ -573,7 +573,7 @@ DarthSidiousReborn = {
     ['defense'] = 19256,
     ['evade'] = 0,
     ['range'] = 5,
-    ['laser_colour'] = 'Lightning'
+    ['projectile'] = 'Lightning'
 }
 
 DarthVader = {
@@ -595,7 +595,7 @@ DeathTrooper = {
     ['defense'] = 11848,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 DeathWatchMandalorian = {
@@ -603,7 +603,7 @@ DeathWatchMandalorian = {
     ['defense'] = 10905,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Dengar = {
@@ -611,7 +611,7 @@ Dengar = {
     ['defense'] = 9871,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 DepaBillaba = {
@@ -626,7 +626,7 @@ DirectorKrennic = {
     ['defense'] = 6410,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Droideka = {
@@ -634,7 +634,7 @@ Droideka = {
     ['defense'] = 14393,
     ['evade'] = 0,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 DroidekaSniper = {
@@ -642,7 +642,7 @@ DroidekaSniper = {
     ['defense'] = 14000,
     ['evade'] = 0,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 DrydenVos = {
@@ -657,7 +657,7 @@ DwarfSpiderDroid = {
     ['defense'] = 8959,
     ['evade'] = 0.02,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 EethKoth = {
@@ -686,7 +686,7 @@ EliteSenateCommando = {
     ['defense'] = 9124,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 Embo = {
@@ -694,7 +694,7 @@ Embo = {
     ['defense'] = 14281,
     ['evade'] = 0.05,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 EnfysNest = {
@@ -730,7 +730,7 @@ FarmboyLuke = {
     ['defense'] = 6567,
     ['evade'] = 0.02,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 FennecShand = {
@@ -738,7 +738,7 @@ FennecShand = {
     ['defense'] = 14383,
     ['evade'] = 0.04,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 FifthBrother = {
@@ -753,7 +753,7 @@ Finn = {
     ['defense'] = 9137,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 FirstOrderExecutioner = {
@@ -775,7 +775,7 @@ FirstOrderJetTrooper = {
     ['defense'] = 9456,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 FirstOrderRiotControlTrooper = {
@@ -790,7 +790,7 @@ FirstOrderSnowtrooper = {
     ['defense'] = 8267,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 FirstOrderStormtrooper = {
@@ -798,7 +798,7 @@ FirstOrderStormtrooper = {
     ['defense'] = 6547,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 FourLOM = {
@@ -806,7 +806,7 @@ FourLOM = {
     ['defense'] = 9294,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 GamorreanGuard = {
@@ -814,7 +814,7 @@ GamorreanGuard = {
     ['defense'] = 6113,
     ['evade'] = 0.01,
     ['range'] = 1,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 GeneralGrievous = {
@@ -829,7 +829,7 @@ GeneralHux = {
     ['defense'] = 4130,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 GeneralLeiaOrgana = {
@@ -837,7 +837,7 @@ GeneralLeiaOrgana = {
     ['defense'] = 6871,
     ['evade'] = 0.07,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 GeneralVeers = {
@@ -845,7 +845,7 @@ GeneralVeers = {
     ['defense'] = 4334,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 GeonosianBroodAlpha = {
@@ -860,7 +860,7 @@ GovernorPryce = {
     ['defense'] = 8014,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 GrandAdmiralThrawn = {
@@ -868,7 +868,7 @@ GrandAdmiralThrawn = {
     ['defense'] = 15524,
     ['evade'] = 0.05,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 GrandInquisitor = {
@@ -883,7 +883,7 @@ GrandMoffTarkin = {
     ['defense'] = 6419,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Greedo = {
@@ -891,7 +891,7 @@ Greedo = {
     ['defense'] = 8253,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 GreefKarga = {
@@ -899,7 +899,7 @@ GreefKarga = {
     ['defense'] = 9134,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 GuavianDeathGangSoldier = {
@@ -907,7 +907,7 @@ GuavianDeathGangSoldier = {
     ['defense'] = 8457,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 HanSolo = {
@@ -915,7 +915,7 @@ HanSolo = {
     ['defense'] = 9648,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 HanSoloOld = {
@@ -923,7 +923,7 @@ HanSoloOld = {
     ['defense'] = 8565,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Hardcase = {
@@ -931,7 +931,7 @@ Hardcase = {
     ['defense'] = 12046,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 HeraSyndulla = {
@@ -939,7 +939,7 @@ HeraSyndulla = {
     ['defense'] = 10038,
     ['evade'] = 0.05,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 HermitYoda = {
@@ -947,7 +947,7 @@ HermitYoda = {
     ['defense'] = 18341,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'ForceBlast'
+    ['projectile'] = 'ForceBlast'
 }
 
 Hevy = {
@@ -955,7 +955,7 @@ Hevy = {
     ['defense'] = 9103,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 HondoOhnaka = {
@@ -963,7 +963,7 @@ HondoOhnaka = {
     ['defense'] = 11732,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 HothRebelSoldier = {
@@ -971,7 +971,7 @@ HothRebelSoldier = {
     ['defense'] = 6308,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Hunter = {
@@ -986,7 +986,7 @@ IdenVersio = {
     ['defense'] = 12916,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 IG88 = {
@@ -994,7 +994,7 @@ IG88 = {
     ['defense'] = 11178,
     ['evade'] = 0.04,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 IG11 = {
@@ -1002,7 +1002,7 @@ IG11 = {
     ['defense'] = 14888,
     ['evade'] = 0.04,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 ImaGunDi = {
@@ -1017,7 +1017,7 @@ ImperialJumpTrooper = {
     ['defense'] = 8566,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 JabbaTheHutt = {
@@ -1032,7 +1032,7 @@ JangoFett = {
     ['defense'] = 15464,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 JarJarBinks = {
@@ -1055,7 +1055,7 @@ Jawa = {
     ['defense'] = 3871,
     ['evade'] = 0.1,
     ['range'] = 2,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 JynErso = {
@@ -1098,7 +1098,7 @@ Kix = {
     ['defense'] = 12093,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 KoskaReeves = {
@@ -1106,7 +1106,7 @@ KoskaReeves = {
     ['defense'] = 14768,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Kuruk = {
@@ -1114,7 +1114,7 @@ Kuruk = {
     ['defense'] = 14654,
     ['evade'] = 0.03,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 KyloRen = {
@@ -1129,7 +1129,7 @@ LandoCalrissian = {
     ['defense'] = 9058,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 LeiaOrgana = {
@@ -1137,7 +1137,7 @@ LeiaOrgana = {
     ['defense'] = 9153,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Logray = {
@@ -1201,7 +1201,7 @@ MoraloEval = {
     ['defense'] = 9137,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 NightsisterMerrin = {
@@ -1209,7 +1209,7 @@ NightsisterMerrin = {
     ['defense'] = 14756,
     ['evade'] = 0.08,
     ['range'] = 3,
-    ['laser_colour'] = 'Fire'
+    ['projectile'] = 'Fire'
 }
 
 NinthSister = {
@@ -1224,7 +1224,7 @@ NinetyNine = {
     ['defense'] = 3921,
     ['evade'] = 0.01,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 NuteGunray = {
@@ -1232,7 +1232,7 @@ NuteGunray = {
     ['defense'] = 3975,
     ['evade'] = 0.1,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 ObiWanKenobi = {
@@ -1247,7 +1247,7 @@ OldDaka = {
     ['defense'] = 3721,
     ['evade'] = 0.01,
     ['range'] = 3,
-    ['laser_colour'] = 'Fire'
+    ['projectile'] = 'Fire'
 }
 
 PabloJill = {
@@ -1262,7 +1262,7 @@ PadmeAmidala = {
     ['defense'] = 9427,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Pao = {
@@ -1270,7 +1270,7 @@ Pao = {
     ['defense'] = 9610,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Paploo = {
@@ -1285,7 +1285,7 @@ Phase1CloneTrooper = {
     ['defense'] = 9094,
     ['evade'] = 0.2,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 Phase2CloneTrooper = {
@@ -1293,7 +1293,7 @@ Phase2CloneTrooper = {
     ['defense'] = 9481,
     ['evade'] = 0.2,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 PilotBattleDroid = {
@@ -1301,7 +1301,7 @@ PilotBattleDroid = {
     ['defense'] = 3393,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 
@@ -1317,7 +1317,7 @@ PoeDameron = {
     ['defense'] = 9039,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 PoggleTheLesser = {
@@ -1346,7 +1346,7 @@ PurgeTrooper = {
     ['defense'] = 15483,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Qira = {
@@ -1354,7 +1354,7 @@ Qira = {
     ['defense'] = 9389,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 QuiGonJinn = {
@@ -1432,7 +1432,7 @@ SawGerrera = {
     ['defense'] = 10221,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 ScoutBattalionCloneTrooper41st = {
@@ -1440,7 +1440,7 @@ ScoutBattalionCloneTrooper41st = {
     ['defense'] = 9612,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 ScoutTrooper = {
@@ -1448,7 +1448,7 @@ ScoutTrooper = {
     ['defense'] = 7231,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 SenateGuard = {
@@ -1477,7 +1477,7 @@ Shoretrooper = {
     ['defense'] = 8127,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 SithTrooper = {
@@ -1485,7 +1485,7 @@ SithTrooper = {
     ['defense'] = 9178,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 SnapWexley = {
@@ -1493,7 +1493,7 @@ SnapWexley = {
     ['defense'] = 6501,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Snowtrooper = {
@@ -1501,7 +1501,7 @@ Snowtrooper = {
     ['defense'] = 7435,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 StassAllie = {
@@ -1516,7 +1516,7 @@ SteelaGerrera = {
     ['defense'] = 11412,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 StormtrooperOriginal = {
@@ -1524,7 +1524,7 @@ StormtrooperOriginal = {
     ['defense'] = 6348,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 SupremeLeaderSnoke = {
@@ -1532,7 +1532,7 @@ SupremeLeaderSnoke = {
     ['defense'] = 18452,
     ['evade'] = 0.01,
     ['range'] = 2,
-    ['laser_colour'] = 'Lightning'
+    ['projectile'] = 'Lightning'
 }
 
 Talia = {
@@ -1547,7 +1547,7 @@ TallieLintra = {
     ['defense'] = 6467,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 TaronMalicos = {
@@ -1562,7 +1562,7 @@ TasuLeech = {
     ['defense'] = 10721,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Teebo = {
@@ -1598,7 +1598,7 @@ TheMandalorian = {
     ['defense'] = 15728,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 TobiasBeckett = {
@@ -1606,7 +1606,7 @@ TobiasBeckett = {
     ['defense'] = 9995,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 Tokkat = {
@@ -1614,7 +1614,7 @@ Tokkat = {
     ['defense'] = 3912,
     ['evade'] = 0.1,
     ['range'] = 3,
-    ['laser_colour'] = 'Arrow'
+    ['projectile'] = 'Arrow'
 }
 
 TuskenRaider = {
@@ -1622,7 +1622,7 @@ TuskenRaider = {
     ['defense'] = 6000,
     ['evade'] = 0.02,
     ['range'] = 5,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 TrillaSuduri = {
@@ -1665,7 +1665,7 @@ Waxer = {
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Blue'
+    ['projectile'] = 'Blue'
 }
 
 WedgeAntilles = {
@@ -1673,7 +1673,7 @@ WedgeAntilles = {
     ['defense'] = 6342,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 WicketWWarrick = {
@@ -1702,7 +1702,7 @@ GarazebOrrelios = {
     ['defense'] = 12169,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['laser_colour'] = 'Red'
+    ['projectile'] = 'Red'
 }
 
 ZilloBeast = {

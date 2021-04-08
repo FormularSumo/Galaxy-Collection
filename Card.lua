@@ -16,21 +16,21 @@ function Card:init(name,row,column,team,number)
     self.defense = _G[self.name]['defense']
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
-    self.laser_colour = _G[self.name]['laser_colour']
-    if self.laser_colour == 'Red' then
-        self.laser_image = RedLaser
-    elseif self.laser_colour == 'Blue' then
-        self.laser_image = BlueLaser
-    elseif self.laser_colour == 'Green' then
-        self.laser_image = GreenLaser
-    elseif self.laser_colour == 'Lightning' then
-        self.laser_image = Lightning
-    elseif self.laser_colour == 'Fire' then
-        self.laser_image = Fire
-    elseif self.laser_colour == 'ForceBlast' then
-        self.laser_image = ForceBlast
+    self.projectile = _G[self.name]['projectile']
+    if self.projectile == 'Red' then
+        self.projectile_image = RedLaser
+    elseif self.projectile == 'Blue' then
+        self.projectile_image = BlueLaser
+    elseif self.projectile == 'Green' then
+        self.projectile_image = GreenLaser
+    elseif self.projectile == 'Lightning' then
+        self.projectile_image = Lightning
+    elseif self.projectile == 'Fire' then
+        self.projectile_image = Fire
+    elseif self.projectile == 'ForceBlast' then
+        self.projectile_image = ForceBlast
     else
-        self.laser_image = Arrow
+        self.projectile_image = Arrow
     end
     self.alive = true
     self.attack_roll = 0
@@ -40,10 +40,10 @@ function Card:init(name,row,column,team,number)
     self.attacks_taken = 0
     if self.team == 1 then
         self.enemy_deck = P2_deck
-        self.laser = P1_lasers
+        self.projectile = P1_projectiles
     else
         self.enemy_deck = P1_deck
-        self.laser = P2_lasers
+        self.projectile = P2_projectiles
     end
     self.damage = 0
     self.defence_down = 0
@@ -70,8 +70,8 @@ function Card:update(dt,timer)
             self.number = self.row + (self.column - 5) * 6 - 6
         end
     end
-    if self.laser ~= nil then
-        self.laser:update(dt)
+    if self.projectile ~= nil then
+        self.projectile:update(dt)
     end
 end
 
@@ -129,7 +129,7 @@ function Card:aim()
             end
         end
         if self.target ~= nil then
-            self.laser = Laser(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.laser_image, self.team, self.width, self.height)
+            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
         end
     end
 end
@@ -159,7 +159,7 @@ function Card:attack()
         end
         self.target = nil
     end
-    self.laser = nil
+    self.projectile = nil
 end
 
 function Card:render()

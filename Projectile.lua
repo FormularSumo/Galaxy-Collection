@@ -1,6 +1,6 @@
-Laser = Class{__includes = BaseState}
+Projectile = Class{__includes = BaseState}
 
-function Laser:init(x,y,finalx,finaly,laser,team,xoffset,yoffset)
+function Projectile:init(x,y,finalx,finaly,projectile,team,xoffset,yoffset)
     self.alive = true
     self.team = team
     if self.team == 1 then
@@ -14,7 +14,7 @@ function Laser:init(x,y,finalx,finaly,laser,team,xoffset,yoffset)
     self.y = y + yoffset / 2
     self.finaly = finaly + yoffset / 2
 
-    self.image = laser
+    self.image = projectile
     self.x_distance = tonumber(self.finalx-self.x)
     self.y_distance = tonumber(self.finaly-self.y)
     self.angle = math.atan(self.y_distance/self.x_distance)
@@ -23,7 +23,7 @@ function Laser:init(x,y,finalx,finaly,laser,team,xoffset,yoffset)
     self.timer = 0
 end
 
-function Laser:update(dt)
+function Projectile:update(dt)
     self.timer = self.timer + dt
     if self.timer > 0 then
         self.x = self.x + (self.x_distance * dt) --/ (1-self.delay)
@@ -31,7 +31,7 @@ function Laser:update(dt)
     end
 end
 
-function Laser:render()
+function Projectile:render()
     if self.timer > 0 then
         love.graphics.draw(self.image,self.x,self.y,self.angle)
     end
