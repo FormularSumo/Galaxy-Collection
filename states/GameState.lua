@@ -5,6 +5,7 @@ function GameState:init()
     GreenLaser = love.graphics.newImage('Graphics/Green Laser.png')
     RedLaser = love.graphics.newImage('Graphics/Red Laser.png')
     Arrow = love.graphics.newImage('Graphics/Arrow.png')
+    Lightning = love.graphics.newImage('Graphics/Lightning.png')
 
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
@@ -374,5 +375,6 @@ function GameState:exit()
     GreenLaser = nil
     RedLaser = nil
     Arrow = nil
+    Lightning = nil
     exit_state()
 end
