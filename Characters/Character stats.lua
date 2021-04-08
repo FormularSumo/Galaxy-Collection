@@ -168,7 +168,8 @@ BabyYoda = {
     ['offense'] = 9761,
     ['defense'] = 9430,
     ['evade'] = 0,
-    ['range'] = 2
+    ['range'] = 2,
+    ['laser_colour'] = 'Red'
 }
 
 BalaTik = {
@@ -945,7 +946,8 @@ HermitYoda = {
     ['offense'] = 18587,
     ['defense'] = 18341,
     ['evade'] = 0.02,
-    ['range'] = 3
+    ['range'] = 2,
+    ['laser_colour'] = 'ForceBlast'
 }
 
 Hevy = {

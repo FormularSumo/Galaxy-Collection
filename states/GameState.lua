@@ -7,6 +7,7 @@ function GameState:init()
     Arrow = love.graphics.newImage('Graphics/Arrow.png')
     Lightning = love.graphics.newImage('Graphics/Lightning.png')
     Fire = love.graphics.newImage('Graphics/Fire.png')
+    ForceBlast = love.graphics.newImage('Graphics/ForceBlast.png')
 
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
@@ -378,5 +379,6 @@ function GameState:exit()
     Arrow = nil
     Lightning = nil
     Fire = nil
+    ForceBlast = nil
     exit_state()
 end

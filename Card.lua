@@ -27,6 +27,8 @@ function Card:init(name,row,column,team,number)
         self.laser_image = Lightning
     elseif self.laser_colour == 'Fire' then
         self.laser_image = Fire
+    elseif self.laser_colour == 'ForceBlast' then
+        self.laser_image = ForceBlast
     else
         self.laser_image = Arrow
     end
