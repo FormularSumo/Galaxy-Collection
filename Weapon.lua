@@ -5,38 +5,38 @@ function Weapon:init(x,y,weapon,team,xoffset,yoffset)
     self.team = team
     if self.team == 1 then
         self.x = x
-        self.angle = math.deg(30)
+        self.angle = math.rad(30)
     else
         self.x = x
-        self.angle = math.deg(-30)
+        self.angle = math.rad(-30)
     end
 
     self.y = y + yoffset
     self.image = weapon
-    self.timer = 0
 end
 
 function Weapon:update(dt)
-    self.timer = self.timer + dt
-    if self.timer < 0.5 then
-        if self.team == 1 then
-            self.angle = self.angle + dt * 2
+    if timer > 6 then
+        if timer < 6.5 then
+            if self.team == 1 then
+                self.angle = self.angle + dt * 2
+            else
+                self.angle = self.angle - dt * 2
+            end
+        elseif timer < 7 then
+            if self.team == 1 then
+                self.angle = self.angle - dt * 2
+            else
+                self.angle = self.angle + dt * 2
+            end
         else
-            self.angle = self.angle - dt * 2
+            if self.team == 1 then
+                self.angle = math.rad(30)
+            else
+                self.angle = math.rad(-30)
+            end
+            timer = 6
         end
-    elseif self.timer < 1 then
-        if self.team == 1 then
-            self.angle = self.angle - dt * 2
-        else
-            self.angle = self.angle + dt * 2
-        end
-    else
-        if self.team == 1 then
-            self.angle = math.deg(30)
-        else
-            self.angle = math.deg(-30)
-        end
-        self.timer = 0
     end
 end
 
