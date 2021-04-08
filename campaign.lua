@@ -37,6 +37,8 @@ function endor()
     P2_deck_cards[3] = 'Teebo'
     P2_deck_cards[4] = 'ChiefChirpa'
     P2_deck_cards[5] = 'Logray'
+    P2_deck_cards[5] = 'DarthNoscoper'
+
 
     gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Battle music 1.mp3'})
 end
