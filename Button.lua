@@ -1,7 +1,8 @@
 Button = Class{}
 
-function Button:init(func,text,font,bg_image,x,y,r,g,b)
+function Button:init(func,arg,text,font,bg_image,x,y,r,g,b)
     self.func = func
+    self.arg = arg
     self.font = font 
     self.scaling = 1
     if bg_image == nil then self.has_picture = false else self.has_picture = true end
@@ -81,7 +82,7 @@ end
 
 function Button:update()
     if love.mouse.buttonsPressed[1] and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height and mouseTrapped == self.func then
-        _G[self.func]()
+        _G[self.func](self.arg)
     end
     if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height and (mouseTrapped == false or mouseTrapped == self.func) then
         self.scaling = 1.08

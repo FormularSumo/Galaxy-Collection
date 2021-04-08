@@ -16,7 +16,7 @@ function GameState:enter(Background)
     if Background[4] == nil then r = 0 else r = Background[4] end
     if Background[5] == nil then g = 0 else g = Background[5] end
     if Background[6] == nil then b = 0 else b = Background[6] end
-    gui['Pause'] = Button('pause','Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
+    gui['Pause'] = Button('pause',nil,'Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
     gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
 
     if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
@@ -319,7 +319,7 @@ function GameState:update(dt)
         if P2_cards_alive == '' then P2_deck = nil end
 
         if P1_deck == nil or P2_deck == nil then
-            gui['Main Menu'] = Button('return_to_main_menu','Main menu',font80,nil,35,110,r,g,b)
+            gui['Main Menu'] = Button('switch_state','home','Main menu',font80,nil,35,110,r,g,b)
             if P1_deck == nil and P2_deck == nil then 
                 winner = 'Draw'
             elseif P1_deck == nil then

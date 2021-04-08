@@ -12,15 +12,15 @@ function HomeState:init()
     songs[0]:play()
     calculate_queue_length()
     
-    gui['Maxed Dark Side'] = Button('maxed_dark_side','Maxed Dark Side',font80,nil,'centre',80)
-    gui['Emperor\'s Throne Room'] = Button('throne_room','Emperor\'s Throne Room',font80,nil,'centre',220)
-    gui['Endor'] = Button('endor','Endor',font80,nil,'centre',360)
-    gui['Maxed'] = Button('maxed','Maxed',font80,nil,'centre',500)
-    gui['Prebuilt Deck'] = Button('prebuilt_deck','Create a pre-built deck',font60,nil,'centre',800)
+    gui['Maxed Dark Side'] = Button('maxed_dark_side',nil,'Maxed Dark Side',font80,nil,'centre',80)
+    gui['Emperor\'s Throne Room'] = Button('throne_room',nil,'Emperor\'s Throne Room',font80,nil,'centre',220)
+    gui['Endor'] = Button('endor',nil,'Endor',font80,nil,'centre',360)
+    gui['Maxed'] = Button('maxed',nil,'Maxed',font80,nil,'centre',500)
+    gui['Prebuilt Deck'] = Button('prebuilt_deck',nil,'Create a pre-built deck',font60,nil,'centre',800)
     if OS ~= 'Android' then
-        gui['Toggle pause on loose focus'] = Button('toggle_pause_on_loose_focus', 'Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']),font60,nil,'centre',965)
+        gui['Toggle pause on loose focus'] = Button('toggle_pause_on_loose_focus',nil,'Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']),font60,nil,'centre',965)
     end
-    gui['FPS toggle'] = Button('toggle_FPS','FPS Counter',font50,nil,1590,1000)
+    gui['FPS toggle'] = Button('toggle_FPS',nil,'FPS Counter',font50,nil,1590,1000)
     gui['Volume Slider'] = Slider(65,1000,300,12,'volume_slider',0.3,0.3,0.3,1,1,1,Settings['volume_level'],0.5,'volume_slider2')
 end
 
