@@ -262,6 +262,14 @@ CalKestis = {
     ['range'] = 1
 }
 
+CaptainJag = {
+    ['offense'] = 12351,
+    ['defense'] = 12001,
+    ['evade'] = 0.03,
+    ['range'] = 3
+    ['laser_colour'] = 'Blue'
+}
+
 CaptainPhasma = {
     ['offense'] = 12017,
     ['defense'] = 12177,
