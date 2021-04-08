@@ -12,12 +12,14 @@ function love.load()
     require 'StateMachine'
     require 'states/BaseState'
     require 'states/GameState'
+    require 'states/DeckeditState'
     require 'states/HomeState'
     require 'states/SettingsState'
     require 'states/CampaignState'
     require 'campaign'
     require 'other functions'
     require 'Laser'
+    require 'Card editor'
 
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')
@@ -90,6 +92,7 @@ function love.load()
         ['GameState'] = function() return GameState() end,
         ['SettingsState'] = function() return SettingsState() end,
         ['CampaignState'] = function() return CampaignState() end,
+        ['deckedit'] = function() return DeckeditState() end,
     }
     gStateMachine:change('HomeState')
 end
