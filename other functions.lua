@@ -37,8 +37,8 @@ function volume_slider2()
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
-function return_to_main_menu()
-    gStateMachine:change('home')
+function switch_state(state)
+    gStateMachine:change(state)
 end
 
 function update_mouse_position()
