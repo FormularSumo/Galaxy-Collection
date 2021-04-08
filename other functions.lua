@@ -9,11 +9,13 @@ function pause(pause)
     end
 end
 
-function exit_state()
-    love.audio.stop()
+function exit_state(partial)
+    if not partial then 
+        love.audio.stop()
+        songs = {}
+        background = {}
+    end
     gui = {}
-    songs = {}
-    background = {}
     paused = false
     collectgarbage()
 end
@@ -38,7 +40,7 @@ function volume_slider2()
 end
 
 function switch_state(state)
-    gStateMachine:change(state)
+    gStateMachine:change(state[1],state[2],state[3])
 end
 
 function update_mouse_position()

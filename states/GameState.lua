@@ -1,33 +1,5 @@
 GameState = Class{__includes = BaseState}
 
-function GameState:enter(Background)
-    background['Type'] = Background[2]
-    background['Seek'] = Background[3]
-    if background['Type'] == 'video' then
-        background['Background'] = love.graphics.newVideo('Backgrounds/' .. Background[1])
-    else
-        background['Background'] = love.graphics.newImage('Backgrounds/' .. Background[1])
-    end
-
-    songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
-    songs[0]:play()
-    calculate_queue_length()
-
-    if Background[4] == nil then r = 0 else r = Background[4] end
-    if Background[5] == nil then g = 0 else g = Background[5] end
-    if Background[6] == nil then b = 0 else b = Background[6] end
-    gui['Pause'] = Button('pause',nil,'Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
-    gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
-
-    if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
-        timer = 0 - (background['Seek'] - 1)
-    else
-        timer = 0
-    end
-    move_aim_timer = timer
-    attack_timer = timer - 0.9
-end
-
 function GameState:init()  
     BlueLaser = love.graphics.newImage('Graphics/Blue Laser.png')
     GreenLaser = love.graphics.newImage('Graphics/Green Laser.png')
@@ -60,6 +32,34 @@ function GameState:init()
     
     next_round_P1_deck = P1_deck
     next_round_P2_deck = P2_deck
+end
+
+function GameState:enter(Background)
+    background['Type'] = Background[2]
+    background['Seek'] = Background[3]
+    if background['Type'] == 'video' then
+        background['Background'] = love.graphics.newVideo('Backgrounds/' .. Background[1])
+    else
+        background['Background'] = love.graphics.newImage('Backgrounds/' .. Background[1])
+    end
+
+    songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
+    songs[0]:play()
+    calculate_queue_length()
+
+    if Background[4] == nil then r = 0 else r = Background[4] end
+    if Background[5] == nil then g = 0 else g = Background[5] end
+    if Background[6] == nil then b = 0 else b = Background[6] end
+    gui['Pause'] = Button('pause',nil,'Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
+    gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
+
+    if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
+        timer = 0 - (background['Seek'] - 1)
+    else
+        timer = 0
+    end
+    move_aim_timer = timer
+    attack_timer = timer - 0.9
 end
 
 function CheckRowBelowEmpty(player,x)
@@ -319,7 +319,7 @@ function GameState:update(dt)
         if P2_cards_alive == '' then P2_deck = nil end
 
         if P1_deck == nil or P2_deck == nil then
-            gui['Main Menu'] = Button('switch_state','home','Main menu',font80,nil,35,110,r,g,b)
+            gui['Main Menu'] = Button('switch_state',{'home'},'Main menu',font80,nil,35,110,r,g,b)
             if P1_deck == nil and P2_deck == nil then 
                 winner = 'Draw'
             elseif P1_deck == nil then
