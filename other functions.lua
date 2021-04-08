@@ -14,8 +14,6 @@ function exit_state()
     gui = {}
     songs = {}
     background = {}
-    current_song = 0
-    next_song = 1
     paused = false
     collectgarbage()
 end
@@ -64,6 +62,8 @@ function calculate_queue_length()
     for k, pair in pairs(songs) do
         queue_length = queue_length + 1
     end
+    current_song = 0
+    next_song = 1
 end
 
 function toggle_FPS()

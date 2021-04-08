@@ -21,7 +21,10 @@ function love.load()
 
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')
-    
+
+    -- folder that app data is stored in
+    love.filesystem.setIdentity('Star Wars Force Collection Remake')
+
     VIRTUAL_WIDTH = 1920
     VIRTUAL_HEIGHT = 1080
 
@@ -39,19 +42,16 @@ function love.load()
     font50 = love.graphics.newFont(50)
     font60 = love.graphics.newFont(60)
     font80 = love.graphics.newFont(80)
-    font80SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',80)
-    font80SW_runes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
+    -- font80SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',80)
+    -- font80SW_runes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
     font100 = love.graphics.newFont(100)
     love.graphics.setFont(font80)
     
     gui = {}
     songs = {}
     background = {}
-    current_song = 0
-    next_song = 1
     paused = false
 
-    love.filesystem.setIdentity('Star Wars Force Collection Remake')
     P1_deck_cards = {}
     P2_deck_cards = {}
 
