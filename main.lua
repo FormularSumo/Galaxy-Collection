@@ -206,7 +206,7 @@ function love.update(dt)
     end
 
     --Manage background video looping and pausing
-    if background['Type'] == 'video' then
+    if background['Type'] == 'video' and background['Background'] then
         if paused == true then
             background['Background']:pause()
         else
@@ -234,7 +234,9 @@ end
 
 function love.draw()
     push:start()
-    love.graphics.draw(background['Background'],0,0)
+    if background['Background'] then
+        love.graphics.draw(background['Background'],0,0)
+    end
     gStateMachine:render()
     for k, pair in pairs(gui) do
         pair:render()
