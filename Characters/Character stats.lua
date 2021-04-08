@@ -550,7 +550,8 @@ CountDooku = {
     ['offense'] = 18224,
     ['defense'] = 18391,
     ['evade'] = 0.05,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Darksaber'
 }
 
 DarkTrooper = {

@@ -9,6 +9,8 @@ function GameState:init()
     Fire = love.graphics.newImage('Graphics/Fire.png')
     ForceBlast = love.graphics.newImage('Graphics/ForceBlast.png')
 
+    Darksaber = love.graphics.newImage('Graphics/Darksaber.png')
+
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P2_deck = {}
@@ -348,12 +350,26 @@ function GameState:render()
 
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
+            if P1_deck[k].weapon ~= nil then
+                P1_deck[k].weapon:render()
+            end
+        end
+    end
+    if P2_deck ~= nil then
+        for k, pair in pairs(P2_deck) do
+            if P2_deck[k].weapon ~= nil then
+                P2_deck[k].weapon:render()
+            end
+        end
+    end
+
+    if P1_deck ~= nil then
+        for k, pair in pairs(P1_deck) do
             if P1_deck[k].projectile ~= nil then
                 P1_deck[k].projectile:render()
             end
         end
     end
-
     if P2_deck ~= nil then
         for k, pair in pairs(P2_deck) do
             if P2_deck[k].projectile ~= nil then

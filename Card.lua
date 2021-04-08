@@ -17,6 +17,8 @@ function Card:init(name,row,column,team,number)
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
     self.projectile = _G[self.name]['projectile']
+    self.weapon = _G[self.name]['weapon']
+
     if self.projectile == 'Red' then
         self.projectile_image = RedLaser
     elseif self.projectile == 'Blue' then
@@ -32,6 +34,15 @@ function Card:init(name,row,column,team,number)
     else
         self.projectile_image = Arrow
     end
+
+    if self.weapon == 'Darksaber' then
+        self.weapon_image = Darksaber
+    end
+
+    if self.weapon then
+        self.weapon = Weapon(self.x, self.y, self.weapon_image, self.team, self.width, self.height)
+    end
+
     self.alive = true
     self.attack_roll = 0
     self.ranged_attack_roll = 0
@@ -62,6 +73,7 @@ function Card:update(dt,timer)
             next_round_P2_deck[self.number] = nil
         end 
         self.alive = false
+        self.weapon = nil
     end
     if timer > 6 then
         if self.team == 1 then
@@ -72,6 +84,9 @@ function Card:update(dt,timer)
     end
     if self.projectile ~= nil then
         self.projectile:update(dt)
+    end
+    if self.weapon then
+        self.weapon:update(dt)
     end
 end
 
@@ -92,6 +107,10 @@ function Card:move()
             next_round_P2_deck[self.number-6] = next_round_P2_deck[self.number]
             next_round_P2_deck[self.number] = nil
         end
+    end
+    if self.weapon then
+        self.weapon.x = self.x
+        self.weapon.y = self.y
     end
 end
 
@@ -177,7 +196,7 @@ function Card:render()
         love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
         love.graphics.setColor(1,1,1)
     end
-
+    
     -- if self.number == 0 and self.team == 1 then
     -- if self.name == 'QuiGonJinn' then 
     --     love.graphics.print(self.health)

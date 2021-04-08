@@ -18,6 +18,7 @@ function love.load()
     require 'campaign'
     require 'other functions'
     require 'Projectile'
+    require 'Weapon'
 
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')
