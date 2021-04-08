@@ -18,7 +18,7 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     P2_deck_cards[16] = 'Kuruk'
     P2_deck_cards[17] = 'PurgeTrooper'
 
-    gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
+    gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'throne room.ogg'})
 end
 
 function throne_room()

@@ -19,6 +19,7 @@ function SettingsState:enter(partial)
         songs[1] = love.audio.newSource('Music/The Mandalorian.oga','stream')
         songs[2] = love.audio.newSource('Music/Cantina Band.oga','stream')
         songs[3] = love.audio.newSource('Music/Imperial March duet.mp3','stream')
+        songs[4] = love.audio.newSource('Music/throne room.ogg','stream')
 
         songs[0]:play()
         calculate_queue_length()
