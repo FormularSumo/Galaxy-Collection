@@ -1291,6 +1291,15 @@ Phase2CloneTrooper = {
     ['laser_colour'] = 'Blue'
 }
 
+PilotBattleDroid = {
+    ['offense'] = 5101,
+    ['defense'] = 3393,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['laser_colour'] = 'Red'
+}
+
+
 PloKoon = {
     ['offense'] = 18037,
     ['defense'] = 17792,
