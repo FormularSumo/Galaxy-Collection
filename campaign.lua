@@ -18,7 +18,7 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     P2_deck_cards[16] = 'Kuruk'
     P2_deck_cards[17] = 'PurgeTrooper'
 
-    gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'throne room.ogg'})
+    gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.ogg'})
 end
 
 function throne_room()
@@ -41,7 +41,7 @@ function endor()
     P2_deck_cards[7] = 'BabyYoda'
 
 
-    gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Battle music 1.mp3'})
+    gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Throne Room.oga'})
 end
 
 function maxed()
