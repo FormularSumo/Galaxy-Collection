@@ -416,6 +416,14 @@ CommanderAppo = {
     ['laser_colour'] = 'Blue'
 }
 
+CommanderBacara = {
+    ['offense'] = 12232,
+    ['defense'] = 12222,
+    ['evade'] = 0.03,
+    ['range'] = 3
+    ['laser_colour'] = 'Blue'
+}
+
 CommanderBly = {
     ['offense'] = 12259,
     ['defense'] = 12213,
