@@ -1,11 +1,8 @@
 HomeState = Class{__includes = BaseState}
 
 function HomeState:init()
-    gui['Maxed Dark Side'] = Button('maxed_dark_side',nil,'Maxed Dark Side',font80,nil,'centre',80)
-    gui['Emperor\'s Throne Room'] = Button('throne_room',nil,'Emperor\'s Throne Room',font80,nil,'centre',220)
-    gui['Endor'] = Button('endor',nil,'Endor',font80,nil,'centre',360)
-    gui['Maxed'] = Button('maxed',nil,'Maxed',font80,nil,'centre',500)
-    gui['Prebuilt Deck'] = Button('prebuilt_deck',nil,'Create a pre-built deck',font80,nil,'centre',800)
+    gui['CampaignState'] = Button('switch_state',{'CampaignState',true,true},'Campaign',font80,nil,'centre',100)
+    gui['Prebuilt Deck'] = Button('prebuilt_deck',nil,'Create a pre-built deck',font80,nil,'centre',500)
     gui['SettingsState'] = Button('switch_state',{'SettingsState',true,true},'Settings',font80,nil,'centre',965)
 end
 

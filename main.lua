@@ -14,6 +14,7 @@ function love.load()
     require 'states/GameState'
     require 'states/HomeState'
     require 'states/SettingsState'
+    require 'states/CampaignState'
     require 'campaign'
     require 'other functions'
     require 'Laser'
@@ -88,6 +89,7 @@ function love.load()
         ['HomeState'] = function() return HomeState() end,
         ['GameState'] = function() return GameState() end,
         ['SettingsState'] = function() return SettingsState() end,
+        ['CampaignState'] = function() return CampaignState() end,
     }
     gStateMachine:change('HomeState')
 end
