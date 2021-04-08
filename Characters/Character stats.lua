@@ -67,7 +67,7 @@ AirborneCloneTrooper = {
     ['offense'] = 12090,
     ['defense'] = 12045,
     ['evade'] = 0.07,
-    ['range'] = 4
+    ['range'] = 4,
     ['laser_colour'] = 'Blue'
 }
 
@@ -129,7 +129,7 @@ ARFTrooper = {
     ['offense'] = 13100,
     ['defense'] = 11099,
     ['evade'] = 0.04,
-    ['range'] = 5
+    ['range'] = 5,
     ['laser_colour'] = 'Blue'
 }
 
@@ -175,7 +175,7 @@ BalaTik = {
     ['offense'] = 12920,
     ['defense'] = 11250,
     ['evade'] = 0.03,
-    ['range'] = 3
+    ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
 
@@ -298,7 +298,7 @@ CaptainJag = {
     ['offense'] = 12351,
     ['defense'] = 12001,
     ['evade'] = 0.03,
-    ['range'] = 3
+    ['range'] = 3,
     ['laser_colour'] = 'Blue'
 }
 
@@ -406,7 +406,7 @@ CloneJetTrooper = {
     ['offense'] = 12050,
     ['defense'] = 12076,
     ['evade'] = 0.15,
-    ['range'] = 5
+    ['range'] = 5,
     ['laser_colour'] = 'Blue'
 }
 
@@ -468,7 +468,7 @@ CommanderBacara = {
     ['offense'] = 12232,
     ['defense'] = 12222,
     ['evade'] = 0.03,
-    ['range'] = 3
+    ['range'] = 3,
     ['laser_colour'] = 'Blue'
 }
 
@@ -508,7 +508,7 @@ CommanderNeyo = {
     ['offense'] = 12356,
     ['defense'] = 12049,
     ['evade'] = 0.03,
-    ['range'] = 3
+    ['range'] = 3,
     ['laser_colour'] = 'Blue'
 }
 
@@ -770,7 +770,7 @@ FirstOrderJetTrooper = {
     ['offense'] = 8695,
     ['defense'] = 9456,
     ['evade'] = 0.15,
-    ['range'] = 5
+    ['range'] = 5,
     ['laser_colour'] = 'Red'
 }
 
@@ -902,7 +902,7 @@ GuavianDeathGangSoldier = {
     ['offense'] = 9002,
     ['defense'] = 8457,
     ['evade'] = 0.02,
-    ['range'] = 3
+    ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
 
@@ -1011,7 +1011,7 @@ ImperialJumpTrooper = {
     ['offense'] = 9191,
     ['defense'] = 8566,
     ['evade'] = 0.15,
-    ['range'] = 5
+    ['range'] = 5,
     ['laser_colour'] = 'Red'
 }
 
@@ -1426,7 +1426,7 @@ SawGerrera = {
     ['offense'] = 13911,
     ['defense'] = 10221,
     ['evade'] = 0.02,
-    ['range'] = 2
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -1510,7 +1510,7 @@ SteelaGerrera = {
     ['offense'] = 12744,
     ['defense'] = 11412,
     ['evade'] = 0.03,
-    ['range'] = 2
+    ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
 
@@ -1555,7 +1555,7 @@ TasuLeech = {
     ['offense'] = 13445,
     ['defense'] = 10721,
     ['evade'] = 0.03,
-    ['range'] = 3
+    ['range'] = 3,
     ['laser_colour'] = 'Red'
 }
 
