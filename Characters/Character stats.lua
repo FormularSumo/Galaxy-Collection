@@ -539,9 +539,9 @@ DepaBillaba = {
 }
 
 DirectorKrennic = {
-    ['offense'] = 9806,
-    ['defense'] = 9427,
-    ['evade'] = 0.03,
+    ['offense'] = 6300,
+    ['defense'] = 6410,
+    ['evade'] = 0.02,
     ['range'] = 2,
     ['laser_colour'] = 'Red'
 }
@@ -1241,7 +1241,7 @@ R2D2 = {
 
 RedGuard = {
     ['offense'] = 6223,
-    ['defense'] = 6600,
+    ['defense'] = 6400,
     ['evade'] = 0.02,
     ['range'] = 1
 }
