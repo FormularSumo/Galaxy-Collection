@@ -168,7 +168,7 @@ BabyYoda = {
     ['offense'] = 9761,
     ['defense'] = 9430,
     ['evade'] = 0,
-    ['range'] = 3
+    ['range'] = 2
 }
 
 BalaTik = {
