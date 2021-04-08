@@ -1439,7 +1439,7 @@ Tokkat = {
 
 TuskenRaider = {
     ['offense'] = 6420,
-    ['defense'] = 6380,
+    ['defense'] = 6000,
     ['evade'] = 0.02,
     ['range'] = 5,
     ['laser_colour'] = 'Red'
