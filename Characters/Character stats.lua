@@ -563,14 +563,16 @@ DarthSidious = {
     ['offense'] = 18731,
     ['defense'] = 18653,
     ['evade'] = 0.07,
-    ['range'] = 1
+    ['range'] = 2,
+    ['laser_colour'] = 'Lightning'
 }
 
 DarthSidiousReborn = {
     ['offense'] = 19446,
     ['defense'] = 19256,
     ['evade'] = 0,
-    ['range'] = 1
+    ['range'] = 5,
+    ['laser_colour'] = 'Lightning'
 }
 
 DarthVader = {
@@ -1527,7 +1529,7 @@ SupremeLeaderSnoke = {
     ['offense'] = 18468,
     ['defense'] = 18452,
     ['evade'] = 0.01,
-    ['range'] = 3,
+    ['range'] = 2,
     ['laser_colour'] = 'Lightning'
 }
 
