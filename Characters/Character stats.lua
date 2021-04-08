@@ -788,7 +788,7 @@ GrandInquisitor = {
 }
 
 GrandMoffTarkin = {
-    ['offense'] = 6545,
+    ['offense'] = 6345,
     ['defense'] = 6419,
     ['evade'] = 0.02,
     ['range'] = 2,
