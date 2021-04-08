@@ -34,7 +34,7 @@ function GameState:init()
     RedLaser = love.graphics.newImage('Graphics/Red Laser.png')
     Arrow = love.graphics.newImage('Graphics/Arrow.png')
 
-    read_P1_deck()
+    P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P2_deck = {}
     winner = 'none'

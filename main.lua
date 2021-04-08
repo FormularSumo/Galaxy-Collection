@@ -64,7 +64,7 @@ function love.load()
     focus = true
     joysticks = love.joystick.getJoysticks()
 
-    if love.filesystem.read('Settings.txt') == nil then
+    if love.filesystem.getInfo('Settings.txt') == nil then
         Settings = {
             ['pause_on_loose_focus'] = true,
             ['volume_level'] = 0.5,
@@ -76,7 +76,7 @@ function love.load()
     Settings = bitser.loadLoveFile('Settings.txt')
     love.audio.setVolume(Settings['volume_level'])
 
-    if love.filesystem.read('Player 1 deck.txt') == nil then
+    if love.filesystem.getInfo('Player 1 deck.txt') == nil then
         P1_deck_cards = {}
         bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
     end
@@ -90,17 +90,12 @@ function love.load()
 end
 
 function P1_deck_edit(position,name)
-    read_P1_deck()
+    P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     
     P1_deck_cards[position] = name
 
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
 end
-
-function read_P1_deck()
-    P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
-end
-
 
 function love.resize(w, h)
     push:resize(w, h)
