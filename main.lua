@@ -92,7 +92,7 @@ function love.load()
         ['GameState'] = function() return GameState() end,
         ['SettingsState'] = function() return SettingsState() end,
         ['CampaignState'] = function() return CampaignState() end,
-        ['deckedit'] = function() return DeckeditState() end,
+        ['DeckeditState'] = function() return DeckeditState() end,
     }
     gStateMachine:change('HomeState')
 end

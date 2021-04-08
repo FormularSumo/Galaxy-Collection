@@ -1,7 +1,7 @@
 DeckeditState = Class{__includes = BaseState}
 
 function DeckeditState:init()
-    read_P1_deck()
+    P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
 
     P1column = 2
@@ -19,7 +19,7 @@ function DeckeditState:init()
     end
     background['Background']= love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
-    gui['Main Menu'] = Button('return_to_main_menu','Main menu',font80,nil,'centre',110,1,1,1)
+    gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,'centre',110)
 end
 
 function DeckeditState:update()

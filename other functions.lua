@@ -71,9 +71,6 @@ end
 function toggle_FPS()
     Settings['FPS_counter'] = not Settings['FPS_counter']
     bitser.dumpLoveFile('Settings.txt',Settings)
-
-function open_deck_editor()
-    gStateMachine:change('deckedit')
 end
 
 function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
