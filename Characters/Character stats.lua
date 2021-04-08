@@ -373,7 +373,7 @@ CloneTrooper322nd = {
 
 CloneTrooper327th = {
     ['offense'] = 9781,
-    ['defense'] = 12018,
+    ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['laser_colour'] = 'Blue'
@@ -1240,9 +1240,9 @@ R2D2 = {
 }
 
 RedGuard = {
-    ['offense'] = 9243,
-    ['defense'] = 9985,
-    ['evade'] = 0.03,
+    ['offense'] = 6223,
+    ['defense'] = 6600,
+    ['evade'] = 0.02,
     ['range'] = 1
 }
 
