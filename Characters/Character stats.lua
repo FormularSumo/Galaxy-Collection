@@ -1003,7 +1003,7 @@ LandoCalrissian = {
 }
 
 LeiaOrgana = {
-    ['offense'] = 15028,
+    ['offense'] = 15018,
     ['defense'] = 9153,
     ['evade'] = 0.03,
     ['range'] = 2,
