@@ -17,7 +17,9 @@ function GameState:init()
     GreenLightsaber = love.graphics.newImage('Graphics/GreenLightsaber.png')
     BlueLightsaber = love.graphics.newImage('Graphics/BlueLightsaber.png')
     RedLightsaber = love.graphics.newImage('Graphics/RedLightsaber.png')
-
+    MotherTalzinSword = love.graphics.newImage('Graphics/MotherTalzinSword.png')
+    CrossguardLightsaber = love.graphics.newImage('Graphics/CrossguardLightsaber.png')
+    
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P2_deck = {}
