@@ -1,26 +1,12 @@
 GameState = Class{__includes = BaseState}
 
-function GameState:enter(Background)
-    background['Type'] = Background[2]
-    background['Seek'] = Background[3]
-    if background['Type'] == 'video' then
-        background['Background'] = love.graphics.newVideo(tostring('Backgrounds/' .. Background[1] .. '.ogv'))
-    else
-        background['Background'] = love.graphics.newImage(tostring('Backgrounds/' .. Background[1] .. '.jpg'))
-    end
-end
+function GameState:init()  
+    BlueLaser = love.graphics.newImage('Graphics/Blue Laser.png')
+    GreenLaser = love.graphics.newImage('Graphics/Green Laser.png')
+    RedLaser = love.graphics.newImage('Graphics/Red Laser.png')
+    Arrow = love.graphics.newImage('Graphics/Arrow.png')
 
-function GameState:init()
-    timer = -1
-    timer2 = -1
-    timer3 = -1.9
-
-    songs[0] = love.audio.newSource('Music/Battle music 1.mp3','stream')
-
-    songs[0]:play()
-    queue_length = 0
-
-    read_P1_deck()
+    P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P2_deck = {}
     winner = 'none'
@@ -46,26 +32,34 @@ function GameState:init()
     
     next_round_P1_deck = P1_deck
     next_round_P2_deck = P2_deck
-    gui['Pause'] = Button('pause','Pause',font100,nil,1591,60,0,0,0) -- 35 pixels from right as font100:getWidth('Pause') = 294
-    gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,0,0,0,0.25)
-    -- P1_deck[2].health = 0
-    -- P1_deck[8].health = 0 
-    -- P1_deck[14].health = 0 
-    -- P2_deck[2].health = 0
-    -- P2_deck[8].health = 0 
-    -- P2_deck[14].health = 0 
+end
 
-    -- P1_deck[0].health = 0 
-    -- P2_deck[0].health = 0 
-    -- P1_deck[5].health = 0 
-    -- P2_deck[5].health = 0 
+function GameState:enter(Background)
+    background['Type'] = Background[2]
+    background['Seek'] = Background[3]
+    if background['Type'] == 'video' then
+        background['Background'] = love.graphics.newVideo('Backgrounds/' .. Background[1])
+    else
+        background['Background'] = love.graphics.newImage('Backgrounds/' .. Background[1])
+    end
 
-    -- P1_deck[3].health = 0
-    -- P1_deck[9].health = 0 
-    -- P1_deck[15].health = 0 
-    -- P2_deck[3].health = 0
-    -- P2_deck[9].health = 0 
-    -- P2_deck[15].health = 0 
+    songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
+    songs[0]:play()
+    calculate_queue_length()
+
+    if Background[4] == nil then r = 0 else r = Background[4] end
+    if Background[5] == nil then g = 0 else g = Background[5] end
+    if Background[6] == nil then b = 0 else b = Background[6] end
+    gui['Pause'] = Button('pause',nil,'Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
+    gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
+
+    if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
+        timer = 0 - (background['Seek'] - 1)
+    else
+        timer = 0
+    end
+    move_aim_timer = timer
+    attack_timer = timer - 0.9
 end
 
 function CheckRowBelowEmpty(player,x)
@@ -81,8 +75,8 @@ function CheckRowBelowEmpty(player,x)
                 next_round_deck[x].row = row
                 next_round_deck[x+1] = next_round_deck[x]
                 next_round_deck[x] = nil
-                x = x + 6
             end
+            x = x + 6
         end
     end
 end
@@ -102,8 +96,8 @@ function CheckRowAboveEmpty(player,x)
                 next_round_deck[x].row = row
                 next_round_deck[x-1] = next_round_deck[x]
                 next_round_deck[x] = nil
-                x = x + 6
             end
+            x = x + 6
         end
     end
 end
@@ -127,8 +121,8 @@ function Check2TopRowsEmpty(player)
                     next_round_deck[x].row = row
                     next_round_deck[x-1] = next_round_deck[x]
                     next_round_deck[x] = nil
-                    x = x + 6
                 end
+                x = x + 6
             end
             y = y + 1
         end
@@ -154,8 +148,8 @@ function Check2BottomRowsEmpty(player)
                     next_round_deck[x].row = row
                     next_round_deck[x+1] = next_round_deck[x]
                     next_round_deck[x] = nil
-                    x = x + 6
                 end
+                x = x + 6
             end
             y = y - 1
         end
@@ -183,8 +177,8 @@ function CheckOnlyRow1and2Remain(player)
                     next_round_deck[x].row = row
                     next_round_deck[x+1] = next_round_deck[x]
                     next_round_deck[x] = nil
-                    x = x + 6
                 end
+                x = x + 6
             end
             y = y - 1
         end
@@ -212,8 +206,8 @@ function CheckOnlyRow3and4Remain(player)
                     next_round_deck[x].row = row
                     next_round_deck[x-1] = next_round_deck[x]
                     next_round_deck[x] = nil
-                    x = x + 6
                 end
+                x = x + 6
             end
             y = y + 1
         end
@@ -224,12 +218,12 @@ end
 function GameState:update(dt)
     dt = dt * gamespeed
     if paused == false and winner == 'none' then
-        timer = timer + dt 
-        timer2 = timer2 + dt
-        timer3 = timer3 + dt
+        timer = timer + dt
+        move_aim_timer = move_aim_timer + dt
+        attack_timer = attack_timer + dt
 
-        if timer >= 1 then
-            timer = timer - 1
+        if move_aim_timer >= 1 then
+            move_aim_timer = move_aim_timer - 1
             
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:move()
@@ -237,7 +231,7 @@ function GameState:update(dt)
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:move()
             end 
-            if timer2 > 3 then
+            if timer > 3 then
                 CheckRowBelowEmpty(1,1)
                 CheckRowBelowEmpty(1,0)
                 CheckRowBelowEmpty(2,1)
@@ -248,28 +242,35 @@ function GameState:update(dt)
                 CheckRowAboveEmpty(2,3)
                 CheckRowAboveEmpty(2,4)
                 CheckRowAboveEmpty(2,5)
-                Check2TopRowsEmpty(0)
                 Check2TopRowsEmpty(1)
-                Check2BottomRowsEmpty(0)
+                Check2TopRowsEmpty(2)
                 Check2BottomRowsEmpty(1)
-                CheckOnlyRow3and4Remain(0)
+                Check2BottomRowsEmpty(2)
                 CheckOnlyRow3and4Remain(1)
-                CheckOnlyRow1and2Remain(0)
+                CheckOnlyRow3and4Remain(2)
                 CheckOnlyRow1and2Remain(1)
+                CheckOnlyRow1and2Remain(2)
             end
             for k, pair in pairs(P1_deck) do
-                P1_deck[k]:update(timer2)
+                P1_deck[k]:update(dt,timer)
             end 
             for k, pair in pairs(P2_deck) do
-                P2_deck[k]:update(timer2)
+                P2_deck[k]:update(dt,timer)
             end 
             
             P1_deck = next_round_P1_deck
             P2_deck = next_round_P2_deck
+
+            for k, pair in pairs(P1_deck) do
+                P1_deck[k]:aim()
+            end 
+            for k, pair in pairs(P2_deck) do
+                P2_deck[k]:aim()
+            end
         end
 
-        if timer3 >= 1 then
-            timer3 = timer3 - 1
+        if attack_timer >= 1 then
+            attack_timer = attack_timer - 1
 
             for k, pair in pairs(P1_deck) do
                 P1_deck[k].dodge = 0
@@ -291,10 +292,10 @@ function GameState:update(dt)
         end
 
         for k, pair in pairs(P1_deck) do
-            P1_deck[k]:update(timer2)
+            P1_deck[k]:update(dt,timer)
         end 
         for k, pair in pairs(P2_deck) do
-            P2_deck[k]:update(timer2)
+            P2_deck[k]:update(dt,timer)
         end 
         P1_deck = next_round_P1_deck
         P2_deck = next_round_P2_deck
@@ -318,7 +319,7 @@ function GameState:update(dt)
         if P2_cards_alive == '' then P2_deck = nil end
 
         if P1_deck == nil or P2_deck == nil then
-            gui['Main Menu'] = Button('return_to_main_menu','Main menu',font80,nil,35,110,0,0,0)
+            gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main menu',font80,nil,35,110,r,g,b)
             if P1_deck == nil and P2_deck == nil then 
                 winner = 'Draw'
             elseif P1_deck == nil then
@@ -341,10 +342,26 @@ function GameState:render()
             P2_deck[k]:render()
         end
     end
-    if winner ~= 'none' then 
-        love.graphics.print({{0,0,0},'Winner: ' .. winner},35,20)
+
+    if P1_deck ~= nil then
+        for k, pair in pairs(P1_deck) do
+            if P1_deck[k].laser ~= nil then
+                P1_deck[k].laser:render()
+            end
+        end
     end
-    -- love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 10, 10)
+
+    if P2_deck ~= nil then
+        for k, pair in pairs(P2_deck) do
+            if P2_deck[k].laser ~= nil then
+                P2_deck[k].laser:render()
+            end
+        end
+    end
+
+    if winner ~= 'none' then 
+        love.graphics.print({{r,g,b},'Winner: ' .. winner},35,20)
+    end
 end
 
 function GameState:exit()
@@ -352,5 +369,10 @@ function GameState:exit()
     P2_deck = nil
     next_round_P1_deck = nil
     next_round_P2_deck = nil
+    P2_deck_cards = {}
+    BlueLaser = nil
+    GreenLaser = nil
+    RedLaser = nil
+    Arrow = nil
     exit_state()
 end

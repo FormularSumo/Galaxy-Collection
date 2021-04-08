@@ -1,27 +1,27 @@
 HomeState = Class{__includes = BaseState}
 
 function HomeState:init()
-    background['Background'] = love.graphics.newVideo('Backgrounds/Starry Sky.ogv')
-    background['Type'] = 'video'
-    background['Seek'] = 0
-    songs[0] = love.audio.newSource('Music/Imperial March piano only.oga','stream')
-    songs[1] = love.audio.newSource('Music/Imperial March duet.mp3','stream')
-
-    songs[0]:play()
-    queue_length = 1
-    
+    gui['CampaignState'] = Button('switch_state',{'CampaignState',true,true},'Campaign',font80,nil,'centre',100)
+    gui['Prebuilt Deck'] = Button('prebuilt_deck',nil,'Create a pre-built deck',font80,nil,'centre',500)
+    gui['SettingsState'] = Button('switch_state',{'SettingsState',true,true},'Settings',font80,nil,'centre',965)
     gui['Deck Editor'] = Button('open_deck_editor', 'Deck Editor',font80,nil,'centre',50)
-    gui['Battle 1'] = Button('battle1','Battle 1',font80,nil,'centre',200)
-    gui['Prebuilt Deck'] = Button('prebuilt_deck','Create a pre-built deck',font50,nil,50,120)
-    gui['Toggle pause on loose focus'] = Button('toggle_pause_on_loose_focus', 'Pause on losing Window focus: ' .. tostring(pause_on_loose_focus),font50,nil,'centre',800)
 end
 
-function HomeState:update()
+function HomeState:enter(partial)
+    if not partial then
+        background['Background'] = love.graphics.newVideo('Backgrounds/Starry Sky.ogv')
+        background['Type'] = 'video'
+        background['Seek'] = 0
+        songs[0] = love.audio.newSource('Music/Across the stars.oga','stream')
+        songs[1] = love.audio.newSource('Music/The Mandalorian.oga','stream')
+        songs[2] = love.audio.newSource('Music/Cantina Band.oga','stream')
+        songs[3] = love.audio.newSource('Music/Imperial March duet.mp3','stream')
+
+        songs[0]:play()
+        calculate_queue_length()
+    end
 end
 
-function HomeState:render()
-end
-
-function HomeState:exit()
-    exit_state()
+function HomeState:exit(partial)
+    exit_state(partial)
 end

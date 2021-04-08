@@ -16,6 +16,16 @@ function Card:init(name,row,column,team,number)
     self.defense = _G[self.name]['defense']
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
+    self.laser_colour = _G[self.name]['laser_colour']
+    if self.laser_colour == 'Red' then
+        self.laser_image = RedLaser
+    elseif self.laser_colour == 'Blue' then
+        self.laser_image = BlueLaser
+    elseif self.laser_colour == 'Green' then
+        self.laser_image = GreenLaser
+    else
+        self.laser_image = Arrow
+    end
     self.alive = true
     self.attack_roll = 0
     self.ranged_attack_roll = 0
@@ -24,14 +34,16 @@ function Card:init(name,row,column,team,number)
     self.attacks_taken = 0
     if self.team == 1 then
         self.enemy_deck = P2_deck
+        self.laser = P1_lasers
     else
         self.enemy_deck = P1_deck
+        self.laser = P2_lasers
     end
     self.damage = 0
     self.defence_down = 0
 end
 
-function Card:update(timer2)
+function Card:update(dt,timer)
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     if self.column > 5 then
@@ -45,12 +57,15 @@ function Card:update(timer2)
         end 
         self.alive = false
     end
-    if timer2 > 6 then 
+    if timer > 6 then
         if self.team == 1 then
             self.number = self.row + (math.abs(6 - self.column)) * 6 - 6
         else
             self.number = self.row + (self.column - 5) * 6 - 6
         end
+    end
+    if self.laser ~= nil then
+        self.laser:update(dt)
     end
 end
 
@@ -58,8 +73,7 @@ function Card:move()
     if self.team == 1 then
         if (self.number < 6 and self.column < 5) or (self.number < 12 and self.column < 4) or (self.number < 18 and self.column < 3) then
             self.column = self.column + 1
-        end
-        if next_round_P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        elseif next_round_P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column + 1
             next_round_P1_deck[self.number-6] = next_round_P1_deck[self.number]
             next_round_P1_deck[self.number] = nil
@@ -67,8 +81,7 @@ function Card:move()
     else
         if (self.number < 6 and self.column > 6) or (self.number < 12 and self.column > 7) or (self.number < 18 and self.column > 8) then
             self.column = self.column - 1
-        end
-        if next_round_P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        elseif next_round_P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column - 1
             next_round_P2_deck[self.number-6] = next_round_P2_deck[self.number]
             next_round_P2_deck[self.number] = nil
@@ -80,41 +93,42 @@ function Card:distance(target)
     return math.abs(self.column - self.enemy_deck[target].column) + math.abs(self.row - self.enemy_deck[target].row)
 end
 
-function Card:attack()
-    if self.column == 5 or self.column == 6 then
-        if self.enemy_deck[self.number] ~= nil then
-            self.target = self.number
-        elseif self.enemy_deck[self.number-1] ~= nil and (self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5) then
+function Card:aim()
+    if self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
+        self.target = self.number
+    elseif self.range == 1 then
+        if self.enemy_deck[self.number-1] ~= nil and (self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5) then
             self.target = self.number-1
         elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
             self.target = self.number+1
         end
-
     else
-        if self.enemy_deck[self.number] ~= nil then if self:distance(self.number) > self.range then return end end
-        if self.range > 1 then
-            self.possible_targets = {}
-            self.total_probability = 0
-            i = 0
-            for k, pair in pairs(self.enemy_deck) do
-                distance = self:distance(k)
-                if distance <= self.range then
-                    self.possible_targets[k] = self.total_probability + self.range/distance
-                    self.total_probability = self.total_probability + self.range/distance
-                end
-                i = i + 1
+        self.possible_targets = {}
+        self.total_probability = 0
+        i = 0
+        for k, pair in pairs(self.enemy_deck) do
+            distance = self:distance(k)
+            if distance <= self.range then
+                self.possible_targets[k] = self.total_probability + self.range/distance
+                self.total_probability = self.total_probability + self.range/distance
             end
-            self.ranged_attack_roll = math.random() * self.total_probability
-            i = 0
-            for k, pair in pairs(self.possible_targets) do
-                if self.ranged_attack_roll < self.possible_targets[k] then
-                    self.target = k
-                    break
-                end
+            i = i + 1
+        end
+        self.ranged_attack_roll = math.random() * self.total_probability
+        i = 0
+        for k, pair in pairs(self.possible_targets) do
+            if self.ranged_attack_roll < self.possible_targets[k] then
+                self.target = k
+                break
             end
         end
+        if self.target ~= nil then
+            self.laser = Laser(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.laser_image, self.team, self.width, self.height)
+        end
     end
+end
 
+function Card:attack()
     if self.target ~= nil then
         self.attack_roll = math.random(100) / 100
         self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
@@ -123,7 +137,7 @@ function Card:attack()
             if self.damage < 0 then self.damage = 0 end
             self.damage = (self.damage ^ 3)
             self.defence_down = (self.offense / 100) * (self.offense / self.enemy_deck[self.target].defense) ^ 3
-            if self.target ~= self.number then 
+            if self.target ~= self.number and self.range == 1 then 
                 self.damage = self.damage / 2 
                 self.defence_down = self.defence_down / 2 
             end
@@ -139,6 +153,7 @@ function Card:attack()
         end
         self.target = nil
     end
+    self.laser = nil
 end
 
 function Card:render()
@@ -157,6 +172,14 @@ function Card:render()
         love.graphics.setColor(1,1,1)
     end
 
+    -- if self.number == 0 and self.team == 1 then
+    -- if self.name == 'QuiGonJinn' then 
+    --     love.graphics.print(self.health)
+    --     love.graphics.print(self.column,0,100)
+    --     love.graphics.print(self.row,0,200)
+    --     love.graphics.print(self.number,0,300)
+    -- end
+
     -- if self.number == 15 then
     --     if self.team == 1 then
     --         if self.possible_targets ~= nil then
@@ -171,6 +194,7 @@ function Card:render()
     --         love.graphics.print(self.name,0,0)
     --     end
     -- end
+
     -- if self.number == 2 then
     --     if self.team == 2 then
     --         love.graphics.print(self.attacks_taken)
@@ -186,6 +210,7 @@ function Card:render()
     --         love.graphics.print(self.defense,1600,200)
     --     end       
     -- end
+    
     -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
     -- love.graphics.print(self.offense, self.x, self.y)
     -- love.graphics.print(self.defense, self.x, self.y)
