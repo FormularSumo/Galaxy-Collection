@@ -1511,6 +1511,14 @@ Talia = {
     ['range'] = 1
 }
 
+TallieLintra = {
+    ['offense'] = 6050,
+    ['defense'] = 6467,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['laser_colour'] = 'Red'
+}
+
 TaronMalicos = {
     ['offense'] = 17816,
     ['defense'] = 13887,
