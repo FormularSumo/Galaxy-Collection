@@ -21,7 +21,7 @@ function Card:init(name,row,column,team,number)
     self.weapon_image = _G[_G[self.name]['weapon']]
 
     if self.weapon_image then
-        self.weapon = Weapon(self.x, self.y, self.weapon_image, self.team, self.width, self.height)
+        self.weapon = Weapon(self.x, self.y, self.columnm, self.weapon_image, self.team, self.width, self.height)
     end
 
     self.alive = true
@@ -67,7 +67,7 @@ function Card:update(dt,timer)
         self.projectile:update(dt)
     end    
     if self.weapon then
-        self.weapon:updateposition(self.x,self.y)
+        self.weapon:updateposition(self.x,self.y,self.column)
         self.weapon:update(dt)
     end
 end
@@ -128,6 +128,9 @@ function Card:aim()
         if self.target ~= nil then
             self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
         end
+    end
+    if self.weapon then
+        self.weapon:updatetarget(self.target)
     end
 end
 
