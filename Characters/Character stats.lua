@@ -70,7 +70,7 @@ AnakinSkywalkerROTS = {
     ['range'] = 1
 }
 
-ApLek = {
+Aplek = {
     ['offense'] = 15526,
     ['defense'] = 15503,
     ['evade'] = 0.05,
