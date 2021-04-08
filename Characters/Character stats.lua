@@ -198,7 +198,8 @@ Bendu = {
     ['offense'] = 19012,
     ['defense'] = 17967,
     ['evade'] = 0.07,
-    ['range'] = 5
+    ['range'] = 5,
+    ['laser_colour'] = 'Lightning'
 }
 
 BenKenobi = {
@@ -1526,7 +1527,8 @@ SupremeLeaderSnoke = {
     ['offense'] = 18468,
     ['defense'] = 18452,
     ['evade'] = 0.01,
-    ['range'] = 3
+    ['range'] = 3,
+    ['laser_colour'] = 'Lightning'
 }
 
 Talia = {
