@@ -18,7 +18,7 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     P2_deck_cards[16] = 'Cardo'
     P2_deck_cards[17] = 'CadBane'
 
-    gStateMachine:change('game',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
+    gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
 end
 
 function throne_room()
@@ -27,7 +27,7 @@ function throne_room()
     P2_deck_cards[3] = 'DarthVader'
     P2_deck_cards[4] = 'RoyalGuard'
    
-    gStateMachine:change('game',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March piano only.oga'})
+    gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March piano only.oga'})
 end
 
 function endor()
@@ -38,7 +38,7 @@ function endor()
     P2_deck_cards[4] = 'ChiefChirpa'
     P2_deck_cards[5] = 'Logray'
 
-    gStateMachine:change('game',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Battle music 1.mp3'})
+    gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Battle music 1.mp3'})
 end
 
 function maxed()
@@ -61,5 +61,5 @@ function maxed()
     P2_deck_cards[16] = 'TheMandalorian'
     P2_deck_cards[17] = 'BobaFettROTJ'
 
-    gStateMachine:change('game',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
+    gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
 end

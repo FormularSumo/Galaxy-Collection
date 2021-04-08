@@ -7,7 +7,7 @@ function SettingsState:init()
     end
     gui['Volume Slider'] = Slider('centre',430,300,12,'volume_slider',0.3,0.3,0.3,1,1,1,Settings['volume_level'],0.5,'volume_slider2')
     gui['Volume Level'] = Text('Volume',font60,'centre',460)
-    gui['HomeState'] = Button('switch_state',{'home',true,true},'Main Menu',font80,nil,'centre',965)
+    gui['HomeState'] = Button('switch_state',{'HomeState',true,true},'Main Menu',font80,nil,'centre',965)
 end
 
 function SettingsState:enter(partial)

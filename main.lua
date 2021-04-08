@@ -14,6 +14,7 @@ function love.load()
     require 'states/GameState'
     require 'states/HomeState'
     require 'states/SettingsState'
+    require 'states/CampaignState'
     require 'campaign'
     require 'other functions'
     require 'Laser'
@@ -85,11 +86,12 @@ function love.load()
 
     -- initialize state machine with all state-returning functions
     gStateMachine = StateMachine {
-        ['home'] = function() return HomeState() end,
-        ['game'] = function() return GameState() end,
-        ['settings'] = function() return SettingsState() end,
+        ['HomeState'] = function() return HomeState() end,
+        ['GameState'] = function() return GameState() end,
+        ['SettingsState'] = function() return SettingsState() end,
+        ['CampaignState'] = function() return CampaignState() end,
     }
-    gStateMachine:change('home')
+    gStateMachine:change('HomeState')
 end
 
 function P1_deck_edit(position,name)
