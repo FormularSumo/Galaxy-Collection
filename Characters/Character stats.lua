@@ -1305,7 +1305,7 @@ ScoutTrooper = {
 }
 
 SenateGuard = {
-    ['offense'] = 6524,
+    ['offense'] = 6124,
     ['defense'] = 6567,
     ['evade'] = 0.03,
     ['range'] = 1
