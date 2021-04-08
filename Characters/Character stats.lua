@@ -63,6 +63,14 @@ AhsokaTanoS7 = {
     ['range'] = 1
 }
 
+AirborneCloneTrooper = {
+    ['offense'] = 12090,
+    ['defense'] = 12045,
+    ['evade'] = 0.07,
+    ['range'] = 4
+    ['laser_colour'] = 'Blue'
+}
+
 AnakinSkywalkerROTS = {
     ['offense'] = 18924,
     ['defense'] = 17954,
