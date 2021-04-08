@@ -836,8 +836,8 @@ Hardcase = {
 }
 
 HeraSyndulla = {
-    ['offense'] = 14189,
-    ['defense'] = 11038,
+    ['offense'] = 15189,
+    ['defense'] = 10038,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['laser_colour'] = 'Red'
