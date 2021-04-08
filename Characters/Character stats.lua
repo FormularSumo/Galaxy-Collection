@@ -690,7 +690,7 @@ EighthBrother = {
     ['defense'] = 17411,
     ['evade'] = 0.15,
     ['range'] = 1,
-    ['weapon'] = 'RedLightsaber'
+    ['weapon'] = 'InquisitorLightsaber'
 }
 
 ElitePraetorianGuard = {
@@ -768,7 +768,7 @@ FifthBrother = {
     ['defense'] = 17567,
     ['evade'] = 0.15,
     ['range'] = 1,
-    ['weapon'] = 'RedLightsaber'
+    ['weapon'] = 'InquisitorLightsaber'
 }
 
 Finn = {
@@ -900,7 +900,7 @@ GrandInquisitor = {
     ['defense'] = 17876,
     ['evade'] = 0.15,
     ['range'] = 1,
-    ['weapon'] = 'RedLightsaber'
+    ['weapon'] = 'InquisitorLightsaber'
 }
 
 GrandMoffTarkin = {
@@ -1255,7 +1255,7 @@ NinthSister = {
     ['defense'] = 18406,
     ['evade'] = 0.15,
     ['range'] = 1,
-    ['weapon'] = 'RedLightsaber'
+    ['weapon'] = 'InquisitorLightsaber'
 }
 
 NinetyNine = {
@@ -1513,7 +1513,7 @@ SeventhSister = {
     ['defense'] = 17412,
     ['evade'] = 0.15,
     ['range'] = 1,
-    ['weapon'] = 'RedLightsaber'
+    ['weapon'] = 'InquisitorLightsaber'
 }
 
 ShaakTi = {
@@ -1685,7 +1685,7 @@ TrillaSuduri = {
     ['defense'] = 17445,
     ['evade'] = 0.15,
     ['range'] = 1,
-    ['weapon'] = 'RedLightsaber'
+    ['weapon'] = 'InquisitorLightsaber'
 }
 
 Trudgen = {
