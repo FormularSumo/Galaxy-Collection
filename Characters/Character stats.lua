@@ -1061,7 +1061,7 @@ MoffGideon = {
 
 MotherTalzin = {
     ['offense'] = 17638,
-    ['defense'] = 14650,
+    ['defense'] = 14660,
     ['evade'] = 0.08,
     ['range'] = 1
 }
