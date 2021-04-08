@@ -20,14 +20,6 @@ function Card:init(name,row,column,team,number)
     self.projectile_image = _G[_G[self.name]['projectile']]
     self.weapon_image = _G[_G[self.name]['weapon']]
 
-    -- if self.projectile then
-    --     self.projectile_image = _G[self.projectile]
-    -- end
-
-    -- if self.weapon then
-    --     self.weapon_image = _G[self.weapon]
-    -- end
-
     if self.weapon_image then
         self.weapon = Weapon(self.x, self.y, self.weapon_image, self.team, self.width, self.height)
     end
