@@ -7,23 +7,25 @@ function love.load()
     require 'Card'
     require 'Button'
     require 'Slider'
+    require 'Text'
     require 'Characters/Character stats'
     require 'StateMachine'
     require 'states/BaseState'
     require 'states/GameState'
     require 'states/HomeState'
+    require 'states/SettingsState'
     require 'campaign'
     require 'other functions'
     require 'Laser'
-
-    --Operating System
-    OS = love.system.getOS()
 
     -- app window title
     love.window.setTitle('Star Wars Force Collection Remake')
 
     -- folder that app data is stored in
     love.filesystem.setIdentity('Star Wars Force Collection Remake')
+
+    --Operating System
+    OS = love.system.getOS()
 
     VIRTUAL_WIDTH = 1920
     VIRTUAL_HEIGHT = 1080
@@ -85,6 +87,7 @@ function love.load()
     gStateMachine = StateMachine {
         ['home'] = function() return HomeState() end,
         ['game'] = function() return GameState() end,
+        ['settings'] = function() return SettingsState() end,
     }
     gStateMachine:change('home')
 end
@@ -242,7 +245,7 @@ function love.draw()
         pair:render()
     end
     if Settings['FPS_counter'] == true then
-        love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 940)
+        love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
     push:finish()
 end
