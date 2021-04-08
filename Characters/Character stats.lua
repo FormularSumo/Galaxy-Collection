@@ -1215,7 +1215,7 @@ Maul = {
     ['defense'] = 17583,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'RedLightsaber'
+    ['weapon'] = 'DoubleRedLightsaber'
 }
 
 MoffGideon = {
@@ -1474,7 +1474,7 @@ SavageOpress = {
     ['defense'] = 17349,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'RedLightsaber'
+    ['weapon'] = 'DoubleRedLightsaber'
 }
 
 SawGerrera = {

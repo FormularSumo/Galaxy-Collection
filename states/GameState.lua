@@ -20,6 +20,7 @@ function GameState:init()
     MotherTalzinSword = love.graphics.newImage('Graphics/MotherTalzinSword.png')
     CrossguardLightsaber = love.graphics.newImage('Graphics/CrossguardLightsaber.png')
     InquisitorLightsaber = love.graphics.newImage('Graphics/InquisitorLightsaber.png')
+    DoubleRedLightsaber = love.graphics.newImage('Graphics/DoubleRedLightsaber.png')
     
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
