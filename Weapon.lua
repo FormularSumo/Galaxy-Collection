@@ -40,14 +40,14 @@ function Weapon:updatetarget(target)
 end
 
 function Weapon:update(dt)
-    if timer > 6.5 then
-        if timer < 7 then
+    if timer > 6.4 then
+        if timer < 6.9 then
             if self.team == 1 then
                 self.angle = self.angle + dt * 2
             else
                 self.angle = self.angle - dt * 2
             end
-        elseif timer < 7.5 then
+        elseif timer < 7.4 then
             if self.team == 1 then
                 self.angle = self.angle - dt * 2
             else
@@ -59,7 +59,7 @@ function Weapon:update(dt)
             else
                 self.angle = math.rad(-150)
             end
-            timer = 6.5
+            timer = 6.4
         end
     end
 end

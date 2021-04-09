@@ -24,6 +24,10 @@ function Card:init(name,row,column,team,number)
         self.weapon = Weapon(self.x, self.y, self.columnm, self.weapon_image, self.team, self.width, self.height)
     end
 
+    if self.projectile_image == Lightning or self.projectile_image == ForceBlast then
+        self.melee_projectile = true
+    end
+
     self.alive = true
     self.attack_roll = 0
     self.ranged_attack_roll = 0
@@ -99,11 +103,17 @@ end
 function Card:aim()
     if self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
         self.target = self.number
+        if self.melee_projectile then
+            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
+        end
     elseif self.range == 1 then
         if self.enemy_deck[self.number-1] ~= nil and (self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5) then
             self.target = self.number-1
         elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
             self.target = self.number+1
+        end
+        if self.melee_projectile then
+            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
         end
     else
         self.possible_targets = {}

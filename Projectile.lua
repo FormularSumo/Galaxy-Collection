@@ -3,18 +3,23 @@ Projectile = Class{__includes = BaseState}
 function Projectile:init(x,y,finalx,finaly,projectile,team,xoffset,yoffset)
     self.alive = true
     self.team = team
+    self.image = projectile
+    self.width,self.height = self.image:getDimensions()
+
     if self.team == 1 then
-        self.x = x + xoffset / 2
-        self.finalx = finalx 
+        self.x = x + xoffset / 2 - self.width / 2
+        self.finalx = finalx + xoffset / 2 - self.width / 2
+        self.y = y + yoffset / 2 - self.height / 2
+        self.finaly = finaly + yoffset / 2 - self.height / 2
     else
-        self.x = x
-        self.finalx = finalx + xoffset / 2
+        self.x = x + xoffset / 2 + self.width / 2
+        self.finalx = finalx + xoffset / 2 + self.width / 2
+        self.y = y + yoffset / 2 + self.height / 2
+        self.finaly = finaly + yoffset / 2 + self.height / 2
     end
 
-    self.y = y + yoffset / 2
-    self.finaly = finaly + yoffset / 2
 
-    self.image = projectile
+
     self.x_distance = tonumber(self.finalx-self.x)
     self.y_distance = tonumber(self.finaly-self.y)
     self.angle = math.atan(self.y_distance/self.x_distance)
