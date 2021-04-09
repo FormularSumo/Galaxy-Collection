@@ -67,7 +67,4 @@ end
 
 function Card_editor:render()
     love.graphics.draw(self.image,self.x,self.y)
-    if self.number == 0 and self.clicked_positionX and self.clicked_positionY then
-        love.graphics.print(self.clicked_positionX .. ' ' .. self.clicked_positionY,1500,100)
-    end
 end
