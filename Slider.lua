@@ -44,17 +44,17 @@ end
 
 function Slider:update()
     if mouseDown and mouseLastX > self.clickablex and mouseLastX < self.clickablex + self.width + self.height * self.diameter_to_circle and mouseLastY > self.clickabley and mouseLastY < self.clickabley + self.height * self.diameter_to_circle and mouseTrapped == false then
-        clicked = true
+        self.clicked = true
         mouseTrapped = self.func
     end
-    if clicked == true and mouseDown then
+    if self.clicked == true and mouseDown then
         self.percentage = (mouseLastX - self.x) / self.width
         if self.percentage < 0.001 then self.percentage = 0.001 
         elseif self.percentage > 1 then self.percentage = 1
         elseif self.percentage > self.trap1 and self.percentage < self.trap2 then self.percentage = self.trap3 end
         _G[self.func](self.percentage)
-    elseif clicked == true then
-        clicked = false
+    elseif self.clicked == true then
+        self.clicked = false
         if self.func2 ~= nil then
             _G[self.func2]()
         end

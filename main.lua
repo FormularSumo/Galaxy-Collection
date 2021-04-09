@@ -65,6 +65,7 @@ function love.load()
     love.mouse.buttonsPressed = {}
     mouseDown = false
     mouseTrapped = false
+    mouseTrapped2 = false
     mouseLastX = 0
     mouseLastY = 0
     focus = true
@@ -237,7 +238,7 @@ function love.update(dt)
     --Reset table of clicked keys/mousebuttons so last frame's inputs aren't used next frame
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
-    if mouseDown == false then mouseTrapped = false end
+    if mouseDown == false then mouseTrapped = false mouseTrapped2 = false end
     mouseDown = false
 end
 
@@ -253,5 +254,20 @@ function love.draw()
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
+    love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
+    -- if P1_deck then
+    --     if P1_deck[1] then
+    --         love.graphics.print(tostring(P1_deck[1].name .. ' ' .. P1_deck[1].row),0,200)
+    --     end
+    --     if P1_deck[2] then
+    --         love.graphics.print(tostring(P1_deck[2].name .. ' ' .. P1_deck[2].row),0,300)        
+    --     end     
+    -- end
+    -- if temporary then
+    --     love.graphics.print(tostring(temporary.name .. ' ' .. temporary.row),0,400)
+    -- end
+    -- if temporary2 then
+    --     love.graphics.print(tostring(temporary2.name .. ' ' .. temporary2.row),0,500)
+    -- end
     push:finish()
 end

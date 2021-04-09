@@ -19,10 +19,13 @@ function DeckeditState:init()
     end
     background['Background']= love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
-    gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,'centre',100)
+    gui['Main Menu'] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',100)
 end
 
 function DeckeditState:update()
+    for k, pair in pairs(P1_deck) do
+        P1_deck[k]:update()
+    end
 end
 
 function DeckeditState:render()
@@ -33,6 +36,6 @@ function DeckeditState:render()
     end
 end
 
-function DeckeditState:exit()
-    exit_state()
+function DeckeditState:exit(partial)
+    exit_state(partial)
 end

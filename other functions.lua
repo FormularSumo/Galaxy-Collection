@@ -14,6 +14,8 @@ function exit_state(partial)
         love.audio.stop()
         songs = {}
         background = {}
+    elseif partial == 'music' then
+        background = {}
     end
     gui = {}
     paused = false
