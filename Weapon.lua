@@ -59,7 +59,6 @@ function Weapon:update(dt)
             else
                 self.angle = math.rad(150)
             end
-            timer = 6.4
         end
     end
 end

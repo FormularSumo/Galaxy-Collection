@@ -238,6 +238,7 @@ function GameState:update(dt)
     dt = dt * gamespeed
     if paused == false and winner == 'none' then
         timer = timer + dt
+        if timer >= 7.4 then timer = timer - 1 end
         move_aim_timer = move_aim_timer + dt
         attack_timer = attack_timer + dt
 
