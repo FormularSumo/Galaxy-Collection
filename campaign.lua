@@ -67,7 +67,7 @@ function kamino()
 end
 
 function maxed()
-    P2_deck_cards[0] = 'CountDooku'
+    P2_deck_cards[0] = 'HermitLuke'
     P2_deck_cards[1] = 'DarthVader'
     P2_deck_cards[2] = 'ZilloBeast'
     P2_deck_cards[3] = 'MaceWindu'
@@ -78,7 +78,7 @@ function maxed()
     P2_deck_cards[8] = 'DarthSidious'
     P2_deck_cards[9] = 'HermitYoda'
     P2_deck_cards[10] = 'AhsokaTanoFulcrum'
-    P2_deck_cards[11] = 'ObiWanKenobi'
+    P2_deck_cards[11] = 'CountDooku'
     P2_deck_cards[12] = 'NightsisterMerrin'
     P2_deck_cards[13] = 'BobaFettMandalorian'
     P2_deck_cards[14] = 'DarthSidiousReborn'
