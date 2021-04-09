@@ -56,6 +56,8 @@ function Card_editor:update()
                 temporary2 = nil
             end
             self.clicked = false
+            self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
+            self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
         end
     end
 end
