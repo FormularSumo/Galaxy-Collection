@@ -67,9 +67,13 @@ end
 function Weapon:render()
     if (self.column == 5 or self.column == 6) and timer > 6.5 and self.target then
         if self.double then
-            love.graphics.draw(self.image,self.x-self.width/4,self.y-self.height/4,self.angle,1,1,self.width/2,self.height/2)
+            if self.team == 1 then
+                love.graphics.draw(self.image,self.x+self.height/3,self.y-self.height/4,self.angle,1,1,self.width/2,self.height/2)
+            else
+                love.graphics.draw(self.image,self.x-self.height/3,self.y-self.height/4,self.angle,1,1,self.width/2,self.height/2)
+            end
         else
-            love.graphics.draw(self.image,self.x,self.y,self.angle)
+            love.graphics.draw(self.image,self.x,self.y,self.angle,1,1,self.width/2)
         end
     end
 end
