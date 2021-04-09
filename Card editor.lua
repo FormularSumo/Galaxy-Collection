@@ -25,16 +25,6 @@ function Card_editor:update_position(number,column,row)
 end
 
 function Card_editor:update()
-    if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-        self.clicked = true
-        if mouseTrapped == false then
-            mouseTrapped = self.number
-            self.clicked_positionX = mouseLastX - self.x
-            self.clicked_positionY = mouseLastY - self.y
-        elseif mouseTrapped ~= self.number then
-            mouseTrapped2 = self.number
-        end
-    end
     if self.clicked == true then
         if mouseDown then
             if mouseTrapped == self.number then
@@ -59,6 +49,18 @@ function Card_editor:update()
             self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
             self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
         end
+    end
+    if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
+        self.clicked = true
+        if mouseTrapped == false then
+            mouseTrapped = self.number
+            self.clicked_positionX = mouseLastX - self.x
+            self.clicked_positionY = mouseLastY - self.y
+        elseif mouseTrapped ~= self.number then
+            mouseTrapped2 = self.number
+        end
+    elseif mouseTrapped2 == self.number then
+        mouseTrapped2 = false
     end
 end
 
