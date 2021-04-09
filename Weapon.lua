@@ -57,7 +57,7 @@ function Weapon:update(dt)
             if self.team == 1 then
                 self.angle = math.rad(210)
             else
-                self.angle = math.rad(-150)
+                self.angle = math.rad(150)
             end
             timer = 6.4
         end
