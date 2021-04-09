@@ -967,6 +967,14 @@ HeraSyndulla = {
     ['projectile'] = 'RedLaser'
 }
 
+HermitLuke = {
+    ['offense'] = 17469,
+    ['defense'] = 19455,
+    ['evade'] = 0.12,
+    ['range'] = 1,
+    ['weapon'] = 'BlueLightsaber'
+}
+
 HermitYoda = {
     ['offense'] = 18587,
     ['defense'] = 18341,
