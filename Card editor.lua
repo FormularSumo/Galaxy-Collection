@@ -33,17 +33,20 @@ function Card_editor:update()
             end
         else
             if mouseTrapped2 == self.number then
-                temporary = Card_editor(self.name,self.row,self.column,self.number)
-                temporary2 = Card_editor(P1_deck[mouseTrapped].name,P1_deck[mouseTrapped].row,P1_deck[mouseTrapped].column,P1_deck[mouseTrapped].number)
+                temporary = Card_editor(self.name,P1_deck[mouseTrapped].row,P1_deck[mouseTrapped].column,P1_deck[mouseTrapped].number)
+                temporary2 = Card_editor(P1_deck[mouseTrapped].name,self.row,self.column,self.number)
 
-                P1_deck[self.number]:update_position(temporary2.number,temporary2.column,temporary2.row)
-                P1_deck_edit(temporary.number,temporary2.name)
+                P1_deck[self.number] = temporary2
+                -- P1_deck[self.number]:update_position(temporary.number,temporary.column,temporary.row)
+                P1_deck_edit(temporary2.number,temporary2.name)
 
-                P1_deck[mouseTrapped]:update_position(temporary.number,temporary.column,temporary.row)
-                P1_deck_edit(temporary2.number,temporary.name)
+                P1_deck[mouseTrapped] = temporary
+                -- P1_deck[mouseTrapped]:update_position(temporary2.number,temporary2.column,temporary2.row)
+                P1_deck_edit(temporary.number,temporary.name)
 
                 temporary = nil
                 temporary2 = nil
+                collectgarbage()
             end
             self.clicked = false
             self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
