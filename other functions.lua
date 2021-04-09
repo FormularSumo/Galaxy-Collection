@@ -74,12 +74,12 @@ function toggle_FPS()
 end
 
 function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
-    P1_deck_edit(0,'LukeSkywalkerROTJ')
-    P1_deck_edit(1,'AhsokaTanoFulcrum')
+    P1_deck_edit(0,'AnakinSkywalkerROTS')
+    P1_deck_edit(1,'HermitLuke')
     P1_deck_edit(2,'MaceWindu')
     P1_deck_edit(3,'Yoda')
-    P1_deck_edit(4,'AnakinSkywalkerROTS')
-    P1_deck_edit(5,'HermitLuke')
+    P1_deck_edit(4,'AhsokaTanoFulcrum')
+    P1_deck_edit(5,'LukeSkywalkerROTJ')
     P1_deck_edit(6,'ObiWanKenobi')
     P1_deck_edit(7,'JaroTapal')
     P1_deck_edit(8,'HermitYoda')
