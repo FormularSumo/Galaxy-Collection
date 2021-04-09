@@ -71,7 +71,7 @@ function GameState:enter(Background)
     if Background[6] == nil then b = 0 else b = Background[6] end
     gui['Pause'] = Button('pause',nil,'Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
     gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
-    gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main Menu',font100,nil,35,110,r,g,b)
+    gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,35,20,r,g,b)
 
     if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
         timer = 0 - (background['Seek'] - 1)
@@ -394,7 +394,7 @@ function GameState:render()
     end
 
     if winner ~= 'none' then 
-        love.graphics.print({{r,g,b},'Winner: ' .. winner},35,20)
+        love.graphics.print({{r,g,b},'Winner: ' .. winner},35,110)
     end
 end
 
