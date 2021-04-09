@@ -7,14 +7,14 @@ function Weapon:init(x,y,column,weapon,team,xoffset,yoffset)
     self.yoffset = yoffset
     self.column = column
     if self.team == 1 then
-        self.x = x + self.xoffset * 0.25
+        self.x = x + self.xoffset * 0.35
         self.angle = math.rad(210)
     else
-        self.x = x + self.xoffset * 0.75
+        self.x = x + self.xoffset * 0.65
         self.angle = math.rad(150)
     end
 
-    self.y = y
+    self.y = y + self.yoffset * 0.7
     self.image = weapon
     self.width,self.height = self.image:getDimensions()
 
@@ -27,11 +27,11 @@ end
 
 function Weapon:updateposition(x,y,column)
     if self.team == 1 then
-        self.x = x + self.xoffset * 0.25
+        self.x = x + self.xoffset * 0.35
     else
-        self.x = x + self.xoffset * 0.75
+        self.x = x + self.xoffset * 0.65
     end
-    self.y = y + self.yoffset * 0.75
+    self.y = y + self.yoffset * 0.7
     self.column = column
 end
 
@@ -61,9 +61,9 @@ function Weapon:render()
     if (self.column == 5 or self.column == 6) and timer > 6.4 and self.target then
         if self.double then
             if self.team == 1 then
-                love.graphics.draw(self.image,self.x+self.height/3,self.y-self.height/4,self.angle,1,1,self.width/2,self.height/2)
+                love.graphics.draw(self.image,self.x+self.height/4,self.y-self.height/5,self.angle,1,1,self.width/2,self.height/2)
             else
-                love.graphics.draw(self.image,self.x-self.height/3,self.y-self.height/4,self.angle,1,1,self.width/2,self.height/2)
+                love.graphics.draw(self.image,self.x-self.height/4,self.y-self.height/5,self.angle,1,1,self.width/2,self.height/2)
             end
         else
             love.graphics.draw(self.image,self.x,self.y,self.angle,1,1,self.width/2)
