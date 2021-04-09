@@ -411,5 +411,20 @@ function GameState:exit()
     Lightning = nil
     Fire = nil
     ForceBlast = nil
+    Darksaber = nil
+    YodaLightsaber = nil
+    WhiteLightsaber = nil
+    PurpleLightsaber = nil
+    YellowLightsaber = nil
+    GreenLightsaber = nil
+    BlueLightsaber = nil
+    RedLightsaber = nil
+    MotherTalzinSword = nil
+    CrossguardLightsaber = nil
+    InquisitorLightsaber = nil
+    DoubleRedLightsaber = nil
+    DoubleBlueLightsaber = nil
+    DoubleGreenLightsaber = nil
+    DoubleYellowLightsaber = nil
     exit_state()
 end
