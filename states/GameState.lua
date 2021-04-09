@@ -69,8 +69,8 @@ function GameState:enter(Background)
     if Background[4] == nil then r = 0 else r = Background[4] end
     if Background[5] == nil then g = 0 else g = Background[5] end
     if Background[6] == nil then b = 0 else b = Background[6] end
-    gui['Pause'] = Button('pause',nil,'Pause',font100,nil,1591,60,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
-    gui['Gamespeed Slider'] = Slider(1591,35,300,12,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
+    gui['Gamespeed Slider'] = Slider(1591,130,300,16,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
+    gui['Pause'] = Button('pause',nil,'Pause',font100,nil,1591,0,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
     gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,35,20,r,g,b)
 
     if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
