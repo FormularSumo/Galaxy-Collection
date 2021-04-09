@@ -19,7 +19,7 @@ function DeckeditState:init()
     end
     background['Background']= love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
-    gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,'centre',110)
+    gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,'centre',100)
 end
 
 function DeckeditState:update()
