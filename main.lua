@@ -254,7 +254,7 @@ function love.draw()
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
-    love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
+    -- love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
     -- if P1_deck then
     --     if P1_deck[1] then
     --         love.graphics.print(tostring(P1_deck[1].name .. ' ' .. P1_deck[1].row),0,200)
