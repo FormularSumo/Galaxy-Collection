@@ -16,14 +16,6 @@ function Card_editor:init(name,row,column,number)
     self.range = _G[self.name]['range']
 end
 
-function Card_editor:update_position(number,column,row)
-    self.number = number
-    self.column = column
-    self.row = row
-    self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
-    self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-end
-
 function Card_editor:update()
     if self.clicked == true then
         if mouseDown then
