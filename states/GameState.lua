@@ -332,6 +332,14 @@ function GameState:update(dt)
                 elseif P2_deck == nil then
                     winner = 'P1'
                 end
+                BlueLaser = nil
+                GreenLaser = nil
+                RedLaser = nil
+                Arrow = nil
+                Lightning = nil
+                Fire = nil
+                ForceBlast = nil
+                collectgarbage()
             end
         end
     end  
@@ -394,9 +402,9 @@ function GameState:exit()
     deck = nil
     P1_deck_cards = {}
     P2_deck_cards = {}
-    BlueProjectile = nil
-    GreenProjectile = nil
-    RedProjectile = nil
+    BlueLaser = nil
+    GreenLaser = nil
+    RedLaser = nil
     Arrow = nil
     Lightning = nil
     Fire = nil
