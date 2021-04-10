@@ -17,7 +17,7 @@ function DeckeditState:init()
             P1_deck[i] = Card_editor(P1_deck_cards[i],row,P1column,i)
         end
     end
-    background['Background']= love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
+    background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
     gui['Main Menu'] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',100)
 end

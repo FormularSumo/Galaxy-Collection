@@ -245,7 +245,7 @@ end
 function love.draw()
     push:start()
     if background['Background'] then
-        love.graphics.draw(background['Background'],0,0)
+        love.graphics.draw(background['Background'])
     end
     gStateMachine:render()
     for k, pair in pairs(gui) do
