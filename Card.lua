@@ -117,9 +117,6 @@ function Card:aim()
         elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
             self.target = self.number+1
         end
-        if self.melee_projectile then
-            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
-        end
     else
         self.possible_targets = {}
         self.total_probability = 0
