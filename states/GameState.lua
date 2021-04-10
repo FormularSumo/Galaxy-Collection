@@ -48,9 +48,6 @@ function GameState:init()
             P2_deck[i] = Card(P2_deck_cards[i],row,P2column,2,i)
         end
     end
-    
-    next_round_P1_deck = P1_deck
-    next_round_P2_deck = P2_deck
 end
 
 function GameState:enter(Background)
@@ -84,17 +81,17 @@ end
 
 function CheckRowBelowEmpty(player,x)
     if player == 1 then
-        next_round_deck = next_round_P1_deck
+        deck = P1_deck
     else
-        next_round_deck = next_round_P2_deck
+        deck = P2_deck
     end
-    if next_round_deck[x+1] == nil and next_round_deck[x+7] == nil and next_round_deck[x+13] == nil then
+    if deck[x+1] == nil and deck[x+7] == nil and deck[x+13] == nil then
         row = x+1
         for i=0,2,1 do
-            if next_round_deck[x] ~= nil then
-                next_round_deck[x].row = row
-                next_round_deck[x+1] = next_round_deck[x]
-                next_round_deck[x] = nil
+            if deck[x] ~= nil then
+                deck[x].row = row
+                deck[x+1] = deck[x]
+                deck[x] = nil
             end
             x = x + 6
         end
@@ -103,19 +100,19 @@ end
 
 function CheckRowAboveEmpty(player,x)
     if player == 1 then
-        next_round_deck = next_round_P1_deck
+        deck = P1_deck
     else
-        next_round_deck = next_round_P2_deck
+        deck = P2_deck
     end
-    if (not(next_round_deck[x-2] == nil and next_round_deck[x+4] == nil and next_round_deck[x+10]) == nil) or not(
-        next_round_deck[x-3] == nil and next_round_deck[x+3] == nil and next_round_deck[x+9] == nil) and x == 3 then return end
-    if next_round_deck[x-1] == nil and next_round_deck[x+5] == nil and next_round_deck[x+11] == nil then
+    if (not(deck[x-2] == nil and deck[x+4] == nil and deck[x+10]) == nil) or not(
+        deck[x-3] == nil and deck[x+3] == nil and deck[x+9] == nil) and x == 3 then return end
+    if deck[x-1] == nil and deck[x+5] == nil and deck[x+11] == nil then
         row = x-1
         for i=0,2,1 do
-            if next_round_deck[x] ~= nil then
-                next_round_deck[x].row = row
-                next_round_deck[x-1] = next_round_deck[x]
-                next_round_deck[x] = nil
+            if deck[x] ~= nil then
+                deck[x].row = row
+                deck[x-1] = deck[x]
+                deck[x] = nil
             end
             x = x + 6
         end
@@ -124,23 +121,23 @@ end
 
 function Check2TopRowsEmpty(player)
     if player == 1 then
-        next_round_deck = next_round_P1_deck
+        deck = P1_deck
     else
-        next_round_deck = next_round_P2_deck
+        deck = P2_deck
     end
-    if next_round_deck[0] == nil and next_round_deck[6] == nil and next_round_deck[12] == nil and
-    next_round_deck[1] == nil and next_round_deck[7] == nil and next_round_deck[13] == nil and
-    not(next_round_deck[4] == nil and next_round_deck[10] == nil and next_round_deck[16] == nil) and
-    not(next_round_deck[5] == nil and next_round_deck[11] == nil and next_round_deck[17] == nil) then
+    if deck[0] == nil and deck[6] == nil and deck[12] == nil and
+    deck[1] == nil and deck[7] == nil and deck[13] == nil and
+    not(deck[4] == nil and deck[10] == nil and deck[16] == nil) and
+    not(deck[5] == nil and deck[11] == nil and deck[17] == nil) then
         y = 2
         for i=0,4,1 do
             x = y
             row = x-1
             for i=0,2,1 do
-                if next_round_deck[x] ~= nil then
-                    next_round_deck[x].row = row
-                    next_round_deck[x-1] = next_round_deck[x]
-                    next_round_deck[x] = nil
+                if deck[x] ~= nil then
+                    deck[x].row = row
+                    deck[x-1] = deck[x]
+                    deck[x] = nil
                 end
                 x = x + 6
             end
@@ -151,23 +148,23 @@ end
 
 function Check2BottomRowsEmpty(player)
     if player == 1 then
-        next_round_deck = next_round_P1_deck
+        deck = P1_deck
     else
-        next_round_deck = next_round_P2_deck
+        deck = P2_deck
     end
-    if next_round_deck[4] == nil and next_round_deck[10] == nil and next_round_deck[16] == nil and
-    next_round_deck[5] == nil and next_round_deck[10] == nil and next_round_deck[17] == nil and
-    not(next_round_deck[0] == nil and next_round_deck[6] == nil and next_round_deck[12] == nil) and
-    not(next_round_deck[1] == nil and next_round_deck[7] == nil and next_round_deck[13] == nil) then
+    if deck[4] == nil and deck[10] == nil and deck[16] == nil and
+    deck[5] == nil and deck[10] == nil and deck[17] == nil and
+    not(deck[0] == nil and deck[6] == nil and deck[12] == nil) and
+    not(deck[1] == nil and deck[7] == nil and deck[13] == nil) then
         y = 4
         for i=0,4,1 do
             x = y
             row = x+1
             for i=0,2,1 do
-                if next_round_deck[x] ~= nil then
-                    next_round_deck[x].row = row
-                    next_round_deck[x+1] = next_round_deck[x]
-                    next_round_deck[x] = nil
+                if deck[x] ~= nil then
+                    deck[x].row = row
+                    deck[x+1] = deck[x]
+                    deck[x] = nil
                 end
                 x = x + 6
             end
@@ -178,25 +175,25 @@ end
 
 function CheckOnlyRow1and2Remain(player)
     if player == 1 then
-        next_round_deck = next_round_P1_deck
+        deck = P1_deck
     else
-        next_round_deck = next_round_P2_deck
+        deck = P2_deck
     end
-    if next_round_deck[0] == nil and next_round_deck[6] == nil and next_round_deck[12] == nil and
-    next_round_deck[3] == nil and next_round_deck[9] == nil and next_round_deck[15] == nil and
-    next_round_deck[4] == nil and next_round_deck[10] == nil and next_round_deck[16] == nil and
-    next_round_deck[5] == nil and next_round_deck[11] == nil and next_round_deck[17] == nil and 
-    not(next_round_deck[1] == nil and next_round_deck[7] == nil and next_round_deck[13] == nil) and
-    not(next_round_deck[2] == nil and next_round_deck[8] == nil and next_round_deck[14] == nil) then
+    if deck[0] == nil and deck[6] == nil and deck[12] == nil and
+    deck[3] == nil and deck[9] == nil and deck[15] == nil and
+    deck[4] == nil and deck[10] == nil and deck[16] == nil and
+    deck[5] == nil and deck[11] == nil and deck[17] == nil and 
+    not(deck[1] == nil and deck[7] == nil and deck[13] == nil) and
+    not(deck[2] == nil and deck[8] == nil and deck[14] == nil) then
         y = 2
         for i=0,2,1 do
             x = y
             row = x+1
             for i=0,2,1 do
-                if next_round_deck[x] ~= nil then
-                    next_round_deck[x].row = row
-                    next_round_deck[x+1] = next_round_deck[x]
-                    next_round_deck[x] = nil
+                if deck[x] ~= nil then
+                    deck[x].row = row
+                    deck[x+1] = deck[x]
+                    deck[x] = nil
                 end
                 x = x + 6
             end
@@ -207,25 +204,25 @@ end
 
 function CheckOnlyRow3and4Remain(player)
     if player == 1 then
-        next_round_deck = next_round_P1_deck
+        deck = P1_deck
     else
-        next_round_deck = next_round_P2_deck
+        deck = P2_deck
     end
-    if next_round_deck[0] == nil and next_round_deck[6] == nil and next_round_deck[12] == nil and
-    next_round_deck[1] == nil and next_round_deck[7] == nil and next_round_deck[13] == nil and
-    next_round_deck[2] == nil and next_round_deck[8] == nil and next_round_deck[14] == nil and
-    next_round_deck[5] == nil and next_round_deck[11] == nil and next_round_deck[17] == nil and 
-    not(next_round_deck[3] == nil and next_round_deck[9] == nil and next_round_deck[15] == nil) and
-    not(next_round_deck[4] == nil and next_round_deck[10] == nil and next_round_deck[16] == nil) then
+    if deck[0] == nil and deck[6] == nil and deck[12] == nil and
+    deck[1] == nil and deck[7] == nil and deck[13] == nil and
+    deck[2] == nil and deck[8] == nil and deck[14] == nil and
+    deck[5] == nil and deck[11] == nil and deck[17] == nil and 
+    not(deck[3] == nil and deck[9] == nil and deck[15] == nil) and
+    not(deck[4] == nil and deck[10] == nil and deck[16] == nil) then
         y = 3
         for i=0,2,1 do
             x = y
             row = x-1
             for i=0,2,1 do
-                if next_round_deck[x] ~= nil then
-                    next_round_deck[x].row = row
-                    next_round_deck[x-1] = next_round_deck[x]
-                    next_round_deck[x] = nil
+                if deck[x] ~= nil then
+                    deck[x].row = row
+                    deck[x-1] = deck[x]
+                    deck[x] = nil
                 end
                 x = x + 6
             end
@@ -313,8 +310,6 @@ function GameState:update(dt)
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:check_health()
             end
-            P1_deck = next_round_P1_deck
-            P2_deck = next_round_P2_deck
         end
 
         for k, pair in pairs(P1_deck) do
@@ -404,8 +399,8 @@ end
 function GameState:exit()
     P1_deck = nil
     P2_deck = nil
-    next_round_P1_deck = nil
-    next_round_P2_deck = nil
+    deck = nil
+    P1_deck_cards = {}
     P2_deck_cards = {}
     BlueProjectile = nil
     GreenProjectile = nil

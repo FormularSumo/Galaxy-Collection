@@ -72,9 +72,9 @@ end
 function Card:check_health()
     if self.health <= 0 and self.alive == true then
         if self.team == 1 then
-            next_round_P1_deck[self.number] = nil
+            P1_deck[self.number] = nil
         else
-            next_round_P2_deck[self.number] = nil
+            P2_deck[self.number] = nil
         end 
         self.alive = false
         self.weapon = nil
@@ -85,18 +85,18 @@ function Card:move()
     if self.team == 1 then
         if (self.number < 6 and self.column < 5) or (self.number < 12 and self.column < 4) or (self.number < 18 and self.column < 3) then
             self.column = self.column + 1
-        elseif next_round_P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        elseif P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column + 1
-            next_round_P1_deck[self.number-6] = next_round_P1_deck[self.number]
-            next_round_P1_deck[self.number] = nil
+            P1_deck[self.number-6] = P1_deck[self.number]
+            P1_deck[self.number] = nil
         end
     else
         if (self.number < 6 and self.column > 6) or (self.number < 12 and self.column > 7) or (self.number < 18 and self.column > 8) then
             self.column = self.column - 1
-        elseif next_round_P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        elseif P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column - 1
-            next_round_P2_deck[self.number-6] = next_round_P2_deck[self.number]
-            next_round_P2_deck[self.number] = nil
+            P2_deck[self.number-6] = P2_deck[self.number]
+            P2_deck[self.number] = nil
         end
     end
 end
