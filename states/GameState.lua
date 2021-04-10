@@ -272,19 +272,17 @@ function GameState:update(dt)
                 CheckOnlyRow1and2Remain(1)
                 CheckOnlyRow1and2Remain(2)
             end
+
             for k, pair in pairs(P1_deck) do
-                P1_deck[k]:update(dt,timer)
-            end 
+                P1_deck[k]:position()
+            end
             for k, pair in pairs(P2_deck) do
-                P2_deck[k]:update(dt,timer)
-            end 
-            
-            P1_deck = next_round_P1_deck
-            P2_deck = next_round_P2_deck
+                P2_deck[k]:position()
+            end
 
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:aim()
-            end 
+            end
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:aim()
             end
@@ -296,30 +294,35 @@ function GameState:update(dt)
             for k, pair in pairs(P1_deck) do
                 P1_deck[k].dodge = 0
                 P1_deck[k].attacks_taken = 0
-            end 
+            end
             for k, pair in pairs(P2_deck) do
                 P2_deck[k].dodge = 0
                 P2_deck[k].attacks_taken = 0
-            end 
+            end
 
             for k, pair in pairs(P1_deck) do
                 P1_deck[k]:attack()
-            end 
+            end
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:attack()
-            end 
+            end
+
+            for k, pair in pairs(P1_deck) do
+                P1_deck[k]:check_health()
+            end
+            for k, pair in pairs(P2_deck) do
+                P2_deck[k]:check_health()
+            end
             P1_deck = next_round_P1_deck
             P2_deck = next_round_P2_deck
         end
 
         for k, pair in pairs(P1_deck) do
-            P1_deck[k]:update(dt,timer)
-        end 
-        for k, pair in pairs(P2_deck) do
-            P2_deck[k]:update(dt,timer)
+            P1_deck[k]:update(dt)
         end
-        P1_deck = next_round_P1_deck
-        P2_deck = next_round_P2_deck
+        for k, pair in pairs(P2_deck) do
+            P2_deck[k]:update(dt)
+        end
     end  
 
     if love.keyboard.wasPressed('space') then

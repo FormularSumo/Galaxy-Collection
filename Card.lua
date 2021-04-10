@@ -44,20 +44,21 @@ function Card:init(name,row,column,team,number)
     self.defence_down = 0
 end
 
-function Card:update(dt,timer)
+function Card:update(dt)
+    if self.projectile then
+        self.projectile:update(dt)
+    end    
+    if self.weapon then
+        self.weapon:updateposition(self.x,self.y,self.column)
+        self.weapon:update(dt)
+    end
+end
+
+function Card:position()
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     if self.column > 5 then
         self.x = self.x + 40
-    end
-    if self.health <= 0 and self.alive == true then
-        if self.team == 1 then
-            next_round_P1_deck[self.number] = nil
-        else
-            next_round_P2_deck[self.number] = nil
-        end 
-        self.alive = false
-        self.weapon = nil
     end
     if timer > 6 then
         if self.team == 1 then
@@ -66,12 +67,17 @@ function Card:update(dt,timer)
             self.number = self.row + (self.column - 5) * 6 - 6
         end
     end
-    if self.projectile ~= nil then
-        self.projectile:update(dt)
-    end    
-    if self.weapon then
-        self.weapon:updateposition(self.x,self.y,self.column)
-        self.weapon:update(dt)
+end
+
+function Card:check_health()
+    if self.health <= 0 and self.alive == true then
+        if self.team == 1 then
+            next_round_P1_deck[self.number] = nil
+        else
+            next_round_P2_deck[self.number] = nil
+        end 
+        self.alive = false
+        self.weapon = nil
     end
 end
 
