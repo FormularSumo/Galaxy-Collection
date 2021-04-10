@@ -169,12 +169,12 @@ function love.focus(InFocus)
 end
 
 function love.update(dt)
-    --Handle inputs
+    --Handle mouse inputs
     if love.mouse.isDown(1,2,3) then
         update_mouse_position()
     end
 
-    -- If a joysticks is connected run, otherwise don't both running all the joystick-input code
+    --Handle joystick inputs
     if joysticks[1] then
         if joysticks[1]:isDown(1) then 
             update_mouse_position()
