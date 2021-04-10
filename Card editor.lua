@@ -39,8 +39,6 @@ function Card_editor:update()
                 collectgarbage()
             end
             self.clicked = false
-            self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
-            self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
         end
     end
     if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
