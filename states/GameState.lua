@@ -30,9 +30,10 @@ function GameState:init()
     P2_deck = {}
     winner = 'none'
     gamespeed = 1
-    P1column = -1
-    P2column = 12
-    row_correctment = 0
+    local P1column = -1
+    local P2column = 12
+    local row_correctment = 0
+    local next
 
     for i=0,17,1 do
         if i % 6 == 0 and i ~= 0 then
@@ -318,25 +319,14 @@ function GameState:update(dt)
         for k, pair in pairs(P2_deck) do
             P2_deck[k]:update(dt)
         end
-    end  
 
-    if love.keyboard.wasPressed('space') then
-        pause()
-    end
-   
-    if winner == 'none' then
-        P1_cards_alive = ''
-        for k, pair in pairs(P1_deck) do
-            P1_cards_alive = P1_cards_alive .. pair.name .. '\n'
+
+        if not next(P1_deck) then
+            P1_deck = nil
         end
-        if P1_cards_alive == '' then P1_deck = nil end
-
-        P2_cards_alive = ''
-        for k, pair in pairs(P2_deck) do
-            P2_cards_alive = P2_cards_alive .. pair.name .. '\n'
+        if not next(P2_deck) then
+            P2_deck = nil
         end
-        if P2_cards_alive == '' then P2_deck = nil end
-
         if P1_deck == nil or P2_deck == nil then
             if P1_deck == nil and P2_deck == nil then 
                 winner = 'Draw'
@@ -346,6 +336,10 @@ function GameState:update(dt)
                 winner = 'P1'
             end
         end
+    end  
+
+    if love.keyboard.wasPressed('space') then
+        pause()
     end
 end
 
