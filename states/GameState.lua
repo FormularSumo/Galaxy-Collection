@@ -234,12 +234,19 @@ end
 
 
 function GameState:update(dt)
-    dt = dt * gamespeed
     if paused == false and winner == 'none' then
+        dt = dt * gamespeed
         timer = timer + dt
         if timer >= 7.4 then timer = timer - 1 end
         move_aim_timer = move_aim_timer + dt
         attack_timer = attack_timer + dt
+
+        for k, pair in pairs(P1_deck) do
+            P1_deck[k]:update(dt)
+        end
+        for k, pair in pairs(P2_deck) do
+            P2_deck[k]:update(dt)
+        end
 
         if move_aim_timer >= 1 then
             move_aim_timer = move_aim_timer - 1
@@ -311,29 +318,20 @@ function GameState:update(dt)
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:check_health()
             end
-        end
-
-        for k, pair in pairs(P1_deck) do
-            P1_deck[k]:update(dt)
-        end
-        for k, pair in pairs(P2_deck) do
-            P2_deck[k]:update(dt)
-        end
-
-
-        if not next(P1_deck) then
-            P1_deck = nil
-        end
-        if not next(P2_deck) then
-            P2_deck = nil
-        end
-        if P1_deck == nil or P2_deck == nil then
-            if P1_deck == nil and P2_deck == nil then 
-                winner = 'Draw'
-            elseif P1_deck == nil then
-                winner = 'P2'
-            elseif P2_deck == nil then
-                winner = 'P1'
+            if not next(P1_deck) then
+                P1_deck = nil
+            end
+            if not next(P2_deck) then
+                P2_deck = nil
+            end
+            if P1_deck == nil or P2_deck == nil then
+                if P1_deck == nil and P2_deck == nil then 
+                    winner = 'Draw'
+                elseif P1_deck == nil then
+                    winner = 'P2'
+                elseif P2_deck == nil then
+                    winner = 'P1'
+                end
             end
         end
     end  
