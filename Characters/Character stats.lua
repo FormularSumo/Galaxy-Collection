@@ -1477,6 +1477,14 @@ SaeseeTiin = {
     ['weapon'] = 'GreenLightsaber'
 }
 
+Sandtrooper = {
+    ['offense'] = 7216,
+    ['defense'] = 7019,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
+}
+
 SavageOpress = {
     ['offense'] = 18526,
     ['defense'] = 17349,
