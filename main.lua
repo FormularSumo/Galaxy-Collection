@@ -23,10 +23,10 @@ function love.load()
     require 'Card editor'
 
     -- app window title
-    love.window.setTitle('Star Wars Force Collection Remake')
+    love.window.setTitle('Force Collection')
 
     -- folder that app data is stored in
-    love.filesystem.setIdentity('Star Wars Force Collection Remake')
+    love.filesystem.setIdentity('Force Collection')
 
     --Operating System
     OS = love.system.getOS()
@@ -254,6 +254,13 @@ function love.draw()
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
+
+    -- stats = love.graphics.getStats()
+    -- y = 0
+    -- for k, pair in pairs(stats) do
+    --     love.graphics.print(k .. ' ' .. pair,0,y)
+    --     y = y + 100
+    -- end
     -- love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
     -- if P1_deck then
     --     if P1_deck[1] then
