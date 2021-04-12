@@ -13,7 +13,7 @@ function Card:init(name,row,column,team,number,level,evolution)
     if not level then self.level = 1 else self.level = level end
     if not evolution then self.evolution = 3 else self.evolution = evolution end
     self.health = 1000
-    self.modifier = ((self.level + (60 - self.level) / 2) / 60) * (1 - ((3 - self.evolution) * 0.1))
+    self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((3 - self.evolution) * 0.1))
     self.offense = _G[self.name]['offense'] * (self.modifier)
     self.defense = _G[self.name]['defense'] * (self.modifier)
     self.evade = _G[self.name]['evade']
@@ -202,11 +202,11 @@ function Card:render()
         love.graphics.setColor(1,1,1)
     end
 
-    -- if self.number == 0 and self.team == 1 then
-    --     love.graphics.print(self.modifier)
+    if self.number == 2 and self.team == 1 then
+        love.graphics.print(self.modifier)
     --     love.graphics.print(self.offense,0,100)
     --     love.graphics.print(self.defense,0,200)
-    -- end
+    end
 
     -- if self.number == 15 then
     --     if self.team == 1 then
