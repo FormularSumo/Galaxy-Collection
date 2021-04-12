@@ -40,7 +40,8 @@ function love.load()
     -- initialize virtual resolution
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
         fullscreen = true,
-        resizable = true
+        resizable = true,
+        canvas = false,
     })
 
     -- load fonts
