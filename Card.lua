@@ -18,15 +18,25 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.defense = _G[self.name]['defense'] * (self.modifier)
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
+    if _G[self.name]['projectile'] then
+        if not _G[_G[self.name]['projectile']] then
+            _G[_G[self.name]['projectile']] = love.graphics.newImage('Graphics/'.._G[self.name]['projectile']..'.png')
+        end
+        self.projectile_image = _G[_G[self.name]['projectile']]
+    end
 
-    self.projectile_image = _G[_G[self.name]['projectile']]
-    self.weapon_image = _G[_G[self.name]['weapon']]
+    if _G[self.name]['weapon'] then
+        if not _G[_G[self.name]['weapon']] then
+            _G[_G[self.name]['weapon']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon']..'.png')
+        end
+        self.weapon_image = _G[_G[self.name]['weapon']]
+    end
 
     if self.weapon_image then
         self.weapon = Weapon(self.x, self.y, self.columnm, self.weapon_image, self.team, self.width, self.height)
     end
 
-    if self.projectile_image == Lightning or self.projectile_image == ForceBlast then
+    if self.projectile_image == 'Lightning' or self.projectile_image == 'ForceBlast' then
         self.melee_projectile = true
     end
 
@@ -202,11 +212,11 @@ function Card:render()
         love.graphics.setColor(1,1,1)
     end
 
-    if self.number == 2 and self.team == 1 then
-        love.graphics.print(self.modifier)
-    --     love.graphics.print(self.offense,0,100)
-    --     love.graphics.print(self.defense,0,200)
-    end
+    -- if self.number == 3 and self.team == 2 then
+        -- love.graphics.print(self.modifier)
+        -- love.graphics.print(self.offense,0,100)
+        -- love.graphics.print(self.defense,0,200)
+    -- end
 
     -- if self.number == 15 then
     --     if self.team == 1 then
