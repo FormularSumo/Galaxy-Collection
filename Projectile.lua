@@ -18,8 +18,6 @@ function Projectile:init(x,y,finalx,finaly,projectile,team,xoffset,yoffset)
         self.finaly = finaly + yoffset / 2 + self.height / 2
     end
 
-
-
     self.x_distance = tonumber(self.finalx-self.x)
     self.y_distance = tonumber(self.finaly-self.y)
     self.angle = math.atan(self.y_distance/self.x_distance)

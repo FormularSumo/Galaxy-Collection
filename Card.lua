@@ -19,17 +19,17 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
     if _G[self.name]['projectile'] then
-        if not _G[_G[self.name]['projectile']] then
-            _G[_G[self.name]['projectile']] = love.graphics.newImage('Graphics/'.._G[self.name]['projectile']..'.png')
+        if not Projectiles[_G[self.name]['projectile']] then
+            Projectiles[_G[self.name]['projectile']] = love.graphics.newImage('Graphics/'.._G[self.name]['projectile']..'.png')
         end
-        self.projectile_image = _G[_G[self.name]['projectile']]
+        self.projectile_image = Projectiles[_G[self.name]['projectile']]
     end
 
     if _G[self.name]['weapon'] then
-        if not _G[_G[self.name]['weapon']] then
-            _G[_G[self.name]['weapon']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon']..'.png')
+        if not Weapons[_G[self.name]['weapon']] then
+            Weapons[_G[self.name]['weapon']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon']..'.png')
         end
-        self.weapon_image = _G[_G[self.name]['weapon']]
+        self.weapon_image = Weapons[_G[self.name]['weapon']]
     end
 
     if self.weapon_image then

@@ -8,6 +8,8 @@ function GameState:init()
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P2_deck = {}
+    Projectiles = {}
+    Weapons = {}
     winner = 'none'
     gamespeed = 1
     local P1column = -1
@@ -312,13 +314,8 @@ function GameState:update(dt)
                 elseif P2_deck == nil then
                     winner = 'P1'
                 end
-                BlueLaser = nil
-                GreenLaser = nil
-                RedLaser = nil
-                Arrow = nil
-                Lightning = nil
-                Fire = nil
-                ForceBlast = nil
+                Projectiles = nil
+                Weapons = nil
                 collectgarbage()
             end
         end
@@ -382,27 +379,7 @@ function GameState:exit()
     deck = nil
     P1_deck_cards = {}
     P2_deck_cards = {}
-    BlueLaser = nil
-    GreenLaser = nil
-    RedLaser = nil
-    Arrow = nil
-    Lightning = nil
-    Fire = nil
-    ForceBlast = nil
-    Darksaber = nil
-    YodaLightsaber = nil
-    WhiteLightsaber = nil
-    PurpleLightsaber = nil
-    YellowLightsaber = nil
-    GreenLightsaber = nil
-    BlueLightsaber = nil
-    RedLightsaber = nil
-    MotherTalzinSword = nil
-    CrossguardLightsaber = nil
-    InquisitorLightsaber = nil
-    DoubleRedLightsaber = nil
-    DoubleBlueLightsaber = nil
-    DoubleGreenLightsaber = nil
-    DoubleYellowLightsaber = nil
+    Projectiles = nil
+    Weapons = nil
     exit_state()
 end
