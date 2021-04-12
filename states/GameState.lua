@@ -3,6 +3,7 @@ GameState = Class{__includes = BaseState}
 function GameState:init()
     Evolution1 = love.graphics.newImage('Graphics/Evolution1.png')
     Evolution2 = love.graphics.newImage('Graphics/Evolution2.png')
+    EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
 
     BlueLaser = love.graphics.newImage('Graphics/Blue Laser.png')
     GreenLaser = love.graphics.newImage('Graphics/Green Laser.png')

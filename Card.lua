@@ -11,7 +11,7 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.team = team 
     self.number = number
     if not level then self.level = 1 else self.level = level end
-    if not evolution then self.evolution = 0 else self.evolution = evolution end
+    if not evolution then self.evolution = 3 else self.evolution = evolution end
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 2) / 60) * (1 - ((3 - self.evolution) * 0.1))
     self.offense = _G[self.name]['offense'] * (self.modifier)
@@ -184,6 +184,9 @@ function Card:render()
     end
     if self.evolution == 2 then
         love.graphics.draw(Evolution2,self.x,self.y)
+    end
+    if self.evolution == 3 then
+        love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
     end
     if self.health < 1000 then
         love.graphics.setColor(0.3,0.3,0.3)
