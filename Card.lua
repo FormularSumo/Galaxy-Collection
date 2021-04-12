@@ -1,6 +1,6 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(name,row,column,team,number)
+function Card:init(name,row,column,team,number,level,evolution)
     self.name = name
     self.row = row
     self.column = column
@@ -10,9 +10,12 @@ function Card:init(name,row,column,team,number)
     self.y = -self.height
     self.team = team 
     self.number = number
+    if not level then self.level = 1 else self.level = level end
+    if not evolution then self.evolution = 0 else self.evolution = evolution end
     self.health = 1000
-    self.offense = _G[self.name]['offense']
-    self.defense = _G[self.name]['defense']
+    self.modifier = ((self.level + (60 - self.level) / 2) / 60) * (1 - ((3 - self.evolution) * 0.1))
+    self.offense = _G[self.name]['offense'] * (self.modifier)
+    self.defense = _G[self.name]['defense'] * (self.modifier)
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
 
@@ -176,6 +179,12 @@ end
 
 function Card:render()
     love.graphics.draw(self.image,self.x,self.y,0,1,sx)
+    if self.evolution == 1 then
+        love.graphics.draw(Evolution1,self.x,self.y)
+    end
+    if self.evolution == 2 then
+        love.graphics.draw(Evolution2,self.x,self.y)
+    end
     if self.health < 1000 then
         love.graphics.setColor(0.3,0.3,0.3)
         love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
@@ -191,11 +200,9 @@ function Card:render()
     end
 
     -- if self.number == 0 and self.team == 1 then
-    -- if self.name == 'QuiGonJinn' then 
-    --     love.graphics.print(self.health)
-    --     love.graphics.print(self.column,0,100)
-    --     love.graphics.print(self.row,0,200)
-    --     love.graphics.print(self.number,0,300)
+    --     love.graphics.print(self.modifier)
+    --     love.graphics.print(self.offense,0,100)
+    --     love.graphics.print(self.defense,0,200)
     -- end
 
     -- if self.number == 15 then
