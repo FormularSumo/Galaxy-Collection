@@ -18,7 +18,7 @@ function Weapon:init(x,y,column,weapon,team,xoffset,yoffset)
     self.image = weapon
     self.width,self.height = self.image:getDimensions()
 
-    if self.image == InquisitorLightsaber or self.image == DoubleRedLightsaber or self.image == DoubleBlueLightsaber or self.image == DoubleGreenLightsaber or self.image == DoubleYellowLightsaber then
+    if self.image == Weapons['InquisitorLightsaber'] or self.image == Weapons['DoubleRedLightsaber'] or self.image == Weapons['DoubleBlueLightsaber'] or self.image == Weapons['DoubleGreenLightsaber'] or self.image == Weapons['DoubleYellowLightsaber'] then
         self.double = true
     else
         self.double = false
