@@ -79,6 +79,12 @@ function Card:position()
         else
             self.number = self.row + (self.column - 5) * 6 - 6
         end
+    else
+        if self.team == 1 then
+            self.number = self.row + (math.abs(6 - self.column - math.ceil(6 - timer))) * 6 - 6
+        else
+            self.number = self.row + (self.column - 5 - math.ceil(6 - timer)) * 6 - 6
+        end
     end
 end
 
@@ -216,6 +222,10 @@ function Card:render()
         -- love.graphics.print(self.modifier)
         -- love.graphics.print(self.offense,0,100)
         -- love.graphics.print(self.defense,0,200)
+        -- love.graphics.print(tostring(self.health),0,100)
+        -- love.graphics.print(tostring(self.alive),0,200)
+        -- love.graphics.print(self.number,0,300)
+        -- love.graphics.print(timer,0,500)
     -- end
 
     -- if self.number == 15 then

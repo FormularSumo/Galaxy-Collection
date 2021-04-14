@@ -300,6 +300,7 @@ function GameState:update(dt)
             for k, pair in pairs(P2_deck) do
                 P2_deck[k]:check_health()
             end
+            
             if not next(P1_deck) then
                 P1_deck = nil
             end
