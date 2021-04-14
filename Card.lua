@@ -36,7 +36,7 @@ function Card:init(name,row,column,team,number,level,evolution)
         self.weapon = Weapon(self.x, self.y, self.columnm, self.weapon_image, self.team, self.width, self.height)
     end
 
-    if self.projectile_image == 'Lightning' or self.projectile_image == 'ForceBlast' then
+    if (_G[self.name]['projectile'] == 'Lightning' or _G[self.name]['projectile'] == 'ForceBlast') and self.weapon == nil then
         self.melee_projectile = true
     end
 
@@ -156,7 +156,7 @@ function Card:aim()
                 break
             end
         end
-        if self.target ~= nil then
+        if self.target ~= nil and self.projectile_image then
             self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
         end
     end

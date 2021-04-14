@@ -602,7 +602,8 @@ DarthNoscoper = {
     ['offense'] = 25387,
     ['defense'] = 24568,
     ['evade'] = 0,
-    ['range'] = 1,
+    ['range'] = 5,
+    ['projectile'] = 'Lightning',
     ['weapon'] = 'PurpleLightsaber'
 }
 
