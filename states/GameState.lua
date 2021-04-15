@@ -23,11 +23,19 @@ function GameState:init()
             row_correctment = i
         end
         row = i - row_correctment
-        if P1_deck_cards[i] ~= none then
-            P1_deck[i] = Card(P1_deck_cards[i],row,P1column,1,i)
+        if P1_deck_cards[i] ~= nil then
+            if P1_deck_cards[i][1] ~= nil then
+                P1_deck[i] = Card(P1_deck_cards[i][1],row,P1column,1,i,P1_deck_cards[i][2],P1_deck_cards[i][3])
+            else
+                P1_deck[i] = Card(P1_deck_cards[i],row,P1column,1,i)
+            end
         end
-        if P2_deck_cards[i] ~= none then
-            P2_deck[i] = Card(P2_deck_cards[i],row,P2column,2,i)
+        if P2_deck_cards[i] ~= nil then
+            if P2_deck_cards[i][1] ~= nil then
+                P2_deck[i] = Card(P2_deck_cards[i][1],row,P2column,2,i,P2_deck_cards[i][2],P2_deck_cards[i][3])
+            else
+                P2_deck[i] = Card(P2_deck_cards[i],row,P2column,2,i)
+            end
         end
     end
 end
