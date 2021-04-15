@@ -1,6 +1,6 @@
 Card_editor = Class{__includes = BaseState}
 
-function Card_editor:init(name,row,column,number)
+function Card_editor:init(name,row,column,number,level,evolution)
     self.name = name
     self.row = row
     self.column = column
@@ -9,9 +9,12 @@ function Card_editor:init(name,row,column,number)
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     self.number = number
+    if not level then self.level = 1 else self.level = level end
+    if not evolution then self.evolution = 0 else self.evolution = evolution end
     self.health = 1000
-    self.offense = _G[self.name]['offense']
-    self.defense = _G[self.name]['defense']
+    self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
+    self.offense = _G[self.name]['offense'] * (self.modifier)
+    self.defense = _G[self.name]['defense'] * (self.modifier)
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
 end

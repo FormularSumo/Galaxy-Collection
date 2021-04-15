@@ -14,7 +14,11 @@ function DeckeditState:init()
         end
         row = i - row_correctment
         if P1_deck_cards[i] ~= none then
-            P1_deck[i] = Card_editor(P1_deck_cards[i],row,P1column,i)
+            if P1_deck_cards[i][1] ~= nil then
+                P1_deck[i] = Card_editor(P1_deck_cards[i][1],row,P1column,i,P1_deck_cards[i][2],P1_deck_cards[i][3])
+            else
+                P1_deck[i] = Card_editor(P1_deck_cards[i],row,P1column,i)
+            end
         end
     end
     background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
