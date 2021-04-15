@@ -11,9 +11,9 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.team = team 
     self.number = number
     if not level then self.level = 1 else self.level = level end
-    if not evolution then self.evolution = 3 else self.evolution = evolution end
+    if not evolution then self.evolution = 0 else self.evolution = evolution end
     self.health = 1000
-    self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((3 - self.evolution) * 0.1))
+    self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.offense = _G[self.name]['offense'] * (self.modifier)
     self.defense = _G[self.name]['defense'] * (self.modifier)
     self.evade = _G[self.name]['evade']
@@ -195,15 +195,18 @@ end
 
 function Card:render()
     love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-    if self.evolution == 1 then
-        love.graphics.draw(Evolution1,self.x,self.y)
-    end
-    if self.evolution == 2 then
-        love.graphics.draw(Evolution2,self.x,self.y)
-    end
-    if self.evolution == 3 then
+    if self.evolution == 4 then
         love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
+    elseif self.evolution > 0 then
+        love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90))
+        if self.evolution > 1 then
+            love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90))
+            if self.evolution > 2 then
+                love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90))
+            end
+        end
     end
+            
     if self.health < 1000 then
         love.graphics.setColor(0.3,0.3,0.3)
         love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
@@ -219,13 +222,9 @@ function Card:render()
     end
 
     -- if self.number == 3 and self.team == 2 then
-        -- love.graphics.print(self.modifier)
-        -- love.graphics.print(self.offense,0,100)
-        -- love.graphics.print(self.defense,0,200)
-        -- love.graphics.print(tostring(self.health),0,100)
-        -- love.graphics.print(tostring(self.alive),0,200)
-        -- love.graphics.print(self.number,0,300)
-        -- love.graphics.print(timer,0,500)
+    --     love.graphics.print(self.modifier)
+    --     love.graphics.print(self.offense,0,100)
+    --     love.graphics.print(self.defense,0,200)
     -- end
 
     -- if self.number == 15 then

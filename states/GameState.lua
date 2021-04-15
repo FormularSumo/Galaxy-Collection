@@ -1,8 +1,7 @@
 GameState = Class{__includes = BaseState}
 
 function GameState:init()
-    Evolution1 = love.graphics.newImage('Graphics/Evolution1.png')
-    Evolution2 = love.graphics.newImage('Graphics/Evolution2.png')
+    Evolution = love.graphics.newImage('Graphics/Evolution.png')
     EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
 
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
