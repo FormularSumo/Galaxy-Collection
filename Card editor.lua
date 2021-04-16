@@ -1,6 +1,6 @@
 Card_editor = Class{__includes = BaseState}
 
-function Card_editor:init(name,row,column,number,level,evolution)
+function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     self.name = name
     self.row = row
     self.column = column
@@ -11,6 +11,7 @@ function Card_editor:init(name,row,column,number,level,evolution)
     self.number = number
     if not level then self.level = 1 else self.level = level end
     if not evolution then self.evolution = 0 else self.evolution = evolution end
+    self.in_deck = in_deck
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.offense = _G[self.name]['offense'] * (self.modifier)
@@ -22,20 +23,30 @@ end
 function Card_editor:update()
     if self.clicked == true then
         if mouseDown then
-            if mouseTrapped == self.number then
+            if mouseTrapped == self then
                 self.x = mouseLastX - self.clicked_positionX
                 self.y = mouseLastY - self.clicked_positionY
             end
         else
-            if mouseTrapped2 == self.number then
-                temporary = Card_editor(self.name,P1_deck[mouseTrapped].row,P1_deck[mouseTrapped].column,P1_deck[mouseTrapped].number,P1_deck[mouseTrapped].level,P1_deck[mouseTrapped].evolution)
-                temporary2 = Card_editor(P1_deck[mouseTrapped].name,self.row,self.column,self.number,self.level,self.evolution)
+            if mouseTrapped2 == self then
+                temporary = Card_editor(self.name,mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,self.level,self.evolution,mouseTrapped.in_deck)
+                temporary2 = Card_editor(mouseTrapped.name,self.row,self.column,self.number,mouseTrapped.level,mouseTrapped.evolution,self.in_deck)
 
-                P1_deck[self.number] = temporary2
-                P1_deck_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
+                if temporary2.in_deck == true then
+                    P1_deck[self.number] = temporary2
+                    P1_deck_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
+                else
+                    Cards_on_display[self.number-page*18] = temporary2
+                    P1_cards_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
+                end
 
-                P1_deck[mouseTrapped] = temporary
-                P1_deck_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
+                if temporary.in_deck == true then
+                    P1_deck[mouseTrapped.number] = temporary
+                    P1_deck_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
+                else
+                    Cards_on_display[mouseTrapped.number-page*18] = temporary
+                    P1_cards_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
+                end
 
                 temporary = nil
                 temporary2 = nil
@@ -49,13 +60,13 @@ function Card_editor:update()
     if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
         self.clicked = true
         if mouseTrapped == false then
-            mouseTrapped = self.number
+            mouseTrapped = self
             self.clicked_positionX = mouseLastX - self.x
             self.clicked_positionY = mouseLastY - self.y
-        elseif mouseTrapped ~= self.number then
-            mouseTrapped2 = self.number
+        elseif mouseTrapped ~= self then
+            mouseTrapped2 = self
         end
-    elseif mouseTrapped2 == self.number then
+    elseif mouseTrapped2 == self then
         mouseTrapped2 = false
     end
 end
