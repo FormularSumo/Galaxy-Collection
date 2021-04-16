@@ -33,7 +33,7 @@ function Card:init(name,row,column,team,number,level,evolution)
     end
 
     if self.weapon_image then
-        self.weapon = Weapon(self.x, self.y, self.columnm, self.weapon_image, self.team, self.width, self.height)
+        self.weapon = Weapon(self.x, self.y, self.column, self.row, self.weapon_image, self.team, self.width, self.height, self.range)
     end
 
     if (_G[self.name]['projectile'] == 'Lightning' or _G[self.name]['projectile'] == 'ForceBlast') and self.weapon == nil then
@@ -161,7 +161,7 @@ function Card:aim()
         end
     end
     if self.weapon then
-        self.weapon:updatetarget(self.target)
+        self.weapon:updatetarget(self.enemy_deck[self.target])
     end
 end
 

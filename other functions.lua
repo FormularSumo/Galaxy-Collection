@@ -76,7 +76,7 @@ function toggle_FPS()
 end
 
 function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
-    P1_deck_edit(0,{'DarthNoscoper',60,4})
+    P1_deck_edit(0,{'AnakinSkywalkerROTS',60,4})
     P1_deck_edit(1,{'HermitLuke',60,4})
     P1_deck_edit(2,{'MaceWindu',60,4})
     P1_deck_edit(3,{'Yoda',60,4})
