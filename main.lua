@@ -125,6 +125,7 @@ function love.load()
         P1_cards[33] = {'CommanderWolffe',60,4}
         P1_cards[34] = {'CoruscantGuardCloneTrooper',60,4}
         P1_cards[35] = {'CloneCommandoGregor',60,4}
+        P1_cards[37] = {'ZilloBeast',60,4}
         bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
     end
 
