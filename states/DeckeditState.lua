@@ -30,6 +30,7 @@ function DeckeditState:init()
         end
     end
     P1column = nil
+    row_correctment = nil
 
     update_cards_on_display()
 
@@ -69,6 +70,8 @@ function update_cards_on_display(direction)
             Cards_on_display[i] = Card_editor('Blank',row,column,y,nil,nil,false)
         end
     end
+    column = nil
+    row_correctment = nil
 end
 
 function DeckeditState:update()
@@ -104,6 +107,7 @@ function DeckeditState:exit(partial)
     Cards_on_display = nil
     Evolution = nil
     EvolutionMax = nil
+    BlankCard = nil
     page = nil
     exit_state(partial)
 end
