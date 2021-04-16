@@ -9,6 +9,7 @@ function DeckeditState:init()
     EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
     BlankCard = love.graphics.newImage('Graphics/BlankCard.png')
     page = 0
+    Cards_on_display_are_blank = false
 
     P1column = 2
     row_correctment = 0
@@ -42,36 +43,40 @@ function DeckeditState:init()
 end
 
 function update_cards_on_display(direction)
-    Cards_on_display = {}
-    collectgarbage()
-    column = 9
-    row_correctment = 0
-
-    if direction == 'right' then
-        page = page + 1
-    elseif direction == 'left' then
-        page = page - 1
-    end
-
-    for i=0,17,1 do
-        if i % 6 == 0 and i ~= 0 then
-            column = 9 + i / 6
-            row_correctment = i
+    if not (direction == 'left' and page == -1 and Cards_on_display_are_blank) and not (direction == 'right' and page > 0 and Cards_on_display_are_blank) then
+        if direction == 'right' then
+            page = page + 1
+        elseif direction == 'left' then
+            page = page - 1
         end
-        row = i - row_correctment
-        y = i+(page*18)
-        if P1_cards[y] ~= nil then
-            if P1_cards[y][1] ~= nil then
-                Cards_on_display[i] = Card_editor(P1_cards[y][1],row,column,y,P1_cards[y][2],P1_cards[y][3],false)
-            else
-                Cards_on_display[i] = Card_editor(P1_cards[y],row,column,y,1,0,false)
+
+        Cards_on_display = {}
+        collectgarbage()
+        column = 9
+        row_correctment = 0
+        Cards_on_display_are_blank = true
+
+        for i=0,17,1 do
+            if i % 6 == 0 and i ~= 0 then
+                column = 9 + i / 6
+                row_correctment = i
             end
-        else
-            Cards_on_display[i] = Card_editor('Blank',row,column,y,nil,nil,false)
+            row = i - row_correctment
+            y = i+(page*18)
+            if P1_cards[y] ~= nil then
+                if P1_cards[y][1] ~= nil then
+                    Cards_on_display[i] = Card_editor(P1_cards[y][1],row,column,y,P1_cards[y][2],P1_cards[y][3],false)
+                else
+                    Cards_on_display[i] = Card_editor(P1_cards[y],row,column,y,1,0,false)
+                end
+                Cards_on_display_are_blank = false
+            else
+                Cards_on_display[i] = Card_editor('Blank',row,column,y,nil,nil,false)
+            end
         end
+        column = nil
+        row_correctment = nil
     end
-    column = nil
-    row_correctment = nil
 end
 
 function DeckeditState:update()
@@ -109,5 +114,6 @@ function DeckeditState:exit(partial)
     EvolutionMax = nil
     BlankCard = nil
     page = nil
+    Cards_on_display_are_blank = nil
     exit_state(partial)
 end
