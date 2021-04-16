@@ -28,8 +28,8 @@ function Card_editor:update()
             end
         else
             if mouseTrapped2 == self.number then
-                temporary = Card_editor(self.name,P1_deck[mouseTrapped].row,P1_deck[mouseTrapped].column,P1_deck[mouseTrapped].number)
-                temporary2 = Card_editor(P1_deck[mouseTrapped].name,self.row,self.column,self.number)
+                temporary = Card_editor(self.name,P1_deck[mouseTrapped].row,P1_deck[mouseTrapped].column,P1_deck[mouseTrapped].number,P1_deck[mouseTrapped].level,P1_deck[mouseTrapped].evolution)
+                temporary2 = Card_editor(P1_deck[mouseTrapped].name,self.row,self.column,self.number,self.level,self.evolution)
 
                 P1_deck[self.number] = temporary2
                 P1_deck_edit(temporary2.number,temporary2.name)
@@ -62,4 +62,15 @@ end
 
 function Card_editor:render()
     love.graphics.draw(self.image,self.x,self.y)
+    if self.evolution == 4 then
+        love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
+    elseif self.evolution > 0 then
+        love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90))
+        if self.evolution > 1 then
+            love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90))
+            if self.evolution > 2 then
+                love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90))
+            end
+        end
+    end
 end

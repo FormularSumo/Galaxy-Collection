@@ -60,6 +60,7 @@ function love.load()
 
     P1_deck_cards = {}
     P2_deck_cards = {}
+    P1_cards = {}
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
@@ -87,6 +88,12 @@ function love.load()
         P1_deck_cards = {}
         bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
     end
+
+    -- if love.filesystem.getInfo('Player 1 cards.txt') == nil then
+    --     P1_cards = {}
+    --     P1_cards[0] = {'AhsokaTanoS7',60,3}
+    --     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
+    -- end
 
     -- initialize state machine with all state-returning functions
     gStateMachine = StateMachine {

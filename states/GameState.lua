@@ -389,5 +389,7 @@ function GameState:exit()
     P2_deck_cards = {}
     Projectiles = nil
     Weapons = nil
+    Evolution = nil
+    EvolutionMax = nil
     exit_state()
 end
