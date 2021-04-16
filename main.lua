@@ -85,12 +85,10 @@ function love.load()
     love.audio.setVolume(Settings['volume_level'])
 
     if love.filesystem.getInfo('Player 1 deck.txt') == nil then
-        P1_deck_cards = {}
         bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
     end
 
     -- if love.filesystem.getInfo('Player 1 cards.txt') == nil then
-    --     P1_cards = {}
     --     P1_cards[0] = {'AhsokaTanoS7',60,3}
     --     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
     -- end
