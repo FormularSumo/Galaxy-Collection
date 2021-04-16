@@ -38,6 +38,9 @@ function GameState:init()
             end
         end
     end
+    P1column = nil
+    P2column = nil
+    row_correctment = nil
 end
 
 function GameState:enter(Background)

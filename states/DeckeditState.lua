@@ -7,6 +7,7 @@ function DeckeditState:init()
     Cards_on_display = {}
     Evolution = love.graphics.newImage('Graphics/Evolution.png')
     EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
+    BlankCard = love.graphics.newImage('Graphics/BlankCard.png')
     page = 0
 
     P1column = 2
@@ -24,8 +25,11 @@ function DeckeditState:init()
             else
                 P1_deck[i] = Card_editor(P1_deck_cards[i],row,P1column,i,1,0,true)
             end
+        else
+            P1_deck[i] = Card_editor('Blank',row,P1column,i,nil,nil,true)
         end
     end
+    P1column = nil
 
     update_cards_on_display()
 
@@ -61,6 +65,8 @@ function update_cards_on_display(direction)
             else
                 Cards_on_display[i] = Card_editor(P1_cards[y],row,column,y,1,0,false)
             end
+        else
+            Cards_on_display[i] = Card_editor('Blank',row,column,y,nil,nil,false)
         end
     end
 end

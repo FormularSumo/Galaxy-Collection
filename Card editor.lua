@@ -4,7 +4,11 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     self.name = name
     self.row = row
     self.column = column
-    self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
+    if self.name == 'Blank' then
+        self.image = BlankCard
+    else
+        self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
+    end
     self.width,self.height = self.image:getDimensions()
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
@@ -12,12 +16,14 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     if not level then self.level = 1 else self.level = level end
     if not evolution then self.evolution = 0 else self.evolution = evolution end
     self.in_deck = in_deck
-    self.health = 1000
-    self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-    self.offense = _G[self.name]['offense'] * (self.modifier)
-    self.defense = _G[self.name]['defense'] * (self.modifier)
-    self.evade = _G[self.name]['evade']
-    self.range = _G[self.name]['range']
+    if self.name ~= 'Blank' then
+        self.health = 1000
+        self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
+        self.offense = _G[self.name]['offense'] * (self.modifier)
+        self.defense = _G[self.name]['defense'] * (self.modifier)
+        self.evade = _G[self.name]['evade']
+        self.range = _G[self.name]['range']
+    end
 end
 
 function Card_editor:update()
@@ -32,20 +38,36 @@ function Card_editor:update()
                 temporary = Card_editor(self.name,mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,self.level,self.evolution,mouseTrapped.in_deck)
                 temporary2 = Card_editor(mouseTrapped.name,self.row,self.column,self.number,mouseTrapped.level,mouseTrapped.evolution,self.in_deck)
 
-                if temporary2.in_deck == true then
+                if temporary2.in_deck then
                     P1_deck[self.number] = temporary2
-                    P1_deck_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
+                    if temporary2.name ~= 'Blank' then
+                        P1_deck_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
+                    else
+                        P1_deck_edit(temporary2.number,nil)
+                    end
                 else
                     Cards_on_display[self.number-page*18] = temporary2
-                    P1_cards_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
+                    if temporary2.name ~= 'Blank' then
+                        P1_cards_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
+                    else
+                        P1_cards_edit(temporary2.number,nil)
+                    end
                 end
 
-                if temporary.in_deck == true then
+                if temporary.in_deck then
                     P1_deck[mouseTrapped.number] = temporary
-                    P1_deck_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
+                    if temporary.name ~= 'Blank' then
+                        P1_deck_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
+                    else
+                        P1_deck_edit(temporary.number,nil)
+                    end
                 else
                     Cards_on_display[mouseTrapped.number-page*18] = temporary
-                    P1_cards_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
+                    if temporary.name ~= 'Blank' then
+                        P1_cards_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
+                    else
+                        P1_cards_edit(temporary.number,nil)
+                    end
                 end
 
                 temporary = nil
