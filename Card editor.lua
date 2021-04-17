@@ -19,7 +19,12 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     if self.name ~= 'Blank' then
         self.health = 1000
         self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-        self.offense = _G[self.name]['offense'] * (self.modifier)
+        self.melee_offense = _G[self.name]['melee_offense'] * (self.modifier)
+        if _G[self.name]['ranged_offense'] then
+            self.ranged_offense = _G[self.name]['ranged_offense'] * (self.modifier)
+        else
+            self.ranged_offense = self.melee_offense
+        end
         self.defense = _G[self.name]['defense'] * (self.modifier)
         self.evade = _G[self.name]['evade']
         self.range = _G[self.name]['range']
