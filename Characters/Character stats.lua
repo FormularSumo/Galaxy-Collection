@@ -248,7 +248,7 @@ BobaFettMandalorian = {
     ['melee_offense'] = 17601,
     ['defense'] = 16048,
     ['evade'] = 0.15,
-    ['range'] = 5,
+    ['range'] = 3,
     ['projectile'] = 'RedLaser'
 }
 
@@ -272,8 +272,8 @@ BoKatan = {
     ['melee_offense'] = 16547,
     ['defense'] = 14768,
     ['evade'] = 0.15,
-    ['range'] = 5,
-    ['projectile'] = 'RedLaser'
+    ['range'] = 3,
+    ['projectile'] = 'YellowLaser'
 }
 
 Bossk = {
@@ -620,7 +620,7 @@ DeathWatchMandalorian = {
     ['defense'] = 10905,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile'] = 'RedLaser'
+    ['projectile'] = 'YellowLaser'
 }
 
 Dengar = {
@@ -1066,7 +1066,7 @@ JangoFett = {
     ['melee_offense'] = 17536,
     ['defense'] = 15464,
     ['evade'] = 0.15,
-    ['range'] = 5,
+    ['range'] = 3,
     ['projectile'] = 'RedLaser'
 }
 
@@ -1145,8 +1145,8 @@ KoskaReeves = {
     ['melee_offense'] = 15547,
     ['defense'] = 14768,
     ['evade'] = 0.15,
-    ['range'] = 5,
-    ['projectile'] = 'RedLaser'
+    ['range'] = 3,
+    ['projectile'] = 'YellowLaser'
 }
 
 Kuruk = {
@@ -1388,10 +1388,12 @@ PongKrell = {
 
 PreVizsla = {
     ['melee_offense'] = 17336,
+    ['ranged_offense'] = 16379,
     ['defense'] = 17374,
     ['evade'] = 0.15,
-    ['range'] = 1,
-    ['weapon'] = 'Darksaber'
+    ['range'] = 3,
+    ['weapon'] = 'Darksaber',
+    ['projectile'] = 'YellowLaser'
 }
 
 PurgeTrooper = {
@@ -1669,7 +1671,7 @@ TheMandalorian = {
     ['melee_offense'] = 16043,
     ['defense'] = 15728,
     ['evade'] = 0.15,
-    ['range'] = 5,
+    ['range'] = 3,
     ['projectile'] = 'RedLaser'
 }
 
