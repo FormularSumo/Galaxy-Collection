@@ -42,6 +42,13 @@ function push:setupScreen(WWIDTH, WHEIGHT, RWIDTH, RHEIGHT, settings)
   self._WWIDTH, self._WHEIGHT = WWIDTH, WHEIGHT
   self._RWIDTH, self._RHEIGHT = RWIDTH, RHEIGHT
 
+  if self._RWIDTH == 0 then
+    self._RWIDTH = love.graphics.getWidth()
+  end
+  if self._RHEIGHT == 0 then
+    self._RHEIGHT = love.graphics.getHeight()
+  end
+
   self:applySettings(self.defaults) --set defaults first
   self:applySettings(settings) --then fill with custom settings
   

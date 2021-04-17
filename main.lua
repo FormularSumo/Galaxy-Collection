@@ -37,16 +37,12 @@ function love.load()
     math.randomseed(tonumber(tostring(os.time()):reverse():sub(1,6))) --Randomises randomiser each time program is run. String is reversed to preserve low bits in time (eg second, millisecodns) rather than high bits (years, hours) when rounding - see http://lua-users.org/wiki/MathLibraryTutorial
     math.random()
 
-    local windowWidth, windowHeight = love.window.getDesktopDimensions()
-
     -- initialize virtual resolution
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, windowWidth, windowHeight, {
+    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
         fullscreen = true,
         resizable = true,
         canvas = false,
     })
-
-    windowWidth,windowHeight = nil
 
     -- load fonts
     font50 = love.graphics.newFont(50)
