@@ -1,5 +1,5 @@
 AaylaSecura = {
-    ['offense'] = 17965,
+    ['melee_offense'] = 17965,
     ['defense'] = 17846,
     ['evade'] = 0.06,
     ['range'] = 1,
@@ -7,7 +7,7 @@ AaylaSecura = {
 }
 
 AdiGallia = {
-    ['offense'] = 17951,
+    ['melee_offense'] = 17951,
     ['defense'] = 17854,
     ['evade'] = 0.05,
     ['range'] = 1,
@@ -15,7 +15,7 @@ AdiGallia = {
 }
 
 AdmiralAckbar = {
-    ['offense'] = 6650,
+    ['melee_offense'] = 6650,
     ['defense'] = 6420,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -23,7 +23,7 @@ AdmiralAckbar = {
 }
 
 AdmiralPiett = {
-    ['offense'] = 5645,
+    ['melee_offense'] = 5645,
     ['defense'] = 4234,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -31,14 +31,14 @@ AdmiralPiett = {
 }
 
 AgentKallus = {
-    ['offense'] = 14121,
+    ['melee_offense'] = 14121,
     ['defense'] = 13789,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 AgenKolar = {
-    ['offense'] = 18010,
+    ['melee_offense'] = 18010,
     ['defense'] = 17856,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -46,7 +46,7 @@ AgenKolar = {
 }
 
 AhsokaTanoFulcrum = {
-    ['offense'] = 18469,
+    ['melee_offense'] = 18469,
     ['defense'] = 18384,
     ['evade'] = 0.1,
     ['range'] = 1,
@@ -54,7 +54,7 @@ AhsokaTanoFulcrum = {
 }
 
 AhsokaTanoPadawan = {
-    ['offense'] = 16082,
+    ['melee_offense'] = 16082,
     ['defense'] = 15234,
     ['evade'] = 0.1,
     ['range'] = 1,
@@ -62,7 +62,7 @@ AhsokaTanoPadawan = {
 }
 
 AhsokaTanoS7 = {
-    ['offense'] = 18464,
+    ['melee_offense'] = 18464,
     ['defense'] = 17420,
     ['evade'] = 0.1,
     ['range'] = 1,
@@ -70,7 +70,7 @@ AhsokaTanoS7 = {
 }
 
 AirborneCloneTrooper = {
-    ['offense'] = 12090,
+    ['melee_offense'] = 12090,
     ['defense'] = 12045,
     ['evade'] = 0.07,
     ['range'] = 4,
@@ -78,7 +78,7 @@ AirborneCloneTrooper = {
 }
 
 AnakinSkywalkerROTS = {
-    ['offense'] = 18924,
+    ['melee_offense'] = 18924,
     ['defense'] = 17954,
     ['evade'] = 0.05,
     ['range'] = 1,
@@ -86,14 +86,14 @@ AnakinSkywalkerROTS = {
 }
 
 Aplek = {
-    ['offense'] = 15526,
+    ['melee_offense'] = 15526,
     ['defense'] = 15503,
     ['evade'] = 0.05,
     ['range'] = 1
 }
 
 AquaDroid = {
-    ['offense'] = 6115,
+    ['melee_offense'] = 6115,
     ['defense'] = 6400,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -101,7 +101,7 @@ AquaDroid = {
 }
 
 ArcTrooper = {
-    ['offense'] = 13678,
+    ['melee_offense'] = 13678,
     ['defense'] = 13735,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -109,7 +109,7 @@ ArcTrooper = {
 }
 
 ArcTrooperEcho = {
-    ['offense'] = 13852,
+    ['melee_offense'] = 13852,
     ['defense'] = 13853,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -117,7 +117,7 @@ ArcTrooperEcho = {
 }
 
 ArcTrooperFives = {
-    ['offense'] = 13856,
+    ['melee_offense'] = 13856,
     ['defense'] = 13852,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -125,7 +125,7 @@ ArcTrooperFives = {
 }
 
 ArcTrooperJesse = {
-    ['offense'] = 13864,
+    ['melee_offense'] = 13864,
     ['defense'] = 13855,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -133,7 +133,7 @@ ArcTrooperJesse = {
 }
 
 ARFTrooper = {
-    ['offense'] = 13100,
+    ['melee_offense'] = 13100,
     ['defense'] = 11099,
     ['evade'] = 0.04,
     ['range'] = 5,
@@ -141,7 +141,7 @@ ARFTrooper = {
 }
 
 AsajjVentress = {
-    ['offense'] = 18254,
+    ['melee_offense'] = 18254,
     ['defense'] = 17432,
     ['evade'] = 0.07,
     ['range'] = 1,
@@ -149,7 +149,7 @@ AsajjVentress = {
 }
 
 B1BattleDroid = {
-    ['offense'] = 5502,
+    ['melee_offense'] = 5502,
     ['defense'] = 3905,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -157,7 +157,7 @@ B1BattleDroid = {
 }
 
 B2RPSuperBattleDroid = {
-    ['offense'] = 9285,
+    ['melee_offense'] = 9285,
     ['defense'] = 8924,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -165,7 +165,7 @@ B2RPSuperBattleDroid = {
 }
 
 B2SuperBattleDroid = {
-    ['offense'] = 9085,
+    ['melee_offense'] = 9085,
     ['defense'] = 9524,
     ['evade'] = 0.01,
     ['range'] = 3,
@@ -173,7 +173,7 @@ B2SuperBattleDroid = {
 }
 
 BabyYoda = {
-    ['offense'] = 9761,
+    ['melee_offense'] = 9761,
     ['defense'] = 9430,
     ['evade'] = 0,
     ['range'] = 2,
@@ -181,7 +181,7 @@ BabyYoda = {
 }
 
 BalaTik = {
-    ['offense'] = 12920,
+    ['melee_offense'] = 12920,
     ['defense'] = 11250,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -189,7 +189,7 @@ BalaTik = {
 }
 
 BarrissOffee = {
-    ['offense'] = 15850,
+    ['melee_offense'] = 15850,
     ['defense'] = 15453,
     ['evade'] = 0.1,
     ['range'] = 1,
@@ -197,7 +197,7 @@ BarrissOffee = {
 }
 
 BazeMalbus = {
-    ['offense'] = 15422,
+    ['melee_offense'] = 15422,
     ['defense'] = 15383,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -205,7 +205,7 @@ BazeMalbus = {
 }
 
 Bendu = {
-    ['offense'] = 19012,
+    ['melee_offense'] = 19012,
     ['defense'] = 17967,
     ['evade'] = 0.07,
     ['range'] = 5,
@@ -213,7 +213,7 @@ Bendu = {
 }
 
 BenKenobi = {
-    ['offense'] = 17304,
+    ['melee_offense'] = 17304,
     ['defense'] = 18513,
     ['evade'] = 0.03,
     ['range'] = 1,
@@ -221,7 +221,7 @@ BenKenobi = {
 }
 
 BiggsDarklighter = {
-    ['offense'] = 6115,
+    ['melee_offense'] = 6115,
     ['defense'] = 6400,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -229,7 +229,7 @@ BiggsDarklighter = {
 }
 
 Bistan = {
-    ['offense'] = 9602,
+    ['melee_offense'] = 9602,
     ['defense'] = 9641,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -237,7 +237,7 @@ Bistan = {
 }
 
 BobaFettROTJ = {
-    ['offense'] = 16612,
+    ['melee_offense'] = 16612,
     ['defense'] = 14543,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -245,7 +245,7 @@ BobaFettROTJ = {
 }
 
 BobaFettMandalorian = {
-    ['offense'] = 17601,
+    ['melee_offense'] = 17601,
     ['defense'] = 16048,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -253,7 +253,7 @@ BobaFettMandalorian = {
 }
 
 BodhiRook = {
-    ['offense'] = 9198,
+    ['melee_offense'] = 9198,
     ['defense'] = 8009,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -261,7 +261,7 @@ BodhiRook = {
 }
 
 Boil = {
-    ['offense'] = 10156,
+    ['melee_offense'] = 10156,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -269,7 +269,7 @@ Boil = {
 }
 
 BoKatan = {
-    ['offense'] = 16547,
+    ['melee_offense'] = 16547,
     ['defense'] = 14768,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -277,7 +277,7 @@ BoKatan = {
 }
 
 Bossk = {
-    ['offense'] = 15013,
+    ['melee_offense'] = 15013,
     ['defense'] = 15748,
     ['evade'] = 0.04,
     ['range'] = 5,
@@ -285,14 +285,14 @@ Bossk = {
 }
 
 C3P0 = {
-    ['offense'] = 335,
+    ['melee_offense'] = 335,
     ['defense'] = 824,
     ['evade'] = 0.01,
     ['range'] = 1
 }
 
 CadBane = {
-    ['offense'] = 16714,
+    ['melee_offense'] = 16714,
     ['defense'] = 14141,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -300,7 +300,7 @@ CadBane = {
 }
 
 CalKestis = {
-    ['offense'] = 17346,
+    ['melee_offense'] = 17346,
     ['defense'] = 14967,
     ['evade'] = 0.06,
     ['range'] = 1,
@@ -308,7 +308,7 @@ CalKestis = {
 }
 
 CaptainJag = {
-    ['offense'] = 12351,
+    ['melee_offense'] = 12351,
     ['defense'] = 12001,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -316,14 +316,14 @@ CaptainJag = {
 }
 
 CaptainPhasma = {
-    ['offense'] = 12017,
+    ['melee_offense'] = 12017,
     ['defense'] = 12177,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 CaptainRex = {
-    ['offense'] = 15423,
+    ['melee_offense'] = 15423,
     ['defense'] = 15518,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -331,7 +331,7 @@ CaptainRex = {
 }
 
 CaptainVaughn = {
-    ['offense'] = 12355,
+    ['melee_offense'] = 12355,
     ['defense'] = 12090,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -339,7 +339,7 @@ CaptainVaughn = {
 }
 
 CaraDune = {
-    ['offense'] = 16193,
+    ['melee_offense'] = 16193,
     ['defense'] = 14814,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -347,7 +347,7 @@ CaraDune = {
 }
 
 Cardo = {
-    ['offense'] = 15551,
+    ['melee_offense'] = 15551,
     ['defense'] = 15416,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -355,7 +355,7 @@ Cardo = {
 }
 
 CassianAndor = {
-    ['offense'] = 14873,
+    ['melee_offense'] = 14873,
     ['defense'] = 12130,
     ['evade'] = 0.03,
     ['range'] = 5,
@@ -363,7 +363,7 @@ CassianAndor = {
 }
 
 CereJunda = {
-    ['offense'] = 16449,
+    ['melee_offense'] = 16449,
     ['defense'] = 14756,
     ['evade'] = 0.04,
     ['range'] = 2,
@@ -371,7 +371,7 @@ CereJunda = {
 }
 
 Chewbacca = {
-    ['offense'] = 14210,
+    ['melee_offense'] = 14210,
     ['defense'] = 12169,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -379,28 +379,28 @@ Chewbacca = {
 }
 
 Chopper = {
-    ['offense'] = 6656,
+    ['melee_offense'] = 6656,
     ['defense'] = 6558,
     ['evade'] = 0.15,
     ['range'] = 1,
 }
 
 ChirrutÎmwe = {
-    ['offense'] = 15520,
+    ['melee_offense'] = 15520,
     ['defense'] = 15520,
     ['evade'] = 0.12,
     ['range'] = 1,
 }
 
 ChiefChirpa = {
-    ['offense'] = 4121,
+    ['melee_offense'] = 4121,
     ['defense'] = 3912,
     ['evade'] = 0.10,
     ['range'] = 1,
 }
 
 CloneCommando = {
-    ['offense'] = 13876,
+    ['melee_offense'] = 13876,
     ['defense'] = 13846,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -408,7 +408,7 @@ CloneCommando = {
 }
 
 CloneCommandoGregor = {
-    ['offense'] = 14211,
+    ['melee_offense'] = 14211,
     ['defense'] = 14195,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -416,7 +416,7 @@ CloneCommandoGregor = {
 }
 
 CloneJetTrooper = {
-    ['offense'] = 12050,
+    ['melee_offense'] = 12050,
     ['defense'] = 12076,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -424,7 +424,7 @@ CloneJetTrooper = {
 }
 
 CloneTrooper212th = {
-    ['offense'] = 9874,
+    ['melee_offense'] = 9874,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -432,7 +432,7 @@ CloneTrooper212th = {
 }
 
 CloneTrooper322nd = {
-    ['offense'] = 12165,
+    ['melee_offense'] = 12165,
     ['defense'] = 12018,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -440,7 +440,7 @@ CloneTrooper322nd = {
 }
 
 CloneTrooper327th = {
-    ['offense'] = 9781,
+    ['melee_offense'] = 9781,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -448,7 +448,7 @@ CloneTrooper327th = {
 }
 
 CloneTrooper501st = {
-    ['offense'] = 12165,
+    ['melee_offense'] = 12165,
     ['defense'] = 12018,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -456,7 +456,7 @@ CloneTrooper501st = {
 }
 
 ColemanKcaj = {
-    ['offense'] = 17320,
+    ['melee_offense'] = 17320,
     ['defense'] = 18156,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -464,7 +464,7 @@ ColemanKcaj = {
 }
 
 ColemanTrebor = {
-    ['offense'] = 16899,
+    ['melee_offense'] = 16899,
     ['defense'] = 14424,
     ['evade'] = 0.03,
     ['range'] = 1,
@@ -472,7 +472,7 @@ ColemanTrebor = {
 }
 
 CommanderAppo = {
-    ['offense'] = 12350,
+    ['melee_offense'] = 12350,
     ['defense'] = 12070,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -480,7 +480,7 @@ CommanderAppo = {
 }
 
 CommanderBacara = {
-    ['offense'] = 12232,
+    ['melee_offense'] = 12232,
     ['defense'] = 12222,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -488,7 +488,7 @@ CommanderBacara = {
 }
 
 CommanderBly = {
-    ['offense'] = 12259,
+    ['melee_offense'] = 12259,
     ['defense'] = 12213,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -496,7 +496,7 @@ CommanderBly = {
 }
 
 CommanderCody = {
-    ['offense'] = 15319,
+    ['melee_offense'] = 15319,
     ['defense'] = 15371,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -504,7 +504,7 @@ CommanderCody = {
 }
 
 CommanderFox = {
-    ['offense'] = 12357,
+    ['melee_offense'] = 12357,
     ['defense'] = 12050,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -512,7 +512,7 @@ CommanderFox = {
 }
 
 CommanderGree = {
-    ['offense'] = 12230,
+    ['melee_offense'] = 12230,
     ['defense'] = 12220,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -520,7 +520,7 @@ CommanderGree = {
 }
 
 CommanderNeyo = {
-    ['offense'] = 12356,
+    ['melee_offense'] = 12356,
     ['defense'] = 12049,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -528,7 +528,7 @@ CommanderNeyo = {
 }
 
 CommanderSato = {
-    ['offense'] = 6500,
+    ['melee_offense'] = 6500,
     ['defense'] = 6341,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -536,7 +536,7 @@ CommanderSato = {
 }
 
 CommanderWolffe = {
-    ['offense'] = 12359,
+    ['melee_offense'] = 12359,
     ['defense'] = 12193,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -544,7 +544,7 @@ CommanderWolffe = {
 }
 
 CommandoDroid = {
-    ['offense'] = 12881,
+    ['melee_offense'] = 12881,
     ['defense'] = 11279,
     ['evade'] = 0.07,
     ['range'] = 3,
@@ -552,7 +552,7 @@ CommandoDroid = {
 }
 
 CoruscantGuardCloneTrooper = {
-    ['offense'] = 9900,
+    ['melee_offense'] = 9900,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -560,7 +560,7 @@ CoruscantGuardCloneTrooper = {
 }
 
 CountDooku = {
-    ['offense'] = 18224,
+    ['melee_offense'] = 18224,
     ['defense'] = 18391,
     ['evade'] = 0.05,
     ['range'] = 1,
@@ -568,14 +568,14 @@ CountDooku = {
 }
 
 DarkTrooper = {
-    ['offense'] = 15071,
+    ['melee_offense'] = 15071,
     ['defense'] = 15958,
     ['evade'] = 0.15,
     ['range'] = 1
 }
 
 DarthSidious = {
-    ['offense'] = 18731,
+    ['melee_offense'] = 18731,
     ['defense'] = 18653,
     ['evade'] = 0.07,
     ['range'] = 2,
@@ -583,7 +583,7 @@ DarthSidious = {
 }
 
 DarthSidiousReborn = {
-    ['offense'] = 19446,
+    ['melee_offense'] = 19446,
     ['defense'] = 19256,
     ['evade'] = 0,
     ['range'] = 5,
@@ -591,7 +591,7 @@ DarthSidiousReborn = {
 }
 
 DarthVader = {
-    ['offense'] = 18400,
+    ['melee_offense'] = 18400,
     ['defense'] = 18643,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -599,7 +599,7 @@ DarthVader = {
 }
 
 DarthNoscoper = {
-    ['offense'] = 25387,
+    ['melee_offense'] = 25387,
     ['defense'] = 24568,
     ['evade'] = 0,
     ['range'] = 5,
@@ -608,7 +608,7 @@ DarthNoscoper = {
 }
 
 DeathTrooper = {
-    ['offense'] = 12348,
+    ['melee_offense'] = 12348,
     ['defense'] = 11848,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -616,7 +616,7 @@ DeathTrooper = {
 }
 
 DeathWatchMandalorian = {
-    ['offense'] = 13278,
+    ['melee_offense'] = 13278,
     ['defense'] = 10905,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -624,7 +624,7 @@ DeathWatchMandalorian = {
 }
 
 Dengar = {
-    ['offense'] = 15247,
+    ['melee_offense'] = 15247,
     ['defense'] = 9871,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -632,7 +632,7 @@ Dengar = {
 }
 
 DepaBillaba = {
-    ['offense'] = 17444,
+    ['melee_offense'] = 17444,
     ['defense'] = 18113,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -640,7 +640,7 @@ DepaBillaba = {
 }
 
 DirectorKrennic = {
-    ['offense'] = 6300,
+    ['melee_offense'] = 6300,
     ['defense'] = 6410,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -648,7 +648,7 @@ DirectorKrennic = {
 }
 
 Droideka = {
-    ['offense'] = 14268,
+    ['melee_offense'] = 14268,
     ['defense'] = 14393,
     ['evade'] = 0,
     ['range'] = 3,
@@ -656,7 +656,7 @@ Droideka = {
 }
 
 DroidekaSniper = {
-    ['offense'] = 14996,
+    ['melee_offense'] = 14996,
     ['defense'] = 14000,
     ['evade'] = 0,
     ['range'] = 5,
@@ -664,14 +664,14 @@ DroidekaSniper = {
 }
 
 DrydenVos = {
-    ['offense'] = 15190,
+    ['melee_offense'] = 15190,
     ['defense'] = 9083,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 DwarfSpiderDroid = {
-    ['offense'] = 15190,
+    ['melee_offense'] = 15190,
     ['defense'] = 8959,
     ['evade'] = 0.02,
     ['range'] = 5,
@@ -679,7 +679,7 @@ DwarfSpiderDroid = {
 }
 
 EethKoth = {
-    ['offense'] = 17556,
+    ['melee_offense'] = 17556,
     ['defense'] = 18010,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -687,7 +687,7 @@ EethKoth = {
 }
 
 EighthBrother = {
-    ['offense'] = 17445,
+    ['melee_offense'] = 17445,
     ['defense'] = 17411,
     ['evade'] = 0.15,
     ['range'] = 1,
@@ -695,14 +695,14 @@ EighthBrother = {
 }
 
 ElitePraetorianGuard = {
-    ['offense'] = 15949,
+    ['melee_offense'] = 15949,
     ['defense'] = 15939,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 EliteSenateCommando = {
-    ['offense'] = 9034,
+    ['melee_offense'] = 9034,
     ['defense'] = 9124,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -710,7 +710,7 @@ EliteSenateCommando = {
 }
 
 Embo = {
-    ['offense'] = 13481,
+    ['melee_offense'] = 13481,
     ['defense'] = 14281,
     ['evade'] = 0.05,
     ['range'] = 5,
@@ -718,14 +718,14 @@ Embo = {
 }
 
 EnfysNest = {
-    ['offense'] = 14320,
+    ['melee_offense'] = 14320,
     ['defense'] = 13169,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 EvenPiell = {
-    ['offense'] = 17820,
+    ['melee_offense'] = 17820,
     ['defense'] = 17235,
     ['evade'] = 0.07,
     ['range'] = 1,
@@ -733,7 +733,7 @@ EvenPiell = {
 }
 
 EzraBridgerS2 = {
-    ['offense'] = 9573,
+    ['melee_offense'] = 9573,
     ['defense'] = 9319,
     ['evade'] = 0.05,
     ['range'] = 1,
@@ -741,7 +741,7 @@ EzraBridgerS2 = {
 }
 
 EzraBridgerS4 = {
-    ['offense'] = 16237,
+    ['melee_offense'] = 16237,
     ['defense'] = 15648,
     ['evade'] = 0.05,
     ['range'] = 1,
@@ -749,7 +749,7 @@ EzraBridgerS4 = {
 }
 
 FarmboyLuke = {
-    ['offense'] = 9987,
+    ['melee_offense'] = 9987,
     ['defense'] = 6567,
     ['evade'] = 0.02,
     ['range'] = 5,
@@ -757,7 +757,7 @@ FarmboyLuke = {
 }
 
 FennecShand = {
-    ['offense'] = 16427,
+    ['melee_offense'] = 16427,
     ['defense'] = 14383,
     ['evade'] = 0.04,
     ['range'] = 5,
@@ -765,7 +765,7 @@ FennecShand = {
 }
 
 FifthBrother = {
-    ['offense'] = 17679,
+    ['melee_offense'] = 17679,
     ['defense'] = 17567,
     ['evade'] = 0.15,
     ['range'] = 1,
@@ -773,7 +773,7 @@ FifthBrother = {
 }
 
 Finn = {
-    ['offense'] = 9044,
+    ['melee_offense'] = 9044,
     ['defense'] = 9137,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -781,21 +781,21 @@ Finn = {
 }
 
 FirstOrderExecutioner = {
-    ['offense'] = 10100,
+    ['melee_offense'] = 10100,
     ['defense'] = 7456,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 FirstOrderFlametrooper = {
-    ['offense'] = 10105,
+    ['melee_offense'] = 10105,
     ['defense'] = 7500,
     ['evade'] = 0.01,
     ['range'] = 1
 }
 
 FirstOrderJetTrooper = {
-    ['offense'] = 8695,
+    ['melee_offense'] = 8695,
     ['defense'] = 9456,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -803,14 +803,14 @@ FirstOrderJetTrooper = {
 }
 
 FirstOrderRiotControlTrooper = {
-    ['offense'] = 8056,
+    ['melee_offense'] = 8056,
     ['defense'] = 10123,
     ['evade'] = 0.02,
     ['range'] = 1
 }
 
 FirstOrderSnowtrooper = {
-    ['offense'] = 8267,
+    ['melee_offense'] = 8267,
     ['defense'] = 8267,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -818,7 +818,7 @@ FirstOrderSnowtrooper = {
 }
 
 FirstOrderStormtrooper = {
-    ['offense'] = 7152,
+    ['melee_offense'] = 7152,
     ['defense'] = 6547,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -826,7 +826,7 @@ FirstOrderStormtrooper = {
 }
 
 FourLOM = {
-    ['offense'] = 9956,
+    ['melee_offense'] = 9956,
     ['defense'] = 9294,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -834,7 +834,7 @@ FourLOM = {
 }
 
 GamorreanGuard = {
-    ['offense'] = 6343,
+    ['melee_offense'] = 6343,
     ['defense'] = 6113,
     ['evade'] = 0.01,
     ['range'] = 1,
@@ -842,7 +842,7 @@ GamorreanGuard = {
 }
 
 GeneralGrievous = {
-    ['offense'] = 19001,
+    ['melee_offense'] = 19001,
     ['defense'] = 16902,
     ['evade'] = 0.06,
     ['range'] = 1,
@@ -850,7 +850,7 @@ GeneralGrievous = {
 }
 
 GeneralHux = {
-    ['offense'] = 5925,
+    ['melee_offense'] = 5925,
     ['defense'] = 4130,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -858,7 +858,7 @@ GeneralHux = {
 }
 
 GeneralLeiaOrgana = {
-    ['offense'] = 9817,
+    ['melee_offense'] = 9817,
     ['defense'] = 6871,
     ['evade'] = 0.07,
     ['range'] = 2,
@@ -866,7 +866,7 @@ GeneralLeiaOrgana = {
 }
 
 GeneralVeers = {
-    ['offense'] = 5721,
+    ['melee_offense'] = 5721,
     ['defense'] = 4334,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -874,14 +874,14 @@ GeneralVeers = {
 }
 
 GeonosianBroodAlpha = {
-    ['offense'] = 9964,
+    ['melee_offense'] = 9964,
     ['defense'] = 9615,
     ['evade'] = 0.15,
     ['range'] = 1
 }
 
 GovernorPryce = {
-    ['offense'] = 9234,
+    ['melee_offense'] = 9234,
     ['defense'] = 8014,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -889,7 +889,7 @@ GovernorPryce = {
 }
 
 GrandAdmiralThrawn = {
-    ['offense'] = 16271,
+    ['melee_offense'] = 16271,
     ['defense'] = 15524,
     ['evade'] = 0.05,
     ['range'] = 2,
@@ -897,7 +897,7 @@ GrandAdmiralThrawn = {
 }
 
 GrandInquisitor = {
-    ['offense'] = 17889,
+    ['melee_offense'] = 17889,
     ['defense'] = 17876,
     ['evade'] = 0.15,
     ['range'] = 1,
@@ -905,7 +905,7 @@ GrandInquisitor = {
 }
 
 GrandMoffTarkin = {
-    ['offense'] = 6345,
+    ['melee_offense'] = 6345,
     ['defense'] = 6419,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -913,7 +913,7 @@ GrandMoffTarkin = {
 }
 
 Greedo = {
-    ['offense'] = 9142,
+    ['melee_offense'] = 9142,
     ['defense'] = 8253,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -921,7 +921,7 @@ Greedo = {
 }
 
 GreefKarga = {
-    ['offense'] = 9051,
+    ['melee_offense'] = 9051,
     ['defense'] = 9134,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -929,7 +929,7 @@ GreefKarga = {
 }
 
 GuavianDeathGangSoldier = {
-    ['offense'] = 9002,
+    ['melee_offense'] = 9002,
     ['defense'] = 8457,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -937,7 +937,7 @@ GuavianDeathGangSoldier = {
 }
 
 HanSolo = {
-    ['offense'] = 15529,
+    ['melee_offense'] = 15529,
     ['defense'] = 9648,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -945,7 +945,7 @@ HanSolo = {
 }
 
 HanSoloOld = {
-    ['offense'] = 15546,
+    ['melee_offense'] = 15546,
     ['defense'] = 8565,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -953,7 +953,7 @@ HanSoloOld = {
 }
 
 Hardcase = {
-    ['offense'] = 12354,
+    ['melee_offense'] = 12354,
     ['defense'] = 12046,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -961,7 +961,7 @@ Hardcase = {
 }
 
 HeraSyndulla = {
-    ['offense'] = 15189,
+    ['melee_offense'] = 15189,
     ['defense'] = 10038,
     ['evade'] = 0.05,
     ['range'] = 2,
@@ -969,7 +969,7 @@ HeraSyndulla = {
 }
 
 HermitLuke = {
-    ['offense'] = 17469,
+    ['melee_offense'] = 17469,
     ['defense'] = 19455,
     ['evade'] = 0.12,
     ['range'] = 1,
@@ -977,7 +977,7 @@ HermitLuke = {
 }
 
 HermitYoda = {
-    ['offense'] = 18587,
+    ['melee_offense'] = 18587,
     ['defense'] = 18341,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -985,7 +985,7 @@ HermitYoda = {
 }
 
 Hevy = {
-    ['offense'] = 9509,
+    ['melee_offense'] = 9509,
     ['defense'] = 9103,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -993,7 +993,7 @@ Hevy = {
 }
 
 HondoOhnaka = {
-    ['offense'] = 11454,
+    ['melee_offense'] = 11454,
     ['defense'] = 11732,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -1001,7 +1001,7 @@ HondoOhnaka = {
 }
 
 HothRebelSoldier = {
-    ['offense'] = 6517,
+    ['melee_offense'] = 6517,
     ['defense'] = 6308,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -1009,14 +1009,14 @@ HothRebelSoldier = {
 }
 
 Hunter = {
-    ['offense'] = 15850,
+    ['melee_offense'] = 15850,
     ['defense'] = 15200,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 IdenVersio = {
-    ['offense'] = 14478,
+    ['melee_offense'] = 14478,
     ['defense'] = 12916,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1024,7 +1024,7 @@ IdenVersio = {
 }
 
 IG88 = {
-    ['offense'] = 14205,
+    ['melee_offense'] = 14205,
     ['defense'] = 11178,
     ['evade'] = 0.04,
     ['range'] = 5,
@@ -1032,7 +1032,7 @@ IG88 = {
 }
 
 IG11 = {
-    ['offense'] = 16105,
+    ['melee_offense'] = 16105,
     ['defense'] = 14888,
     ['evade'] = 0.04,
     ['range'] = 5,
@@ -1040,7 +1040,7 @@ IG11 = {
 }
 
 ImaGunDi = {
-    ['offense'] = 17860,
+    ['melee_offense'] = 17860,
     ['defense'] = 18049,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1048,7 +1048,7 @@ ImaGunDi = {
 }
 
 ImperialJumpTrooper = {
-    ['offense'] = 9191,
+    ['melee_offense'] = 9191,
     ['defense'] = 8566,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -1056,14 +1056,14 @@ ImperialJumpTrooper = {
 }
 
 JabbaTheHutt = {
-    ['offense'] = 249,
+    ['melee_offense'] = 249,
     ['defense'] = 513,
     ['evade'] = 0,
     ['range'] = 1
 }
 
 JangoFett = {
-    ['offense'] = 17536,
+    ['melee_offense'] = 17536,
     ['defense'] = 15464,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -1071,14 +1071,14 @@ JangoFett = {
 }
 
 JarJarBinks = {
-    ['offense'] = 5771,
+    ['melee_offense'] = 5771,
     ['defense'] = 2784,
     ['evade'] = 0.08,
     ['range'] = 1,
 }
 
 JaroTapal = {
-    ['offense'] = 17880,
+    ['melee_offense'] = 17880,
     ['defense'] = 18030,
     ['evade'] = 0.03,
     ['range'] = 1,
@@ -1087,7 +1087,7 @@ JaroTapal = {
 
 
 Jawa = {
-    ['offense'] = 3587,
+    ['melee_offense'] = 3587,
     ['defense'] = 3871,
     ['evade'] = 0.1,
     ['range'] = 2,
@@ -1095,14 +1095,14 @@ Jawa = {
 }
 
 JynErso = {
-    ['offense'] = 14513,
+    ['melee_offense'] = 14513,
     ['defense'] = 14349,
     ['evade'] = 0.05,
     ['range'] = 1
 }
 
 KananJarrus = {
-    ['offense'] = 16049,
+    ['melee_offense'] = 16049,
     ['defense'] = 16103,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1110,7 +1110,7 @@ KananJarrus = {
 }
 
 Katooni = {
-    ['offense'] = 10590,
+    ['melee_offense'] = 10590,
     ['defense'] = 8990,
     ['evade'] = 0.1,
     ['range'] = 1,
@@ -1118,7 +1118,7 @@ Katooni = {
 }
 
 KiAdiMundi = {
-    ['offense'] = 17849,
+    ['melee_offense'] = 17849,
     ['defense'] = 18002,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1126,7 +1126,7 @@ KiAdiMundi = {
 }
 
 KitFisto = {
-    ['offense'] = 17801,
+    ['melee_offense'] = 17801,
     ['defense'] = 18078,
     ['evade'] = 0.05,
     ['range'] = 1,
@@ -1134,7 +1134,7 @@ KitFisto = {
 }
 
 Kix = {
-    ['offense'] = 12092,
+    ['melee_offense'] = 12092,
     ['defense'] = 12093,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1142,7 +1142,7 @@ Kix = {
 }
 
 KoskaReeves = {
-    ['offense'] = 15547,
+    ['melee_offense'] = 15547,
     ['defense'] = 14768,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -1150,7 +1150,7 @@ KoskaReeves = {
 }
 
 Kuruk = {
-    ['offense'] = 16347,
+    ['melee_offense'] = 16347,
     ['defense'] = 14654,
     ['evade'] = 0.03,
     ['range'] = 5,
@@ -1158,7 +1158,7 @@ Kuruk = {
 }
 
 KyloRen = {
-    ['offense'] = 18193,
+    ['melee_offense'] = 18193,
     ['defense'] = 17664,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1166,7 +1166,7 @@ KyloRen = {
 }
 
 LandoCalrissian = {
-    ['offense'] = 9136,
+    ['melee_offense'] = 9136,
     ['defense'] = 9058,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1174,7 +1174,7 @@ LandoCalrissian = {
 }
 
 LeiaOrgana = {
-    ['offense'] = 15018,
+    ['melee_offense'] = 15018,
     ['defense'] = 9153,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1182,14 +1182,14 @@ LeiaOrgana = {
 }
 
 Logray = {
-    ['offense'] = 4096,
+    ['melee_offense'] = 4096,
     ['defense'] = 3912,
     ['evade'] = 0.10,
     ['range'] = 1
 }
 
 LukeSkywalkerROTJ = {
-    ['offense'] = 18437,
+    ['melee_offense'] = 18437,
     ['defense'] = 18339,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1197,7 +1197,7 @@ LukeSkywalkerROTJ = {
 }
 
 LuminaraUnduli = {
-    ['offense'] = 17779,
+    ['melee_offense'] = 17779,
     ['defense'] = 17909,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1205,7 +1205,7 @@ LuminaraUnduli = {
 }
 
 MaceWindu = {
-    ['offense'] = 18901,
+    ['melee_offense'] = 18901,
     ['defense'] = 18574,
     ['evade'] = 0.05,
     ['range'] = 1,
@@ -1213,14 +1213,14 @@ MaceWindu = {
 }
 
 MagnaGuard = {
-    ['offense'] = 13352,
+    ['melee_offense'] = 13352,
     ['defense'] = 12684,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 Maul = {
-    ['offense'] = 18325,
+    ['melee_offense'] = 18325,
     ['defense'] = 17583,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1228,7 +1228,7 @@ Maul = {
 }
 
 MoffGideon = {
-    ['offense'] = 16378,
+    ['melee_offense'] = 16378,
     ['defense'] = 14873,
     ['evade'] = 0.02,
     ['range'] = 1,
@@ -1236,7 +1236,7 @@ MoffGideon = {
 }
 
 MotherTalzin = {
-    ['offense'] = 17638,
+    ['melee_offense'] = 17638,
     ['defense'] = 14660,
     ['evade'] = 0.08,
     ['range'] = 1,
@@ -1244,7 +1244,7 @@ MotherTalzin = {
 }
 
 MoraloEval = {
-    ['offense'] = 9000,
+    ['melee_offense'] = 9000,
     ['defense'] = 9137,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1252,7 +1252,7 @@ MoraloEval = {
 }
 
 NightsisterMerrin = {
-    ['offense'] = 17151,
+    ['melee_offense'] = 17151,
     ['defense'] = 14756,
     ['evade'] = 0.08,
     ['range'] = 3,
@@ -1260,7 +1260,7 @@ NightsisterMerrin = {
 }
 
 NinthSister = {
-    ['offense'] = 17330,
+    ['melee_offense'] = 17330,
     ['defense'] = 18406,
     ['evade'] = 0.15,
     ['range'] = 1,
@@ -1268,7 +1268,7 @@ NinthSister = {
 }
 
 NinetyNine = {
-    ['offense'] = 6134,
+    ['melee_offense'] = 6134,
     ['defense'] = 3921,
     ['evade'] = 0.01,
     ['range'] = 3,
@@ -1276,7 +1276,7 @@ NinetyNine = {
 }
 
 NuteGunray = {
-    ['offense'] = 4767,
+    ['melee_offense'] = 4767,
     ['defense'] = 3975,
     ['evade'] = 0.1,
     ['range'] = 2,
@@ -1284,7 +1284,7 @@ NuteGunray = {
 }
 
 ObiWanKenobi = {
-    ['offense'] = 17421,
+    ['melee_offense'] = 17421,
     ['defense'] = 18864,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1292,7 +1292,7 @@ ObiWanKenobi = {
 }
 
 OldDaka = {
-    ['offense'] = 6345,
+    ['melee_offense'] = 6345,
     ['defense'] = 3721,
     ['evade'] = 0.01,
     ['range'] = 3,
@@ -1300,7 +1300,7 @@ OldDaka = {
 }
 
 PabloJill = {
-    ['offense'] = 16889,
+    ['melee_offense'] = 16889,
     ['defense'] = 14886,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1308,7 +1308,7 @@ PabloJill = {
 }
 
 PadmeAmidala = {
-    ['offense'] = 14768,
+    ['melee_offense'] = 14768,
     ['defense'] = 9427,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1316,7 +1316,7 @@ PadmeAmidala = {
 }
 
 Pao = {
-    ['offense'] = 9649,
+    ['melee_offense'] = 9649,
     ['defense'] = 9610,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -1324,14 +1324,14 @@ Pao = {
 }
 
 Paploo = {
-    ['offense'] = 4493,
+    ['melee_offense'] = 4493,
     ['defense'] = 3974,
     ['evade'] = 0.1,
     ['range'] = 1
 }
 
 Phase1CloneTrooper = {
-    ['offense'] = 9473,
+    ['melee_offense'] = 9473,
     ['defense'] = 9094,
     ['evade'] = 0.2,
     ['range'] = 3,
@@ -1339,7 +1339,7 @@ Phase1CloneTrooper = {
 }
 
 Phase2CloneTrooper = {
-    ['offense'] = 9786,
+    ['melee_offense'] = 9786,
     ['defense'] = 9481,
     ['evade'] = 0.2,
     ['range'] = 3,
@@ -1347,7 +1347,7 @@ Phase2CloneTrooper = {
 }
 
 PilotBattleDroid = {
-    ['offense'] = 5101,
+    ['melee_offense'] = 5101,
     ['defense'] = 3393,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -1356,7 +1356,7 @@ PilotBattleDroid = {
 
 
 PloKoon = {
-    ['offense'] = 18037,
+    ['melee_offense'] = 18037,
     ['defense'] = 17792,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1364,7 +1364,7 @@ PloKoon = {
 }
 
 PoeDameron = {
-    ['offense'] = 9128,
+    ['melee_offense'] = 9128,
     ['defense'] = 9039,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1372,14 +1372,14 @@ PoeDameron = {
 }
 
 PoggleTheLesser = {
-    ['offense'] = 5108,
+    ['melee_offense'] = 5108,
     ['defense'] = 4547,
     ['evade'] = 0.15,
     ['range'] = 1
 }
 
 PongKrell = {
-    ['offense'] = 18418,
+    ['melee_offense'] = 18418,
     ['defense'] = 17450,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1387,7 +1387,7 @@ PongKrell = {
 }
 
 PreVizsla = {
-    ['offense'] = 17336,
+    ['melee_offense'] = 17336,
     ['defense'] = 17374,
     ['evade'] = 0.15,
     ['range'] = 1,
@@ -1395,7 +1395,7 @@ PreVizsla = {
 }
 
 PurgeTrooper = {
-    ['offense'] = 15614,
+    ['melee_offense'] = 15614,
     ['defense'] = 15483,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1403,7 +1403,7 @@ PurgeTrooper = {
 }
 
 Qira = {
-    ['offense'] = 14817,
+    ['melee_offense'] = 14817,
     ['defense'] = 9389,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1411,7 +1411,7 @@ Qira = {
 }
 
 QuiGonJinn = {
-    ['offense'] = 17814,
+    ['melee_offense'] = 17814,
     ['defense'] = 17989,
     ['evade'] = 0.03,
     ['range'] = 1,
@@ -1419,7 +1419,7 @@ QuiGonJinn = {
 }
 
 QuinlanVos = {
-    ['offense'] = 17980,
+    ['melee_offense'] = 17980,
     ['defense'] = 17855,
     ['evade'] = 0.07,
     ['range'] = 1,
@@ -1427,21 +1427,21 @@ QuinlanVos = {
 }
 
 R2D2 = {
-    ['offense'] = 9241,
+    ['melee_offense'] = 9241,
     ['defense'] = 8765,
     ['evade'] = 0.15,
     ['range'] = 1
 }
 
 RedGuard = {
-    ['offense'] = 6223,
+    ['melee_offense'] = 6223,
     ['defense'] = 6400,
     ['evade'] = 0.02,
     ['range'] = 1
 }
 
 Rey = {
-    ['offense'] = 17899,
+    ['melee_offense'] = 17899,
     ['defense'] = 17890,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1449,21 +1449,21 @@ Rey = {
 }
 
 RoyalGuard = {
-    ['offense'] = 13637,
+    ['melee_offense'] = 13637,
     ['defense'] = 13784,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 Rukh = {
-    ['offense'] = 14310,
+    ['melee_offense'] = 14310,
     ['defense'] = 13150,
     ['evade'] = 0.05,
     ['range'] = 1
 }
 
 SabineWrenDarksaber = {
-    ['offense'] = 14231,
+    ['melee_offense'] = 14231,
     ['defense'] = 14180,
     ['evade'] = 0.05,
     ['range'] = 1,
@@ -1471,7 +1471,7 @@ SabineWrenDarksaber = {
 }
 
 SaeseeTiin = {
-    ['offense'] = 17952,
+    ['melee_offense'] = 17952,
     ['defense'] = 17901,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1479,7 +1479,7 @@ SaeseeTiin = {
 }
 
 Sandtrooper = {
-    ['offense'] = 6516,
+    ['melee_offense'] = 6516,
     ['defense'] = 6319,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1487,7 +1487,7 @@ Sandtrooper = {
 }
 
 SavageOpress = {
-    ['offense'] = 18526,
+    ['melee_offense'] = 18526,
     ['defense'] = 17349,
     ['evade'] = 0.03,
     ['range'] = 1,
@@ -1495,7 +1495,7 @@ SavageOpress = {
 }
 
 SawGerrera = {
-    ['offense'] = 13911,
+    ['melee_offense'] = 13911,
     ['defense'] = 10221,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -1503,7 +1503,7 @@ SawGerrera = {
 }
 
 ScoutBattalionCloneTrooper41st = {
-    ['offense'] = 9925,
+    ['melee_offense'] = 9925,
     ['defense'] = 9612,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1511,7 +1511,7 @@ ScoutBattalionCloneTrooper41st = {
 }
 
 ScoutTrooper = {
-    ['offense'] = 7453,
+    ['melee_offense'] = 7453,
     ['defense'] = 7231,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1519,14 +1519,14 @@ ScoutTrooper = {
 }
 
 SenateGuard = {
-    ['offense'] = 6124,
+    ['melee_offense'] = 6124,
     ['defense'] = 6567,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 SeventhSister = {
-    ['offense'] = 17556,
+    ['melee_offense'] = 17556,
     ['defense'] = 17412,
     ['evade'] = 0.15,
     ['range'] = 1,
@@ -1534,7 +1534,7 @@ SeventhSister = {
 }
 
 ShaakTi = {
-    ['offense'] = 17826,
+    ['melee_offense'] = 17826,
     ['defense'] = 18003,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1542,7 +1542,7 @@ ShaakTi = {
 }
 
 Shoretrooper = {
-    ['offense'] = 8013,
+    ['melee_offense'] = 8013,
     ['defense'] = 8127,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1550,7 +1550,7 @@ Shoretrooper = {
 }
 
 SithTrooper = {
-    ['offense'] = 9005,
+    ['melee_offense'] = 9005,
     ['defense'] = 9178,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -1558,7 +1558,7 @@ SithTrooper = {
 }
 
 SnapWexley = {
-    ['offense'] = 6100,
+    ['melee_offense'] = 6100,
     ['defense'] = 6501,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1566,7 +1566,7 @@ SnapWexley = {
 }
 
 Snowtrooper = {
-    ['offense'] = 7634,
+    ['melee_offense'] = 7634,
     ['defense'] = 7435,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1574,7 +1574,7 @@ Snowtrooper = {
 }
 
 StassAllie = {
-    ['offense'] = 17357,
+    ['melee_offense'] = 17357,
     ['defense'] = 18134,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1582,7 +1582,7 @@ StassAllie = {
 }
 
 SteelaGerrera = {
-    ['offense'] = 12744,
+    ['melee_offense'] = 12744,
     ['defense'] = 11412,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1590,7 +1590,7 @@ SteelaGerrera = {
 }
 
 StormtrooperOriginal = {
-    ['offense'] = 6484,
+    ['melee_offense'] = 6484,
     ['defense'] = 6348,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -1598,7 +1598,7 @@ StormtrooperOriginal = {
 }
 
 SupremeLeaderSnoke = {
-    ['offense'] = 18468,
+    ['melee_offense'] = 18468,
     ['defense'] = 18452,
     ['evade'] = 0.01,
     ['range'] = 2,
@@ -1606,14 +1606,14 @@ SupremeLeaderSnoke = {
 }
 
 Talia = {
-    ['offense'] = 9718,
+    ['melee_offense'] = 9718,
     ['defense'] = 9518,
     ['evade'] = 0.06,
     ['range'] = 1
 }
 
 TallieLintra = {
-    ['offense'] = 6050,
+    ['melee_offense'] = 6050,
     ['defense'] = 6467,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1621,7 +1621,7 @@ TallieLintra = {
 }
 
 TaronMalicos = {
-    ['offense'] = 17816,
+    ['melee_offense'] = 17816,
     ['defense'] = 13887,
     ['evade'] = 0.04,
     ['range'] = 1,
@@ -1629,7 +1629,7 @@ TaronMalicos = {
 }
 
 TasuLeech = {
-    ['offense'] = 13445,
+    ['melee_offense'] = 13445,
     ['defense'] = 10721,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1637,21 +1637,21 @@ TasuLeech = {
 }
 
 Teebo = {
-    ['offense'] = 4323,
+    ['melee_offense'] = 4323,
     ['defense'] = 3912,
     ['evade'] = 0.10,
     ['range'] = 1
 }
 
 Teedo = {
-    ['offense'] = 4013,
+    ['melee_offense'] = 4013,
     ['defense'] = 3874,
     ['evade'] = 0.08,
     ['range'] = 1
 }
 
 TeraSinube = {
-    ['offense'] = 16750,
+    ['melee_offense'] = 16750,
     ['defense'] = 14121,
     ['evade'] = 0.03,
     ['range'] = 1,
@@ -1659,14 +1659,14 @@ TeraSinube = {
 }
 
 TheArmorer = {
-    ['offense'] = 11854,
+    ['melee_offense'] = 11854,
     ['defense'] = 12200,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 TheMandalorian = {
-    ['offense'] = 16043,
+    ['melee_offense'] = 16043,
     ['defense'] = 15728,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -1674,7 +1674,7 @@ TheMandalorian = {
 }
 
 TobiasBeckett = {
-    ['offense'] = 14123,
+    ['melee_offense'] = 14123,
     ['defense'] = 9995,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1682,7 +1682,7 @@ TobiasBeckett = {
 }
 
 Tokkat = {
-    ['offense'] = 4555,
+    ['melee_offense'] = 4555,
     ['defense'] = 3912,
     ['evade'] = 0.1,
     ['range'] = 3,
@@ -1690,7 +1690,7 @@ Tokkat = {
 }
 
 TuskenRaider = {
-    ['offense'] = 6420,
+    ['melee_offense'] = 6420,
     ['defense'] = 6000,
     ['evade'] = 0.02,
     ['range'] = 5,
@@ -1698,7 +1698,7 @@ TuskenRaider = {
 }
 
 TrillaSuduri = {
-    ['offense'] = 18254,
+    ['melee_offense'] = 18254,
     ['defense'] = 17445,
     ['evade'] = 0.15,
     ['range'] = 1,
@@ -1706,35 +1706,35 @@ TrillaSuduri = {
 }
 
 Trudgen = {
-    ['offense'] = 15617,
+    ['melee_offense'] = 15617,
     ['defense'] = 15358,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 Ushar = {
-    ['offense'] = 15482,
+    ['melee_offense'] = 15482,
     ['defense'] = 15488,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 Vicrul = {
-    ['offense'] = 15492,
+    ['melee_offense'] = 15492,
     ['defense'] = 15470,
     ['evade'] = 0.03,
     ['range'] = 1
 }
 
 WatTambor = {
-    ['offense'] = 450,
+    ['melee_offense'] = 450,
     ['defense'] = 696,
     ['evade'] = 0.01,
     ['range'] = 1
 }
 
 Waxer = {
-    ['offense'] = 10100,
+    ['melee_offense'] = 10100,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1742,7 +1742,7 @@ Waxer = {
 }
 
 WedgeAntilles = {
-    ['offense'] = 6550,
+    ['melee_offense'] = 6550,
     ['defense'] = 6342,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1750,29 +1750,31 @@ WedgeAntilles = {
 }
 
 WicketWWarrick = {
-    ['offense'] = 4554,
+    ['melee_offense'] = 4554,
     ['defense'] = 3994,
     ['evade'] = 0.1,
     ['range'] = 1
 }
 
 Wrecker = {
-    ['offense'] = 16000,
+    ['melee_offense'] = 16000,
     ['defense'] = 15030,
     ['evade'] = 0.02,
     ['range'] = 1
 }
 
 Yoda = {
-    ['offense'] = 18394,
+    ['melee_offense'] = 18394,
+    ['ranged_offense'] = 17593,
     ['defense'] = 18535,
     ['evade'] = 0.12,
-    ['range'] = 1,
-    ['weapon'] = 'YodaLightsaber'
+    ['range'] = 2,
+    ['weapon'] = 'YodaLightsaber',
+    ['projectile'] = 'ForceBlast'
 }
 
 GarazebOrrelios = {
-    ['offense'] = 14229,
+    ['melee_offense'] = 14229,
     ['defense'] = 12169,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1780,7 +1782,7 @@ GarazebOrrelios = {
 }
 
 ZilloBeast = {
-    ['offense'] = 18343,
+    ['melee_offense'] = 18343,
     ['defense'] = 20037,
     ['evade'] = 0,
     ['range'] = 1

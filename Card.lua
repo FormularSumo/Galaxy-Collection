@@ -14,7 +14,12 @@ function Card:init(name,row,column,team,number,level,evolution)
     if not evolution then self.evolution = 0 else self.evolution = evolution end
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-    self.offense = _G[self.name]['offense'] * (self.modifier)
+    self.melee_offense = _G[self.name]['melee_offense'] * (self.modifier)
+    if _G[self.name]['ranged_offense'] then
+        self.ranged_offense = _G[self.name]['ranged_offense'] * (self.modifier)
+    else
+        self.ranged_offense = self.melee_offense
+    end
     self.defense = _G[self.name]['defense'] * (self.modifier)
     self.evade = _G[self.name]['evade']
     self.range = _G[self.name]['range']
@@ -33,7 +38,7 @@ function Card:init(name,row,column,team,number,level,evolution)
     end
 
     if self.weapon_image then
-        self.weapon = Weapon(self.x, self.y, self.column, self.row, self.weapon_image, self.team, self.width, self.height, self.range)
+        self.weapon = Weapon(self.x, self.y, self.column, self.weapon_image, self.team, self.width, self.height, self.range)
     end
 
     if (_G[self.name]['projectile'] == 'Lightning' or _G[self.name]['projectile'] == 'ForceBlast') and self.weapon == nil then
@@ -125,17 +130,23 @@ function Card:distance(target)
 end
 
 function Card:aim()
+    self.melee_attack = false
     if (self.column == 5 or self.column == 6) and self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
         self.target = self.number
         if self.melee_projectile then
             self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
         end
-    elseif (self.column == 5 or self.column == 6) and self.range == 1 then
+        self.melee_attack = true
+    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense * 0.9 > self.ranged_offense) then
         if self.enemy_deck[self.number-1] ~= nil and (self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5) then
             self.target = self.number-1
         elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
             self.target = self.number+1
         end
+        if self.melee_projectile then
+            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
+        end
+        self.melee_attack = true
     else
         self.possible_targets = {}
         self.total_probability = 0
@@ -161,7 +172,7 @@ function Card:aim()
         end
     end
     if self.weapon then
-        self.weapon:updatetarget(self.enemy_deck[self.target])
+        self.weapon:updateshow(self.melee_attack)
     end
 end
 
@@ -170,6 +181,7 @@ function Card:attack()
         self.attack_roll = math.random(100) / 100
         self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
         if self.attack_roll > self.enemy_deck[self.target].evade then
+            if self.melee_attack then self.offense = self.melee_offense else self.offense = self.ranged_offense end
             self.damage = ((self.offense - self.enemy_deck[self.target].defense) / 800)
             if self.damage < 0 then self.damage = 0 end
             self.damage = (self.damage ^ 3)

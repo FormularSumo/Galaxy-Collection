@@ -1,12 +1,12 @@
 Weapon = Class{__includes = BaseState}
 
-function Weapon:init(x,y,column,row,weapon,team,xoffset,yoffset,character_range)
+function Weapon:init(x,y,column,weapon,team,xoffset,yoffset)
     self.alive = true
     self.team = team
     self.xoffset = xoffset
     self.yoffset = yoffset
     self.column = column
-    self.row = row
+    self.show = false
     if self.team == 1 then
         self.x = x + self.xoffset * 0.35
         self.angle = math.rad(210)
@@ -37,8 +37,8 @@ function Weapon:updateposition(x,y,column)
     self.column = column
 end
 
-function Weapon:updatetarget(target)
-    self.target = target
+function Weapon:updateshow(show)
+    self.show = show
 end
 
 function Weapon:update(dt)
@@ -60,7 +60,7 @@ function Weapon:update(dt)
 end
 
 function Weapon:render()
-    if (self.column == 5 or self.column == 6) and timer > 6.4 and self.target and (self.target.row == self.row or self.character_range == 1) then
+    if timer > 6.4 and self.show then
         if self.double then
             if self.team == 1 then
                 love.graphics.draw(self.image,self.x+self.height/4,self.y-self.height/5,self.angle,1,1,self.width/2,self.height/2)
