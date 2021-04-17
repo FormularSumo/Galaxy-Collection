@@ -1479,8 +1479,8 @@ SaeseeTiin = {
 }
 
 Sandtrooper = {
-    ['offense'] = 7216,
-    ['defense'] = 7019,
+    ['offense'] = 6516,
+    ['defense'] = 6319,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
