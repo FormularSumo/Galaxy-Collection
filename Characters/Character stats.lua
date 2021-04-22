@@ -850,7 +850,8 @@ GeneralGrievous = {
     ['defense'] = 16902,
     ['evade'] = 0.06,
     ['range'] = 1,
-    ['weapon'] = 'BlueLightsaber'
+    ['weapon'] = 'BlueLightsaber',
+    ['weapon_count'] = 4
 }
 
 GeneralHux = {
@@ -1388,7 +1389,8 @@ PongKrell = {
     ['defense'] = 17450,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'DoubleGreenLightsaber'
+    ['weapon'] = 'DoubleGreenLightsaber',
+    ['weapon_count'] = 2
 }
 
 PreVizsla = {

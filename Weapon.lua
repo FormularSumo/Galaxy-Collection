@@ -65,8 +65,14 @@ function Weapon:render()
         if self.double then
             if self.team == 1 then
                 love.graphics.draw(self.image,self.x+self.height/4,self.y-self.height/5,self.angle,1,1,self.width/2,self.height/2)
+                if self.weapon_count > 1 then
+                    love.graphics.draw(self.image,self.x+self.height/4+30,self.y-self.height/5-20,self.angle,1,1,self.width/2,self.height/2)
+                end
             else
                 love.graphics.draw(self.image,self.x-self.height/4,self.y-self.height/5,self.angle,1,1,self.width/2,self.height/2)
+                if self.weapon_count > 1 then
+                    love.graphics.draw(self.image,self.x-self.height/4-30,self.y-self.height/5-20,self.angle,1,1,self.width/2,self.height/2)
+                end
             end
         else
             love.graphics.draw(self.image,self.x,self.y,self.angle,1,1,self.width/2)
