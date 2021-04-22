@@ -37,8 +37,14 @@ function Card:init(name,row,column,team,number,level,evolution)
         self.weapon_image = Weapons[_G[self.name]['weapon']]
     end
 
+    if _G[self.name]['weapon_count'] then
+        self.weapon_count = _G[self.name]['weapon_count'] 
+    else
+        self.weapon_count = 1
+    end
+
     if self.weapon_image then
-        self.weapon = Weapon(self.x, self.y, self.column, self.weapon_image, self.team, self.width, self.height, self.range)
+        self.weapon = Weapon(self.x, self.y, self.column, self.weapon_image, self.weapon_count, self.team, self.width, self.height, self.range)
     end
 
     if (_G[self.name]['projectile'] == 'Lightning' or _G[self.name]['projectile'] == 'ForceBlast') and self.weapon == nil then

@@ -1,6 +1,6 @@
 Weapon = Class{__includes = BaseState}
 
-function Weapon:init(x,y,column,weapon,team,xoffset,yoffset)
+function Weapon:init(x,y,column,weapon,weapon_count,team,xoffset,yoffset)
     self.alive = true
     self.team = team
     self.xoffset = xoffset
@@ -25,6 +25,7 @@ function Weapon:init(x,y,column,weapon,team,xoffset,yoffset)
     else
         self.double = false
     end
+    self.weapon_count = weapon_count
 end
 
 function Weapon:updateposition(x,y,column)
@@ -69,6 +70,13 @@ function Weapon:render()
             end
         else
             love.graphics.draw(self.image,self.x,self.y,self.angle,1,1,self.width/2)
+            if self.weapon_count > 1 then
+                if self.team == 1 then
+                    love.graphics.draw(self.image,self.x+30,self.y-20,self.angle,1,1,self.width/2)
+                else
+                    love.graphics.draw(self.image,self.x-30,self.y-20,self.angle,1,1,self.width/2)
+                end
+            end
         end
     end
 end

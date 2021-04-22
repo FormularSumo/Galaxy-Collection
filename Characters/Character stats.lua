@@ -50,7 +50,8 @@ AhsokaTanoFulcrum = {
     ['defense'] = 18384,
     ['evade'] = 0.1,
     ['range'] = 1,
-    ['weapon'] = 'WhiteLightsaber'
+    ['weapon'] = 'WhiteLightsaber', 
+    ['weapon_count'] = 2
 }
 
 AhsokaTanoPadawan = {
@@ -58,7 +59,8 @@ AhsokaTanoPadawan = {
     ['defense'] = 15234,
     ['evade'] = 0.1,
     ['range'] = 1,
-    ['weapon'] = 'YellowLightsaber'
+    ['weapon'] = 'YellowLightsaber', 
+    ['weapon_count'] = 2
 }
 
 AhsokaTanoS7 = {
@@ -66,7 +68,8 @@ AhsokaTanoS7 = {
     ['defense'] = 17420,
     ['evade'] = 0.1,
     ['range'] = 1,
-    ['weapon'] = 'BlueLightsaber'
+    ['weapon'] = 'BlueLightsaber',
+    ['weapon_count'] = 2
 }
 
 AirborneCloneTrooper = {
@@ -145,7 +148,8 @@ AsajjVentress = {
     ['defense'] = 17432,
     ['evade'] = 0.07,
     ['range'] = 1,
-    ['weapon'] = 'RedLightsaber'
+    ['weapon'] = 'RedLightsaber', 
+    ['weapon_count'] = 2
 }
 
 B1BattleDroid = {
@@ -909,7 +913,8 @@ GrandMoffTarkin = {
     ['defense'] = 6419,
     ['evade'] = 0.02,
     ['range'] = 2,
-    ['projectile'] = 'RedLaser'
+    ['projectile'] = 'RedLaser', 
+    ['weapon_count'] = 2
 }
 
 Greedo = {
