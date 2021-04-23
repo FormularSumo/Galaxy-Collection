@@ -37,14 +37,26 @@ function Card:init(name,row,column,team,number,level,evolution)
         self.weapon_image = Weapons[_G[self.name]['weapon']]
     end
 
-    if _G[self.name]['weapon_count'] then
-        self.weapon_count = _G[self.name]['weapon_count'] 
-    else
-        self.weapon_count = 1
+    if _G[self.name]['weapon2'] then
+        if not Weapons[_G[self.name]['weapon2']] then
+            Weapons[_G[self.name]['weapon2']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon2']..'.png')
+        end
+    end
+
+    if _G[self.name]['weapon3'] then
+        if not Weapons[_G[self.name]['weapon3']] then
+            Weapons[_G[self.name]['weapon3']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon3']..'.png')
+        end
+    end
+
+    if _G[self.name]['weapon4'] then
+        if not Weapons[_G[self.name]['weapon4']] then
+            Weapons[_G[self.name]['weapon4']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon4']..'.png')
+        end
     end
 
     if self.weapon_image then
-        self.weapon = Weapon(self.x, self.y, self.column, self.weapon_image, self.weapon_count, self.team, self.width, self.height, self.range)
+        self.weapon = Weapon(self.x, self.y, self.column, self.weapon_image, Weapons[_G[self.name]['weapon2']], Weapons[_G[self.name]['weapon3']], Weapons[_G[self.name]['weapon4']], _G[self.name]['weapon_count'] , self.team, self.width, self.height, self.range)
     end
 
     if (_G[self.name]['projectile'] == 'Lightning' or _G[self.name]['projectile'] == 'ForceBlast') and self.weapon == nil then

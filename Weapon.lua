@@ -1,6 +1,6 @@
 Weapon = Class{__includes = BaseState}
 
-function Weapon:init(x,y,column,weapon,weapon_count,team,xoffset,yoffset)
+function Weapon:init(x,y,column,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffset,yoffset)
     self.alive = true
     self.team = team
     self.xoffset = xoffset
@@ -18,6 +18,10 @@ function Weapon:init(x,y,column,weapon,weapon_count,team,xoffset,yoffset)
 
     self.y = y + self.yoffset * 0.7
     self.image = weapon
+    if not weapon2 then self.image2 = weapon else self.image2 = weapon2 end
+    if not weapon3 then self.image3 = weapon else self.image3 = weapon3 end
+    if not weapon4 then self.image4 = weapon else self.image4 = weapon4 end
+
     self.width,self.height = self.image:getDimensions()
 
     if self.image == Weapons['InquisitorLightsaber'] or self.image == Weapons['DoubleRedLightsaber'] or self.image == Weapons['DoubleBlueLightsaber'] or self.image == Weapons['DoubleGreenLightsaber'] or self.image == Weapons['DoubleYellowLightsaber'] then
@@ -25,7 +29,7 @@ function Weapon:init(x,y,column,weapon,weapon_count,team,xoffset,yoffset)
     else
         self.double = false
     end
-    self.weapon_count = weapon_count
+    if not weapon_count then self.weapon_count = 1 else self.weapon_count = weapon_count end
 end
 
 function Weapon:updateposition(x,y,column)
@@ -66,31 +70,31 @@ function Weapon:render()
             if self.team == 1 then
                 love.graphics.draw(self.image,self.x+self.height/4,self.y-self.height/5,self.angle,1,1,self.width/2,self.height/2)
                 if self.weapon_count > 1 then
-                    love.graphics.draw(self.image,self.x+self.height/4+30,self.y-self.height/5-20,self.angle,1,1,self.width/2,self.height/2)
+                    love.graphics.draw(self.image2,self.x+self.height/4+30,self.y-self.height/5-20,self.angle,1,1,self.width/2,self.height/2)
                 end
             else
                 love.graphics.draw(self.image,self.x-self.height/4,self.y-self.height/5,self.angle,1,1,self.width/2,self.height/2)
                 if self.weapon_count > 1 then
-                    love.graphics.draw(self.image,self.x-self.height/4-30,self.y-self.height/5-20,self.angle,1,1,self.width/2,self.height/2)
+                    love.graphics.draw(self.image2,self.x-self.height/4-30,self.y-self.height/5-20,self.angle,1,1,self.width/2,self.height/2)
                 end
             end
         else
             love.graphics.draw(self.image,self.x,self.y,self.angle,1,1,self.width/2)
             if self.weapon_count > 1 then
                 if self.team == 1 then
-                    love.graphics.draw(self.image,self.x+40,self.y-20,self.angle,1,1,self.width/2)
+                    love.graphics.draw(self.image2,self.x+40,self.y-20,self.angle,1,1,self.width/2)
                 else
-                    love.graphics.draw(self.image,self.x-40,self.y-20,self.angle,1,1,self.width/2)
+                    love.graphics.draw(self.image2,self.x-40,self.y-20,self.angle,1,1,self.width/2)
                 end
             end
             if self.weapon_count > 2 then
-                love.graphics.draw(self.image,self.x,self.y-40,self.angle,1,1,self.width/2)
+                love.graphics.draw(self.image3,self.x,self.y-40,self.angle,1,1,self.width/2)
             end
             if self.weapon_count > 3 then
                 if self.team == 1 then
-                    love.graphics.draw(self.image,self.x+40,self.y-60,self.angle,1,1,self.width/2)
+                    love.graphics.draw(self.image4,self.x+40,self.y-60,self.angle,1,1,self.width/2)
                 else
-                    love.graphics.draw(self.image,self.x-40,self.y-60,self.angle,1,1,self.width/2)
+                    love.graphics.draw(self.image4,self.x-40,self.y-60,self.angle,1,1,self.width/2)
                 end
             end
         end

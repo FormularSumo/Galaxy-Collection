@@ -59,7 +59,8 @@ AhsokaTanoPadawan = {
     ['defense'] = 15234,
     ['evade'] = 0.1,
     ['range'] = 1,
-    ['weapon'] = 'YellowLightsaber', 
+    ['weapon'] = 'YellowLightsaber',
+    ['weapon2'] = 'GreenLightsaber',
     ['weapon_count'] = 2
 }
 
@@ -851,6 +852,9 @@ GeneralGrievous = {
     ['evade'] = 0.06,
     ['range'] = 1,
     ['weapon'] = 'BlueLightsaber',
+    ['weapon2'] = 'GreenLightsaber',
+    ['weapon3'] = 'GreenLightsaber',
+    ['weapon4'] = 'BlueLightsaber',
     ['weapon_count'] = 4
 }
 
@@ -1390,6 +1394,7 @@ PongKrell = {
     ['evade'] = 0.04,
     ['range'] = 1,
     ['weapon'] = 'DoubleGreenLightsaber',
+    ['weapon2'] = 'DoubleBlueLightsaber',
     ['weapon_count'] = 2
 }
 
