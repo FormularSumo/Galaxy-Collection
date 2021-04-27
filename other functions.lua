@@ -75,7 +75,8 @@ function toggle_FPS()
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
-function prebuilt_deck() --Doesn't belong here, will either be deleted or moved when I add deck editing
+function tutorial() --Doesn't belong here, will either be deleted or moved when I add deck editing
+    bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
     P1_deck_edit(0,{'AnakinSkywalkerROTS',60,4})
     P1_deck_edit(1,{'HermitLuke',60,4})
     P1_deck_edit(2,{'MaceWindu',60,4})
@@ -94,4 +95,45 @@ function prebuilt_deck() --Doesn't belong here, will either be deleted or moved 
     P1_deck_edit(15,{'BobaFettMandalorian',60,4})
     P1_deck_edit(16,{'TheMandalorian',60,4})
     P1_deck_edit(17,{'KoskaReeves',60,4})
+
+    P1_cards[0] = {'Maul',60,4}
+    P1_cards[1] = {'GeneralGrievous',60,4}
+    P1_cards[2] = {'DarthVader',60,4}
+    P1_cards[3] = {'CountDooku',60,4}
+    P1_cards[4] = {'GrandInquisitor',60,4}
+    P1_cards[5] = {'SavageOpress',60,4}
+    P1_cards[6] = {'TrillaSuduri',60,4}
+    P1_cards[7] = {'PongKrell',60,4}
+    P1_cards[8] = {'DarthSidious',60,4}
+    P1_cards[9] = {'SupremeLeaderSnoke',60,4}
+    P1_cards[10] = {'KyloRen',60,4}
+    P1_cards[11] = {'AsajjVentress',60,4}
+    P1_cards[12] = {'Cardo',60,4}
+    P1_cards[13] = {'BobaFettROTJ',60,4}
+    P1_cards[14] = {'DarthSidiousReborn',60,4}
+    P1_cards[15] = {'JangoFett',60,4}
+    P1_cards[16] = {'Kuruk',60,4}
+    P1_cards[17] = {'PurgeTrooper',60,4}
+    P1_cards[18] = {'Tokkat',60,4}
+    P1_cards[19] = {'Paploo',60,4}
+    P1_cards[20] = {'WicketWWarrick',60,4}
+    P1_cards[21] = {'Teebo',60,4}
+    P1_cards[22] = {'ChiefChirpa',60,4}
+    P1_cards[23] = {'Logray',60,4}
+    P1_cards[24] = {'ArcTrooperEcho',60,4}
+    P1_cards[25] = {'ArcTrooperFives',60,4}
+    P1_cards[26] = {'ArcTrooperJesse',60,4}
+    P1_cards[27] = {'CommanderCody',60,4}
+    P1_cards[28] = {'CaptainRex',60,4}
+    P1_cards[29] = {'CloneTrooper322nd',60,4}
+    P1_cards[30] = {'CloneTrooper327th',60,4}
+    P1_cards[31] = {'CloneTrooper501st',60,4}
+    P1_cards[32] = {'CloneTrooper212th',60,4}
+    P1_cards[33] = {'CommanderWolffe',60,4}
+    P1_cards[34] = {'CoruscantGuardCloneTrooper',60,4}
+    P1_cards[35] = {'CloneCommandoGregor',60,4}
+    P1_cards[37] = {'ZilloBeast',60,4}
+    bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
+
+    P1_cards = {}
 end
