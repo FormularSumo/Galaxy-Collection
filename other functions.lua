@@ -142,4 +142,6 @@ function tutorial() --Doesn't belong here, will either be deleted or moved when 
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
 
     P1_cards = {}
+
+    UserData['Credits'] = 100
 end

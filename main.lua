@@ -61,6 +61,7 @@ function love.load()
     P1_deck_cards = {}
     P2_deck_cards = {}
     P1_cards = {}
+    UserData = {}
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
@@ -85,16 +86,22 @@ function love.load()
     Settings = bitser.loadLoveFile('Settings.txt')
     love.audio.setVolume(Settings['volume_level'])
 
-    if love.filesystem.getInfo('Player 1 deck.txt') == nil and love.filesystem.getInfo('Player 1 cards.txt') == nil then
+    if love.filesystem.getInfo('Player 1 deck.txt') == nil and love.filesystem.getInfo('Player 1 cards.txt') == nil and love.filesystem.getInfo('User Data.txt') == nil then
         tutorial()
-    end
+    
+    else
+        if love.filesystem.getInfo('Player 1 deck.txt') == nil then
+            bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
+        end
 
-    if love.filesystem.getInfo('Player 1 deck.txt') == nil then
-        bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
-    end
+        if love.filesystem.getInfo('Player 1 cards.txt') == nil then
+            bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
+        end
 
-    if love.filesystem.getInfo('Player 1 cards.txt') == nil then
-        bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
+        if love.filesystem.getInfo('User Data.txt') == nil then
+            UserData['Credits'] = 0
+            bitser.dumpLoveFile('User Data.txt',UserData)
+        end
     end
 
     -- initialize state machine with all state-returning functions
