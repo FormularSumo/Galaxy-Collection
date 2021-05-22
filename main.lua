@@ -76,7 +76,8 @@ function love.load()
         Settings = {
             ['pause_on_loose_focus'] = true,
             ['volume_level'] = 0.5,
-            ['FPS_counter'] = false
+            ['FPS_counter'] = false,
+            ['videos'] = true
         }
         bitser.dumpLoveFile('Settings.txt',Settings)
     end

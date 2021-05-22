@@ -19,7 +19,11 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     P2_deck_cards[17] = {'Cardo',60,4}
 
 
-    gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
+    if Settings['videos'] then
+        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
+    else
+        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 2, 0, 0, 0, 'Binary Sunset.oga'})
+    end
 end
 
 function throne_room()

@@ -22,12 +22,6 @@ function exit_state(partial)
     collectgarbage()
 end
 
-function toggle_pause_on_loose_focus()
-    Settings['pause_on_loose_focus'] = not Settings['pause_on_loose_focus']
-    gui['Toggle pause on loose focus']:update_text('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']))
-    bitser.dumpLoveFile('Settings.txt',Settings)
-end
-
 function gamespeed_slider(percentage)
     gamespeed = percentage * 4
 end
@@ -68,6 +62,18 @@ function calculate_queue_length()
     end
     current_song = 0
     next_song = 1
+end
+
+function toggle_pause_on_loose_focus()
+    Settings['pause_on_loose_focus'] = not Settings['pause_on_loose_focus']
+    gui['Toggle pause on loose focus']:update_text('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']))
+    bitser.dumpLoveFile('Settings.txt',Settings)
+end
+
+function toggle_videos()
+    Settings['videos'] = not Settings['videos']
+    gui['Videos']:update_text('Videos: ' .. tostring(Settings['videos']))
+    bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
 function toggle_FPS()
