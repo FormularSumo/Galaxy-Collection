@@ -100,6 +100,7 @@ function love.load()
 
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
+            if Settings['videos'] == nil then Settings['videos'] = true end
             bitser.dumpLoveFile('User Data.txt',UserData)
         end
     end
