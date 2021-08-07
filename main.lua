@@ -70,6 +70,8 @@ function love.load()
     mouseTrapped2 = false
     mouseLastX = 0
     mouseLastY = 0
+    mouseX = 0
+    mouseY = 0
     focus = true
     joysticks = love.joystick.getJoysticks()
 
@@ -202,6 +204,12 @@ function love.update(dt)
     --Handle mouse inputs
     if love.mouse.isDown(1,2,3) then
         update_mouse_position()
+    end
+
+    mouseX,mouseY = push:toGame(love.mouse.getPosition())
+    if mouseX == nil or mouseY == nil then
+        mouseX = -1
+        mouseY = -1
     end
 
     --Handle joystick inputs
