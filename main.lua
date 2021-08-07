@@ -23,10 +23,10 @@ function love.load()
     require 'Card editor'
 
     -- app window title
-    love.window.setTitle('Force Collection')
+    love.window.setTitle('Galaxy Collection')
 
     -- folder that app data is stored in
-    love.filesystem.setIdentity('Force Collection')
+    love.filesystem.setIdentity('Galaxy Collection')
 
     --Operating System
     OS = love.system.getOS()
@@ -161,12 +161,10 @@ function love.keypressed(key)
         if gui['Volume Slider'] ~= nil then
             gui['Volume Slider'].percentage = love.audio.getVolume()
         end
-    end 
+    end
 
-    --Escape on Android is mapped to the back key so shouldn't be used for exiting fullscreen
-    if key == 'escape' and OS ~= 'Android' then
-        love.window.setFullscreen(false)
-        love.window.maximize()
+    if key == 'escape' then
+        back()
     end
 end
 
@@ -185,6 +183,13 @@ end
 function love.joystickreleased(joystick,button)
     if button == 1 then
         love.mouse.buttonsPressed[1] = true
+    end
+    if button == 2 then
+        love.keyboard.keysPressed['escape'] = true
+        back()
+    end
+    if button == 8 then
+        love.keyboard.keysPressed['space'] = true
     end
 end
 
