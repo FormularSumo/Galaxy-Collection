@@ -187,11 +187,10 @@ function love.joystickreleased(joystick,button)
         love.mouse.buttonsPressed[1] = true
     end
     if button == 2 then
-        love.keyboard.keysPressed['escape'] = true
-        back()
+        love.keypressed('escape')
     end
     if button == 8 then
-        love.keyboard.keysPressed['space'] = true
+        love.keypressed('space')
     end
 end
 
