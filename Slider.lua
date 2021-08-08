@@ -43,9 +43,12 @@ function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,fun
 end
 
 function Slider:update()
-    if mouseDown and mouseLastX > self.clickablex and mouseLastX < self.clickablex + self.width + self.height * self.diameter_to_circle and mouseLastY > self.clickabley and mouseLastY < self.clickabley + self.height * self.diameter_to_circle and mouseTrapped == false then
+    if mouseX > self.clickablex and mouseX < self.clickablex + self.width + self.height * self.diameter_to_circle and mouseY > self.clickabley and mouseY < self.clickabley + self.height * self.diameter_to_circle then
+        mouseTouching = self
+    end
+    if mouseDown and mouseTrapped == false and mouseLastX > self.clickablex and mouseLastX < self.clickablex + self.width + self.height * self.diameter_to_circle and mouseLastY > self.clickabley and mouseLastY < self.clickabley + self.height * self.diameter_to_circle then
         self.clicked = true
-        mouseTrapped = self.func
+        mouseTrapped = self
     end
     if self.clicked == true and mouseDown then
         self:update_percentage((mouseLastX - self.x) / self.width,true)

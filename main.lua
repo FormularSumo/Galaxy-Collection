@@ -67,6 +67,7 @@ function love.load()
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}
     mouseDown = false
+    mouseTouching = false
     mouseTrapped = false
     mouseTrapped2 = false
     mouseLastX = 0
@@ -170,6 +171,25 @@ function love.keypressed(key)
     if key == 'escape' then
         gStateMachine:back()
     end
+
+    if key == 'up' then
+        reposition_mouse(gStateMachine:arrow('up'))
+    end
+    if key == 'down' then
+        reposition_mouse(gStateMachine:arrow('down'))
+    end
+    if key == 'left' then
+        reposition_mouse(gStateMachine:arrow('left'))
+    end
+    if key == 'right' then
+        reposition_mouse(gStateMachine:arrow('right'))
+    end
+end
+
+function love.keyreleased(key)
+    if key == 'return' or key == 'kpenter' then
+        love.mouse.buttonsPressed[1] = true
+    end
 end
 
 function love.keyboard.wasPressed(key)
@@ -178,6 +198,7 @@ end
 
 function love.mousereleased(x,y,button)
     love.mouse.buttonsPressed[button] = true
+    if button == 4 then love.keypressed('escape') end
 end
 
 function love.touchreleased()
@@ -186,7 +207,7 @@ end
 
 function love.joystickreleased(joystick,button)
     if button == 1 then
-        love.mouse.buttonsPressed[1] = true
+        love.keyreleased('return')
     end
     if button == 2 then
         love.keypressed('escape')
@@ -196,14 +217,32 @@ function love.joystickreleased(joystick,button)
     end
 end
 
+function love.gamepadpressed(joystick,button)
+    if button == 'dpleft' then
+        love.keypressed('left')
+    end
+    if button == 'dpright' then
+        love.keypressed('right')
+    end
+    if button == 'dpup' then
+        love.keypressed('up')
+    end
+    if button == 'dpdown' then
+        love.keypressed('down')
+    end
+    test = button
+end
+
 function love.focus(InFocus)
     focus = InFocus
     if Settings['pause_on_loose_focus'] and not (paused and gStateMachine.state == 'GameState') then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
 end
 
 function love.update(dt)
+    mouseTouching = false
+
     --Handle mouse inputs
-    if love.mouse.isDown(1,2,3) then
+    if love.mouse.isDown(1,2,3) or love.keyboard.isDown('return') or love.keyboard.isDown('kpenter') then
         update_mouse_position()
     end
 
@@ -225,19 +264,6 @@ function love.update(dt)
             love.mouse.setPosition(
                 love.mouse.getX() + (dt * 1000 * joysticks[1]:getGamepadAxis('leftx')),
                 love.mouse.getY() + (dt * 1000 * joysticks[1]:getGamepadAxis('lefty')))
-        end
-
-        if joysticks[1]:isGamepadDown('dpleft') then
-            love.mouse.setPosition(love.mouse.getX()-(dt*1000),love.mouse.getY())
-        end
-        if joysticks[1]:isGamepadDown('dpright') then
-            love.mouse.setPosition(love.mouse.getX()+(dt*1000),love.mouse.getY())
-        end
-        if joysticks[1]:isGamepadDown('dpup') then
-            love.mouse.setPosition(love.mouse.getX(),love.mouse.getY()-(dt*1000))
-        end
-        if joysticks[1]:isGamepadDown('dpdown') then
-            love.mouse.setPosition(love.mouse.getX(),love.mouse.getY()+(dt*1000))
         end
     end
 
@@ -293,6 +319,14 @@ function love.draw()
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
+
+    love.graphics.print(tostring(test))
+
+    -- love.graphics.print(tostring(mouseTouching) .. ' ' .. tostring(gui['Campaign']))
+
+    -- if gui['Gamespeed Slider'] then
+    --     love.graphics.print(tostring(mouseTouching) .. ' ' .. tostring(gui['Gamespeed Slider']))
+    -- end
 
     -- stats = love.graphics.getStats()
     -- y = 0

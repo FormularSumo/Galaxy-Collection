@@ -43,6 +43,12 @@ function exit_game()
     love.event.quit()
 end
 
+function reposition_mouse(gui)
+    if gui ~= nil then
+        love.mouse.setPosition(gui.x+gui.width/2,gui.y+gui.height/2)
+    end
+end
+
 function update_mouse_position()
     mouseDown = true
     mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())

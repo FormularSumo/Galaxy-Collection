@@ -17,6 +17,22 @@ function SettingsState:back()
     gStateMachine:change('HomeState',true,true)
 end
 
+function SettingsState:update(dt)
+    if mouseTouching == gui['Volume Slider'] then
+        if love.keyboard.isDown('left') then
+            gui['Volume Slider']:update_percentage(gui['Volume Slider'].percentage - (dt*self.held_time^3)/4,false)
+        end
+        if love.keyboard.isDown('right') then
+            gui['Volume Slider']:update_percentage(gui['Volume Slider'].percentage + (dt*self.held_time^3)/4,false)
+        end
+        if love.keyboard.isDown('left') or love.keyboard.isDown('right') then
+            self.held_time = self.held_time + dt
+        else
+            self.held_time = 0.5
+        end
+    end
+end
+
 function SettingsState:exit(partial)
     exit_state(partial)
 end

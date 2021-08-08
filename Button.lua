@@ -1,6 +1,6 @@
 Button = Class{}
 
-function Button:init(func,arg,text,font,bg_image,x,y,r,g,b)
+function Button:init(func,arg,text,font,bg_image,x,y,r,g,b,visible)
     self.func = func
     self.arg = arg
     self.font = font 
@@ -42,6 +42,7 @@ function Button:init(func,arg,text,font,bg_image,x,y,r,g,b)
     if r == nil then self.r = 1 else self.r = r end
     if g == nil then self.g = 1 else self.g = g end
     if b == nil then self.b = 1 else self.b = b end
+    -- if visible == nil then self.visible = true else self.visible = visible end
 end
 
 function Button:update_text(text)
@@ -77,26 +78,40 @@ function Button:update_text(text)
 end
 
 function Button:update()
-    if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-        if love.mouse.buttonsPressed[1] and mouseTrapped == self.text then
-            _G[self.func](self.arg)
+    if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
+        mouseTouching = self
+        if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
+            if love.mouse.buttonsPressed[1] and mouseTrapped == self then
+                _G[self.func](self.arg)
+                mouseLastX = -1
+                mouseLasty = -1
+            end
+            if mouseDown and (mouseTrapped == false or mouseTrapped == self) then
+                self.scaling = 1.08
+                mouseTrapped = self
+            else
+                mouseLastX = -1
+                mouseLasty = -1  
+            end
+        else
+            self.scaling = 1.04
+            if mouseTrapped == self then
+                mouseLastX = -1
+                mouseLasty = -1
+            end
         end
-        if mouseDown and (mouseTrapped == false or mouseTrapped == self.text) then
-            self.scaling = 1.08
-            mouseTrapped = self.text
-        end
-    elseif mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
-        self.scaling = 1.04
     else
         self.scaling = 1
     end
 end
 
 function Button:render()
-    if self.bg_image ~= nil then
-        love.graphics.draw(self.bg_image, self.imagex, self.imagey,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
-    end
-    love.graphics.setColor(self.r,self.g,self.b)
-    love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.textwidth,(-1+self.scaling)/2*self.textheight)
-    love.graphics.setColor(1,1,1)
+    -- if self.visible then
+        if self.bg_image ~= nil then
+            love.graphics.draw(self.bg_image, self.imagex, self.imagey,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
+        end
+        love.graphics.setColor(self.r,self.g,self.b)
+        love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.textwidth,(-1+self.scaling)/2*self.textheight)
+        love.graphics.setColor(1,1,1)
+    -- end
 end

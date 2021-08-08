@@ -14,8 +14,6 @@ function GameState:init()
     local P1column = -1
     local P2column = 12
     local row_correctment = 0
-    local next
-    local held_time
 
     for i=0,17,1 do
         if i % 6 == 0 and i ~= 0 then
@@ -236,16 +234,18 @@ function GameState:update(dt)
     end
 
     --Left/right arrow adjust gamespeed, above dt = dt * gamespeed so not affected by gamespeed
-    if love.keyboard.isDown('left') then
-        gui['Gamespeed Slider']:update_percentage(gui['Gamespeed Slider'].percentage - (dt*held_time^3)/4,false)
-    end
-    if love.keyboard.isDown('right') then
-        gui['Gamespeed Slider']:update_percentage(gui['Gamespeed Slider'].percentage + (dt*held_time^3)/4,false)
-    end
-    if love.keyboard.isDown('left') or love.keyboard.isDown('right') then
-        held_time = held_time + dt
-    else
-        held_time = 0.5
+    if mouseTouching == gui['Gamespeed Slider'] then
+        if love.keyboard.isDown('left') then
+            gui['Gamespeed Slider']:update_percentage(gui['Gamespeed Slider'].percentage - (dt*held_time^3)/4,false)
+        end
+        if love.keyboard.isDown('right') then
+            gui['Gamespeed Slider']:update_percentage(gui['Gamespeed Slider'].percentage + (dt*held_time^3)/4,false)
+        end
+        if love.keyboard.isDown('left') or love.keyboard.isDown('right') then
+            held_time = held_time + dt
+        else
+            held_time = 0.5
+        end
     end
 
     if paused == false and winner == 'none' then

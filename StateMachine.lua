@@ -39,6 +39,7 @@ function StateMachine:init(states)
 		render = function() end,
 		update = function() end,
 		back = function() end,
+		arrow = function() end,
 		enter = function() end,
 		exit = function() end
 	}
@@ -61,6 +62,10 @@ end
 
 function StateMachine:back()
 	self.current:back()
+end
+
+function StateMachine:arrow(direction)
+	return self.current:arrow(direction)
 end
 
 function StateMachine:render()
