@@ -78,12 +78,12 @@ end
 
 function Button:update()
     if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-        if love.mouse.buttonsPressed[1] and mouseTrapped == self.func then
+        if love.mouse.buttonsPressed[1] and mouseTrapped == self.text then
             _G[self.func](self.arg)
         end
-        if mouseDown and (mouseTrapped == false or mouseTrapped == self.func) then
+        if mouseDown and (mouseTrapped == false or mouseTrapped == self.text) then
             self.scaling = 1.08
-            mouseTrapped = self.func
+            mouseTrapped = self.text
         end
     elseif mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
         self.scaling = 1.04
