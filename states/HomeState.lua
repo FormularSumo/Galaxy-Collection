@@ -1,7 +1,6 @@
 HomeState = Class{__includes = BaseState}
 
 function HomeState:init()
-    backstate = nil
     gui['CampaignState'] = Button('switch_state',{'CampaignState',true,true},'Campaign',font100,nil,'centre',100)
     gui['SettingsState'] = Button('switch_state',{'SettingsState',true,true},'Settings',font100,nil,'centre',980-font100:getHeight('Settings'))
     gui['Deck Editor'] = Button('switch_state',{'DeckeditState','music','music'},'Deck Editor',font100,nil,'centre','centre')
@@ -33,6 +32,10 @@ function HomeState:enter(partial)
         end
         background['Seek'] = 0
     end
+end
+
+function HomeState:back()
+    
 end
 
 function HomeState:exit(partial)

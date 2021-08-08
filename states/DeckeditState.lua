@@ -1,7 +1,6 @@
 DeckeditState = Class{__includes = BaseState}
 
 function DeckeditState:init()
-    backstate = {'HomeState','music','music'}
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P1_cards = bitser.loadLoveFile('Player 1 cards.txt')
@@ -38,7 +37,7 @@ function DeckeditState:init()
 
     background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
-    gui['Main Menu'] = Button('back',nil,'Main Menu',font80,nil,'centre',100)
+    gui['Main Menu'] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',100)
     gui['Right Arrow'] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1040)
     gui['Left Arrow'] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1040)
 end
@@ -78,6 +77,10 @@ function update_cards_on_display(direction)
         column = nil
         row_correctment = nil
     end
+end
+
+function DeckeditState:back()
+    gStateMachine:change('HomeState','music','music')
 end
 
 function DeckeditState:update()

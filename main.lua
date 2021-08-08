@@ -166,7 +166,7 @@ function love.keypressed(key)
     end
 
     if key == 'escape' then
-        back()
+        gStateMachine:back()
     end
 end
 

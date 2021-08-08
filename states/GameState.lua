@@ -1,7 +1,6 @@
 GameState = Class{__includes = BaseState}
 
 function GameState:init()
-    backstate = {'HomeState'}
     Evolution = love.graphics.newImage('Graphics/Evolution.png')
     EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
 
@@ -63,7 +62,7 @@ function GameState:enter(Background)
     if Background[6] == nil then b = 0 else b = Background[6] end
     gui['Gamespeed Slider'] = Slider(1591,130,300,16,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
     gui['Pause'] = Button('pause',nil,'Pause',font100,nil,1591,0,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
-    gui['Main Menu'] = Button('back',nil,'Main Menu',font80,nil,35,20,r,g,b)
+    gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,35,20,r,g,b)
 
     if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
         timer = 0 - (background['Seek'] - 1)
@@ -226,6 +225,10 @@ function CheckOnlyRow3and4Remain(player)
     end
 end
 
+
+function GameState:back()
+    pause()
+end
 
 function GameState:update(dt)
     if love.keyboard.wasPressed('space') then
