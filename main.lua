@@ -11,11 +11,12 @@ function love.load()
     require 'Characters/Character stats'
     require 'StateMachine'
     require 'states/BaseState'
-    require 'states/GameState'
-    require 'states/DeckeditState'
     require 'states/HomeState'
+    require 'states/GameState'
     require 'states/SettingsState'
     require 'states/CampaignState'
+    require 'states/DeckeditState'
+    require 'states/ExitState'
     require 'campaign'
     require 'other functions'
     require 'Projectile'
@@ -114,6 +115,7 @@ function love.load()
         ['SettingsState'] = function() return SettingsState() end,
         ['CampaignState'] = function() return CampaignState() end,
         ['DeckeditState'] = function() return DeckeditState() end,
+        ['ExitState'] = function() return ExitState() end,
     }
     gStateMachine:change('HomeState')
 end

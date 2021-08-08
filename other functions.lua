@@ -39,6 +39,10 @@ function switch_state(state)
     gStateMachine:change(state[1],state[2],state[3])
 end
 
+function exit_game()
+    love.event.quit()
+end
+
 function update_mouse_position()
     mouseDown = true
     mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
