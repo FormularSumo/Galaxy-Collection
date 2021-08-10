@@ -412,5 +412,8 @@ function GameState:exit()
     Weapons = nil
     Evolution = nil
     EvolutionMax = nil
+    timer = nil
+    move_aim_timer = nil
+    attack_timer = nil
     exit_state()
 end

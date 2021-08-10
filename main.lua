@@ -75,6 +75,7 @@ function love.load()
     mouseLastY = 0
     mouseX = 0
     mouseY = 0
+    mousehiddentimer = 0
     focus = true
     joysticks = love.joystick.getJoysticks()
 
@@ -197,6 +198,8 @@ function love.keypressed(key)
                 end
             end
         end
+        love.mouse.setVisible(false)
+        mousehiddentimer = 0
     end
 end
 
@@ -249,6 +252,12 @@ function love.gamepadpressed(joystick,button)
     end
     if button == 'dpdown' then
         love.keypressed('down')
+    end
+end
+
+function love.mousemoved(x,y,dx,dy,istouch)
+    if mousehiddentimer > 0.01 then
+        love.mouse.setVisible(true)
     end
 end
 
@@ -327,7 +336,10 @@ function love.update(dt)
     --Update state machine
     gStateMachine:update(dt)
 
-    --Reset table of clicked keys/mousebuttons so last frame's inputs aren't used next frame
+    --Update timer
+    mousehiddentimer = mousehiddentimer + dt
+
+    --Reset tables of clicked keys/mousebuttons so last frame's inputs aren't used next frame
     love.keyboard.keysPressed = {}
     love.keyboard.keysDown = {}
     love.mouse.buttonsPressed = {}
