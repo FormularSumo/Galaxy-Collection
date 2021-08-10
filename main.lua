@@ -170,10 +170,6 @@ function love.keypressed(key)
         end
     end
 
-    if key == 'escape' then
-        gStateMachine:back()
-    end
-
     if key == 'up' or key == 'down' then
         if mouseTouching == false then
             reposition_mouse(gui[1])
@@ -207,6 +203,10 @@ function love.keyreleased(key)
     if key == 'return' or key == 'kpenter' then
         love.mouse.buttonsPressed[1] = true
     end
+
+    if key == 'escape' then
+        gStateMachine:back()
+    end
 end
 
 function love.keyboard.wasPressed(key)
@@ -234,19 +234,19 @@ function love.touchreleased()
     love.mouse.buttonsPressed[1] = true
 end
 
-function love.joystickreleased(joystick,button)
-    if button == 1 then
+function love.gamepadreleased(joystick,button)
+    if button == 'a' then
         love.keyreleased('return')
     end
-    if button == 2 then
-        love.keypressed('escape')
-    end
-    if button == 8 then
-        love.keypressed('space')
+    if button == 'b' then
+        love.keyreleased('escape')
     end
 end
 
 function love.gamepadpressed(joystick,button)
+    if button == 'start' then
+        love.keypressed('space')
+    end
     if button == 'dpup' then
         love.keypressed('up')
     end
@@ -272,7 +272,7 @@ function love.update(dt)
     --Handle joystick inputs
     if joysticks[1] then
         --Binding buttons held down to keys
-        if joysticks[1]:isDown(1) then
+        if joysticks[1]:isGamepadDown('a') then
             love.keyboard.down('return')
         end
         if joysticks[1]:isGamepadDown('dpleft') then
