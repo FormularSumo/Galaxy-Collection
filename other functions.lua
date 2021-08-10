@@ -91,7 +91,7 @@ function toggle_FPS()
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
-function tutorial() --Doesn't belong here, will either be deleted or moved when I add deck editing
+function tutorial()
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
     P1_deck_edit(0,{'AnakinSkywalkerROTS',60,4})
     P1_deck_edit(1,{'HermitLuke',60,4})

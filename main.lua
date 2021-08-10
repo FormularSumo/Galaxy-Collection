@@ -65,6 +65,7 @@ function love.load()
     UserData = {}
 
     love.keyboard.keysPressed = {}
+    love.keyboard.keysDown = {}
     love.mouse.buttonsPressed = {}
     mouseDown = false
     mouseTouching = false
@@ -172,17 +173,30 @@ function love.keypressed(key)
         gStateMachine:back()
     end
 
-    if key == 'up' then
-        reposition_mouse(gStateMachine:arrow('up'))
-    end
-    if key == 'down' then
-        reposition_mouse(gStateMachine:arrow('down'))
-    end
-    if key == 'left' then
-        reposition_mouse(gStateMachine:arrow('left'))
-    end
-    if key == 'right' then
-        reposition_mouse(gStateMachine:arrow('right'))
+    if key == 'up' or key == 'down' then
+        if mouseTouching == false then
+            reposition_mouse(gui[1])
+        else
+            for k, v in ipairs(gui) do
+                if v == mouseTouching then
+                    if key == 'up' then
+                        if gui[k-1] then
+                            reposition_mouse(gui[k-1])
+                        else
+                            reposition_mouse(gui[#gui])
+                        end
+                    end
+                    if key == 'down' then
+                        if gui[k+1] then
+                            reposition_mouse(gui[k+1])
+                        else
+                            reposition_mouse(gui[1])
+                        end
+                    end
+                    break
+                end
+            end
+        end
     end
 end
 
@@ -194,6 +208,18 @@ end
 
 function love.keyboard.wasPressed(key)
     return love.keyboard.keysPressed[key] 
+end
+
+function love.keyboard.down(key)
+    love.keyboard.keysDown[key] = true
+end
+
+function love.keyboard.wasDown(key)
+    if love.keyboard.isDown(key) then
+        return true
+    else
+        return love.keyboard.keysDown[key]
+    end
 end
 
 function love.mousereleased(x,y,button)
@@ -218,19 +244,12 @@ function love.joystickreleased(joystick,button)
 end
 
 function love.gamepadpressed(joystick,button)
-    if button == 'dpleft' then
-        love.keypressed('left')
-    end
-    if button == 'dpright' then
-        love.keypressed('right')
-    end
     if button == 'dpup' then
         love.keypressed('up')
     end
     if button == 'dpdown' then
         love.keypressed('down')
     end
-    test = button
 end
 
 function love.focus(InFocus)
@@ -241,21 +260,17 @@ end
 function love.update(dt)
     mouseTouching = false
 
-    --Handle mouse inputs
-    if love.mouse.isDown(1,2,3) or love.keyboard.isDown('return') or love.keyboard.isDown('kpenter') then
-        update_mouse_position()
-    end
-
-    mouseX,mouseY = push:toGame(love.mouse.getPosition())
-    if mouseX == nil or mouseY == nil then
-        mouseX = -1
-        mouseY = -1
-    end
-
     --Handle joystick inputs
     if joysticks[1] then
-        if joysticks[1]:isDown(1) then 
-            update_mouse_position()
+        --Binding buttons held down to keys
+        if joysticks[1]:isDown(1) then
+            love.keyboard.down('return')
+        end
+        if joysticks[1]:isGamepadDown('dpleft') then
+            love.keyboard.down('left')
+        end
+        if joysticks[1]:isGamepadDown('dpright') then
+            love.keyboard.down('right')
         end
         
         leftx = dt * 1000 * joysticks[1]:getGamepadAxis('leftx')
@@ -266,6 +281,18 @@ function love.update(dt)
                 love.mouse.getY() + (dt * 1000 * joysticks[1]:getGamepadAxis('lefty')))
         end
     end
+
+    --Handle mouse inputs
+    if love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('return') then
+        update_mouse_position()
+    end
+
+    mouseX,mouseY = push:toGame(love.mouse.getPosition())
+    if mouseX == nil or mouseY == nil then
+        mouseX = -1
+        mouseY = -1
+    end
+
 
     --Manage song queue
     if songs[0] ~= nil then
@@ -302,6 +329,7 @@ function love.update(dt)
 
     --Reset table of clicked keys/mousebuttons so last frame's inputs aren't used next frame
     love.keyboard.keysPressed = {}
+    love.keyboard.keysDown = {}
     love.mouse.buttonsPressed = {}
     if mouseDown == false then mouseTrapped = false end
     mouseDown = false
@@ -319,8 +347,6 @@ function love.draw()
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
-
-    love.graphics.print(tostring(test))
 
     -- love.graphics.print(tostring(mouseTouching) .. ' ' .. tostring(gui['Campaign']))
 

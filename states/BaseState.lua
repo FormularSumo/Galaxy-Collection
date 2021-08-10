@@ -22,5 +22,4 @@ function BaseState:enter() end
 function BaseState:exit() end
 function BaseState:update(dt) end
 function BaseState:back() gStateMachine:change('HomeState') end
-function BaseState:arrow() end
 function BaseState:render() end

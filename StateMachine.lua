@@ -64,10 +64,6 @@ function StateMachine:back()
 	self.current:back()
 end
 
-function StateMachine:arrow(direction)
-	return self.current:arrow(direction)
-end
-
 function StateMachine:render()
 	self.current:render()
 end

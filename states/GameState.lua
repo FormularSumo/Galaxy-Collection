@@ -58,9 +58,9 @@ function GameState:enter(Background)
     if Background[4] == nil then r = 0 else r = Background[4] end
     if Background[5] == nil then g = 0 else g = Background[5] end
     if Background[6] == nil then b = 0 else b = Background[6] end
-    gui['Gamespeed Slider'] = Slider(1591,130,300,16,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
-    gui['Pause'] = Button('pause',nil,'Pause',font100,nil,1591,0,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
-    gui['Main Menu'] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,35,20,r,g,b)
+    gui[1] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,35,20,r,g,b)
+    gui[2] = Button('pause',nil,'Pause',font100,nil,1591,0,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
+    gui[3] = Slider(1591,130,300,16,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
 
     if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
         timer = 0 - (background['Seek'] - 1)
@@ -234,14 +234,14 @@ function GameState:update(dt)
     end
 
     --Left/right arrow adjust gamespeed, above dt = dt * gamespeed so not affected by gamespeed
-    if mouseTouching == gui['Gamespeed Slider'] then
-        if love.keyboard.isDown('left') then
-            gui['Gamespeed Slider']:update_percentage(gui['Gamespeed Slider'].percentage - (dt*held_time^3)/4,false)
+    if mouseTouching == gui[3] then
+        if love.keyboard.wasDown('left') then
+            gui[3]:update_percentage(gui[3].percentage - (dt*held_time^3)/4,false)
         end
-        if love.keyboard.isDown('right') then
-            gui['Gamespeed Slider']:update_percentage(gui['Gamespeed Slider'].percentage + (dt*held_time^3)/4,false)
+        if love.keyboard.wasDown('right') then
+            gui[3]:update_percentage(gui[3].percentage + (dt*held_time^3)/4,false)
         end
-        if love.keyboard.isDown('left') or love.keyboard.isDown('right') then
+        if love.keyboard.wasDown('left') or love.keyboard.wasDown('right') then
             held_time = held_time + dt
         else
             held_time = 0.5
