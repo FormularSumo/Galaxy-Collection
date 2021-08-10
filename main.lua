@@ -283,7 +283,7 @@ function love.update(dt)
     end
 
     --Handle mouse inputs
-    if love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('return') then
+    if love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter') then
         update_mouse_position()
     end
 
