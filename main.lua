@@ -286,8 +286,8 @@ function love.update(dt)
         lefty = dt * 1000 * joysticks[1]:getGamepadAxis('lefty')
         if focus and (leftx > 1 or leftx < -1 or lefty > 1 or lefty < -1) then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and buffer because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
             love.mouse.setPosition(
-                love.mouse.getX() + (dt * 1000 * joysticks[1]:getGamepadAxis('leftx')),
-                love.mouse.getY() + (dt * 1000 * joysticks[1]:getGamepadAxis('lefty')))
+                love.mouse.getX() + (leftx),
+                love.mouse.getY() + (lefty))
         end
     end
 
