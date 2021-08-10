@@ -54,6 +54,12 @@ function StateMachine:change(stateName, enterParams, exitParams)
 	self.current = self.states[stateName]()
 	self.state = stateName
 	self.current:enter(enterParams)
+    if love.mouse.isVisible() == false then 
+        if gui[1] then
+            reposition_mouse(gui[1])
+			mousehiddentimer = 0
+        end
+    end
 end
 
 function StateMachine:update(dt)
