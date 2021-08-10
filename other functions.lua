@@ -45,7 +45,7 @@ end
 
 function reposition_mouse(gui)
     if gui ~= nil then
-        love.mouse.setPosition(gui.x+gui.width/2,gui.y+gui.height/2)
+        love.mouse.setPosition(push:toReal(gui.x+gui.width/2,gui.y+gui.height/2))
     end
 end
 
