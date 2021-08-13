@@ -57,7 +57,6 @@ function StateMachine:change(stateName, enterParams, exitParams)
     if love.mouse.isVisible() == false then 
         if gui[1] then
             reposition_mouse(gui[1])
-			mousehiddentimer = 0
         end
     end
 end

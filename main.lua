@@ -75,7 +75,8 @@ function love.load()
     mouseLastY = 0
     mouseX = 0
     mouseY = 0
-    mousehiddentimer = 0
+    mouseButtonX = 0
+    mouseButtonY = 0
     focus = true
     joysticks = love.joystick.getJoysticks()
 
@@ -195,7 +196,6 @@ function love.keypressed(key)
             end
         end
         love.mouse.setVisible(false)
-        mousehiddentimer = 0
     end
 end
 
@@ -261,7 +261,7 @@ function love.mousemoved(x,y)
         mouseX = -1
         mouseY = -1
     end
-    if mousehiddentimer > 0.02 then
+    if x ~= math.floor(mouseButtonX) or y ~= math.floor(mouseButtonY) then
         love.mouse.setVisible(true)
     end
 end
@@ -333,9 +333,6 @@ function love.update(dt)
 
     --Update state machine
     gStateMachine:update(dt)
-
-    --Update timer
-    mousehiddentimer = mousehiddentimer + dt
 
     --Reset tables of clicked keys/mousebuttons so last frame's inputs aren't used next frame
     love.keyboard.keysPressed = {}
