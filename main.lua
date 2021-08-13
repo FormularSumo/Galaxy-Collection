@@ -255,7 +255,12 @@ function love.gamepadpressed(joystick,button)
     end
 end
 
-function love.mousemoved(x,y,dx,dy,istouch)
+function love.mousemoved(x,y)
+    mouseX,mouseY = push:toGame(x,y)
+    if mouseX == nil or mouseY == nil then
+        mouseX = -1
+        mouseY = -1
+    end
     if mousehiddentimer > 0.02 then
         love.mouse.setVisible(true)
     end
@@ -295,13 +300,6 @@ function love.update(dt)
     if love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter') then
         update_mouse_position()
     end
-
-    mouseX,mouseY = push:toGame(love.mouse.getPosition())
-    if mouseX == nil or mouseY == nil then
-        mouseX = -1
-        mouseY = -1
-    end
-
 
     --Manage song queue
     if songs[0] ~= nil then
