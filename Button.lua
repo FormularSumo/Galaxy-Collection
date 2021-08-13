@@ -45,9 +45,11 @@ function Button:init(func,arg,text,font,bg_image,x,y,r,g,b,visible)
     -- if visible == nil then self.visible = true else self.visible = visible end
 end
 
-function Button:update_text(text)
+function Button:update_text(text,x,y)
     self.text = love.graphics.newText(self.font,text)
     self.textwidth,self.textheight = self.text:getDimensions()
+    if x then self.centrex = x end
+    if y then self.centrey = y end
 
     if self.centrex == 'centre' then
         self.textx = VIRTUAL_WIDTH / 2 - self.textwidth / 2
