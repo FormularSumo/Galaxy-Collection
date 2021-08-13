@@ -256,7 +256,7 @@ function love.gamepadpressed(joystick,button)
 end
 
 function love.mousemoved(x,y,dx,dy,istouch)
-    if mousehiddentimer > 0.01 then
+    if mousehiddentimer > 0.02 then
         love.mouse.setVisible(true)
     end
 end
