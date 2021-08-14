@@ -245,9 +245,6 @@ function GameState:update(dt)
             held_time = held_time + dt
         else
             held_time = 0.5
-            if love.keyboard.wasReleased('left') or love.keyboard.wasReleased('right') then
-                _G[gui[2].func2]()
-            end
         end
     end
 
