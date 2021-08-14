@@ -245,6 +245,9 @@ function GameState:update(dt)
             held_time = held_time + dt
         else
             held_time = 0.5
+            if love.keyboard.wasReleased('left') or love.keyboard.wasReleased('right') then
+                reposition_mouse(gui[3])
+            end
         end
     end
 
