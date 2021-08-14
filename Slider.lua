@@ -71,7 +71,11 @@ end
 function Slider:render()
     love.graphics.setColor(self.r1,self.g1,self.b1)
     love.graphics.rectangle('fill',self.x,self.y,self.width,self.height,5)
-    love.graphics.setColor(self.r2,self.g2,self.b2)
+    if mouseTouching == self or mouseTrapped == self then
+        love.graphics.setColor(66/255,169/255,229/255)
+    else
+        love.graphics.setColor(self.r2,self.g2,self.b2)
+    end
     love.graphics.rectangle('fill',self.x,self.y,self.width*self.percentage,self.height,5)
     love.graphics.circle('fill',(self.x + (self.width*self.percentage)),(self.y + self.height / 2),self.height*self.radius_to_circle)
     love.graphics.setColor(1,1,1)

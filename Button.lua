@@ -112,7 +112,11 @@ function Button:render()
         if self.bg_image ~= nil then
             love.graphics.draw(self.bg_image, self.imagex, self.imagey,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
         end
-        love.graphics.setColor(self.r,self.g,self.b)
+        if mouseTouching == self or mouseTrapped == self then
+            love.graphics.setColor(66/255,169/255,229/255)
+        else
+            love.graphics.setColor(self.r,self.g,self.b)
+        end
         love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.textwidth,(-1+self.scaling)/2*self.textheight)
         love.graphics.setColor(1,1,1)
     -- end
