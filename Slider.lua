@@ -45,12 +45,12 @@ end
 function Slider:update()
     if mouseX > self.clickablex and mouseX < self.clickablex + self.width + self.height * self.diameter_to_circle and mouseY > self.clickabley and mouseY < self.clickabley + self.height * self.diameter_to_circle then
         mouseTouching = self
+        if mouseDown and love.mouse.isVisible() and mouseTrapped == false and mouseLastX > self.clickablex and mouseLastX < self.clickablex + self.width + self.height * self.diameter_to_circle and mouseLastY > self.clickabley and mouseLastY < self.clickabley + self.height * self.diameter_to_circle then
+            self.clicked = true
+            mouseTrapped = self
+        end
     end
-    if mouseDown and mouseTrapped == false and mouseLastX > self.clickablex and mouseLastX < self.clickablex + self.width + self.height * self.diameter_to_circle and mouseLastY > self.clickabley and mouseLastY < self.clickabley + self.height * self.diameter_to_circle then
-        self.clicked = true
-        mouseTrapped = self
-    end
-    if self.clicked == true and mouseDown then
+    if self.clicked == true and mouseDown and love.mouse.isVisible() then
         self:update_percentage((mouseLastX - self.x) / self.width,true)
     elseif self.clicked == true then
         self.clicked = false
