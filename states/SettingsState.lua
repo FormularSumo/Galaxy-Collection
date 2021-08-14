@@ -26,7 +26,7 @@ function SettingsState:update(dt)
         if love.keyboard.wasDown('right') then
             gui[2]:update_percentage(gui[2].percentage + (dt*self.held_time^3)/4,false)
         end
-        if love.keyboard.wasDown('left') or love.keyboard.wasDown('right') then
+        if (love.keyboard.wasDown('left') or love.keyboard.wasDown('right')) and not (love.keyboard.wasDown('left') and love.keyboard.wasDown('right')) then
             self.held_time = self.held_time + dt
         else
             self.held_time = 0.5

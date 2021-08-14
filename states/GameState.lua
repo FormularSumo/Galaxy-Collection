@@ -241,7 +241,7 @@ function GameState:update(dt)
         if love.keyboard.wasDown('right') then
             gui[3]:update_percentage(gui[3].percentage + (dt*held_time^3)/4,false)
         end
-        if love.keyboard.wasDown('left') or love.keyboard.wasDown('right') then
+        if (love.keyboard.wasDown('left') or love.keyboard.wasDown('right')) and not (love.keyboard.wasDown('left') and love.keyboard.wasDown('right')) then
             held_time = held_time + dt
         else
             held_time = 0.5
