@@ -66,6 +66,7 @@ function love.load()
 
     love.keyboard.keysPressed = {}
     love.keyboard.keysDown = {}
+    love.keyboard.keysReleased = {}
     love.mouse.buttonsPressed = {}
     mouseDown = false
     mouseTouching = false
@@ -200,6 +201,8 @@ function love.keypressed(key)
 end
 
 function love.keyreleased(key)
+    love.keyboard.keysReleased[key] = true
+
     if key == 'return' or key == 'kpenter' then
         love.mouse.buttonsPressed[1] = true
     end
@@ -211,6 +214,10 @@ end
 
 function love.keyboard.wasPressed(key)
     return love.keyboard.keysPressed[key] 
+end
+
+function love.keyboard.wasReleased(key)
+    return love.keyboard.keysReleased[key] 
 end
 
 function love.keyboard.down(key)
