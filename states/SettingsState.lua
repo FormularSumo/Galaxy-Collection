@@ -10,7 +10,7 @@ function SettingsState:init()
         gui[4] = Button('toggle_pause_on_loose_focus',nil,'Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']),font80,nil,'centre',788)
         gui[5] = Button('switch_state',{'HomeState',true,true},'Main Menu',font80,nil,'centre',965)
     else
-        gui[5] = Button('switch_state',{'HomeState',true,true},'Main Menu',font80,nil,'centre',965)
+        gui[4] = Button('switch_state',{'HomeState',true,true},'Main Menu',font80,nil,'centre',965)
     end
 end
 
