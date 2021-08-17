@@ -307,7 +307,7 @@ function love.update(dt)
 
             leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
             lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
-            if focus and (leftx > 1 or leftx < -1 or lefty > 1 or lefty < -1) then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and buffer because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
+            if focus and (leftx > 1.5 or leftx < -1.5 or lefty > 1.5 or lefty < -1.5) then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and buffer because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
                 love.mouse.setPosition(
                     love.mouse.getX() + (leftx),
                     love.mouse.getY() + (lefty))
@@ -374,6 +374,14 @@ function love.draw()
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
+
+
+    -- for k, v in pairs(joysticks) do
+    --     love.graphics.print(tostring(v),0,300+k*100)
+    --     love.graphics.print(v:getName(),1880-font80:getWidth(v:getName())-font80:getWidth(tostring(v:isConnected()))-font80:getWidth(tostring(v:isGamepad())),k*100-100)
+    --     love.graphics.print(tostring(v:isConnected()),1900-font80:getWidth(tostring(v:isConnected()))-font80:getWidth(tostring(v:isGamepad())),k*100-100)
+    --     love.graphics.print(tostring(v:isGamepad()),1920-font80:getWidth(tostring(v:isGamepad())),k*100-100)
+    -- end
 
     -- love.graphics.print(tostring(mouseTouching) .. ' ' .. tostring(gui['Campaign']))
 
