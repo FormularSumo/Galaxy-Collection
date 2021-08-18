@@ -79,7 +79,6 @@ function love.load()
     mouseButtonX = 0
     mouseButtonY = 0
     focus = true
-    joysticks = love.joystick.getJoysticks()
 
     if love.filesystem.getInfo('Settings.txt') == nil then
         Settings = {
@@ -290,7 +289,7 @@ function love.update(dt)
     mouseTouching = false
 
     --Handle joystick inputs
-    if joysticks[1] then
+    if joysticks then
         --Binding buttons held down to keys
         leftx = 0
         lefty = 0
