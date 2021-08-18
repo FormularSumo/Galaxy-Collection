@@ -65,7 +65,6 @@ function love.load()
     UserData = {}
 
     love.keyboard.keysPressed = {}
-    love.keyboard.keysDown = {}
     love.keyboard.keysReleased = {}
     love.mouse.buttonsPressed = {}
     mouseDown = false
@@ -227,15 +226,15 @@ function love.keyboard.wasReleased(key)
     return love.keyboard.keysReleased[key] 
 end
 
-function love.keyboard.down(key)
-    love.keyboard.keysDown[key] = true
-end
-
 function love.keyboard.wasDown(key)
     if love.keyboard.isDown(key) then
         return true
-    else
-        return love.keyboard.keysDown[key]
+    elseif joysticks then
+        for k, v in pairs(joysticks) do
+            if key == 'return' then if v:isGamepadDown('a') then return true end end
+            if key == 'left' then if v:isGamepadDown('dpleft') then return true end end
+            if key == 'right' then if v:isGamepadDown('dpright') then return true end end
+        end
     end
 end
 
@@ -290,20 +289,9 @@ function love.update(dt)
 
     --Handle joystick inputs
     if joysticks then
-        --Binding buttons held down to keys
         leftx = 0
         lefty = 0
         for k, v in pairs(joysticks) do
-            if v:isGamepadDown('a') then
-                love.keyboard.down('return')
-            end
-            if v:isGamepadDown('dpleft') then
-                love.keyboard.down('left')
-            end
-            if v:isGamepadDown('dpright') then
-                love.keyboard.down('right')
-            end
-
             leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
             lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
         end
@@ -355,7 +343,6 @@ function love.update(dt)
     --Reset tables of clicked keys/mousebuttons so last frame's inputs aren't used next frame
     love.keyboard.keysPressed = {}
     love.keyboard.keysReleased = {}
-    love.keyboard.keysDown = {}
     love.mouse.buttonsPressed = {}
     if mouseDown == false then mouseTrapped = false end
     mouseDown = false
