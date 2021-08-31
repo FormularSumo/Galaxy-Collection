@@ -53,9 +53,9 @@ end
 function reposition_mouse(gui)
     if gui ~= nil then
         if gui.percentage then
-            mouseButtonX,mouseButtonY = push:toReal(gui.x + (gui.width*gui.percentage),gui.y + gui.height / 2)
+            mouseButtonX,mouseButtonY = push.toReal(gui.x + (gui.width*gui.percentage),gui.y + gui.height / 2)
         else
-            mouseButtonX,mouseButtonY = push:toReal(gui.x+gui.width/2,gui.y+gui.height/2)
+            mouseButtonX,mouseButtonY = push.toReal(gui.x+gui.width/2,gui.y+gui.height/2)
         end
         love.mouse.setPosition(mouseButtonX,mouseButtonY)
     end
@@ -63,7 +63,7 @@ end
 
 function update_mouse_position()
     mouseDown = true
-    mouseLastX,mouseLastY = push:toGame(love.mouse.getPosition())
+    mouseLastX,mouseLastY = push.toGame(love.mouse.getPosition())
     if mouseLastX == nil or mouseLastY == nil then
         mouseLastX = -1
         mouseLastY = -1

@@ -38,11 +38,15 @@ function love.load()
     math.randomseed(tonumber(tostring(os.time()):reverse():sub(1,6))) --Randomises randomiser each time program is run. String is reversed to preserve low bits in time (eg second, millisecodns) rather than high bits (years, hours) when rounding - see http://lua-users.org/wiki/MathLibraryTutorial
     math.random()
 
-    -- initialize virtual resolution
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0, 0, {
+    --initialise window
+    love.window.setMode(0,0,{
         fullscreen = true,
-        resizable = true,
-        canvas = false,
+        resizable = true
+    })
+
+    -- initialise virtual resolution
+    push.setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, {
+        upscale = 'normal',
     })
 
     -- load fonts
@@ -140,7 +144,7 @@ function P1_cards_edit(position,name)
 end
 
 function love.resize(w, h)
-    push:resize(w, h)
+    push.resize(w, h)
 end
 
 function love.joystickadded(joystick)
@@ -269,8 +273,8 @@ function love.gamepadpressed(joystick,button)
 end
 
 function love.mousemoved(x,y)
-    mouseX,mouseY = push:toGame(x,y)
-    if mouseX == nil or mouseY == nil then
+    mouseX,mouseY = push.toGame(x,y)
+    if mouseX == false or mouseY == false then
         mouseX = -1
         mouseY = -1
     end
@@ -352,7 +356,7 @@ function love.update(dt)
 end
 
 function love.draw()
-    push:start()
+    push.start()
     if background['Background'] then
         love.graphics.draw(background['Background'])
     end
@@ -399,5 +403,5 @@ function love.draw()
     -- if temporary2 then
     --     love.graphics.print(tostring(temporary2.name .. ' ' .. temporary2.row),0,500)
     -- end
-    push:finish()
+    push.finish()
 end
