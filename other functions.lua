@@ -64,7 +64,7 @@ end
 function update_mouse_position()
     mouseDown = true
     mouseLastX,mouseLastY = push.toGame(love.mouse.getPosition())
-    if mouseLastX == nil or mouseLastY == nil then
+    if mouseLastX == false or mouseLastY == false then
         mouseLastX = -1
         mouseLastY = -1
         mouseDown = false
