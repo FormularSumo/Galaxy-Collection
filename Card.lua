@@ -177,7 +177,7 @@ function Card:aim()
             end
             i = i + 1
         end
-        self.ranged_attack_roll = math.random() * self.total_probability
+        self.ranged_attack_roll = love.math.random() * self.total_probability
         i = 0
         for k, pair in pairs(self.possible_targets) do
             if self.ranged_attack_roll < self.possible_targets[k] then
@@ -196,7 +196,7 @@ end
 
 function Card:attack()
     if self.target ~= nil then
-        self.attack_roll = math.random(100) / 100
+        self.attack_roll = love.math.random(100) / 100
         self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
         if self.attack_roll > self.enemy_deck[self.target].evade then
             if self.melee_attack then self.offense = self.melee_offense else self.offense = self.ranged_offense end
