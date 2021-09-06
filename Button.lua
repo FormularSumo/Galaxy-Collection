@@ -87,6 +87,10 @@ function Button:update()
                 _G[self.func](self.arg)
                 mouseLastX = -1
                 mouseLasty = -1
+                if lastClickIsTouch then
+                    mouseX = -1
+                    mouseY = -1
+                end
             end
             if mouseDown and (mouseTrapped == false or mouseTrapped == self) then
                 self.scaling = 1.08

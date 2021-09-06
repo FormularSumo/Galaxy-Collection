@@ -66,6 +66,7 @@ function love.load()
     mouseY = 0
     mouseButtonX = 0
     mouseButtonY = 0
+    lastClickIsTouch = false
     focus = true
 
     if love.filesystem.getInfo('Settings.txt') == nil then
@@ -227,9 +228,10 @@ function love.keyboard.wasDown(key)
     end
 end
 
-function love.mousereleased(x,y,button)
+function love.mousereleased(x,y,button,istouch)
     love.mouse.buttonsPressed[button] = true
     if button == 4 then love.keypressed('escape') end
+    lastClickIsTouch = istouch
 end
 
 function love.touchreleased()

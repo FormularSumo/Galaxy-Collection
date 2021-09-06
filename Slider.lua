@@ -57,6 +57,10 @@ function Slider:update()
         if self.func2 ~= nil then
             _G[self.func2]()
         end
+        if lastClickIsTouch then
+            mouseX = -1
+            mouseY = -1
+        end
     end
 end
 
