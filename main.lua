@@ -170,22 +170,22 @@ function love.keypressed(key)
 
     if key == 'up' or key == 'down' then
         if mouseTouching == false then
-            reposition_mouse(gui[1])
+            reposition_mouse(1)
         else
             for k, v in ipairs(gui) do
                 if v == mouseTouching then
                     if key == 'up' then
                         if gui[k-1] then
-                            reposition_mouse(gui[k-1])
+                            reposition_mouse(k-1)
                         else
-                            reposition_mouse(gui[#gui])
+                            reposition_mouse(#gui)
                         end
                     end
                     if key == 'down' then
                         if gui[k+1] then
-                            reposition_mouse(gui[k+1])
+                            reposition_mouse(k+1)
                         else
-                            reposition_mouse(gui[1])
+                            reposition_mouse(1)
                         end
                     end
                     break

@@ -4,6 +4,7 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     self.name = name
     self.row = row
     self.column = column
+    self.scaling = 1
     if self.name == 'Blank' then
         self.image = BlankCard
     else
@@ -32,9 +33,16 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
 end
 
 function Card_editor:update()
+    if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height and (mouseTrapped == false or mouseTrapped == self) then
+        mouseTouching = self
+        self.scaling = 1.04
+    else
+        self.scaling = 1
+    end
     if self.clicked == true then
         if mouseDown then
             if mouseTrapped == self then
+                self.scaling = 1.08
                 self.x = mouseLastX - self.clicked_positionX
                 self.y = mouseLastY - self.clicked_positionY
             end
@@ -99,7 +107,7 @@ function Card_editor:update()
 end
 
 function Card_editor:render()
-    love.graphics.draw(self.image,self.x,self.y)
+    love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
     if self.evolution == 4 then
         love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
     elseif self.evolution > 0 then

@@ -56,7 +56,7 @@ function StateMachine:change(stateName, enterParams, exitParams)
 	self.current:enter(enterParams)
     if love.mouse.isVisible() == false then
         if gui[1] then
-            reposition_mouse(gui[1])
+            reposition_mouse(1)
         end
     end
 	love.timer.step()

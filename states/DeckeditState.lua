@@ -38,8 +38,22 @@ function DeckeditState:init()
     background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
     gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',100)
-    gui['Left Arrow'] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1040)
-    gui['Right Arrow'] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1040)
+    gui[20] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1040)
+    gui[21] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1040)
+
+    for k, v in pairs(P1_deck) do
+        if k < 6 then
+            gui[k+14] = v
+        elseif k < 12 then
+            gui[k+2] = v
+        else
+            gui[k-10] = v
+        end
+    end
+
+    for k, v in pairs(Cards_on_display) do
+        gui[k+22] = v
+    end
 end
 
 function update_cards_on_display(direction)
@@ -90,11 +104,50 @@ function DeckeditState:update()
     for k, pair in pairs(Cards_on_display) do
         Cards_on_display[k]:update()
     end
-    if love.keyboard.wasPressed('right') then
-        update_cards_on_display('right')
-    end
-    if love.keyboard.wasPressed('left') then
-        update_cards_on_display('left')
+    if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('left') then
+        if mouseTouching == false then
+            if love.keyboard.wasPressed('right') then
+                update_cards_on_display('right')
+            else
+                update_cards_on_display('left')
+            end
+        else
+            for k, v in ipairs(gui) do
+                if v == mouseTouching then
+                    if love.keyboard.wasPressed('right') then
+                        if k < 19 and k > 13 then
+                            reposition_mouse(k+8) 
+                        elseif k == 19 then
+                            reposition_mouse(20)
+                        elseif k == 20 then
+                            reposition_mouse(21)
+                        elseif k == 21 then
+                            reposition_mouse(27)
+                        elseif gui[k+6] then
+                            reposition_mouse(k+6)
+                        else
+                            reposition_mouse(mouseTouching.row+2)
+                        end
+                    end
+                    if love.keyboard.wasPressed('left') then
+                        if k < 27 and k > 21 then
+                            reposition_mouse(k-8) 
+                        elseif k == 27 then
+                            reposition_mouse(21)
+                        elseif k == 21 then
+                            reposition_mouse(20)
+                        elseif k == 20 then
+                            reposition_mouse(19)
+                        elseif gui[k-6] and k - 6 ~= 1 then
+                            reposition_mouse(k-6)
+                        else
+                            reposition_mouse(mouseTouching.row+22+12)
+                        end
+                    end
+                    break
+                end
+            end
+        end
     end
 end
 
