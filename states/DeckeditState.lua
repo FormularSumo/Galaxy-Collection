@@ -98,12 +98,6 @@ function DeckeditState:back()
 end
 
 function DeckeditState:update()
-    for k, pair in pairs(P1_deck) do
-        P1_deck[k]:update()
-    end
-    for k, pair in pairs(Cards_on_display) do
-        Cards_on_display[k]:update()
-    end
     if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('left') then
         if mouseTouching == false then
             if love.keyboard.wasPressed('right') then
@@ -147,19 +141,6 @@ function DeckeditState:update()
                     break
                 end
             end
-        end
-    end
-end
-
-function DeckeditState:render()
-    if P1_deck ~= nil then
-        for k, pair in pairs(P1_deck) do
-            P1_deck[k]:render()
-        end
-    end
-    if Cards_on_display ~= nil then
-        for k, pair in pairs(Cards_on_display) do
-            Cards_on_display[k]:render()
         end
     end
 end
