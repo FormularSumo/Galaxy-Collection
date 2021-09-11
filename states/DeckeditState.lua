@@ -50,10 +50,6 @@ function DeckeditState:init()
             gui[k-10] = v
         end
     end
-
-    for k, v in pairs(Cards_on_display) do
-        gui[k+22] = v
-    end
 end
 
 function update_cards_on_display(direction)
@@ -90,6 +86,9 @@ function update_cards_on_display(direction)
         end
         column = nil
         row_correctment = nil
+        for k, v in pairs(Cards_on_display) do
+            gui[k+22] = v
+        end
     end
 end
 
