@@ -19,7 +19,7 @@ function SettingsState:back()
 end
 
 function SettingsState:update(dt)
-    if mouseTouching == gui[2] then
+    if mouseTouching == false or mouseTouching == gui[2] then
         if love.keyboard.wasDown('left') then
             gui[2]:update_percentage(gui[2].percentage - (dt*self.held_time^3)/4,false)
         end
