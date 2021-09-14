@@ -34,22 +34,13 @@ function DeckeditState:init()
     row_correctment = nil
 
     update_cards_on_display()
+    update_gui()
 
     background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
     gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',100)
     gui[20] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1040)
     gui[21] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1040)
-
-    for k, v in pairs(P1_deck) do
-        if k < 6 then
-            gui[k+14] = v
-        elseif k < 12 then
-            gui[k+2] = v
-        else
-            gui[k-10] = v
-        end
-    end
 end
 
 function update_cards_on_display(direction)
@@ -86,9 +77,21 @@ function update_cards_on_display(direction)
         end
         column = nil
         row_correctment = nil
-        for k, v in pairs(Cards_on_display) do
-            gui[k+22] = v
+    end
+end
+
+function update_gui()
+    for k, v in pairs(P1_deck) do
+        if k < 6 then
+            gui[k+14] = v
+        elseif k < 12 then
+            gui[k+2] = v
+        else
+            gui[k-10] = v
         end
+    end
+    for k, v in pairs(Cards_on_display) do
+        gui[k+22] = v
     end
 end
 
