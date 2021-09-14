@@ -364,10 +364,6 @@ function love.draw()
 
     -- love.graphics.print(tostring(mouseTouching) .. ' ' .. tostring(gui['Campaign']))
 
-    -- if gui['Gamespeed Slider'] then
-    --     love.graphics.print(tostring(mouseTouching) .. ' ' .. tostring(gui['Gamespeed Slider']))
-    -- end
-
     -- stats = love.graphics.getStats()
     -- y = 0
     -- for k, pair in pairs(stats) do
@@ -375,14 +371,6 @@ function love.draw()
     --     y = y + 100
     -- end
     -- love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
-    -- if P1_deck then
-    --     if P1_deck[1] then
-    --         love.graphics.print(tostring(P1_deck[1].name .. ' ' .. P1_deck[1].row),0,200)
-    --     end
-    --     if P1_deck[2] then
-    --         love.graphics.print(tostring(P1_deck[2].name .. ' ' .. P1_deck[2].row),0,300)        
-    --     end     
-    -- end
     -- if temporary then
     --     love.graphics.print(tostring(temporary.name .. ' ' .. temporary.row),0,400)
     -- end
