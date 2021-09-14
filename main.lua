@@ -348,12 +348,15 @@ function love.draw()
     end
     gStateMachine:render()
     for k, pair in pairs(gui) do
-        pair:render()
+        if mouseTouching ~= pair then
+            pair:render()
+        end
     end
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
 
+    if mouseTouching then mouseTouching:render() end
 
     -- for k, v in pairs(joysticks) do
     --     love.graphics.print(tostring(v),0,300+k*100)
