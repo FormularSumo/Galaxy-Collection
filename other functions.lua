@@ -58,6 +58,7 @@ function reposition_mouse(index)
             mouseButtonX,mouseButtonY = push.toReal(gui[index].x+gui[index].width/2,gui[index].y+gui[index].height/2)
         end
         love.mouse.setPosition(mouseButtonX,mouseButtonY)
+        love.mouse.setVisible(false)
     end
 end
 

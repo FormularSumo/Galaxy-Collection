@@ -192,7 +192,6 @@ function love.keypressed(key)
                 end
             end
         end
-        love.mouse.setVisible(false)
     end
 end
 
