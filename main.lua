@@ -69,6 +69,7 @@ function love.load()
     mouseButtonY = 0
     lastClickIsTouch = false
     focus = true
+    keyHoldTimer = 0
 
     if love.filesystem.getInfo('Settings.txt') == nil then
         Settings = {
@@ -142,9 +143,10 @@ function love.joystickremoved(joystick)
     joysticks = love.joystick.getJoysticks()
 end
 
-function love.keypressed(key)
+function love.keypressed(key,scancode,isrepeat)
     love.keyboard.keysPressed[key] = true
     love.keyboard.keysDown[key] = true
+    lastPressed = key
 
     --F11 toggles between fullscreen and maximised
     if key == 'f11' then
@@ -262,7 +264,6 @@ function love.focus(InFocus)
 end
 
 function love.update(dt)
-    mouseTouching = false
 
     --Handle joystick inputs
     if joysticks then
@@ -282,6 +283,20 @@ function love.update(dt)
     --Handle mouse inputs
     if love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter') then
         update_mouse_position()
+    end
+
+    -- --Handle holding down keys
+    if lastPressed then
+        if love.keyboard.wasDown(lastPressed) then
+            test = true
+            keyHoldTimer = keyHoldTimer + dt
+            if keyHoldTimer > 0.5 then
+                love.keypressed(lastPressed)
+                keyHoldTimer = keyHoldTimer - 0.05
+            end
+        else
+            keyHoldTimer = 0
+        end
     end
 
     --Manage song queue
@@ -308,6 +323,8 @@ function love.update(dt)
             testForBackgroundImageLoop(background['Background'],background['Seek'])
         end
     end
+
+    mouseTouching = false
 
     --Update GUI elements
     for k, pair in pairs(gui) do
