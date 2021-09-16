@@ -177,15 +177,11 @@ function love.keypressed(key)
                     if key == 'up' then
                         if gui[k-1] then
                             reposition_mouse(k-1)
-                        else
-                            reposition_mouse(#gui)
                         end
                     end
                     if key == 'down' then
                         if gui[k+1] then
                             reposition_mouse(k+1)
-                        else
-                            reposition_mouse(1)
                         end
                     end
                     break
@@ -352,11 +348,11 @@ function love.draw()
             pair:render()
         end
     end
+    if mouseTouching then mouseTouching:render() end
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
 
-    if mouseTouching then mouseTouching:render() end
 
     -- for k, v in pairs(joysticks) do
     --     love.graphics.print(tostring(v),0,300+k*100)

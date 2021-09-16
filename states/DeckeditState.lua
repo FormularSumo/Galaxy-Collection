@@ -111,7 +111,11 @@ function DeckeditState:update()
             for k, v in ipairs(gui) do
                 if v == mouseTouching then
                     if love.keyboard.wasPressed('right') then
-                        if k < 19 and k > 13 then
+                        if k == 1 then
+                            reposition_mouse(22)
+                        elseif k == 14 then
+                            reposition_mouse(1)
+                        elseif k < 19 and k > 14 then
                             reposition_mouse(k+8) 
                         elseif k == 19 then
                             reposition_mouse(20)
@@ -126,7 +130,11 @@ function DeckeditState:update()
                         end
                     end
                     if love.keyboard.wasPressed('left') then
-                        if k < 27 and k > 21 then
+                        if k == 1 then
+                            reposition_mouse(14)
+                        elseif k == 22 then
+                            reposition_mouse(1)
+                        elseif k < 27 and k > 22 then
                             reposition_mouse(k-8) 
                         elseif k == 27 then
                             reposition_mouse(21)
