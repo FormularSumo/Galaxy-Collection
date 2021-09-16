@@ -55,6 +55,7 @@ function love.load()
 
     love.keyboard.keysPressed = {}
     love.keyboard.keysReleased = {}
+    love.keyboard.keysDown = {}
     love.mouse.buttonsPressed = {}
     mouseDown = false
     mouseTouching = false
@@ -143,6 +144,7 @@ end
 
 function love.keypressed(key)
     love.keyboard.keysPressed[key] = true
+    love.keyboard.keysDown[key] = true
 
     --F11 toggles between fullscreen and maximised
     if key == 'f11' then
@@ -193,6 +195,7 @@ end
 
 function love.keyreleased(key)
     love.keyboard.keysReleased[key] = true
+    love.keyboard.keysDown[key] = false
 
     if key == 'return' or key == 'kpenter' then
         love.mouse.buttonsPressed[1] = true
@@ -212,15 +215,7 @@ function love.keyboard.wasReleased(key)
 end
 
 function love.keyboard.wasDown(key)
-    if love.keyboard.isDown(key) then
-        return true
-    elseif joysticks then
-        for k, v in pairs(joysticks) do
-            if key == 'return' then if v:isGamepadDown('a') then return true end end
-            if key == 'left' then if v:isGamepadDown('dpleft') then return true end end
-            if key == 'right' then if v:isGamepadDown('dpright') then return true end end
-        end
-    end
+    return love.keyboard.keysDown[key]
 end
 
 function love.mousereleased(x,y,button,istouch)
