@@ -104,6 +104,20 @@ function toggle_FPS()
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
+function controller_binds(button)
+    if button == 'a' then
+        return('return')
+    elseif button == 'b' then
+        return('escape')
+    elseif button == 'start' then
+        return('space')
+    elseif button == 'dpup' then
+        return('up')
+    elseif button == 'dpdown' then
+        return('down')
+    end
+end
+
 function tutorial()
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
     P1_deck_edit(0,{'AnakinSkywalkerROTS',60,4})

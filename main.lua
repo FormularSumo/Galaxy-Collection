@@ -234,24 +234,11 @@ function love.touchreleased()
 end
 
 function love.gamepadreleased(joystick,button)
-    if button == 'a' then
-        love.keyreleased('return')
-    end
-    if button == 'b' then
-        love.keyreleased('escape')
-    end
+    love.keyreleased(controller_binds(button))
 end
 
 function love.gamepadpressed(joystick,button)
-    if button == 'start' then
-        love.keypressed('space')
-    end
-    if button == 'dpup' then
-        love.keypressed('up')
-    end
-    if button == 'dpdown' then
-        love.keypressed('down')
-    end
+    love.keypressed(controller_binds(button))
 end
 
 function love.mousemoved(x,y)
