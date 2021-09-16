@@ -115,7 +115,12 @@ function controller_binds(button)
         return('up')
     elseif button == 'dpdown' then
         return('down')
+    elseif button == 'dpleft' then
+        return('left')
+    elseif button == 'dpright' then
+        return('right')
     end
+    return(false)
 end
 
 function tutorial()
