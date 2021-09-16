@@ -225,7 +225,7 @@ end
 
 
 function GameState:back()
-    gStateMachine:change('CampaignState',true,true)
+    gStateMachine:change('HomeState')
 end
 
 function GameState:update(dt)
