@@ -225,7 +225,7 @@ end
 
 
 function GameState:back()
-    pause()
+    gStateMachine:change('CampaignState',true,true)
 end
 
 function GameState:update(dt)
