@@ -229,7 +229,7 @@ function GameState:back()
 end
 
 function GameState:update(dt)
-    if love.keyboard.wasPressed('space') then
+    if love.keyboard.wasPressed('space') == true then
         pause()
     end
 

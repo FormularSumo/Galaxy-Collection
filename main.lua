@@ -144,34 +144,37 @@ function love.joystickremoved(joystick)
 end
 
 function love.keypressed(key,scancode,isrepeat)
-    love.keyboard.keysPressed[key] = true
-    love.keyboard.keysDown[key] = true
-    lastPressed = key
-
-    --F11 toggles between fullscreen and maximised
-    if key == 'f11' then
-        if love.window.getFullscreen() == false then
-            love.window.setFullscreen(true)
-        else
-            love.window.setFullscreen(false)
-            love.window.maximize()
+    --Stop mute/fullscreen being repeatedly toggled if you hold keys
+    if not isrepeat then
+        love.keyboard.keysPressed[key] = true
+        love.keyboard.keysDown[key] = true
+        lastPressed = key
+        --F11 toggles between fullscreen and maximised
+        if key == 'f11' then
+            if love.window.getFullscreen() == false then
+                love.window.setFullscreen(true)
+            else
+                love.window.setFullscreen(false)
+                love.window.maximize()
+            end
         end
+
+        --M mutes/unmutes
+        if key == 'm' then
+            if love.audio.getVolume() == 0 then
+                love.audio.setVolume(0.5)
+            else
+                love.audio.setVolume(0)
+            end
+            Settings['volume_level'] = love.audio.getVolume()
+            bitser.dumpLoveFile('Settings.txt', Settings)
+            if gui['Volume Slider'] ~= nil then
+                gui['Volume Slider'].percentage = love.audio.getVolume()
+            end
+        end
+    else
+        love.keyboard.keysPressed[key] = 'repeat'
     end
-
-    --M mutes/unmutes
-    if key == 'm' then
-        if love.audio.getVolume() == 0 then
-            love.audio.setVolume(0.5)
-        else
-            love.audio.setVolume(0)
-        end
-        Settings['volume_level'] = love.audio.getVolume()
-        bitser.dumpLoveFile('Settings.txt', Settings)
-        if gui['Volume Slider'] ~= nil then
-            gui['Volume Slider'].percentage = love.audio.getVolume()
-        end
-    end
-
     if key == 'up' or key == 'down' then
         if mouseTouching == false then
             reposition_mouse(1)
@@ -290,7 +293,7 @@ function love.update(dt)
             test = true
             keyHoldTimer = keyHoldTimer + dt
             if keyHoldTimer > 0.5 then
-                love.keypressed(lastPressed)
+                love.keypressed(lastPressed,nil,true)
                 keyHoldTimer = keyHoldTimer - 0.05
             end
         else
