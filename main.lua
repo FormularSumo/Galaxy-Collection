@@ -269,8 +269,8 @@ function love.update(dt)
         local leftx = 0
         local lefty = 0
         for k, v in pairs(joysticks) do
-            local leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
-            local lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
+            leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
+            lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
         end
         if focus and (leftx > 1.5 or leftx < -1.5 or lefty > 1.5 or lefty < -1.5) then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and deadzone because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
             love.mouse.setPosition(
@@ -357,7 +357,9 @@ function love.draw()
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
 
-
+    if leftx then
+        love.graphics.print(leftx)
+    end
     -- for k, v in pairs(joysticks) do
     --     love.graphics.print(tostring(v),0,300+k*100)
     --     love.graphics.print(v:getName(),1880-font80:getWidth(v:getName())-font80:getWidth(tostring(v:isConnected()))-font80:getWidth(tostring(v:isGamepad())),k*100-100)
