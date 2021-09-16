@@ -231,14 +231,14 @@ function love.touchreleased()
 end
 
 function love.gamepadreleased(joystick,button)
-    key = controller_binds(button)
+    local key = controller_binds(button)
     if button then
         love.keyreleased(key)
     end
 end
 
 function love.gamepadpressed(joystick,button)
-    key = controller_binds(button)
+    local key = controller_binds(button)
     if button then
         love.keypressed(key)
     end
@@ -264,14 +264,13 @@ function love.focus(InFocus)
 end
 
 function love.update(dt)
-
     --Handle joystick inputs
     if joysticks then
-        leftx = 0
-        lefty = 0
+        local leftx = 0
+        local lefty = 0
         for k, v in pairs(joysticks) do
-            leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
-            lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
+            local leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
+            local lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
         end
         if focus and (leftx > 1.5 or leftx < -1.5 or lefty > 1.5 or lefty < -1.5) then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and deadzone because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
             love.mouse.setPosition(
