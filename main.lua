@@ -149,6 +149,7 @@ function love.keypressed(key,scancode,isrepeat)
         love.keyboard.keysPressed[key] = true
         love.keyboard.keysDown[key] = true
         lastPressed = key
+        keyHoldTimer = 0
         --F11 toggles between fullscreen and maximised
         if key == 'f11' then
             if love.window.getFullscreen() == false then
@@ -360,9 +361,7 @@ function love.draw()
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
 
-    if leftx then
-        love.graphics.print(leftx)
-    end
+
     -- for k, v in pairs(joysticks) do
     --     love.graphics.print(tostring(v),0,300+k*100)
     --     love.graphics.print(v:getName(),1880-font80:getWidth(v:getName())-font80:getWidth(tostring(v:isConnected()))-font80:getWidth(tostring(v:isGamepad())),k*100-100)
