@@ -32,7 +32,9 @@ function SettingsState:update(dt)
             self.held_time = 0.5
             if love.keyboard.wasReleased('left') or love.keyboard.wasReleased('right') then
                 _G[gui[2].func2]()
-                reposition_mouse(gui[2])
+                if love.mouse.isVisible() == false then
+                    reposition_mouse(2)
+                end
             end
         end
     end
