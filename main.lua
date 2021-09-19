@@ -271,16 +271,34 @@ end
 function love.update(dt)
     --Handle joystick inputs
     if joysticks then
-        local leftx = 0
-        local lefty = 0
+        leftx = 0
+        lefty = 0
+        -- local direction
         for k, v in pairs(joysticks) do
             leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
             lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
         end
-        if focus and (leftx > 1.5 or leftx < -1.5 or lefty > 1.5 or lefty < -1.5) then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and deadzone because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
-            love.mouse.setPosition(
-                love.mouse.getX() + (leftx),
-                love.mouse.getY() + (lefty))
+        if math.abs(leftx) > 5 or math.abs(lefty) > 5 then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and deadzone because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
+            if math.abs(leftx) > math.abs(lefty) then
+                if leftx < 0 then
+                    direction = 'left'
+                else
+                    direction = 'right'
+                end
+            else
+                if lefty < 0 then
+                    direction = 'up'
+                else
+                    direction = 'down'
+                end
+            end
+            love.keyboard.keysDown[direction] = true
+            if lastPressed ~= direction then love.keypressed(direction) end
+        elseif direction then
+            love.keyboard.keysDown[direction] = false
+            direction = nil
+            lastPressed = nil
+            keyHoldTimer = 0
         end
     end
 
@@ -289,7 +307,7 @@ function love.update(dt)
         update_mouse_position()
     end
 
-    -- --Handle holding down keys
+    --Handle holding down keys
     if lastPressed then
         if love.keyboard.wasDown(lastPressed) then
             test = true
@@ -361,7 +379,6 @@ function love.draw()
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
-
 
     -- for k, v in pairs(joysticks) do
     --     love.graphics.print(tostring(v),0,300+k*100)
