@@ -27,6 +27,7 @@ function exit_state(partial)
     gui = {}
     paused = false
     collectgarbage()
+    mouseLocked = false
 end
 
 function gamespeed_slider(percentage)
@@ -53,7 +54,7 @@ end
 function reposition_mouse(index)
     if gui[index] ~= nil then
         if gui.percentage then
-            mouseButtonX,mouseButtonY = push.toReal(gui[index].x + (gui[index].width*gui[index].percentage),gui[index].y + gui[index].height / 2)
+            mouseButtonX,mouseButtonY = push.toReal(gui[index].x + (gui[index].width*gui[index].percentage),gui[index].y + gui[index].height/2)
         else
             mouseButtonX,mouseButtonY = push.toReal(gui[index].x+gui[index].width/2,gui[index].y+gui[index].height/2)
         end

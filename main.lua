@@ -70,6 +70,7 @@ function love.load()
     lastClickIsTouch = false
     focus = true
     keyHoldTimer = 0
+    mouseLocked = false
 
     if love.filesystem.getInfo('Settings.txt') == nil then
         Settings = {
@@ -341,7 +342,7 @@ function love.update(dt)
     love.keyboard.keysPressed = {}
     love.keyboard.keysReleased = {}
     love.mouse.buttonsPressed = {}
-    if mouseDown == false then mouseTrapped = false end
+    if mouseDown == false and mouseLocked == false then mouseTrapped = false end
     mouseDown = false
 end
 
@@ -362,6 +363,7 @@ function love.draw()
     end
 
 
+    love.graphics.print(tostring(mouseTrapped))
     -- for k, v in pairs(joysticks) do
     --     love.graphics.print(tostring(v),0,300+k*100)
     --     love.graphics.print(v:getName(),1880-font80:getWidth(v:getName())-font80:getWidth(tostring(v:isConnected()))-font80:getWidth(tostring(v:isGamepad())),k*100-100)
