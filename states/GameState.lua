@@ -236,15 +236,15 @@ function GameState:update(dt)
     --Left/right arrow adjust gamespeed, above dt = dt * gamespeed so not affected by gamespeed
     if mouseTouching == false or mouseTouching == gui[3] then
         if love.keyboard.wasDown('left') then
-            gui[3]:update_percentage(gui[3].percentage - (dt*held_time^3)/4,false)
+            gui[3]:update_percentage(gui[3].percentage - (dt*self.held_time^3)/4,false)
         end
         if love.keyboard.wasDown('right') then
-            gui[3]:update_percentage(gui[3].percentage + (dt*held_time^3)/4,false)
+            gui[3]:update_percentage(gui[3].percentage + (dt*self.held_time^3)/4,false)
         end
         if (love.keyboard.wasDown('left') or love.keyboard.wasDown('right')) and not (love.keyboard.wasDown('left') and love.keyboard.wasDown('right')) then
-            held_time = held_time + dt
+            self.held_time = self.held_time + dt
         else
-            held_time = 0.5
+            self.held_time = 0.5
             if love.keyboard.wasReleased('left') or love.keyboard.wasReleased('right') then
                 reposition_mouse(gui[3])
             end
