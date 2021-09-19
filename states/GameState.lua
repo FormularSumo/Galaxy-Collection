@@ -233,30 +233,10 @@ function GameState:update(dt)
         pause()
     end
 
-    --Left/right arrow adjust gamespeed, above dt = dt * gamespeed so not affected by gamespeed
-    if mouseTouching == false or mouseTouching == gui[3] then
-        if love.keyboard.wasDown('left') then
-            gui[3]:update_percentage(gui[3].percentage - (dt*self.held_time^3)/4,false)
-        end
-        if love.keyboard.wasDown('right') then
-            gui[3]:update_percentage(gui[3].percentage + (dt*self.held_time^3)/4,false)
-        end
-        if (love.keyboard.wasDown('left') or love.keyboard.wasDown('right')) and not (love.keyboard.wasDown('left') and love.keyboard.wasDown('right')) then
-            self.held_time = self.held_time + dt
-        else
-            self.held_time = 0.5
-            if love.keyboard.wasReleased('left') or love.keyboard.wasReleased('right') then
-                if love.mouse.isVisible() == false then
-                    reposition_mouse(3)
-                end
-            end
-        end
-    else
-        if love.keyboard.wasPressed('right') and mouseTouching == gui[1] then
-            reposition_mouse(2)
-        elseif love.keyboard.wasPressed('left') and mouseTouching == gui[2] then
-            reposition_mouse(1)
-        end
+    if love.keyboard.wasPressed('right') and mouseTouching == gui[1] then
+        reposition_mouse(2)
+    elseif love.keyboard.wasPressed('left') and mouseTouching == gui[2] then
+        reposition_mouse(1)
     end
 
     if paused == false and winner == 'none' then

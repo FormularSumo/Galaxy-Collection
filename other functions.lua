@@ -52,15 +52,26 @@ function exit_game()
 end
 
 function reposition_mouse(index)
-    if gui[index] ~= nil then
-        if gui[index].percentage then
-            mouseButtonX,mouseButtonY = push.toReal(gui[index].x + (gui[index].width*gui[index].percentage),gui[index].y + gui[index].height/2)
-        else
-            mouseButtonX,mouseButtonY = push.toReal(gui[index].x+gui[index].width/2,gui[index].y+gui[index].height/2)
+    if gui[index] then
+        mouseTouching = gui[index]
+    else
+        for k, pair in pairs(gui) do
+            if pair == index then
+                mouseTouching = index
+                break
+            end
         end
-        love.mouse.setPosition(mouseButtonX,mouseButtonY)
-        love.mouse.setVisible(false)
+        if mouseTouching ~= index then 
+            return
+        end
     end
+    if mouseTouching.percentage then
+        mouseButtonX,mouseButtonY = push.toReal(mouseTouching.x + (mouseTouching.width*mouseTouching.percentage),mouseTouching.y + mouseTouching.height/2)
+    else
+        mouseButtonX,mouseButtonY = push.toReal(mouseTouching.x+mouseTouching.width/2,mouseTouching.y+mouseTouching.height/2)
+    end
+    love.mouse.setPosition(mouseButtonX,mouseButtonY)
+    love.mouse.setVisible(false)
 end
 
 function update_mouse_position()

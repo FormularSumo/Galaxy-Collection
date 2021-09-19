@@ -1,6 +1,6 @@
 Slider = Class{}
 
-function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,func2)
+function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,func2,default)
     self.width = width
     self.height = height
 
@@ -25,6 +25,11 @@ function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,fun
     self.g2 = g2
     self.percentage = percentage
     self.func2 = func2
+    if default == nil then
+        self.default = true
+    else
+        self.default = default
+    end
     if trap ~= nil then 
         self.trap3 = trap
         self.trap1 = trap - 0.03
@@ -40,9 +45,10 @@ function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,fun
     self.radius_to_circle = self.diameter_to_circle / 2
     self.clickablex = self.x - self.height * self.radius_to_circle
     self.clickabley = self.y + self.height / 2 - self.height * self.radius_to_circle
+    self.held_time = 0.5
 end
 
-function Slider:update()
+function Slider:update(dt)
     if mouseX > self.clickablex and mouseX < self.clickablex + self.width + self.height * self.diameter_to_circle and mouseY > self.clickabley and mouseY < self.clickabley + self.height * self.diameter_to_circle then
         mouseTouching = self
         if mouseDown and love.mouse.isVisible() and mouseTrapped == false and mouseLastX > self.clickablex and mouseLastX < self.clickablex + self.width + self.height * self.diameter_to_circle and mouseLastY > self.clickabley and mouseLastY < self.clickabley + self.height * self.diameter_to_circle then
@@ -64,8 +70,36 @@ function Slider:update()
             end
         end
     end
+
+    if (self.default and mouseTouching == false) or mouseTouching == self then
+        if (love.keyboard.wasDown('left') or love.keyboard.wasDown('right')) then
+            if not (love.keyboard.wasDown('left') and love.keyboard.wasDown('right')) then
+                self.held_time = self.held_time + dt
+                if love.keyboard.wasDown('left') then
+                    self:update_percentage(self.percentage - (dt*self.held_time^3)/4,false)
+                end
+                if love.keyboard.wasDown('right') then
+                    self:update_percentage(self.percentage + (dt*self.held_time^3)/4,false)
+                end
+            else
+                self:update_slider()
+            end
+            if love.mouse.isVisible() == false then
+                reposition_mouse(self)
+            end
+        end
+        if love.keyboard.wasReleased('left') or love.keyboard.wasReleased('right') then
+            self:update_slider()
+        end
+    end
 end
 
+function Slider:update_slider()
+    self.held_time = 0.5
+    if self.func2 ~= nil then
+        _G[self.func2]()
+    end
+end
 function Slider:update_percentage(percentage,trap)
     self.percentage = percentage
     if self.percentage < 0.001 then self.percentage = 0.001 
@@ -85,4 +119,5 @@ function Slider:render()
     love.graphics.rectangle('fill',self.x,self.y,self.width*self.percentage,self.height,5)
     love.graphics.circle('fill',(self.x + (self.width*self.percentage)),(self.y + self.height / 2),self.height*self.radius_to_circle)
     love.graphics.setColor(1,1,1)
+    love.graphics.print(tostring(self.number))
 end

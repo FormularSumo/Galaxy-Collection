@@ -18,28 +18,6 @@ function SettingsState:back()
     gStateMachine:change('HomeState',true,true)
 end
 
-function SettingsState:update(dt)
-    if mouseTouching == false or mouseTouching == gui[2] then
-        if love.keyboard.wasDown('left') then
-            gui[2]:update_percentage(gui[2].percentage - (dt*self.held_time^3)/4,false)
-        end
-        if love.keyboard.wasDown('right') then
-            gui[2]:update_percentage(gui[2].percentage + (dt*self.held_time^3)/4,false)
-        end
-        if (love.keyboard.wasDown('left') or love.keyboard.wasDown('right')) and not (love.keyboard.wasDown('left') and love.keyboard.wasDown('right')) then
-            self.held_time = self.held_time + dt
-        else
-            self.held_time = 0.5
-            if love.keyboard.wasReleased('left') or love.keyboard.wasReleased('right') then
-                _G[gui[2].func2]()
-                if love.mouse.isVisible() == false then
-                    reposition_mouse(2)
-                end
-            end
-        end
-    end
-end
-
 function SettingsState:exit(partial)
     exit_state(partial)
 end

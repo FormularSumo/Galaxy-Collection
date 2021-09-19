@@ -332,7 +332,7 @@ function love.update(dt)
 
     --Update GUI elements
     for k, pair in pairs(gui) do
-        pair:update()
+        pair:update(dt)
     end
 
     --Update state machine
