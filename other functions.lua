@@ -54,7 +54,6 @@ end
 function reposition_mouse(index)
     if gui[index] ~= nil then
         if gui[index].percentage then
-            print('e')
             mouseButtonX,mouseButtonY = push.toReal(gui[index].x + (gui[index].width*gui[index].percentage),gui[index].y + gui[index].height/2)
         else
             mouseButtonX,mouseButtonY = push.toReal(gui[index].x+gui[index].width/2,gui[index].y+gui[index].height/2)
