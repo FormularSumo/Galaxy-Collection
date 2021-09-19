@@ -50,16 +50,18 @@ function Slider:update()
             mouseTrapped = self
         end
     end
-    if self.clicked == true and mouseDown and love.mouse.isVisible() then
-        self:update_percentage((mouseLastX - self.x) / self.width,true)
-    elseif self.clicked == true then
-        self.clicked = false
-        if self.func2 ~= nil then
-            _G[self.func2]()
-        end
-        if lastClickIsTouch then
-            mouseX = -1
-            mouseY = -1
+    if self.clicked == true then    
+        if mouseDown and love.mouse.isVisible() then
+            self:update_percentage((mouseLastX - self.x) / self.width,true)
+        else
+            self.clicked = false
+            if self.func2 ~= nil then
+                _G[self.func2]()
+            end
+            if lastClickIsTouch then
+                mouseX = -1
+                mouseY = -1
+            end
         end
     end
 end
