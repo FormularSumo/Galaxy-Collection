@@ -237,16 +237,12 @@ end
 
 function love.gamepadreleased(joystick,button)
     local key = controller_binds(button)
-    if button then
-        love.keyreleased(key)
-    end
+    love.keyreleased(key)
 end
 
 function love.gamepadpressed(joystick,button)
     local key = controller_binds(button)
-    if button then
-        love.keypressed(key)
-    end
+    love.keypressed(key)
 end
 
 function love.mousemoved(x,y)
