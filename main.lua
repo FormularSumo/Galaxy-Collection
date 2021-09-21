@@ -289,8 +289,18 @@ function love.update(dt)
                     direction = 'down'
                 end
             end
-            love.keyboard.keysDown[direction] = true
-            if lastPressed ~= direction and love.timer.getTime() > keyPressedTimer + 0.1 then love.keypressed(direction) keyPressedTimer = love.timer.getTime() end
+            if direction ~= lastPressed then
+                love.keyboard.keysDown['up'] = false
+                love.keyboard.keysDown['down'] = false
+                love.keyboard.keysDown['right'] = false
+                love.keyboard.keysDown['left'] = false
+
+                love.keyboard.keysDown[direction] = true
+                if love.timer.getTime() > keyPressedTimer + 0.1 then
+                    love.keypressed(direction) 
+                    keyPressedTimer = love.timer.getTime()
+                end
+            end
         elseif direction then
             love.keyboard.keysDown[direction] = false
             direction = nil
@@ -307,6 +317,7 @@ function love.update(dt)
     --Handle holding down keys
     if lastPressed then
         if love.keyboard.wasDown(lastPressed) then
+            keyPressedTimer = love.timer.getTime()
             keyHoldTimer = keyHoldTimer + dt
             if keyHoldTimer > 0.5 then
                 love.keypressed(lastPressed,nil,true)
