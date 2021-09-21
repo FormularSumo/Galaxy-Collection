@@ -71,26 +71,32 @@ function Slider:update(dt)
         end
     end
 
-    if (self.default and mouseTouching == false) or mouseTouching == self then
-        if (love.keyboard.wasDown('left') or love.keyboard.wasDown('right')) then
-            if not (love.keyboard.wasDown('left') and love.keyboard.wasDown('right')) then
-                self.held_time = self.held_time + dt
-                if love.keyboard.wasDown('left') then
-                    self:update_percentage(self.percentage - (dt*self.held_time^3)/4,false)
-                end
-                if love.keyboard.wasDown('right') then
-                    self:update_percentage(self.percentage + (dt*self.held_time^3)/4,false)
-                end
-            else
-                self:update_slider()
+    if mouseTouching == self or (self.default and mouseTouching == false) then
+        self:check_keys_down(dt,'left','right')
+    elseif self.default and (love.keyboard.wasDown('dpleft') or love.keyboard.wasDown('dpright')) then
+        self:check_keys_down(dt,'dpleft','dpright')
+    end
+end
+
+function Slider:check_keys_down(dt,left,right)
+    if (love.keyboard.wasDown(left) or love.keyboard.wasDown(right)) then
+        if not (love.keyboard.wasDown(left) and love.keyboard.wasDown(right)) then
+            self.held_time = self.held_time + dt
+            if love.keyboard.wasDown(left) then
+                self:update_percentage(self.percentage - (dt*self.held_time^3)/4,false)
             end
-            if love.mouse.isVisible() == false then
-                reposition_mouse(self)
+            if love.keyboard.wasDown(right) then
+                self:update_percentage(self.percentage + (dt*self.held_time^3)/4,false)
             end
-        end
-        if love.keyboard.wasReleased('left') or love.keyboard.wasReleased('right') then
+        else
             self:update_slider()
         end
+        if love.mouse.isVisible() == false and left == 'left' then
+            reposition_mouse(self)
+        end
+    end
+    if love.keyboard.wasReleased(left) or love.keyboard.wasReleased(right) then
+        self:update_slider()
     end
 end
 

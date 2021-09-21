@@ -118,21 +118,17 @@ end
 
 function controller_binds(button)
     if button == 'a' then
-        return('return')
+        return 'return'
     elseif button == 'b' then
-        return('escape')
+        return 'escape'
     elseif button == 'start' then
-        return('space')
-    elseif button == 'dpup' then
-        return('up')
-    elseif button == 'dpdown' then
-        return('down')
+        return 'space'
     elseif button == 'dpleft' then
-        return('left')
+        return 'dpleft'
     elseif button == 'dpright' then
-        return('right')
+        return 'dpright'
     end
-    return(false)
+    return false
 end
 
 function tutorial()

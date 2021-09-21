@@ -100,14 +100,14 @@ function DeckeditState:back()
 end
 
 function DeckeditState:update()
-    if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('left') then
-        if mouseTouching == false then
-            if love.keyboard.wasPressed('right') then
+    if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('left') or love.keyboard.wasPressed('dpright') or love.keyboard.wasPressed('dpleft') then
+        if mouseTouching == false or love.keyboard.wasPressed('dpright') or love.keyboard.wasPressed('dpleft') then
+            if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('dpright') then
                 update_cards_on_display('right')
             else
                 update_cards_on_display('left')
             end
-        else
+        elseif love.keyboard.wasPressed('right') or love.keyboard.wasPressed('left') then
             for k, v in ipairs(gui) do
                 if v == mouseTouching then
                     if love.keyboard.wasPressed('right') then
