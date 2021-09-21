@@ -70,6 +70,7 @@ function love.load()
     lastClickIsTouch = false
     focus = true
     keyHoldTimer = 0
+    keyPressedTimer = love.timer.getTime()
     mouseLocked = false
 
     if love.filesystem.getInfo('Settings.txt') == nil then
@@ -274,7 +275,7 @@ function love.update(dt)
             leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
             lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
         end
-        if math.abs(leftx) > 5 or math.abs(lefty) > 5 then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and deadzone because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
+        if math.abs(leftx) > 2 or math.abs(lefty) > 2 then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and deadzone because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
             if math.abs(leftx) > math.abs(lefty) then
                 if leftx < 0 then
                     direction = 'left'
@@ -289,7 +290,7 @@ function love.update(dt)
                 end
             end
             love.keyboard.keysDown[direction] = true
-            if lastPressed ~= direction then love.keypressed(direction) end
+            if lastPressed ~= direction and love.timer.getTime() > keyPressedTimer + 0.1 then love.keypressed(direction) keyPressedTimer = love.timer.getTime() end
         elseif direction then
             love.keyboard.keysDown[direction] = false
             direction = nil
@@ -306,7 +307,6 @@ function love.update(dt)
     --Handle holding down keys
     if lastPressed then
         if love.keyboard.wasDown(lastPressed) then
-            test = true
             keyHoldTimer = keyHoldTimer + dt
             if keyHoldTimer > 0.5 then
                 love.keypressed(lastPressed,nil,true)
