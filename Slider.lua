@@ -73,7 +73,8 @@ function Slider:update(dt)
 
     if mouseTouching == self or (self.default and mouseTouching == false) then
         self:check_keys_down(dt,'left','right')
-    elseif self.default and (love.keyboard.wasDown('dpleft') or love.keyboard.wasDown('dpright')) then
+    end
+    if self.default and (love.keyboard.wasDown('dpleft') or love.keyboard.wasDown('dpright')) then
         self:check_keys_down(dt,'dpleft','dpright')
     end
 end
