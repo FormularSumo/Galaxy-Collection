@@ -290,19 +290,27 @@ function love.update(dt)
                 end
             end
             if direction ~= lastPressed then
-                love.keyboard.keysDown['up'] = false
-                love.keyboard.keysDown['down'] = false
-                love.keyboard.keysDown['right'] = false
-                love.keyboard.keysDown['left'] = false
+                
+                if love.keyboard.wasDown('up') and direction ~= 'up' then
+                    love.keyreleased('up')
+                end
+                if love.keyboard.wasDown('down') and direction ~= 'down' then
+                    love.keyreleased('down')
+                end
+                if love.keyboard.wasDown('left') and direction ~= 'left' then
+                    love.keyreleased('left')
+                end
+                if love.keyboard.wasDown('right') and direction ~= 'right' then
+                    love.keyreleased('right')
+                end
 
-                love.keyboard.keysDown[direction] = true
                 if love.timer.getTime() > keyPressedTimer + 0.1 then
                     love.keypressed(direction) 
                     keyPressedTimer = love.timer.getTime()
                 end
             end
         elseif direction then
-            love.keyboard.keysDown[direction] = false
+            love.keyreleased(direction)
             direction = nil
             lastPressed = nil
             keyHoldTimer = 0
