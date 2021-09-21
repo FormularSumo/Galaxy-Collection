@@ -33,8 +33,16 @@ function DeckeditState:init()
     P1column = nil
     row_correctment = nil
 
+    for k, v in pairs(P1_deck) do
+        if k < 6 then
+            gui[k+14] = v
+        elseif k < 12 then
+            gui[k+2] = v
+        else
+            gui[k-10] = v
+        end
+    end
     update_cards_on_display()
-    update_gui()
 
     background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
@@ -77,21 +85,9 @@ function update_cards_on_display(direction)
         end
         column = nil
         row_correctment = nil
-    end
-end
-
-function update_gui()
-    for k, v in pairs(P1_deck) do
-        if k < 6 then
-            gui[k+14] = v
-        elseif k < 12 then
-            gui[k+2] = v
-        else
-            gui[k-10] = v
+        for k, v in pairs(Cards_on_display) do
+            gui[k+22] = v
         end
-    end
-    for k, v in pairs(Cards_on_display) do
-        gui[k+22] = v
     end
 end
 
@@ -104,6 +100,7 @@ function DeckeditState:update()
         if mouseTouching == false then
             if love.keyboard.wasPressed('right') then
                 update_cards_on_display('right')
+                print('e')
             else
                 update_cards_on_display('left')
             end
