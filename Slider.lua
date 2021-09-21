@@ -119,5 +119,4 @@ function Slider:render()
     love.graphics.rectangle('fill',self.x,self.y,self.width*self.percentage,self.height,5)
     love.graphics.circle('fill',(self.x + (self.width*self.percentage)),(self.y + self.height / 2),self.height*self.radius_to_circle)
     love.graphics.setColor(1,1,1)
-    love.graphics.print(tostring(self.number))
 end
