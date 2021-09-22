@@ -270,7 +270,6 @@ function love.update(dt)
     if joysticks then
         local leftx = 0
         local lefty = 0
-        local direction
         for k, v in pairs(joysticks) do
             leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
             lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
