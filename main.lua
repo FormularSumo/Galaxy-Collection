@@ -268,9 +268,9 @@ end
 function love.update(dt)
     --Handle joystick inputs
     if joysticks then
-        leftx = 0
-        lefty = 0
-        -- local direction
+        local leftx = 0
+        local lefty = 0
+        local direction
         for k, v in pairs(joysticks) do
             leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
             lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
@@ -401,8 +401,6 @@ function love.draw()
     --     love.graphics.print(tostring(v:isConnected()),1900-font80:getWidth(tostring(v:isConnected()))-font80:getWidth(tostring(v:isGamepad())),k*100-100)
     --     love.graphics.print(tostring(v:isGamepad()),1920-font80:getWidth(tostring(v:isGamepad())),k*100-100)
     -- end
-
-    -- love.graphics.print(tostring(mouseTouching) .. ' ' .. tostring(gui['Campaign']))
 
     -- stats = love.graphics.getStats()
     -- y = 0
