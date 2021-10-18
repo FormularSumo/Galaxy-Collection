@@ -1,10 +1,10 @@
 Card = Class{__includes = BaseState}
 
 function Card:init(name,row,column,team,number,level,evolution)
-    self.name = name
+    self.name = Characters[name]
     self.row = row
     self.column = column
-    self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
+    self.image = love.graphics.newImage('Characters/' .. name .. '/' .. name .. '.png')
     self.width,self.height = self.image:getDimensions()
     self.x = -self.width
     self.y = -self.height
@@ -14,52 +14,52 @@ function Card:init(name,row,column,team,number,level,evolution)
     if not evolution then self.evolution = 0 else self.evolution = evolution end
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-    self.melee_offense = _G[self.name]['melee_offense'] * (self.modifier)
-    if _G[self.name]['ranged_offense'] then
-        self.ranged_offense = _G[self.name]['ranged_offense'] * (self.modifier)
+    self.melee_offense = self.name['melee_offense'] * (self.modifier)
+    if self.name['ranged_offense'] then
+        self.ranged_offense = self.name['ranged_offense'] * (self.modifier)
     else
         self.ranged_offense = self.melee_offense
     end
-    self.defense = _G[self.name]['defense'] * (self.modifier)
-    self.evade = _G[self.name]['evade']
-    self.range = _G[self.name]['range']
-    if _G[self.name]['projectile'] then
-        if not Projectiles[_G[self.name]['projectile']] then
-            Projectiles[_G[self.name]['projectile']] = love.graphics.newImage('Graphics/'.._G[self.name]['projectile']..'.png')
+    self.defense = self.name['defense'] * (self.modifier)
+    self.evade = self.name['evade']
+    self.range = self.name['range']
+    if self.name['projectile'] then
+        if not Projectiles[self.name['projectile']] then
+            Projectiles[self.name['projectile']] = love.graphics.newImage('Graphics/'..self.name['projectile']..'.png')
         end
-        self.projectile_image = Projectiles[_G[self.name]['projectile']]
+        self.projectile_image = Projectiles[self.name['projectile']]
     end
 
-    if _G[self.name]['weapon'] then
-        if not Weapons[_G[self.name]['weapon']] then
-            Weapons[_G[self.name]['weapon']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon']..'.png')
+    if self.name['weapon'] then
+        if not Weapons[self.name['weapon']] then
+            Weapons[self.name['weapon']] = love.graphics.newImage('Graphics/'..self.name['weapon']..'.png')
         end
-        self.weapon_image = Weapons[_G[self.name]['weapon']]
+        self.weapon_image = Weapons[self.name['weapon']]
     end
 
-    if _G[self.name]['weapon2'] then
-        if not Weapons[_G[self.name]['weapon2']] then
-            Weapons[_G[self.name]['weapon2']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon2']..'.png')
-        end
-    end
-
-    if _G[self.name]['weapon3'] then
-        if not Weapons[_G[self.name]['weapon3']] then
-            Weapons[_G[self.name]['weapon3']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon3']..'.png')
+    if self.name['weapon2'] then
+        if not Weapons[self.name['weapon2']] then
+            Weapons[self.name['weapon2']] = love.graphics.newImage('Graphics/'..self.name['weapon2']..'.png')
         end
     end
 
-    if _G[self.name]['weapon4'] then
-        if not Weapons[_G[self.name]['weapon4']] then
-            Weapons[_G[self.name]['weapon4']] = love.graphics.newImage('Graphics/'.._G[self.name]['weapon4']..'.png')
+    if self.name['weapon3'] then
+        if not Weapons[self.name['weapon3']] then
+            Weapons[self.name['weapon3']] = love.graphics.newImage('Graphics/'..self.name['weapon3']..'.png')
+        end
+    end
+
+    if self.name['weapon4'] then
+        if not Weapons[self.name['weapon4']] then
+            Weapons[self.name['weapon4']] = love.graphics.newImage('Graphics/'..self.name['weapon4']..'.png')
         end
     end
 
     if self.weapon_image then
-        self.weapon = Weapon(self.x, self.y, self.column, self.weapon_image, Weapons[_G[self.name]['weapon2']], Weapons[_G[self.name]['weapon3']], Weapons[_G[self.name]['weapon4']], _G[self.name]['weapon_count'] , self.team, self.width, self.height, self.range)
+        self.weapon = Weapon(self.x, self.y, self.column, self.weapon_image, Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'] , self.team, self.width, self.height, self.range)
     end
 
-    if (_G[self.name]['projectile'] == 'Lightning' or _G[self.name]['projectile'] == 'ForceBlast') and self.weapon == nil then
+    if (self.name['projectile'] == 'Lightning' or self.name['projectile'] == 'ForceBlast') and self.weapon == nil then
         self.melee_projectile = true
     end
 

@@ -8,6 +8,7 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     if self.name == 'Blank' then
         self.image = BlankCard
     else
+        self.stats = Characters[self.name]
         self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
     end
     self.width,self.height = self.image:getDimensions()
@@ -20,15 +21,15 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     if self.name ~= 'Blank' then
         self.health = 1000
         self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-        self.melee_offense = _G[self.name]['melee_offense'] * (self.modifier)
-        if _G[self.name]['ranged_offense'] then
-            self.ranged_offense = _G[self.name]['ranged_offense'] * (self.modifier)
+        self.melee_offense = self.stats['melee_offense'] * (self.modifier)
+        if self.stats['ranged_offense'] then
+            self.ranged_offense = self.stats['ranged_offense'] * (self.modifier)
         else
             self.ranged_offense = self.melee_offense
         end
-        self.defense = _G[self.name]['defense'] * (self.modifier)
-        self.evade = _G[self.name]['evade']
-        self.range = _G[self.name]['range']
+        self.defense = self.stats['defense'] * (self.modifier)
+        self.evade = self.stats['evade']
+        self.range = self.stats['range']
     end
 end
 
