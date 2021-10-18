@@ -1220,9 +1220,11 @@ Characters = {
 
 ['MaceWindu'] = {
     ['melee_offense'] = 18901,
+    ['ranged_offense'] = 18901,
     ['defense'] = 18574,
     ['evade'] = 0.05,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'PurpleLightsaber'
 },
 
