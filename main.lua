@@ -252,9 +252,7 @@ function love.mousemoved(x,y)
         mouseX = -1
         mouseY = -1
     end
-    if x == math.floor(mouseButtonX) or y == math.floor(mouseButtonY) then
-        return
-    elseif OS == 'Android' and (x == mouseButtonX or y == mouseButtonY) then 
+    if math.abs(x - mouseButtonX) <= 0.5 and math.abs(y - mouseButtonY) <= 0.5 then
         return
     end
     love.mouse.setVisible(true)
