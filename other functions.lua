@@ -131,15 +131,41 @@ function controller_binds(button)
     return false
 end
 
+function character_strength(character)
+    stats = Characters[character]
+    if stats['ranged_offense'] then
+        offense = (stats['ranged_offense'] + stats['melee_offense']) / 2
+    else
+        offense = stats['melee_offense']
+    end
+    return ((offense/800)^3+(stats['defense']/800)^3)*(1+stats['evade']*2)*(0.9+stats['range']/10)
+end
+
+function compare_character_strength(character1, character2)
+    return character_strength(character1) > character_strength(character2)
+end
+
 function tutorial()
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
+    P1_deck_edit(0,{CaptainRex,60,4})
+
     count = -1
+    Characters_by_strength = {}
+
     for k, pair in pairs(Characters) do
         count = count + 1
+        Characters_by_strength[count] = k
+    end
+
+    table.sort(Characters_by_strength,compare_character_strength)
+
+    count = -1
+    for k, pair in ipairs(Characters_by_strength) do
+        count = count + 1
         if count < 18 then
-            P1_deck_edit(count,{k,60,4})
+            P1_deck_edit(count,{pair,60,4})
         else
-            P1_cards[count-18] = {k,60,4}
+            P1_cards[count-18] = {pair,60,4}
         end
     end
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
