@@ -252,7 +252,7 @@ function love.mousemoved(x,y)
         mouseX = -1
         mouseY = -1
     end
-    if math.abs(x - mouseButtonX) <= 0.5 and math.abs(y - mouseButtonY) <= 0.5 then
+    if math.abs(x - mouseButtonX) < 1 and math.abs(y - mouseButtonY) < 1 then
         return
     end
     love.mouse.setVisible(true)
