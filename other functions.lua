@@ -153,8 +153,10 @@ function tutorial()
     Characters_by_strength = {}
 
     for k, pair in pairs(Characters) do
-        count = count + 1
-        Characters_by_strength[count] = k
+        if k ~= 'DarthNoscoper' then
+            count = count + 1
+            Characters_by_strength[count] = k
+        end
     end
 
     table.sort(Characters_by_strength,compare_character_strength)
