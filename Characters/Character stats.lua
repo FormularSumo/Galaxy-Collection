@@ -850,13 +850,15 @@ Characters = {
 
 ['GeneralGrievous'] = {
     ['melee_offense'] = 19001,
+    ['ranged_offense'] = 15579,
     ['defense'] = 16902,
     ['evade'] = 0.06,
-    ['range'] = 1,
+    ['range'] = 3,
     ['weapon'] = 'BlueLightsaber',
     ['weapon2'] = 'GreenLightsaber',
     ['weapon3'] = 'GreenLightsaber',
     ['weapon4'] = 'BlueLightsaber',
+    ['projectile'] = 'RedLaser',
     ['weapon_count'] = 4
 },
 
