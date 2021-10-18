@@ -235,7 +235,7 @@ Characters = {
 
 ['BenKenobi'] = {
     ['melee_offense'] = 17304,
-    ['ranged_offense'] = 16304
+    ['ranged_offense'] = 16304,
     ['defense'] = 18513,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -727,7 +727,7 @@ Characters = {
     ['ranged_offense'] = 16445,
     ['defense'] = 17411,
     ['evade'] = 0.15,
-    ['range'] = 2,
+    ['range'] = 3,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
@@ -809,7 +809,7 @@ Characters = {
     ['ranged_offense'] = 16679,
     ['defense'] = 17567,
     ['evade'] = 0.15,
-    ['range'] = 2,
+    ['range'] = 3,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
@@ -949,7 +949,7 @@ Characters = {
     ['ranged_offense'] = 16889,
     ['defense'] = 17876,
     ['evade'] = 0.15,
-    ['range'] = 2,
+    ['range'] = 3,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
@@ -1336,7 +1336,7 @@ Characters = {
     ['ranged_offense'] = 16330,
     ['defense'] = 18406,
     ['evade'] = 0.15,
-    ['range'] = 2,
+    ['range'] = 3,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
@@ -1474,8 +1474,9 @@ Characters = {
     ['defense'] = 17374,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['weapon'] = 'Darksaber',
-    ['projectile'] = 'YellowLaser'
+    ['projectile'] = 'YellowLaser',
+    ['weapon'] = 'Darksaber'
+
 },
 
 ['PurgeTrooper'] = {
@@ -1624,7 +1625,7 @@ Characters = {
     ['ranged_offense'] = 16556,
     ['defense'] = 17412,
     ['evade'] = 0.15,
-    ['range'] = 2,
+    ['range'] = 3,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
@@ -1802,7 +1803,7 @@ Characters = {
     ['ranged_offense'] = 17254,
     ['defense'] = 17445,
     ['evade'] = 0.15,
-    ['range'] = 2,
+    ['range'] = 3,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
