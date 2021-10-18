@@ -235,9 +235,11 @@ Characters = {
 
 ['BenKenobi'] = {
     ['melee_offense'] = 17304,
+    ['ranged_offense'] = 16304
     ['defense'] = 18513,
     ['evade'] = 0.03,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -478,9 +480,11 @@ Characters = {
 
 ['ColemanKcaj'] = {
     ['melee_offense'] = 17320,
+    ['ranged_offense'] = 16320,
     ['defense'] = 18156,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
 },
 
@@ -799,9 +803,11 @@ Characters = {
 
 ['FifthBrother'] = {
     ['melee_offense'] = 17679,
+    ['ranged_offense'] = 16679,
     ['defense'] = 17567,
     ['evade'] = 0.15,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
 
@@ -1323,9 +1329,11 @@ Characters = {
 
 ['NinthSister'] = {
     ['melee_offense'] = 17330,
+    ['ranged_offense'] = 16330,
     ['defense'] = 18406,
     ['evade'] = 0.15,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
 
@@ -1785,9 +1793,11 @@ Characters = {
 
 ['TrillaSuduri'] = {
     ['melee_offense'] = 18254,
+    ['ranged_offense'] = 17254,
     ['defense'] = 17445,
     ['evade'] = 0.15,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
 
