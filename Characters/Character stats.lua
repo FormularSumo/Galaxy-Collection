@@ -2,17 +2,21 @@ Characters = {
 
 ['AaylaSecura'] = {
     ['melee_offense'] = 17965,
+    ['ranged_offense'] = 16965,
     ['defense'] = 17846,
     ['evade'] = 0.06,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
 ['AdiGallia'] = {
     ['melee_offense'] = 17951,
+    ['ranged_offense'] = 16951,
     ['defense'] = 17854,
     ['evade'] = 0.05,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -156,10 +160,12 @@ Characters = {
 
 ['AsajjVentress'] = {
     ['melee_offense'] = 18254,
+    ['ranged_offense'] = 17254,
     ['defense'] = 17432,
     ['evade'] = 0.07,
-    ['range'] = 1,
-    ['weapon'] = 'RedLightsaber', 
+    ['range'] = 3,
+    ['weapon'] = 'RedLightsaber',
+    ['projectile'] = 'Fire', 
     ['weapon_count'] = 2
 },
 
@@ -654,10 +660,12 @@ Characters = {
 
 ['DepaBillaba'] = {
     ['melee_offense'] = 17444,
+    ['ranged_offense'] = 16444,
     ['defense'] = 18113,
     ['evade'] = 0.04,
-    ['range'] = 1,
-    ['weapon'] = 'GreenLightsaber'
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
+    ['weapon'] = 'BlueLightsaber'
 },
 
 ['DirectorKrennic'] = {
@@ -701,9 +709,11 @@ Characters = {
 
 ['EethKoth'] = {
     ['melee_offense'] = 17556,
+    ['ranged_offense'] = 16556,
     ['defense'] = 18010,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
 },
 
@@ -747,9 +757,11 @@ Characters = {
 
 ['EvenPiell'] = {
     ['melee_offense'] = 17820,
+    ['ranged_offense'] = 16820,
     ['defense'] = 17235,
     ['evade'] = 0.07,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
 },
 
@@ -925,9 +937,11 @@ Characters = {
 
 ['GrandInquisitor'] = {
     ['melee_offense'] = 17889,
+    ['ranged_offense'] = 16889,
     ['defense'] = 17876,
     ['evade'] = 0.15,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
 
@@ -1071,9 +1085,11 @@ Characters = {
 
 ['ImaGunDi'] = {
     ['melee_offense'] = 17860,
+    ['ranged_offense'] = 16860,
     ['defense'] = 18049,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -1238,9 +1254,11 @@ Characters = {
 
 ['LuminaraUnduli'] = {
     ['melee_offense'] = 17779,
+    ['ranged_offense'] = 16779,
     ['defense'] = 17909,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
 },
 
@@ -1466,9 +1484,11 @@ Characters = {
 
 ['QuiGonJinn'] = {
     ['melee_offense'] = 17814,
+    ['ranged_offense'] = 16814,
     ['defense'] = 17989,
     ['evade'] = 0.03,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
 },
 
@@ -1498,9 +1518,11 @@ Characters = {
 
 ['Rey'] = {
     ['melee_offense'] = 17899,
+    ['ranged_offense'] = 15579,
     ['defense'] = 17890,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -1595,9 +1617,11 @@ Characters = {
 
 ['ShaakTi'] = {
     ['melee_offense'] = 17826,
+    ['ranged_offense'] = 16826,
     ['defense'] = 18003,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -1635,9 +1659,11 @@ Characters = {
 
 ['StassAllie'] = {
     ['melee_offense'] = 17357,
+    ['ranged_offense'] = 16357
     ['defense'] = 18134,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
 },
 
