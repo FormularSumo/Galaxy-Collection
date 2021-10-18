@@ -132,13 +132,20 @@ function controller_binds(button)
 end
 
 function character_strength(character)
-    stats = Characters[character]
-    if stats['ranged_offense'] then
-        offense = (stats['ranged_offense'] + stats['melee_offense']) / 2
+    if character[1] then
+        stats = Characters[character[1]]
+        modifier = ((character[2] + (60 - character[2]) / 1.7) / 60) * (1 - ((4 - character[3]) * 0.1))
     else
-        offense = stats['melee_offense']
+        stats = Characters[character]
+        modifier = 1
     end
-    return ((offense/800)^3+(stats['defense']/800)^3)*(1+stats['evade']*2)*(0.9+stats['range']/10)
+
+    if stats['ranged_offense'] then
+        offense = (stats['ranged_offense'] + stats['melee_offense']) / 2 * modifier
+    else
+        offense = stats['melee_offense'] * modifier
+    end
+    return ((offense/800)^3+((stats['defense']*modifier)/800)^3)*(1+stats['evade']*2)*(0.9+stats['range']/10)
 end
 
 function compare_character_strength(character1, character2)

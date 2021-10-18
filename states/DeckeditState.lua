@@ -4,6 +4,7 @@ function DeckeditState:init()
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P1_cards = bitser.loadLoveFile('Player 1 cards.txt')
+    table.sort(P1_cards,compare_character_strength)
     Cards_on_display = {}
     Evolution = love.graphics.newImage('Graphics/Evolution.png')
     EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
