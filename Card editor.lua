@@ -18,19 +18,19 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     if not level then self.level = 1 else self.level = level end
     if not evolution then self.evolution = 0 else self.evolution = evolution end
     self.in_deck = in_deck
-    if self.name ~= 'Blank' then
-        self.health = 1000
-        self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-        self.melee_offense = self.stats['melee_offense'] * (self.modifier)
-        if self.stats['ranged_offense'] then
-            self.ranged_offense = self.stats['ranged_offense'] * (self.modifier)
-        else
-            self.ranged_offense = self.melee_offense
-        end
-        self.defense = self.stats['defense'] * (self.modifier)
-        self.evade = self.stats['evade']
-        self.range = self.stats['range']
-    end
+    -- if self.name ~= 'Blank' then
+    --     self.health = 1000
+    --     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
+    --     self.melee_offense = self.stats['melee_offense'] * (self.modifier)
+    --     if self.stats['ranged_offense'] then
+    --         self.ranged_offense = self.stats['ranged_offense'] * (self.modifier)
+    --     else
+    --         self.ranged_offense = self.melee_offense
+    --     end
+    --     self.defense = self.stats['defense'] * (self.modifier)
+    --     self.evade = self.stats['evade']
+    --     self.range = self.stats['range']
+    -- end
 end
 
 function Card_editor:swap()

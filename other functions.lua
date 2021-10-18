@@ -147,7 +147,6 @@ end
 
 function tutorial()
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
-    P1_deck_edit(0,{CaptainRex,60,4})
 
     count = -1
     Characters_by_strength = {}
