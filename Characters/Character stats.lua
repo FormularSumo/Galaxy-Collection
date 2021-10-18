@@ -41,18 +41,22 @@ Characters = {
 
 ['AgenKolar'] = {
     ['melee_offense'] = 18010,
+    ['ranged_offense'] = 17010,
     ['defense'] = 17856,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
 ['AhsokaTanoFulcrum'] = {
     ['melee_offense'] = 18469,
+    ['ranged_offense'] = 17469,
     ['defense'] = 18384,
     ['evade'] = 0.1,
-    ['range'] = 1,
+    ['range'] = 2,
     ['weapon'] = 'WhiteLightsaber', 
+    ['projectile'] = 'ForceBlast',
     ['weapon_count'] = 2
 },
 
@@ -68,10 +72,12 @@ Characters = {
 
 ['AhsokaTanoS7'] = {
     ['melee_offense'] = 18464,
+    ['ranged_offense'] = 17464,
     ['defense'] = 17420,
     ['evade'] = 0.1,
-    ['range'] = 1,
+    ['range'] = 2,
     ['weapon'] = 'BlueLightsaber',
+    ['projectile'] = 'ForceBlast',
     ['weapon_count'] = 2
 },
 
@@ -85,9 +91,11 @@ Characters = {
 
 ['AnakinSkywalkerROTS'] = {
     ['melee_offense'] = 18924,
+    ['ranged_offense'] = 17924,
     ['defense'] = 17954,
     ['evade'] = 0.05,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -568,9 +576,11 @@ Characters = {
 
 ['CountDooku'] = {
     ['melee_offense'] = 18224,
+    ['ranged_offense'] = 18224,
     ['defense'] = 18391,
     ['evade'] = 0.05,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'Lightning',
     ['weapon'] = 'RedLightsaber'
 },
 
@@ -583,10 +593,12 @@ Characters = {
 
 ['DarthSidious'] = {
     ['melee_offense'] = 18731,
+    ['ranged_offense'] = 18731,
     ['defense'] = 18653,
     ['evade'] = 0.07,
     ['range'] = 2,
-    ['projectile'] = 'Lightning'
+    ['projectile'] = 'Lightning',
+    ['weapon'] = 'RedLightsaber'
 },
 
 ['DarthSidiousReborn'] = {
@@ -599,9 +611,11 @@ Characters = {
 
 ['DarthVader'] = {
     ['melee_offense'] = 18400,
+    ['ranged_offense'] = 17400,
     ['defense'] = 18643,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'RedLightsaber'
 },
 
@@ -984,9 +998,11 @@ Characters = {
 
 ['HermitLuke'] = {
     ['melee_offense'] = 17469,
+    ['ranged_offense'] = 16469,
     ['defense'] = 19455,
     ['evade'] = 0.12,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -1093,9 +1109,11 @@ Characters = {
 
 ['JaroTapal'] = {
     ['melee_offense'] = 17880,
+    ['ranged_offense'] = 16880,
     ['defense'] = 18030,
     ['evade'] = 0.03,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'DoubleBlueLightsaber'
 },
 
@@ -1133,17 +1151,21 @@ Characters = {
 
 ['KiAdiMundi'] = {
     ['melee_offense'] = 17849,
+    ['ranged_offense'] = 16849,
     ['defense'] = 18002,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'  
 },
 
 ['KitFisto'] = {
     ['melee_offense'] = 17801,
+    ['ranged_offense'] = 16801,
     ['defense'] = 18078,
     ['evade'] = 0.05,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'  
 },
 
@@ -1173,9 +1195,11 @@ Characters = {
 
 ['KyloRen'] = {
     ['melee_offense'] = 18193,
+    ['ranged_offense'] = 17193,
     ['defense'] = 17664,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'CrossguardLightsaber'
 },
 
@@ -1204,9 +1228,11 @@ Characters = {
 
 ['LukeSkywalkerROTJ'] = {
     ['melee_offense'] = 18437,
+    ['ranged_offense'] = 17437,
     ['defense'] = 18339,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
 },
 
@@ -1220,7 +1246,7 @@ Characters = {
 
 ['MaceWindu'] = {
     ['melee_offense'] = 18901,
-    ['ranged_offense'] = 18901,
+    ['ranged_offense'] = 17901,
     ['defense'] = 18574,
     ['evade'] = 0.05,
     ['range'] = 2,
@@ -1237,9 +1263,11 @@ Characters = {
 
 ['Maul'] = {
     ['melee_offense'] = 18325,
+    ['ranged_offense'] = 17325,
     ['defense'] = 17583,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'DoubleRedLightsaber'
 },
 
@@ -1301,9 +1329,11 @@ Characters = {
 
 ['ObiWanKenobi'] = {
     ['melee_offense'] = 17421,
+    ['ranged_offense'] = 16421,
     ['defense'] = 18864,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -1373,9 +1403,11 @@ Characters = {
 
 ['PloKoon'] = {
     ['melee_offense'] = 18037,
+    ['ranged_offense'] = 17037,
     ['defense'] = 17792,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -1396,11 +1428,13 @@ Characters = {
 
 ['PongKrell'] = {
     ['melee_offense'] = 18418,
+    ['ranged_offense'] = 18418,
     ['defense'] = 17450,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
     ['weapon'] = 'DoubleGreenLightsaber',
     ['weapon2'] = 'DoubleBlueLightsaber',
+    ['projectile'] = 'ForceBlast',
     ['weapon_count'] = 2
 },
 
@@ -1440,9 +1474,11 @@ Characters = {
 
 ['QuinlanVos'] = {
     ['melee_offense'] = 17980,
+    ['ranged_offense'] = 16980,
     ['defense'] = 17855,
     ['evade'] = 0.07,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
 },
 
@@ -1492,9 +1528,11 @@ Characters = {
 
 ['SaeseeTiin'] = {
     ['melee_offense'] = 17952,
+    ['ranged_offense'] = 16952,
     ['defense'] = 17901,
     ['evade'] = 0.04,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
 },
 
@@ -1508,9 +1546,11 @@ Characters = {
 
 ['SavageOpress'] = {
     ['melee_offense'] = 18526,
+    ['ranged_offense'] = 17526,
     ['defense'] = 17349,
     ['evade'] = 0.03,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'DoubleRedLightsaber'
 },
 
@@ -1785,12 +1825,13 @@ Characters = {
 
 ['Yoda'] = {
     ['melee_offense'] = 18394,
-    ['ranged_offense'] = 17593,
+    ['ranged_offense'] = 17394,
     ['defense'] = 18535,
     ['evade'] = 0.12,
     ['range'] = 2,
-    ['weapon'] = 'YodaLightsaber',
-    ['projectile'] = 'ForceBlast'
+    ['projectile'] = 'ForceBlast',
+    ['weapon'] = 'YodaLightsaber'
+   
 },
 
 ['GarazebOrrelios'] = {
