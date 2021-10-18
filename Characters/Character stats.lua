@@ -235,7 +235,7 @@ Characters = {
 
 ['BenKenobi'] = {
     ['melee_offense'] = 17304,
-    ['ranged_offense'] = 16304
+    ['ranged_offense'] = 16304,
     ['defense'] = 18513,
     ['evade'] = 0.03,
     ['range'] = 2,
