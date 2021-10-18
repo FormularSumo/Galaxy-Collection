@@ -244,6 +244,7 @@ end
 function love.gamepadpressed(joystick,button)
     local key = controller_binds(button)
     love.keypressed(key)
+    lastClickIsTouch = false
 end
 
 function love.mousemoved(x,y)
