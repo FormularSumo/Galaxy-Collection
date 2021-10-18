@@ -268,7 +268,8 @@ Characters = {
 },
 
 ['BobaFettMandalorian'] = {
-    ['melee_offense'] = 17601,
+    ['melee_offense'] = 15579,
+    ['ranged_offense'] = 17601,
     ['defense'] = 16048,
     ['evade'] = 0.15,
     ['range'] = 3,
@@ -723,9 +724,11 @@ Characters = {
 
 ['EighthBrother'] = {
     ['melee_offense'] = 17445,
+    ['ranged_offense'] = 16445,
     ['defense'] = 17411,
     ['evade'] = 0.15,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
 
@@ -1115,7 +1118,8 @@ Characters = {
 },
 
 ['JangoFett'] = {
-    ['melee_offense'] = 17536,
+    ['melee_offense'] = 15579,
+    ['ranged_offense'] = 17536,
     ['defense'] = 15464,
     ['evade'] = 0.15,
     ['range'] = 3,
@@ -1466,7 +1470,7 @@ Characters = {
 
 ['PreVizsla'] = {
     ['melee_offense'] = 17336,
-    ['ranged_offense'] = 16379,
+    ['ranged_offense'] = 15579,
     ['defense'] = 17374,
     ['evade'] = 0.15,
     ['range'] = 3,
@@ -1617,9 +1621,11 @@ Characters = {
 
 ['SeventhSister'] = {
     ['melee_offense'] = 17556,
+    ['ranged_offense'] = 16556,
     ['defense'] = 17412,
     ['evade'] = 0.15,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'InquisitorLightsaber'
 },
 
@@ -1667,7 +1673,7 @@ Characters = {
 
 ['StassAllie'] = {
     ['melee_offense'] = 17357,
-    ['ranged_offense'] = 16357
+    ['ranged_offense'] = 16357,
     ['defense'] = 18134,
     ['evade'] = 0.04,
     ['range'] = 2,
