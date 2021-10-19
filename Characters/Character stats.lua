@@ -38,6 +38,7 @@ Characters = {
 
 ['AgentKallus'] = {
     ['melee_offense'] = 14121,
+    ['ranged_offense'] = 14121,
     ['defense'] = 13789,
     ['evade'] = 0.03,
     ['range'] = 1
@@ -88,7 +89,8 @@ Characters = {
 },
 
 ['AirborneCloneTrooper'] = {
-    ['melee_offense'] = 12090,
+    ['melee_offense'] = 11090,
+    ['ranged_offense'] = 12090,
     ['defense'] = 12045,
     ['evade'] = 0.07,
     ['range'] = 4,
@@ -121,7 +123,8 @@ Characters = {
 },
 
 ['ArcTrooper'] = {
-    ['melee_offense'] = 13678,
+    ['melee_offense'] = 12678,
+    ['ranged_offense'] = 13678,
     ['defense'] = 13735,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -129,7 +132,8 @@ Characters = {
 },
 
 ['ArcTrooperEcho'] = {
-    ['melee_offense'] = 13852,
+    ['melee_offense'] = 12852,
+    ['ranged_offense'] = 13852,
     ['defense'] = 13853,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -137,7 +141,8 @@ Characters = {
 },
 
 ['ArcTrooperFives'] = {
-    ['melee_offense'] = 13856,
+    ['melee_offense'] = 12856,
+    ['ranged_offense'] = 13856,
     ['defense'] = 13852,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -145,7 +150,8 @@ Characters = {
 },
 
 ['ArcTrooperJesse'] = {
-    ['melee_offense'] = 13864,
+    ['ranged_offense'] = 12864,
+    ['melee_offense'] = 13856,
     ['defense'] = 13855,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -153,8 +159,8 @@ Characters = {
 },
 
 ['ARFTrooper'] = {
-    ['melee_offense'] = 13100,
-    ['defense'] = 11099,
+    ['melee_offense'] = 12100,
+    ['defense'] = 13100,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['projectile'] = 'BlueLaser'
@@ -204,7 +210,8 @@ Characters = {
 },
 
 ['BalaTik'] = {
-    ['melee_offense'] = 12920,
+    ['melee_offense'] = 11920,
+    ['ranged_offense'] = 12920,
     ['defense'] = 11250,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -352,7 +359,8 @@ Characters = {
 },
 
 ['CaptainJag'] = {
-    ['melee_offense'] = 12351,
+    ['melee_offense'] = 11351,
+    ['ranged_offense'] = 12351,
     ['defense'] = 12001,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -361,6 +369,7 @@ Characters = {
 
 ['CaptainPhasma'] = {
     ['melee_offense'] = 12017,
+    ['ranged_offense'] = 12017,
     ['defense'] = 12177,
     ['evade'] = 0.03,
     ['range'] = 1
@@ -376,7 +385,8 @@ Characters = {
 },
 
 ['CaptainVaughn'] = {
-    ['melee_offense'] = 12355,
+    ['melee_offense'] = 11355,
+    ['ranged_offense'] = 12355,
     ['defense'] = 12090,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -421,6 +431,7 @@ Characters = {
 
 ['Chewbacca'] = {
     ['melee_offense'] = 14210,
+    ['ranged_offense'] = 14210,
     ['defense'] = 12169,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -451,7 +462,8 @@ Characters = {
 },
 
 ['CloneCommando'] = {
-    ['melee_offense'] = 13876,
+    ['melee_offense'] = 12876,
+    ['ranged_offense'] = 13876,
     ['defense'] = 13846,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -459,7 +471,8 @@ Characters = {
 },
 
 ['CloneCommandoGregor'] = {
-    ['melee_offense'] = 14211,
+    ['melee_offense'] = 13211,
+    ['ranged_offense'] = 14211,
     ['defense'] = 14195,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -468,6 +481,7 @@ Characters = {
 
 ['CloneJetTrooper'] = {
     ['melee_offense'] = 12050,
+    ['ranged_offense'] = 12050,
     ['defense'] = 12076,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -483,7 +497,8 @@ Characters = {
 },
 
 ['CloneTrooper322nd'] = {
-    ['melee_offense'] = 12165,
+    ['melee_offense'] = 11165,
+    ['ranged_offense'] = 12165,
     ['defense'] = 12018,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -499,7 +514,8 @@ Characters = {
 },
 
 ['CloneTrooper501st'] = {
-    ['melee_offense'] = 12165,
+    ['melee_offense'] = 11165,
+    ['ranged_offense'] = 12165,
     ['defense'] = 12018,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -527,7 +543,8 @@ Characters = {
 },
 
 ['CommanderAppo'] = {
-    ['melee_offense'] = 12350,
+    ['melee_offense'] = 11250,
+    ['ranged_offense'] = 12350,
     ['defense'] = 12070,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -535,7 +552,8 @@ Characters = {
 },
 
 ['CommanderBacara'] = {
-    ['melee_offense'] = 12232,
+    ['melee_offense'] = 11232,
+    ['ranged_offense'] = 12232,
     ['defense'] = 12222,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -543,7 +561,8 @@ Characters = {
 },
 
 ['CommanderBly'] = {
-    ['melee_offense'] = 12259,
+    ['melee_offense'] = 11259,
+    ['ranged_offense'] = 12259,
     ['defense'] = 12213,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -551,7 +570,8 @@ Characters = {
 },
 
 ['CommanderCody'] = {
-    ['melee_offense'] = 15319,
+    ['melee_offense'] = 14319,
+    ['ranged_offense'] = 15319,
     ['defense'] = 15371,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -559,7 +579,8 @@ Characters = {
 },
 
 ['CommanderFox'] = {
-    ['melee_offense'] = 12357,
+    ['melee_offense'] = 11357,
+    ['ranged_offense'] = 12357,
     ['defense'] = 12050,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -567,7 +588,8 @@ Characters = {
 },
 
 ['CommanderGree'] = {
-    ['melee_offense'] = 12230,
+    ['melee_offense'] = 11230,
+    ['ranged_offense'] = 12230,
     ['defense'] = 12220,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -575,7 +597,8 @@ Characters = {
 },
 
 ['CommanderNeyo'] = {
-    ['melee_offense'] = 12356,
+    ['melee_offense'] = 11356,
+    ['ranged_offense'] = 12356,
     ['defense'] = 12049,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -591,7 +614,8 @@ Characters = {
 },
 
 ['CommanderWolffe'] = {
-    ['melee_offense'] = 12359,
+    ['melee_offense'] = 11359,
+    ['ranged_offense'] = 12359,
     ['defense'] = 12193,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -600,7 +624,8 @@ Characters = {
 
 ['CommandoDroid'] = {
     ['melee_offense'] = 12881,
-    ['defense'] = 11279,
+    ['ranged_offense'] = 12881,
+    ['defense'] = 10279,
     ['evade'] = 0.07,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
@@ -671,7 +696,8 @@ Characters = {
 },
 
 ['DeathTrooper'] = {
-    ['melee_offense'] = 12348,
+    ['melee_offense'] = 11348,
+    ['ranged_offense'] = 12348,
     ['defense'] = 11848,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -680,6 +706,7 @@ Characters = {
 
 ['DeathWatchMandalorian'] = {
     ['melee_offense'] = 13278,
+    ['ranged_offense'] = 13278,
     ['defense'] = 10905,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -688,6 +715,7 @@ Characters = {
 
 ['Dengar'] = {
     ['melee_offense'] = 15247,
+    ['ranged_offense'] = 15247,
     ['defense'] = 9871,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -713,7 +741,8 @@ Characters = {
 },
 
 ['Droideka'] = {
-    ['melee_offense'] = 14268,
+    ['melee_offense'] = 10500,
+    ['ranged_offense'] = 15268,
     ['defense'] = 14393,
     ['evade'] = 0,
     ['range'] = 3,
@@ -721,7 +750,8 @@ Characters = {
 },
 
 ['DroidekaSniper'] = {
-    ['melee_offense'] = 14996,
+    ['melee_offense'] = 11000,
+    ['ranged_offense'] = 16000,
     ['defense'] = 14000,
     ['evade'] = 0,
     ['range'] = 5,
@@ -736,8 +766,9 @@ Characters = {
 },
 
 ['DwarfSpiderDroid'] = {
-    ['melee_offense'] = 15190,
-    ['defense'] = 8959,
+    ['melee_offense'] = 11000,
+    ['ranged_offense'] = 15190,
+    ['defense'] = 10500,
     ['evade'] = 0.02,
     ['range'] = 5,
     ['projectile'] = 'RedLaser'
@@ -779,7 +810,8 @@ Characters = {
 },
 
 ['Embo'] = {
-    ['melee_offense'] = 13481,
+    ['melee_offense'] = 14481,
+    ['ranged_offense'] = 13481,
     ['defense'] = 14281,
     ['evade'] = 0.05,
     ['range'] = 5,
@@ -1023,7 +1055,8 @@ Characters = {
 },
 
 ['HanSolo'] = {
-    ['melee_offense'] = 15529,
+    ['melee_offense'] = 14529,
+    ['ranged_offense'] = 15529,
     ['defense'] = 9648,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1031,7 +1064,8 @@ Characters = {
 },
 
 ['HanSoloOld'] = {
-    ['melee_offense'] = 15546,
+    ['melee_offense'] = 12946,
+    ['ranged_offense'] = 14946,
     ['defense'] = 8565,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -1039,7 +1073,8 @@ Characters = {
 },
 
 ['Hardcase'] = {
-    ['melee_offense'] = 12354,
+    ['melee_offense'] = 11354,
+    ['ranged_offense'] = 12354,
     ['defense'] = 12046,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1047,7 +1082,8 @@ Characters = {
 },
 
 ['HeraSyndulla'] = {
-    ['melee_offense'] = 15189,
+    ['melee_offense'] = 14189,
+    ['ranged_offense'] = 15189,
     ['defense'] = 10038,
     ['evade'] = 0.05,
     ['range'] = 2,
@@ -1081,8 +1117,9 @@ Characters = {
 },
 
 ['HondoOhnaka'] = {
-    ['melee_offense'] = 11454,
-    ['defense'] = 11732,
+    ['melee_offense'] = 12454,
+    ['ranged_offense'] = 11454,
+    ['defense'] = 11632,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
@@ -1107,6 +1144,7 @@ Characters = {
 
 ['IdenVersio'] = {
     ['melee_offense'] = 14478,
+    ['ranged_offense'] = 14478,
     ['defense'] = 12916,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1114,7 +1152,8 @@ Characters = {
 },
 
 ['IG88'] = {
-    ['melee_offense'] = 14205,
+    ['melee_offense'] = 13205,
+    ['ranged_offense'] = 14205,
     ['defense'] = 11178,
     ['evade'] = 0.04,
     ['range'] = 5,
@@ -1192,6 +1231,7 @@ Characters = {
 
 ['JynErso'] = {
     ['melee_offense'] = 14513,
+    ['ranged_offense'] = 14513,
     ['defense'] = 14349,
     ['evade'] = 0.05,
     ['range'] = 1
@@ -1236,7 +1276,8 @@ Characters = {
 },
 
 ['Kix'] = {
-    ['melee_offense'] = 12092,
+    ['melee_offense'] = 11092,
+    ['ranged_offense'] = 12092,
     ['defense'] = 12093,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1280,7 +1321,8 @@ Characters = {
 },
 
 ['LeiaOrgana'] = {
-    ['melee_offense'] = 15018,
+    ['melee_offense'] = 13018,
+    ['ranged_offense'] = 15018,
     ['defense'] = 9153,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1325,7 +1367,8 @@ Characters = {
 },
 
 ['MagnaGuard'] = {
-    ['melee_offense'] = 13352,
+    ['melee_offense'] = 14352,
+    ['ranged_offense'] = 13352,
     ['defense'] = 12684,
     ['evade'] = 0.03,
     ['range'] = 1
@@ -1433,7 +1476,8 @@ Characters = {
 },
 
 ['PadmeAmidala'] = {
-    ['melee_offense'] = 14768,
+    ['melee_offense'] = 13268,
+    ['range_offense'] = 13268,
     ['defense'] = 9427,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1538,8 +1582,9 @@ Characters = {
 },
 
 ['Qira'] = {
-    ['melee_offense'] = 14817,
-    ['defense'] = 9389,
+    ['melee_offense'] = 12997,
+    ['ranged_offense'] = 13997,
+    ['defense'] = 9989,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
@@ -1598,16 +1643,18 @@ Characters = {
 
 ['Rukh'] = {
     ['melee_offense'] = 14310,
+    ['ranged_offense'] = 14579,
     ['defense'] = 13150,
     ['evade'] = 0.05,
     ['range'] = 1
 },
 
 ['SabineWrenDarksaber'] = {
-    ['melee_offense'] = 14231,
+    ['melee_offense'] = 15579,
+    ['ranged_offense'] = 14579,
     ['defense'] = 14180,
     ['evade'] = 0.05,
-    ['range'] = 1,
+    ['range'] = 2,
     ['weapon'] = 'Darksaber'
 },
 
@@ -1640,7 +1687,8 @@ Characters = {
 },
 
 ['SawGerrera'] = {
-    ['melee_offense'] = 13911,
+    ['melee_offense'] = 12911,
+    ['ranged_offense'] = 13911,
     ['defense'] = 10221,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -1692,14 +1740,15 @@ Characters = {
 
 ['ShadowGuard'] = {
     ['melee_offense'] = 13200,
-    ['defense'] = 18003,
+    ['defense'] = 10990,
     ['evade'] = 0.03,
     ['range'] = 1,
 },
 
 ['ShadowTrooper'] = {
-    ['melee_offense'] = 13450,
-    ['defense'] = 18003,
+    ['melee_offense'] = 12450,
+    ['ranged_offense'] = 13450,
+    ['defense'] = 10691,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'RedLaser',
@@ -1748,7 +1797,8 @@ Characters = {
 },
 
 ['SteelaGerrera'] = {
-    ['melee_offense'] = 12744,
+    ['melee_offense'] = 11744,
+    ['ranged_offense'] = 12744,
     ['defense'] = 11412,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1797,7 +1847,8 @@ Characters = {
 },
 
 ['TasuLeech'] = {
-    ['melee_offense'] = 13445,
+    ['melee_offense'] = 12455,
+    ['ranged_offense'] = 13455,
     ['defense'] = 10721,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1845,7 +1896,8 @@ Characters = {
 },
 
 ['TobiasBeckett'] = {
-    ['melee_offense'] = 14123,
+    ['melee_offense'] = 13123,
+    ['ranged_offense'] = 14123,
     ['defense'] = 9995,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1960,6 +2012,7 @@ Characters = {
 
 ['GarazebOrrelios'] = {
     ['melee_offense'] = 14229,
+    ['ranged_offense'] = 14229,
     ['defense'] = 12169,
     ['evade'] = 0.03,
     ['range'] = 3,
