@@ -296,9 +296,10 @@ Characters = {
 },
 
 ['BodhiRook'] = {
-    ['melee_offense'] = 9198,
+    ['melee_offense'] = 8198,
+    ['ranged_offense'] = 9198,
     ['defense'] = 8009,
-    ['evade'] = 0.02,
+    ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
 },
@@ -750,6 +751,14 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
+['DJ'] = {
+    ['melee_offense'] = 8970,
+    ['ranged_offense'] = 9999,
+    ['defense'] = 6969,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+
 ['Droideka'] = {
     ['melee_offense'] = 10500,
     ['ranged_offense'] = 15268,
@@ -812,7 +821,8 @@ Characters = {
 },
 
 ['EliteSenateCommando'] = {
-    ['melee_offense'] = 9034,
+    ['melee_offense'] = 8034,
+    ['ranged_offense'] = 9034,
     ['defense'] = 9124,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -866,9 +876,10 @@ Characters = {
 },
 
 ['FarmboyLuke'] = {
-    ['melee_offense'] = 9987,
-    ['defense'] = 6567,
-    ['evade'] = 0.02,
+    ['melee_offense'] = 8987,
+    ['ranged_offense'] = 9987,
+    ['defense'] = 7067,
+    ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile'] = 'RedLaser'
 },
@@ -893,11 +904,13 @@ Characters = {
 },
 
 ['Finn'] = {
-    ['melee_offense'] = 9044,
-    ['defense'] = 9137,
+    ['melee_offense'] = 10590,
+    ['ranged_offense'] = 8500,
+    ['defense'] = 8630,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'BlueLaser'
+    ['projectile'] = 'BlueLaser',
+    ['weapon'] = 'BlueLightsaber'
 },
 
 ['FirstOrderExecutioner'] = {
@@ -911,11 +924,12 @@ Characters = {
     ['melee_offense'] = 10105,
     ['defense'] = 7500,
     ['evade'] = 0.01,
-    ['range'] = 1
+    ['range'] = 2
 },
 
 ['FirstOrderJetTrooper'] = {
     ['melee_offense'] = 8695,
+    ['ranged_offense'] = 8695,
     ['defense'] = 9456,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -985,8 +999,9 @@ Characters = {
 },
 
 ['GeneralLeiaOrgana'] = {
-    ['melee_offense'] = 9817,
-    ['defense'] = 6871,
+    ['melee_offense'] = 7817,
+    ['ranged_offense'] = 9817,
+    ['defense'] = 7871,
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
@@ -1009,6 +1024,7 @@ Characters = {
 
 ['GovernorPryce'] = {
     ['melee_offense'] = 9234,
+    ['ranged_offense'] = 9234,
     ['defense'] = 8014,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1044,7 +1060,8 @@ Characters = {
 },
 
 ['Greedo'] = {
-    ['melee_offense'] = 9142,
+    ['melee_offense'] = 8142,
+    ['ranged_offense'] = 9142,
     ['defense'] = 8253,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -1052,15 +1069,17 @@ Characters = {
 },
 
 ['GreefKarga'] = {
-    ['melee_offense'] = 9051,
+    ['melee_offense'] = 8051,
+    ['ranged_offense'] = 9051,
     ['defense'] = 9134,
-    ['evade'] = 0.02,
+    ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
 },
 
 ['GuavianDeathGangSoldier'] = {
-    ['melee_offense'] = 9002,
+    ['melee_offense'] = 8002,
+    ['ranged_offense'] = 9002,
     ['defense'] = 8457,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -1195,6 +1214,7 @@ Characters = {
 
 ['ImperialJumpTrooper'] = {
     ['melee_offense'] = 9191,
+    ['ranged_offense'] = 9191,
     ['defense'] = 8566,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -1329,7 +1349,8 @@ Characters = {
 },
 
 ['LandoCalrissian'] = {
-    ['melee_offense'] = 9136,
+    ['melee_offense'] = 8136,
+    ['ranged_offense'] = 9136,
     ['defense'] = 9058,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1422,6 +1443,7 @@ Characters = {
 
 ['MoraloEval'] = {
     ['melee_offense'] = 9000,
+    ['ranged_offense'] = 9000,
     ['defense'] = 9137,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1554,7 +1576,8 @@ Characters = {
 },
 
 ['PoeDameron'] = {
-    ['melee_offense'] = 9128,
+    ['melee_offense'] = 8128,
+    ['ranged_offense'] = 9128,
     ['defense'] = 9039,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1633,7 +1656,7 @@ Characters = {
     ['melee_offense'] = 9241,
     ['defense'] = 8765,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 2
 },
 
 ['RedGuard'] = {
@@ -1783,7 +1806,8 @@ Characters = {
 },
 
 ['SithTrooper'] = {
-    ['melee_offense'] = 9005,
+    ['melee_offense'] = 8005,
+    ['ranged_offense'] = 9005,
     ['defense'] = 9178,
     ['evade'] = 0.04,
     ['range'] = 3,
