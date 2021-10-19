@@ -758,6 +758,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
+},
 
 ['Droideka'] = {
     ['melee_offense'] = 10500,
