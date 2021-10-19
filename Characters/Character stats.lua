@@ -1640,6 +1640,13 @@ Characters = {
     ['weapon'] = 'BlueLightsaber'
 },
 
+['ShadowGuard'] = {
+    ['melee_offense'] = 13200,
+    ['defense'] = 18003,
+    ['evade'] = 0.03,
+    ['range'] = 1,
+},
+
 ['Shoretrooper'] = {
     ['melee_offense'] = 8013,
     ['defense'] = 8127,
