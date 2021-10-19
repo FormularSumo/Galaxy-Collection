@@ -316,6 +316,15 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
+['Boushh'] = {
+    ['melee_offense'] = 11500,
+    ['ranged_offense'] = 13500,
+    ['defense'] = 11555,
+    ['evade'] = 0.02,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+},
+
 ['C3P0'] = {
     ['melee_offense'] = 335,
     ['defense'] = 824,
@@ -1681,6 +1690,21 @@ Characters = {
     ['weapon'] = 'BlueLightsaber'
 },
 
+['ShadowGuard'] = {
+    ['melee_offense'] = 13200,
+    ['defense'] = 18003,
+    ['evade'] = 0.03,
+    ['range'] = 1,
+},
+
+['ShadowTrooper'] = {
+    ['melee_offense'] = 13450,
+    ['defense'] = 18003,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser',
+},
+
 ['Shoretrooper'] = {
     ['melee_offense'] = 8013,
     ['defense'] = 8127,
@@ -1888,6 +1912,15 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'BlueLaser'
+},
+
+['Weazel'] = {
+    ['melee_offense'] = 12500,
+    ['ranged_offense'] = 14500,
+    ['defense'] = 8500,
+    ['evade'] = 0.01,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
 },
 
 ['WedgeAntilles'] = {
