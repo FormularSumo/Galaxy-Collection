@@ -12,35 +12,15 @@ function DeckeditState:init()
     page = 0
     Cards_on_display_are_blank = false
 
-    P1column = 2
-    row_correctment = 0
-    
-    for i=0,17,1 do
-        if i % 6 == 0 and i ~= 0 then
-            P1column = 2 - i / 6 
-            row_correctment = i
-        end
-        row = i - row_correctment
-        if P1_deck_cards[i] ~= nil then
-            if P1_deck_cards[i][1] ~= nil then
-                P1_deck[i] = Card_editor(P1_deck_cards[i][1],row,P1column,i,P1_deck_cards[i][2],P1_deck_cards[i][3],true)
-            else
-                P1_deck[i] = Card_editor(P1_deck_cards[i],row,P1column,i,1,0,true)
-            end
-        else
-            P1_deck[i] = Card_editor('Blank',row,P1column,i,nil,nil,true)
-        end
-    end
-    P1column = nil
-    row_correctment = nil
-
-    update_cards_on_display()
+    reload_deckeditor()
 
     background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
-    gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',100)
-    gui[20] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1040)
-    gui[21] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1040)
+    gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
+    gui[2] = Button('reset_deck','strongest','Autodeck',font80,nil,'centre',200)
+    gui[3] = Button('reset_deck','blank','Blankdeck',font80,nil,'centre',380)
+    gui[22] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1040)
+    gui[23] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1040)
 end
 
 function update_cards_on_display(direction)
@@ -81,18 +61,83 @@ function update_cards_on_display(direction)
     end
 end
 
+function reload_deckeditor()
+    P1column = 2
+    row_correctment = 0
+    
+    for i=0,17,1 do
+        if i % 6 == 0 and i ~= 0 then
+            P1column = 2 - i / 6 
+            row_correctment = i
+        end
+        row = i - row_correctment
+        if P1_deck_cards[i] ~= nil then
+            if P1_deck_cards[i][1] ~= nil then
+                P1_deck[i] = Card_editor(P1_deck_cards[i][1],row,P1column,i,P1_deck_cards[i][2],P1_deck_cards[i][3],true)
+            else
+                P1_deck[i] = Card_editor(P1_deck_cards[i],row,P1column,i,1,0,true)
+            end
+        else
+            P1_deck[i] = Card_editor('Blank',row,P1column,i,nil,nil,true)
+        end
+    end
+    P1column = nil
+    row_correctment = nil
+    update_cards_on_display()
+end
+
+function reset_deck(deck)
+    count = 0
+    Characters_by_strength = {}
+ 
+    for k, pair in pairs(P1_deck_cards) do
+        if pair ~= 'Blank' then
+            count = count + 1
+            Characters_by_strength[count] = pair
+        end
+    end
+    for k, pair in pairs(P1_cards) do
+        count = count + 1
+        Characters_by_strength[count] = pair
+    end
+
+    count = -1
+    if deck == 'strongest' then
+        table.sort(Characters_by_strength,compare_character_strength)
+        for k, pair in ipairs(Characters_by_strength) do
+            count = count + 1
+            if count < 18 then
+                P1_deck_edit(count,pair)
+            else
+                P1_cards[count-18] = pair
+            end
+        end
+    elseif deck == 'blank' then
+        for i = 0,18 do
+            P1_deck_edit(i,'Blank')
+        end
+        for k, pair in ipairs(Characters_by_strength) do
+            count = count + 1
+            P1_cards[count] = pair
+        end
+    end
+
+    bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
+    reload_deckeditor()
+end
+
 function update_gui()
     for k, v in pairs(P1_deck) do
         if k < 6 then
-            gui[k+14] = v
+            gui[k+16] = v
         elseif k < 12 then
-            gui[k+2] = v
+            gui[k+4] = v
         else
-            gui[k-10] = v
+            gui[k-8] = v
         end
     end
     for k, v in pairs(Cards_on_display) do
-        gui[k+22] = v
+        gui[k+24] = v
     end
 end
 
@@ -113,40 +158,56 @@ function DeckeditState:update()
                 if v == mouseTouching then
                     if love.keyboard.wasPressed('right') then
                         if k == 1 then
-                            reposition_mouse(22)
-                        elseif k == 14 then
+                            reposition_mouse(24)
+                        elseif k == 2 then
+                            reposition_mouse(25)
+                        elseif k == 3 then
+                            reposition_mouse(26)   
+                        elseif k == 16 then
                             reposition_mouse(1)
-                        elseif k < 19 and k > 14 then
+                        elseif k == 17 then
+                            reposition_mouse(2)
+                        elseif k == 18 then
+                            reposition_mouse(3)
+                        elseif k < 21 and k > 16 then
                             reposition_mouse(k+8) 
-                        elseif k == 19 then
-                            reposition_mouse(20)
-                        elseif k == 20 then
-                            reposition_mouse(21)
                         elseif k == 21 then
-                            reposition_mouse(27)
+                            reposition_mouse(22)
+                        elseif k == 22 then
+                            reposition_mouse(23)
+                        elseif k == 23 then
+                            reposition_mouse(29)
                         elseif gui[k+6] then
                             reposition_mouse(k+6)
                         else
-                            reposition_mouse(mouseTouching.row+2)
+                            reposition_mouse(mouseTouching.row+4)
                         end
                     end
                     if love.keyboard.wasPressed('left') then
                         if k == 1 then
-                            reposition_mouse(14)
-                        elseif k == 22 then
+                            reposition_mouse(16)
+                        elseif k == 2 then
+                            reposition_mouse(17)
+                        elseif k == 3 then
+                            reposition_mouse(18)
+                        elseif k == 24 then
                             reposition_mouse(1)
-                        elseif k < 27 and k > 22 then
+                        elseif k == 25 then
+                            reposition_mouse(2)
+                        elseif k == 26 then
+                            reposition_mouse(3)
+                        elseif k < 29 and k > 24 then
                             reposition_mouse(k-8) 
-                        elseif k == 27 then
+                        elseif k == 29 then
+                            reposition_mouse(22)
+                        elseif k == 23 then
+                            reposition_mouse(22)
+                        elseif k == 22 then
                             reposition_mouse(21)
-                        elseif k == 21 then
-                            reposition_mouse(20)
-                        elseif k == 20 then
-                            reposition_mouse(19)
                         elseif gui[k-6] and k - 6 ~= 1 then
                             reposition_mouse(k-6)
                         else
-                            reposition_mouse(mouseTouching.row+22+12)
+                            reposition_mouse(mouseTouching.row+24+12)
                         end
                     end
                     break
