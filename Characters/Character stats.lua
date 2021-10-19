@@ -1660,6 +1660,15 @@ Characters = {
     ['range'] = 2
 },
 
+['RangeTrooper'] = {
+    ['melee_offense'] = 8000,
+    ['ranged_offense'] = 8770,
+    ['defense'] = 8025,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
+},
+
 ['RedGuard'] = {
     ['melee_offense'] = 6223,
     ['defense'] = 6400,
@@ -1690,6 +1699,15 @@ Characters = {
     ['defense'] = 13150,
     ['evade'] = 0.05,
     ['range'] = 1
+},
+
+['RushClovis'] = {
+    ['melee_offense'] = 8750,
+    ['ranged_offense'] = 9150,
+    ['defense'] = 7500,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
 },
 
 ['SabineWrenDarksaber'] = {
