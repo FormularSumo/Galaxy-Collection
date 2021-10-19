@@ -160,7 +160,8 @@ Characters = {
 
 ['ARFTrooper'] = {
     ['melee_offense'] = 12100,
-    ['defense'] = 13100,
+    ['ranged_offense'] = 13100,
+    ['defense'] = 11099,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['projectile'] = 'BlueLaser'
@@ -1477,7 +1478,7 @@ Characters = {
 
 ['PadmeAmidala'] = {
     ['melee_offense'] = 13268,
-    ['range_offense'] = 13268,
+    ['ranged_offense'] = 13268,
     ['defense'] = 9427,
     ['evade'] = 0.03,
     ['range'] = 2,
