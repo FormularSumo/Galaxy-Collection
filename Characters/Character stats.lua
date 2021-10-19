@@ -308,6 +308,15 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
+['Boushh'] = {
+    ['melee_offense'] = 11500,
+    ['ranged_offense'] = 13500,
+    ['defense'] = 11555,
+    ['evade'] = 0.02,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+},
+
 ['C3P0'] = {
     ['melee_offense'] = 335,
     ['defense'] = 824,
