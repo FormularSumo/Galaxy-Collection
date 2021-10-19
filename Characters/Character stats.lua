@@ -1247,7 +1247,7 @@ Characters = {
     ['ranged_offense'] = 5560,
     ['defense'] = 2784,
     ['evade'] = 0.08,
-    ['range'] = 1,
+    ['range'] = 2,
 },
 
 ['JaroTapal'] = {
@@ -1486,8 +1486,9 @@ Characters = {
 },
 
 ['NuteGunray'] = {
-    ['melee_offense'] = 4767,
-    ['defense'] = 3975,
+    ['melee_offense'] = 3767,
+    ['ranged_offense'] = 4767,
+    ['defense'] = 4150,
     ['evade'] = 0.1,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
@@ -1984,7 +1985,7 @@ Characters = {
     ['ranged_offense'] = 4555,
     ['defense'] = 3912,
     ['evade'] = 0.1,
-    ['range'] = 3,
+    ['range'] = 2,
     ['projectile'] = 'Arrow'
 },
 
