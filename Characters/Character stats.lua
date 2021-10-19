@@ -189,6 +189,7 @@ Characters = {
 
 ['B2RPSuperBattleDroid'] = {
     ['melee_offense'] = 9285,
+    ['ranged_offense'] = 9285,
     ['defense'] = 8924,
     ['evade'] = 0.15,
     ['range'] = 5,
@@ -196,7 +197,8 @@ Characters = {
 },
 
 ['B2SuperBattleDroid'] = {
-    ['melee_offense'] = 9085,
+    ['melee_offense'] = 8085,
+    ['ranged_offense'] = 9085,
     ['defense'] = 9524,
     ['evade'] = 0.01,
     ['range'] = 3,
@@ -204,7 +206,8 @@ Characters = {
 },
 
 ['BabyYoda'] = {
-    ['melee_offense'] = 9761,
+    ['melee_offense'] = 4500,
+    ['ranged_offense'] = 13900,
     ['defense'] = 9430,
     ['evade'] = 0,
     ['range'] = 2,
@@ -266,7 +269,8 @@ Characters = {
 },
 
 ['Bistan'] = {
-    ['melee_offense'] = 9602,
+    ['melee_offense'] = 8602,
+    ['ranged_offense'] = 9602,
     ['defense'] = 9641,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -300,7 +304,8 @@ Characters = {
 },
 
 ['Boil'] = {
-    ['melee_offense'] = 10156,
+    ['melee_offense'] = 9156,
+    ['ranged_offense'] = 10156,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -491,7 +496,8 @@ Characters = {
 },
 
 ['CloneTrooper212th'] = {
-    ['melee_offense'] = 9874,
+    ['melee_offense'] = 8874,
+    ['ranged_offense'] = 9874,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -508,7 +514,8 @@ Characters = {
 },
 
 ['CloneTrooper327th'] = {
-    ['melee_offense'] = 9781,
+    ['melee_offense'] = 8781,
+    ['ranged_offense'] = 9781,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -634,7 +641,8 @@ Characters = {
 },
 
 ['CoruscantGuardCloneTrooper'] = {
-    ['melee_offense'] = 9900,
+    ['melee_offense'] = 8900,
+    ['ranged_offense'] = 9900,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -839,9 +847,11 @@ Characters = {
 
 ['EzraBridgerS2'] = {
     ['melee_offense'] = 9573,
+    ['ranged_offense'] = 8573,
     ['defense'] = 9319,
     ['evade'] = 0.05,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'BlueLaser',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -936,7 +946,8 @@ Characters = {
 },
 
 ['FourLOM'] = {
-    ['melee_offense'] = 9956,
+    ['melee_offense'] = 8956,
+    ['ranged_offense'] = 9956,
     ['defense'] = 9294,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -993,7 +1004,7 @@ Characters = {
     ['melee_offense'] = 9964,
     ['defense'] = 9615,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 2
 },
 
 ['GovernorPryce'] = {
@@ -1111,11 +1122,12 @@ Characters = {
 },
 
 ['Hevy'] = {
-    ['melee_offense'] = 9509,
+    ['melee_offense'] = 8509,
+    ['ranged_offense'] = 9509,
     ['defense'] = 9103,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'RedLaser'
+    ['projectile'] = 'BlueLaser'
 },
 
 ['HondoOhnaka'] = {
@@ -1251,9 +1263,11 @@ Characters = {
 
 ['Katooni'] = {
     ['melee_offense'] = 10590,
+    ['ranged_offense'] = 9590,
     ['defense'] = 8990,
     ['evade'] = 0.1,
-    ['range'] = 1,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
 },
 
@@ -1487,7 +1501,8 @@ Characters = {
 },
 
 ['Pao'] = {
-    ['melee_offense'] = 9649,
+    ['melee_offense'] = 8649,
+    ['ranged_offense'] = 9649,
     ['defense'] = 9610,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -1502,7 +1517,8 @@ Characters = {
 },
 
 ['Phase1CloneTrooper'] = {
-    ['melee_offense'] = 9473,
+    ['melee_offense'] = 8473,
+    ['ranged_offense'] = 9473,
     ['defense'] = 9094,
     ['evade'] = 0.2,
     ['range'] = 3,
@@ -1510,7 +1526,8 @@ Characters = {
 },
 
 ['Phase2CloneTrooper'] = {
-    ['melee_offense'] = 9786,
+    ['melee_offense'] = 8786,
+    ['ranged_offense'] = 9786,
     ['defense'] = 9481,
     ['evade'] = 0.2,
     ['range'] = 3,
@@ -1698,7 +1715,8 @@ Characters = {
 },
 
 ['ScoutBattalionCloneTrooper41st'] = {
-    ['melee_offense'] = 9925,
+    ['melee_offense'] = 8925,
+    ['ranged_offense'] = 9925,
     ['defense'] = 9612,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -1825,9 +1843,11 @@ Characters = {
 
 ['Talia'] = {
     ['melee_offense'] = 9718,
+    ['ranged_offense'] = 9718,
     ['defense'] = 9518,
     ['evade'] = 0.06,
-    ['range'] = 1
+    ['projectile'] = 'Fire',
+    ['range'] = 3
 },
 
 ['TallieLintra'] = {
@@ -1963,7 +1983,8 @@ Characters = {
 },
 
 ['Waxer'] = {
-    ['melee_offense'] = 10100,
+    ['melee_offense'] = 9100,
+    ['ranged_offense'] = 10100,
     ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
