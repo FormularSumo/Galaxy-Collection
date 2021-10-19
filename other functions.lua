@@ -143,7 +143,7 @@ function character_strength(character)
     if stats['ranged_offense'] then
         offense = ((stats['melee_offense']*modifier)/800)^4/2+(((stats['ranged_offense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)
     else
-        offense = ((stats['melee_offense']*modifier)/800)^4
+        offense = ((stats['melee_offense']*modifier)/800)^4*(1+((stats['range']-1)/20)^0.5/9)
     end
     return (offense+((stats['defense']*modifier)/800)^4)*(1+stats['evade']^1/2*2)
 end
