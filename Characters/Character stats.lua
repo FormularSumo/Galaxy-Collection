@@ -917,7 +917,7 @@ Characters = {
 ['FirstOrderExecutioner'] = {
     ['melee_offense'] = 10100,
     ['defense'] = 7456,
-    ['evade'] = 0.03,
+    ['evade'] = 0.02,
     ['range'] = 1
 },
 
