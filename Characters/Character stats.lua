@@ -453,7 +453,6 @@ Characters = {
 
 ['Chopper'] = {
     ['melee_offense'] = 6656,
-    ['ranged_offense'] = 6656,
     ['defense'] = 6558,
     ['evade'] = 0.15,
     ['range'] = 2,
@@ -981,7 +980,6 @@ Characters = {
 
 ['GamorreanGuard'] = {
     ['melee_offense'] = 6343,
-    ['ranged_offense'] = 6343,
     ['defense'] = 5567,
     ['evade'] = 0.01,
     ['range'] = 1,
@@ -1692,7 +1690,6 @@ Characters = {
 
 ['RedGuard'] = {
     ['melee_offense'] = 6223,
-    ['ranged_offense'] = 6223,
     ['defense'] = 6450,
     ['evade'] = 0.02,
     ['range'] = 1
@@ -1799,7 +1796,6 @@ Characters = {
 
 ['SenateGuard'] = {
     ['melee_offense'] = 6124,
-    ['ranged_offense'] = 6124,
     ['defense'] = 6567,
     ['evade'] = 0.02,
     ['range'] = 1
