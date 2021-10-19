@@ -1868,6 +1868,15 @@ Characters = {
     ['projectile'] = 'BlueLaser'
 },
 
+['Weazel'] = {
+    ['melee_offense'] = 12500,
+    ['ranged_offense'] = 14500,
+    ['defense'] = 8500,
+    ['evade'] = 0.01,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
+},
+
 ['WedgeAntilles'] = {
     ['melee_offense'] = 6550,
     ['defense'] = 6342,
