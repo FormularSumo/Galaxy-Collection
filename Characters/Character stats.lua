@@ -41,7 +41,8 @@ Characters = {
     ['ranged_offense'] = 14121,
     ['defense'] = 13789,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 3,
+    ['projectile'] = 'YellowLaser'
 },
 
 ['AgenKolar'] = {
@@ -1953,10 +1954,12 @@ Characters = {
 },
 
 ['WatTambor'] = {
-    ['melee_offense'] = 450,
+    ['melee_offense'] = 250,
+    ['ranged_offense'] = 450,
     ['defense'] = 696,
     ['evade'] = 0.01,
-    ['range'] = 1
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
 },
 
 ['Waxer'] = {
@@ -1971,7 +1974,7 @@ Characters = {
     ['melee_offense'] = 12500,
     ['ranged_offense'] = 14500,
     ['defense'] = 8500,
-    ['evade'] = 0.01,
+    ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
 },
