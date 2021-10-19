@@ -29,8 +29,9 @@ Characters = {
 },
 
 ['AdmiralPiett'] = {
-    ['melee_offense'] = 5645,
-    ['defense'] = 4234,
+    ['melee_offense'] = 4645,
+    ['ranged_offense'] = 5645,
+    ['defense'] = 4334,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
@@ -180,7 +181,8 @@ Characters = {
 },
 
 ['B1BattleDroid'] = {
-    ['melee_offense'] = 5502,
+    ['melee_offense'] = 4502,
+    ['ranged_offense'] = 5502,
     ['defense'] = 3905,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -463,8 +465,8 @@ Characters = {
 },
 
 ['ChiefChirpa'] = {
-    ['melee_offense'] = 4121,
-    ['defense'] = 3912,
+    ['melee_offense'] = 4000,
+    ['defense'] = 3845,
     ['evade'] = 0.10,
     ['range'] = 1,
 },
@@ -992,7 +994,8 @@ Characters = {
 },
 
 ['GeneralHux'] = {
-    ['melee_offense'] = 5925,
+    ['melee_offense'] = 4925,
+    ['ranged_offense'] = 5925,
     ['defense'] = 4130,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -1009,7 +1012,8 @@ Characters = {
 },
 
 ['GeneralVeers'] = {
-    ['melee_offense'] = 5721,
+    ['melee_offense'] = 4721,
+    ['ranged_offense'] = 5721,
     ['defense'] = 4334,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -1239,7 +1243,8 @@ Characters = {
 },
 
 ['JarJarBinks'] = {
-    ['melee_offense'] = 5771,
+    ['melee_offense'] = 5560,
+    ['ranged_offense'] = 5560,
     ['defense'] = 2784,
     ['evade'] = 0.08,
     ['range'] = 1,
@@ -1257,7 +1262,8 @@ Characters = {
 
 
 ['Jawa'] = {
-    ['melee_offense'] = 3587,
+    ['melee_offense'] = 2587,
+    ['ranged_offense'] = 3587,
     ['defense'] = 3871,
     ['evade'] = 0.1,
     ['range'] = 2,
@@ -1368,8 +1374,8 @@ Characters = {
 },
 
 ['Logray'] = {
-    ['melee_offense'] = 4096,
-    ['defense'] = 3912,
+    ['melee_offense'] = 4044,
+    ['defense'] = 3800,
     ['evade'] = 0.10,
     ['range'] = 1
 },
@@ -1471,7 +1477,8 @@ Characters = {
 },
 
 ['NinetyNine'] = {
-    ['melee_offense'] = 6134,
+    ['melee_offense'] = 5134,
+    ['ranged_offense'] = 6134,
     ['defense'] = 3921,
     ['evade'] = 0.01,
     ['range'] = 3,
@@ -1497,7 +1504,8 @@ Characters = {
 },
 
 ['OldDaka'] = {
-    ['melee_offense'] = 6345,
+    ['melee_offense'] = 5345,
+    ['ranged_offense'] = 6345,
     ['defense'] = 3721,
     ['evade'] = 0.01,
     ['range'] = 3,
@@ -1533,7 +1541,7 @@ Characters = {
 },
 
 ['Paploo'] = {
-    ['melee_offense'] = 4493,
+    ['melee_offense'] = 4000,
     ['defense'] = 3974,
     ['evade'] = 0.1,
     ['range'] = 1
@@ -1558,7 +1566,8 @@ Characters = {
 },
 
 ['PilotBattleDroid'] = {
-    ['melee_offense'] = 5101,
+    ['melee_offense'] = 4101,
+    ['ranged_offense'] = 5101,
     ['defense'] = 3393,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -1587,9 +1596,10 @@ Characters = {
 
 ['PoggleTheLesser'] = {
     ['melee_offense'] = 5108,
-    ['defense'] = 4547,
+    ['ranged_offense'] = 5108,
+    ['defense'] = 4300,
     ['evade'] = 0.15,
-    ['range'] = 1
+    ['range'] = 2
 },
 
 ['PongKrell'] = {
@@ -1903,7 +1913,7 @@ Characters = {
 },
 
 ['Teebo'] = {
-    ['melee_offense'] = 4323,
+    ['melee_offense'] = 3967,
     ['defense'] = 3912,
     ['evade'] = 0.10,
     ['range'] = 1
@@ -1911,7 +1921,7 @@ Characters = {
 
 ['Teedo'] = {
     ['melee_offense'] = 4013,
-    ['defense'] = 3874,
+    ['defense'] = 3780,
     ['evade'] = 0.08,
     ['range'] = 1
 },
@@ -1952,7 +1962,8 @@ Characters = {
 },
 
 ['Tokkat'] = {
-    ['melee_offense'] = 4555,
+    ['melee_offense'] = 3555,
+    ['ranged_offense'] = 4555,
     ['defense'] = 3912,
     ['evade'] = 0.1,
     ['range'] = 3,
@@ -2035,9 +2046,10 @@ Characters = {
 
 ['WicketWWarrick'] = {
     ['melee_offense'] = 4554,
+    ['ranged_offense'] = 3554,
     ['defense'] = 3994,
     ['evade'] = 0.1,
-    ['range'] = 1
+    ['range'] = 2
 },
 
 ['Wrecker'] = {
