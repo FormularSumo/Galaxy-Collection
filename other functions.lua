@@ -141,11 +141,11 @@ function character_strength(character)
     end
 
     if stats['ranged_offense'] then
-        offense = (stats['ranged_offense'] + stats['melee_offense']) / 2 * modifier
+        offense = ((stats['melee_offense']*modifier)/800)^4/2+(((stats['ranged_offense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)
     else
-        offense = stats['melee_offense'] * modifier
+        offense = ((stats['melee_offense']*modifier)/800)^4
     end
-    return ((offense/800)^3+((stats['defense']*modifier)/800)^3)*(1+stats['evade']*2)*(0.9+stats['range']/15)
+    return (offense+((stats['defense']*modifier)/800)^4)*(1+stats['evade']^1/2*2)
 end
 
 function compare_character_strength(character1, character2)
