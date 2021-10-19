@@ -1647,6 +1647,14 @@ Characters = {
     ['range'] = 1,
 },
 
+['ShadowTrooper'] = {
+    ['melee_offense'] = 13450,
+    ['defense'] = 18003,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser',
+},
+
 ['Shoretrooper'] = {
     ['melee_offense'] = 8013,
     ['defense'] = 8127,
