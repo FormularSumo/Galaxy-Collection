@@ -21,7 +21,8 @@ Characters = {
 },
 
 ['AdmiralAckbar'] = {
-    ['melee_offense'] = 6650,
+    ['melee_offense'] = 5650,
+    ['ranged_offense'] = 6650,
     ['defense'] = 6420,
     ['evade'] = 0.02,
     ['range'] = 2,
@@ -117,8 +118,9 @@ Characters = {
 },
 
 ['AquaDroid'] = {
-    ['melee_offense'] = 6115,
-    ['defense'] = 6400,
+    ['melee_offense'] = 5115,
+    ['ranged_offense'] = 6115,
+    ['defense'] = 6300,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
@@ -264,6 +266,7 @@ Characters = {
 
 ['BiggsDarklighter'] = {
     ['melee_offense'] = 6115,
+    ['ranged_offense'] = 6115,
     ['defense'] = 6400,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -450,9 +453,10 @@ Characters = {
 
 ['Chopper'] = {
     ['melee_offense'] = 6656,
+    ['ranged_offense'] = 6656,
     ['defense'] = 6558,
     ['evade'] = 0.15,
-    ['range'] = 1,
+    ['range'] = 2,
 },
 
 ['ChirrutÎmwe'] = {
@@ -618,9 +622,10 @@ Characters = {
 },
 
 ['CommanderSato'] = {
-    ['melee_offense'] = 6500,
+    ['melee_offense'] = 5500,
+    ['ranged_offense'] = 6500,
     ['defense'] = 6341,
-    ['evade'] = 0.02,
+    ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
 },
@@ -746,9 +751,10 @@ Characters = {
 },
 
 ['DirectorKrennic'] = {
-    ['melee_offense'] = 6300,
-    ['defense'] = 6410,
-    ['evade'] = 0.02,
+    ['melee_offense'] = 5300,
+    ['ranged_offense'] = 6300,
+    ['defense'] = 6450,
+    ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
 },
@@ -947,7 +953,8 @@ Characters = {
 },
 
 ['FirstOrderSnowtrooper'] = {
-    ['melee_offense'] = 8267,
+    ['melee_offense'] = 7267,
+    ['ranged_offense'] = 8267,
     ['defense'] = 8267,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -955,8 +962,9 @@ Characters = {
 },
 
 ['FirstOrderStormtrooper'] = {
-    ['melee_offense'] = 7152,
-    ['defense'] = 6547,
+    ['melee_offense'] = 6152,
+    ['ranged_offense'] = 7152,
+    ['defense'] = 7500,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
@@ -973,7 +981,8 @@ Characters = {
 
 ['GamorreanGuard'] = {
     ['melee_offense'] = 6343,
-    ['defense'] = 6113,
+    ['ranged_offense'] = 6343,
+    ['defense'] = 5567,
     ['evade'] = 0.01,
     ['range'] = 1,
     ['projectile'] = 'RedLaser'
@@ -1056,12 +1065,12 @@ Characters = {
 },
 
 ['GrandMoffTarkin'] = {
-    ['melee_offense'] = 6345,
+    ['melee_offense'] = 4345,
+    ['ranged_offense'] = 7345,
     ['defense'] = 6419,
-    ['evade'] = 0.02,
+    ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'RedLaser', 
-    ['weapon_count'] = 2
 },
 
 ['Greedo'] = {
@@ -1164,7 +1173,8 @@ Characters = {
 },
 
 ['HothRebelSoldier'] = {
-    ['melee_offense'] = 6517,
+    ['melee_offense'] = 5517,
+    ['ranged_offense'] = 6517,
     ['defense'] = 6308,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -1682,7 +1692,8 @@ Characters = {
 
 ['RedGuard'] = {
     ['melee_offense'] = 6223,
-    ['defense'] = 6400,
+    ['ranged_offense'] = 6223,
+    ['defense'] = 6450,
     ['evade'] = 0.02,
     ['range'] = 1
 },
@@ -1741,9 +1752,10 @@ Characters = {
 },
 
 ['Sandtrooper'] = {
-    ['melee_offense'] = 6516,
+    ['melee_offense'] = 5516,
+    ['ranged_offense'] = 6516,
     ['defense'] = 6319,
-    ['evade'] = 0.03,
+    ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
 },
@@ -1777,17 +1789,19 @@ Characters = {
 },
 
 ['ScoutTrooper'] = {
-    ['melee_offense'] = 7453,
+    ['melee_offense'] = 6453,
+    ['ranged_offense'] = 7453,
     ['defense'] = 7231,
     ['evade'] = 0.03,
-    ['range'] = 3,
+    ['range'] = 2,
     ['projectile'] = 'RedLaser'
 },
 
 ['SenateGuard'] = {
     ['melee_offense'] = 6124,
+    ['ranged_offense'] = 6124,
     ['defense'] = 6567,
-    ['evade'] = 0.03,
+    ['evade'] = 0.02,
     ['range'] = 1
 },
 
@@ -1828,9 +1842,10 @@ Characters = {
 },
 
 ['Shoretrooper'] = {
-    ['melee_offense'] = 8013,
+    ['melee_offense'] = 7013,
+    ['ranged_offense'] = 8013,
     ['defense'] = 8127,
-    ['evade'] = 0.03,
+    ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
 },
@@ -1845,7 +1860,8 @@ Characters = {
 },
 
 ['SnapWexley'] = {
-    ['melee_offense'] = 6100,
+    ['melee_offense'] = 5100,
+    ['ranged_offense'] = 6100,
     ['defense'] = 6501,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1853,9 +1869,10 @@ Characters = {
 },
 
 ['Snowtrooper'] = {
-    ['melee_offense'] = 7634,
+    ['melee_offense'] = 6634,
+    ['ranged_offense'] = 7634,
     ['defense'] = 7435,
-    ['evade'] = 0.03,
+    ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
 },
@@ -1880,7 +1897,8 @@ Characters = {
 },
 
 ['StormtrooperOriginal'] = {
-    ['melee_offense'] = 6484,
+    ['melee_offense'] = 5484,
+    ['ranged_offense'] = 6484,
     ['defense'] = 6348,
     ['evade'] = 0.02,
     ['range'] = 3,
@@ -1905,7 +1923,8 @@ Characters = {
 },
 
 ['TallieLintra'] = {
-    ['melee_offense'] = 6050,
+    ['melee_offense'] = 5050,
+    ['ranged_offense'] = 6050,
     ['defense'] = 6467,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -1990,8 +2009,9 @@ Characters = {
 },
 
 ['TuskenRaider'] = {
-    ['melee_offense'] = 6420,
-    ['defense'] = 6000,
+    ['melee_offense'] = 6200,
+    ['ranged_offense'] = 6420,
+    ['defense'] = 5600,
     ['evade'] = 0.02,
     ['range'] = 5,
     ['projectile'] = 'RedLaser'
@@ -2056,7 +2076,8 @@ Characters = {
 },
 
 ['WedgeAntilles'] = {
-    ['melee_offense'] = 6550,
+    ['melee_offense'] = 5550,
+    ['ranged_offense'] = 6550,
     ['defense'] = 6342,
     ['evade'] = 0.03,
     ['range'] = 2,
