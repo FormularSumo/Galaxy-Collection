@@ -145,7 +145,7 @@ function character_strength(character)
     else
         offense = stats['melee_offense'] * modifier
     end
-    return ((offense/800)^3+((stats['defense']*modifier)/800)^3)*(1+stats['evade']*2)*(0.9+stats['range']/10)
+    return ((offense/800)^3+((stats['defense']*modifier)/800)^3)*(1+stats['evade']*2)*(0.9+stats['range']/15)
 end
 
 function compare_character_strength(character1, character2)
