@@ -373,7 +373,7 @@ function love.update(dt)
     love.keyboard.keysPressed = {}
     love.keyboard.keysReleased = {}
     love.mouse.buttonsPressed = {}
-    if mouseDown == false and mouseLocked == false then mouseTrapped = false end
+    if mouseDown == false and mouseLocked == false then mouseTrapped = false mouseLastX = -1 mouseLastY = -1 end
     mouseDown = false
 end
 

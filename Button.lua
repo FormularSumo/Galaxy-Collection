@@ -95,9 +95,6 @@ function Button:update()
             if mouseDown and (mouseTrapped == false or mouseTrapped == self) then
                 self.scaling = 1.08
                 mouseTrapped = self
-            else
-                mouseLastX = -1
-                mouseLasty = -1  
             end
         else
             self.scaling = 1.04
