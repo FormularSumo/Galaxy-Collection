@@ -110,7 +110,7 @@ function reset_deck(deck)
     if sandbox then
         for k, pair in pairs(Characters) do
             count = count + 1
-            Sorted_characters[count] = pair
+            Sorted_characters[count] = {k,60,4}
         end
     else
         for k, pair in pairs(P1_deck_cards) do
