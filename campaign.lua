@@ -48,9 +48,9 @@ function maxed_light_side() --Example level to make an interesting fight vs pre-
 
 
     if Settings['videos'] then
-        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'The Mandalorian.oga'})
     else
-        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 2, 0, 0, 0, 'Binary Sunset.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 2, 0, 0, 0, 'The Mandalorian.oga'})
     end
 end
 

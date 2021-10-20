@@ -17,8 +17,7 @@ function HomeState:enter(partial)
         end
         background['Seek'] = 0
         songs[0] = love.audio.newSource('Music/Across the stars.oga','stream')
-        songs[1] = love.audio.newSource('Music/The Mandalorian.oga','stream')
-        songs[2] = love.audio.newSource('Music/Cantina Band.oga','stream')
+        songs[1] = love.audio.newSource('Music/Cantina Band.oga','stream')
 
         songs[0]:play()
         calculate_queue_length()
