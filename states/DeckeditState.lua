@@ -33,11 +33,11 @@ function DeckeditState:init()
 
     background['Background'] = love.graphics.newImage('Backgrounds/Manaan.png')
     background['Type'] = 'photo'
-    gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
-    gui[2] = Button('reset_deck','strongest','Auto',font80,nil,'centre',200)
-    gui[3] = Button('reset_deck','blank','Clear',font80,nil,'centre',380)
-    gui[22] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1040)
-    gui[23] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1040)
+    gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20,0,0,0)
+    gui[2] = Button('reset_deck','strongest','Auto',font80,nil,'centre',200,0,0,0)
+    gui[3] = Button('reset_deck','blank','Clear',font80,nil,'centre',380,0,0,0)
+    gui[22] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1040,0,0,0)
+    gui[23] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1040,0,0,0)
 end
 
 function update_cards_on_display(direction)
