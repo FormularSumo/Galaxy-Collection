@@ -26,6 +26,34 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     end
 end
 
+function maxed_light_side() --Example level to make an interesting fight vs pre-built deck
+    P2_deck_cards[0] = {'AhsokaTanoFulcrum',60,4}
+    P2_deck_cards[1] = {'Yoda',60,4}
+    P2_deck_cards[2] = {'HermitLuke',60,4}
+    P2_deck_cards[3] = {'MaceWindu',60,4}
+    P2_deck_cards[4] = {'ObiWanKenobi',60,4}
+    P2_deck_cards[5] = {'LukeSkywalkerROTJ',60,4}
+    P2_deck_cards[6] = {'AaylaSecura',60,4}
+    P2_deck_cards[7] = {'AgenKolar',60,4}
+    P2_deck_cards[8] = {'AnakinSkywalkerROTS',60,4}
+    P2_deck_cards[9] = {'AhsokaTanoS7',60,4}
+    P2_deck_cards[10] = {'SaeseeTiin',60,4}
+    P2_deck_cards[11] = {'QuinlanVos',60,4}
+    P2_deck_cards[12] = {'TheMandalorian',60,4}
+    P2_deck_cards[13] = {'BobaFettMandalorian',60,4}
+    P2_deck_cards[14] = {'Bendu',60,4}
+    P2_deck_cards[15] = {'HermitYoda',60,4}
+    P2_deck_cards[16] = {'NightsisterMerrin',60,4}
+    P2_deck_cards[17] = {'BoKatan',60,4}
+
+
+    if Settings['videos'] then
+        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
+    else
+        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 2, 0, 0, 0, 'Binary Sunset.oga'})
+    end
+end
+
 function throne_room()
     P2_deck_cards[1] = {'RoyalGuard',60,4}
     P2_deck_cards[2] = {'DarthSidious',60,4}
