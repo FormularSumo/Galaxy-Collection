@@ -31,7 +31,7 @@ function DeckeditState:init()
 
     reload_deckeditor()
 
-    background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
+    background['Background'] = love.graphics.newImage('Backgrounds/Manaan.png')
     background['Type'] = 'photo'
     gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
     gui[2] = Button('reset_deck','strongest','Auto',font80,nil,'centre',200)

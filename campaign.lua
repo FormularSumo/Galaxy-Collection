@@ -46,12 +46,8 @@ function maxed_light_side() --Example level to make an interesting fight vs pre-
     P2_deck_cards[16] = {'NightsisterMerrin',60,4}
     P2_deck_cards[17] = {'BoKatan',60,4}
 
-
-    if Settings['videos'] then
-        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'The Mandalorian.oga'})
-    else
-        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 2, 0, 0, 0, 'The Mandalorian.oga'})
-    end
+    
+    gStateMachine:change('GameState',{'Voss.png', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})
 end
 
 function throne_room()
