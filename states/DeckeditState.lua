@@ -142,7 +142,7 @@ function reset_deck(deck)
         end
     elseif deck == 'blank' then
         for i = 0,18 do
-            P1_deck_edit(i,'Blank')
+            P1_deck_edit(i,nil)
         end
         for k, pair in ipairs(Sorted_characters) do
             count = count + 1
