@@ -1560,7 +1560,7 @@ Characters = {
     ['melee_offense'] = 8473,
     ['ranged_offense'] = 9473,
     ['defense'] = 9094,
-    ['evade'] = 0.2,
+    ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'BlueLaser'
 },
