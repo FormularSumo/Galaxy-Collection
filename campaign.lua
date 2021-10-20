@@ -1,22 +1,22 @@
 function maxed_dark_side() --Example level to make an interesting fight vs pre-built deck
-    P2_deck_cards[0] = {'Maul',60,4}
-    P2_deck_cards[1] = {'GeneralGrievous',60,4}
-    P2_deck_cards[2] = {'DarthVader',60,4}
-    P2_deck_cards[3] = {'CountDooku',60,4}
-    P2_deck_cards[4] = {'GrandInquisitor',60,4}
-    P2_deck_cards[5] = {'SavageOpress',60,4}
-    P2_deck_cards[6] = {'TrillaSuduri',60,4}
-    P2_deck_cards[7] = {'PongKrell',60,4}
-    P2_deck_cards[8] = {'DarthSidious',60,4}
-    P2_deck_cards[9] = {'SupremeLeaderSnoke',60,4}
-    P2_deck_cards[10] = {'KyloRen',60,4}
-    P2_deck_cards[11] = {'AsajjVentress',60,4}
-    P2_deck_cards[12] = {'Kuruk',60,4}
-    P2_deck_cards[13] = {'BobaFettROTJ',60,4}
+    P2_deck_cards[0] = {'KyloRen',60,4}
+    P2_deck_cards[1] = {'SupremeLeaderSnoke',60,4}
+    P2_deck_cards[2] = {'DarthSidious',60,4}
+    P2_deck_cards[3] = {'DarthVader',60,4}
+    P2_deck_cards[4] = {'CountDooku',60,4}
+    P2_deck_cards[5] = {'NinthSister',60,4}
+    P2_deck_cards[6] = {'GeneralGrievous',60,4}
+    P2_deck_cards[7] = {'Maul',60,4}
+    P2_deck_cards[8] = {'PongKrell',60,4}
+    P2_deck_cards[9] = {'SavageOpress',60,4}
+    P2_deck_cards[10] = {'AsajjVentress',60,4}
+    P2_deck_cards[11] = {'EighthBrother',60,4}
+    P2_deck_cards[12] = {'PreVizsla',60,4}
+    P2_deck_cards[13] = {'TrillaSuduri',60,4}
     P2_deck_cards[14] = {'DarthSidiousReborn',60,4}
-    P2_deck_cards[15] = {'JangoFett',60,4}
-    P2_deck_cards[16] = {'PreVizsla',60,4}
-    P2_deck_cards[17] = {'Cardo',60,4}
+    P2_deck_cards[15] = {'FifthBrother',60,4}
+    P2_deck_cards[16] = {'GrandInquisitor',60,4}
+    P2_deck_cards[17] = {'SeventhSister',60,4}
 
 
     if Settings['videos'] then
