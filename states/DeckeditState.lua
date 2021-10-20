@@ -101,6 +101,9 @@ function reset_deck(deck)
         Characters_by_strength[count] = pair
     end
 
+    P1_deck_cards = {}
+    P1_cards = {}
+
     count = -1
     if deck == 'strongest' then
         table.sort(Characters_by_strength,compare_character_strength)
