@@ -22,7 +22,7 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     if Settings['videos'] then
         gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
     else
-        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 2, 0, 0, 0, 'Binary Sunset.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 0, 0, 0, 0, 'Binary Sunset.oga'})
     end
 end
 
