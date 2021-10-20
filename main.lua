@@ -267,7 +267,7 @@ end
 
 function love.update(dt)
     --Handle joystick inputs
-    if joysticks then
+    if joysticks and focus then
         local leftx = 0
         local lefty = 0
         for k, v in pairs(joysticks) do
