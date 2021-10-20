@@ -59,7 +59,6 @@ function StateMachine:change(stateName, enterParams, exitParams)
             reposition_mouse(1)
         end
     end
-	love.timer.step()
 end
 
 function StateMachine:update(dt)
