@@ -1148,7 +1148,7 @@ Characters = {
     ['melee_offense'] = 18587,
     ['defense'] = 18341,
     ['evade'] = 0.02,
-    ['range'] = 2,
+    ['range'] = 3,
     ['projectile'] = 'ForceBlast'
 },
 
