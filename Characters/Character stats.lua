@@ -336,6 +336,15 @@ Characters = {
     ['projectile'] = 'YellowLaser'
 },
 
+['Boolio'] = {
+    ['melee_offense'] = 4550,
+    ['ranged_offense'] = 5550,
+    ['defense'] = 3000,
+    ['evade'] = 0.01,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+},
+
 ['Bossk'] = {
     ['melee_offense'] = 14013,
     ['ranged_offense'] = 15013,
@@ -1360,6 +1369,15 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'BlueLaser'
+},
+
+['KlatooinianRaider'] = {
+    ['melee_offense'] = 5100,
+    ['ranged_offense'] = 6100,
+    ['defense'] = 5500,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
 },
 
 ['KoskaReeves'] = {
