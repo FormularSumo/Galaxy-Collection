@@ -110,6 +110,15 @@ Characters = {
     ['weapon'] = 'BlueLightsaber'
 },
 
+['AntocMerrick'] = {
+    ['melee_offense'] = 5050,
+    ['ranged_offense'] = 6050,
+    ['defense'] = 6550,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+},
+
 ['Aplek'] = {
     ['melee_offense'] = 15526,
     ['defense'] = 15503,
@@ -1278,6 +1287,15 @@ Characters = {
     ['projectile'] = 'BlueLaser'
 },
 
+['JessPava'] = {
+    ['melee_offense'] = 5025,
+    ['ranged_offense'] = 6025,
+    ['defense'] = 6540,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+},
+
 ['JynErso'] = {
     ['melee_offense'] = 14513,
     ['ranged_offense'] = 14513,
@@ -1376,6 +1394,15 @@ Characters = {
     ['melee_offense'] = 13018,
     ['ranged_offense'] = 15018,
     ['defense'] = 9153,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+},
+
+['Lobot'] = {
+    ['melee_offense'] = 5490,
+    ['ranged_offense'] = 6490,
+    ['defense'] = 6350,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
@@ -1556,11 +1583,20 @@ Characters = {
     ['range'] = 1
 },
 
+['PatrolTrooper'] = {
+    ['melee_offense'] = 6012,
+    ['ranged_offense'] = 7012,
+    ['defense'] = 7101,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
+},
+
 ['Phase1CloneTrooper'] = {
     ['melee_offense'] = 8473,
     ['ranged_offense'] = 9473,
     ['defense'] = 9094,
-    ['evade'] = 0.02,
+    ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'BlueLaser'
 },
@@ -1684,6 +1720,15 @@ Characters = {
     ['ranged_offense'] = 8770,
     ['defense'] = 8025,
     ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
+},
+
+['RebelFleetTrooper'] = {
+    ['melee_offense'] = 5450,
+    ['ranged_offense'] = 6450,
+    ['defense'] = 6350,
+    ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
 },
