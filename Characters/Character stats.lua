@@ -1324,6 +1324,15 @@ Characters = {
     ['weapon'] = 'BlueLightsaber'
 },
 
+['KaydelKoConnix'] = {
+    ['melee_offense'] = 5110,
+    ['ranged_offense'] = 6110,
+    ['defense'] = 6390,
+    ['evade'] = 0.02,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+},
+
 ['KiAdiMundi'] = {
     ['melee_offense'] = 17849,
     ['ranged_offense'] = 16849,
