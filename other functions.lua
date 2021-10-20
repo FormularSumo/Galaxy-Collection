@@ -132,6 +132,7 @@ function controller_binds(button)
 end
 
 function character_strength(character)
+    if character == nil then return 0 end
     if character[1] then
         stats = Characters[character[1]]
         modifier = ((character[2] + (60 - character[2]) / 1.7) / 60) * (1 - ((4 - character[3]) * 0.1))
