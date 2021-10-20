@@ -1371,6 +1371,13 @@ Characters = {
     ['projectile'] = 'YellowLaser'
 },
 
+['Kuiil'] = {
+    ['melee_offense'] = 6000,
+    ['defense'] = 6000,
+    ['evade'] = 0.04,
+    ['range'] = 1,
+},
+
 ['Kuruk'] = {
     ['melee_offense'] = 15579,
     ['ranged_offense'] = 16347,
