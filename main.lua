@@ -263,7 +263,6 @@ end
 function love.focus(InFocus)
     focus = InFocus
     if Settings['pause_on_loose_focus'] and not (paused and gStateMachine.state == 'GameState') then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
-    love.timer.step()
 end
 
 function love.update(dt)
@@ -272,10 +271,10 @@ function love.update(dt)
         local leftx = 0
         local lefty = 0
         for k, v in pairs(joysticks) do
-            leftx = leftx + dt * 1000 * v:getGamepadAxis('leftx')
-            lefty = lefty + dt * 1000 * v:getGamepadAxis('lefty')
+            leftx = leftx + v:getGamepadAxis('leftx')
+            lefty = lefty + v:getGamepadAxis('lefty')
         end
-        if math.abs(leftx) > 2 or math.abs(lefty) > 2 then --Only if in focus because you don't want joysticks to continue moving mouse when you're not in program and deadzone because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
+        if math.abs(leftx) > 0.2 or math.abs(lefty) > 0.2 then --Deadzone because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
             if math.abs(leftx) > math.abs(lefty) then
                 if leftx < 0 then
                     direction = 'left'
