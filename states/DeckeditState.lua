@@ -109,8 +109,10 @@ function reset_deck(deck)
  
     if sandbox then
         for k, pair in pairs(Characters) do
-            count = count + 1
-            Sorted_characters[count] = {k,60,4}
+            if k ~= 'DarthNoscoper' then
+                count = count + 1
+                Sorted_characters[count] = {k,60,4}
+            end
         end
     else
         for k, pair in pairs(P1_deck_cards) do
