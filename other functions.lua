@@ -156,27 +156,19 @@ end
 function tutorial()
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
 
-    count = -1
-    Sorted_characters = {}
+    P1_deck_edit(1,{'BabyYoda',60,4})
+    P1_deck_edit(2,{'FarmboyLuke',60,4})
+    P1_deck_edit(3,{'C3P0',60,4})
+    P1_deck_edit(4,{'R2D2',60,4})
 
+    count = -1
     for k, pair in pairs(Characters) do
-        if k ~= 'DarthNoscoper' then
+        if k ~= 'DarthNoscoper' and k ~= 'B1BattleDroid' and k ~= 'R2D2' and k ~= 'FarmboyLuke' and k ~= 'BabyYoda' and k ~= 'C3P0' and k ~= 'FirstOrderStormtrooper' then
             count = count + 1
-            Sorted_characters[count] = k
+            P1_cards[count] = {k,60,4}
         end
     end
 
-    table.sort(Sorted_characters,compare_character_strength)
-
-    count = -1
-    for k, pair in ipairs(Sorted_characters) do
-        count = count + 1
-        if count < 18 then
-            P1_deck_edit(count,{pair,60,4})
-        else
-            P1_cards[count-18] = {pair,60,4}
-        end
-    end
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
 
     P1_cards = {}
