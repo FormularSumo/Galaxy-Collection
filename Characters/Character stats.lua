@@ -2109,6 +2109,15 @@ Characters = {
     ['range'] = 1
 },
 
+['UnkarPlutt'] = {
+    ['melee_offense'] = 4110,
+    ['ranged_offense'] = 5110,
+    ['defense'] = 3400,
+    ['evade'] = 0.01,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+},
+
 ['Ushar'] = {
     ['melee_offense'] = 15482,
     ['defense'] = 15488,
