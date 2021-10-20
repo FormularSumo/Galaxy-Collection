@@ -105,8 +105,9 @@ function reset_deck(deck)
     P1_cards = {}
 
     count = -1
+    table.sort(Characters_by_strength,compare_character_strength)
+
     if deck == 'strongest' then
-        table.sort(Characters_by_strength,compare_character_strength)
         for k, pair in ipairs(Characters_by_strength) do
             count = count + 1
             if count < 18 then
