@@ -113,5 +113,5 @@ function maxed()
     P2_deck_cards[16] = {'NinthSister',60,4}
     P2_deck_cards[17] = {'TrillaSuduri',60,4}
 
-    gStateMachine:change('GameState',{'Belsavis.jpg', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
+    gStateMachine:change('GameState',{'Belsavis.png', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
 end
