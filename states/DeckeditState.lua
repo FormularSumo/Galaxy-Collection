@@ -4,7 +4,24 @@ function DeckeditState:init()
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P1_cards = bitser.loadLoveFile('Player 1 cards.txt')
-    table.sort(P1_cards,compare_character_strength)
+    count = 0
+    Sorted_characters = {}
+ 
+    for k, pair in pairs(P1_cards) do
+        count = count + 1
+        Sorted_characters[count] = pair
+    end
+
+    P1_cards = {}
+    table.sort(Sorted_characters,compare_character_strength)
+
+    count = -1
+    for k, pair in ipairs(Sorted_characters) do
+        count = count + 1
+        P1_cards[count] = pair
+    end
+    Sorted_characters = nil
+
     Cards_on_display = {}
     Evolution = love.graphics.newImage('Graphics/Evolution.png')
     EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
@@ -88,27 +105,27 @@ end
 
 function reset_deck(deck)
     count = 0
-    Characters_by_strength = {}
+    Sorted_characters = {}
  
     for k, pair in pairs(P1_deck_cards) do
         if pair ~= 'Blank' then
             count = count + 1
-            Characters_by_strength[count] = pair
+            Sorted_characters[count] = pair
         end
     end
     for k, pair in pairs(P1_cards) do
         count = count + 1
-        Characters_by_strength[count] = pair
+        Sorted_characters[count] = pair
     end
 
     P1_deck_cards = {}
     P1_cards = {}
 
+    table.sort(Sorted_characters,compare_character_strength)
     count = -1
-    table.sort(Characters_by_strength,compare_character_strength)
 
     if deck == 'strongest' then
-        for k, pair in ipairs(Characters_by_strength) do
+        for k, pair in ipairs(Sorted_characters) do
             count = count + 1
             if count < 18 then
                 P1_deck_edit(count,pair)
@@ -120,7 +137,7 @@ function reset_deck(deck)
         for i = 0,18 do
             P1_deck_edit(i,'Blank')
         end
-        for k, pair in ipairs(Characters_by_strength) do
+        for k, pair in ipairs(Sorted_characters) do
             count = count + 1
             P1_cards[count] = pair
         end
