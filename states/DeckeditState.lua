@@ -107,15 +107,22 @@ function reset_deck(deck)
     count = 0
     Sorted_characters = {}
  
-    for k, pair in pairs(P1_deck_cards) do
-        if pair ~= 'Blank' then
+    if sandbox then
+        for k, pair in pairs(Characters) do
             count = count + 1
             Sorted_characters[count] = pair
         end
-    end
-    for k, pair in pairs(P1_cards) do
-        count = count + 1
-        Sorted_characters[count] = pair
+    else
+        for k, pair in pairs(P1_deck_cards) do
+            if pair ~= 'Blank' then
+                count = count + 1
+                Sorted_characters[count] = pair
+            end
+        end
+        for k, pair in pairs(P1_cards) do
+            count = count + 1
+            Sorted_characters[count] = pair
+        end
     end
 
     P1_deck_cards = {}

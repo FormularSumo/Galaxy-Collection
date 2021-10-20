@@ -72,6 +72,7 @@ function love.load()
     keyHoldTimer = 0
     keyPressedTimer = love.timer.getTime()
     mouseLocked = false
+    sandbox = true
 
     if love.filesystem.getInfo('Settings.txt') == nil then
         Settings = {
