@@ -263,6 +263,7 @@ end
 function love.focus(InFocus)
     focus = InFocus
     if Settings['pause_on_loose_focus'] and not (paused and gStateMachine.state == 'GameState') then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
+    love.timer.step()
 end
 
 function love.update(dt)
@@ -304,7 +305,7 @@ function love.update(dt)
                 end
 
                 if love.timer.getTime() > keyPressedTimer + 0.1 then
-                    love.keypressed(direction) 
+                    love.keypressed(direction)
                     keyPressedTimer = love.timer.getTime()
                 end
             end
