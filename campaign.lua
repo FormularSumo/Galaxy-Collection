@@ -70,24 +70,24 @@ function kamino()
 end
 
 function maxed()
-    P2_deck_cards[0] = {'HermitLuke',60,4}
-    P2_deck_cards[1] = {'DarthVader',60,4}
+    P2_deck_cards[0] = {'MaceWindu',60,4}
+    P2_deck_cards[1] = {'DarthSidious',60,4}
     P2_deck_cards[2] = {'ZilloBeast',60,4}
-    P2_deck_cards[3] = {'MaceWindu',60,4}
-    P2_deck_cards[4] = {'Yoda',60,4}
-    P2_deck_cards[5] = {'AnakinSkywalkerROTS',60,4}
-    P2_deck_cards[6] = {'LukeSkywalkerROTJ',60,4}
-    P2_deck_cards[7] = {'SupremeLeaderSnoke',60,4}
-    P2_deck_cards[8] = {'DarthSidious',60,4}
-    P2_deck_cards[9] = {'HermitYoda',60,4}
-    P2_deck_cards[10] = {'AhsokaTanoFulcrum',60,4}
-    P2_deck_cards[11] = {'CountDooku',60,4}
-    P2_deck_cards[12] = {'NightsisterMerrin',60,4}
-    P2_deck_cards[13] = {'BobaFettMandalorian',60,4}
+    P2_deck_cards[3] = {'HermitLuke',60,4}
+    P2_deck_cards[4] = {'DarthVader',60,4}
+    P2_deck_cards[5] = {'Yoda',60,4}
+    P2_deck_cards[6] = {'AhsokaTanoFulcrum',60,4}
+    P2_deck_cards[7] = {'AnakinSkywalkerROTS',60,4}
+    P2_deck_cards[8] = {'SupremeLeaderSnoke',60,4}
+    P2_deck_cards[9] = {'CountDooku',60,4}
+    P2_deck_cards[10] = {'PongKrell',60,4}
+    P2_deck_cards[11] = {'LukeSkywalkerROTJ',60,4}
+    P2_deck_cards[12] = {'GrandInquisitor',60,4}
+    P2_deck_cards[13] = {'HermitYoda',60,4}
     P2_deck_cards[14] = {'DarthSidiousReborn',60,4}
     P2_deck_cards[15] = {'Bendu',60,4}
-    P2_deck_cards[16] = {'JangoFett',60,4}
-    P2_deck_cards[17] = {'TheMandalorian',60,4}
+    P2_deck_cards[16] = {'NinthSister',60,4}
+    P2_deck_cards[17] = {'TrillaSuduri',60,4}
 
     gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Throne Room.oga'})
 end
