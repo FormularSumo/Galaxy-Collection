@@ -9,7 +9,11 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
         self.image = BlankCard
     else
         self.stats = Characters[self.name]
-        self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
+        if self.stats['filename'] then
+            self.image = love.graphics.newImage('Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png')
+        else
+            self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
+        end
     end
     self.width,self.height = self.image:getDimensions()
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22

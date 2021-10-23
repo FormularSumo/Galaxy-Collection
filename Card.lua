@@ -4,7 +4,11 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.name = Characters[name]
     self.row = row
     self.column = column
-    self.image = love.graphics.newImage('Characters/' .. name .. '/' .. name .. '.png')
+    if self.name['filename'] then
+        self.image = love.graphics.newImage('Characters/' .. self.name['filename'] .. '/' .. self.name['filename'] .. '.png')
+    else
+        self.image = love.graphics.newImage('Characters/' .. name .. '/' .. name .. '.png')
+    end
     self.width,self.height = self.image:getDimensions()
     self.x = -self.width
     self.y = -self.height

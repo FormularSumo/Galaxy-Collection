@@ -477,6 +477,7 @@ Characters = {
 },
 
 ['ChirrutÎmwe'] = {
+    ['filename'] = 'ChirrutImwe', --because filepaths can't have accents on Android
     ['melee_offense'] = 15520,
     ['ranged_offense'] = 15579,
     ['defense'] = 15520,
