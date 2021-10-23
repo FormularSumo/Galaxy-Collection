@@ -21,6 +21,7 @@ function DeckeditState:init()
         P1_cards[count] = pair
     end
     Sorted_characters = nil
+    bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
 
     Cards_on_display = {}
     Evolution = love.graphics.newImage('Graphics/Evolution.png')
