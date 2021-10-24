@@ -154,6 +154,7 @@ function compare_character_strength(character1, character2)
 end
 
 function tutorial()
+    P1_cards = {}
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
 
     P1_deck_edit(1,{'BabyYoda',60,4})
@@ -170,8 +171,6 @@ function tutorial()
     end
 
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
-
-    P1_cards = {}
-
+    P1_cards = nil
     UserData['Credits'] = 100
 end

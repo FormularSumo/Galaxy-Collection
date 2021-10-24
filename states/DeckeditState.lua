@@ -3,24 +3,17 @@ DeckeditState = Class{__includes = BaseState}
 function DeckeditState:init()
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
-    P1_cards = bitser.loadLoveFile('Player 1 cards.txt')
-    count = 0
-    Sorted_characters = {}
- 
-    for k, pair in pairs(P1_cards) do
-        count = count + 1
-        Sorted_characters[count] = pair
-    end
-
     P1_cards = {}
-    table.sort(Sorted_characters,compare_character_strength)
-
+    Unsorted = bitser.loadLoveFile('Player 1 cards.txt')
     count = -1
-    for k, pair in ipairs(Sorted_characters) do
+ 
+    for k, pair in pairs(Unsorted) do
         count = count + 1
         P1_cards[count] = pair
     end
-    Sorted_characters = nil
+    Unsorted = nil
+
+    table.sort(P1_cards,compare_character_strength)
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
 
     Cards_on_display = {}
@@ -250,6 +243,7 @@ end
 
 function DeckeditState:exit(partial)
     P1_deck = nil
+    P1_cards = nil
     Cards_on_display = nil
     Evolution = nil
     EvolutionMax = nil

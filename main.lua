@@ -50,7 +50,6 @@ function love.load()
 
     P1_deck_cards = {}
     P2_deck_cards = {}
-    P1_cards = {}
     UserData = {}
 
     love.keyboard.keysPressed = {}
