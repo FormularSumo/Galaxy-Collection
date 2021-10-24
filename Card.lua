@@ -244,11 +244,11 @@ function Card:render()
     if self.health < 1000 then
         love.graphics.setColor(0.3,0.3,0.3)
         love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
-        self.colour = self.dodge / self.attacks_taken
-        self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
         if self.dodge == 0 then
             love.graphics.setColor(1,0.82,0)
         else
+            self.colour = self.dodge / self.attacks_taken
+            self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
             love.graphics.setColor(self.colour,self.colour,self.colour)
         end
         love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
