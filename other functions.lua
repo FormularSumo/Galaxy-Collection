@@ -162,14 +162,6 @@ function tutorial()
     P1_deck_edit(3,{'C3P0',60,4})
     P1_deck_edit(4,{'R2D2',60,4})
 
-    count = -1
-    for k, pair in pairs(Characters) do
-        if k ~= 'DarthNoscoper' and k ~= 'B1BattleDroid' and k ~= 'R2D2' and k ~= 'FarmboyLuke' and k ~= 'BabyYoda' and k ~= 'C3P0' and k ~= 'FirstOrderStormtrooper' then
-            count = count + 1
-            P1_cards[count] = {k,60,4}
-        end
-    end
-
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
     P1_cards = nil
     UserData['Credits'] = 100
