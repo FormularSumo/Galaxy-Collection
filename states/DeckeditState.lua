@@ -31,8 +31,10 @@ function sort_inventory(reload)
 
     if sandbox then
         for k, pair in pairs(Characters) do
-            count = count + 1
-            P1_cards[count] = {k,60,4}
+            if pair ~= 'DarthNoscoper' then
+                count = count + 1
+                P1_cards[count] = {k,60,4}
+            end
         end
 
         for k, pair in pairs(P1_deck_cards) do
