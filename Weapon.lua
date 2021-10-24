@@ -12,7 +12,6 @@ function Weapon:init(x,y,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffse
         self.x = x + self.xoffset * 0.65
         self.angle = math.rad(150)
     end
-    self.character_range = character_range
 
     self.y = y + self.yoffset * 0.7
     self.image = weapon
