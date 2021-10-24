@@ -223,8 +223,8 @@ function Card:attack()
             self.enemy_deck[self.target].dodge = self.enemy_deck[self.target].dodge + 1
         end
         self.target = nil
+        self.projectile = nil
     end
-    self.projectile = nil
 end
 
 function Card:render()
