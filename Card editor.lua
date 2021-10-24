@@ -50,7 +50,6 @@ function Card_editor:swap()
                 P1_deck_edit(temporary2.number,nil)
             end
         else
-            Cards_on_display[self.number-page*18] = temporary2
             if temporary2.name ~= 'Blank' then
                 P1_cards_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
             else
@@ -66,7 +65,6 @@ function Card_editor:swap()
                 P1_deck_edit(temporary.number,nil)
             end
         else
-            Cards_on_display[mouseTrapped.number-page*18] = temporary
             if temporary.name ~= 'Blank' then
                 P1_cards_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
             else
@@ -76,12 +74,12 @@ function Card_editor:swap()
 
         temporary = nil
         temporary2 = nil
-        collectgarbage()
+        sort_inventory()
+        return
     end
     self.clicked = false
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-    update_gui()
 end
 
 function Card_editor:update()
