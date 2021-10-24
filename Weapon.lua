@@ -1,10 +1,9 @@
 Weapon = Class{__includes = BaseState}
 
-function Weapon:init(x,y,column,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffset,yoffset)
+function Weapon:init(x,y,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffset,yoffset)
     self.team = team
     self.xoffset = xoffset
     self.yoffset = yoffset
-    self.column = column
     self.show = false
     if self.team == 1 then
         self.x = x + self.xoffset * 0.35
@@ -31,14 +30,13 @@ function Weapon:init(x,y,column,weapon,weapon2,weapon3,weapon4,weapon_count,team
     if not weapon_count then self.weapon_count = 1 else self.weapon_count = weapon_count end
 end
 
-function Weapon:updateposition(x,y,column)
+function Weapon:updateposition(x,y)
     if self.team == 1 then
         self.x = x + self.xoffset * 0.35
     else
         self.x = x + self.xoffset * 0.65
     end
     self.y = y + self.yoffset * 0.7
-    self.column = column
 end
 
 function Weapon:update(dt)

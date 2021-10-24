@@ -60,7 +60,7 @@ function Card:init(name,row,column,team,number,level,evolution)
     end
 
     if self.weapon_image then
-        self.weapon = Weapon(self.x, self.y, self.column, self.weapon_image, Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'] , self.team, self.width, self.height, self.range)
+        self.weapon = Weapon(self.x, self.y, self.weapon_image, Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'] , self.team, self.width, self.height, self.range)
     end
 
     if (self.name['projectile'] == 'Lightning' or self.name['projectile'] == 'ForceBlast') and self.weapon == nil then
@@ -89,7 +89,7 @@ function Card:update(dt)
         self.projectile:update(dt)
     end    
     if self.weapon then
-        self.weapon:updateposition(self.x,self.y,self.column)
+        self.weapon:updateposition(self.x,self.y)
         self.weapon:update(dt)
     end
 end
