@@ -1,7 +1,6 @@
 Weapon = Class{__includes = BaseState}
 
 function Weapon:init(x,y,column,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffset,yoffset)
-    self.alive = true
     self.team = team
     self.xoffset = xoffset
     self.yoffset = yoffset

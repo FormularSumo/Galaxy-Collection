@@ -1,7 +1,6 @@
 Projectile = Class{__includes = BaseState}
 
 function Projectile:init(x,y,finalx,finaly,projectile,team,xoffset,yoffset)
-    self.alive = true
     self.team = team
     self.image = projectile
     self.width,self.height = self.image:getDimensions()
