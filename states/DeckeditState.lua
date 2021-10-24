@@ -186,6 +186,7 @@ function DeckeditState:back()
 end
 
 function DeckeditState:update()
+    if love.mouse.isVisible() then mouseLocked = false end
     if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('left') or love.keyboard.wasPressed('dpright') or love.keyboard.wasPressed('dpleft') then
         if mouseTouching == false or love.keyboard.wasPressed('dpright') or love.keyboard.wasPressed('dpleft') then
             if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('dpright') then
