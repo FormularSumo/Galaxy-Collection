@@ -4,14 +4,35 @@ function DeckeditState:init()
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P1_cards = {}
-    Unsorted = bitser.loadLoveFile('Player 1 cards.txt')
     count = -1
- 
-    for k, pair in pairs(Unsorted) do
-        count = count + 1
-        P1_cards[count] = pair
+    
+    if sandbox then
+        for k, pair in pairs(Characters) do
+            count = count + 1
+            P1_cards[count] = {k,60,4}
+        end
+
+        for k, pair in pairs(P1_deck_cards) do
+            for k2, pair2 in pairs(P1_cards) do
+                if pair[1] == pair2[1] then
+                    if pair[2] == pair[2] then
+                        if pair[3] == pair[3] then
+                            P1_cards[k2] = nil
+                            break
+                        end
+                    end
+                end
+            end
+        end
+    else
+        Unsorted = bitser.loadLoveFile('Player 1 cards.txt')
+    
+        for k, pair in pairs(Unsorted) do
+            count = count + 1
+            P1_cards[count] = pair
+        end
+        Unsorted = nil
     end
-    Unsorted = nil
 
     table.sort(P1_cards,compare_character_strength)
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
@@ -101,24 +122,15 @@ function reset_deck(deck)
     count = 0
     Sorted_characters = {}
  
-    if sandbox then
-        for k, pair in pairs(Characters) do
-            if k ~= 'DarthNoscoper' then
-                count = count + 1
-                Sorted_characters[count] = {k,60,4}
-            end
-        end
-    else
-        for k, pair in pairs(P1_deck_cards) do
-            if pair ~= 'Blank' then
-                count = count + 1
-                Sorted_characters[count] = pair
-            end
-        end
-        for k, pair in pairs(P1_cards) do
+    for k, pair in pairs(P1_deck_cards) do
+        if pair ~= 'Blank' then
             count = count + 1
             Sorted_characters[count] = pair
         end
+    end
+    for k, pair in pairs(P1_cards) do
+        count = count + 1
+        Sorted_characters[count] = pair
     end
 
     P1_deck_cards = {}
