@@ -4,7 +4,7 @@ function DeckeditState:init()
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
     P1_cards = {}
-    count = -1
+    count = 0
     
     if sandbox then
         for k, pair in pairs(Characters) do
@@ -35,6 +35,10 @@ function DeckeditState:init()
     end
 
     table.sort(P1_cards,compare_character_strength)
+    for k, pair in pairs(P1_cards) do
+        P1_cards[k-1] = pair
+    end
+    P1_cards[#P1_cards] = nil
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
 
     Cards_on_display = {}
