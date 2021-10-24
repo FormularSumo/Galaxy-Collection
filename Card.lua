@@ -194,7 +194,7 @@ function Card:aim()
         end
     end
     if self.weapon then
-        self.weapon:updateshow(self.melee_attack)
+        self.weapon.show = self.melee_attack
     end
 end
 

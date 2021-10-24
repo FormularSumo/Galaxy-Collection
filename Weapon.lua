@@ -41,10 +41,6 @@ function Weapon:updateposition(x,y,column)
     self.column = column
 end
 
-function Weapon:updateshow(show)
-    self.show = show
-end
-
 function Weapon:update(dt)
     if timer > 6.4 then
         if timer < 6.9 then
