@@ -3,8 +3,8 @@ Text = Class{}
 function Text:init(text,font,x,y,r,g,b)
     self.font = font 
     
-    if x == 'centre' then self.centrex = true else self.centrex = false end
-    if y == 'centre' then self.centrey = true else self.centrey = false end
+    self.centrex = x == 'centre'
+    self.centrey = y == 'centre'
     
     if self.font == nil then 
         self.font = love.graphics.getFont()

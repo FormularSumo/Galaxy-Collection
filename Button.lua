@@ -14,7 +14,7 @@ function Button:init(func,arg,text,font,bg_image,x,y,r,g,b,visible)
     self.textwidth,self.textheight = self.text:getDimensions()
     self:update_text(text)
 
-    if bg_image == nil then self.has_picture = false else self.has_picture = true end
+    self.has_picture = not(bg_image == nil)
 
     if self.has_picture == true then
         self.bg_image = love.graphics.newImage('Buttons/' .. bg_image .. '.png')
