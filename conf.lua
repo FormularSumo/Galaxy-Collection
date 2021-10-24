@@ -11,7 +11,6 @@ function love.conf(t)
     t.window.fullscreen = true
     t.window.resizable = true
     t.window.vsync = -1
-    t.console = true
 
     --Disable unused modules
     t.accelerometerjoystick = false
