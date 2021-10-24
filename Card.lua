@@ -89,7 +89,6 @@ function Card:update(dt)
         self.projectile:update(dt)
     end    
     if self.weapon then
-        self.weapon:updateposition(self.x,self.y)
         self.weapon:update(dt)
     end
 end
@@ -105,6 +104,9 @@ function Card:position()
             self.number = self.row + (math.abs(6 - self.column)) * 6 - 6
         else
             self.number = self.row + (self.column - 5) * 6 - 6
+        end
+        if self.weapon then
+            self.weapon:updateposition(self.x,self.y)
         end
     else
         if self.team == 1 then
