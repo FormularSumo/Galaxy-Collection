@@ -58,9 +58,7 @@ function Card:init(name,row,column,team,number,level,evolution)
                 end
             end
         end
-    end
 
-    if self.weapon_image then
         self.weapon = Weapon(self.x, self.y, self.weapon_image, Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'] , self.team, self.width, self.height, self.range)
     end
 
