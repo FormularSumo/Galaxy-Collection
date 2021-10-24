@@ -3,9 +3,32 @@ DeckeditState = Class{__includes = BaseState}
 function DeckeditState:init()
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
+    sort_inventory(false)
+
+    Cards_on_display = {}
+    Evolution = love.graphics.newImage('Graphics/Evolution.png')
+    EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
+    BlankCard = love.graphics.newImage('Graphics/BlankCard.png')
+    page = 0
+    Cards_on_display_are_blank = false
+
+    reload_deckeditor()
+
+    background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
+    background['Type'] = 'photo'
+    gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
+    gui[2] = Button('reset_deck','strongest','Auto',font80,nil,'centre',200)
+    gui[3] = Button('reset_deck','blank','Clear',font80,nil,'centre',380)
+    gui['Remove_card'] = Remove_card()
+    gui[22] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1030)
+    gui[23] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1030)
+end
+
+
+function sort_inventory(reload)
     P1_cards = {}
     count = 0
-    
+
     if sandbox then
         for k, pair in pairs(Characters) do
             count = count + 1
@@ -40,23 +63,9 @@ function DeckeditState:init()
     end
     P1_cards[#P1_cards] = nil
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
-
-    Cards_on_display = {}
-    Evolution = love.graphics.newImage('Graphics/Evolution.png')
-    EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
-    BlankCard = love.graphics.newImage('Graphics/BlankCard.png')
-    page = 0
-    Cards_on_display_are_blank = false
-
-    reload_deckeditor()
-
-    background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
-    background['Type'] = 'photo'
-    gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
-    gui[2] = Button('reset_deck','strongest','Auto',font80,nil,'centre',200)
-    gui[3] = Button('reset_deck','blank','Clear',font80,nil,'centre',380)
-    gui[22] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1030)
-    gui[23] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1030)
+    if reload ~= false then
+        update_cards_on_display()
+    end
 end
 
 function update_cards_on_display(direction)
@@ -210,8 +219,10 @@ function DeckeditState:update()
                             reposition_mouse(2)
                         elseif k == 18 then
                             reposition_mouse(3)
-                        elseif k < 21 and k > 16 then
-                            reposition_mouse(k+8) 
+                        elseif (k < 20 and k > 16) or (k == 20 and gui['Remove_card'].visible == false) then
+                            reposition_mouse(k+8)
+                        elseif k == 20 then
+                            reposition_mouse(gui['Remove_card'])
                         elseif k == 21 then
                             reposition_mouse(22)
                         elseif k == 22 then
@@ -237,8 +248,10 @@ function DeckeditState:update()
                             reposition_mouse(2)
                         elseif k == 26 then
                             reposition_mouse(3)
-                        elseif k < 29 and k > 24 then
+                        elseif (k < 28 and k > 24) or (k == 28 and gui['Remove_card'].visible == false) then
                             reposition_mouse(k-8) 
+                        elseif k == 28 then
+                            reposition_mouse(gui['Remove_card'])
                         elseif k == 29 then
                             reposition_mouse(22)
                         elseif k == 23 then
@@ -251,7 +264,14 @@ function DeckeditState:update()
                             reposition_mouse(mouseTouching.row+24+12)
                         end
                     end
-                    break
+                    return
+                end
+            end
+            if mouseTouching == gui['Remove_card'] then
+                if love.keyboard.wasPressed('left') then
+                    reposition_mouse(20)
+                elseif love.keyboard.wasPressed('right') then
+                    reposition_mouse(28)
                 end
             end
         end

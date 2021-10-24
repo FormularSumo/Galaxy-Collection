@@ -145,6 +145,12 @@ function Card_editor:update()
 end
 
 function Card_editor:render()
+
+    if self.deleting then
+        love.graphics.setColor(1,0,0)
+        love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
+        love.graphics.setColor(1,1,1)
+    end
     love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
     if self.evolution == 4 then
         love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
