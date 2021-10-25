@@ -47,7 +47,7 @@ function maxed_light_side() --Example level to make an interesting fight vs pre-
     P2_deck_cards[17] = {'BoKatan',60,4}
 
     
-    gStateMachine:change('GameState',{'Voss.png', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})
+    gStateMachine:change('GameState',{'Voss.jpg', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})
 end
 
 function throne_room()
@@ -113,5 +113,5 @@ function maxed()
     P2_deck_cards[16] = {'NinthSister',60,4}
     P2_deck_cards[17] = {'TrillaSuduri',60,4}
 
-    gStateMachine:change('GameState',{'Belsavis.png', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
+    gStateMachine:change('GameState',{'Belsavis.jpg', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
 end
