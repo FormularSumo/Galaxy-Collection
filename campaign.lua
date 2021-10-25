@@ -18,7 +18,6 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     P2_deck_cards[16] = {'GrandInquisitor',60,4}
     P2_deck_cards[17] = {'SeventhSister',60,4}
 
-
     if Settings['videos'] then
         gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
     else
@@ -45,7 +44,6 @@ function maxed_light_side() --Example level to make an interesting fight vs pre-
     P2_deck_cards[15] = {'HermitYoda',60,4}
     P2_deck_cards[16] = {'NightsisterMerrin',60,4}
     P2_deck_cards[17] = {'BoKatan',60,4}
-
     
     gStateMachine:change('GameState',{'Voss.jpg', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})
 end
