@@ -29,7 +29,7 @@ function Remove_card:swap()
 end
 
 function Remove_card:update()
-    if mouseTrapped and mouseTrapped.in_deck and mouseTrapped.name ~= 'Blank' then
+    if mouseTrapped and mouseTrapped.in_deck then
         self.visible = true
         if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
             self.scaling = 1.04

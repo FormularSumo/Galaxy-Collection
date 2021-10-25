@@ -71,7 +71,7 @@ function sort_inventory(reload)
 end
 
 function update_cards_on_display(direction)
-    if not (direction == 'left' and page == -1 and Cards_on_display_are_blank) and not (direction == 'right' and page > 0 and Cards_on_display_are_blank) then
+    if not (direction == 'left' and page == 0) and not (direction == 'right' and page > math.ceil((#P1_cards+1)/18) - 2) then
         if direction == 'right' then
             page = page + 1
         elseif direction == 'left' then

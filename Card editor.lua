@@ -100,11 +100,11 @@ function Card_editor:update()
         end
         if mouseDown and mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
             self.clicked = true
-            if mouseTrapped == false then
+            if mouseTrapped == false and self.name ~= 'Blank' then
                 mouseTrapped = self
                 self.clicked_positionX = mouseLastX - self.x
                 self.clicked_positionY = mouseLastY - self.y
-            elseif mouseTrapped ~= self then
+            elseif (mouseTrapped ~= self and self.name ~= 'Blank') or (mouseTrapped ~= false and self.name == 'Blank') then
                 mouseTrapped2 = self
             end
         elseif mouseTrapped2 == self then
@@ -112,10 +112,10 @@ function Card_editor:update()
         end
     else
         if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height and love.mouse.buttonsPressed[1] then
-            if mouseTrapped == false then
+            if mouseTrapped == false and self.name ~= 'Blank' then
                 mouseTrapped = self
                 mouseLocked = true
-            else
+            elseif self.name ~= 'Blank' or (self.name == 'Blank' and mouseTrapped ~= false) then
                 mouseTrapped2 = self
                 if mouseTrapped ~= mouseTrapped2 then
                     self:swap()
@@ -125,11 +125,14 @@ function Card_editor:update()
                 mouseTrapped2 = false
             end
         end
-
     end
 
     if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
-        self.scaling = 1.04
+        if self.name ~= 'Blank' or not love.mouse.isVisible() then
+            self.scaling = 1.04
+        else
+            self.scaling = 1
+        end
         if (mouseTrapped == false or mouseTrapped == self) or not love.mouse.isVisible() then
             mouseTouching = self
         end
