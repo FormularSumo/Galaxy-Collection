@@ -371,9 +371,9 @@ Characters = {
 },
 
 ['CadBane'] = {
-    ['melee_offense'] = 15714,
-    ['ranged_offense'] = 16714,
-    ['defense'] = 14141,
+    ['melee_offense'] = 15814,
+    ['ranged_offense'] = 16814,
+    ['defense'] = 14741,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
@@ -495,7 +495,7 @@ Characters = {
 
 ['CloneCommando'] = {
     ['melee_offense'] = 12876,
-    ['ranged_offense'] = 13876,
+    ['ranged_offense'] = 13900,
     ['defense'] = 13846,
     ['evade'] = 0.04,
     ['range'] = 3,
@@ -685,6 +685,15 @@ Characters = {
     ['weapon'] = 'RedLightsaber'
 },
 
+['Crosshair'] = {
+    ['melee_offense'] = 15579,
+    ['ranged_offense'] = 16750,
+    ['defense'] = 14600,
+    ['evade'] = 0.03,
+    ['range'] = 5,
+    ['projectile'] = 'RedLaser'
+},
+
 ['DarkTrooper'] = {
     ['melee_offense'] = 16000,
     ['ranged_offense'] = 15579,
@@ -817,6 +826,15 @@ Characters = {
     ['defense'] = 10500,
     ['evade'] = 0.02,
     ['range'] = 5,
+    ['projectile'] = 'RedLaser'
+},
+
+['Echo'] = {
+    ['melee_offense'] = 13579,
+    ['ranged_offense'] = 14600,
+    ['defense'] = 16100,
+    ['evade'] = 0.03,
+    ['range'] = 2,
     ['projectile'] = 'RedLaser'
 },
 
@@ -2026,6 +2044,15 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
+['Tech'] = {
+    ['melee_offense'] = 13579,
+    ['ranged_offense'] = 14579,
+    ['defense'] = 13140,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
+},
+
 ['Teebo'] = {
     ['melee_offense'] = 3967,
     ['defense'] = 3912,
@@ -2041,9 +2068,9 @@ Characters = {
 },
 
 ['TeraSinube'] = {
-    ['melee_offense'] = 16750,
-    ['ranged_offense'] = 15750,
-    ['defense'] = 14121,
+    ['melee_offense'] = 16950,
+    ['ranged_offense'] = 15950,
+    ['defense'] = 14521,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'ForceBlast',
