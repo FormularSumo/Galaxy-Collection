@@ -363,7 +363,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['C3P0'] = {
+['C3PO'] = {
     ['melee_offense'] = 335,
     ['defense'] = 824,
     ['evade'] = 0.01,
