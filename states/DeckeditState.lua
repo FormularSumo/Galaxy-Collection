@@ -85,7 +85,6 @@ function update_cards_on_display(direction)
         end
 
         Cards_on_display = {}
-        collectgarbage()
         column = 9
         row_correctment = 0
         Cards_on_display_are_blank = true
@@ -196,6 +195,7 @@ function update_gui()
     for k, v in pairs(Cards_on_display) do
         gui[k+24] = v
     end
+    collectgarbage()
 end
 
 function DeckeditState:back()
