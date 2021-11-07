@@ -1827,7 +1827,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['SabineWrenDarksaber'] = {
+['SabineWren'] = {
     ['melee_offense'] = 15579,
     ['ranged_offense'] = 14579,
     ['defense'] = 14180,
