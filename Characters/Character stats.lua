@@ -135,7 +135,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['ArcTrooper'] = {
+['ARCTrooper'] = {
     ['melee_offense'] = 12678,
     ['ranged_offense'] = 13678,
     ['defense'] = 13735,
@@ -144,7 +144,7 @@ Characters = {
     ['projectile'] = 'BlueLaser'
 },
 
-['ArcTrooperEcho'] = {
+['ARCTrooperEcho'] = {
     ['melee_offense'] = 12852,
     ['ranged_offense'] = 13852,
     ['defense'] = 13853,
@@ -153,7 +153,7 @@ Characters = {
     ['projectile'] = 'BlueLaser'
 },
 
-['ArcTrooperFives'] = {
+['ARCTrooperFives'] = {
     ['melee_offense'] = 12856,
     ['ranged_offense'] = 13856,
     ['defense'] = 13852,
@@ -162,7 +162,7 @@ Characters = {
     ['projectile'] = 'BlueLaser'
 },
 
-['ArcTrooperJesse'] = {
+['ARCTrooperJesse'] = {
     ['ranged_offense'] = 12864,
     ['melee_offense'] = 13856,
     ['defense'] = 13855,

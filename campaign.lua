@@ -73,11 +73,11 @@ function kamino()
     P2_deck_cards[1] = {'CommanderGree',60,4}
     P2_deck_cards[2] = {'CommanderBacara',60,4}
     P2_deck_cards[3] = {'CommanderBly',60,4}
-    P2_deck_cards[4] = {'ArcTrooper',60,4}
+    P2_deck_cards[4] = {'ARCTrooper',60,4}
     P2_deck_cards[5] = {'CloneCommando',60,4}
-    P2_deck_cards[6] = {'ArcTrooperEcho',60,4}
-    P2_deck_cards[7] = {'ArcTrooperFives',60,4}
-    P2_deck_cards[8] = {'ArcTrooperJesse',60,4}
+    P2_deck_cards[6] = {'ARCTrooperEcho',60,4}
+    P2_deck_cards[7] = {'ARCTrooperFives',60,4}
+    P2_deck_cards[8] = {'ARCTrooperJesse',60,4}
     P2_deck_cards[9] = {'CommanderCody',60,4}
     P2_deck_cards[10] = {'CaptainRex',60,4}
     P2_deck_cards[11] = {'CloneTrooper322nd',60,4}
