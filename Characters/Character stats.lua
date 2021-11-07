@@ -1582,7 +1582,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['ObiWanKenobi'] = {
+['JediMasterObiWanKenobi'] = {
     ['melee_offense'] = 17421,
     ['ranged_offense'] = 16421,
     ['defense'] = 18864,
