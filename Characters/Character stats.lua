@@ -291,7 +291,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['BobaFett'] = {
+['BobaFettROTJ'] = {
     ['melee_offense'] = 16612,
     ['ranged_offense'] = 16612,
     ['defense'] = 14543,
@@ -2084,6 +2084,15 @@ Characters = {
     ['defense'] = 12200,
     ['evade'] = 0.03,
     ['range'] = 1
+},
+
+['TheFather'] = {
+    ['melee_offense'] = 20696,
+    ['ranged_offense'] = 20696,
+    ['defense'] = 20696,
+    ['evade'] = 0.05,
+    ['range'] = 3,
+    ['projectile'] = 'ForceBlast'
 },
 
 ['DinDjarin'] = {
