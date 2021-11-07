@@ -1144,7 +1144,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['HanSoloOld'] = {
+['VeteranHanSolo'] = {
     ['melee_offense'] = 12946,
     ['ranged_offense'] = 14946,
     ['defense'] = 8565,
