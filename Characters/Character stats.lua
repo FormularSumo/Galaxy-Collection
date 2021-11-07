@@ -100,7 +100,7 @@ Characters = {
     ['projectile'] = 'BlueLaser'
 },
 
-['AnakinSkywalkerROTS'] = {
+['JediKnightAnakinSkywalker'] = {
     ['melee_offense'] = 18924,
     ['ranged_offense'] = 17924,
     ['defense'] = 17954,

@@ -34,7 +34,7 @@ function maxed_light_side() --Example level to make an interesting fight vs pre-
     P2_deck_cards[5] = {'LukeSkywalkerROTJ',60,4}
     P2_deck_cards[6] = {'AaylaSecura',60,4}
     P2_deck_cards[7] = {'AgenKolar',60,4}
-    P2_deck_cards[8] = {'AnakinSkywalkerROTS',60,4}
+    P2_deck_cards[8] = {'JediKnightAnakinSkywalker',60,4}
     P2_deck_cards[9] = {'AhsokaTanoS7',60,4}
     P2_deck_cards[10] = {'SaeseeTiin',60,4}
     P2_deck_cards[11] = {'QuinlanVos',60,4}
@@ -99,7 +99,7 @@ function maxed()
     P2_deck_cards[4] = {'DarthVader',60,4}
     P2_deck_cards[5] = {'Yoda',60,4}
     P2_deck_cards[6] = {'AhsokaTanoFulcrum',60,4}
-    P2_deck_cards[7] = {'AnakinSkywalkerROTS',60,4}
+    P2_deck_cards[7] = {'JediKnightAnakinSkywalker',60,4}
     P2_deck_cards[8] = {'SupremeLeaderSnoke',60,4}
     P2_deck_cards[9] = {'CountDooku',60,4}
     P2_deck_cards[10] = {'PongKrell',60,4}
