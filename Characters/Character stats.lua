@@ -715,6 +715,7 @@ Characters = {
 
 ['SithEternalEmperor'] = {
     ['melee_offense'] = 19446,
+    ['ranged_offense'] = 19446,
     ['defense'] = 19256,
     ['evade'] = 0,
     ['range'] = 5,
