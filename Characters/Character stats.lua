@@ -1468,7 +1468,7 @@ Characters = {
     ['range'] = 1
 },
 
-['LukeSkywalkerROTJ'] = {
+['JediKnightLukeSkywalker'] = {
     ['melee_offense'] = 18437,
     ['ranged_offense'] = 17437,
     ['defense'] = 18339,
