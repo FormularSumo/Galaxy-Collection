@@ -16,8 +16,8 @@ function HomeState:enter(partial)
             background['Type'] = 'photo'
         end
         background['Seek'] = 0
-        songs[0] = love.audio.newSource('Music/Across the stars.oga','stream')
-        songs[1] = love.audio.newSource('Music/Cantina Band.oga','stream')
+        songs[0] = love.audio.newSource('Music/AhsokaTheme.mp3','stream')
+        songs[1] = love.audio.newSource('Music/Across the stars.oga','stream')
 
         songs[0]:play()
         calculate_queue_length()
