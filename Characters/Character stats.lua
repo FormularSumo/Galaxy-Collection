@@ -218,7 +218,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['BabyYoda'] = {
+['Grogu'] = {
     ['melee_offense'] = 4500,
     ['ranged_offense'] = 13900,
     ['defense'] = 9430,
