@@ -100,16 +100,6 @@ Characters = {
     ['projectile'] = 'BlueLaser'
 },
 
-['JediKnightAnakinSkywalker'] = {
-    ['melee_offense'] = 18924,
-    ['ranged_offense'] = 17924,
-    ['defense'] = 17954,
-    ['evade'] = 0.05,
-    ['range'] = 2,
-    ['projectile'] = 'ForceBlast',
-    ['weapon'] = 'BlueLightsaber'
-},
-
 ['AntocMerrick'] = {
     ['melee_offense'] = 5050,
     ['ranged_offense'] = 6050,
@@ -218,15 +208,6 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['Grogu'] = {
-    ['melee_offense'] = 4500,
-    ['ranged_offense'] = 13900,
-    ['defense'] = 9430,
-    ['evade'] = 0,
-    ['range'] = 2,
-    ['projectile'] = 'ForceBlast'
-},
-
 ['BalaTik'] = {
     ['melee_offense'] = 11920,
     ['ranged_offense'] = 12920,
@@ -261,16 +242,6 @@ Characters = {
     ['evade'] = 0.07,
     ['range'] = 5,
     ['projectile'] = 'Lightning'
-},
-
-['OldBenKenobi'] = {
-    ['melee_offense'] = 17304,
-    ['ranged_offense'] = 16304,
-    ['defense'] = 18513,
-    ['evade'] = 0.03,
-    ['range'] = 2,
-    ['projectile'] = 'ForceBlast',
-    ['weapon'] = 'BlueLightsaber'
 },
 
 ['BiggsDarklighter'] = {
@@ -713,15 +684,6 @@ Characters = {
     ['weapon'] = 'RedLightsaber'
 },
 
-['SithEternalEmperor'] = {
-    ['melee_offense'] = 19446,
-    ['ranged_offense'] = 19446,
-    ['defense'] = 19256,
-    ['evade'] = 0,
-    ['range'] = 5,
-    ['projectile'] = 'Lightning'
-},
-
 ['DarthVader'] = {
     ['melee_offense'] = 18400,
     ['ranged_offense'] = 17400,
@@ -777,6 +739,15 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
+},
+
+['DinDjarin'] = {
+    ['melee_offense'] = 15579,
+    ['ranged_offense'] = 16043,
+    ['defense'] = 15728,
+    ['evade'] = 0.15,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
 },
 
 ['DirectorKrennic'] = {
@@ -1128,6 +1099,15 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
+['Grogu'] = {
+    ['melee_offense'] = 4500,
+    ['ranged_offense'] = 13900,
+    ['defense'] = 9430,
+    ['evade'] = 0,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast'
+},
+
 ['GuavianDeathGangSoldier'] = {
     ['melee_offense'] = 8002,
     ['ranged_offense'] = 9002,
@@ -1142,15 +1122,6 @@ Characters = {
     ['ranged_offense'] = 15529,
     ['defense'] = 9648,
     ['evade'] = 0.03,
-    ['range'] = 2,
-    ['projectile'] = 'RedLaser'
-},
-
-['VeteranHanSolo'] = {
-    ['melee_offense'] = 12946,
-    ['ranged_offense'] = 14946,
-    ['defense'] = 8565,
-    ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
 },
@@ -1273,6 +1244,15 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
+['ImperialStormtrooper'] = {
+    ['melee_offense'] = 5484,
+    ['ranged_offense'] = 6484,
+    ['defense'] = 6348,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
+},
+
 ['JabbaTheHutt'] = {
     ['melee_offense'] = 249,
     ['defense'] = 513,
@@ -1315,6 +1295,36 @@ Characters = {
     ['evade'] = 0.1,
     ['range'] = 2,
     ['projectile'] = 'BlueLaser'
+},
+
+['JediKnightAnakinSkywalker'] = {
+    ['melee_offense'] = 18924,
+    ['ranged_offense'] = 17924,
+    ['defense'] = 17954,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
+    ['weapon'] = 'BlueLightsaber'
+},
+
+['JediKnightLukeSkywalker'] = {
+    ['melee_offense'] = 18437,
+    ['ranged_offense'] = 17437,
+    ['defense'] = 18339,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
+    ['weapon'] = 'GreenLightsaber'
+},
+
+['JediMasterObiWanKenobi'] = {
+    ['melee_offense'] = 17421,
+    ['ranged_offense'] = 16421,
+    ['defense'] = 18864,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
+    ['weapon'] = 'BlueLightsaber'
 },
 
 ['JessPava'] = {
@@ -1470,16 +1480,6 @@ Characters = {
     ['range'] = 1
 },
 
-['JediKnightLukeSkywalker'] = {
-    ['melee_offense'] = 18437,
-    ['ranged_offense'] = 17437,
-    ['defense'] = 18339,
-    ['evade'] = 0.04,
-    ['range'] = 2,
-    ['projectile'] = 'ForceBlast',
-    ['weapon'] = 'GreenLightsaber'
-},
-
 ['LuminaraUnduli'] = {
     ['melee_offense'] = 17779,
     ['ranged_offense'] = 16779,
@@ -1584,11 +1584,11 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['JediMasterObiWanKenobi'] = {
-    ['melee_offense'] = 17421,
-    ['ranged_offense'] = 16421,
-    ['defense'] = 18864,
-    ['evade'] = 0.04,
+['OldBenKenobi'] = {
+    ['melee_offense'] = 17304,
+    ['ranged_offense'] = 16304,
+    ['defense'] = 18513,
+    ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'BlueLightsaber'
@@ -1946,6 +1946,15 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
+['SithEternalEmperor'] = {
+    ['melee_offense'] = 19446,
+    ['ranged_offense'] = 19446,
+    ['defense'] = 19256,
+    ['evade'] = 0,
+    ['range'] = 5,
+    ['projectile'] = 'Lightning'
+},
+
 ['SithTrooper'] = {
     ['melee_offense'] = 8005,
     ['ranged_offense'] = 9005,
@@ -1989,15 +1998,6 @@ Characters = {
     ['defense'] = 11412,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'RedLaser'
-},
-
-['ImperialStormtrooper'] = {
-    ['melee_offense'] = 5484,
-    ['ranged_offense'] = 6484,
-    ['defense'] = 6348,
-    ['evade'] = 0.02,
-    ['range'] = 3,
     ['projectile'] = 'RedLaser'
 },
 
@@ -2095,15 +2095,6 @@ Characters = {
     ['projectile'] = 'ForceBlast'
 },
 
-['DinDjarin'] = {
-    ['melee_offense'] = 15579,
-    ['ranged_offense'] = 16043,
-    ['defense'] = 15728,
-    ['evade'] = 0.15,
-    ['range'] = 3,
-    ['projectile'] = 'RedLaser'
-},
-
 ['TobiasBeckett'] = {
     ['melee_offense'] = 13123,
     ['ranged_offense'] = 14123,
@@ -2162,6 +2153,15 @@ Characters = {
     ['defense'] = 15488,
     ['evade'] = 0.03,
     ['range'] = 1
+},
+
+['VeteranHanSolo'] = {
+    ['melee_offense'] = 12946,
+    ['ranged_offense'] = 14946,
+    ['defense'] = 8565,
+    ['evade'] = 0.02,
+    ['range'] = 2,
+    ['projectile'] = 'RedLaser'
 },
 
 ['Vicrul'] = {
