@@ -263,7 +263,7 @@ Characters = {
     ['projectile'] = 'Lightning'
 },
 
-['BenKenobi'] = {
+['OldBenKenobi'] = {
     ['melee_offense'] = 17304,
     ['ranged_offense'] = 16304,
     ['defense'] = 18513,
