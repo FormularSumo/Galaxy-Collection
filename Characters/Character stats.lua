@@ -291,7 +291,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['BobaFettROTJ'] = {
+['BobaFett'] = {
     ['melee_offense'] = 16612,
     ['ranged_offense'] = 16612,
     ['defense'] = 14543,
