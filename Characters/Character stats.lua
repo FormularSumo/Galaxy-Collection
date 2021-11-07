@@ -733,8 +733,9 @@ Characters = {
 
 ['DarthNoscoper'] = {
     ['melee_offense'] = 25387,
+    ['ranged_offense'] = 25387,
     ['defense'] = 24568,
-    ['evade'] = 0,
+    ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile'] = 'Lightning',
     ['weapon'] = 'PurpleLightsaber'
