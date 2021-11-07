@@ -920,7 +920,7 @@ Characters = {
     ['weapon'] = 'GreenLightsaber'
 },
 
-['FarmboyLuke'] = {
+['FarmboyLukeSkywalker'] = {
     ['melee_offense'] = 8987,
     ['ranged_offense'] = 9987,
     ['defense'] = 7067,
