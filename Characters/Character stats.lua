@@ -703,7 +703,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['DarthSidious'] = {
+['EmperorPalpatine'] = {
     ['melee_offense'] = 18731,
     ['ranged_offense'] = 18731,
     ['defense'] = 18653,

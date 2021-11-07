@@ -1,7 +1,7 @@
 function maxed_dark_side() --Example level to make an interesting fight vs pre-built deck
     P2_deck_cards[0] = {'KyloRen',60,4}
     P2_deck_cards[1] = {'SupremeLeaderSnoke',60,4}
-    P2_deck_cards[2] = {'DarthSidious',60,4}
+    P2_deck_cards[2] = {'EmperorPalpatine',60,4}
     P2_deck_cards[3] = {'DarthVader',60,4}
     P2_deck_cards[4] = {'CountDooku',60,4}
     P2_deck_cards[5] = {'NinthSister',60,4}
@@ -50,7 +50,7 @@ end
 
 function throne_room()
     P2_deck_cards[1] = {'RoyalGuard',60,4}
-    P2_deck_cards[2] = {'DarthSidious',60,4}
+    P2_deck_cards[2] = {'EmperorPalpatine',60,4}
     P2_deck_cards[3] = {'DarthVader',60,4}
     P2_deck_cards[4] = {'RoyalGuard',60,4}
    
@@ -93,7 +93,7 @@ end
 
 function maxed()
     P2_deck_cards[0] = {'MaceWindu',60,4}
-    P2_deck_cards[1] = {'DarthSidious',60,4}
+    P2_deck_cards[1] = {'EmperorPalpatine',60,4}
     P2_deck_cards[2] = {'ZilloBeast',60,4}
     P2_deck_cards[3] = {'HermitLuke',60,4}
     P2_deck_cards[4] = {'DarthVader',60,4}
