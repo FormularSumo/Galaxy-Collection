@@ -38,7 +38,7 @@ function maxed_light_side() --Example level to make an interesting fight vs pre-
     P2_deck_cards[9] = {'AhsokaTanoS7',60,4}
     P2_deck_cards[10] = {'SaeseeTiin',60,4}
     P2_deck_cards[11] = {'QuinlanVos',60,4}
-    P2_deck_cards[12] = {'TheMandalorian',60,4}
+    P2_deck_cards[12] = {'DinDjarin',60,4}
     P2_deck_cards[13] = {'BobaFettMandalorian',60,4}
     P2_deck_cards[14] = {'Bendu',60,4}
     P2_deck_cards[15] = {'HermitYoda',60,4}

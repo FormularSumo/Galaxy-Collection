@@ -2084,7 +2084,7 @@ Characters = {
     ['range'] = 1
 },
 
-['TheMandalorian'] = {
+['DinDjarin'] = {
     ['melee_offense'] = 15579,
     ['ranged_offense'] = 16043,
     ['defense'] = 15728,
