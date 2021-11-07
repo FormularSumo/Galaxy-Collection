@@ -1990,7 +1990,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['StormtrooperOriginal'] = {
+['ImperialStormtrooper'] = {
     ['melee_offense'] = 5484,
     ['ranged_offense'] = 6484,
     ['defense'] = 6348,
