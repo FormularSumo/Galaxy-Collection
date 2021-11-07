@@ -13,7 +13,7 @@ function maxed_dark_side() --Example level to make an interesting fight vs pre-b
     P2_deck_cards[11] = {'EighthBrother',60,4}
     P2_deck_cards[12] = {'PreVizsla',60,4}
     P2_deck_cards[13] = {'TrillaSuduri',60,4}
-    P2_deck_cards[14] = {'DarthSidiousReborn',60,4}
+    P2_deck_cards[14] = {'SithEternalEmperor',60,4}
     P2_deck_cards[15] = {'FifthBrother',60,4}
     P2_deck_cards[16] = {'GrandInquisitor',60,4}
     P2_deck_cards[17] = {'SeventhSister',60,4}
@@ -106,7 +106,7 @@ function maxed()
     P2_deck_cards[11] = {'JediKnightLukeSkywalker',60,4}
     P2_deck_cards[12] = {'GrandInquisitor',60,4}
     P2_deck_cards[13] = {'HermitYoda',60,4}
-    P2_deck_cards[14] = {'DarthSidiousReborn',60,4}
+    P2_deck_cards[14] = {'SithEternalEmperor',60,4}
     P2_deck_cards[15] = {'Bendu',60,4}
     P2_deck_cards[16] = {'NinthSister',60,4}
     P2_deck_cards[17] = {'TrillaSuduri',60,4}

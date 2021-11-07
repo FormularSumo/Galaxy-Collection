@@ -713,7 +713,7 @@ Characters = {
     ['weapon'] = 'RedLightsaber'
 },
 
-['DarthSidiousReborn'] = {
+['SithEternalEmperor'] = {
     ['melee_offense'] = 19446,
     ['defense'] = 19256,
     ['evade'] = 0,
