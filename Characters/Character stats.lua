@@ -271,7 +271,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['BalaTik'] = {
+['Bala-Tik'] = {
     ['melee_offense'] = 11920,
     ['ranged_offense'] = 12920,
     ['defense'] = 11250,
@@ -361,7 +361,7 @@ Characters = {
     ['projectile'] = 'BlueLaser'
 },
 
-['BoKatan'] = {
+['Bo-KatanKryze'] = {
     ['melee_offense'] = 16547,
     ['ranged_offense'] = 16547,
     ['defense'] = 14768,
@@ -1253,7 +1253,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['IG11'] = {
+['IG-11'] = {
     ['melee_offense'] = 15579,
     ['ranged_offense'] = 16105,
     ['defense'] = 14888,
@@ -1262,7 +1262,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['ImaGunDi'] = {
+['Ima-GunDi'] = {
     ['melee_offense'] = 17860,
     ['ranged_offense'] = 16860,
     ['defense'] = 18049,
@@ -1364,7 +1364,7 @@ Characters = {
     ['weapon'] = 'PurpleLightsaber'
 },
 
-['JediMasterObiWanKenobi'] = {
+['JediMasterObiWan-Kenobi'] = {
     ['melee_offense'] = 17421,
     ['ranged_offense'] = 16421,
     ['defense'] = 18864,
@@ -1641,7 +1641,7 @@ Characters = {
     ['projectile'] = 'Fire'
 },
 
-['PabloJill'] = {
+['Pablo-Jill'] = {
     ['melee_offense'] = 16889,
     ['ranged_offense'] = 15889,
     ['defense'] = 14886,

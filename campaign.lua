@@ -30,7 +30,7 @@ function maxed_light_side() --Example level to make an interesting fight vs pre-
     P2_deck_cards[1] = {'Yoda',60,4}
     P2_deck_cards[2] = {'HermitLuke',60,4}
     P2_deck_cards[3] = {'MaceWindu',60,4}
-    P2_deck_cards[4] = {'JediMasterObiWanKenobi',60,4}
+    P2_deck_cards[4] = {'JediMasterObi-WanKenobi',60,4}
     P2_deck_cards[5] = {'JediKnightLukeSkywalker',60,4}
     P2_deck_cards[6] = {'AaylaSecura',60,4}
     P2_deck_cards[7] = {'AgenKolar',60,4}
@@ -43,7 +43,7 @@ function maxed_light_side() --Example level to make an interesting fight vs pre-
     P2_deck_cards[14] = {'Bendu',60,4}
     P2_deck_cards[15] = {'HermitYoda',60,4}
     P2_deck_cards[16] = {'NightsisterMerrin',60,4}
-    P2_deck_cards[17] = {'BoKatan',60,4}
+    P2_deck_cards[17] = {'Bo-KatanKryze',60,4}
     
     gStateMachine:change('GameState',{'Voss.jpg', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})
 end
@@ -80,10 +80,10 @@ function kamino()
     P2_deck_cards[8] = {'ARCTrooperJesse',60,4}
     P2_deck_cards[9] = {'CommanderCody',60,4}
     P2_deck_cards[10] = {'CaptainRex',60,4}
-    P2_deck_cards[11] = {'CloneTrooper322nd',60,4}
-    P2_deck_cards[12] = {'CloneTrooper327th',60,4}
-    P2_deck_cards[13] = {'CloneTrooper501st',60,4}
-    P2_deck_cards[14] = {'CloneTrooper212th',60,4}
+    P2_deck_cards[11] = {'322ndCloneTrooper',60,4}
+    P2_deck_cards[12] = {'327thCloneTrooper',60,4}
+    P2_deck_cards[13] = {'501stCloneTrooper',60,4}
+    P2_deck_cards[14] = {'212thCloneTrooper',60,4}
     P2_deck_cards[15] = {'CommanderWolffe',60,4}
     P2_deck_cards[16] = {'CoruscantGuardCloneTrooper',60,4}
     P2_deck_cards[17] = {'CloneCommandoGregor',60,4}
