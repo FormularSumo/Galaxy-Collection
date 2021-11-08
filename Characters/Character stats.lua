@@ -334,7 +334,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['C3PO'] = {
+['C-3PO'] = {
     ['melee_offense'] = 335,
     ['defense'] = 824,
     ['evade'] = 0.01,
@@ -998,7 +998,7 @@ Characters = {
     ['projectile'] = 'ForceBlast'
 },
 
-['FourLOM'] = {
+['4-LOM'] = {
     ['melee_offense'] = 8956,
     ['ranged_offense'] = 9956,
     ['defense'] = 9294,
@@ -1402,7 +1402,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['KiAdiMundi'] = {
+['Ki-Adi-Mundi'] = {
     ['melee_offense'] = 17849,
     ['ranged_offense'] = 16849,
     ['defense'] = 18002,
@@ -1772,7 +1772,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['QuiGonJinn'] = {
+['Qui-GonJinn'] = {
     ['melee_offense'] = 17814,
     ['ranged_offense'] = 16814,
     ['defense'] = 17989,
@@ -1792,7 +1792,7 @@ Characters = {
     ['weapon'] = 'GreenLightsaber'
 },
 
-['R2D2'] = {
+['R2-D2'] = {
     ['melee_offense'] = 9241,
     ['defense'] = 8765,
     ['evade'] = 0.15,
