@@ -674,11 +674,21 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['EmperorPalpatine'] = {
-    ['melee_offense'] = 18731,
-    ['ranged_offense'] = 18731,
-    ['defense'] = 18653,
-    ['evade'] = 0.07,
+['DarthNoscoper'] = {
+    ['melee_offense'] = 25387,
+    ['ranged_offense'] = 25387,
+    ['defense'] = 24568,
+    ['evade'] = 0.15,
+    ['range'] = 5,
+    ['projectile'] = 'Lightning',
+    ['weapon'] = 'PurpleLightsaber'
+},
+
+['DarthRevan'] = {
+    ['melee_offense'] = 19980,
+    ['ranged_offense'] = 21250,
+    ['defense'] = 18900,
+    ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile'] = 'Lightning',
     ['weapon'] = 'RedLightsaber'
@@ -692,16 +702,6 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'RedLightsaber'
-},
-
-['DarthNoscoper'] = {
-    ['melee_offense'] = 25387,
-    ['ranged_offense'] = 25387,
-    ['defense'] = 24568,
-    ['evade'] = 0.15,
-    ['range'] = 5,
-    ['projectile'] = 'Lightning',
-    ['weapon'] = 'PurpleLightsaber'
 },
 
 ['DeathTrooper'] = {
@@ -856,6 +856,16 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
+['EmperorPalpatine'] = {
+    ['melee_offense'] = 18731,
+    ['ranged_offense'] = 18731,
+    ['defense'] = 18653,
+    ['evade'] = 0.07,
+    ['range'] = 2,
+    ['projectile'] = 'Lightning',
+    ['weapon'] = 'RedLightsaber'
+},
+
 ['EnfysNest'] = {
     ['melee_offense'] = 14320,
     ['defense'] = 13169,
@@ -977,6 +987,15 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'RedLaser'
+},
+
+['ForcePriestess'] = {
+    ['melee_offense'] = 20001,
+    ['ranged_offense'] = 20130,
+    ['defense'] = 20130,
+    ['evade'] = 0.15,
+    ['range'] = 5,
+    ['projectile'] = 'ForceBlast'
 },
 
 ['FourLOM'] = {
@@ -1315,6 +1334,16 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'ForceBlast',
     ['weapon'] = 'GreenLightsaber'
+},
+
+['JediKnightRevan'] = {
+    ['melee_offense'] = 19696,
+    ['ranged_offense'] = 19696,
+    ['defense'] = 19800,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'ForceBlast',
+    ['weapon'] = 'PurpleLightsaber'
 },
 
 ['JediMasterObiWanKenobi'] = {
@@ -2086,6 +2115,15 @@ Characters = {
     ['range'] = 1
 },
 
+['TheDaughter'] = {
+    ['melee_offense'] = 19300,
+    ['ranged_offense'] = 20300,
+    ['defense'] = 20000,
+    ['evade'] = 0.15,
+    ['range'] = 5,
+    ['projectile'] = 'ForceBlast'
+},
+
 ['TheFather'] = {
     ['melee_offense'] = 20696,
     ['ranged_offense'] = 20696,
@@ -2093,6 +2131,15 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 3,
     ['projectile'] = 'ForceBlast'
+},
+
+['TheSon'] = {
+    ['melee_offense'] = 19200,
+    ['ranged_offense'] = 21000,
+    ['defense'] = 20000,
+    ['evade'] = 0.15,
+    ['range'] = 5,
+    ['projectile'] = 'Lightning'
 },
 
 ['TobiasBeckett'] = {
