@@ -7,8 +7,8 @@ function DeckeditState:init()
 
     Cards_on_display = {}
     Evolution = love.graphics.newImage('Graphics/Evolution.png')
-    Evolution Max = love.graphics.newImage('Graphics/Evolution Max.png')
-    Blank Card = love.graphics.newImage('Graphics/Blank Card.png')
+    EvolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
+    BlankCard = love.graphics.newImage('Graphics/Blank Card.png')
     page = 0
     Cards_on_display_are_blank = false
 
@@ -291,8 +291,8 @@ function DeckeditState:exit(partial)
     P1_cards = nil
     Cards_on_display = nil
     Evolution = nil
-    Evolution Max = nil
-    Blank Card = nil
+    EvolutionMax = nil
+    BlankCard = nil
     page = nil
     Cards_on_display_are_blank = nil
     exit_state(partial)

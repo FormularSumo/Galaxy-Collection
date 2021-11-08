@@ -6,7 +6,7 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     self.column = column
     self.scaling = 1
     if self.name == 'Blank' then
-        self.image = Blank Card
+        self.image = BlankCard
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
@@ -154,7 +154,7 @@ function Card_editor:render()
     end
     love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
     if self.evolution == 4 then
-        love.graphics.draw(Evolution Max,self.x+self.width-Evolution Max:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
+        love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
     elseif self.evolution > 0 then
         love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
         if self.evolution > 1 then
