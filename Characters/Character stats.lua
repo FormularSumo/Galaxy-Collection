@@ -1181,7 +1181,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['HermitLuke'] = {
+['HermitLukeSkywalker'] = {
     ['melee_offense'] = 17469,
     ['ranged_offense'] = 16469,
     ['defense'] = 19455,
