@@ -7,8 +7,8 @@ function DeckeditState:init()
 
     Cards_on_display = {}
     Evolution = love.graphics.newImage('Graphics/Evolution.png')
-    EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
-    BlankCard = love.graphics.newImage('Graphics/BlankCard.png')
+    Evolution Max = love.graphics.newImage('Graphics/Evolution Max.png')
+    Blank Card = love.graphics.newImage('Graphics/Blank Card.png')
     page = 0
     Cards_on_display_are_blank = false
 
@@ -20,8 +20,8 @@ function DeckeditState:init()
     gui[2] = Button('reset_deck','strongest','Auto',font80,nil,'centre',200)
     gui[3] = Button('reset_deck','blank','Clear',font80,nil,'centre',380)
     gui['Remove_card'] = Remove_card()
-    gui[22] = Button('update_cards_on_display','left',nil,nil,'LeftArrow','centre_left',1030)
-    gui[23] = Button('update_cards_on_display','right',nil,nil,'RightArrow','centre_right',1030)
+    gui[22] = Button('update_cards_on_display','left',nil,nil,'Left Arrow','centre_left',1030)
+    gui[23] = Button('update_cards_on_display','right',nil,nil,'Right Arrow','centre_right',1030)
 end
 
 
@@ -291,8 +291,8 @@ function DeckeditState:exit(partial)
     P1_cards = nil
     Cards_on_display = nil
     Evolution = nil
-    EvolutionMax = nil
-    BlankCard = nil
+    Evolution Max = nil
+    Blank Card = nil
     page = nil
     Cards_on_display_are_blank = nil
     exit_state(partial)

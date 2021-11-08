@@ -62,7 +62,7 @@ function Card:init(name,row,column,team,number,level,evolution)
         self.weapon = Weapon(self.x, self.y, self.weapon_image, Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'] , self.team, self.width, self.height, self.range)
     end
 
-    if (self.name['projectile'] == 'Lightning' or self.name['projectile'] == 'ForceBlast') and self.weapon == nil then
+    if (self.name['projectile'] == 'Lightning' or self.name['projectile'] == 'Force Blast') and self.weapon == nil then
         self.melee_projectile = true
     end
 
@@ -231,7 +231,7 @@ end
 function Card:render()
     love.graphics.draw(self.image,self.x,self.y,0,1,sx)
     if self.evolution == 4 then
-        love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
+        love.graphics.draw(Evolution Max,self.x+self.width-Evolution Max:getWidth()-3,self.y+3)
     elseif self.evolution > 0 then
         love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90))
         if self.evolution > 1 then

@@ -6,7 +6,7 @@ function endor()
     P2_deck_cards[4] = {'ChiefChirpa',60,4}
     P2_deck_cards[5] = {'Logray',60,4}
 
-    gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March duet.mp3'})
+    gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Duet.mp3'})
 end
 
 function kamino()
@@ -38,7 +38,7 @@ function throne_room()
     P2_deck_cards[3] = {'DarthVader',60,4}
     P2_deck_cards[4] = {'RoyalGuard',60,4}
    
-    gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March piano only.oga'})
+    gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Piano Only.oga'})
 end
 
 function maxed_dark_side()

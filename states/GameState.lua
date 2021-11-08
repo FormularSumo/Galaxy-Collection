@@ -2,7 +2,7 @@ GameState = Class{__includes = BaseState}
 
 function GameState:init()
     Evolution = love.graphics.newImage('Graphics/Evolution.png')
-    EvolutionMax = love.graphics.newImage('Graphics/EvolutionMax.png')
+    Evolution Max = love.graphics.newImage('Graphics/Evolution Max.png')
 
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
@@ -402,7 +402,7 @@ function GameState:exit()
     Projectiles = nil
     Weapons = nil
     Evolution = nil
-    EvolutionMax = nil
+    Evolution Max = nil
     timer = nil
     move_aim_timer = nil
     attack_timer = nil

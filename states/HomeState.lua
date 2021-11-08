@@ -18,10 +18,10 @@ function HomeState:enter(partial)
         background['Seek'] = 0
         if love.math.random(0,1) == 1 then
             songs[0] = love.audio.newSource('Music/Ahsoka\'s Theme.oga','stream')
-            songs[1] = love.audio.newSource('Music/Across the stars.oga','stream')
+            songs[1] = love.audio.newSource('Music/Across The Stars.oga','stream')
         else
             songs[1] = love.audio.newSource('Music/Ahsoka\'s Theme.oga','stream')
-            songs[0] = love.audio.newSource('Music/Across the stars.oga','stream')
+            songs[0] = love.audio.newSource('Music/Across The Stars.oga','stream')
         end
 
         songs[0]:play()
