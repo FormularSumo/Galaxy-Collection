@@ -1651,7 +1651,8 @@ Characters = {
     ['weapon'] = 'BlueLightsaber'
 },
 
-['PadmeAmidala'] = {
+['PadméAmidala'] = {
+    ['filename'] = 'PadmeAmidala',
     ['melee_offense'] = 13268,
     ['ranged_offense'] = 13268,
     ['defense'] = 9427,
@@ -1772,7 +1773,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['Qira'] = {
+['Qi\'ra'] = {
     ['melee_offense'] = 12997,
     ['ranged_offense'] = 13997,
     ['defense'] = 9989,
