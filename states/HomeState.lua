@@ -16,8 +16,13 @@ function HomeState:enter(partial)
             background['Type'] = 'photo'
         end
         background['Seek'] = 0
-        songs[0] = love.audio.newSource('Music/AhsokaTheme.mp3','stream')
-        songs[1] = love.audio.newSource('Music/Across the stars.oga','stream')
+        if love.math.random(0,1) == 1 then
+            songs[0] = love.audio.newSource('Music/AhsokaTheme.mp3','stream')
+            songs[1] = love.audio.newSource('Music/Across the stars.oga','stream')
+        else
+            songs[1] = love.audio.newSource('Music/AhsokaTheme.mp3','stream')
+            songs[0] = love.audio.newSource('Music/Across the stars.oga','stream')
+        end
 
         songs[0]:play()
         calculate_queue_length()
