@@ -253,7 +253,7 @@ Characters = {
     ['projectile'] = 'RedLaser'
 },
 
-['B2RPSuperBattleDroid'] = {
+['B2-RPSuperBattleDroid'] = {
     ['melee_offense'] = 9285,
     ['ranged_offense'] = 9285,
     ['defense'] = 8924,
