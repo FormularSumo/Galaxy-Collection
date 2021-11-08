@@ -1,5 +1,68 @@
 Characters = {
 
+['4-LOM'] = {
+    ['melee_offense'] = 8956,
+    ['ranged_offense'] = 9956,
+    ['defense'] = 9294,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['projectile'] = 'RedLaser'
+},
+
+['41stScoutBattalionCloneTrooper'] = {
+    ['melee_offense'] = 8925,
+    ['ranged_offense'] = 9925,
+    ['defense'] = 9612,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'BlueLaser'
+},
+
+['99'] = {
+    ['melee_offense'] = 5134,
+    ['ranged_offense'] = 6134,
+    ['defense'] = 3921,
+    ['evade'] = 0.01,
+    ['range'] = 3,
+    ['projectile'] = 'BlueLaser'
+},
+
+['212thCloneTrooper'] = {
+    ['melee_offense'] = 8874,
+    ['ranged_offense'] = 9874,
+    ['defense'] = 9579,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'BlueLaser'
+},
+
+['322ndCloneTrooper'] = {
+    ['melee_offense'] = 11165,
+    ['ranged_offense'] = 12165,
+    ['defense'] = 12018,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'BlueLaser'
+},
+
+['327thCloneTrooper'] = {
+    ['melee_offense'] = 8781,
+    ['ranged_offense'] = 9781,
+    ['defense'] = 9579,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'BlueLaser'
+},
+
+['501stCloneTrooper'] = {
+    ['melee_offense'] = 11165,
+    ['ranged_offense'] = 12165,
+    ['defense'] = 12018,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'BlueLaser'
+},
+
 ['AaylaSecura'] = {
     ['melee_offense'] = 17965,
     ['ranged_offense'] = 16965,
@@ -491,42 +554,6 @@ Characters = {
     ['projectile'] = 'BlueLaser'
 },
 
-['CloneTrooper212th'] = {
-    ['melee_offense'] = 8874,
-    ['ranged_offense'] = 9874,
-    ['defense'] = 9579,
-    ['evade'] = 0.03,
-    ['range'] = 3,
-    ['projectile'] = 'BlueLaser'
-},
-
-['CloneTrooper322nd'] = {
-    ['melee_offense'] = 11165,
-    ['ranged_offense'] = 12165,
-    ['defense'] = 12018,
-    ['evade'] = 0.03,
-    ['range'] = 3,
-    ['projectile'] = 'BlueLaser'
-},
-
-['CloneTrooper327th'] = {
-    ['melee_offense'] = 8781,
-    ['ranged_offense'] = 9781,
-    ['defense'] = 9579,
-    ['evade'] = 0.03,
-    ['range'] = 3,
-    ['projectile'] = 'BlueLaser'
-},
-
-['CloneTrooper501st'] = {
-    ['melee_offense'] = 11165,
-    ['ranged_offense'] = 12165,
-    ['defense'] = 12018,
-    ['evade'] = 0.03,
-    ['range'] = 3,
-    ['projectile'] = 'BlueLaser'
-},
-
 ['ColemanKcaj'] = {
     ['melee_offense'] = 17320,
     ['ranged_offense'] = 16320,
@@ -996,15 +1023,6 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile'] = 'ForceBlast'
-},
-
-['4-LOM'] = {
-    ['melee_offense'] = 8956,
-    ['ranged_offense'] = 9956,
-    ['defense'] = 9294,
-    ['evade'] = 0.02,
-    ['range'] = 3,
-    ['projectile'] = 'RedLaser'
 },
 
 ['GamorreanGuard'] = {
@@ -1595,15 +1613,6 @@ Characters = {
     ['weapon'] = 'InquisitorLightsaber'
 },
 
-['NinetyNine'] = {
-    ['melee_offense'] = 5134,
-    ['ranged_offense'] = 6134,
-    ['defense'] = 3921,
-    ['evade'] = 0.01,
-    ['range'] = 3,
-    ['projectile'] = 'BlueLaser'
-},
-
 ['NuteGunray'] = {
     ['melee_offense'] = 3767,
     ['ranged_offense'] = 4767,
@@ -1903,15 +1912,6 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile'] = 'RedLaser'
-},
-
-['ScoutBattalionCloneTrooper41st'] = {
-    ['melee_offense'] = 8925,
-    ['ranged_offense'] = 9925,
-    ['defense'] = 9612,
-    ['evade'] = 0.03,
-    ['range'] = 3,
-    ['projectile'] = 'BlueLaser'
 },
 
 ['ScoutTrooper'] = {
