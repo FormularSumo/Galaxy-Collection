@@ -158,7 +158,7 @@ function tutorial()
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
 
     P1_deck_edit(1,{'Grogu',60,4})
-    P1_deck_edit(2,{'FarmboyLukeSkywalker',60,4})
+    P1_deck_edit(2,{'Farmboy Luke Skywalker',60,4})
     P1_deck_edit(3,{'C3P0',60,4})
     P1_deck_edit(4,{'R2D2',60,4})
 
