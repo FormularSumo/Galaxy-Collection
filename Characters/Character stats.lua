@@ -2058,7 +2058,7 @@ Characters = {
     ['range'] = 3
 },
 
-['TallieLintra'] = {
+['Tallie Lintra'] = {
     ['melee_offense'] = 5050,
     ['ranged_offense'] = 6050,
     ['defense'] = 6467,
