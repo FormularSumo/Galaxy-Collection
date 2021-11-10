@@ -1613,7 +1613,7 @@ Characters = {
     ['weapon'] = 'Mother Talzin Sword'
 },
 
-[' Nightsister Merrin'] = {
+['Nightsister Merrin'] = {
     ['melee_offense'] = 15579,
     ['ranged_offense'] = 17151,
     ['defense'] = 14756,

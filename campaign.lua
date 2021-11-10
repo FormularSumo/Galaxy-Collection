@@ -29,7 +29,7 @@ function kamino()
     P2_deck_cards[16] = {'Coruscant Guard Clone Trooper',60,4}
     P2_deck_cards[17] = {'Clone Commando Gregor',60,4}
 
-    gStateMachine:change('GameState',{'Kamino.jpg', 'photo', 0, 1, 1 ,1, 'Clone  Wars Theme.oga'})
+    gStateMachine:change('GameState',{'Kamino.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
 end
 
 function throne_room()
@@ -85,7 +85,7 @@ function maxed_light_side()
     P2_deck_cards[13] = {'Boba Fett Mandalorian',60,4}
     P2_deck_cards[14] = {'Bendu',60,4}
     P2_deck_cards[15] = {'Hermit Yoda',60,4}
-    P2_deck_cards[16] = {' Nightsister Merrin',60,4}
+    P2_deck_cards[16] = {'Nightsister Merrin',60,4}
     P2_deck_cards[17] = {'Bo-Katan Kryze',60,4}
     
     gStateMachine:change('GameState',{'Voss.jpg', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})

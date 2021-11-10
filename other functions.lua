@@ -159,8 +159,8 @@ function tutorial()
 
     P1_deck_edit(1,{'Grogu',60,4})
     P1_deck_edit(2,{'Farmboy Luke Skywalker',60,4})
-    P1_deck_edit(3,{'C3P0',60,4})
-    P1_deck_edit(4,{'R2D2',60,4})
+    P1_deck_edit(3,{'C-3PO',60,4})
+    P1_deck_edit(4,{'R2-D2',60,4})
 
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
     P1_cards = nil
