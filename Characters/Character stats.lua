@@ -121,9 +121,20 @@ Characters = {
 },
 
 ['Ahsoka Tano Fulcrum'] = {
-    ['melee_offense'] = 18469,
-    ['ranged_offense'] = 17469,
-    ['defense'] = 18384,
+    ['melee_offense'] = 18569,
+    ['ranged_offense'] = 17569,
+    ['defense'] = 17804,
+    ['evade'] = 0.1,
+    ['range'] = 2,
+    ['weapon'] = 'White Lightsaber', 
+    ['projectile'] = 'Force Blast',
+    ['weapon_count'] = 2
+},
+
+['Ahsoka Tano Mandalorian'] = {
+    ['melee_offense'] = 18545,
+    ['ranged_offense'] = 17545,
+    ['defense'] = 17952,
     ['evade'] = 0.1,
     ['range'] = 2,
     ['weapon'] = 'White Lightsaber', 
@@ -702,6 +713,15 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Death Trooper'] = {
+    ['melee_offense'] = 11348,
+    ['ranged_offense'] = 12348,
+    ['defense'] = 11848,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['projectile'] = 'Red Laser'
+},
+
 ['Darth Revan'] = {
     ['melee_offense'] = 19980,
     ['ranged_offense'] = 21250,
@@ -713,9 +733,9 @@ Characters = {
 },
 
 ['Darth Vader'] = {
-    ['melee_offense'] = 18400,
-    ['ranged_offense'] = 17400,
-    ['defense'] = 18643,
+    ['melee_offense'] = 18890,
+    ['ranged_offense'] = 18001,
+    ['defense'] = 18600,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -730,15 +750,6 @@ Characters = {
     ['range'] = 5,
     ['projectile'] = 'Lightning',
     ['weapon'] = 'Purple Lightsaber'
-},
-
-['Death Trooper'] = {
-    ['melee_offense'] = 11348,
-    ['ranged_offense'] = 12348,
-    ['defense'] = 11848,
-    ['evade'] = 0.04,
-    ['range'] = 3,
-    ['projectile'] = 'Red Laser'
 },
 
 ['Death Watch Mandalorian'] = {
@@ -887,7 +898,7 @@ Characters = {
 ['Emperor Palpatine'] = {
     ['melee_offense'] = 18731,
     ['ranged_offense'] = 18731,
-    ['defense'] = 18653,
+    ['defense'] = 18340,
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile'] = 'Lightning',
@@ -1203,7 +1214,7 @@ Characters = {
 
 ['Hermit Yoda'] = {
     ['melee_offense'] = 18587,
-    ['defense'] = 18341,
+    ['defense'] = 17865,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'Force Blast'
@@ -1354,7 +1365,7 @@ Characters = {
 },
 
 ['Jedi Knight Anakin Skywalker'] = {
-    ['melee_offense'] = 18924,
+    ['melee_offense'] = 19130,
     ['ranged_offense'] = 17924,
     ['defense'] = 17954,
     ['evade'] = 0.05,
@@ -1557,7 +1568,7 @@ Characters = {
 },
 
 ['Mace Windu'] = {
-    ['melee_offense'] = 18901,
+    ['melee_offense'] = 19490,
     ['ranged_offense'] = 17901,
     ['defense'] = 18574,
     ['evade'] = 0.05,
@@ -2285,7 +2296,7 @@ Characters = {
 ['Yoda'] = {
     ['melee_offense'] = 18394,
     ['ranged_offense'] = 17394,
-    ['defense'] = 18535,
+    ['defense'] = 18835,
     ['evade'] = 0.12,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
