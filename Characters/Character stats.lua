@@ -732,6 +732,17 @@ Characters = {
     ['weapon'] = 'Red Lightsaber'
 },
 
+['Darth Traya'] = {
+    ['melee_offense'] = 19145,
+    ['ranged_offense'] = 18145,
+    ['defense'] = 17455,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Purple Lightsaber',
+    ['weapon_count'] = 3
+},
+
 ['Darth Vader'] = {
     ['melee_offense'] = 18890,
     ['ranged_offense'] = 18001,
