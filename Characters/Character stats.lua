@@ -263,6 +263,7 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Blue Lightsaber'
+},
 
 ['B1 Battle Droid'] = {
     ['melee_offense'] = 4502,
@@ -272,7 +273,6 @@ Characters = {
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
 },
-
 
 ['B2 Super Battle Droid'] = {
     ['melee_offense'] = 8085,
