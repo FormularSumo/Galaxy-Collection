@@ -97,11 +97,7 @@ function update_cards_on_display(direction)
             row = i - row_correctment
             y = i+(page*18)
             if P1_cards[y] ~= nil then
-                if P1_cards[y][1] ~= nil then
-                    Cards_on_display[i] = Card_editor(P1_cards[y][1],row,column,y,P1_cards[y][2],P1_cards[y][3],false)
-                else
-                    Cards_on_display[i] = Card_editor(P1_cards[y],row,column,y,1,0,false)
-                end
+                Cards_on_display[i] = Card_editor(P1_cards[y][1],row,column,y,P1_cards[y][2],P1_cards[y][3],false)
                 Cards_on_display_are_blank = false
             else
                 Cards_on_display[i] = Card_editor('Blank',row,column,y,nil,nil,false)

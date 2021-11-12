@@ -49,7 +49,6 @@ function love.load()
     background = {}
     paused = false
 
-    P1_deck_cards = {}
     P2_deck_cards = {}
     UserData = {}
 
@@ -92,11 +91,30 @@ function love.load()
     
     else
         if love.filesystem.getInfo('Player 1 deck.txt') == nil then
+            P1_deck_cards = {}
             bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
+        else
+            P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
+            for k, pair in pairs(P1_deck_cards) do
+                if P1_deck_cards[k] ~= nil and not Characters[P1_deck_cards[k][1]] then
+                    P1_deck_cards[k] = nil
+                end
+            end
+            bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
+            P1_deck_cards = {}
         end
 
         if love.filesystem.getInfo('Player 1 cards.txt') == nil then
             bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
+        else
+            P1_cards = bitser.loadLoveFile('Player 1 cards.txt')
+            for k, pair in pairs(P1_cards) do
+                if P1_cards[k] ~= nil and not Characters[P1_cards[k][1]] then
+                    P1_cards[k] = nil
+                end
+            end
+            bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
+            P1_cards = nil
         end
 
         if love.filesystem.getInfo('User Data.txt') == nil then
