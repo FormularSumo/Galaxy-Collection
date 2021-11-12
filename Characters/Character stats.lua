@@ -731,6 +731,15 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Darth Bane'] = {
+    ['melee_offense'] = 18900,
+    ['ranged_offense'] = 17233,
+    ['defense'] = 17677,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Red Lightsaber'
+
 ['Darth Malak'] = {
     ['melee_offense'] = 17899,
     ['ranged_offense'] = 18500,
@@ -749,6 +758,15 @@ Characters = {
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
+
+['Darth Marr'] = {
+    ['melee_offense'] = 18344,
+    ['ranged_offense'] = 17356,
+    ['defense'] = 18001,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Red Lightsaber'
 
 ['Darth Nihilus'] = {
     ['melee_offense'] = 20595,
@@ -1554,6 +1572,15 @@ Characters = {
     ['range'] = 3,
     ['projectile'] = 'Yellow Laser'
 },
+
+['Kreia'] = {
+    ['melee_offense'] = 18712,
+    ['ranged_offense'] = 17934,
+    ['defense'] = 17275,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Green Lightsaber'
 
 ['Kuiil'] = {
     ['melee_offense'] = 6000,
