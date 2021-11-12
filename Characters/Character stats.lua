@@ -104,7 +104,7 @@ Characters = {
 ['Agen Kolar'] = {
     ['melee_offense'] = 18010,
     ['ranged_offense'] = 17010,
-    ['defense'] = 17856,
+    ['defense'] = 17726,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -254,6 +254,15 @@ Characters = {
     ['projectile'] = 'Fire', 
     ['weapon_count'] = 2
 },
+
+['Atris'] = {
+    ['melee_offense'] = 18450,
+    ['ranged_offense'] = 17100,
+    ['defense'] = 17523,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
 
 ['B1 Battle Droid'] = {
     ['melee_offense'] = 4502,
@@ -722,6 +731,15 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Darth Malak'] = {
+    ['melee_offense'] = 17899,
+    ['ranged_offense'] = 18500,
+    ['defense'] = 17250,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Red Lightsaber'
+
 ['Darth Malgus'] = {
     ['melee_offense'] = 19122,
     ['ranged_offense'] = 17566,
@@ -751,6 +769,15 @@ Characters = {
     ['projectile'] = 'Lightning',
     ['weapon'] = 'Red Lightsaber'
 },
+
+['Darth Sion'] = {
+    ['melee_offense'] = 16001,
+    ['ranged_offense'] = 15301,
+    ['defense'] = 19900,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Red Lightsaber'
 
 ['Darth Traya'] = {
     ['melee_offense'] = 19145,
@@ -1087,8 +1114,8 @@ Characters = {
 
 ['General Grievous'] = {
     ['melee_offense'] = 19001,
-    ['ranged_offense'] = 15579,
-    ['defense'] = 16902,
+    ['ranged_offense'] = 15932,
+    ['defense'] = 17942,
     ['evade'] = 0.06,
     ['range'] = 3,
     ['weapon'] = 'Blue Lightsaber',
@@ -1482,8 +1509,8 @@ Characters = {
 },
 
 ['Ki-Adi-Mundi'] = {
-    ['melee_offense'] = 17849,
-    ['ranged_offense'] = 16849,
+    ['melee_offense'] = 17805,
+    ['ranged_offense'] = 16600,
     ['defense'] = 18002,
     ['evade'] = 0.04,
     ['range'] = 2,
@@ -1493,7 +1520,7 @@ Characters = {
 
 ['Kit Fisto'] = {
     ['melee_offense'] = 17801,
-    ['ranged_offense'] = 16801,
+    ['ranged_offense'] = 16701,
     ['defense'] = 18078,
     ['evade'] = 0.05,
     ['range'] = 2,
@@ -1547,12 +1574,21 @@ Characters = {
 ['Kylo Ren'] = {
     ['melee_offense'] = 18193,
     ['ranged_offense'] = 17193,
-    ['defense'] = 17664,
+    ['defense'] = 17564,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Crossguard Lightsaber'
 },
+
+['Lana Beniko'] = {
+    ['melee_offense'] = 18320,
+    ['ranged_offense'] = 17320,
+    ['defense'] = 17532,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Red Lightsaber'
 
 ['Lando Calrissian'] = {
     ['melee_offense'] = 8136,
@@ -1815,7 +1851,7 @@ Characters = {
 ['Pong Krell'] = {
     ['melee_offense'] = 18418,
     ['ranged_offense'] = 18418,
-    ['defense'] = 17450,
+    ['defense'] = 16850,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['weapon'] = 'Double Green Lightsaber',
@@ -1950,8 +1986,8 @@ Characters = {
 
 ['Saesee Tiin'] = {
     ['melee_offense'] = 17952,
-    ['ranged_offense'] = 16952,
-    ['defense'] = 17901,
+    ['ranged_offense'] = 16852,
+    ['defense'] = 17801,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -1969,7 +2005,7 @@ Characters = {
 
 ['Savage Opress'] = {
     ['melee_offense'] = 18526,
-    ['ranged_offense'] = 17526,
+    ['ranged_offense'] = 17326,
     ['defense'] = 17349,
     ['evade'] = 0.03,
     ['range'] = 2,
@@ -2045,6 +2081,16 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
+},
+
+['Sifo-Dyas'] = {
+    ['melee_offense'] = 17800,
+    ['ranged_offense'] = 16500,
+    ['defense'] = 18050,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Blue Lightsaber'  
 },
 
 ['Sith Eternal Emperor'] = {
@@ -2282,6 +2328,15 @@ Characters = {
     ['range'] = 1
 },
 
+['Visas Marr'] = {
+    ['melee_offense'] = 18103,
+    ['ranged_offense'] = 17122,
+    ['defense'] = 17745,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Red Lightsaber'
+
 ['Wat Tambor'] = {
     ['melee_offense'] = 250,
     ['ranged_offense'] = 450,
@@ -2344,6 +2399,15 @@ Characters = {
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Yoda Lightsaber'
    
+},
+
+['Zeffo Sage'] = {
+    ['melee_offense'] = 16500,
+    ['ranged_offense'] = 19230,
+    ['defense'] = 17390,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['projectile'] = 'Force Blast'
 },
 
 ['Zillo Beast'] = {
