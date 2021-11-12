@@ -38,7 +38,7 @@ function throne_room()
     P2_deck_cards[3] = {'Darth Vader',60,4}
     P2_deck_cards[4] = {'Royal Guard',60,4}
    
-    gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Piano Only.oga'})
+    gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Piano.oga'})
 end
 
 function maxed_dark_side()
