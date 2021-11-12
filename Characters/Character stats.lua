@@ -155,9 +155,9 @@ Characters = {
 },
 
 ['Ahsoka Tano S7'] = {
-    ['melee_offense'] = 18464,
-    ['ranged_offense'] = 17464,
-    ['defense'] = 17420,
+    ['melee_offense'] = 18460,
+    ['ranged_offense'] = 17440,
+    ['defense'] = 17500,
     ['evade'] = 0.1,
     ['range'] = 2,
     ['weapon'] = 'Blue Lightsaber',
@@ -688,7 +688,7 @@ Characters = {
 ['Count Dooku'] = {
     ['melee_offense'] = 18224,
     ['ranged_offense'] = 18224,
-    ['defense'] = 18391,
+    ['defense'] = 17391,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile'] = 'Lightning',
@@ -720,6 +720,26 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
+},
+
+['Darth Malgus'] = {
+    ['melee_offense'] = 19122,
+    ['ranged_offense'] = 17566,
+    ['defense'] = 17545,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Red Lightsaber'
+},
+
+['Darth Nihilus'] = {
+    ['melee_offense'] = 20595,
+    ['ranged_offense'] = 20595,
+    ['defense'] = 15700,
+    ['evade'] = 0.05,
+    ['range'] = 5,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Red Lightsaber'
 },
 
 ['Darth Revan'] = {
@@ -1388,7 +1408,7 @@ Characters = {
 ['Jedi Knight Luke Skywalker'] = {
     ['melee_offense'] = 18437,
     ['ranged_offense'] = 17437,
-    ['defense'] = 18339,
+    ['defense'] = 17800,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -1408,7 +1428,7 @@ Characters = {
 ['Jedi Master Obi-Wan Kenobi'] = {
     ['melee_offense'] = 17421,
     ['ranged_offense'] = 16421,
-    ['defense'] = 18864,
+    ['defense'] = 18564,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -2075,7 +2095,8 @@ Characters = {
 
 ['Supreme Leader Snoke'] = {
     ['melee_offense'] = 18468,
-    ['defense'] = 18452,
+    ['ranged_offense'] = 18468,
+    ['defense'] = 17552,
     ['evade'] = 0.01,
     ['range'] = 2,
     ['projectile'] = 'Lightning'
