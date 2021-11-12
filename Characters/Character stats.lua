@@ -739,6 +739,7 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Red Lightsaber'
+},
 
 ['Darth Malak'] = {
     ['melee_offense'] = 17899,
@@ -748,6 +749,7 @@ Characters = {
     ['range'] = 3,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Red Lightsaber'
+},
 
 ['Darth Malgus'] = {
     ['melee_offense'] = 19122,
@@ -767,6 +769,7 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Red Lightsaber'
+},
 
 ['Darth Nihilus'] = {
     ['melee_offense'] = 20595,
@@ -796,6 +799,7 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Red Lightsaber'
+},
 
 ['Darth Traya'] = {
     ['melee_offense'] = 19145,
@@ -1581,6 +1585,7 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Green Lightsaber'
+},
 
 ['Kuiil'] = {
     ['melee_offense'] = 6000,
@@ -1616,6 +1621,7 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Red Lightsaber'
+},
 
 ['Lando Calrissian'] = {
     ['melee_offense'] = 8136,
@@ -2363,6 +2369,7 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Red Lightsaber'
+},
 
 ['Wat Tambor'] = {
     ['melee_offense'] = 250,
