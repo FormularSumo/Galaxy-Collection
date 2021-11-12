@@ -2,7 +2,7 @@ function love.load()
     --Libraries and other files that are required
     push = require 'push'
     Class = require 'class'
-    bitser = require 'bitser/bitser'
+    bitser = require 'bitser'
     
     require 'Card'
     require 'Button'
