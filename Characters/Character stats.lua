@@ -1595,6 +1595,16 @@ Characters = {
     ['weapon'] = 'Double Red Lightsaber'
 },
 
+['Meetra Surik'] = {
+    ['melee_offense'] = 18320,
+    ['ranged_offense'] = 18320,
+    ['defense'] = 17980,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
+},
+
 ['Moff Gideon'] = {
     ['melee_offense'] = 16378,
     ['ranged_offense'] = 15579,
