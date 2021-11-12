@@ -121,9 +121,20 @@ Characters = {
 },
 
 ['Ahsoka Tano Fulcrum'] = {
-    ['melee_offense'] = 18469,
-    ['ranged_offense'] = 17469,
-    ['defense'] = 18384,
+    ['melee_offense'] = 18569,
+    ['ranged_offense'] = 17569,
+    ['defense'] = 17804,
+    ['evade'] = 0.1,
+    ['range'] = 2,
+    ['weapon'] = 'White Lightsaber', 
+    ['projectile'] = 'Force Blast',
+    ['weapon_count'] = 2
+},
+
+['Ahsoka Tano Mandalorian'] = {
+    ['melee_offense'] = 18545,
+    ['ranged_offense'] = 17545,
+    ['defense'] = 17952,
     ['evade'] = 0.1,
     ['range'] = 2,
     ['weapon'] = 'White Lightsaber', 
@@ -702,6 +713,15 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Death Trooper'] = {
+    ['melee_offense'] = 11348,
+    ['ranged_offense'] = 12348,
+    ['defense'] = 11848,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['projectile'] = 'Red Laser'
+},
+
 ['Darth Revan'] = {
     ['melee_offense'] = 19980,
     ['ranged_offense'] = 21250,
@@ -730,15 +750,6 @@ Characters = {
     ['range'] = 5,
     ['projectile'] = 'Lightning',
     ['weapon'] = 'Purple Lightsaber'
-},
-
-['Death Trooper'] = {
-    ['melee_offense'] = 11348,
-    ['ranged_offense'] = 12348,
-    ['defense'] = 11848,
-    ['evade'] = 0.04,
-    ['range'] = 3,
-    ['projectile'] = 'Red Laser'
 },
 
 ['Death Watch Mandalorian'] = {
