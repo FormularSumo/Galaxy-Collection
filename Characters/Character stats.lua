@@ -65,9 +65,9 @@ Characters = {
 
 ['Aayla Secura'] = {
     ['melee_offense'] = 17965,
-    ['ranged_offense'] = 16965,
-    ['defense'] = 17846,
-    ['evade'] = 0.06,
+    ['ranged_offense'] = 16915,
+    ['defense'] = 17726,
+    ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Blue Lightsaber'
@@ -76,8 +76,8 @@ Characters = {
 ['Adi Gallia'] = {
     ['melee_offense'] = 17951,
     ['ranged_offense'] = 16951,
-    ['defense'] = 17854,
-    ['evade'] = 0.05,
+    ['defense'] = 17654,
+    ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Blue Lightsaber'
@@ -247,7 +247,7 @@ Characters = {
 ['Asajj Ventress'] = {
     ['melee_offense'] = 18254,
     ['ranged_offense'] = 17254,
-    ['defense'] = 17432,
+    ['defense'] = 17312,
     ['evade'] = 0.07,
     ['range'] = 3,
     ['weapon'] = 'Red Lightsaber',
@@ -349,7 +349,7 @@ Characters = {
 ['Boba Fett Mandalorian'] = {
     ['melee_offense'] = 15579,
     ['ranged_offense'] = 17601,
-    ['defense'] = 16048,
+    ['defense'] = 17948,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
@@ -548,6 +548,16 @@ Characters = {
     ['range'] = 2,
 },
 
+['Cin Drallig'] = {
+    ['melee_offense'] = 17867,
+    ['ranged_offense'] = 16867,
+    ['defense'] = 17806,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Green Lightsaber'
+},
+
 ['Clone Commando'] = {
     ['melee_offense'] = 12876,
     ['ranged_offense'] = 13900,
@@ -576,9 +586,9 @@ Characters = {
 },
 
 ['Coleman Kcaj'] = {
-    ['melee_offense'] = 17320,
-    ['ranged_offense'] = 16320,
-    ['defense'] = 18156,
+    ['melee_offense'] = 17300,
+    ['ranged_offense'] = 16300,
+    ['defense'] = 18205,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -853,7 +863,7 @@ Characters = {
 ['Depa Billaba'] = {
     ['melee_offense'] = 17444,
     ['ranged_offense'] = 16444,
-    ['defense'] = 18113,
+    ['defense'] = 18093,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -932,7 +942,7 @@ Characters = {
 
 ['Eeth Koth'] = {
     ['melee_offense'] = 17556,
-    ['ranged_offense'] = 16556,
+    ['ranged_offense'] = 16516,
     ['defense'] = 18010,
     ['evade'] = 0.04,
     ['range'] = 2,
@@ -943,7 +953,7 @@ Characters = {
 ['Eighth Brother'] = {
     ['melee_offense'] = 17445,
     ['ranged_offense'] = 16445,
-    ['defense'] = 17411,
+    ['defense'] = 17991,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Force Blast',
@@ -992,10 +1002,20 @@ Characters = {
     ['range'] = 1
 },
 
+['Eno Cordova'] = {
+    ['melee_offense'] = 17134,
+    ['ranged_offense'] = 17233,
+    ['defense'] = 17816,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
+},
+
 ['Even Piell'] = {
     ['melee_offense'] = 17820,
     ['ranged_offense'] = 16820,
-    ['defense'] = 17235,
+    ['defense'] = 17735,
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -1042,8 +1062,8 @@ Characters = {
 
 ['Fifth Brother'] = {
     ['melee_offense'] = 17679,
-    ['ranged_offense'] = 16679,
-    ['defense'] = 17567,
+    ['ranged_offense'] = 16699,
+    ['defense'] = 17787,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Force Blast',
@@ -1203,7 +1223,7 @@ Characters = {
 ['Grand Inquisitor'] = {
     ['melee_offense'] = 17889,
     ['ranged_offense'] = 16889,
-    ['defense'] = 17876,
+    ['defense'] = 17706,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Force Blast',
@@ -1364,10 +1384,10 @@ Characters = {
 },
 
 ['Ima-Gun Di'] = {
-    ['melee_offense'] = 17860,
-    ['ranged_offense'] = 16860,
-    ['defense'] = 18049,
-    ['evade'] = 0.04,
+    ['melee_offense'] = 17800,
+    ['ranged_offense'] = 16300,
+    ['defense'] = 18012,
+    ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
     ['weapon'] = 'Blue Lightsaber'
@@ -1410,7 +1430,7 @@ Characters = {
 ['Jango Fett'] = {
     ['melee_offense'] = 15579,
     ['ranged_offense'] = 17536,
-    ['defense'] = 15464,
+    ['defense'] = 16964,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
@@ -1658,9 +1678,9 @@ Characters = {
 },
 
 ['Luminara Unduli'] = {
-    ['melee_offense'] = 17779,
-    ['ranged_offense'] = 16779,
-    ['defense'] = 17909,
+    ['melee_offense'] = 17709,
+    ['ranged_offense'] = 16709,
+    ['defense'] = 17839,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -1745,8 +1765,8 @@ Characters = {
 
 ['Ninth Sister'] = {
     ['melee_offense'] = 17330,
-    ['ranged_offense'] = 16330,
-    ['defense'] = 18406,
+    ['ranged_offense'] = 16250,
+    ['defense'] = 18206,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Force Blast',
@@ -1763,9 +1783,9 @@ Characters = {
 },
 
 ['Old Ben Kenobi'] = {
-    ['melee_offense'] = 17304,
-    ['ranged_offense'] = 16304,
-    ['defense'] = 18513,
+    ['melee_offense'] = 17202,
+    ['ranged_offense'] = 16200,
+    ['defense'] = 18303,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -1857,7 +1877,7 @@ Characters = {
 ['Plo Koon'] = {
     ['melee_offense'] = 18037,
     ['ranged_offense'] = 17037,
-    ['defense'] = 17792,
+    ['defense'] = 17632,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -1895,8 +1915,8 @@ Characters = {
 
 ['Pre Vizsla'] = {
     ['melee_offense'] = 17336,
-    ['ranged_offense'] = 15579,
-    ['defense'] = 17374,
+    ['ranged_offense'] = 15979,
+    ['defense'] = 17994,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Yellow Laser',
@@ -1925,7 +1945,7 @@ Characters = {
 ['Qui-Gon Jinn'] = {
     ['melee_offense'] = 17814,
     ['ranged_offense'] = 16814,
-    ['defense'] = 17989,
+    ['defense'] = 17779,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -1935,7 +1955,7 @@ Characters = {
 ['Quinlan Vos'] = {
     ['melee_offense'] = 17980,
     ['ranged_offense'] = 16980,
-    ['defense'] = 17855,
+    ['defense'] = 17695,
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -1975,9 +1995,9 @@ Characters = {
 },
 
 ['Rey'] = {
-    ['melee_offense'] = 17899,
+    ['melee_offense'] = 18399,
     ['ranged_offense'] = 15579,
-    ['defense'] = 17890,
+    ['defense'] = 18090,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Red Laser',
@@ -2074,7 +2094,7 @@ Characters = {
 ['Seventh Sister'] = {
     ['melee_offense'] = 17556,
     ['ranged_offense'] = 16556,
-    ['defense'] = 17412,
+    ['defense'] = 17912,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Force Blast',
@@ -2082,8 +2102,8 @@ Characters = {
 },
 
 ['Shaak Ti'] = {
-    ['melee_offense'] = 17826,
-    ['ranged_offense'] = 16826,
+    ['melee_offense'] = 17703,
+    ['ranged_offense'] = 16630,
     ['defense'] = 18003,
     ['evade'] = 0.04,
     ['range'] = 2,
@@ -2156,7 +2176,7 @@ Characters = {
 ['Stass Allie'] = {
     ['melee_offense'] = 17357,
     ['ranged_offense'] = 16357,
-    ['defense'] = 18134,
+    ['defense'] = 18149,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Force Blast',
@@ -2285,6 +2305,26 @@ Characters = {
     ['projectile'] = 'Lightning'
 },
 
+['Tiplee'] = {
+    ['melee_offense'] = 17677,
+    ['ranged_offense'] = 18799,
+    ['defense'] = 16927,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
+},
+
+['Tiplar'] = {
+    ['melee_offense'] = 17594,
+    ['ranged_offense'] = 17495,
+    ['defense'] = 17594,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Green Lightsaber'
+},
+
 ['Tobias Beckett'] = {
     ['melee_offense'] = 13123,
     ['ranged_offense'] = 14123,
@@ -2306,7 +2346,7 @@ Characters = {
 ['Trilla Suduri'] = {
     ['melee_offense'] = 18254,
     ['ranged_offense'] = 17254,
-    ['defense'] = 17445,
+    ['defense'] = 17245,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Force Blast',
@@ -2422,6 +2462,16 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
+},
+
+['Yaddle'] = {
+    ['melee_offense'] = 18385,
+    ['ranged_offense'] = 17793,
+    ['defense'] = 16995,
+    ['evade'] = 0.12,
+    ['range'] = 2,
+    ['projectile'] = 'Force Blast',
+    ['weapon'] = 'Green Lightsaber'
 },
 
 ['Yoda'] = {
