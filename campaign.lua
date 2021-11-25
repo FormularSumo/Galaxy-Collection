@@ -81,12 +81,12 @@ function maxed_light_side()
     P2_deck_cards[9] = {'Jedi Knight Anakin Skywalker',60,4}
     P2_deck_cards[10] = {'Hermit Yoda',60,4}
     P2_deck_cards[11] = {'Jedi Master Obi-Wan Kenobi',60,4}
-    P2_deck_cards[12] = {'Pong Krell',60,4}
+    P2_deck_cards[12] = {'Zeffo Sage',60,4}
     P2_deck_cards[13] = {'Kit Fisto',60,4}
     P2_deck_cards[14] = {'The Daughter',60,4}
     P2_deck_cards[15] = {'Kreia',60,4}
     P2_deck_cards[16] = {'Quinlan Vos',60,4}
-    P2_deck_cards[17] = {'Lana Beniko',60,4}
+    P2_deck_cards[17] = {'Visas Marr',60,4}
     
     gStateMachine:change('GameState',{'Voss.jpg', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})
 end
