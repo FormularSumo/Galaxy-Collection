@@ -74,10 +74,8 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.attacks_taken = 0
     if self.team == 1 then
         self.enemy_deck = P2_deck
-        self.projectile = P1_projectiles
     else
         self.enemy_deck = P1_deck
-        self.projectile = P2_projectiles
     end
     self.damage = 0
     self.defence_down = 0

@@ -24,8 +24,8 @@ function Projectile:init(x,y,finalx,finaly,projectile,team,xoffset,yoffset)
 end
 
 function Projectile:update(dt)
-    self.x = self.x + (self.x_distance * dt) --/ (1-self.delay)
-    self.y = self.y + (self.y_distance * dt) --/ (1-self.delay)
+    self.x = self.x + (self.x_distance * dt)
+    self.y = self.y + (self.y_distance * dt)
 end
 
 function Projectile:render()
