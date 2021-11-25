@@ -1428,7 +1428,7 @@ Characters = {
 },
 
 ['Jango Fett'] = {
-    ['melee_offense'] = 15579,
+    ['melee_offense'] = 15779,
     ['ranged_offense'] = 17536,
     ['defense'] = 16964,
     ['evade'] = 0.15,
