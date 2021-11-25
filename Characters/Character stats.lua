@@ -838,7 +838,7 @@ Characters = {
     ['defense'] = 24568,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile'] = 'Lightning',
+    ['projectile'] = 'Purple Lightning',
     ['weapon'] = 'Purple Lightsaber'
 },
 
@@ -2302,7 +2302,7 @@ Characters = {
     ['defense'] = 20000,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile'] = 'Lightning'
+    ['projectile'] = 'Red Lightning'
 },
 
 ['Tiplee'] = {
