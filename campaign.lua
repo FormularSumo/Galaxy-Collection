@@ -92,24 +92,24 @@ function maxed_light_side()
 end
 
 function maxed()
-    P2_deck_cards[0] = {'Mace Windu',60,4}
-    P2_deck_cards[1] = {'Emperor Palpatine',60,4}
-    P2_deck_cards[2] = {'Zillo Beast',60,4}
-    P2_deck_cards[3] = {'Hermit Luke Skywalker',60,4}
-    P2_deck_cards[4] = {'Darth Vader',60,4}
-    P2_deck_cards[5] = {'Yoda',60,4}
-    P2_deck_cards[6] = {'Ahsoka Tano Fulcrum',60,4}
-    P2_deck_cards[7] = {'Jedi Knight Anakin Skywalker',60,4}
-    P2_deck_cards[8] = {'Supreme Leader Snoke',60,4}
-    P2_deck_cards[9] = {'Count Dooku',60,4}
-    P2_deck_cards[10] = {'Pong Krell',60,4}
-    P2_deck_cards[11] = {'Jedi Knight Luke Skywalker',60,4}
-    P2_deck_cards[12] = {'Grand Inquisitor',60,4}
-    P2_deck_cards[13] = {'Hermit Yoda',60,4}
-    P2_deck_cards[14] = {'Sith Eternal Emperor',60,4}
-    P2_deck_cards[15] = {'Bendu',60,4}
-    P2_deck_cards[16] = {'Ninth Sister',60,4}
-    P2_deck_cards[17] = {'Trilla Suduri',60,4}
+    P2_deck_cards[0] = {'Darth Vader',60,4}
+    P2_deck_cards[1] = {'Yoda',60,4}
+    P2_deck_cards[2] = {'Jedi Knight Revan',60,4}
+    P2_deck_cards[3] = {'Zillo Beast',60,4}
+    P2_deck_cards[4] = {'Mace Windu',60,4}
+    P2_deck_cards[5] = {'Ahsoka Tano Mandalorian',60,4}
+    P2_deck_cards[6] = {'Jedi Knight Anakin Skywalker',60,4}
+    P2_deck_cards[7] = {'Emperor Palpatine',60,4}
+    P2_deck_cards[8] = {'The Father',60,4}
+    P2_deck_cards[9] = {'Darth Revan',60,4}
+    P2_deck_cards[10] = {'Hermit Luke Skywalker',60,4}
+    P2_deck_cards[11] = {'Meetra Surik',60,4}
+    P2_deck_cards[12] = {'Darth Nihilus',60,4}
+    P2_deck_cards[13] = {'The Daughter',60,4}
+    P2_deck_cards[14] = {'The Son',60,4}
+    P2_deck_cards[15] = {'Force Priestess',60,4}
+    P2_deck_cards[16] = {'Sith Eternal Emperor',60,4}
+    P2_deck_cards[17] = {'Bendu',60,4}
 
     gStateMachine:change('GameState',{'Belsavis.jpg', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
 end
