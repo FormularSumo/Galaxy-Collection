@@ -256,9 +256,9 @@ Characters = {
 },
 
 ['Atris'] = {
-    ['melee_offense'] = 18450,
+    ['melee_offense'] = 18440,
     ['ranged_offense'] = 17100,
-    ['defense'] = 17523,
+    ['defense'] = 17580,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast',
@@ -1157,7 +1157,7 @@ Characters = {
 ['General Grievous'] = {
     ['melee_offense'] = 19001,
     ['ranged_offense'] = 15932,
-    ['defense'] = 17942,
+    ['defense'] = 17882,
     ['evade'] = 0.06,
     ['range'] = 3,
     ['weapon'] = 'Blue Lightsaber',
@@ -1445,9 +1445,9 @@ Characters = {
 },
 
 ['Jaro Tapal'] = {
-    ['melee_offense'] = 17880,
-    ['ranged_offense'] = 16880,
-    ['defense'] = 18030,
+    ['melee_offense'] = 17820,
+    ['ranged_offense'] = 16713,
+    ['defense'] = 18080,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast',
@@ -2403,8 +2403,8 @@ Characters = {
 
 ['Visas Marr'] = {
     ['melee_offense'] = 18103,
-    ['ranged_offense'] = 17122,
-    ['defense'] = 17745,
+    ['ranged_offense'] = 17182,
+    ['defense'] = 17695,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast',
