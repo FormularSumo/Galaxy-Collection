@@ -69,7 +69,7 @@ Characters = {
     ['defense'] = 17726,
     ['evade'] = 0.05,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -79,7 +79,7 @@ Characters = {
     ['defense'] = 17654,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -107,7 +107,7 @@ Characters = {
     ['defense'] = 17726,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -127,7 +127,7 @@ Characters = {
     ['evade'] = 0.1,
     ['range'] = 2,
     ['weapon'] = 'White Lightsaber', 
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon_count'] = 2
 },
 
@@ -138,7 +138,7 @@ Characters = {
     ['evade'] = 0.1,
     ['range'] = 2,
     ['weapon'] = 'White Lightsaber', 
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon_count'] = 2
 },
 
@@ -148,7 +148,7 @@ Characters = {
     ['defense'] = 15234,
     ['evade'] = 0.1,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Yellow Lightsaber',
     ['weapon2'] = 'Green Lightsaber',
     ['weapon_count'] = 2
@@ -161,7 +161,7 @@ Characters = {
     ['evade'] = 0.1,
     ['range'] = 2,
     ['weapon'] = 'Blue Lightsaber',
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon_count'] = 2
 },
 
@@ -261,7 +261,7 @@ Characters = {
     ['defense'] = 17523,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -307,7 +307,7 @@ Characters = {
     ['defense'] = 15453,
     ['evade'] = 0.1,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -440,7 +440,7 @@ Characters = {
     ['defense'] = 14967,
     ['evade'] = 0.06,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -554,7 +554,7 @@ Characters = {
     ['defense'] = 17806,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -591,7 +591,7 @@ Characters = {
     ['defense'] = 18205,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -601,7 +601,7 @@ Characters = {
     ['defense'] = 14424,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -747,7 +747,7 @@ Characters = {
     ['defense'] = 17677,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -757,7 +757,7 @@ Characters = {
     ['defense'] = 17250,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -767,7 +767,7 @@ Characters = {
     ['defense'] = 17545,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -777,7 +777,7 @@ Characters = {
     ['defense'] = 18001,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -787,7 +787,7 @@ Characters = {
     ['defense'] = 15700,
     ['evade'] = 0.05,
     ['range'] = 5,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -807,7 +807,7 @@ Characters = {
     ['defense'] = 19900,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -817,7 +817,7 @@ Characters = {
     ['defense'] = 17455,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Purple Lightsaber',
     ['weapon_count'] = 3
 },
@@ -828,7 +828,7 @@ Characters = {
     ['defense'] = 18600,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -866,7 +866,7 @@ Characters = {
     ['defense'] = 18093,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -946,7 +946,7 @@ Characters = {
     ['defense'] = 18010,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -956,7 +956,7 @@ Characters = {
     ['defense'] = 17991,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Inquisitor Lightsaber'
 },
 
@@ -1008,7 +1008,7 @@ Characters = {
     ['defense'] = 17816,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1018,7 +1018,7 @@ Characters = {
     ['defense'] = 17735,
     ['evade'] = 0.07,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -1066,7 +1066,7 @@ Characters = {
     ['defense'] = 17787,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Inquisitor Lightsaber'
 },
 
@@ -1134,7 +1134,7 @@ Characters = {
     ['defense'] = 20130,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile'] = 'Force Blast'
+    ['projectile'] = 'Blue Force Blast'
 },
 
 ['Gamorrean Guard'] = {
@@ -1226,7 +1226,7 @@ Characters = {
     ['defense'] = 17706,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Inquisitor Lightsaber'
 },
 
@@ -1263,7 +1263,7 @@ Characters = {
     ['defense'] = 9430,
     ['evade'] = 0,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast'
+    ['projectile'] = 'Blue Force Blast'
 },
 
 ['Guavian Death Gang Soldier'] = {
@@ -1308,7 +1308,7 @@ Characters = {
     ['defense'] = 19455,
     ['evade'] = 0.12,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1317,7 +1317,7 @@ Characters = {
     ['defense'] = 17865,
     ['evade'] = 0.02,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast'
+    ['projectile'] = 'Blue Force Blast'
 },
 
 ['Hevy'] = {
@@ -1389,7 +1389,7 @@ Characters = {
     ['defense'] = 18012,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1450,7 +1450,7 @@ Characters = {
     ['defense'] = 18030,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Double Blue Lightsaber'
 },
 
@@ -1470,7 +1470,7 @@ Characters = {
     ['defense'] = 17954,
     ['evade'] = 0.05,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1480,7 +1480,7 @@ Characters = {
     ['defense'] = 17800,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -1490,7 +1490,7 @@ Characters = {
     ['defense'] = 19800,
     ['evade'] = 0.05,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Purple Lightsaber'
 },
 
@@ -1500,7 +1500,7 @@ Characters = {
     ['defense'] = 18564,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1537,7 +1537,7 @@ Characters = {
     ['defense'] = 8990,
     ['evade'] = 0.1,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1556,7 +1556,7 @@ Characters = {
     ['defense'] = 18002,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'  
 },
 
@@ -1566,7 +1566,7 @@ Characters = {
     ['defense'] = 18078,
     ['evade'] = 0.05,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'  
 },
 
@@ -1603,7 +1603,7 @@ Characters = {
     ['defense'] = 17275,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -1629,7 +1629,7 @@ Characters = {
     ['defense'] = 17564,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Crossguard Lightsaber'
 },
 
@@ -1639,7 +1639,7 @@ Characters = {
     ['defense'] = 17532,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -1683,7 +1683,7 @@ Characters = {
     ['defense'] = 17839,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -1693,7 +1693,7 @@ Characters = {
     ['defense'] = 18574,
     ['evade'] = 0.05,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Purple Lightsaber'
 },
 
@@ -1711,7 +1711,7 @@ Characters = {
     ['defense'] = 17583,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Double Red Lightsaber'
 },
 
@@ -1721,7 +1721,7 @@ Characters = {
     ['defense'] = 17980,
     ['evade'] = 0.05,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1769,7 +1769,7 @@ Characters = {
     ['defense'] = 18206,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Inquisitor Lightsaber'
 },
 
@@ -1788,7 +1788,7 @@ Characters = {
     ['defense'] = 18303,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1807,7 +1807,7 @@ Characters = {
     ['defense'] = 14886,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1880,7 +1880,7 @@ Characters = {
     ['defense'] = 17632,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -1909,7 +1909,7 @@ Characters = {
     ['range'] = 2,
     ['weapon'] = 'Double Green Lightsaber',
     ['weapon2'] = 'Double Blue Lightsaber',
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon_count'] = 2
 },
 
@@ -1948,7 +1948,7 @@ Characters = {
     ['defense'] = 17779,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -1958,7 +1958,7 @@ Characters = {
     ['defense'] = 17695,
     ['evade'] = 0.07,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -2043,7 +2043,7 @@ Characters = {
     ['defense'] = 17801,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -2062,7 +2062,7 @@ Characters = {
     ['defense'] = 17349,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Double Red Lightsaber'
 },
 
@@ -2097,7 +2097,7 @@ Characters = {
     ['defense'] = 17912,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Inquisitor Lightsaber'
 },
 
@@ -2107,7 +2107,7 @@ Characters = {
     ['defense'] = 18003,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -2142,7 +2142,7 @@ Characters = {
     ['defense'] = 18050,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'  
 },
 
@@ -2179,7 +2179,7 @@ Characters = {
     ['defense'] = 18149,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -2225,7 +2225,7 @@ Characters = {
     ['defense'] = 13887,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -2267,7 +2267,7 @@ Characters = {
     ['defense'] = 14521,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'White Lightsaber'
 },
 
@@ -2284,7 +2284,7 @@ Characters = {
     ['defense'] = 20000,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile'] = 'Force Blast'
+    ['projectile'] = 'Blue Force Blast'
 },
 
 ['The Father'] = {
@@ -2293,7 +2293,7 @@ Characters = {
     ['defense'] = 20696,
     ['evade'] = 0.05,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast'
+    ['projectile'] = 'Blue Force Blast'
 },
 
 ['The Son'] = {
@@ -2311,7 +2311,7 @@ Characters = {
     ['defense'] = 16927,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
 },
 
@@ -2321,7 +2321,7 @@ Characters = {
     ['defense'] = 17594,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -2349,7 +2349,7 @@ Characters = {
     ['defense'] = 17245,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Inquisitor Lightsaber'
 },
 
@@ -2407,7 +2407,7 @@ Characters = {
     ['defense'] = 17745,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -2470,7 +2470,7 @@ Characters = {
     ['defense'] = 16995,
     ['evade'] = 0.12,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
 },
 
@@ -2480,7 +2480,7 @@ Characters = {
     ['defense'] = 18835,
     ['evade'] = 0.12,
     ['range'] = 2,
-    ['projectile'] = 'Force Blast',
+    ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Yoda Lightsaber'
    
 },
@@ -2491,7 +2491,7 @@ Characters = {
     ['defense'] = 17390,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['projectile'] = 'Force Blast'
+    ['projectile'] = 'Blue Force Blast'
 },
 
 ['Zillo Beast'] = {
