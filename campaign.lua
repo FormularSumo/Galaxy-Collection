@@ -70,23 +70,23 @@ end
 
 function maxed_light_side()
     P2_deck_cards[0] = {'Ahsoka Tano Fulcrum',60,4}
-    P2_deck_cards[1] = {'Yoda',60,4}
-    P2_deck_cards[2] = {'Hermit Luke Skywalker',60,4}
-    P2_deck_cards[3] = {'Mace Windu',60,4}
-    P2_deck_cards[4] = {'Jedi Master Obi-Wan Kenobi',60,4}
-    P2_deck_cards[5] = {'Jedi Knight Luke Skywalker',60,4}
-    P2_deck_cards[6] = {'Aayla Secura',60,4}
-    P2_deck_cards[7] = {'Agen Kolar',60,4}
-    P2_deck_cards[8] = {'Jedi Knight Anakin Skywalker',60,4}
-    P2_deck_cards[9] = {'Ahsoka Tano S7',60,4}
-    P2_deck_cards[10] = {'Saesee Tiin',60,4}
-    P2_deck_cards[11] = {'Quinlan Vos',60,4}
-    P2_deck_cards[12] = {'Din Djarin',60,4}
-    P2_deck_cards[13] = {'Boba Fett Mandalorian',60,4}
-    P2_deck_cards[14] = {'Bendu',60,4}
-    P2_deck_cards[15] = {'Hermit Yoda',60,4}
-    P2_deck_cards[16] = {'Nightsister Merrin',60,4}
-    P2_deck_cards[17] = {'Bo-Katan Kryze',60,4}
+    P2_deck_cards[1] = {'Hermit Luke Skywalker',60,4}
+    P2_deck_cards[2] = {'Jedi Knight Revan',60,4}
+    P2_deck_cards[3] = {'Yoda',60,4}
+    P2_deck_cards[4] = {'Ahsoka Tano Mandalorian',60,4}
+    P2_deck_cards[5] = {'Ahsoka Tano S7',60,4}
+    P2_deck_cards[6] = {'Jedi Knight Luke Skywalker',60,4}
+    P2_deck_cards[7] = {'Meetra Surik',60,4}
+    P2_deck_cards[8] = {'Mace Windu',60,4}
+    P2_deck_cards[9] = {'Jedi Knight Anakin Skywalker',60,4}
+    P2_deck_cards[10] = {'Hermit Yoda',60,4}
+    P2_deck_cards[11] = {'Jedi Master Obi-Wan Kenobi',60,4}
+    P2_deck_cards[12] = {'Pong Krell',60,4}
+    P2_deck_cards[13] = {'Kit Fisto',60,4}
+    P2_deck_cards[14] = {'The Daughter',60,4}
+    P2_deck_cards[15] = {'Kreia',60,4}
+    P2_deck_cards[16] = {'Quinlan Vos',60,4}
+    P2_deck_cards[17] = {'Lana Beniko',60,4}
     
     gStateMachine:change('GameState',{'Voss.jpg', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})
 end
