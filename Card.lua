@@ -62,7 +62,7 @@ function Card:init(name,row,column,team,number,level,evolution)
         self.weapon = Weapon(self.x, self.y, self.weapon_image, Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'] , self.team, self.width, self.height, self.range)
     end
 
-    if (self.name['projectile'] == 'Lightning' or self.name['projectile'] == 'Force Blast') and self.weapon == nil then
+    if (self.name['projectile'] == 'Lightning' or self.name['projectile'] == 'Force Blast' or self.name['projectile'] == 'Force Drain') and self.weapon == nil then
         self.melee_projectile = true
     end
 
@@ -155,7 +155,7 @@ function Card:aim()
     if (self.column == 5 or self.column == 6) and self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
         self.target = self.number
         if self.melee_projectile then
-            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
+            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.name['projectile'], self.team, self.width, self.height)
         end
         self.melee_attack = true
     elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense * 0.9 > self.ranged_offense) then
@@ -165,7 +165,7 @@ function Card:aim()
             self.target = self.number+1
         end
         if self.melee_projectile then
-            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
+            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.name['projectile'], self.team, self.width, self.height)
         end
         self.melee_attack = true
     else
@@ -189,7 +189,7 @@ function Card:aim()
             end
         end
         if self.target ~= nil and self.projectile_image then
-            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.team, self.width, self.height)
+            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.name['projectile'], self.team, self.width, self.height)
         end
     end
     if self.weapon then

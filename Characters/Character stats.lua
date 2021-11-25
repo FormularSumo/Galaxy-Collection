@@ -757,7 +757,7 @@ Characters = {
     ['defense'] = 17250,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['projectile'] = 'Red Force Blast',
+    ['projectile'] = 'Force Drain',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -787,7 +787,7 @@ Characters = {
     ['defense'] = 15700,
     ['evade'] = 0.05,
     ['range'] = 5,
-    ['projectile'] = 'Red Force Blast',
+    ['projectile'] = 'Force Drain',
     ['weapon'] = 'Red Lightsaber'
 },
 

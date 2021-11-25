@@ -1,20 +1,35 @@
 Projectile = Class{__includes = BaseState}
 
-function Projectile:init(x,y,finalx,finaly,projectile,team,xoffset,yoffset)
+function Projectile:init(x,y,finalx,finaly,projectile,name,team,xoffset,yoffset)
     self.team = team
     self.image = projectile
     self.width,self.height = self.image:getDimensions()
 
     if self.team == 1 then
-        self.x = x + xoffset / 2 - self.width / 2
-        self.finalx = finalx + xoffset / 2 - self.width / 2
-        self.y = y + yoffset / 2 - self.height / 2
-        self.finaly = finaly + yoffset / 2 - self.height / 2
+        if name ~= 'Force Drain' then
+            self.x = x + xoffset / 2 - self.width / 2
+            self.finalx = finalx + xoffset / 2 - self.width / 2
+            self.y = y + yoffset / 2 - self.height / 2
+            self.finaly = finaly + yoffset / 2 - self.height / 2
+        else
+            self.x = finalx + xoffset / 2 - self.width / 2
+            self.finalx = x + xoffset / 2 - self.width / 2
+            self.y = finaly + yoffset / 2 - self.height / 2
+            self.finaly = y + yoffset / 2 - self.height / 2
+        end
     else
-        self.x = x + xoffset / 2 + self.width / 2
-        self.finalx = finalx + xoffset / 2 + self.width / 2
-        self.y = y + yoffset / 2 + self.height / 2
-        self.finaly = finaly + yoffset / 2 + self.height / 2
+        print(tostring(projectile))
+        if name ~= 'Force Drain' then
+            self.x = x + xoffset / 2 + self.width / 2
+            self.finalx = finalx + xoffset / 2 + self.width / 2
+            self.y = y + yoffset / 2 + self.height / 2
+            self.finaly = finaly + yoffset / 2 + self.height / 2
+        else
+            self.x = finalx + xoffset / 2 + self.width / 2
+            self.finalx = x + xoffset / 2 + self.width / 2
+            self.y = finaly + yoffset / 2 + self.height / 2
+            self.finaly = y + yoffset / 2 + self.height / 2
+        end
     end
 
     self.x_distance = tonumber(self.finalx-self.x)
