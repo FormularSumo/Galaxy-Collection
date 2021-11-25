@@ -42,24 +42,24 @@ function throne_room()
 end
 
 function maxed_dark_side()
-    P2_deck_cards[0] = {'Kylo Ren',60,4}
-    P2_deck_cards[1] = {'Supreme Leader Snoke',60,4}
-    P2_deck_cards[2] = {'Emperor Palpatine',60,4}
-    P2_deck_cards[3] = {'Darth Vader',60,4}
-    P2_deck_cards[4] = {'Count Dooku',60,4}
-    P2_deck_cards[5] = {'Ninth Sister',60,4}
-    P2_deck_cards[6] = {'General Grievous',60,4}
-    P2_deck_cards[7] = {'Maul',60,4}
-    P2_deck_cards[8] = {'Pong Krell',60,4}
-    P2_deck_cards[9] = {'Savage Opress',60,4}
-    P2_deck_cards[10] = {'Asajj Ventress',60,4}
-    P2_deck_cards[11] = {'Eighth Brother',60,4}
-    P2_deck_cards[12] = {'Pre Vizsla',60,4}
-    P2_deck_cards[13] = {'Trilla Suduri',60,4}
-    P2_deck_cards[14] = {'Sith Eternal Emperor',60,4}
-    P2_deck_cards[15] = {'Fifth Brother',60,4}
-    P2_deck_cards[16] = {'Grand Inquisitor',60,4}
-    P2_deck_cards[17] = {'Seventh Sister',60,4}
+    P2_deck_cards[0] = {'Darth Marr',60,4}
+    P2_deck_cards[1] = {'Grand Inquisitor',60,4}
+    P2_deck_cards[2] = {'Darth Vader',60,4}
+    P2_deck_cards[3] = {'Darth Sion',60,4}
+    P2_deck_cards[4] = {'Ninth Sister',60,4}
+    P2_deck_cards[5] = {'Count Dooku',60,4}
+    P2_deck_cards[6] = {'Seventh Sister',60,4}
+    P2_deck_cards[7] = {'Darth Malgus',60,4}
+    P2_deck_cards[8] = {'Darth Revan',60,4}
+    P2_deck_cards[9] = {'Emperor Palpatine',60,4}
+    P2_deck_cards[10] = {'Supreme Leader Snoke',60,4}
+    P2_deck_cards[11] = {'Darth Bane',60,4}
+    P2_deck_cards[12] = {'Fifth Brother',60,4}
+    P2_deck_cards[13] = {'Darth Nihilus',60,4}
+    P2_deck_cards[14] = {'The Son',60,4}
+    P2_deck_cards[15] = {'Sith Eternal Emperor',60,4}
+    P2_deck_cards[16] = {'Trilla Suduri',60,4}
+    P2_deck_cards[17] = {'Eighth Brother',60,4}
 
     if Settings['videos'] then
         gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
