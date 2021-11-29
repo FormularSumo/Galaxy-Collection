@@ -146,7 +146,7 @@ Characters = {
     ['melee_offense'] = 16082,
     ['ranged_offense'] = 15082,
     ['defense'] = 15234,
-    ['evade'] = 0.1,
+    ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Yellow Lightsaber',
@@ -305,10 +305,20 @@ Characters = {
     ['melee_offense'] = 15850,
     ['ranged_offense'] = 14850,
     ['defense'] = 15453,
-    ['evade'] = 0.1,
+    ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
+},
+
+['Bastila Shan'] = {
+    ['melee_offense'] = 17823,
+    ['ranged_offense'] = 16922,
+    ['defense'] = 14999,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Double Yellow Lightsaber'
 },
 
 ['Bastila Shan Fallen'] = {
@@ -1437,6 +1447,16 @@ Characters = {
     ['range'] = 1
 },
 
+['Jaesa Willsaam'] = {
+    ['melee_offense'] = 17111,
+    ['ranged_offense'] = 17344,
+    ['defense'] = 14233,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Purple Lightning',
+    ['weapon'] = 'Double Red Lightsaber'
+},
+
 ['Jango Fett'] = {
     ['melee_offense'] = 15779,
     ['ranged_offense'] = 17536,
@@ -1512,6 +1532,16 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
+},
+
+['Jedi Temple Guard'] = {
+    ['melee_offense'] = 16033,
+    ['ranged_offense'] = 15209,
+    ['defense'] = 15224,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Double Yellow Lightsaber'
 },
 
 ['Jess Pava'] = {
@@ -1809,6 +1839,16 @@ Characters = {
     ['evade'] = 0.01,
     ['range'] = 3,
     ['projectile'] = 'Fire'
+},
+
+['Oppo Rancisis'] = {
+    ['melee_offense'] = 15797,
+    ['ranged_offense'] = 15789,
+    ['defense'] = 15122,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Green Lightsaber'
 },
 
 ['Pablo-Jill'] = {
@@ -2156,6 +2196,16 @@ Characters = {
     ['weapon'] = 'Blue Lightsaber'  
 },
 
+['Sith Assassin'] = {
+    ['melee_offense'] = 15122,
+    ['ranged_offense'] = 16833,
+    ['defense'] = 14999,
+    ['evade'] = 0.3,
+    ['range'] = 2,
+    ['projectile'] = 'Lightning',
+    ['weapon'] = 'Double Red Lightsaber'
+},
+
 ['Sith Eternal Emperor'] = {
     ['melee_offense'] = 19446,
     ['ranged_offense'] = 19446,
@@ -2163,6 +2213,17 @@ Characters = {
     ['evade'] = 0,
     ['range'] = 5,
     ['projectile'] = 'Lightning'
+},
+
+['Sith Marauder'] = {
+    ['melee_offense'] = 17122,
+    ['ranged_offense'] = 15676,
+    ['defense'] = 14622,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Red Lightsaber',
+    ['weapon_count'] = 2
 },
 
 ['Sith Trooper'] = {
