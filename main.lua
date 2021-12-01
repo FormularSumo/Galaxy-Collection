@@ -420,6 +420,7 @@ function love.draw()
     -- end
 
     -- stats = love.graphics.getStats()
+    -- stats = {love.graphics.getRendererInfo()}
     -- y = 0
     -- for k, pair in pairs(stats) do
     --     love.graphics.print(k .. ' ' .. pair,0,y)
