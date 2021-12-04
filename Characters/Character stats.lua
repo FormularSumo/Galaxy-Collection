@@ -399,7 +399,8 @@ Characters = {
     ['defense'] = 17548,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Gaffi Stick'
 },
 
 ['Boba Fett ROTJ'] = {
@@ -2843,7 +2844,8 @@ Characters = {
     ['defense'] = 5600,
     ['evade'] = 0.02,
     ['range'] = 5,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Gaffi Stick'
 },
 
 ['Unkar Plutt'] = {
