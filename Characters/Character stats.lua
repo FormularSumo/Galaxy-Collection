@@ -1672,7 +1672,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Purple Lightning',
-    ['weapon'] = 'Double Red Lightsaber'
+    ['weapon'] = 'Double Purple Lightsaber'
 },
 
 ['Jango Fett'] = {
