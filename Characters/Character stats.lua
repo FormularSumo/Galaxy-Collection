@@ -2778,7 +2778,8 @@ Characters = {
     ['defense'] = 20000,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile'] = 'Red Lightning'
+    ['projectile'] = 'Red Lightning',
+    ['weapon'] = 'Dagger of Mortis'
 },
 
 ['Tiplee'] = {
