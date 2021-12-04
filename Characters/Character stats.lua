@@ -1563,7 +1563,8 @@ Characters = {
     ['defense'] = 13632,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Electrostaff'
 },
 
 ['Hoth Rebel Soldier'] = {
@@ -2008,7 +2009,8 @@ Characters = {
     ['defense'] = 13484,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Electrostaff'
 },
 
 ['Mandalore The Preserver'] = {
@@ -2318,7 +2320,8 @@ Characters = {
     ['defense'] = 15063,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Electrostaff'
 },
 
 ['Qi\'ra'] = {
@@ -2422,6 +2425,7 @@ Characters = {
     ['defense'] = 14900,
     ['evade'] = 0.05,
     ['range'] = 1,
+    ['weapon'] = 'Electrostaff'
 },
 
 ['Rush Clovis'] = {

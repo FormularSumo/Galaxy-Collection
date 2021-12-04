@@ -28,7 +28,7 @@ function Weapon:init(x,y,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffse
 
     self.width,self.height = self.image:getDimensions()
 
-    self.double = self.image == Weapons['Inquisitor Lightsaber'] or self.image == Weapons['Double Red Lightsaber'] or self.image == Weapons['Double Blue Lightsaber'] or self.image == Weapons['Double Green Lightsaber'] or self.image == Weapons['Double Yellow Lightsaber']
+    self.double = self.image == Weapons['Inquisitor Lightsaber'] or self.image == Weapons['Double Red Lightsaber'] or self.image == Weapons['Double Blue Lightsaber'] or self.image == Weapons['Double Green Lightsaber'] or self.image == Weapons['Double Yellow Lightsaber'] or self.image == Weapons['Electrostaff']
 end
 
 function Weapon:updateposition(x,y)
