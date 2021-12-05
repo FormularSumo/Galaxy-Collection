@@ -39,10 +39,22 @@ function Weapon:init(x,y,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffse
 end
 
 function Weapon:updateposition(x,y)
-    if self.team == 1 and not self.short or self.team == 2 and self.short then
-        self.x = x + self.xoffset * 0.35
+    if self.team == 1 then
+        if not self.short then
+            self.x = x + self.xoffset * 0.35
+        elseif self.short and self.static then
+            self.x = x + self.xoffset + self.width / 2
+        else
+            self.x = x + self.xoffset * 0.65
+        end
     else
-        self.x = x + self.xoffset * 0.65
+        if not self.short then
+            self.x = x + self.xoffset * 0.65
+        elseif self.short and self.static then
+            self.x = x - self.width / 2
+        else
+            self.x = x + self.xoffset * 0.35
+        end
     end
     if not self.short then
         self.y = y + self.yoffset * 0.7
