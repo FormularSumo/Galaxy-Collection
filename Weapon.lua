@@ -8,8 +8,13 @@ function Weapon:init(x,y,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffse
     if not weapon_count then self.weapon_count = 1 else self.weapon_count = weapon_count end
     self.image = weapon
     self.double = self.image == Weapons['Inquisitor Lightsaber'] or self.image == Weapons['Double Red Lightsaber'] or self.image == Weapons['Double Blue Lightsaber'] or self.image == Weapons['Double Green Lightsaber'] or self.image == Weapons['Double Yellow Lightsaber'] or self.image == Weapons['Double Purple Lightsaber'] or self.image == Weapons['Electrostaff']
+<<<<<<< HEAD
     self.short = self.image == Weapons['Dagger of Mortis'] or Weapons['Lightning'] or Weapons['Knife'] or Weapons['Flamethrower']
     self.static = self.image == Weapons['Lightning'] or Weapons['Flamethrower']
+=======
+    self.short = self.image == Weapons['Dagger of Mortis'] or self.image == Weapons['Lightning'] or self.image == Weapons['Knife'] or self.image == Weapons['Flamethrower']
+    self.static = self.image == Weapons['Lightning'] or self.image == Weapons['Flamethrower']
+>>>>>>> 749b675d9c4147f9c112b02c027bcde9ff2a3681
 
     if self.team == 1 then
         if self.static then
@@ -46,8 +51,12 @@ function Weapon:updateposition(x,y)
     end
     if not self.short then
         self.y = y + self.yoffset * 0.7
-    else 
-        self.y = y + self.yoffset * 0.5 - self.height / 2
+    else
+        if not self.static then
+            self.y = y + self.yoffset * 0.6
+        else
+            self.y = y + self.yoffset * 0.5 - self.height / 2
+        end
     end
     if self.static and self.team == 2 then
         self.y = self.y + self.height
