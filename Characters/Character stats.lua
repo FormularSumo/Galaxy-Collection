@@ -409,7 +409,8 @@ Characters = {
     ['defense'] = 14201,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Flamethrower'
 },
 
 ['Bodhi Rook'] = {
@@ -436,7 +437,8 @@ Characters = {
     ['defense'] = 14308,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Yellow Laser'
+    ['projectile'] = 'Yellow Laser',
+    ['weapon'] = 'Flamethrower'
 },
 
 ['Bolla Ropal'] = {
@@ -507,7 +509,8 @@ Characters = {
     ['defense'] = 14741,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Lightning'
 },
 
 ['Cal Kestis'] = {
@@ -980,7 +983,8 @@ Characters = {
     ['defense'] = 14605,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile'] = 'Yellow Laser'
+    ['projectile'] = 'Yellow Laser',
+    ['weapon'] = 'Flamethrower'
 },
 
 ['Del Meeko'] = {
@@ -1313,6 +1317,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Flamethrower'
 },
 
 ['General Grievous'] = {
@@ -1897,7 +1902,8 @@ Characters = {
     ['defense'] = 14968,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Yellow Laser'
+    ['projectile'] = 'Yellow Laser',
+    ['weapon'] = 'Flamethrower'
 },
 
 ['Kreia'] = {
@@ -2362,7 +2368,8 @@ Characters = {
     ['melee_offense'] = 9241,
     ['defense'] = 8765,
     ['evade'] = 0.15,
-    ['range'] = 2
+    ['range'] = 2,
+    ['weapon'] = 'Lightning'
 },
 
 ['Rako Hardeen'] = {
@@ -2416,6 +2423,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Flamethrower'
 },
 
 ['Royal Guard'] = {
@@ -2869,6 +2877,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Yellow Laser',
+    ['weapon'] = 'Flamethrower'
 },
 
 ['Ushar'] = {
