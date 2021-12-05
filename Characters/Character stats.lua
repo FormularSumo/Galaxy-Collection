@@ -2412,7 +2412,8 @@ Characters = {
     ['melee_offense'] = 6223,
     ['defense'] = 6450,
     ['evade'] = 0.02,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Force Pike'
 },
 
 ['Rey'] = {
@@ -2439,7 +2440,8 @@ Characters = {
     ['melee_offense'] = 15037,
     ['defense'] = 15164,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Force Pike'
 },
 
 ['Rukh'] = {
@@ -2520,7 +2522,8 @@ Characters = {
     ['melee_offense'] = 6124,
     ['defense'] = 6567,
     ['evade'] = 0.02,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Force Pike'
 },
 
 ['Seventh Sister'] = {
