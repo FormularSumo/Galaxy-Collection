@@ -47,7 +47,10 @@ function Weapon:updateposition(x,y)
     if not self.short then
         self.y = y + self.yoffset * 0.7
     else 
-        self.y = y + self.yoffset * 0.5
+        self.y = y + self.yoffset * 0.5 - self.height / 2
+    end
+    if self.static and self.team == 2 then
+        self.y = self.y + self.height
     end
 end
 
