@@ -1129,7 +1129,8 @@ Characters = {
     ['defense'] = 13255,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Flamethrower'
 },
 
 ['Embo'] = {
@@ -1247,7 +1248,8 @@ Characters = {
     ['melee_offense'] = 10105,
     ['defense'] = 7500,
     ['evade'] = 0.01,
-    ['range'] = 2
+    ['range'] = 2,
+    ['weapon'] = 'Flamethrower'
 },
 
 ['First Order Jet Trooper'] = {
@@ -2104,6 +2106,7 @@ Characters = {
     ['defense'] = 14501,
     ['evade'] = 0.04,
     ['range'] = 1,
+    ['weapon'] = 'Beskar Spear'
 },
 
 ['Mother Talzin'] = {
