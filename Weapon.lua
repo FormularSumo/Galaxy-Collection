@@ -5,17 +5,15 @@ function Weapon:init(x,y,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffse
     self.xoffset = xoffset
     self.yoffset = yoffset
     self.show = false
-    if self.team == 1 then
-        self.x = x + self.xoffset * 0.35
-        self.angle = math.rad(210)
-    else
-        self.x = x + self.xoffset * 0.65
-        self.angle = math.rad(150)
-    end
+    self.image = weapon
     if not weapon_count then self.weapon_count = 1 else self.weapon_count = weapon_count end
 
-    self.y = y + self.yoffset * 0.7
-    self.image = weapon
+    if self.team == 1 then
+        self.angle = math.rad(210)
+    else
+        self.angle = math.rad(150)
+    end
+
     if self.weapon_count > 1 then
         if not weapon2 then self.image2 = weapon else self.image2 = weapon2 end
         if self.weapon_count > 2 then
@@ -27,12 +25,11 @@ function Weapon:init(x,y,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffse
     end
 
     self.width,self.height = self.image:getDimensions()
-
     self.double = self.image == Weapons['Inquisitor Lightsaber'] or self.image == Weapons['Double Red Lightsaber'] or self.image == Weapons['Double Blue Lightsaber'] or self.image == Weapons['Double Green Lightsaber'] or self.image == Weapons['Double Yellow Lightsaber'] or self.image == Weapons['Double Purple Lightsaber'] or self.image == Weapons['Electrostaff']
 end
 
 function Weapon:updateposition(x,y)
-    if self.team == 1 then
+    if self.team == 1 and self.image ~=  Weapons['Dagger of Mortis'] or self.team == 2 and self.image == Weapons['Dagger of Mortis'] then
         self.x = x + self.xoffset * 0.35
     else
         self.x = x + self.xoffset * 0.65
