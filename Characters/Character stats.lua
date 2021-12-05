@@ -559,7 +559,8 @@ Characters = {
     ['defense'] = 14177,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Phasma\'s Spear'
 },
 
 ['Captain Rex'] = {
@@ -1069,7 +1070,9 @@ Characters = {
     ['melee_offense'] = 15000,
     ['defense'] = 13187,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Kyuzo Petar',
+    ['weapon_count'] = 2
 },
 
 ['Dwarf Spider Droid'] = {
@@ -1161,7 +1164,8 @@ Characters = {
     ['melee_offense'] = 14320,
     ['defense'] = 15669,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Electroripper Staff'
 },
 
 ['Eno Cordova'] = {
@@ -1314,7 +1318,8 @@ Characters = {
     ['defense'] = 14369,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Bo-Rifle'
 },
 
 ['Gar Saxon'] = {
@@ -1472,7 +1477,8 @@ Characters = {
     ['defense'] = 15010,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Vibroblade'
 },
 
 ['Han Solo'] = {
@@ -1975,7 +1981,9 @@ Characters = {
     ['ranged_offense'] = 15052,
     ['defense'] = 12378,
     ['evade'] = 0.03,
-    ['range'] = 2
+    ['range'] = 2,
+    ['weapon'] = 'Vine',
+    ['weapon_count'] = 2
 },
 
 ['Leia Organa'] = {
@@ -2552,7 +2560,7 @@ Characters = {
     ['defense'] = 13990,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon'] = 'Lightsaber Pike'
 },
 
 ['Shadow Trooper'] = {
@@ -2685,7 +2693,9 @@ Characters = {
     ['defense'] = 9518,
     ['evade'] = 0.06,
     ['projectile'] = 'Fire',
-    ['range'] = 3
+    ['range'] = 3,
+    ['weapon'] = 'Sword',
+    ['weapon_count'] = 2
 },
 
 ['Tallie Lintra'] = {
@@ -2763,7 +2773,10 @@ Characters = {
     ['melee_offense'] = 14044,
     ['defense'] = 15000,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Tool 1',
+    ['weapon2'] = 'Tool 2',
+    ['weapon_count'] = 2
 },
 
 ['The Daughter'] = {
@@ -2798,7 +2811,7 @@ Characters = {
     ['defense'] = 15262,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Staff'
+    ['weapon'] = 'Phasma\'s Spear'
 },
 
 ['The Son'] = {
@@ -3030,7 +3043,8 @@ Characters = {
     ['defense'] = 15033,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Vibroblade'
 },
 
 ['Zam Wesell'] = {
