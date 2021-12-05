@@ -187,7 +187,8 @@ Characters = {
     ['melee_offense'] = 15526,
     ['defense'] = 15103,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Ap\'lek\'s Axe'
 },
 
 ['Aqua Droid'] = {
@@ -475,7 +476,8 @@ Characters = {
     ['defense'] = 14155,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Staff'
 },
 
 ['Burg'] = {
@@ -655,7 +657,8 @@ Characters = {
     ['defense'] = 15020,
     ['evade'] = 0.12,
     ['range'] = 3,
-    ['projectile'] = 'Yellow Laser'
+    ['projectile'] = 'Yellow Laser',
+    ['weapon'] = 'Chirrut\'s Staff'
 },
 
 ['Chopper'] = {
@@ -1139,7 +1142,8 @@ Characters = {
     ['defense'] = 15681,
     ['evade'] = 0.04,
     ['range'] = 5,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Embo\'s Shield'
 },
 
 ['Emperor Palpatine'] = {
@@ -1819,7 +1823,8 @@ Characters = {
     ['defense'] = 14849,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Truncheon'
 },
 
 ['Kanan Jarrus'] = {
@@ -1857,7 +1862,8 @@ Characters = {
     ['defense'] = 14996,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Ketsu\'s Staff'
 },
 
 ['Ki-Adi-Mundi'] = {
@@ -2735,7 +2741,8 @@ Characters = {
     ['melee_offense'] = 4013,
     ['defense'] = 3780,
     ['evade'] = 0.08,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Staff'
 },
 
 ['Tera Sinube'] = {
@@ -2786,7 +2793,8 @@ Characters = {
     ['melee_offense'] = 15123,
     ['defense'] = 15262,
     ['evade'] = 0.04,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Staff'
 },
 
 ['The Son'] = {
@@ -2851,7 +2859,8 @@ Characters = {
     ['melee_offense'] = 15617,
     ['defense'] = 15000,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Vibrocleaver'
 },
 
 ['Tusken Raider'] = {
@@ -2887,7 +2896,8 @@ Characters = {
     ['melee_offense'] = 15482,
     ['defense'] = 15134,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'War Club'
 },
 
 ['Veteran Han Solo'] = {
@@ -2912,7 +2922,8 @@ Characters = {
     ['melee_offense'] = 15492,
     ['defense'] = 15105,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Scythe'
 },
 
 ['Visas Marr'] = {
