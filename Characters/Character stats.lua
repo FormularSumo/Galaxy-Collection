@@ -117,7 +117,8 @@ Characters = {
     ['defense'] = 14919,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['projectile'] = 'Yellow Laser'
+    ['projectile'] = 'Yellow Laser',
+    ['weapon'] = 'Kallus\' Bo-Rifle'
 },
 
 ['Ahsoka Tano Fulcrum'] = {
