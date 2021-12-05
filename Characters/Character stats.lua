@@ -1142,7 +1142,7 @@ Characters = {
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile'] = 'Lightning',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon'] = 'Lightning'
 },
 
 ['Enfys Nest'] = {
