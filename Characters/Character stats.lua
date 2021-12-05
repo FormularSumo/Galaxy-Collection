@@ -1685,7 +1685,8 @@ Characters = {
     ['defense'] = 16964,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Flamethrower'
 },
 
 ['Jar Jar Binks'] = {
