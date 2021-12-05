@@ -8,7 +8,7 @@ function Weapon:init(x,y,weapon,weapon2,weapon3,weapon4,weapon_count,team,xoffse
     if not weapon_count then self.weapon_count = 1 else self.weapon_count = weapon_count end
     self.image = weapon
     self.double = self.image == Weapons['Inquisitor Lightsaber'] or self.image == Weapons['Double Red Lightsaber'] or self.image == Weapons['Double Blue Lightsaber'] or self.image == Weapons['Double Green Lightsaber'] or self.image == Weapons['Double Yellow Lightsaber'] or self.image == Weapons['Double Purple Lightsaber'] or self.image == Weapons['Electrostaff']
-    self.short = self.image == Weapons['Dagger of Mortis'] or Weapons['Lightning'] or Weapons['Knife']
+    self.short = self.image == Weapons['Dagger of Mortis'] or self.image == Weapons['Lightning'] or self.image == Weapons['Knife']
     self.static = self.image == Weapons['Lightning']
 
     if self.team == 1 then
