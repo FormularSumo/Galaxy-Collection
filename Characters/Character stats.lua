@@ -1017,7 +1017,8 @@ Characters = {
     ['defense'] = 15713,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Knife'
 },
 
 ['Director Krennic'] = {
@@ -1105,7 +1106,8 @@ Characters = {
     ['melee_offense'] = 15949,
     ['defense'] = 15239,
     ['evade'] = 0.03,
-    ['range'] = 1
+    ['range'] = 1,
+    ['weapon'] = 'Praetorian Weapon'
 },
 
 ['Elite Senate Commando'] = {
@@ -1583,7 +1585,8 @@ Characters = {
     ['defense'] = 15200,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile'] = 'Blue Laser'
+    ['projectile'] = 'Blue Laser',
+    ['weapon'] = 'Knife'
 },
 
 ['Iden Versio'] = {
@@ -2640,7 +2643,8 @@ Characters = {
     ['defense'] = 13604,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Knife'
 },
 
 
@@ -3041,7 +3045,8 @@ Characters = {
     ['defense'] = 13212,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Knife'
 },
 
 }
