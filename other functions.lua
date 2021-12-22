@@ -155,6 +155,7 @@ end
 
 function tutorial()
     P1_cards = {}
+    P1_deck_cards = {}
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
 
     P1_deck_edit(1,{'Grogu',60,4})
