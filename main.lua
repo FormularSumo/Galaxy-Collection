@@ -90,7 +90,7 @@ function love.load()
         tutorial()
     
     else
-        if love.filesystem.getInfo('Player 1 deck.txt') == nil then
+        if love.filesystem.getInfo('Player 1 deck.txt') == nil or bitser.loadLoveFile('Player 1 deck.txt') == nil then
             P1_deck_cards = {}
             bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
         else
@@ -104,7 +104,7 @@ function love.load()
             P1_deck_cards = {}
         end
 
-        if love.filesystem.getInfo('Player 1 cards.txt') == nil then
+        if love.filesystem.getInfo('Player 1 cards.txt') == nil or bitser.loadLoveFile('Player 1 cards.txt') == nil then
             bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
         else
             P1_cards = bitser.loadLoveFile('Player 1 cards.txt')
