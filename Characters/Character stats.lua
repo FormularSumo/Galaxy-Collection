@@ -1189,10 +1189,10 @@ Characters = {
 },
 
 ['Ezra Bridger S2'] = {
-    ['melee_offense'] = 9573,
-    ['ranged_offense'] = 8573,
-    ['defense'] = 9319,
-    ['evade'] = 0.05,
+    ['melee_offense'] = 9890,
+    ['ranged_offense'] = 9459,
+    ['defense'] = 9879,
+    ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile'] = 'Blue Laser',
     ['weapon'] = 'Blue Lightsaber'
@@ -1310,6 +1310,16 @@ Characters = {
     ['evade'] = 0.01,
     ['range'] = 1,
     ['projectile'] = 'Red Laser'
+},
+
+['Ganodi'] = {
+    ['melee_offense'] = 10132,
+    ['ranged_offense'] = 8765,
+    ['defense'] = 9964,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Green Lightsaber'
 },
 
 ['Garazeb Orrelios'] = {
@@ -1445,9 +1455,9 @@ Characters = {
 },
 
 ['Grogu'] = {
-    ['melee_offense'] = 4500,
+    ['melee_offense'] = 5560,
     ['ranged_offense'] = 13900,
-    ['defense'] = 9430,
+    ['defense'] = 9970,
     ['evade'] = 0,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast'
@@ -1460,6 +1470,16 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
+},
+
+['Gungi'] = {
+    ['melee_offense'] = 10233,
+    ['ranged_offense'] = 8400,
+    ['defense'] = 10233,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Green Lightsaber'
 },
 
 ['Hailfire Droid'] = {
@@ -1794,6 +1814,15 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Jinx'] = {
+    ['melee_offense'] = 8234,
+    ['ranged_offense'] = 10400,
+    ['defense'] = 10101,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+},
+
 ['Jocasta Nu'] = {
     ['melee_offense'] = 15907,
     ['ranged_offense'] = 15889,
@@ -1834,6 +1863,15 @@ Characters = {
     ['weapon'] = 'Truncheon'
 },
 
+['Kalifa'] = {
+    ['melee_offense'] = 8345,
+    ['ranged_offense'] = 10455,
+    ['defense'] = 10111,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+},
+
 ['Kanan Jarrus'] = {
     ['melee_offense'] = 16699,
     ['ranged_offense'] = 15579,
@@ -1847,8 +1885,8 @@ Characters = {
 ['Katooni'] = {
     ['melee_offense'] = 10590,
     ['ranged_offense'] = 9590,
-    ['defense'] = 8990,
-    ['evade'] = 0.1,
+    ['defense'] = 9800,
+    ['evade'] = 0.7,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Blue Lightsaber'
@@ -2210,6 +2248,15 @@ Characters = {
     ['weapon'] = 'Green Lightsaber'
 },
 
+['O-Mer'] = {
+    ['melee_offense'] = 8123,
+    ['ranged_offense'] = 10302,
+    ['defense'] = 10201,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+},
+
 ['Ord Enisence'] = {
     ['melee_offense'] = 15990,
     ['ranged_offense'] = 15980,
@@ -2263,6 +2310,16 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
+},
+
+['Petro'] = {
+    ['melee_offense'] = 9910,
+    ['ranged_offense'] = 9899,
+    ['defense'] = 9999,
+    ['evade'] = 0.07,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
 },
 
 ['Phase 1 Clone Trooper'] = {
@@ -2688,12 +2745,12 @@ Characters = {
 },
 
 ['Talia'] = {
-    ['melee_offense'] = 9718,
-    ['ranged_offense'] = 9718,
-    ['defense'] = 9518,
-    ['evade'] = 0.06,
-    ['projectile'] = 'Fire',
+    ['melee_offense'] = 9912,
+    ['ranged_offense'] = 9790,
+    ['defense'] = 9590,
+    ['evade'] = 0.05,
     ['range'] = 3,
+    ['projectile'] = 'Fire',
     ['weapon'] = 'Sword',
     ['weapon_count'] = 2
 },
@@ -3054,6 +3111,16 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile'] = 'Red Laser'
+},
+
+['Zatt'] = {
+    ['melee_offense'] = 10122,
+    ['ranged_offense'] = 9788,
+    ['defense'] = 9678,
+    ['evade'] = 0.07,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Green Lightsaber'
 },
 
 ['Zeffo Sage'] = {
