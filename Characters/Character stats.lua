@@ -1385,9 +1385,10 @@ Characters = {
 
 ['Geonosian Brood Alpha'] = {
     ['melee_offense'] = 9964,
-    ['defense'] = 9615,
+    ['defense'] = 9445,
     ['evade'] = 0.15,
-    ['range'] = 2
+    ['range'] = 2,
+    ['weapon'] = 'Glaive'
 },
 
 ['Gideon Hask'] = {
@@ -2398,6 +2399,15 @@ Characters = {
     ['projectile'] = 'Yellow Laser',
     ['weapon'] = 'Darksaber'
 
+},
+
+['Prime Minister Almec'] = {
+    ['melee_offense'] = 9340,
+    ['ranged_offense'] = 8801,
+    ['defense'] = 10340,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'Red Laser',
 },
 
 ['Purge Trooper'] = {
