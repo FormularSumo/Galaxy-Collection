@@ -10,7 +10,7 @@ Characters = {
 },
 
 ['41st Scout Battalion Clone Trooper'] = {
-    ['melee_offense'] = 8925,
+    ['melee_offense'] = 9425,
     ['ranged_offense'] = 9925,
     ['defense'] = 9612,
     ['evade'] = 0.03,
@@ -28,7 +28,7 @@ Characters = {
 },
 
 ['212th Clone Trooper'] = {
-    ['melee_offense'] = 8874,
+    ['melee_offense'] = 9574,
     ['ranged_offense'] = 9874,
     ['defense'] = 9579,
     ['evade'] = 0.03,
@@ -46,9 +46,9 @@ Characters = {
 },
 
 ['327th Clone Trooper'] = {
-    ['melee_offense'] = 8781,
-    ['ranged_offense'] = 9781,
-    ['defense'] = 9579,
+    ['melee_offense'] = 9481,
+    ['ranged_offense'] = 9621,
+    ['defense'] = 9729,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Blue Laser'
@@ -427,7 +427,7 @@ Characters = {
 ['Boil'] = {
     ['melee_offense'] = 9156,
     ['ranged_offense'] = 10156,
-    ['defense'] = 9579,
+    ['defense'] = 9739,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Blue Laser'
@@ -488,6 +488,16 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'Red Laser'
+},
+
+['Byph'] = {
+    ['melee_offense'] = 10222,
+    ['ranged_offense'] = 8797,
+    ['defense'] = 9697,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
 },
 
 ['C-21 Highsinger'] = {
@@ -827,18 +837,19 @@ Characters = {
 },
 
 ['Commando Droid'] = {
-    ['melee_offense'] = 15881,
-    ['ranged_offense'] = 12231,
-    ['defense'] = 12679,
+    ['melee_offense'] = 10881,
+    ['ranged_offense'] = 8391,
+    ['defense'] = 9679,
     ['evade'] = 0.04,
     ['range'] = 3,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Vibrosword'
 },
 
 ['Coruscant Guard Clone Trooper'] = {
-    ['melee_offense'] = 8900,
+    ['melee_offense'] = 9100,
     ['ranged_offense'] = 9900,
-    ['defense'] = 9579,
+    ['defense'] = 9779,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Blue Laser'
@@ -861,6 +872,15 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 5,
     ['projectile'] = 'Red Laser'
+},
+
+['Cut Lawquane'] = {
+    ['melee_offense'] = 9923,
+    ['ranged_offense'] = 10123,
+    ['defense'] = 9311,
+    ['evade'] = 0.03,
+    ['range'] = 5,
+    ['projectile'] = 'Blue Laser',
 },
 
 ['Dark Trooper'] = {
@@ -1573,9 +1593,9 @@ Characters = {
 },
 
 ['Hevy'] = {
-    ['melee_offense'] = 8509,
-    ['ranged_offense'] = 9509,
-    ['defense'] = 9103,
+    ['melee_offense'] = 9199,
+    ['ranged_offense'] = 9799,
+    ['defense'] = 9873,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Blue Laser'
@@ -1754,6 +1774,15 @@ Characters = {
     ['evade'] = 0.1,
     ['range'] = 2,
     ['projectile'] = 'Blue Laser'
+},
+
+['Jek'] = {
+    ['melee_offense'] = 9689,
+    ['ranged_offense'] = 9566,
+    ['defense'] = 9678,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'Blue Laser',
 },
 
 ['Jedi Knight Anakin Skywalker'] = {
@@ -2032,6 +2061,15 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'Red Laser'
+},
+
+['Lieutenant Thire'] = {
+    ['melee_offense'] = 9805,
+    ['ranged_offense'] = 9355,
+    ['defense'] = 9800,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'Blue Laser'
 },
 
 ['Lobot'] = {
@@ -2333,8 +2371,8 @@ Characters = {
 },
 
 ['Phase 2 Clone Trooper'] = {
-    ['melee_offense'] = 8786,
-    ['ranged_offense'] = 9786,
+    ['melee_offense'] = 9786,
+    ['ranged_offense'] = 9736,
     ['defense'] = 9481,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -2500,6 +2538,14 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Red Laser',
     ['weapon'] = 'Blue Lightsaber'
+},
+
+['Riot Control Clone Trooper'] = {
+    ['melee_offense'] = 9945,
+    ['defense'] = 9299,
+    ['evade'] = 0.03,
+    ['range'] = 1,
+    ['weapon'] = 'Riot Control Baton',
 },
 
 ['Rook Kast'] = {
@@ -3032,7 +3078,7 @@ Characters = {
 ['Waxer'] = {
     ['melee_offense'] = 9100,
     ['ranged_offense'] = 10100,
-    ['defense'] = 9579,
+    ['defense'] = 9779,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Blue Laser'
