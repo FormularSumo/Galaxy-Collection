@@ -38,7 +38,6 @@ function Card:init(name,row,column,team,number,level,evolution)
         if not Weapons[self.name['weapon']] then
             Weapons[self.name['weapon']] = love.graphics.newImage('Graphics/'..self.name['weapon']..'.png')
         end
-        self.weapon_image = Weapons[self.name['weapon']]
 
         if self.name['weapon2'] then
             if not Weapons[self.name['weapon2']] then
@@ -59,7 +58,7 @@ function Card:init(name,row,column,team,number,level,evolution)
             end
         end
 
-        self.weapon = Weapon(self.weapon_image, Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'] , self.team, self.width, self.height, self.range)
+        self.weapon = Weapon(Weapons[self.name['weapon']], Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'] , self.team, self.width, self.height, self.range)
     end
 
     if (self.name['projectile'] == 'Lightning' or self.name['projectile'] == 'Force Blast' or self.name['projectile'] == 'Force Drain') and self.weapon == nil then
