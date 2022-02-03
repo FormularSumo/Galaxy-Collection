@@ -1704,7 +1704,7 @@ Characters = {
     ['melee_offense'] = 5560,
     ['ranged_offense'] = 13900,
     ['defense'] = 9970,
-    ['evade'] = 0,
+    ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast'
 },
