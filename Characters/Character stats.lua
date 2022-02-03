@@ -3943,7 +3943,7 @@ Characters = {
     ['projectile'] = 'Blue Laser'
 },
 
-['Wulff Yularen'] = {
+['Wullf Yularen'] = {
     ['melee_offense'] = 6620,
     ['ranged_offense'] = 6011,
     ['defense'] = 6740,
