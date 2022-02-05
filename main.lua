@@ -21,6 +21,7 @@ function love.load()
     require 'other functions'
     require 'Projectile'
     require 'Weapon'
+    require 'Weapon2'
     require 'Card editor'
     require 'Remove card'
 

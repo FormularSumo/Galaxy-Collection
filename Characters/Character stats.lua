@@ -3215,6 +3215,8 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon'] = 'Riot Control Baton',
+    ['weapon2'] = 'Riot Control Shield',
+    ['weapon_count'] = 2
 },
 
 ['Robonino'] = {
