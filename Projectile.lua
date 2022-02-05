@@ -18,7 +18,6 @@ function Projectile:init(x,y,finalx,finaly,projectile,name,team,xoffset,yoffset)
             self.finaly = y + yoffset / 2 - self.height / 2
         end
     else
-        print(tostring(projectile))
         if name ~= 'Force Drain' then
             self.x = x + xoffset / 2 + self.width / 2
             self.finalx = finalx + xoffset / 2 + self.width / 2
