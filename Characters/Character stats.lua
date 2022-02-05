@@ -3234,8 +3234,8 @@ Characters = {
     ['defense'] = 9299,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Riot Control Baton',
-    ['weapon2'] = 'Riot Control Shield',
+    ['weapon'] = 'Riot Control Shield',
+    ['weapon2'] = 'Riot Control Baton',
     ['weapon_count'] = 2
 },
 

@@ -7,9 +7,10 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
     self.image = image
     self.number = number
     self.double = self.image == Weapons['Inquisitor Lightsaber'] or self.image == Weapons['Double Red Lightsaber'] or self.image == Weapons['Double Blue Lightsaber'] or self.image == Weapons['Double Green Lightsaber'] or self.image == Weapons['Double Yellow Lightsaber'] or self.image == Weapons['Double Purple Lightsaber'] or self.image == Weapons['Electrostaff'] or self.image == Weapons['Staff'] or self.image == Weapons['Kallus\' Bo-Rifle'] or self.image == Weapons['Bo-Rifle'] or self.image == Weapons['Phasma\'s Spear']
-    self.short = self.image == Weapons['Dagger of Mortis'] or self.image == Weapons['Lightning'] or self.image == Weapons['Knife'] or self.image == Weapons['Flamethrower'] or self.image == Weapons['Truncheon'] or self.image == Weapons['Embo\'s Shield'] or self.image == Weapons['Tool 1'] or self.image == Weapons['Tool 2'] or self.image == Weapons['Kyuzo Petar'] or self.image == Weapons['Vine'] or self.image == Weapons['Sword'] or self.image == Weapons['Vibrosword'] or self.image == Weapons['Riot Control Baton'] or self.image == Weapons['Z6 Riot Control Baton'] or self.image == Weapons['Cane'] or self.image == Weapons['Shock Prod'] or self.image == Weapons['Fusioncutter'] or self.image == Weapons['Axe'] or self.image == Weapons['Spear'] or self.image == Weapons['Riot Control Shield']
+    self.short = self.image == Weapons['Dagger of Mortis'] or self.image == Weapons['Lightning'] or self.image == Weapons['Knife'] or self.image == Weapons['Flamethrower'] or self.image == Weapons['Truncheon'] or self.image == Weapons['Embo\'s Shield'] or self.image == Weapons['Tool 1'] or self.image == Weapons['Tool 2'] or self.image == Weapons['Kyuzo Petar'] or self.image == Weapons['Vine'] or self.image == Weapons['Sword'] or self.image == Weapons['Vibrosword'] or self.image == Weapons['Riot Control Baton'] or self.image == Weapons['Z6 Riot Control Baton'] or self.image == Weapons['Cane'] or self.image == Weapons['Shock Prod'] or self.image == Weapons['Fusioncutter'] or self.image == Weapons['Axe'] or self.image == Weapons['Spear']
     self.static = self.image == Weapons['Lightning'] or self.image == Weapons['Flamethrower'] or self.image == Weapons['Shock Prod'] or self.image == Weapons['Riot Control Shield']
-
+    self.shield = self.image == Weapons['Riot Control Shield'] or self.image == Weapons['Embo\'s Shield']
+    if self.shield then self.static = true end
     if self.static then
         if self.team == 1 then
             self.angle = 0
@@ -19,24 +20,27 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
     end
 
     self.width,self.height = self.image:getDimensions()
-    if self.double then self.yoriginoffset = self.height/2 end
+    if self.double or self.shield then self.yoriginoffset = self.height/2 end
 
 
     --Modify X/Y offset based on whether short and/or static
-    if not self.short then
+    if self.shield then
+        self.xoffset = self.xoffset + xoffset * 0.95
+        self.yoffset = self.yoffset + yoffset * 0.4
+    elseif not self.short then
         self.xoffset = self.xoffset + xoffset * 0.35
-    elseif self.short and self.static then
-        self.xoffset = self.xoffset + xoffset + self.width / 2
-    else
-        self.xoffset = self.xoffset + xoffset * 0.65
-    end
-
-    if not self.short then
         self.yoffset = self.yoffset + yoffset * 0.7
-    elseif not self.static then
-        self.yoffset = self.yoffset + yoffset * 0.6
-    else
-        self.yoffset = self.yoffset + yoffset * 0.5 - self.height / 2
+    else   
+        if self.short and self.static then
+            self.xoffset = self.xoffset + xoffset + self.width / 2
+        else
+            self.xoffset = self.xoffset + xoffset * 0.65
+        end
+        if not self.static then
+            self.yoffset = self.yoffset + yoffset * 0.6
+        else
+            self.yoffset = self.yoffset + yoffset * 0.5 - self.height / 2
+        end
     end
     if self.static and self.team == 2 then
         self.yoffset = self.yoffset + self.height
@@ -51,7 +55,7 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
             self.xoffset = self.xoffset + 30
             self.yoffset = self.yoffset - 20
         end
-    elseif self.number ~= 1 then
+    elseif self.number ~= 1 and not self.shield then
         self.yoffset = self.yoffset - (self.number-1) * 20
         if self.number == 2 or self.number == 4 then
             if not self.short then self.xoffset = self.xoffset + 40 else self.xoffset = self.xoffset + 30 end        
@@ -68,6 +72,7 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
 end
 
 function Weapon2:updateposition(x,y)
+    if self.team == 1 then print(self.xoffset) end
     self.x = x + self.xoffset
     self.y = y + self.yoffset
 end
