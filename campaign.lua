@@ -5,6 +5,8 @@ function endor()
     P2_deck_cards[3] = {'Teebo',60,4}
     P2_deck_cards[4] = {'Chief Chirpa',60,4}
     P2_deck_cards[5] = {'Logray',60,4}
+    P2_deck_cards[8] = {'Ewok Elder',60,4}
+    P2_deck_cards[9] = {'Ewok Scout',60,4}
 
     gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Duet.mp3'})
 end

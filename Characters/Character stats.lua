@@ -1442,10 +1442,30 @@ Characters = {
     ['melee_offense'] = 17820,
     ['ranged_offense'] = 16820,
     ['defense'] = 17735,
-    ['evade'] = 0.07,
+    ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast',
     ['weapon'] = 'Green Lightsaber'
+},
+
+['Ewok Elder'] = {
+    ['melee_offense'] = 5311,
+    ['ranged_offense'] = 5351,
+    ['defense'] = 5888,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Wistie',
+    ['weapon'] = 'Spear'
+},
+
+['Ewok Scout'] = {
+    ['melee_offense'] = 5306,
+    ['ranged_offense'] = 5563,
+    ['defense'] = 5784,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Arrow',
+    ['weapon'] = 'Spear'
 },
 
 ['Ezra Bridger S2'] = {
