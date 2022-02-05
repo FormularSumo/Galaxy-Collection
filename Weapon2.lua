@@ -22,7 +22,7 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
     if self.double then self.yoriginoffset = self.height/2 end
 
 
-    --Modify X/Y position based on whether short and/or static
+    --Modify X/Y offset based on whether short and/or static
     if not self.short then
         self.xoffset = self.xoffset + xoffset * 0.35
     elseif self.short and self.static then
@@ -33,19 +33,17 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
 
     if not self.short then
         self.yoffset = self.yoffset + yoffset * 0.7
+    elseif not self.static then
+        self.yoffset = self.yoffset + yoffset * 0.6
     else
-        if not self.static then
-            self.yoffset = self.yoffset + yoffset * 0.6
-        else
-            self.yoffset = self.yoffset + yoffset * 0.5 - self.height / 2
-        end
+        self.yoffset = self.yoffset + yoffset * 0.5 - self.height / 2
     end
     if self.static and self.team == 2 then
         self.yoffset = self.yoffset + self.height
     end
 
 
-    --Modify X/Y position based on what number weapon is
+    --Modify X/Y offset based on what number weapon is
     if self.double then
         self.xoffset = self.xoffset + self.height / 4
         self.yoffset = self.yoffset - self.height / 5
