@@ -96,12 +96,19 @@ function Weapon2:updateposition(x,y)
             end
         end
     end
+
+    --Flip weapon if on team 2
+    if self.team == 2 then
+        self.scalefactorx = -1
+    else
+        self.scalefactorx = 1
+    end
 end
 
 function Weapon2:render(angle)
     if self.static then
-        love.graphics.draw(self.image,self.x,self.y,self.angle,1,1,self.width/2,self.yfinaloffset)
+        love.graphics.draw(self.image,self.x,self.y,self.angle,self.scalefactorx,1,self.width / 2,self.yfinaloffset)
     else
-        love.graphics.draw(self.image,self.x,self.y,angle,1,1,self.width/2,self.yfinaloffset)
+        love.graphics.draw(self.image,self.x,self.y,angle,self.scalefactorx,1,self.width / 2,self.yfinaloffset)
     end
 end
