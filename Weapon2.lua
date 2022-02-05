@@ -2,8 +2,8 @@ Weapon2 = Class{__includes = BaseState}
 
 function Weapon2:init(image,number,team,xoffset,yoffset)
     self.team = team
-    self.xoffset = xoffset
-    self.yoffset = yoffset
+    self.xoffset = 0
+    self.yoffset = 0
     self.image = image
     self.number = number
     self.double = self.image == Weapons['Inquisitor Lightsaber'] or self.image == Weapons['Double Red Lightsaber'] or self.image == Weapons['Double Blue Lightsaber'] or self.image == Weapons['Double Green Lightsaber'] or self.image == Weapons['Double Yellow Lightsaber'] or self.image == Weapons['Double Purple Lightsaber'] or self.image == Weapons['Electrostaff'] or self.image == Weapons['Staff'] or self.image == Weapons['Kallus\' Bo-Rifle'] or self.image == Weapons['Bo-Rifle'] or self.image == Weapons['Phasma\'s Spear']
@@ -19,96 +19,65 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
     end
 
     self.width,self.height = self.image:getDimensions()
-    if self.double then self.yfinaloffset = self.height/2 end
-end
+    if self.double then self.yoriginoffset = self.height/2 end
 
-function Weapon2:updateposition(x,y)
+
     --Modify X/Y position based on whether short and/or static
-    if self.team == 1 then
-        if not self.short then
-            self.x = x + self.xoffset * 0.35
-        elseif self.short and self.static then
-            self.x = x + self.xoffset + self.width / 2
-        else
-            self.x = x + self.xoffset * 0.65
-        end
-    else
-        if not self.short then
-            self.x = x + self.xoffset * 0.65
-        elseif self.short and self.static then
-            self.x = x - self.width / 2
-        else
-            self.x = x + self.xoffset * 0.35
-        end
-    end
     if not self.short then
-        self.y = y + self.yoffset * 0.7
+        self.xoffset = self.xoffset + xoffset * 0.35
+    elseif self.short and self.static then
+        self.xoffset = self.xoffset + xoffset + self.width / 2
+    else
+        self.xoffset = self.xoffset + xoffset * 0.65
+    end
+
+    if not self.short then
+        self.yoffset = self.yoffset + yoffset * 0.7
     else
         if not self.static then
-            self.y = y + self.yoffset * 0.6
+            self.yoffset = self.yoffset + yoffset * 0.6
         else
-            self.y = y + self.yoffset * 0.5 - self.height / 2
+            self.yoffset = self.yoffset + yoffset * 0.5 - self.height / 2
         end
     end
     if self.static and self.team == 2 then
-        self.y = self.y + self.height
+        self.yoffset = self.yoffset + self.height
     end
 
 
     --Modify X/Y position based on what number weapon is
     if self.double then
-        if self.team == 1 then
-            if self.number == 1 then
-                self.x = self.x+self.height/4
-                self.y = self.y-self.height/5
-            else
-                self.x = self.x+self.height/4+30
-                self.y = self.y-self.height/5-20
-            end
-        else
-            if self.number == 1 then
-                self.x = self.x-self.height/4
-                self.y = self.y-self.height/5
-            else
-                self.x = self.x-self.height/4-30
-                self.y = self.y-self.height/5-20
-            end
+        self.xoffset = self.xoffset + self.height / 4
+        self.yoffset = self.yoffset - self.height / 5
+        if self.number ~= 1 then
+            self.xoffset = self.xoffset + 30
+            self.yoffset = self.yoffset - 20
         end
     elseif self.number ~= 1 then
-        if self.number == 2 then
-            if self.team == 1 then
-                self.x = self.x+40
-                self.y = self.y-20
-            else
-                self.x = self.x-40
-                self.y = self.y-20
-            end
-        elseif self.number == 3 then
-            self.x = self.x
-            self.y = self.y-40
-        elseif self.number == 4 then
-            if self.team == 1 then
-                self.x = self.x+40
-                self.y = self.y-60
-            else
-                self.x = self.x-40
-                self.y = self.y-60
-            end
+        self.yoffset = self.yoffset - (self.number-1) * 20
+        if self.number == 2 or self.number == 4 then
+            if not self.short then self.xoffset = self.xoffset + 40 else self.xoffset = self.xoffset + 30 end        
         end
     end
 
     --Flip weapon if on team 2
     if self.team == 2 then
         self.scalefactorx = -1
+        self.xoffset = (115 - self.xoffset) ----115 card width, mirrors for team 2 cards
     else
         self.scalefactorx = 1
     end
 end
 
+function Weapon2:updateposition(x,y)
+    self.x = x + self.xoffset
+    self.y = y + self.yoffset
+end
+
 function Weapon2:render(angle)
     if self.static then
-        love.graphics.draw(self.image,self.x,self.y,self.angle,self.scalefactorx,1,self.width / 2,self.yfinaloffset)
+        love.graphics.draw(self.image,self.x,self.y,self.angle,self.scalefactorx,1,self.width / 2,self.yoriginoffset)
     else
-        love.graphics.draw(self.image,self.x,self.y,angle,self.scalefactorx,1,self.width / 2,self.yfinaloffset)
+        love.graphics.draw(self.image,self.x,self.y,angle,self.scalefactorx,1,self.width / 2,self.yoriginoffset)
     end
 end
