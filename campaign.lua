@@ -11,25 +11,47 @@ function endor()
     gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Duet.mp3'})
 end
 
+function tatooine()
+    P2_deck_cards[0] = {'Jabba The Hutt',60,4}
+    P2_deck_cards[1] = {'Gonk Droid',60,4}
+    P2_deck_cards[2] = {'Bib Fortuna',60,4}
+    P2_deck_cards[3] = {'Jawa',60,4}
+    P2_deck_cards[4] = {'Tusken Raider',60,4}
+    P2_deck_cards[5] = {'Gamorrean Guard',60,4}
+    P2_deck_cards[6] = {'Sand Trooper',60,4}
+    P2_deck_cards[7] = {'Imperial Stormtrooper',60,4}
+    P2_deck_cards[8] = {'Farmboy Luke Skywalker',60,4}
+    P2_deck_cards[9] = {'C-3PO',60,4}
+    P2_deck_cards[10] = {'R2-D2',60,4}
+    P2_deck_cards[11] = {'Ponda Baba',60,4}
+    P2_deck_cards[12] = {'Dr Evazan',60,4}
+
+    if Settings['videos'] then
+        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
+    else
+        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 0, 0, 0, 0, 'Binary Sunset.oga'})
+    end
+end
+
 function kamino()
-    P2_deck_cards[0] = {'Captain Vaughn',60,4}
-    P2_deck_cards[1] = {'Commander Gree',60,4}
-    P2_deck_cards[2] = {'Commander Bacara',60,4}
-    P2_deck_cards[3] = {'Commander Bly',60,4}
-    P2_deck_cards[4] = {'ARC Trooper',60,4}
-    P2_deck_cards[5] = {'Clone Commando',60,4}
-    P2_deck_cards[6] = {'ARC Trooper Echo',60,4}
-    P2_deck_cards[7] = {'ARC Trooper Fives',60,4}
-    P2_deck_cards[8] = {'ARC Trooper Jesse',60,4}
-    P2_deck_cards[9] = {'Commander Cody',60,4}
-    P2_deck_cards[10] = {'Captain Rex',60,4}
-    P2_deck_cards[11] = {'322nd Clone Trooper',60,4}
-    P2_deck_cards[12] = {'327th Clone Trooper',60,4}
-    P2_deck_cards[13] = {'501st Clone Trooper',60,4}
+    P2_deck_cards[0] = {'Crosshair',60,4}
+    P2_deck_cards[1] = {'Commander Bacara',60,4}
+    P2_deck_cards[2] = {'Clone Commando Scorch',60,4}
+    P2_deck_cards[3] = {'Clone Commando',60,4}
+    P2_deck_cards[4] = {'ARC Trooper Jesse',60,4}
+    P2_deck_cards[5] = {'212th Clone Trooper',60,4}
+    P2_deck_cards[6] = {'Commander Appo',60,4}
+    P2_deck_cards[7] = {'Commander Cody',60,4}
+    P2_deck_cards[8] = {'ARC Trooper',60,4}
+    P2_deck_cards[9] = {'Phase 2 Clone Trooper',60,4}
+    P2_deck_cards[10] = {'Commander Bly',60,4}
+    P2_deck_cards[11] = {'501st Clone Trooper',60,4}
+    P2_deck_cards[12] = {'Elite Squad Trooper',60,4}
+    P2_deck_cards[13] = {'AZI',60,4}
     P2_deck_cards[14] = {'212th Clone Trooper',60,4}
-    P2_deck_cards[15] = {'Commander Wolffe',60,4}
-    P2_deck_cards[16] = {'Coruscant Guard Clone Trooper',60,4}
-    P2_deck_cards[17] = {'Clone Commando Gregor',60,4}
+    P2_deck_cards[15] = {'Kamino Training Droid',60,4}
+    P2_deck_cards[16] = {'Taun We',60,4}
+    P2_deck_cards[17] = {'Omega',60,4}
 
     gStateMachine:change('GameState',{'Kamino.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
 end
