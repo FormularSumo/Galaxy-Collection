@@ -12,7 +12,7 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.width,self.height = self.image:getDimensions()
     self.x = -self.width
     self.y = -self.height
-    self.team = team 
+    self.team = team
     self.number = number
     if not level then self.level = 1 else self.level = level end
     if not evolution then self.evolution = 0 else self.evolution = evolution end

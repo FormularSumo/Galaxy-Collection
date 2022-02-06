@@ -72,7 +72,6 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
 end
 
 function Weapon2:updateposition(x,y)
-    if self.team == 1 then print(self.xoffset) end
     self.x = x + self.xoffset
     self.y = y + self.yoffset
 end
