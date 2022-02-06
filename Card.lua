@@ -157,17 +157,17 @@ function Card:aim()
             self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.name['projectile'], self.team, self.width, self.height)
         end
         self.melee_attack = true
-    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense * 0.9 > self.ranged_offense) then
-        if self.enemy_deck[self.number-1] ~= nil and (self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5) then
+    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense * 0.9 > self.ranged_offense) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
+        if self.enemy_deck[self.number-1] ~= nil then
             self.target = self.number-1
-        elseif self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6) then 
+        elseif self.enemy_deck[self.number+1] ~= nil then 
             self.target = self.number+1
         end
         if self.melee_projectile then
             self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.name['projectile'], self.team, self.width, self.height)
         end
         self.melee_attack = true
-    else
+    elseif self.range > 1 then
         self.possible_targets = {}
         self.total_probability = 0
         i = 0
