@@ -74,6 +74,7 @@ function love.load()
     mouseLocked = false
     sandbox = true
     yscroll = 0
+    rawyscroll = 0
 
     if love.filesystem.getInfo('Settings.txt') == nil then
         Settings = {
@@ -277,14 +278,14 @@ function love.mousemoved(x,y)
 end
 
 function love.touchmoved(id,x,y,dx,dy)
-    if (yscroll > -1080 or dy > 0) and (yscroll < 1080 or dy < 0) then
-        yscroll = yscroll + dy
+    if (rawyscroll > -1080 or dy > 0) and (rawyscroll < 1080 or dy < 0) then
+        rawyscroll = rawyscroll + dy
     end
 end
 
 function love.wheelmoved(x,y)
-    if (yscroll > -1080 or y > 0) and (yscroll < 1080 or y < 0) then
-        yscroll = yscroll + y * 50
+    if (rawyscroll > -1080 or y > 0) and (rawyscroll < 1080 or y < 0) then
+        rawyscroll = rawyscroll + y * 50
     end
 end
 
@@ -362,6 +363,9 @@ function love.update(dt)
             keyHoldTimer = 0
         end
     end
+
+    yscroll = yscroll + rawyscroll * dt * 12
+    rawyscroll = rawyscroll - rawyscroll * math.min(dt*10,1)
 
     --Manage song queue
     if songs[0] ~= nil then
