@@ -252,10 +252,6 @@ function love.mousereleased(x,y,button,istouch)
     lastClickIsTouch = istouch
 end
 
-function love.touchreleased()
-    love.mouse.buttonsPressed[1] = true
-end
-
 function love.gamepadreleased(joystick,button)
     local key = controller_binds(button)
     love.keyreleased(key)
