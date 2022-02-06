@@ -277,11 +277,15 @@ function love.mousemoved(x,y)
 end
 
 function love.touchmoved(id,x,y,dx,dy)
-    yscroll = yscroll + dy
+    if (yscroll > -1080 or dy > 0) and (yscroll < 1080 or dy < 0) then
+        yscroll = yscroll + dy
+    end
 end
 
 function love.wheelmoved(x,y)
-    yscroll = yscroll + y * 50
+    if (yscroll > -1080 or y > 0) and (yscroll < 1080 or y < 0) then
+        yscroll = yscroll + y * 50
+    end
 end
 
 function love.focus(InFocus)
