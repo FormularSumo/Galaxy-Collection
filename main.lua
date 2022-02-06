@@ -370,7 +370,7 @@ function love.update(dt)
     if (yscroll > -1080 or rawyscroll > 0) and (yscroll < 1080 or rawyscroll < 0) then
         yscroll = yscroll + rawyscroll * dt * 12
         if lastScrollIsTouch then
-            rawyscroll = rawyscroll - rawyscroll * math.min(dt*4,0.1)
+            rawyscroll = rawyscroll - rawyscroll * math.min(dt*3,0.1)
         else
             rawyscroll = rawyscroll - rawyscroll * math.min(dt*10,1)
         end
