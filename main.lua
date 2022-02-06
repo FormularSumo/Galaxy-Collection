@@ -280,12 +280,14 @@ end
 function love.touchmoved(id,x,y,dx,dy)
     if (rawyscroll > -1080 or dy > 0) and (rawyscroll < 1080 or dy < 0) then
         rawyscroll = rawyscroll + dy
+        lastScrollIsTouch = true
     end
 end
 
 function love.wheelmoved(x,y)
     if (rawyscroll > -1080 or y > 0) and (rawyscroll < 1080 or y < 0) then
         rawyscroll = rawyscroll + y * 50
+        lastScrollIsTouch = false
     end
 end
 
@@ -364,8 +366,13 @@ function love.update(dt)
         end
     end
 
+    --Smooth scrolling
     yscroll = yscroll + rawyscroll * dt * 12
-    rawyscroll = rawyscroll - rawyscroll * math.min(dt*10,1)
+    if lastScrollIsTouch then
+        rawyscroll = rawyscroll - rawyscroll * math.min(dt*4,0.1)
+    else
+        rawyscroll = rawyscroll - rawyscroll * math.min(dt*10,1)
+    end
 
     --Manage song queue
     if songs[0] ~= nil then
