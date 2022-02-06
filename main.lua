@@ -366,7 +366,7 @@ function love.update(dt)
         end
     end
 
-    --smooth scrolling
+    --Smooth scrolling
     if (yscroll > -1080 or rawyscroll > 0) and (yscroll < 1080 or rawyscroll < 0) then
         yscroll = yscroll + rawyscroll * dt * 12
         if lastScrollIsTouch then
@@ -375,8 +375,8 @@ function love.update(dt)
             rawyscroll = rawyscroll - rawyscroll * math.min(dt*10,1)
         end
     else
-        if yscroll > 1080 then yscroll = 1080 end
-        if yscroll < -1080 then yscroll = -1080 end
+        if yscroll > 1080 then yscroll = 1080 rawyscroll = 0 end
+        if yscroll < -1080 then yscroll = -1080 rawyscroll = 0 end
     end
 
     --Manage song queue
