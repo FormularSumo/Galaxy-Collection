@@ -28,6 +28,7 @@ function exit_state(partial)
     paused = false
     collectgarbage()
     mouseLocked = false
+    yscroll = 0
 end
 
 function gamespeed_slider(percentage)

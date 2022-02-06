@@ -1,6 +1,6 @@
 Button = Class{}
 
-function Button:init(func,arg,text,font,bg_image,x,y,r,g,b,visible)
+function Button:init(func,arg,text,font,bg_image,x,y,r,g,b,scroll,visible)
     self.func = func
     self.arg = arg
     self.font = font 
@@ -37,12 +37,15 @@ function Button:init(func,arg,text,font,bg_image,x,y,r,g,b,visible)
         self.width = math.max(self.imagewidth,self.textwidth)
         self.y = math.min(self.imagey,self.texty)
         self.x = math.min(self.imagex,self.textx)
+        self.finalimagey = self.imagey
+        self.finaly = self.y
     end
 
     if r == nil then self.r = 1 else self.r = r end
     if g == nil then self.g = 1 else self.g = g end
     if b == nil then self.b = 1 else self.b = b end
     -- if visible == nil then self.visible = true else self.visible = visible end
+    self.scroll = scroll
 end
 
 function Button:update_text(text,x,y)
@@ -77,12 +80,14 @@ function Button:update_text(text,x,y)
         self.y = self.texty
         self.x = self.textx
     end
+    self.finaltexty = self.texty
+    self.finaly = self.y
 end
 
 function Button:update()
-    if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
+    if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.finaly and mouseY < self.finaly + self.height then
         mouseTouching = self
-        if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
+        if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.finaly and mouseLastY < self.finaly + self.height then
             if love.mouse.buttonsPressed[1] and mouseTrapped == self then
                 _G[self.func](self.arg)
                 mouseLastX = -1
@@ -106,19 +111,26 @@ function Button:update()
     else
         self.scaling = 1
     end
+    if self.scroll then
+        self.finaly = self.y + yscroll
+        self.finaltexty = self.texty + yscroll
+        if self.imagey then
+            self.finalimagey = self.imagey + ycsroll
+        end
+    end
 end
 
 function Button:render()
     -- if self.visible then
         if self.bg_image ~= nil then
-            love.graphics.draw(self.bg_image, self.imagex, self.imagey,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
+            love.graphics.draw(self.bg_image, self.imagex, self.finalimagey,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
         end
         if mouseTouching == self or mouseTrapped == self then
             love.graphics.setColor(66/255,169/255,229/255)
         else
             love.graphics.setColor(self.r,self.g,self.b)
         end
-        love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.textwidth,(-1+self.scaling)/2*self.textheight)
+        love.graphics.draw(self.text, self.textx, self.finaltexty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.textwidth,(-1+self.scaling)/2*self.textheight)
         love.graphics.setColor(1,1,1)
     -- end
 end

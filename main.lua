@@ -73,6 +73,7 @@ function love.load()
     keyPressedTimer = love.timer.getTime()
     mouseLocked = false
     sandbox = true
+    yscroll = 0
 
     if love.filesystem.getInfo('Settings.txt') == nil then
         Settings = {
@@ -273,6 +274,14 @@ function love.mousemoved(x,y)
         return
     end
     love.mouse.setVisible(true)
+end
+
+function love.touchmoved(id,x,y,dx,dy)
+    yscroll = yscroll + dy
+end
+
+function love.wheelmoved(x,y)
+    yscroll = yscroll + y * 50
 end
 
 function love.focus(InFocus)
