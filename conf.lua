@@ -10,7 +10,6 @@ function love.conf(t)
     t.window.height = 0
     t.window.fullscreen = true
     t.window.resizable = true
-    t.window.borderless = true
     t.window.vsync = 1
 
     --Disable unused modules

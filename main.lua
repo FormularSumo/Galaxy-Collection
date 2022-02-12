@@ -35,6 +35,7 @@ function love.load()
     push.setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, {
         upscale = 'normal',
     })
+    love.window.maximize()
 
     -- load fonts
     font50 = love.graphics.newFont(50)
@@ -174,14 +175,10 @@ function love.keypressed(key,scancode,isrepeat)
         love.keyboard.keysDown[key] = true
         lastPressed = key
         keyHoldTimer = 0
+
         --F11 toggles between fullscreen and maximised
         if key == 'f11' then
-            if love.window.getFullscreen() == false then
-                love.window.setFullscreen(true)
-            else
-                love.window.setFullscreen(false)
-                love.window.maximize()
-            end
+            love.window.setFullscreen(not love.window.getFullscreen())
         end
 
         --M mutes/unmutes
