@@ -1175,7 +1175,7 @@ Characters = {
 ['Darth Nihilus'] = {
     ['melee_offense'] = 20595,
     ['ranged_offense'] = 20595,
-    ['defense'] = 15700,
+    ['defense'] = 15900,
     ['evade'] = 0.05,
     ['range'] = 5,
     ['projectile'] = 'Force Drain',
@@ -2215,7 +2215,7 @@ Characters = {
 },
 
 ['Jedi Knight Anakin Skywalker'] = {
-    ['melee_offense'] = 19130,
+    ['melee_offense'] = 19230,
     ['ranged_offense'] = 17924,
     ['defense'] = 17954,
     ['evade'] = 0.06,
@@ -2679,7 +2679,7 @@ Characters = {
 },
 
 ['Meetra Surik'] = {
-    ['melee_offense'] = 18320,
+    ['melee_offense'] = 18720,
     ['ranged_offense'] = 18320,
     ['defense'] = 17980,
     ['evade'] = 0.05,
