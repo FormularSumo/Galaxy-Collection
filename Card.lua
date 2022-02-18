@@ -85,55 +85,8 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.defence_down = 0
 end
 
-function Card:update(dt)
-    if self.projectile then
-        self.projectile:update(dt)
-    end    
-    if self.weapon then
-        self.weapon:update(dt)
-    end
-    if self.targetx ~= self.x or self.targety ~= self.y then
-        if self.targetx > self.x then
-            self.x = self.x + dt * 500
-            if self.x > self.targetx then self.x = self.targetx end
-        elseif self.targetx < self.x then
-            self.x = self.x - dt * 500
-            if self.x < self.targetx then self.x = self.targetx end
-        end
-
-        if self.targety > self.y then
-            self.y = self.y + dt * 500
-            if self.y > self.targety then self.y = self.targety end
-        elseif self.targety < self.x then
-            self.y = self.y - dt * 500
-            if self.y < self.targety then self.y = self.targety end
-        end
-
-        if self.weapon then
-            self.weapon:updateposition(self.x,self.y)
-        end
-    end
-end
-
-function Card:position()
-    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-    self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-    if self.column > 5 then
-        self.targetx = self.targetx + 40
-    end
-    if timer > 6 then
-        if self.team == 1 then
-            self.number = self.row + (math.abs(6 - self.column)) * 6 - 6
-        else
-            self.number = self.row + (self.column - 5) * 6 - 6
-        end
-    else
-        if self.team == 1 then
-            self.number = self.row + (math.abs(6 - self.column - math.ceil(6 - timer))) * 6 - 6
-        else
-            self.number = self.row + (self.column - 5 - math.ceil(6 - timer)) * 6 - 6
-        end
-    end
+function Card:distance(target)
+    return math.abs(self.column - self.enemy_deck[target].column) + math.abs(self.row - self.enemy_deck[target].row)
 end
 
 function Card:check_health()
@@ -168,8 +121,25 @@ function Card:move()
     end
 end
 
-function Card:distance(target)
-    return math.abs(self.column - self.enemy_deck[target].column) + math.abs(self.row - self.enemy_deck[target].row)
+function Card:position()
+    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+    self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+    if self.column > 5 then
+        self.targetx = self.targetx + 40
+    end
+    if timer > 6 then
+        if self.team == 1 then
+            self.number = self.row + (math.abs(6 - self.column)) * 6 - 6
+        else
+            self.number = self.row + (self.column - 5) * 6 - 6
+        end
+    else
+        if self.team == 1 then
+            self.number = self.row + (math.abs(6 - self.column - math.ceil(6 - timer))) * 6 - 6
+        else
+            self.number = self.row + (self.column - 5 - math.ceil(6 - timer)) * 6 - 6
+        end
+    end
 end
 
 function Card:aim()
@@ -245,6 +215,36 @@ function Card:attack()
         end
         self.target = nil
         self.projectile = nil
+    end
+end
+
+function Card:update(dt)
+    if self.projectile then
+        self.projectile:update(dt)
+    end    
+    if self.weapon then
+        self.weapon:update(dt)
+    end
+    if self.targetx ~= self.x or self.targety ~= self.y then
+        if self.targetx > self.x then
+            self.x = self.x + dt * 500
+            if self.x > self.targetx then self.x = self.targetx end
+        elseif self.targetx < self.x then
+            self.x = self.x - dt * 500
+            if self.x < self.targetx then self.x = self.targetx end
+        end
+
+        if self.targety > self.y then
+            self.y = self.y + dt * 500
+            if self.y > self.targety then self.y = self.targety end
+        elseif self.targety < self.x then
+            self.y = self.y - dt * 500
+            if self.y < self.targety then self.y = self.targety end
+        end
+
+        if self.weapon then
+            self.weapon:updateposition(self.x,self.y)
+        end
     end
 end
 
