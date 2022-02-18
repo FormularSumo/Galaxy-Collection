@@ -1935,6 +1935,7 @@ Characters = {
 
 ['Hermit Yoda'] = {
     ['melee_offense'] = 18587,
+    ['ranged_offense'] = 18587,
     ['defense'] = 17865,
     ['evade'] = 0.02,
     ['range'] = 3,
