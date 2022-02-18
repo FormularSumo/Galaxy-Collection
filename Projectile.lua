@@ -1,12 +1,12 @@
 Projectile = Class{__includes = BaseState}
 
-function Projectile:init(x,y,finalx,finaly,projectile,name,team,xoffset,yoffset)
+function Projectile:init(x,y,finalx,finaly,projectile,name,team,xoffset,yoffset,inverse)
     self.team = team
     self.image = projectile
     self.width,self.height = self.image:getDimensions()
 
     if self.team == 1 then
-        if name ~= 'Force Drain' then
+        if not inverse then
             self.x = x + xoffset / 2 - self.width / 2
             self.finalx = finalx + xoffset / 2 - self.width / 2
             self.y = y + yoffset / 2 - self.height / 2
@@ -18,7 +18,7 @@ function Projectile:init(x,y,finalx,finaly,projectile,name,team,xoffset,yoffset)
             self.finaly = y + yoffset / 2 - self.height / 2
         end
     else
-        if name ~= 'Force Drain' then
+        if not inverse then
             self.x = x + xoffset / 2 + self.width / 2
             self.finalx = finalx + xoffset / 2 + self.width / 2
             self.y = y + yoffset / 2 + self.height / 2

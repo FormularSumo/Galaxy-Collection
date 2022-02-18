@@ -33,6 +33,9 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.evade = self.name['evade']
     self.range = self.name['range']
     if self.name['projectile'] then
+        if self.name['projectile'] == 'Force Drain' then
+            self.inverse_projectile = true
+        end
         if not Projectiles[self.name['projectile']] then
             Projectiles[self.name['projectile']] = love.graphics.newImage('Graphics/'..self.name['projectile']..'.png')
         end
@@ -101,6 +104,14 @@ function Card:check_health()
     end
 end
 
+function Card:fire()
+    if not self.inverse_projectile then
+        self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].targetx, self.enemy_deck[self.target].targety, self.projectile_image, self.name['projectile'], self.team, self.width, self.height,false)
+    else
+        self.projectile = Projectile(self.targetx, self.targety, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.name['projectile'], self.team, self.width, self.height,true)
+    end
+end
+
 function Card:move()
     if self.team == 1 then
         if (self.number < 6 and self.column < 5) or (self.number < 12 and self.column < 4) or (self.number < 18 and self.column < 3) then
@@ -147,7 +158,7 @@ function Card:aim()
     if (self.column == 5 or self.column == 6) and self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
         self.target = self.number
         if self.melee_projectile then
-            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].targetx, self.enemy_deck[self.target].targety, self.projectile_image, self.name['projectile'], self.team, self.width, self.height)
+            self:fire()
         end
         self.melee_attack = true
     elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense * 0.9 > self.ranged_offense) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
@@ -157,7 +168,7 @@ function Card:aim()
             self.target = self.number+1
         end
         if self.melee_projectile then
-            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].targetx, self.enemy_deck[self.target].targety, self.projectile_image, self.name['projectile'], self.team, self.width, self.height)
+            self:fire()
         end
         self.melee_attack = true
     elseif self.range > 1 then
@@ -181,7 +192,7 @@ function Card:aim()
             end
         end
         if self.target ~= nil and self.projectile_image then
-            self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].targetx, self.enemy_deck[self.target].targety, self.projectile_image, self.name['projectile'], self.team, self.width, self.height)
+            self:fire()
         end
     end
     if self.weapon then
