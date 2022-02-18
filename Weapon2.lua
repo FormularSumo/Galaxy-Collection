@@ -12,11 +12,7 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
     self.shield = self.image == Weapons['Riot Control Shield'] or self.image == Weapons['Embo\'s Shield']
     if self.shield then self.static = true end
     if self.static then
-        if self.team == 1 then
-            self.angle = 0
-        else
-            self.angle = math.rad(180)
-        end
+        self.angle = 0
     end
 
     self.width,self.height = self.image:getDimensions()
@@ -42,10 +38,6 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
             self.yoffset = self.yoffset + yoffset * 0.5 - self.height / 2
         end
     end
-    if self.static and self.team == 2 then
-        self.yoffset = self.yoffset + self.height
-    end
-
 
     --Modify X/Y offset based on what number weapon is
     if self.double then
