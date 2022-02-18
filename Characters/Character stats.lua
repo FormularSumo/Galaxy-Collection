@@ -73,6 +73,16 @@ Characters = {
     ['weapon'] = 'Blue Lightsaber'
 },
 
+['Abeloth'] = {
+    ['melee_offense'] = 20700,
+    ['ranged_offense'] = 21050,
+    ['defense'] = 20111,
+    ['evade'] = 0.20,
+    ['range'] = 5,
+    ['projectile'] = 'Force Drain',
+    ['weapon'] = 'Lightning'
+},
+
 ['Adi Gallia'] = {
     ['melee_offense'] = 17951,
     ['ranged_offense'] = 16951,
@@ -211,6 +221,16 @@ Characters = {
     ['projectile'] = 'Blue Laser'
 },
 
+['Ajunta Pall'] = {
+    ['melee_offense'] = 17823,
+    ['ranged_offense'] = 17334,
+    ['defense'] = 17879,
+    ['evade'] = 0.25,
+    ['range'] = 2,
+    ['projectile'] = 'Force Drain',
+    ['weapon'] = 'War Sword'
+},
+
 ['Amilyn Holdo'] = {
     ['melee_offense'] = 6755,
     ['ranged_offense'] = 6677,
@@ -244,6 +264,16 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
+},
+
+['Arcann'] = {
+    ['melee_offense'] = 17850,
+    ['ranged_offense'] = 18555,
+    ['defense'] = 17882,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Yellow Lightning',
+    ['weapon'] = 'Yellow Lightsaber'
 },
 
 ['ARC Trooper'] = {
@@ -457,9 +487,9 @@ Characters = {
 },
 
 ['Bastila Shan Fallen'] = {
-    ['melee_offense'] = 16577,
+    ['melee_offense'] = 17577,
     ['ranged_offense'] = 17890,
-    ['defense'] = 15311,
+    ['defense'] = 17261,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Purple Lightning',
@@ -1132,6 +1162,16 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Darth Bandon'] = {
+    ['melee_offense'] = 17885,
+    ['ranged_offense'] = 17704,
+    ['defense'] = 17609,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'Lightning',
+    ['weapon'] = 'Double Red Lightsaber'
+},
+
 ['Darth Bane'] = {
     ['melee_offense'] = 18900,
     ['ranged_offense'] = 17233,
@@ -1139,6 +1179,16 @@ Characters = {
     ['evade'] = 0.2,
     ['range'] = 2,
     ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Red Lightsaber'
+},
+
+['Darth Baras'] = {
+    ['melee_offense'] = 17233,
+    ['ranged_offense'] = 18141,
+    ['defense'] = 17662,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Purple Lightning',
     ['weapon'] = 'Red Lightsaber'
 },
 
@@ -1172,6 +1222,16 @@ Characters = {
     ['weapon'] = 'Red Lightsaber'
 },
 
+['Darth Maul'] = {
+    ['melee_offense'] = 17880,
+    ['ranged_offense'] = 17322,
+    ['defense'] = 17568,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Double Red Lightsaber'
+},
+
 ['Darth Nihilus'] = {
     ['melee_offense'] = 20595,
     ['ranged_offense'] = 20595,
@@ -1192,11 +1252,32 @@ Characters = {
     ['weapon'] = 'Red Lightsaber'
 },
 
+['Darth Sidious'] = {
+    ['melee_offense'] = 19370,
+    ['ranged_offense'] = 19022,
+    ['defense'] = 18132,
+    ['evade'] = 0.06,
+    ['range'] = 3,
+    ['projectile'] = 'Lightning',
+    ['weapon'] = 'Red Lightsaber',
+    ['weapon_count'] = 2
+},
+
 ['Darth Sion'] = {
     ['melee_offense'] = 16001,
     ['ranged_offense'] = 15301,
     ['defense'] = 19900,
     ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Red Lightsaber'
+},
+
+['Darth Talon'] = {
+    ['melee_offense'] = 18612,
+    ['ranged_offense'] = 16571,
+    ['defense'] = 17578,
+    ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile'] = 'Red Force Blast',
     ['weapon'] = 'Red Lightsaber'
@@ -1297,6 +1378,16 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Red Laser'
+},
+
+['Dread Master'] = {
+    ['melee_offense'] = 17712,
+    ['ranged_offense'] = 17838,
+    ['defense'] = 17704,
+    ['evade'] = 0.05,
+    ['range'] = 3,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Purple Lightsaber'
 },
 
 ['Dr Evazan'] = {
@@ -1468,6 +1559,16 @@ Characters = {
     ['weapon'] = 'Spear'
 },
 
+['Exar Kun'] = {
+    ['melee_offense'] = 19110,
+    ['ranged_offense'] = 18444,
+    ['defense'] = 18355,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Double Blue Lightsaber'
+},
+
 ['Ezra Bridger S2'] = {
     ['melee_offense'] = 9890,
     ['ranged_offense'] = 9459,
@@ -1595,6 +1696,16 @@ Characters = {
     ['projectile'] = 'Blue Force Blast'
 },
 
+['Freedon Nadd'] = {
+    ['melee_offense'] = 18244,
+    ['ranged_offense'] = 18333,
+    ['defense'] = 17911,
+    ['evade'] = 0.06,
+    ['range'] = 3,
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Orange Lightsaber'
+},
+
 ['G0-T0'] = {
     ['melee_offense'] = 9455,
     ['ranged_offense'] = 9755,
@@ -1690,6 +1801,16 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['General Kenobi'] = {
+    ['melee_offense'] = 17256,
+    ['ranged_offense'] = 17055,
+    ['defense'] = 18115,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
+},
+
 ['General Leia Organa'] = {
     ['melee_offense'] = 7817,
     ['ranged_offense'] = 9417,
@@ -1697,6 +1818,16 @@ Characters = {
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile'] = 'Blue Laser'
+},
+
+['General Skywalker'] = {
+    ['melee_offense'] = 18133,
+    ['ranged_offense'] = 17669,
+    ['defense'] = 17590,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
 },
 
 ['General Veers'] = {
@@ -2417,6 +2548,17 @@ Characters = {
     ['weapon'] = 'Blue Lightsaber'
 },
 
+['Kavar'] = {
+    ['melee_offense'] = 17201,
+    ['ranged_offense'] = 18203,
+    ['defense'] = 17703,
+    ['evade'] = 0.06,
+    ['range'] = 3,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Blue Lightsaber',
+    ['weapon_count'] = 2
+},
+
 ['Kaydel Ko Connix'] = {
     ['melee_offense'] = 8110,
     ['ranged_offense'] = 8110,
@@ -2512,6 +2654,16 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Kyle Katarn'] = {
+    ['melee_offense'] = 17883,
+    ['ranged_offense'] = 17491,
+    ['defense'] = 17495,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
+},
+
 ['Kylo Ren'] = {
     ['melee_offense'] = 18193,
     ['ranged_offense'] = 17193,
@@ -2595,6 +2747,26 @@ Characters = {
     ['weapon'] = 'Spear'
 },
 
+['Lord Vader'] = {
+    ['melee_offense'] = 19300,
+    ['ranged_offense'] = 18012,
+    ['defense'] = 18012,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
+},
+
+['Ludo Kressh'] = {
+    ['melee_offense'] = 18112,
+    ['ranged_offense'] = 17955,
+    ['defense'] = 17993,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'War Sword'
+},
+
 ['Luminara Unduli'] = {
     ['melee_offense'] = 17709,
     ['ranged_offense'] = 16709,
@@ -2659,6 +2831,26 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Red Laser',
+},
+
+['Mara Jade'] = {
+    ['melee_offense'] = 17812,
+    ['ranged_offense'] = 17675,
+    ['defense'] = 17734,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Purple Lightsaber'
+},
+
+['Marka Ragnos'] = {
+    ['melee_offense'] = 18333,
+    ['ranged_offense'] = 18011,
+    ['defense'] = 18311,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Scepter'
 },
 
 ['Mas Amedda'] = {
@@ -2777,6 +2969,16 @@ Characters = {
     ['range'] = 3,
     ['projectile'] = 'Fire',
     ['weapon'] = 'Mother Talzin Sword'
+},
+
+['Naga Sadow'] = {
+    ['melee_offense'] = 18000,
+    ['ranged_offense'] = 18100,
+    ['defense'] = 18003,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'War Sword'
 },
 
 ['Nahdar Vebb'] = {
@@ -2944,6 +3146,16 @@ Characters = {
     ['melee_offense'] = 16889,
     ['ranged_offense'] = 15889,
     ['defense'] = 14986,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Blue Lightsaber'
+},
+
+['Padawan Obi-Wan Kenobi'] = {
+    ['melee_offense'] = 17566,
+    ['ranged_offense'] = 17112,
+    ['defense'] = 17663,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Blue Force Blast',
@@ -3340,6 +3552,16 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Satele Shan'] = {
+    ['melee_offense'] = 17991,
+    ['ranged_offense'] = 17981,
+    ['defense'] = 18037,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Double Blue Lightsaber'
+},
+
 ['Satine Kryze'] = {
     ['melee_offense'] = 5111,
     ['ranged_offense'] = 5322,
@@ -3526,6 +3748,16 @@ Characters = {
     ['projectile'] = 'Blue Laser'
 },
 
+['Starkiller'] = {
+    ['melee_offense'] = 18333,
+    ['ranged_offense'] = 19500,
+    ['defense'] = 17587,
+    ['evade'] = 0.05,
+    ['range'] = 3,
+    ['projectile'] = 'Lightning',
+    ['weapon'] = 'Red Lightsaber'
+},
+
 ['Stass Allie'] = {
     ['melee_offense'] = 17357,
     ['ranged_offense'] = 16357,
@@ -3553,6 +3785,16 @@ Characters = {
     ['range'] = 3,
     ['projectile'] = 'Red Laser',
     ['weapon'] = 'Knife'
+},
+
+['Supreme Leader Kylo Ren'] = {
+    ['melee_offense'] = 17656,
+    ['ranged_offense'] = 17533,
+    ['defense'] = 17669,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Crossguard Lightsaber'
 },
 
 
@@ -3813,6 +4055,16 @@ Characters = {
     ['weapon'] = 'Vibrocleaver'
 },
 
+['Tulak Hord'] = {
+    ['melee_offense'] = 20700,
+    ['ranged_offense'] = 18511,
+    ['defense'] = 18933,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Orange Lightsaber'
+},
+
 ['Turk Falso'] = {
     ['melee_offense'] = 8596,
     ['ranged_offense'] = 8599,
@@ -3841,6 +4093,16 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Unmasked Kylo Ren'] = {
+    ['melee_offense'] = 17292,
+    ['ranged_offense'] = 17011,
+    ['defense'] = 18111,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'Red Force Blast',
+    ['weapon'] = 'Crossguard Lightsaber'
+},
+
 ['Ursa Wren'] = {
     ['melee_offense'] = 15856,
     ['ranged_offense'] = 15543,
@@ -3866,6 +4128,16 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile'] = 'Red Laser'
+},
+
+['Vandar Tokare'] = {
+    ['melee_offense'] = 17344,
+    ['ranged_offense'] = 18322,
+    ['defense'] = 17660,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Yoda Lightsaber'
 },
 
 ['Veteran Han Solo'] = {
@@ -3911,6 +4183,26 @@ Characters = {
     ['range'] = 2,
     ['projectile'] = 'Red Force Blast',
     ['weapon'] = 'Red Lightsaber'
+},
+
+['Vitiate'] = {
+    ['melee_offense'] = 19443,
+    ['ranged_offense'] = 20700,
+    ['defense'] = 18900,
+    ['evade'] = 0.05,
+    ['range'] = 5,
+    ['projectile'] = 'Purple Lightning',
+    ['weapon'] = 'Red Lightsaber'
+},
+
+['Vrook Lamar'] = {
+    ['melee_offense'] = 17878,
+    ['ranged_offense'] = 17621,
+    ['defense'] = 17741,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Green Lightsaber'
 },
 
 ['Wat Tambor'] = {
@@ -4051,6 +4343,16 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile'] = 'Blue Force Blast'
+},
+
+['Zez-Kai Ell'] = {
+    ['melee_offense'] = 17881,
+    ['ranged_offense'] = 17434,
+    ['defense'] = 17801,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Force Blast',
+    ['weapon'] = 'Double Purple Lightsaber'
 },
 
 ['Zillo Beast'] = {
