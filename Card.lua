@@ -248,7 +248,7 @@ function Card:update(dt)
         if self.targety > self.y then
             self.y = self.y + dt * 500
             if self.y > self.targety then self.y = self.targety end
-        elseif self.targety < self.x then
+        elseif self.targety < self.y then
             self.y = self.y - dt * 500
             if self.y < self.targety then self.y = self.targety end
         end
