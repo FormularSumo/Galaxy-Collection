@@ -12,19 +12,20 @@ function endor()
 end
 
 function tatooine()
-    P2_deck_cards[0] = {'Jabba The Hutt',60,4}
-    P2_deck_cards[1] = {'Gonk Droid',60,4}
-    P2_deck_cards[2] = {'Bib Fortuna',60,4}
-    P2_deck_cards[3] = {'Jawa',60,4}
-    P2_deck_cards[4] = {'Tusken Raider',60,4}
-    P2_deck_cards[5] = {'Gamorrean Guard',60,4}
+    P2_deck_cards[0] = {'Gonk Droid',60,4}
+    P2_deck_cards[1] = {'C-3PO',60,4}
+    P2_deck_cards[2] = {'Gamorrean Guard',60,4}
+    P2_deck_cards[3] = {'Bib Fortuna',60,4}
+    P2_deck_cards[4] = {'Jabba The Hutt',60,4}
+    P2_deck_cards[5] = {'Jawa',60,4}
     P2_deck_cards[6] = {'Sand Trooper',60,4}
-    P2_deck_cards[7] = {'Imperial Stormtrooper',60,4}
-    P2_deck_cards[8] = {'Farmboy Luke Skywalker',60,4}
-    P2_deck_cards[9] = {'C-3PO',60,4}
-    P2_deck_cards[10] = {'R2-D2',60,4}
-    P2_deck_cards[11] = {'Ponda Baba',60,4}
-    P2_deck_cards[12] = {'Dr Evazan',60,4}
+    P2_deck_cards[7] = {'Dr Evazan',60,4}
+    P2_deck_cards[8] = {'R2-D2',60,4}
+    P2_deck_cards[9] = {'Greedo',60,4}
+    P2_deck_cards[10] = {'Ponda Baba',60,4}
+    P2_deck_cards[11] = {'Imperial Stormtrooper',60,4}
+    P2_deck_cards[14] = {'Farmboy Luke Skywalker',60,4}
+    P2_deck_cards[15] = {'Tusken Raider',60,4}
 
     if Settings['videos'] then
         gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
