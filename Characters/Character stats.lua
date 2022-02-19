@@ -1630,7 +1630,7 @@ Characters = {
 ['First Order Executioner'] = {
     ['melee_offense'] = 10100,
     ['defense'] = 8080,
-    ['evade'] = 0.03,
+    ['evade'] = 0.02,
     ['range'] = 1,
     ['weapon'] = 'Execution Axe'
 },
