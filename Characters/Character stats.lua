@@ -832,9 +832,9 @@ Characters = {
 },
 
 ['Cere Junda'] = {
-    ['melee_offense'] = 16449,
+    ['melee_offense'] = 16489,
     ['ranged_offense'] = 15979,
-    ['defense'] = 14856,
+    ['defense'] = 14866,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Red Laser',
