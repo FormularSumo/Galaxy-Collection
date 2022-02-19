@@ -704,7 +704,7 @@ Characters = {
 
 ['Cal Kestis'] = {
     ['melee_offense'] = 17346,
-    ['ranged_offense'] = 16346,
+    ['ranged_offense'] = 16746,
     ['defense'] = 14967,
     ['evade'] = 0.06,
     ['range'] = 2,
@@ -2290,7 +2290,7 @@ Characters = {
 ['Jaesa Willsaam'] = {
     ['melee_offense'] = 17111,
     ['ranged_offense'] = 17344,
-    ['defense'] = 14233,
+    ['defense'] = 14333,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile'] = 'Purple Lightning',
@@ -3863,7 +3863,7 @@ Characters = {
 },
 
 ['Taron Malicos'] = {
-    ['melee_offense'] = 18216,
+    ['melee_offense'] = 18416,
     ['ranged_offense'] = 16816,
     ['defense'] = 13987,
     ['evade'] = 0.04,
