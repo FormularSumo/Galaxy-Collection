@@ -35,24 +35,24 @@ function tatooine()
 end
 
 function kamino()
-    P2_deck_cards[0] = {'Crosshair',60,4}
-    P2_deck_cards[1] = {'Commander Bacara',60,4}
-    P2_deck_cards[2] = {'Clone Commando Scorch',60,4}
-    P2_deck_cards[3] = {'Clone Commando',60,4}
-    P2_deck_cards[4] = {'ARC Trooper Jesse',60,4}
-    P2_deck_cards[5] = {'212th Clone Trooper',60,4}
-    P2_deck_cards[6] = {'Commander Appo',60,4}
-    P2_deck_cards[7] = {'Commander Cody',60,4}
-    P2_deck_cards[8] = {'ARC Trooper',60,4}
-    P2_deck_cards[9] = {'Phase 2 Clone Trooper',60,4}
-    P2_deck_cards[10] = {'Commander Bly',60,4}
-    P2_deck_cards[11] = {'501st Clone Trooper',60,4}
-    P2_deck_cards[12] = {'Elite Squad Trooper',60,4}
-    P2_deck_cards[13] = {'AZI',60,4}
-    P2_deck_cards[14] = {'212th Clone Trooper',60,4}
-    P2_deck_cards[15] = {'Kamino Training Droid',60,4}
-    P2_deck_cards[16] = {'Taun We',60,4}
-    P2_deck_cards[17] = {'Omega',60,4}
+    P2_deck_cards[0] = {'Echo',60,4}
+    P2_deck_cards[1] = {'AZI',60,4}
+    P2_deck_cards[2] = {'Hunter',60,4}
+    P2_deck_cards[3] = {'Vice Admiral Rampart',60,4}
+    P2_deck_cards[4] = {'Taun We',60,4}
+    P2_deck_cards[5] = {'Commander Cody',60,4}
+    P2_deck_cards[6] = {'ARC Trooper',60,4}
+    P2_deck_cards[7] = {'Clone Commando',60,4}
+    P2_deck_cards[8] = {'Wrecker',60,4}
+    P2_deck_cards[9] = {'Clone Commando Scorch',60,4}
+    P2_deck_cards[10] = {'Clone Commando Gregor',60,4}
+    P2_deck_cards[11] = {'Elite Squad Trooper',60,4}
+    P2_deck_cards[12] = {'Omega',60,4}
+    P2_deck_cards[13] = {'Phase 2 Clone Trooper',60,4}
+    P2_deck_cards[14] = {'Crosshair',60,4}
+    P2_deck_cards[15] = {'501st Clone Trooper',60,4}
+    P2_deck_cards[16] = {'Kamino Training Droid',60,4}
+    P2_deck_cards[17] = {'Grand Moff Tarkin',60,4}
 
     gStateMachine:change('GameState',{'Kamino.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
 end
