@@ -278,8 +278,8 @@ Characters = {
 
 ['ARC Trooper'] = {
     ['melee_offense'] = 13678,
-    ['ranged_offense'] = 15178,
-    ['defense'] = 15735,
+    ['ranged_offense'] = 14378,
+    ['defense'] = 14435,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Blue Laser'
@@ -695,7 +695,7 @@ Characters = {
 ['Cad Bane'] = {
     ['melee_offense'] = 15814,
     ['ranged_offense'] = 15814,
-    ['defense'] = 15034,
+    ['defense'] = 15054,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile'] = 'Red Laser',
@@ -824,7 +824,7 @@ Characters = {
 
 ['Cassian Andor'] = {
     ['melee_offense'] = 14319,
-    ['ranged_offense'] = 16870,
+    ['ranged_offense'] = 16670,
     ['defense'] = 14100,
     ['evade'] = 0.03,
     ['range'] = 5,
@@ -1019,7 +1019,7 @@ Characters = {
 ['Commander Bly'] = {
     ['melee_offense'] = 12459,
     ['ranged_offense'] = 14459,
-    ['defense'] = 15493,
+    ['defense'] = 15433,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Blue Laser'
@@ -1150,15 +1150,6 @@ Characters = {
     ['defense'] = 15558,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile'] = 'Red Laser'
-},
-
-['Death Trooper'] = {
-    ['melee_offense'] = 13348,
-    ['ranged_offense'] = 14348,
-    ['defense'] = 14340,
-    ['evade'] = 0.03,
-    ['range'] = 3,
     ['projectile'] = 'Red Laser'
 },
 
@@ -1314,6 +1305,15 @@ Characters = {
     ['weapon'] = 'Purple Lightsaber'
 },
 
+['Death Trooper'] = {
+    ['melee_offense'] = 13348,
+    ['ranged_offense'] = 14348,
+    ['defense'] = 13696,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'Red Laser'
+},
+
 ['Death Watch Mandalorian'] = {
     ['melee_offense'] = 14208,
     ['ranged_offense'] = 13078,
@@ -1465,7 +1465,7 @@ Characters = {
 },
 
 ['Elite Praetorian Guard'] = {
-    ['melee_offense'] = 15949,
+    ['melee_offense'] = 15749,
     ['defense'] = 15239,
     ['evade'] = 0.03,
     ['range'] = 1,
@@ -1513,7 +1513,7 @@ Characters = {
 
 ['Enfys Nest'] = {
     ['melee_offense'] = 14320,
-    ['defense'] = 15669,
+    ['defense'] = 15351,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon'] = 'Electroripper Staff'
@@ -2882,9 +2882,9 @@ Characters = {
 },
 
 ['Migs Mayfeld'] = {
-    ['melee_offense'] = 12034,
-    ['ranged_offense'] = 15647,
-    ['defense'] = 15010,
+    ['melee_offense'] = 12004,
+    ['ranged_offense'] = 15607,
+    ['defense'] = 15090,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
@@ -3490,8 +3490,8 @@ Characters = {
 },
 
 ['Royal Guard'] = {
-    ['melee_offense'] = 15037,
-    ['defense'] = 15164,
+    ['melee_offense'] = 15030,
+    ['defense'] = 15160,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon'] = 'Force Pike'
