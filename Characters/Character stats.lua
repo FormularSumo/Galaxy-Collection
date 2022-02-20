@@ -1943,7 +1943,7 @@ Characters = {
     ['weapon'] = 'Bo-Rifle'
 },
 
-['Garza Fwip'] = {
+['Garsa Fwip'] = {
     ['melee_offense'] = 5180,
     ['defense'] = 5810,
     ['evade'] = 0.02,
