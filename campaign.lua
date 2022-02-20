@@ -33,6 +33,15 @@ function tatooine()
     end
 end
 
+function throneRoom()
+    P2_deck_cards[1] = {'Royal Guard',60,4}
+    P2_deck_cards[2] = {'Emperor Palpatine',60,4}
+    P2_deck_cards[3] = {'Darth Vader',60,4}
+    P2_deck_cards[4] = {'Royal Guard',60,4}
+   
+    gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Piano.oga'})
+end
+
 function kamino()
     P2_deck_cards[0] = {'Echo',60,4}
     P2_deck_cards[1] = {'AZI',60,4}
@@ -54,15 +63,6 @@ function kamino()
     P2_deck_cards[17] = {'Grand Moff Tarkin',60,4}
 
     gStateMachine:change('GameState',{'Kamino.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
-end
-
-function throneRoom()
-    P2_deck_cards[1] = {'Royal Guard',60,4}
-    P2_deck_cards[2] = {'Emperor Palpatine',60,4}
-    P2_deck_cards[3] = {'Darth Vader',60,4}
-    P2_deck_cards[4] = {'Royal Guard',60,4}
-   
-    gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Piano.oga'})
 end
 
 function maxedDarkSide()
