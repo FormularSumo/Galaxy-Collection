@@ -940,6 +940,15 @@ Characters = {
     ['weapon'] = 'Spear'
 },
 
+['Chief Nebit'] = {
+    ['melee_offense'] = 5269,
+    ['ranged_offense'] = 5515,
+    ['defense'] = 5819,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Laser',
+},
+
 ['Chieftain Tarfful'] = {
     ['melee_offense'] = 15066,
     ['ranged_offense'] = 14043,
@@ -1443,6 +1452,15 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Dathcha'] = {
+    ['melee_offense'] = 5200,
+    ['ranged_offense'] = 5500,
+    ['defense'] = 5859,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile'] = 'Blue Laser'
+},
+
 ['Davik Kang'] = {
     ['melee_offense'] = 14025,
     ['ranged_offense'] = 14011,
@@ -1527,6 +1545,15 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Dr Evazan'] = {
+    ['melee_offense'] = 9112,
+    ['ranged_offense'] = 9012,
+    ['defense'] = 9194,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile'] = 'Red Laser'
+},
+
 ['Dread Master'] = {
     ['melee_offense'] = 17712,
     ['ranged_offense'] = 17838,
@@ -1537,13 +1564,13 @@ Characters = {
     ['weapon'] = 'Purple Lightsaber'
 },
 
-['Dr Evazan'] = {
-    ['melee_offense'] = 9112,
-    ['ranged_offense'] = 9012,
-    ['defense'] = 9194,
+['Drash'] = {
+    ['melee_offense'] = 8995,
+    ['ranged_offense'] = 9393,
+    ['defense'] = 9199,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['projectile'] = 'Red Laser'
+    ['projectile'] = 'Red Laser',
 },
 
 ['Droideka'] = {
@@ -1896,6 +1923,16 @@ Characters = {
     ['weapon'] = 'Green Lightsaber'
 },
 
+['Gar Saxon'] = {
+    ['melee_offense'] = 14022,
+    ['ranged_offense'] = 16023,
+    ['defense'] = 15751,
+    ['evade'] = 0.15,
+    ['range'] = 5,
+    ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Flamethrower'
+},
+
 ['Garazeb Orrelios'] = {
     ['melee_offense'] = 15229,
     ['ranged_offense'] = 15229,
@@ -1906,14 +1943,11 @@ Characters = {
     ['weapon'] = 'Bo-Rifle'
 },
 
-['Gar Saxon'] = {
-    ['melee_offense'] = 14022,
-    ['ranged_offense'] = 16023,
-    ['defense'] = 15751,
-    ['evade'] = 0.15,
-    ['range'] = 5,
-    ['projectile'] = 'Red Laser',
-    ['weapon'] = 'Flamethrower'
+['Garza Fwip'] = {
+    ['melee_offense'] = 5180,
+    ['defense'] = 5810,
+    ['evade'] = 0.02,
+    ['range'] = 1,
 },
 
 ['General Grievous'] = {
@@ -3440,6 +3474,16 @@ Characters = {
     ['weapon'] = 'Flamethrower'
 },
 
+['Peli Motto'] = {
+    ['melee_offense'] = 6760,
+    ['ranged_offense'] = 6660,
+    ['defense'] = 6220,
+    ['evade'] = 0.02,
+    ['range'] = 3,
+    ['projectile'] = 'Red Laser',
+},
+
+
 ['Petro'] = {
     ['melee_offense'] = 9910,
     ['ranged_offense'] = 9899,
@@ -4382,6 +4426,14 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Tusken Chieftain'] = {
+    ['melee_offense'] = 8300,
+    ['defense'] = 8010,
+    ['evade'] = 0.03,
+    ['range'] = 1,
+    ['weapon'] = 'Gaffi Stick'
+},
+
 ['Tusken Raider'] = {
     ['melee_offense'] = 8210,
     ['ranged_offense'] = 8120,
@@ -4389,6 +4441,14 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile'] = 'Red Laser',
+    ['weapon'] = 'Gaffi Stick'
+},
+
+['Tusken Warrior'] = {
+    ['melee_offense'] = 8969,
+    ['defense'] = 9569,
+    ['evade'] = 0.03,
+    ['range'] = 1,
     ['weapon'] = 'Gaffi Stick'
 },
 
