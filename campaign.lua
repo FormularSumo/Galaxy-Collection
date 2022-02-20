@@ -11,21 +11,27 @@ function endor()
     gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Duet.mp3'})
 end
 
-function tatooine()
-    P2_deck_cards[0] = {'Gonk Droid',60,4}
-    P2_deck_cards[1] = {'C-3PO',60,4}
-    P2_deck_cards[2] = {'Gamorrean Guard',60,4}
-    P2_deck_cards[3] = {'Bib Fortuna',60,4}
-    P2_deck_cards[4] = {'Jabba The Hutt',60,4}
+function mosEisley()
+    P2_deck_cards[0] = {'Jabba The Hutt',60,4}
+    P2_deck_cards[1] = {'Bib Fortuna',60,4}
+    P2_deck_cards[2] = {'Old Ben Kenobi',60,4}
+    P2_deck_cards[3] = {'Gamorrean Guard',60,4}
+    P2_deck_cards[4] = {'C-3PO',60,4}
     P2_deck_cards[5] = {'Jawa',60,4}
-    P2_deck_cards[6] = {'Sand Trooper',60,4}
+    P2_deck_cards[6] = {'Dathcha',60,4}
     P2_deck_cards[7] = {'Dr Evazan',60,4}
     P2_deck_cards[8] = {'R2-D2',60,4}
     P2_deck_cards[9] = {'Greedo',60,4}
     P2_deck_cards[10] = {'Ponda Baba',60,4}
-    P2_deck_cards[11] = {'Imperial Stormtrooper',60,4}
+    P2_deck_cards[11] = {'Chief Nebit',60,4}
+    
+    P2_deck_cards[12] = {'Sand Trooper',60,4}
+    P2_deck_cards[13] = {'Han Solo',60,4}
     P2_deck_cards[14] = {'Farmboy Luke Skywalker',60,4}
     P2_deck_cards[15] = {'Tusken Raider',60,4}
+    P2_deck_cards[16] = {'Chewbacca',60,4}
+    P2_deck_cards[17] = {'Imperial Stormtrooper',60,4}
+    
     if Settings['videos'] then
         gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
     else
