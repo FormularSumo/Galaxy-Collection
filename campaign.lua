@@ -94,7 +94,7 @@ function sithTriumvirate()
     P2_deck_cards[16] = {'Mira',60,4}
     P2_deck_cards[17] = {'Hanharr',60,4}
 
-    gStateMachine:change('GameState',{'Sith Triumvirate.jpg', 'photo', 0, 1, 1 ,1, 'The Old Republic.mp3'})
+    gStateMachine:change('GameState',{'Sith Triumvirate.jpg', 'photo', 0, 1, 1 ,1, 'The Old Republic.oga'})
 end
 
 function kamino()
