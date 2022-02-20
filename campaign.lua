@@ -74,6 +74,29 @@ function throneRoom()
     gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Piano.oga'})
 end
 
+function sithTriumvirate()
+    P2_deck_cards[0] = {'Sith Marauder',60,4}
+    P2_deck_cards[1] = {'Sith Assassin',60,4}
+    P2_deck_cards[2] = {'Darth Traya',60,4}
+    P2_deck_cards[3] = {'Darth Nihilus',60,4}
+    P2_deck_cards[4] = {'Darth Sion',60,4}
+    P2_deck_cards[5] = {'HK-50',60,4}
+    P2_deck_cards[6] = {'Meetra Surik',60,4}
+    P2_deck_cards[7] = {'The Disciple',60,4}
+    P2_deck_cards[8] = {'Visas Marr',60,4}
+    P2_deck_cards[9] = {'Atton Rand',60,4}
+    P2_deck_cards[10] = {'Mandalore The Preserver',60,4}
+    P2_deck_cards[11] = {'T3-M4',60,4}
+    P2_deck_cards[12] = {'G0-T0',60,4}
+    P2_deck_cards[13] = {'The Handmaiden',60,4}
+    P2_deck_cards[14] = {'Bao-Dur',60,4}
+    P2_deck_cards[15] = {'HK-47',60,4}
+    P2_deck_cards[16] = {'Mira',60,4}
+    P2_deck_cards[17] = {'Hanharr',60,4}
+
+    gStateMachine:change('GameState',{'Sith Triumvirate.jpg', 'photo', 0, 1, 1 ,1, 'The Old Republic.mp3'})
+end
+
 function kamino()
     P2_deck_cards[0] = {'Echo',60,4}
     P2_deck_cards[1] = {'AZI',60,4}
