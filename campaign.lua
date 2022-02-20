@@ -39,6 +39,34 @@ function mosEisley()
     end
 end
 
+function mosEspa()
+    P2_deck_cards[0] = {'Garsa Fwip',60,4}
+    P2_deck_cards[1] = {'Tusken Chieftain',60,4}
+    P2_deck_cards[2] = {'Old Ben Kenobi',60,4}
+    P2_deck_cards[3] = {'Gamorrean Guard',60,4}
+    P2_deck_cards[4] = {'C-3PO',60,4}
+    P2_deck_cards[5] = {'Jawa',60,4}
+    P2_deck_cards[6] = {'Dathcha',60,4}
+    P2_deck_cards[7] = {'Dr Evazan',60,4}
+    P2_deck_cards[8] = {'R2-D2',60,4}
+    P2_deck_cards[9] = {'Greedo',60,4}
+    P2_deck_cards[10] = {'Ponda Baba',60,4}
+    P2_deck_cards[11] = {'Chief Nebit',60,4}
+    
+    P2_deck_cards[12] = {'Sand Trooper',60,4}
+    P2_deck_cards[13] = {'Han Solo',60,4}
+    P2_deck_cards[14] = {'Farmboy Luke Skywalker',60,4}
+    P2_deck_cards[15] = {'Tusken Raider',60,4}
+    P2_deck_cards[16] = {'Chewbacca',60,4}
+    P2_deck_cards[17] = {'Imperial Stormtrooper',60,4}
+    
+    if Settings['videos'] then
+        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Throne Room.oga'})
+    else
+        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 0, 0, 0, 0, 'Throne Room.oga'})
+    end
+end
+
 function throneRoom()
     P2_deck_cards[1] = {'Royal Guard',60,4}
     P2_deck_cards[2] = {'Emperor Palpatine',60,4}
