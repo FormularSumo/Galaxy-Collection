@@ -16,11 +16,11 @@ function Remove_card:swap()
     sort_inventory()
     if love.mouse.isVisible() == false then
         if mouseTrapped.number < 6 then
-            reposition_mouse(gui[mouseTrapped.number+16])
+            repositionMouse(gui[mouseTrapped.number+16])
         elseif mouseTrapped.number < 12 then
-            reposition_mouse(gui[mouseTrapped.number+4])
+            repositionMouse(gui[mouseTrapped.number+4])
         else
-            reposition_mouse(gui[mouseTrapped.number-8])
+            repositionMouse(gui[mouseTrapped.number-8])
         end
     end
     mouseTrapped = false

@@ -199,18 +199,18 @@ function love.keypressed(key,scancode,isrepeat)
     end
     if key == 'up' or key == 'down' then
         if mouseTouching == false then
-            reposition_mouse(1)
+            repositionMouse(1)
         else
             for k, v in ipairs(gui) do
                 if v == mouseTouching then
                     if key == 'up' then
                         if gui[k-1] then
-                            reposition_mouse(k-1)
+                            repositionMouse(k-1)
                         end
                     end
                     if key == 'down' then
                         if gui[k+1] then
-                            reposition_mouse(k+1)
+                            repositionMouse(k+1)
                         end
                     end
                     break
@@ -252,12 +252,12 @@ function love.mousereleased(x,y,button,istouch)
 end
 
 function love.gamepadreleased(joystick,button)
-    local key = controller_binds(button)
+    local key = controllerBinds(button)
     love.keyreleased(key)
 end
 
 function love.gamepadpressed(joystick,button)
-    local key = controller_binds(button)
+    local key = controllerBinds(button)
     love.keypressed(key)
     lastClickIsTouch = false
 end
@@ -346,7 +346,7 @@ function love.update(dt)
 
     --Handle mouse inputs
     if love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter') then
-        update_mouse_position()
+        updateMousePosition()
     end
 
     --Handle holding down keys

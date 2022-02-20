@@ -26,7 +26,6 @@ function tatooine()
     P2_deck_cards[11] = {'Imperial Stormtrooper',60,4}
     P2_deck_cards[14] = {'Farmboy Luke Skywalker',60,4}
     P2_deck_cards[15] = {'Tusken Raider',60,4}
-
     if Settings['videos'] then
         gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
     else
@@ -57,7 +56,7 @@ function kamino()
     gStateMachine:change('GameState',{'Kamino.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
 end
 
-function throne_room()
+function throneRoom()
     P2_deck_cards[1] = {'Royal Guard',60,4}
     P2_deck_cards[2] = {'Emperor Palpatine',60,4}
     P2_deck_cards[3] = {'Darth Vader',60,4}
@@ -66,7 +65,7 @@ function throne_room()
     gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Piano.oga'})
 end
 
-function maxed_dark_side()
+function maxedDarkSide()
     P2_deck_cards[0] = {'Darth Marr',60,4}
     P2_deck_cards[1] = {'Grand Inquisitor',60,4}
     P2_deck_cards[2] = {'Darth Vader',60,4}
@@ -93,7 +92,7 @@ function maxed_dark_side()
     end
 end
 
-function maxed_light_side()
+function maxedLightSide()
     P2_deck_cards[0] = {'Ahsoka Tano Fulcrum',60,4}
     P2_deck_cards[1] = {'Hermit Luke Skywalker',60,4}
     P2_deck_cards[2] = {'Jedi Knight Revan',60,4}

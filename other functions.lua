@@ -16,7 +16,7 @@ function pause(pause)
     end
 end
 
-function exit_state(partial)
+function exitState(partial)
     if not partial then 
         love.audio.stop()
         songs = {}
@@ -31,28 +31,28 @@ function exit_state(partial)
     yscroll = 0
 end
 
-function gamespeed_slider(percentage)
+function gamespeedSlider(percentage)
     gamespeed = percentage * 4
 end
 
-function volume_slider(percentage)
+function volumeSlider(percentage)
     love.audio.setVolume(percentage)
     Settings['volume_level'] = percentage
 end
 
-function volume_slider2()
+function volumeSlider2()
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
-function switch_state(state)
+function switchState(state)
     gStateMachine:change(state[1],state[2],state[3])
 end
 
-function exit_game()
+function exitGame()
     love.event.quit()
 end
 
-function reposition_mouse(index)
+function repositionMouse(index)
     if gui[index] then
         mouseTouching = gui[index]
     else
@@ -75,7 +75,7 @@ function reposition_mouse(index)
     love.mouse.setVisible(false)
 end
 
-function update_mouse_position()
+function updateMousePosition()
     mouseDown = true
     mouseLastX,mouseLastY = push.toGame(love.mouse.getPosition())
     if mouseLastX == false or mouseLastY == false then
@@ -91,7 +91,7 @@ function testForBackgroundImageLoop(video,seek) --Replays the inputted video if 
     video:play()
 end
 
-function calculate_queue_length()
+function calculateQueueLength()
     queue_length = -1
     for k, pair in pairs(songs) do
         queue_length = queue_length + 1
@@ -100,24 +100,24 @@ function calculate_queue_length()
     next_song = 1
 end
 
-function toggle_pause_on_loose_focus()
+function togglePauseOnLooseFocus()
     Settings['pause_on_loose_focus'] = not Settings['pause_on_loose_focus']
     gui[4]:update_text('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']))
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
-function toggle_videos()
+function toggleVideos()
     Settings['videos'] = not Settings['videos']
     gui[3]:update_text('Videos: ' .. tostring(Settings['videos']))
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
-function toggle_FPS()
+function toggleFPS()
     Settings['FPS_counter'] = not Settings['FPS_counter']
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
-function controller_binds(button)
+function controllerBinds(button)
     if button == 'a' then
         return 'return'
     elseif button == 'b' then
@@ -132,7 +132,7 @@ function controller_binds(button)
     return false
 end
 
-function character_strength(character)
+function characterStrength(character)
     if character == nil then return 0 end
     if character[1] then
         stats = Characters[character[1]]
@@ -150,8 +150,8 @@ function character_strength(character)
     return (offense+((stats['defense']*modifier)/800)^4)*(1+stats['evade']^1/2*2)
 end
 
-function compare_character_strength(character1, character2)
-    return character_strength(character1) > character_strength(character2)
+function compareCharacterStrength(character1, character2)
+    return characterStrength(character1) > characterStrength(character2)
 end
 
 function tutorial()

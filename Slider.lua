@@ -93,7 +93,7 @@ function Slider:check_keys_down(dt,left,right)
             self:update_slider()
         end
         if love.mouse.isVisible() == false and left == 'left' then
-            reposition_mouse(self)
+            repositionMouse(self)
         end
     end
     if love.keyboard.wasReleased(left) or love.keyboard.wasReleased(right) then

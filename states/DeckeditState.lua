@@ -16,7 +16,7 @@ function DeckeditState:init()
 
     background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
-    gui[1] = Button('switch_state',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
+    gui[1] = Button('switchState',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
     gui[2] = Button('reset_deck','strongest','Auto',font80,nil,'centre',200)
     gui[3] = Button('reset_deck','blank','Clear',font80,nil,'centre',380)
     gui['Remove_card'] = Remove_card()
@@ -65,7 +65,7 @@ function sort_inventory(reload)
         Unsorted = nil
     end
 
-    table.sort(P1_cards,compare_character_strength)
+    table.sort(P1_cards,compareCharacterStrength)
     for k, pair in pairs(P1_cards) do
         P1_cards[k-1] = pair
     end
@@ -152,7 +152,7 @@ function reset_deck(deck)
     P1_deck_cards = {}
     P1_cards = {}
 
-    table.sort(Sorted_characters,compare_character_strength)
+    table.sort(Sorted_characters,compareCharacterStrength)
     count = -1
 
     if deck == 'strongest' then
@@ -212,60 +212,60 @@ function DeckeditState:update()
                 if v == mouseTouching then
                     if love.keyboard.wasPressed('right') then
                         if k == 1 then
-                            reposition_mouse(24)
+                            repositionMouse(24)
                         elseif k == 2 then
-                            reposition_mouse(25)
+                            repositionMouse(25)
                         elseif k == 3 then
-                            reposition_mouse(26)   
+                            repositionMouse(26)   
                         elseif k == 16 then
-                            reposition_mouse(1)
+                            repositionMouse(1)
                         elseif k == 17 then
-                            reposition_mouse(2)
+                            repositionMouse(2)
                         elseif k == 18 then
-                            reposition_mouse(3)
+                            repositionMouse(3)
                         elseif (k < 20 and k > 16) or (k == 20 and gui['Remove_card'].visible == false) then
-                            reposition_mouse(k+8)
+                            repositionMouse(k+8)
                         elseif k == 20 then
-                            reposition_mouse(gui['Remove_card'])
+                            repositionMouse(gui['Remove_card'])
                         elseif k == 21 then
-                            reposition_mouse(22)
+                            repositionMouse(22)
                         elseif k == 22 then
-                            reposition_mouse(23)
+                            repositionMouse(23)
                         elseif k == 23 then
-                            reposition_mouse(29)
+                            repositionMouse(29)
                         elseif gui[k+6] then
-                            reposition_mouse(k+6)
+                            repositionMouse(k+6)
                         else
-                            reposition_mouse(mouseTouching.row+4)
+                            repositionMouse(mouseTouching.row+4)
                         end
                     end
                     if love.keyboard.wasPressed('left') then
                         if k == 1 then
-                            reposition_mouse(16)
+                            repositionMouse(16)
                         elseif k == 2 then
-                            reposition_mouse(17)
+                            repositionMouse(17)
                         elseif k == 3 then
-                            reposition_mouse(18)
+                            repositionMouse(18)
                         elseif k == 24 then
-                            reposition_mouse(1)
+                            repositionMouse(1)
                         elseif k == 25 then
-                            reposition_mouse(2)
+                            repositionMouse(2)
                         elseif k == 26 then
-                            reposition_mouse(3)
+                            repositionMouse(3)
                         elseif (k < 28 and k > 24) or (k == 28 and gui['Remove_card'].visible == false) then
-                            reposition_mouse(k-8) 
+                            repositionMouse(k-8) 
                         elseif k == 28 then
-                            reposition_mouse(gui['Remove_card'])
+                            repositionMouse(gui['Remove_card'])
                         elseif k == 29 then
-                            reposition_mouse(22)
+                            repositionMouse(22)
                         elseif k == 23 then
-                            reposition_mouse(22)
+                            repositionMouse(22)
                         elseif k == 22 then
-                            reposition_mouse(21)
+                            repositionMouse(21)
                         elseif gui[k-6] and k - 6 ~= 1 then
-                            reposition_mouse(k-6)
+                            repositionMouse(k-6)
                         else
-                            reposition_mouse(mouseTouching.row+24+12)
+                            repositionMouse(mouseTouching.row+24+12)
                         end
                     end
                     return
@@ -273,9 +273,9 @@ function DeckeditState:update()
             end
             if mouseTouching == gui['Remove_card'] then
                 if love.keyboard.wasPressed('left') then
-                    reposition_mouse(20)
+                    repositionMouse(20)
                 elseif love.keyboard.wasPressed('right') then
-                    reposition_mouse(28)
+                    repositionMouse(28)
                 end
             end
         end
@@ -291,5 +291,5 @@ function DeckeditState:exit(partial)
     BlankCard = nil
     page = nil
     Cards_on_display_are_blank = nil
-    exit_state(partial)
+    exitState(partial)
 end

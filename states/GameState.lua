@@ -45,14 +45,14 @@ function GameState:enter(Background)
 
     songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
     songs[0]:play()
-    calculate_queue_length()
+    calculateQueueLength()
 
     if Background[4] == nil then r = 0 else r = Background[4] end
     if Background[5] == nil then g = 0 else g = Background[5] end
     if Background[6] == nil then b = 0 else b = Background[6] end
-    gui[1] = Button('switch_state',{'HomeState'},'Main Menu',font80,nil,35,20,r,g,b)
+    gui[1] = Button('switchState',{'HomeState'},'Main Menu',font80,nil,35,20,r,g,b)
     gui[2] = Button('pause',nil,'Pause',font100,nil,1591,0,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
-    gui[3] = Slider(1591,130,300,16,'gamespeed_slider',0.3,0.3,0.3,r,g,b,0.25,0.25)
+    gui[3] = Slider(1591,130,300,16,'gamespeedSlider',0.3,0.3,0.3,r,g,b,0.25,0.25)
 
     if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
         timer = 0 - (background['Seek'] - 1)
@@ -226,9 +226,9 @@ function GameState:update(dt)
     end
 
     if love.keyboard.wasPressed('right') and mouseTouching == gui[1] then
-        reposition_mouse(2)
+        repositionMouse(2)
     elseif love.keyboard.wasPressed('left') and mouseTouching == gui[2] then
-        reposition_mouse(1)
+        repositionMouse(1)
     end
 
     if paused == false and winner == 'none' then
@@ -398,5 +398,5 @@ function GameState:exit()
     timer = nil
     move_aim_timer = nil
     attack_timer = nil
-    exit_state()
+    exitState()
 end
