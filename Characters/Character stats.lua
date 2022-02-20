@@ -590,6 +590,15 @@ Characters = {
     ['projectile'] = 'Red Laser'
 },
 
+['Black Krssantan'] = {
+    ['melee_offense'] = 15400,
+    ['ranged_offense'] = 15510,
+    ['defense'] = 15103,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'Red Laser'
+},
+
 ['Boba Fett Mandalorian'] = {
     ['melee_offense'] = 15579,
     ['ranged_offense'] = 17601,
