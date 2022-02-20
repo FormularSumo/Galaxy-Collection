@@ -1819,7 +1819,7 @@ Characters = {
 ['First Order Stormtrooper'] = {
     ['melee_offense'] = 8392,
     ['ranged_offense'] = 9052,
-    ['defense'] = 9300,
+    ['defense'] = 9310,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile'] = 'Red Laser'
@@ -2305,8 +2305,8 @@ Characters = {
 
 ['IG-86 Sentinel Droid'] = {
     ['melee_offense'] = 8834,
-    ['ranged_offense'] = 8699,
-    ['defense'] = 9010,
+    ['ranged_offense'] = 8940,
+    ['defense'] = 9310,
     ['evade'] = 0.04,
     ['range'] = 4,
     ['projectile'] = 'Red Laser'
@@ -3564,6 +3564,15 @@ Characters = {
     ['range'] = 3,
     ['projectile'] = 'Red Laser',
     ['weapon'] = 'Electrostaff'
+},
+
+['Pyke Syndicate Soldier'] = {
+    ['melee_offense'] = 8401,
+    ['ranged_offense'] = 9111,
+    ['defense'] = 9269,
+    ['evade'] = 0.03,
+    ['range'] = 3,
+    ['projectile'] = 'Red Laser'
 },
 
 ['Qi\'ra'] = {
