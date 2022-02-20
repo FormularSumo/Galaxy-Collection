@@ -3428,9 +3428,9 @@ Characters = {
 
 ['Padmé Amidala'] = {
     ['filename'] = 'Padme Amidala',
-    ['melee_offense'] = 9268,
-    ['ranged_offense'] = 9468,
-    ['defense'] = 9427,
+    ['melee_offense'] = 9128,
+    ['ranged_offense'] = 9168,
+    ['defense'] = 9127,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile'] = 'Red Laser'
