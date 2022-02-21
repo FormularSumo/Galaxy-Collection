@@ -170,17 +170,14 @@ function Card:aim()
     elseif self.range > 1 then
         self.possible_targets = {}
         self.total_probability = 0
-        i = 0
         for k, pair in pairs(self.enemy_deck) do
             distance = self:distance(k)
             if distance <= self.range then
                 self.possible_targets[k] = self.total_probability + self.range/distance
                 self.total_probability = self.total_probability + self.range/distance
             end
-            i = i + 1
         end
         self.ranged_attack_roll = love.math.random() * self.total_probability
-        i = 0
         for k, pair in pairs(self.possible_targets) do
             if self.ranged_attack_roll < self.possible_targets[k] then
                 self.target = k
