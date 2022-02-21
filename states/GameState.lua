@@ -15,7 +15,7 @@ function GameState:init()
     local P2column = 12
     local row_correctment = 0
 
-    for i=0,17,1 do
+    for i=0,math.max(#P1_deck_cards,#P2_deck_cards),1 do
         if i % 6 == 0 and i ~= 0 then
             P1column = -1 - i / 6 
             P2column = 12 + i / 6 

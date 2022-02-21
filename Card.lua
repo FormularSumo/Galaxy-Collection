@@ -79,7 +79,7 @@ end
 
 function Card:move()
     if self.team == 1 then
-        if (self.number < 6 and self.column < 5) or (self.number < 12 and self.column < 4) or (self.number < 18 and self.column < 3) then
+        if (self.number < (5 - self.column) * 6) then
             self.column = self.column + 1
         elseif P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column + 1
@@ -87,7 +87,7 @@ function Card:move()
             P1_deck[self.number] = nil
         end
     else
-        if (self.number < 6 and self.column > 6) or (self.number < 12 and self.column > 7) or (self.number < 18 and self.column > 8) then
+        if (self.number < (self.column - 6) * 6) then
             self.column = self.column - 1
         elseif P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column - 1
