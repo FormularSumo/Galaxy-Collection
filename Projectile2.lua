@@ -1,8 +1,9 @@
 Projectile2 = Class{__includes = BaseState}
 
-function Projectile2:init(image,team,xoffset,yoffset)
+function Projectile2:init(image,team,xoffset,yoffset,range)
     self.image = image
     self.team = team
+    self.range = range
     self.width,self.height = self.image:getDimensions()
 
     if self.team == 1 then

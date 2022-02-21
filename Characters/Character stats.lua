@@ -1439,7 +1439,9 @@ Characters = {
     ['defense'] = 24568,
     ['evade'] = 0.15,
     ['range'] = 5,
+    ['range2'] = 3,
     ['projectile'] = 'Purple Lightning',
+    ['projectile2'] = 'Red Laser',
     ['projectile_count'] = 4,
     ['weapon'] = 'Purple Lightsaber'
 },

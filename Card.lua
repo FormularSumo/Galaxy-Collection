@@ -58,7 +58,7 @@ function Card:init(name,row,column,team,number,level,evolution)
             end
         end
 
-        self.projectile = Projectile(Projectiles[self.name['projectile']], Projectiles[self.name['projectile2']], Projectiles[self.name['projectile3']], Projectiles[self.name['projectile4']], self.name['projectile_count'], self.team, self.width, self.height)
+        self.projectile = Projectile(Projectiles[self.name['projectile']], Projectiles[self.name['projectile2']], Projectiles[self.name['projectile3']], Projectiles[self.name['projectile4']], self.name['projectile_count'], self.range, self.range2, self.range3, self.range4, self.team, self.width, self.height)
     end
 
     if self.name['weapon'] then
@@ -183,23 +183,15 @@ function Card:aim()
         end
         self.melee_attack = true
     elseif self.range > 1 then
-        self.possible_targets = {}
-        self.total_probability = 0
-        for k, pair in pairs(self.enemy_deck) do
-            distance = self:distance(k)
-            if distance <= self.range then
-                self.possible_targets[k] = self.total_probability + self.range/distance
-                self.total_probability = self.total_probability + self.range/distance
-            end
-        end
-
-        if self.total_probability > 0 then
-            self.targets[1] = self:target()
-            if self.projectile then
+        self.targets[1] = self:target(self.range)
+        if self.projectile then
+            if self.targets[1] then
                 self.projectile.Projectiles[1]:fire(self,self.enemy_deck[self.targets[1]])
-                for k, pair in pairs(self.projectile.Projectiles) do
-                    if k > 1 then
-                        self.targets[k] = self:target()
+            end
+            for k, pair in pairs(self.projectile.Projectiles) do
+                if k > 1 then
+                    self.targets[k] = self:target(pair.range)
+                    if self.targets[k] then
                         pair:fire(self,self.enemy_deck[self.targets[k]])
                     end
                 end
@@ -211,11 +203,23 @@ function Card:aim()
     end
 end
 
-function Card:target()
-    self.ranged_attack_roll = love.math.random() * self.total_probability
-    for k, pair in pairs(self.possible_targets) do
-        if self.ranged_attack_roll < self.possible_targets[k] then
-            return k
+function Card:target(range)
+    self.possible_targets = {}
+    self.total_probability = 0
+    for k, pair in pairs(self.enemy_deck) do
+        distance = self:distance(k)
+        if distance <= range then
+            self.possible_targets[k] = self.total_probability + range/distance
+            self.total_probability = self.total_probability + range/distance
+        end
+    end
+
+    if self.total_probability > 0 then
+        self.ranged_attack_roll = love.math.random() * self.total_probability
+        for k, pair in pairs(self.possible_targets) do
+            if self.ranged_attack_roll < self.possible_targets[k] then
+                return k
+            end
         end
     end
 end
