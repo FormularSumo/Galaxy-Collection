@@ -173,15 +173,17 @@ function Card:aim()
                 self.total_probability = self.total_probability + self.range/distance
             end
         end
-        self.ranged_attack_roll = love.math.random() * self.total_probability
-        for k, pair in pairs(self.possible_targets) do
-            if self.ranged_attack_roll < self.possible_targets[k] then
-                self.target = k
-                break
+        if self.total_probability > 0 then
+            self.ranged_attack_roll = love.math.random() * self.total_probability
+            for k, pair in pairs(self.possible_targets) do
+                if self.ranged_attack_roll < self.possible_targets[k] then
+                    self.target = k
+                    break
+                end
             end
-        end
-        if self.target ~= nil and self.projectile then
-            self:fire()
+            if self.projectile then
+                self:fire()
+            end
         end
     end
     if self.weapon then
