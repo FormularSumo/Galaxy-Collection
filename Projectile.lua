@@ -1,11 +1,11 @@
 Projectile = Class{__includes = BaseState}
 
 function Projectile:init(name,team,xoffset,yoffset)
-    projectile_count = name['projectile_count']
-    if not projectile_count then projectile_count = 1 end
+    self.projectile_count = name['projectile_count']
+    if not self.projectile_count then self.projectile_count = 1 end
 
     self.Projectiles = {}
-    for i=1,projectile_count do
+    for i=1,self.projectile_count do
         if name['projectile' .. tostring(i)] then
             if not Projectiles[name['projectile'..tostring(i)]] then
                 Projectiles[name['projectile'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['projectile'..tostring(i)]..'.png')

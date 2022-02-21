@@ -32,8 +32,10 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.defense = self.name['defense'] * (self.modifier)
     self.evade = self.name['evade']
     self.range = self.name['range']
+    self.ranged_offense_stat = self.ranged_offense
     if self.name['projectile1'] then
         self.projectile = Projectile(self.name, self.team, self.width, self.height)
+        self.ranged_offense_stat = self.ranged_offense_stat * math.sqrt(self.projectile.projectile_count)
     end
 
     if self.name['weapon'] then
@@ -147,7 +149,7 @@ function Card:aim()
             self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
         end
         self.melee_attack = true
-    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense * 0.9 > self.ranged_offense) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
+    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense * 0.9 > self.ranged_offense_stat) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
         if self.enemy_deck[self.number-1] ~= nil then
             self.targets[1] = self.number-1
         elseif self.enemy_deck[self.number+1] ~= nil then 
