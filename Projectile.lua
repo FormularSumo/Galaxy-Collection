@@ -1,56 +1,58 @@
 Projectile = Class{__includes = BaseState}
 
-function Projectile:init(projectile,team,xoffset,yoffset)
-    self.team = team
-    self.image = projectile
-    self.width,self.height = self.image:getDimensions()
-    self.inverse = self.image == Projectiles['Force Drain']
+function Projectile:init(projectile1,projectile2,projecile3,projectile4,projectile_count,team,xoffset,yoffset)
+    if not projectile_count then self.projectile_count = 1 else self.projectile_count = projectile_count end
 
-    if self.team == 1 then
-        self.xoffset = xoffset / 2 - self.width / 2
-        self.yoffset = yoffset / 2 - self.height / 2
-    else
-        self.xoffset = xoffset / 2 + self.width / 2
-        self.yoffset = yoffset / 2 + self.height / 2
+    self.Projectiles = {}
+    self.Projectiles[1] = Projectile2(projectile1,team,xoffset,yoffset)
+
+    if self.projectile_count > 1 then
+        if not projectile2 then
+            self.Projectiles[2] = Projectile2(projectile1,team,xoffset,yoffset)
+        else 
+            self.Projectiles[2] = Projectile2(projectile2,team,xoffset,yoffset)
+        end
+        if self.projectile_count > 2 then
+            if not projecile3 then
+                self.Projectiles[3] = Projectile2(projectile1,team,xoffset,yoffset)
+            else
+                self.Projectiles[3] = Projectile2(projectile3,team,xoffset,yoffset)
+            end
+            if self.projectile_count > 3 then
+                if not projectile4 then
+                    self.Projectiles[4] = Projectile2(projectile1,team,xoffset,yoffset)
+                else
+                    self.Projectiles[4] = Projectile2(projectile4,team,xoffset,yoffset)
+                end
+            end
+        end
     end
 end
 
-function Projectile:fire(card,card2)
-    self.show = true
-
-    if self.inverse then
-        self.x = card2.x + self.xoffset
-        self.finalx = card.targetx + self.xoffset
-        self.y = card2.y + self.yoffset
-        self.finaly = card.targety + self.yoffset
-    else
-        self.x = card.x + self.xoffset
-        self.finalx = card2.targetx + self.xoffset
-        self.y = card.y + self.yoffset
-        self.finaly = card2.targety + self.yoffset
+function Projectile:hide()
+    for k, pair in pairs(self.Projectiles) do
+        pair.show = false
     end
+end
 
-    if (self.team == 1 and not self.inverse) or (self.team == 2 and self.inverse) then
-        self.finalx = self.finalx - 20
-    else
-        self.finalx = self.finalx + 20
+function Projectile:fire(projectile,card,card2)
+    self.Projectiles[projectile]:fire(card,card2)
+end
+
+function Projectile:fireall(card,card2)
+    for k, pair in pairs(self.Projectiles) do
+        pair:fire(card,card2)
     end
-
-    self.x_distance = tonumber(self.finalx-self.x)
-    self.y_distance = tonumber(self.finaly-self.y)
-    self.angle = math.atan(self.y_distance/self.x_distance)
-    if self.team == 2 then self.angle = self.angle + math.rad(180) end
 end
 
 function Projectile:update(dt)
-    if self.show then
-        self.x = self.x + (self.x_distance * dt) / 0.9
-        self.y = self.y + (self.y_distance * dt) / 0.9
+    for k, pair in pairs(self.Projectiles) do
+        pair:update(dt)
     end
 end
 
 function Projectile:render()
-    if self.show then
-        love.graphics.draw(self.image,self.x,self.y,self.angle)
+    for k, pair in pairs(self.Projectiles) do
+        pair:render()
     end
 end

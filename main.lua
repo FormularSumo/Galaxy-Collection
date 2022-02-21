@@ -19,9 +19,10 @@ function love.load()
     require 'states/ExitState'
     require 'campaign'
     require 'other functions'
-    require 'Projectile'
     require 'Weapon'
     require 'Weapon2'
+    require 'Projectile'
+    require 'Projectile2'
     require 'Card editor'
     require 'Remove card'
 

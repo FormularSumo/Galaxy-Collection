@@ -36,7 +36,29 @@ function Card:init(name,row,column,team,number,level,evolution)
         if not Projectiles[self.name['projectile']] then
             Projectiles[self.name['projectile']] = love.graphics.newImage('Graphics/'..self.name['projectile']..'.png')
         end
-        self.projectile = Projectile(Projectiles[self.name['projectile']], self.team, self.width, self.height)
+
+        if self.name['projectile2'] then
+            if not Projectiles[self.name['projectile2']] then
+                Projectiles[self.name['projectile2']] = love.graphics.newImage('Graphics/'..self.name['projectile2']..'.png')
+            end
+            self.range2 = self.name['range2']
+
+            if self.name['projectile3'] then
+                if not Projectiles[self.name['projectile3']] then
+                    Projectiles[self.name['projectile3']] = love.graphics.newImage('Graphics/'..self.name['projectile2']..'.png')
+                end
+                self.range3 = self.name['range3']
+
+                if self.name['projectile4'] then
+                    if not Projectiles[self.name['projectile4']] then
+                        Projectiles[self.name['projectile4']] = love.graphics.newImage('Graphics/'..self.name['projectile2']..'.png')
+                    end
+                    self.range4 = self.name['range4']
+                end
+            end
+        end
+
+        self.projectile = Projectile(Projectiles[self.name['projectile']], Projectiles[self.name['projectile2']], Projectiles[self.name['projectile3']], Projectiles[self.name['projectile4']], self.name['projectile_count'], self.team, self.width, self.height)
     end
 
     if self.name['weapon'] then
@@ -81,6 +103,7 @@ function Card:init(name,row,column,team,number,level,evolution)
     end
     self.damage = 0
     self.defence_down = 0
+    self.targets = {}
 end
 
 function Card:distance(target)
@@ -98,10 +121,6 @@ function Card:check_health()
         self.weapon = nil
         self.projectile = nil
     end
-end
-
-function Card:fire()
-    self.projectile:fire(self,self.enemy_deck[self.target])
 end
 
 function Card:move()
@@ -148,19 +167,19 @@ end
 function Card:aim()
     self.melee_attack = false
     if (self.column == 5 or self.column == 6) and self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
-        self.target = self.number
+        self.targets[1] = self.number
         if self.melee_projectile then
-            self:fire()
+            self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
         end
         self.melee_attack = true
     elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense * 0.9 > self.ranged_offense) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
         if self.enemy_deck[self.number-1] ~= nil then
-            self.target = self.number-1
+            self.targets[1] = self.number-1
         elseif self.enemy_deck[self.number+1] ~= nil then 
-            self.target = self.number+1
+            self.targets[1] = self.number+1
         end
         if self.melee_projectile then
-            self:fire()
+            self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
         end
         self.melee_attack = true
     elseif self.range > 1 then
@@ -173,16 +192,17 @@ function Card:aim()
                 self.total_probability = self.total_probability + self.range/distance
             end
         end
+
         if self.total_probability > 0 then
-            self.ranged_attack_roll = love.math.random() * self.total_probability
-            for k, pair in pairs(self.possible_targets) do
-                if self.ranged_attack_roll < self.possible_targets[k] then
-                    self.target = k
-                    break
-                end
-            end
+            self.targets[1] = self:target()
             if self.projectile then
-                self:fire()
+                self.projectile.Projectiles[1]:fire(self,self.enemy_deck[self.targets[1]])
+                for k, pair in pairs(self.projectile.Projectiles) do
+                    if k > 1 then
+                        self.targets[k] = self:target()
+                        pair:fire(self,self.enemy_deck[self.targets[k]])
+                    end
+                end
             end
         end
     end
@@ -191,32 +211,47 @@ function Card:aim()
     end
 end
 
-function Card:attack()
-    if self.target ~= nil then
-        self.attack_roll = love.math.random(100) / 100
-        self.enemy_deck[self.target].attacks_taken = self.enemy_deck[self.target].attacks_taken + 1
-        if self.attack_roll > self.enemy_deck[self.target].evade then
-            if self.melee_attack then self.offense = self.melee_offense else self.offense = self.ranged_offense end
-            self.damage = ((self.offense - self.enemy_deck[self.target].defense) / 800)
-            if self.damage < 0 then self.damage = 0 end
-            self.damage = (self.damage ^ 3)
-            self.defence_down = (self.offense / 100) * (self.offense / self.enemy_deck[self.target].defense) ^ 3
-            if self.target ~= self.number and self.range == 1 then 
-                self.damage = self.damage / 2 
-                self.defence_down = self.defence_down / 2 
-            end
-            self.enemy_deck[self.target].health = self.enemy_deck[self.target].health - (self.damage + 1)
-            if self.enemy_deck[self.target].defense > 0 then
-                self.enemy_deck[self.target].defense = self.enemy_deck[self.target].defense - self.defence_down
-                if self.enemy_deck[self.target].defense < 0 then self.enemy_deck[self.target].defense = 0 end
-            else
-                self.enemy_deck[self.target].defense = 0
-            end
-        else
-            self.enemy_deck[self.target].dodge = self.enemy_deck[self.target].dodge + 1
+function Card:target()
+    self.ranged_attack_roll = love.math.random() * self.total_probability
+    for k, pair in pairs(self.possible_targets) do
+        if self.ranged_attack_roll < self.possible_targets[k] then
+            return k
         end
-        self.target = nil
-        if self.projectile then self.projectile.show = false end
+    end
+end
+
+function Card:attack()
+    if self.targets ~= {} then
+        for k, pair in pairs(self.targets) do
+            self:attack2(pair)
+        end
+        self.targets = {}
+        if self.projectile then self.projectile:hide() end
+    end
+end
+
+function Card:attack2(target)
+    self.attack_roll = love.math.random(100) / 100
+    self.enemy_deck[target].attacks_taken = self.enemy_deck[target].attacks_taken + 1
+    if self.attack_roll > self.enemy_deck[target].evade then
+        if self.melee_attack then self.offense = self.melee_offense else self.offense = self.ranged_offense end
+        self.damage = ((self.offense - self.enemy_deck[target].defense) / 800)
+        if self.damage < 0 then self.damage = 0 end
+        self.damage = (self.damage ^ 3)
+        self.defence_down = (self.offense / 100) * (self.offense / self.enemy_deck[target].defense) ^ 3
+        if target ~= self.number and self.range == 1 then 
+            self.damage = self.damage / 2 
+            self.defence_down = self.defence_down / 2 
+        end
+        self.enemy_deck[target].health = self.enemy_deck[target].health - (self.damage + 1)
+        if self.enemy_deck[target].defense > 0 then
+            self.enemy_deck[target].defense = self.enemy_deck[target].defense - self.defence_down
+            if self.enemy_deck[target].defense < 0 then self.enemy_deck[target].defense = 0 end
+        else
+            self.enemy_deck[target].defense = 0
+        end
+    else
+        self.enemy_deck[target].dodge = self.enemy_deck[target].dodge + 1
     end
 end
 
