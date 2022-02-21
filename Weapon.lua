@@ -6,7 +6,6 @@ function Weapon:init(weapon1,weapon2,weapon3,weapon4,weapon_count,team,xoffset,y
     self.yoffset = yoffset
     self.show = false
     if not weapon_count then self.weapon_count = 1 else self.weapon_count = weapon_count end
-    self.image = weapon
 
     if self.team == 1 then
         if self.static then
