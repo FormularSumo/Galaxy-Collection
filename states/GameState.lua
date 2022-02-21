@@ -15,7 +15,20 @@ function GameState:init()
     local P2column = 12
     local row_correctment = 0
 
-    for i=0,math.max(#P1_deck_cards,#P2_deck_cards),1 do
+    P1length = 0
+    for k, pair in pairs(P1_deck_cards) do
+        if k > P1length then
+            P1length = k
+        end
+    end
+    P2length = 0
+    for k, pair in pairs(P2_deck_cards) do
+        if k > P2length then
+            P2length = k
+        end
+    end
+
+    for i=0,math.max(P1length,P2length),1 do
         if i % 6 == 0 and i ~= 0 then
             P1column = -1 - i / 6 
             P2column = 12 + i / 6 
