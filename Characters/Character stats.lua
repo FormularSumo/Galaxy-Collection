@@ -70,7 +70,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Abeloth'] = {
@@ -80,7 +80,7 @@ Characters = {
     ['evade'] = 0.20,
     ['range'] = 5,
     ['projectile1'] = 'Force Drain',
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Acklay'] = {
@@ -97,7 +97,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Admiral Ackbar'] = {
@@ -151,7 +151,7 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 1,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Cane'
+    ['weapon1'] = 'Cane'
 },
 
 ['Agen Kolar'] = {
@@ -161,7 +161,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Agent Kallus'] = {
@@ -171,7 +171,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
-    ['weapon'] = 'Kallus\' Bo-Rifle'
+    ['weapon1'] = 'Kallus\' Bo-Rifle'
 },
 
 ['Ahsoka Tano Fulcrum'] = {
@@ -180,7 +180,7 @@ Characters = {
     ['defense'] = 17804,
     ['evade'] = 0.07,
     ['range'] = 2,
-    ['weapon'] = 'White Lightsaber', 
+    ['weapon1'] = 'White Lightsaber', 
     ['projectile1'] = 'Blue Force Blast',
     ['weapon_count'] = 2
 },
@@ -191,7 +191,7 @@ Characters = {
     ['defense'] = 17952,
     ['evade'] = 0.07,
     ['range'] = 2,
-    ['weapon'] = 'White Lightsaber', 
+    ['weapon1'] = 'White Lightsaber', 
     ['projectile1'] = 'Blue Force Blast',
     ['weapon_count'] = 2
 },
@@ -203,7 +203,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Yellow Lightsaber',
+    ['weapon1'] = 'Yellow Lightsaber',
     ['weapon2'] = 'Green Lightsaber',
     ['weapon_count'] = 2
 },
@@ -214,7 +214,7 @@ Characters = {
     ['defense'] = 17500,
     ['evade'] = 0.06,
     ['range'] = 2,
-    ['weapon'] = 'Blue Lightsaber',
+    ['weapon1'] = 'Blue Lightsaber',
     ['projectile1'] = 'Blue Force Blast',
     ['weapon_count'] = 2
 },
@@ -235,7 +235,7 @@ Characters = {
     ['evade'] = 0.25,
     ['range'] = 2,
     ['projectile1'] = 'Force Drain',
-    ['weapon'] = 'War Sword'
+    ['weapon1'] = 'War Sword'
 },
 
 ['Amilyn Holdo'] = {
@@ -261,7 +261,7 @@ Characters = {
     ['defense'] = 15103,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Ap\'lek\'s Axe'
+    ['weapon1'] = 'Ap\'lek\'s Axe'
 },
 
 ['Aqua Droid'] = {
@@ -280,7 +280,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Yellow Lightning',
-    ['weapon'] = 'Yellow Lightsaber'
+    ['weapon1'] = 'Yellow Lightsaber'
 },
 
 ['ARC Trooper'] = {
@@ -343,7 +343,7 @@ Characters = {
     ['defense'] = 17312,
     ['evade'] = 0.06,
     ['range'] = 3,
-    ['weapon'] = 'Red Lightsaber',
+    ['weapon1'] = 'Red Lightsaber',
     ['projectile1'] = 'Fire', 
     ['weapon_count'] = 2
 },
@@ -373,7 +373,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['AT-ST Driver'] = {
@@ -480,7 +480,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Bastila Shan'] = {
@@ -490,7 +490,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Double Yellow Lightsaber'
+    ['weapon1'] = 'Double Yellow Lightsaber'
 },
 
 ['Bastila Shan Fallen'] = {
@@ -500,7 +500,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Purple Lightning',
-    ['weapon'] = 'Double Red Lightsaber'
+    ['weapon1'] = 'Double Red Lightsaber'
 },
 
 ['Baze Malbus'] = {
@@ -517,7 +517,7 @@ Characters = {
     ['defense'] = 8978,
     ['evade'] = 0.05,
     ['range'] = 1,
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['BB-9E'] = {
@@ -525,7 +525,7 @@ Characters = {
     ['defense'] = 8111,
     ['evade'] = 0.06,
     ['range'] = 1,
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['BD-1'] = {
@@ -533,7 +533,7 @@ Characters = {
     ['defense'] = 6012,
     ['evade'] = 0.05,
     ['range'] = 1,
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Bendak Starkiller'] = {
@@ -551,7 +551,7 @@ Characters = {
     ['evade'] = 0.07,
     ['range'] = 5,
     ['projectile1'] = 'Lightning',
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Beskar Armour Din Djarin'] = {
@@ -561,7 +561,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Beskar Spear'
+    ['weapon1'] = 'Beskar Spear'
 },
 
 ['Bib Fortuna'] = {
@@ -569,7 +569,7 @@ Characters = {
     ['defense'] = 5533,
     ['evade'] = 0.01,
     ['range'] = 1,
-    ['weapon'] = 'Vice Chair Staff'
+    ['weapon1'] = 'Vice Chair Staff'
 },
 
 ['Biggs Darklighter'] = {
@@ -606,7 +606,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Gaffi Stick'
+    ['weapon1'] = 'Gaffi Stick'
 },
 
 ['Boba Fett ROTJ'] = {
@@ -616,7 +616,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Bodhi Rook'] = {
@@ -644,7 +644,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Bolla Ropal'] = {
@@ -654,7 +654,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Boolio'] = {
@@ -682,7 +682,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Thermal Detonator',
-    ['weapon'] = 'Staff'
+    ['weapon1'] = 'Staff'
 },
 
 ['Broonmark'] = {
@@ -690,7 +690,7 @@ Characters = {
     ['defense'] = 14011,
     ['evade'] = 0.3,
     ['range'] = 1,
-    ['weapon'] = 'Vibroblade'
+    ['weapon1'] = 'Vibroblade'
 },
 
 ['Burg'] = {
@@ -716,7 +716,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['C-21 Highsinger'] = {
@@ -742,7 +742,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Cad Bane BOBF'] = {
@@ -761,7 +761,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Calo Nord'] = {
@@ -789,7 +789,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Captain Howzer'] = {
@@ -835,7 +835,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Phasma\'s Spear'
+    ['weapon1'] = 'Phasma\'s Spear'
 },
 
 ['Captain Rex'] = {
@@ -854,7 +854,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Booma',
-    ['weapon'] = 'Cesta'
+    ['weapon1'] = 'Cesta'
 },
 
 ['Captain Vaughn'] = {
@@ -909,7 +909,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Cham Syndulla'] = {
@@ -937,7 +937,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
-    ['weapon'] = 'Spear'
+    ['weapon1'] = 'Spear'
 },
 
 ['Chief Nebit'] = {
@@ -966,7 +966,7 @@ Characters = {
     ['evade'] = 0.12,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
-    ['weapon'] = 'Chirrut\'s Staff'
+    ['weapon1'] = 'Chirrut\'s Staff'
 },
 
 ['Chopper'] = {
@@ -983,7 +983,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Vibroblade'
+    ['weapon1'] = 'Vibroblade'
 },
 
 ['Cid'] = {
@@ -1011,7 +1011,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Clone Commando'] = {
@@ -1093,7 +1093,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Coleman Trebor'] = {
@@ -1103,7 +1103,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Commander Appo'] = {
@@ -1167,7 +1167,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Commander Neyo'] = {
@@ -1213,7 +1213,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Vibrosword'
+    ['weapon1'] = 'Vibrosword'
 },
 
 ['Coruscant Guard Clone Trooper'] = {
@@ -1232,7 +1232,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Lightning',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Crab Droid'] = {
@@ -1269,7 +1269,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Gaffi Stick'
+    ['weapon1'] = 'Gaffi Stick'
 },
 
 ['Darksaber Din Djarin'] = {
@@ -1279,7 +1279,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Darksaber'
+    ['weapon1'] = 'Darksaber'
 },
 
 ['Dark Trooper'] = {
@@ -1298,7 +1298,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Lightning',
-    ['weapon'] = 'Double Red Lightsaber'
+    ['weapon1'] = 'Double Red Lightsaber'
 },
 
 ['Darth Bane'] = {
@@ -1308,7 +1308,7 @@ Characters = {
     ['evade'] = 0.2,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Darth Baras'] = {
@@ -1318,7 +1318,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Purple Lightning',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Darth Malak'] = {
@@ -1328,7 +1328,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 3,
     ['projectile1'] = 'Force Drain',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Darth Malgus'] = {
@@ -1338,7 +1338,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Darth Marr'] = {
@@ -1348,7 +1348,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Darth Maul'] = {
@@ -1358,7 +1358,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Double Red Lightsaber'
+    ['weapon1'] = 'Double Red Lightsaber'
 },
 
 ['Darth Nihilus'] = {
@@ -1368,7 +1368,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 5,
     ['projectile1'] = 'Force Drain',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Darth Revan'] = {
@@ -1378,7 +1378,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Purple Lightning',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Darth Sidious'] = {
@@ -1388,7 +1388,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 3,
     ['projectile1'] = 'Lightning',
-    ['weapon'] = 'Red Lightsaber',
+    ['weapon1'] = 'Red Lightsaber',
     ['weapon_count'] = 2
 },
 
@@ -1399,7 +1399,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Darth Talon'] = {
@@ -1409,7 +1409,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Darth Traya'] = {
@@ -1419,7 +1419,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Purple Force Blast',
-    ['weapon'] = 'Purple Lightsaber',
+    ['weapon1'] = 'Purple Lightsaber',
     ['weapon_count'] = 3
 },
 
@@ -1430,7 +1430,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['DarthNoscoper'] = {
@@ -1443,7 +1443,7 @@ Characters = {
     ['projectile1'] = 'Purple Lightning',
     ['projectile2'] = 'Red Laser',
     ['projectile_count'] = 69,
-    ['weapon'] = 'Purple Lightsaber'
+    ['weapon1'] = 'Purple Lightsaber'
 },
 
 ['Dash Rendar'] = {
@@ -1489,7 +1489,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Yellow Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Del Meeko'] = {
@@ -1517,7 +1517,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Din Djarin'] = {
@@ -1527,7 +1527,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Knife'
+    ['weapon1'] = 'Knife'
 },
 
 ['Director Krennic'] = {
@@ -1564,7 +1564,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Purple Lightsaber'
+    ['weapon1'] = 'Purple Lightsaber'
 },
 
 ['Drash'] = {
@@ -1599,7 +1599,7 @@ Characters = {
     ['defense'] = 13187,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Kyuzo Petar',
+    ['weapon1'] = 'Kyuzo Petar',
     ['weapon_count'] = 2
 },
 
@@ -1628,7 +1628,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Eighth Brother'] = {
@@ -1638,7 +1638,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Inquisitor Lightsaber'
+    ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
 ['Elite Praetorian Guard'] = {
@@ -1646,7 +1646,7 @@ Characters = {
     ['defense'] = 15239,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Praetorian Weapon'
+    ['weapon1'] = 'Praetorian Weapon'
 },
 
 ['Elite Senate Commando'] = {
@@ -1665,7 +1665,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Embo'] = {
@@ -1675,7 +1675,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Embo\'s Shield'
+    ['weapon1'] = 'Embo\'s Shield'
 },
 
 ['Emperor Palpatine'] = {
@@ -1685,7 +1685,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 3,
     ['projectile1'] = 'Lightning',
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Enfys Nest'] = {
@@ -1693,7 +1693,7 @@ Characters = {
     ['defense'] = 15351,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Electroripper Staff'
+    ['weapon1'] = 'Electroripper Staff'
 },
 
 ['Eno Cordova'] = {
@@ -1703,7 +1703,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Even Piell'] = {
@@ -1713,7 +1713,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Ewok Elder'] = {
@@ -1723,7 +1723,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
-    ['weapon'] = 'Spear'
+    ['weapon1'] = 'Spear'
 },
 
 ['Ewok Scout'] = {
@@ -1733,7 +1733,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Arrow',
-    ['weapon'] = 'Spear'
+    ['weapon1'] = 'Spear'
 },
 
 ['Exar Kun'] = {
@@ -1743,7 +1743,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Double Blue Lightsaber'
+    ['weapon1'] = 'Double Blue Lightsaber'
 },
 
 ['Ezra Bridger S2'] = {
@@ -1753,7 +1753,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Ezra Bridger S4'] = {
@@ -1763,7 +1763,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Farmboy Luke Skywalker'] = {
@@ -1791,7 +1791,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Inquisitor Lightsaber'
+    ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
 ['Finn'] = {
@@ -1801,7 +1801,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['First Order Executioner'] = {
@@ -1809,7 +1809,7 @@ Characters = {
     ['defense'] = 8080,
     ['evade'] = 0.02,
     ['range'] = 1,
-    ['weapon'] = 'Execution Axe'
+    ['weapon1'] = 'Execution Axe'
 },
 
 ['First Order Flametrooper'] = {
@@ -1817,7 +1817,7 @@ Characters = {
     ['defense'] = 8489,
     ['evade'] = 0.01,
     ['range'] = 2,
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['First Order Jet Trooper'] = {
@@ -1834,7 +1834,7 @@ Characters = {
     ['defense'] = 9423,
     ['evade'] = 0.02,
     ['range'] = 1,
-    ['weapon'] = 'Z6 Riot Control Baton'
+    ['weapon1'] = 'Z6 Riot Control Baton'
 },
 
 ['First Order Snowtrooper'] = {
@@ -1880,7 +1880,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Orange Lightsaber'
+    ['weapon1'] = 'Orange Lightsaber'
 },
 
 ['G0-T0'] = {
@@ -1890,7 +1890,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Galen Erso'] = {
@@ -1905,7 +1905,7 @@ Characters = {
     ['defense'] = 8257,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Axe'
+    ['weapon1'] = 'Axe'
 },
 
 ['Gand Warrior'] = {
@@ -1913,7 +1913,7 @@ Characters = {
     ['defense'] = 8537,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Force Pike'
+    ['weapon1'] = 'Force Pike'
 },
 
 ['Ganodi'] = {
@@ -1923,7 +1923,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Gar Saxon'] = {
@@ -1933,7 +1933,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Garazeb Orrelios'] = {
@@ -1943,7 +1943,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Bo-Rifle'
+    ['weapon1'] = 'Bo-Rifle'
 },
 
 ['Garsa Fwip'] = {
@@ -1959,7 +1959,7 @@ Characters = {
     ['defense'] = 17882,
     ['evade'] = 0.06,
     ['range'] = 3,
-    ['weapon'] = 'Blue Lightsaber',
+    ['weapon1'] = 'Blue Lightsaber',
     ['weapon2'] = 'Green Lightsaber',
     ['weapon3'] = 'Green Lightsaber',
     ['weapon4'] = 'Blue Lightsaber',
@@ -1992,7 +1992,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['General Leia Organa'] = {
@@ -2011,7 +2011,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['General Veers'] = {
@@ -2028,7 +2028,7 @@ Characters = {
     ['defense'] = 9445,
     ['evade'] = 0.15,
     ['range'] = 2,
-    ['weapon'] = 'Glaive'
+    ['weapon1'] = 'Glaive'
 },
 
 ['Gideon Hask'] = {
@@ -2072,7 +2072,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Inquisitor Lightsaber'
+    ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
 ['Grand Moff Tarkin'] = {
@@ -2152,7 +2152,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Booma',
-    ['weapon'] = 'Cesta'
+    ['weapon1'] = 'Cesta'
 },
 
 ['Gungi'] = {
@@ -2162,7 +2162,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Hailfire Droid'] = {
@@ -2181,7 +2181,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Vibroblade'
+    ['weapon1'] = 'Vibroblade'
 },
 
 ['Han Solo'] = {
@@ -2252,7 +2252,7 @@ Characters = {
     ['evade'] = 0.25,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Hermit Yoda'] = {
@@ -2280,7 +2280,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['HK-50'] = {
@@ -2290,7 +2290,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Hondo Ohnaka'] = {
@@ -2300,7 +2300,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Electrostaff'
+    ['weapon1'] = 'Electrostaff'
 },
 
 ['Hoth Rebel Soldier'] = {
@@ -2319,7 +2319,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
-    ['weapon'] = 'Knife'
+    ['weapon1'] = 'Knife'
 },
 
 ['Iden Versio'] = {
@@ -2365,7 +2365,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Imperial Flametrooper'] = {
@@ -2373,7 +2373,7 @@ Characters = {
     ['defense'] = 8543,
     ['evade'] = 0.01,
     ['range'] = 2,
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Imperial Ground Crew'] = {
@@ -2470,7 +2470,7 @@ Characters = {
     ['defense'] = 8367,
     ['evade'] = 0.01,
     ['range'] = 2,
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Jabba The Hutt'] = {
@@ -2487,7 +2487,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Purple Lightning',
-    ['weapon'] = 'Double Purple Lightsaber'
+    ['weapon1'] = 'Double Purple Lightsaber'
 },
 
 ['Jango Fett'] = {
@@ -2497,7 +2497,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Jar Jar Binks'] = {
@@ -2507,7 +2507,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Booma',
-    ['weapon'] = 'Cesta'
+    ['weapon1'] = 'Cesta'
 },
 
 ['Jaro Tapal'] = {
@@ -2517,7 +2517,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Double Blue Lightsaber'
+    ['weapon1'] = 'Double Blue Lightsaber'
 },
 
 
@@ -2546,7 +2546,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Double Green Lightsaber'
+    ['weapon1'] = 'Double Green Lightsaber'
 },
 
 ['Jedi Knight Anakin Skywalker'] = {
@@ -2556,7 +2556,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Jedi Knight Guardian'] = {
@@ -2566,7 +2566,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Jedi Knight Luke Skywalker'] = {
@@ -2576,7 +2576,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Jedi Knight Revan'] = {
@@ -2586,7 +2586,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Purple Lightsaber'
+    ['weapon1'] = 'Purple Lightsaber'
 },
 
 ['Jedi Master Obi-Wan Kenobi'] = {
@@ -2596,7 +2596,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Jedi Temple Guard'] = {
@@ -2606,7 +2606,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Double Yellow Lightsaber'
+    ['weapon1'] = 'Double Yellow Lightsaber'
 },
 
 ['Jedi Training Rey'] = {
@@ -2616,7 +2616,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Jess Pava'] = {
@@ -2653,7 +2653,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Jolee Bindo'] = {
@@ -2663,7 +2663,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Jon Vander'] = {
@@ -2691,7 +2691,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Jyn Erso'] = {
@@ -2701,7 +2701,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Truncheon'
+    ['weapon1'] = 'Truncheon'
 },
 
 ['K-2SO'] = {
@@ -2738,7 +2738,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Blue Lightsaber'  
+    ['weapon1'] = 'Blue Lightsaber'  
 },
 
 ['Karis'] = {
@@ -2748,7 +2748,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Purple Laser',
-    ['weapon'] = 'Sword',
+    ['weapon1'] = 'Sword',
     ['weapon_count'] = 2
 },
 
@@ -2768,7 +2768,7 @@ Characters = {
     ['evade'] = 0.7,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Kavar'] = {
@@ -2778,7 +2778,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 3,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber',
+    ['weapon1'] = 'Blue Lightsaber',
     ['weapon_count'] = 2
 },
 
@@ -2798,7 +2798,7 @@ Characters = {
     ['evade'] = 0.3,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Vibroblade'
+    ['weapon1'] = 'Vibroblade'
 },
 
 ['Ketsu Onyo'] = {
@@ -2808,7 +2808,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Ketsu\'s Staff'
+    ['weapon1'] = 'Ketsu\'s Staff'
 },
 
 ['Ki-Adi-Mundi'] = {
@@ -2818,7 +2818,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'  
+    ['weapon1'] = 'Blue Lightsaber'  
 },
 
 ['Kit Fisto'] = {
@@ -2828,7 +2828,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'  
+    ['weapon1'] = 'Green Lightsaber'  
 },
 
 ['Kix'] = {
@@ -2847,7 +2847,7 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Axe'
+    ['weapon1'] = 'Axe'
 },
 
 ['Koska Reeves'] = {
@@ -2857,7 +2857,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Kreia'] = {
@@ -2867,7 +2867,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Kuiil'] = {
@@ -2875,7 +2875,7 @@ Characters = {
     ['defense'] = 8050,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Fusioncutter'
+    ['weapon1'] = 'Fusioncutter'
 },
 
 ['Kuruk'] = {
@@ -2894,7 +2894,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Kylo Ren'] = {
@@ -2904,7 +2904,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Crossguard Lightsaber'
+    ['weapon1'] = 'Crossguard Lightsaber'
 },
 
 ['L3-37'] = {
@@ -2921,7 +2921,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Lando Calrissian'] = {
@@ -2939,7 +2939,7 @@ Characters = {
     ['defense'] = 12378,
     ['evade'] = 0.03,
     ['range'] = 2,
-    ['weapon'] = 'Vine',
+    ['weapon1'] = 'Vine',
     ['weapon_count'] = 2
 },
 
@@ -2977,7 +2977,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
-    ['weapon'] = 'Spear'
+    ['weapon1'] = 'Spear'
 },
 
 ['Lord Vader'] = {
@@ -2987,7 +2987,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Ludo Kressh'] = {
@@ -2997,7 +2997,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'War Sword'
+    ['weapon1'] = 'War Sword'
 },
 
 ['Luminara Unduli'] = {
@@ -3007,7 +3007,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Lyra Erso'] = {
@@ -3026,7 +3026,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Purple Lightsaber'
+    ['weapon1'] = 'Purple Lightsaber'
 },
 
 ['MagnaGuard'] = {
@@ -3036,7 +3036,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Electrostaff'
+    ['weapon1'] = 'Electrostaff'
 },
 
 ['Major Brance'] = {
@@ -3082,7 +3082,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Purple Lightsaber'
+    ['weapon1'] = 'Purple Lightsaber'
 },
 
 ['Marka Ragnos'] = {
@@ -3092,7 +3092,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Scepter'
+    ['weapon1'] = 'Scepter'
 },
 
 ['Mas Amedda'] = {
@@ -3100,7 +3100,7 @@ Characters = {
     ['defense'] = 6443,
     ['evade'] = 0.01,
     ['range'] = 1,
-    ['weapon'] = 'Vice Chair Staff'
+    ['weapon1'] = 'Vice Chair Staff'
 },
 
 ['Maul'] = {
@@ -3110,7 +3110,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Double Red Lightsaber'
+    ['weapon1'] = 'Double Red Lightsaber'
 },
 
 ['Meetra Surik'] = {
@@ -3120,7 +3120,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Migs Mayfeld'] = {
@@ -3157,7 +3157,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Darksaber'
+    ['weapon1'] = 'Darksaber'
 },
 
 ['Moff Jerjerrod'] = {
@@ -3176,7 +3176,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Cane'
+    ['weapon1'] = 'Cane'
 },
 
 ['Mon Mothma'] = {
@@ -3200,7 +3200,7 @@ Characters = {
     ['defense'] = 14501,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Beskar Spear'
+    ['weapon1'] = 'Beskar Spear'
 },
 
 ['Mother Talzin'] = {
@@ -3210,7 +3210,7 @@ Characters = {
     ['evade'] = 0.08,
     ['range'] = 3,
     ['projectile1'] = 'Fire',
-    ['weapon'] = 'Mother Talzin Sword'
+    ['weapon1'] = 'Mother Talzin Sword'
 },
 
 ['Naga Sadow'] = {
@@ -3220,7 +3220,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'War Sword'
+    ['weapon1'] = 'War Sword'
 },
 
 ['Nahdar Vebb'] = {
@@ -3230,7 +3230,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Nexu'] = {
@@ -3263,7 +3263,7 @@ Characters = {
     ['defense'] = 8692,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Nightbrother Weapon'
+    ['weapon1'] = 'Nightbrother Weapon'
 },
 
 ['Nightsister Merrin'] = {
@@ -3296,7 +3296,7 @@ Characters = {
     ['defense'] = 14377,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Riot Control Baton'
+    ['weapon1'] = 'Riot Control Baton'
 },
 
 ['Ninth Sister'] = {
@@ -3306,7 +3306,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Inquisitor Lightsaber'
+    ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
 ['Nute Gunray'] = {
@@ -3341,7 +3341,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Old Daka'] = {
@@ -3386,7 +3386,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Ord Enisence'] = {
@@ -3396,7 +3396,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Pablo-Jill'] = {
@@ -3406,7 +3406,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Padawan Anakin Skywalker'] = {
@@ -3416,7 +3416,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Padawan Obi-Wan Kenobi'] = {
@@ -3426,7 +3426,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Padmé Amidala'] = {
@@ -3455,7 +3455,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
-    ['weapon'] = 'Spear'
+    ['weapon1'] = 'Spear'
 },
 
 ['Patrol Trooper'] = {
@@ -3474,7 +3474,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Peli Motto'] = {
@@ -3494,7 +3494,7 @@ Characters = {
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Phase 1 Clone Trooper'] = {
@@ -3532,7 +3532,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Poe Dameron'] = {
@@ -3549,7 +3549,7 @@ Characters = {
     ['defense'] = 6600,
     ['evade'] = 0.15,
     ['range'] = 2,
-    ['weapon'] = 'Cane'
+    ['weapon1'] = 'Cane'
 },
 
 ['Ponda Baba'] = {
@@ -3567,7 +3567,7 @@ Characters = {
     ['defense'] = 16850,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['weapon'] = 'Double Green Lightsaber',
+    ['weapon1'] = 'Double Green Lightsaber',
     ['weapon2'] = 'Double Blue Lightsaber',
     ['projectile1'] = 'Blue Force Blast',
     ['weapon_count'] = 2
@@ -3580,7 +3580,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
-    ['weapon'] = 'Darksaber'
+    ['weapon1'] = 'Darksaber'
 
 },
 
@@ -3600,7 +3600,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Spear Blaster'
+    ['weapon1'] = 'Spear Blaster'
 },
 
 ['Purge Trooper'] = {
@@ -3610,7 +3610,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Electrostaff'
+    ['weapon1'] = 'Electrostaff'
 },
 
 ['Pyke Syndicate Soldier'] = {
@@ -3638,7 +3638,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Quinlan Vos'] = {
@@ -3648,7 +3648,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['R2-D2'] = {
@@ -3656,7 +3656,7 @@ Characters = {
     ['defense'] = 9765,
     ['evade'] = 0.15,
     ['range'] = 2,
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Rafa Martez'] = {
@@ -3700,7 +3700,7 @@ Characters = {
     ['defense'] = 8750,
     ['evade'] = 0.02,
     ['range'] = 1,
-    ['weapon'] = 'Force Pike'
+    ['weapon1'] = 'Force Pike'
 },
 
 ['Reek'] = {
@@ -3744,7 +3744,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Riff Tamson'] = {
@@ -3768,7 +3768,7 @@ Characters = {
     ['defense'] = 9299,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Riot Control Shield',
+    ['weapon1'] = 'Riot Control Shield',
     ['weapon2'] = 'Riot Control Baton',
     ['weapon_count'] = 2
 },
@@ -3778,7 +3778,7 @@ Characters = {
     ['defense'] = 8549,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Roland Durand'] = {
@@ -3797,7 +3797,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Rose Tico'] = {
@@ -3807,7 +3807,7 @@ Characters = {
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
-    ['weapon'] = 'Shock Prod'
+    ['weapon1'] = 'Shock Prod'
 },
 
 ['Royal Guard'] = {
@@ -3815,7 +3815,7 @@ Characters = {
     ['defense'] = 15160,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Force Pike'
+    ['weapon1'] = 'Force Pike'
 },
 
 ['Rukh'] = {
@@ -3823,7 +3823,7 @@ Characters = {
     ['defense'] = 14900,
     ['evade'] = 0.05,
     ['range'] = 1,
-    ['weapon'] = 'Electrostaff'
+    ['weapon1'] = 'Electrostaff'
 },
 
 ['Rush Clovis'] = {
@@ -3851,7 +3851,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Darksaber'
+    ['weapon1'] = 'Darksaber'
 },
 
 ['Saesee Tiin'] = {
@@ -3861,7 +3861,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Sand Trooper'] = {
@@ -3880,7 +3880,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Double Blue Lightsaber'
+    ['weapon1'] = 'Double Blue Lightsaber'
 },
 
 ['Satine Kryze'] = {
@@ -3899,7 +3899,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Double Red Lightsaber'
+    ['weapon1'] = 'Double Red Lightsaber'
 },
 
 ['Saw Gerrera'] = {
@@ -3934,7 +3934,7 @@ Characters = {
     ['defense'] = 8507,
     ['evade'] = 0.02,
     ['range'] = 1,
-    ['weapon'] = 'Force Pike'
+    ['weapon1'] = 'Force Pike'
 },
 
 ['Seventh Sister'] = {
@@ -3944,7 +3944,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Inquisitor Lightsaber'
+    ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
 ['Shaak Ti'] = {
@@ -3954,7 +3954,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Shadow Guard'] = {
@@ -3962,7 +3962,7 @@ Characters = {
     ['defense'] = 13990,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Lightsaber Pike'
+    ['weapon1'] = 'Lightsaber Pike'
 },
 
 ['Shadow Trooper'] = {
@@ -4008,7 +4008,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'  
+    ['weapon1'] = 'Blue Lightsaber'  
 },
 
 ['Sith Assassin'] = {
@@ -4016,7 +4016,7 @@ Characters = {
     ['defense'] = 15297,
     ['evade'] = 0.3,
     ['range'] = 1,
-    ['weapon'] = 'War Sword'
+    ['weapon1'] = 'War Sword'
 },
 
 ['Sith Empire Trooper'] = {
@@ -4035,7 +4035,7 @@ Characters = {
     ['evade'] = 0,
     ['range'] = 5,
     ['projectile1'] = 'Lightning',
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Sith Jet Trooper'] = {
@@ -4054,7 +4054,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber',
+    ['weapon1'] = 'Red Lightsaber',
     ['weapon_count'] = 2
 },
 
@@ -4083,7 +4083,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 3,
     ['projectile1'] = 'Lightning',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Stass Allie'] = {
@@ -4093,7 +4093,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Steela Gerrera'] = {
@@ -4121,7 +4121,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Knife'
+    ['weapon1'] = 'Knife'
 },
 
 ['Supreme Leader Kylo Ren'] = {
@@ -4131,7 +4131,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Crossguard Lightsaber'
+    ['weapon1'] = 'Crossguard Lightsaber'
 },
 
 
@@ -4142,7 +4142,7 @@ Characters = {
     ['evade'] = 0.01,
     ['range'] = 2,
     ['projectile1'] = 'Lightning',
-    ['weapon'] = 'Lightning'
+    ['weapon1'] = 'Lightning'
 },
 
 ['Swamp Trooper'] = {
@@ -4177,7 +4177,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 3,
     ['projectile1'] = 'Fire',
-    ['weapon'] = 'Sword',
+    ['weapon1'] = 'Sword',
     ['weapon_count'] = 2
 },
 
@@ -4206,7 +4206,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Tasu Leech'] = {
@@ -4241,7 +4241,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
-    ['weapon'] = 'Spear'
+    ['weapon1'] = 'Spear'
 },
 
 ['Teedo'] = {
@@ -4249,7 +4249,7 @@ Characters = {
     ['defense'] = 5180,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Staff'
+    ['weapon1'] = 'Staff'
 },
 
 ['Tera Sinube'] = {
@@ -4259,7 +4259,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'White Lightsaber'
+    ['weapon1'] = 'White Lightsaber'
 },
 
 ['The Armorer'] = {
@@ -4267,7 +4267,7 @@ Characters = {
     ['defense'] = 15000,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Tool 1',
+    ['weapon1'] = 'Tool 1',
     ['weapon2'] = 'Tool 2',
     ['weapon_count'] = 2
 },
@@ -4304,7 +4304,7 @@ Characters = {
     ['defense'] = 15262,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Phasma\'s Spear'
+    ['weapon1'] = 'Phasma\'s Spear'
 },
 
 ['The One'] = {
@@ -4312,7 +4312,7 @@ Characters = {
     ['defense'] = 14760,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Vibroblade',
+    ['weapon1'] = 'Vibroblade',
     ['weapon_count'] = 2
 },
 
@@ -4332,7 +4332,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Lightning',
-    ['weapon'] = 'Dagger of Mortis'
+    ['weapon1'] = 'Dagger of Mortis'
 },
 
 ['Tiplee'] = {
@@ -4342,7 +4342,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Tiplar'] = {
@@ -4352,7 +4352,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['TK Trooper'] = {
@@ -4380,7 +4380,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Arrow',
-    ['weapon'] = 'Spear'
+    ['weapon1'] = 'Spear'
 },
 
 ['Trace Martez'] = {
@@ -4399,7 +4399,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Inquisitor Lightsaber'
+    ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
 ['Trudgen'] = {
@@ -4407,7 +4407,7 @@ Characters = {
     ['defense'] = 15000,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Vibrocleaver'
+    ['weapon1'] = 'Vibrocleaver'
 },
 
 ['Tulak Hord'] = {
@@ -4417,7 +4417,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Orange Lightsaber'
+    ['weapon1'] = 'Orange Lightsaber'
 },
 
 ['Turk Falso'] = {
@@ -4434,7 +4434,7 @@ Characters = {
     ['defense'] = 8010,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Gaffi Stick'
+    ['weapon1'] = 'Gaffi Stick'
 },
 
 ['Tusken Raider'] = {
@@ -4444,7 +4444,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Gaffi Stick'
+    ['weapon1'] = 'Gaffi Stick'
 },
 
 ['Tusken Warrior'] = {
@@ -4452,7 +4452,7 @@ Characters = {
     ['defense'] = 9569,
     ['evade'] = 0.03,
     ['range'] = 1,
-    ['weapon'] = 'Gaffi Stick'
+    ['weapon1'] = 'Gaffi Stick'
 },
 
 ['Unkar Plutt'] = {
@@ -4471,7 +4471,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Crossguard Lightsaber'
+    ['weapon1'] = 'Crossguard Lightsaber'
 },
 
 ['Ursa Wren'] = {
@@ -4481,7 +4481,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
-    ['weapon'] = 'Flamethrower'
+    ['weapon1'] = 'Flamethrower'
 },
 
 ['Ushar'] = {
@@ -4489,7 +4489,7 @@ Characters = {
     ['defense'] = 15134,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'War Club'
+    ['weapon1'] = 'War Club'
 },
 
 ['Val'] = {
@@ -4508,7 +4508,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Yoda Lightsaber'
+    ['weapon1'] = 'Yoda Lightsaber'
 },
 
 ['Vandor Chewbacca'] = {
@@ -4561,7 +4561,7 @@ Characters = {
     ['defense'] = 15105,
     ['evade'] = 0.04,
     ['range'] = 1,
-    ['weapon'] = 'Scythe'
+    ['weapon1'] = 'Scythe'
 },
 
 ['Visas Marr'] = {
@@ -4571,7 +4571,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Vitiate'] = {
@@ -4581,7 +4581,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 5,
     ['projectile1'] = 'Purple Lightning',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Vrook Lamar'] = {
@@ -4591,7 +4591,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Wat Tambor'] = {
@@ -4635,7 +4635,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
-    ['weapon'] = 'Spear'
+    ['weapon1'] = 'Spear'
 },
 
 ['Wrecker'] = {
@@ -4663,7 +4663,7 @@ Characters = {
     ['evade'] = 0.12,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Yarael Poof'] = {
@@ -4673,7 +4673,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Blue Lightsaber'
+    ['weapon1'] = 'Blue Lightsaber'
 },
 
 ['Yoda'] = {
@@ -4683,7 +4683,7 @@ Characters = {
     ['evade'] = 0.10,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Yoda Lightsaber'
+    ['weapon1'] = 'Yoda Lightsaber'
    
 },
 
@@ -4694,7 +4694,7 @@ Characters = {
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['weapon'] = 'Red Lightsaber'
+    ['weapon1'] = 'Red Lightsaber'
 },
 
 ['Zaalbar'] = {
@@ -4704,7 +4704,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Vibroblade'
+    ['weapon1'] = 'Vibroblade'
 },
 
 ['Zam Wesell'] = {
@@ -4723,7 +4723,7 @@ Characters = {
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Green Lightsaber'
+    ['weapon1'] = 'Green Lightsaber'
 },
 
 ['Zeffo Sage'] = {
@@ -4751,7 +4751,7 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['weapon'] = 'Double Purple Lightsaber'
+    ['weapon1'] = 'Double Purple Lightsaber'
 },
 
 ['Zillo Beast'] = {
@@ -4768,7 +4768,7 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
-    ['weapon'] = 'Knife'
+    ['weapon1'] = 'Knife'
 },
 
 }

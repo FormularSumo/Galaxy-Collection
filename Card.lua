@@ -38,31 +38,8 @@ function Card:init(name,row,column,team,number,level,evolution)
         self.ranged_offense_stat = self.ranged_offense_stat * math.sqrt(self.projectile.projectile_count)
     end
 
-    if self.name['weapon'] then
-        if not Weapons[self.name['weapon']] then
-            Weapons[self.name['weapon']] = love.graphics.newImage('Graphics/'..self.name['weapon']..'.png')
-        end
-
-        if self.name['weapon2'] then
-            if not Weapons[self.name['weapon2']] then
-                Weapons[self.name['weapon2']] = love.graphics.newImage('Graphics/'..self.name['weapon2']..'.png')
-            end
-
-            if self.name['weapon3'] then
-                if not Weapons[self.name['weapon3']] then
-                    Weapons[self.name['weapon3']] = love.graphics.newImage('Graphics/'..self.name['weapon3']..'.png')
-                end
-            
-
-                if self.name['weapon4'] then
-                    if not Weapons[self.name['weapon4']] then
-                        Weapons[self.name['weapon4']] = love.graphics.newImage('Graphics/'..self.name['weapon4']..'.png')
-                    end
-                end
-            end
-        end
-
-        self.weapon = Weapon(Weapons[self.name['weapon']], Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'], self.team, self.width, self.height)
+    if self.name['weapon1'] then
+        self.weapon = Weapon(self.name, self.team, self.width, self.height)
     end
 
     self.melee_projectile = (self.name['projectile1'] == 'Lightning' or self.name['projectile1'] == 'Force Blast' or self.name['projectile1'] == 'Force Drain') and self.weapon == nil

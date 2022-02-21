@@ -1,38 +1,26 @@
 Weapon = Class{__includes = BaseState}
 
-function Weapon:init(weapon1,weapon2,weapon3,weapon4,weapon_count,team,xoffset,yoffset)
-    self.team = team
+function Weapon:init(name,team,xoffset,yoffset)
     self.show = false
-    if not weapon_count then self.weapon_count = 1 else self.weapon_count = weapon_count end
-
+    self.team = team
     if self.team == 1 then
         self.angle = math.rad(210)
     else
         self.angle = math.rad(150)
     end
 
-    self.Weapons = {}
-    self.Weapons[1] = Weapon2(weapon1,1,team,xoffset,yoffset)
+    self.weapon_count = name['weapon_count']
+    if not self.weapon_count then self.weapon_count = 1 end
 
-    if self.weapon_count > 1 then
-        if not weapon2 then
-            self.Weapons[2] = Weapon2(weapon1,2,team,xoffset,yoffset)
+    self.Weapons = {}
+    for i=1,self.weapon_count do
+        if name['weapon' .. tostring(i)] then
+            if not Weapons[name['weapon'..tostring(i)]] then
+                Weapons[name['weapon'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['weapon'..tostring(i)]..'.png')
+            end
+            self.Weapons[i] = Weapon2(Weapons[name['weapon'..tostring(i)]],i,team,xoffset,yoffset)
         else 
-            self.Weapons[2] = Weapon2(weapon2,2,team,xoffset,yoffset)
-        end
-        if self.weapon_count > 2 then
-            if not weapon3 then
-                self.Weapons[3] = Weapon2(weapon1,3,team,xoffset,yoffset)
-            else
-                self.Weapons[3] = Weapon2(weapon3,3,team,xoffset,yoffset)
-            end
-            if self.weapon_count > 3 then
-                if not weapon4 then
-                    self.Weapons[4] = Weapon2(weapon2,4,team,xoffset,yoffset)
-                else
-                    self.Weapons[4] = Weapon2(weapon4,4,team,xoffset,yoffset)
-                end
-            end
+            self.Weapons[i] = Weapon2(Weapons[name['weapon1']],i,team,xoffset,yoffset)
         end
     end
 end
