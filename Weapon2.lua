@@ -46,7 +46,7 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
         end
     elseif self.number ~= 1 and not self.shield then
         self.yoffset = self.yoffset - (self.number-1) * 20
-        if self.number == 2 or self.number == 4 then
+        if self.number % 2 == 0 then
             if not self.short then self.xoffset = self.xoffset + 40 else self.xoffset = self.xoffset + 30 end        
         end
     end
