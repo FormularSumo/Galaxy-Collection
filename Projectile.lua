@@ -30,6 +30,12 @@ function Projectile:fire(card,card2)
         self.finaly = card2.targety + self.yoffset
     end
 
+    if (self.team == 1 and not self.inverse) or (self.team == 2 and self.inverse) then
+        self.finalx = self.finalx - 20
+    else
+        self.finalx = self.finalx + 20
+    end
+
     self.x_distance = tonumber(self.finalx-self.x)
     self.y_distance = tonumber(self.finaly-self.y)
     self.angle = math.atan(self.y_distance/self.x_distance)
@@ -38,8 +44,8 @@ end
 
 function Projectile:update(dt)
     if self.show then
-        self.x = self.x + (self.x_distance * dt)
-        self.y = self.y + (self.y_distance * dt)
+        self.x = self.x + (self.x_distance * dt) / 0.9
+        self.y = self.y + (self.y_distance * dt) / 0.9
     end
 end
 
