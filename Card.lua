@@ -32,9 +32,9 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.defense = self.name['defense'] * (self.modifier)
     self.evade = self.name['evade']
     self.range = self.name['range']
-    if self.name['projectile'] then
-        if not Projectiles[self.name['projectile']] then
-            Projectiles[self.name['projectile']] = love.graphics.newImage('Graphics/'..self.name['projectile']..'.png')
+    if self.name['projectile1'] then
+        if not Projectiles[self.name['projectile1']] then
+            Projectiles[self.name['projectile1']] = love.graphics.newImage('Graphics/'..self.name['projectile1']..'.png')
         end
 
         if self.name['projectile2'] then
@@ -58,7 +58,7 @@ function Card:init(name,row,column,team,number,level,evolution)
             end
         end
 
-        self.projectile = Projectile(Projectiles[self.name['projectile']], Projectiles[self.name['projectile2']], Projectiles[self.name['projectile3']], Projectiles[self.name['projectile4']], self.name['projectile_count'], self.range, self.range2, self.range3, self.range4, self.team, self.width, self.height)
+        self.projectile = Projectile(Projectiles[self.name['projectile1']], Projectiles[self.name['projectile2']], Projectiles[self.name['projectile3']], Projectiles[self.name['projectile4']], self.name['projectile_count'], self.range, self.range2, self.range3, self.range4, self.team, self.width, self.height)
     end
 
     if self.name['weapon'] then
@@ -88,7 +88,7 @@ function Card:init(name,row,column,team,number,level,evolution)
         self.weapon = Weapon(Weapons[self.name['weapon']], Weapons[self.name['weapon2']], Weapons[self.name['weapon3']], Weapons[self.name['weapon4']], self.name['weapon_count'], self.team, self.width, self.height)
     end
 
-    self.melee_projectile = (self.name['projectile'] == 'Lightning' or self.name['projectile'] == 'Force Blast' or self.name['projectile'] == 'Force Drain') and self.weapon == nil
+    self.melee_projectile = (self.name['projectile1'] == 'Lightning' or self.name['projectile1'] == 'Force Blast' or self.name['projectile1'] == 'Force Drain') and self.weapon == nil
 
     self.alive = true
     self.attack_roll = 0
