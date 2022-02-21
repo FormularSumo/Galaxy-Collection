@@ -33,13 +33,10 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.evade = self.name['evade']
     self.range = self.name['range']
     if self.name['projectile'] then
-        if self.name['projectile'] == 'Force Drain' then
-            self.inverse_projectile = true
-        end
         if not Projectiles[self.name['projectile']] then
             Projectiles[self.name['projectile']] = love.graphics.newImage('Graphics/'..self.name['projectile']..'.png')
         end
-        self.projectile_image = Projectiles[self.name['projectile']]
+        self.projectile = Projectile(Projectiles[self.name['projectile']], self.team, self.width, self.height)
     end
 
     if self.name['weapon'] then
@@ -99,14 +96,15 @@ function Card:check_health()
         end 
         self.alive = false
         self.weapon = nil
+        self.projectile = nil
     end
 end
 
 function Card:fire()
-    if not self.inverse_projectile then
-        self.projectile = Projectile(self.x, self.y, self.enemy_deck[self.target].targetx, self.enemy_deck[self.target].targety, self.projectile_image, self.name['projectile'], self.team, self.width, self.height,false)
+    if not self.projectile.inverse then
+        self.projectile:fire(self.x, self.y, self.enemy_deck[self.target].targetx, self.enemy_deck[self.target].targety)
     else
-        self.projectile = Projectile(self.targetx, self.targety, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y, self.projectile_image, self.name['projectile'], self.team, self.width, self.height,true)
+        self.projectile:fire(self.targetx, self.targety, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y)
     end
 end
 
@@ -189,7 +187,7 @@ function Card:aim()
                 break
             end
         end
-        if self.target ~= nil and self.projectile_image then
+        if self.target ~= nil and self.projectile then
             self:fire()
         end
     end
@@ -223,14 +221,14 @@ function Card:attack()
             self.enemy_deck[self.target].dodge = self.enemy_deck[self.target].dodge + 1
         end
         self.target = nil
-        self.projectile = nil
+        if self.projectile then self.projectile.show = false end
     end
 end
 
 function Card:update(dt)
     if self.projectile then
         self.projectile:update(dt)
-    end    
+    end
     if self.weapon then
         self.weapon:update(dt)
     end
