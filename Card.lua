@@ -33,32 +33,7 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.evade = self.name['evade']
     self.range = self.name['range']
     if self.name['projectile1'] then
-        if not Projectiles[self.name['projectile1']] then
-            Projectiles[self.name['projectile1']] = love.graphics.newImage('Graphics/'..self.name['projectile1']..'.png')
-        end
-
-        if self.name['projectile2'] then
-            if not Projectiles[self.name['projectile2']] then
-                Projectiles[self.name['projectile2']] = love.graphics.newImage('Graphics/'..self.name['projectile2']..'.png')
-            end
-            self.range2 = self.name['range2']
-
-            if self.name['projectile3'] then
-                if not Projectiles[self.name['projectile3']] then
-                    Projectiles[self.name['projectile3']] = love.graphics.newImage('Graphics/'..self.name['projectile2']..'.png')
-                end
-                self.range3 = self.name['range3']
-
-                if self.name['projectile4'] then
-                    if not Projectiles[self.name['projectile4']] then
-                        Projectiles[self.name['projectile4']] = love.graphics.newImage('Graphics/'..self.name['projectile2']..'.png')
-                    end
-                    self.range4 = self.name['range4']
-                end
-            end
-        end
-
-        self.projectile = Projectile(Projectiles[self.name['projectile1']], Projectiles[self.name['projectile2']], Projectiles[self.name['projectile3']], Projectiles[self.name['projectile4']], self.name['projectile_count'], self.range, self.range2, self.range3, self.range4, self.team, self.width, self.height)
+        self.projectile = Projectile(self.name, self.team, self.width, self.height)
     end
 
     if self.name['weapon'] then

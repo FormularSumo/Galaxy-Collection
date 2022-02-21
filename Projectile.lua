@@ -1,30 +1,18 @@
 Projectile = Class{__includes = BaseState}
 
-function Projectile:init(projectile1,projectile2,projecile3,projectile4,projectile_count,range,range2,range3,range4,team,xoffset,yoffset)
-    if not projectile_count then self.projectile_count = 1 else self.projectile_count = projectile_count end
+function Projectile:init(name,team,xoffset,yoffset)
+    projectile_count = name['projectile_count']
+    if not projectile_count then projectile_count = 1 end
 
     self.Projectiles = {}
-    self.Projectiles[1] = Projectile2(projectile1,team,xoffset,yoffset)
-
-    if self.projectile_count > 1 then
-        if not projectile2 then
-            self.Projectiles[2] = Projectile2(projectile1,team,xoffset,yoffset,range)
+    for i=1,projectile_count do
+        if name['projectile' .. tostring(i)] then
+            if not Projectiles[name['projectile'..tostring(i)]] then
+                Projectiles[name['projectile'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['projectile'..tostring(i)]..'.png')
+            end
+            self.Projectiles[i] = Projectile2(Projectiles[name['projectile'..tostring(i)]],team,xoffset,yoffset,name['range'..tostring(i)])
         else 
-            self.Projectiles[2] = Projectile2(projectile2,team,xoffset,yoffset,range2)
-        end
-        if self.projectile_count > 2 then
-            if not projecile3 then
-                self.Projectiles[3] = Projectile2(projectile1,team,xoffset,yoffset,range)
-            else
-                self.Projectiles[3] = Projectile2(projectile3,team,xoffset,yoffset,range3)
-            end
-            if self.projectile_count > 3 then
-                if not projectile4 then
-                    self.Projectiles[4] = Projectile2(projectile1,team,xoffset,yoffset,range)
-                else
-                    self.Projectiles[4] = Projectile2(projectile4,team,xoffset,yoffset,range4)
-                end
-            end
+            self.Projectiles[i] = Projectile2(Projectiles[name['projectile1']],team,xoffset,yoffset,name['range'])
         end
     end
 end
