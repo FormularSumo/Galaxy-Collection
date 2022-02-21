@@ -2,23 +2,13 @@ Weapon = Class{__includes = BaseState}
 
 function Weapon:init(weapon1,weapon2,weapon3,weapon4,weapon_count,team,xoffset,yoffset)
     self.team = team
-    self.xoffset = xoffset
-    self.yoffset = yoffset
     self.show = false
     if not weapon_count then self.weapon_count = 1 else self.weapon_count = weapon_count end
 
     if self.team == 1 then
-        if self.static then
-            self.angle = 0
-        else
-            self.angle = math.rad(210)
-        end
+        self.angle = math.rad(210)
     else
-        if self.static then
-            self.angle = math.rad(180)
-        else
-            self.angle = math.rad(150)
-        end
+        self.angle = math.rad(150)
     end
 
     self.Weapons = {}

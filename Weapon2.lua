@@ -11,9 +11,6 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
     self.static = self.image == Weapons['Lightning'] or self.image == Weapons['Flamethrower'] or self.image == Weapons['Shock Prod'] or self.image == Weapons['Riot Control Shield']
     self.shield = self.image == Weapons['Riot Control Shield'] or self.image == Weapons['Embo\'s Shield']
     if self.shield then self.static = true end
-    if self.static then
-        self.angle = 0
-    end
 
     self.width,self.height = self.image:getDimensions()
     if self.double or self.shield then self.yoriginoffset = self.height/2 end
@@ -70,8 +67,8 @@ end
 
 function Weapon2:render(angle)
     if self.static then
-        love.graphics.draw(self.image,self.x,self.y,self.angle,self.scalefactorx,1,self.width / 2,self.yoriginoffset)
+        love.graphics.draw(self.image,self.x,self.y,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
     else
-        love.graphics.draw(self.image,self.x,self.y,angle,self.scalefactorx,1,self.width / 2,self.yoriginoffset)
+        love.graphics.draw(self.image,self.x,self.y,angle,self.scalefactorx,1,self.width/2,self.yoriginoffset)
     end
 end
