@@ -11,9 +11,6 @@ function GameState:init()
     Weapons = {}
     winner = 'none'
     gamespeed = 1
-    local P1column = -1
-    local P2column = 12
-    local row_correctment = 0
 
     P1length = 0
     for k, pair in pairs(P1_deck_cards) do
@@ -27,6 +24,10 @@ function GameState:init()
             P2length = k
         end
     end
+
+    local P1column = -1
+    local P2column = 12
+    local row_correctment = 0
 
     for i=0,math.max(P1length,P2length),1 do
         if i % 6 == 0 and i ~= 0 then
@@ -76,154 +77,120 @@ function GameState:enter(Background)
     attack_timer = timer - 0.9
 end
 
-function CheckRowBelowEmpty(player,x)
-    if player == 1 then
-        deck = P1_deck
-    else
-        deck = P2_deck
+function Move()
+    RowsRemaining(P1_deck)
+    RowsRemaining(P2_deck)
+    if P1rowsRemaining == 1 and P2rowsRemaining == 1 then
+        if P1rows[3] then
+            MoveUp(P1_deck,3)
+            return
+        end
+        if P2rows[3] then
+            MoveUp(P2_deck,3)
+            return
+        end
     end
-    if deck[x+1] == nil and deck[x+7] == nil and deck[x+13] == nil then
-        row = x+1
-        for i=0,2,1 do
-            if deck[x] ~= nil then
-                deck[x].row = row
-                deck[x+1] = deck[x]
-                deck[x] = nil
+   
+    rows = P1rows
+    enemyRows = P2rows
+    rowsRemaining = P2rowsRemaining
+    Move2(P1_deck)
+    rows = P2rows
+    enemyRows = P1rows
+    rowsRemaining = P1rowsRemaining
+    Move2(P2_deck)
+end
+
+function RowsRemaining(deck)
+    rows = {
+        [0] = false,
+        [1] = false,
+        [2] = false,
+        [3] = false,
+        [4] = false,
+        [5] = false
+    }
+
+    for k, pair in pairs(deck) do
+        rows[pair.row] = true
+    end
+
+    rowsRemaining = 0
+    for k, pair in pairs(rows) do
+        if pair == true then
+            rowsRemaining = rowsRemaining + 1
+        end
+    end
+    if deck == P1_deck then
+        P1rows = rows
+        P1rowsRemaining = rowsRemaining
+    else
+        P2rows = rows
+        P2rowsRemaining = rowsRemaining
+    end
+end
+
+function Move2(deck)
+    if rows[0] == false and rows[1] == false and rows[5] == true then
+        MoveUp(deck,2)
+        MoveUp(deck,3)
+        MoveUp(deck,4)
+        MoveUp(deck,5)
+    elseif rows[4] == false and rows[5] == false and rows[0] == true then
+        MoveDown(deck,3)
+        MoveDown(deck,2)
+        MoveDown(deck,1)
+        MoveDown(deck,0)
+    else
+        if rows[2] == false then
+            if (rows[0] == false and rows[5] == true) or (rows[1] == false and rows[4] == true) or ((rowsRemaining == 1 and enemyRows[2]) and (rows[5] or not rows[0] and rows[4])) then
+                MoveUp(deck,3)
+                MoveUp(deck,4)
+                MoveUp(deck,5)
+                return
+            else
+                MoveDown(deck,1)
+                MoveDown(deck,0)
             end
-            x = x + 6
+        elseif rows[1] == false then 
+            MoveDown(deck,0)
+        end
+        if rows[3] == false then
+            if (rows[5] == false and rows[0] == true) or (rows[4] == false and rows[1] == true) or (rowsRemaining == 1 and enemyRows[3])  then
+                MoveDown(deck,2)
+                MoveDown(deck,1)
+                MoveDown(deck,0)
+                return
+            else
+                MoveUp(deck,4)
+                MoveUp(deck,5)
+            end
+        elseif rows[4] == false then
+            MoveUp(deck,5)
         end
     end
 end
 
-function CheckRowAboveEmpty(player,x)
-    if player == 1 then
-        deck = P1_deck
-    else
-        deck = P2_deck
-    end
-    if (not(deck[x-2] == nil and deck[x+4] == nil and deck[x+10]) == nil) or not(
-        deck[x-3] == nil and deck[x+3] == nil and deck[x+9] == nil) and x == 3 then return end
-    if deck[x-1] == nil and deck[x+5] == nil and deck[x+11] == nil then
-        row = x-1
-        for i=0,2,1 do
-            if deck[x] ~= nil then
-                deck[x].row = row
-                deck[x-1] = deck[x]
-                deck[x] = nil
+function MoveDown(deck,row)
+    if rows[row] then
+        for k, pair in pairs(deck) do
+            if deck[k].row == row then
+                deck[k].row = row + 1
+                deck[k+1] = deck[k]
+                deck[k] = nil
             end
-            x = x + 6
         end
     end
 end
 
-function Check2TopRowsEmpty(player)
-    if player == 1 then
-        deck = P1_deck
-    else
-        deck = P2_deck
-    end
-    if deck[0] == nil and deck[6] == nil and deck[12] == nil and
-    deck[1] == nil and deck[7] == nil and deck[13] == nil and
-    not(deck[4] == nil and deck[10] == nil and deck[16] == nil) and
-    not(deck[5] == nil and deck[11] == nil and deck[17] == nil) then
-        y = 2
-        for i=0,4,1 do
-            x = y
-            row = x-1
-            for i=0,2,1 do
-                if deck[x] ~= nil then
-                    deck[x].row = row
-                    deck[x-1] = deck[x]
-                    deck[x] = nil
-                end
-                x = x + 6
+function MoveUp(deck,row)
+    if rows[row] then
+        for k, pair in pairs(deck) do
+            if deck[k].row == row then
+                deck[k].row = row - 1
+                deck[k-1] = deck[k]
+                deck[k] = nil
             end
-            y = y + 1
-        end
-    end
-end
-
-function Check2BottomRowsEmpty(player)
-    if player == 1 then
-        deck = P1_deck
-    else
-        deck = P2_deck
-    end
-    if deck[4] == nil and deck[10] == nil and deck[16] == nil and
-    deck[5] == nil and deck[10] == nil and deck[17] == nil and
-    not(deck[0] == nil and deck[6] == nil and deck[12] == nil) and
-    not(deck[1] == nil and deck[7] == nil and deck[13] == nil) then
-        y = 4
-        for i=0,4,1 do
-            x = y
-            row = x+1
-            for i=0,2,1 do
-                if deck[x] ~= nil then
-                    deck[x].row = row
-                    deck[x+1] = deck[x]
-                    deck[x] = nil
-                end
-                x = x + 6
-            end
-            y = y - 1
-        end
-    end
-end
-
-function CheckOnlyRow1and2Remain(player)
-    if player == 1 then
-        deck = P1_deck
-    else
-        deck = P2_deck
-    end
-    if deck[0] == nil and deck[6] == nil and deck[12] == nil and
-    deck[3] == nil and deck[9] == nil and deck[15] == nil and
-    deck[4] == nil and deck[10] == nil and deck[16] == nil and
-    deck[5] == nil and deck[11] == nil and deck[17] == nil and 
-    not(deck[1] == nil and deck[7] == nil and deck[13] == nil) and
-    not(deck[2] == nil and deck[8] == nil and deck[14] == nil) then
-        y = 2
-        for i=0,2,1 do
-            x = y
-            row = x+1
-            for i=0,2,1 do
-                if deck[x] ~= nil then
-                    deck[x].row = row
-                    deck[x+1] = deck[x]
-                    deck[x] = nil
-                end
-                x = x + 6
-            end
-            y = y - 1
-        end
-    end
-end
-
-function CheckOnlyRow3and4Remain(player)
-    if player == 1 then
-        deck = P1_deck
-    else
-        deck = P2_deck
-    end
-    if deck[0] == nil and deck[6] == nil and deck[12] == nil and
-    deck[1] == nil and deck[7] == nil and deck[13] == nil and
-    deck[2] == nil and deck[8] == nil and deck[14] == nil and
-    deck[5] == nil and deck[11] == nil and deck[17] == nil and 
-    not(deck[3] == nil and deck[9] == nil and deck[15] == nil) and
-    not(deck[4] == nil and deck[10] == nil and deck[16] == nil) then
-        y = 3
-        for i=0,2,1 do
-            x = y
-            row = x-1
-            for i=0,2,1 do
-                if deck[x] ~= nil then
-                    deck[x].row = row
-                    deck[x-1] = deck[x]
-                    deck[x] = nil
-                end
-                x = x + 6
-            end
-            y = y + 1
         end
     end
 end
@@ -268,24 +235,7 @@ function GameState:update(dt)
                 P2_deck[k]:move()
             end 
             if timer > 3 then
-                CheckRowBelowEmpty(1,1)
-                CheckRowBelowEmpty(1,0)
-                CheckRowBelowEmpty(2,1)
-                CheckRowBelowEmpty(2,0)
-                CheckRowAboveEmpty(1,3)
-                CheckRowAboveEmpty(1,4)
-                CheckRowAboveEmpty(1,5)
-                CheckRowAboveEmpty(2,3)
-                CheckRowAboveEmpty(2,4)
-                CheckRowAboveEmpty(2,5)
-                Check2TopRowsEmpty(1)
-                Check2TopRowsEmpty(2)
-                Check2BottomRowsEmpty(1)
-                Check2BottomRowsEmpty(2)
-                CheckOnlyRow3and4Remain(1)
-                CheckOnlyRow3and4Remain(2)
-                CheckOnlyRow1and2Remain(1)
-                CheckOnlyRow1and2Remain(2)
+                Move()
             end
 
             for k, pair in pairs(P1_deck) do
@@ -411,5 +361,13 @@ function GameState:exit()
     timer = nil
     move_aim_timer = nil
     attack_timer = nil
+    P1length = nil
+    P2length = nil
+    rowsRemaining = nil
+    P1rowsRemaining = nil
+    P2rowsRemaining = nil
+    rows = nil
+    P1rows = nil
+    P2rows = nil
     exitState()
 end

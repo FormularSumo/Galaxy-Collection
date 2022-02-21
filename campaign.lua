@@ -192,3 +192,19 @@ function maxed()
 
     gStateMachine:change('GameState',{'Belsavis.jpg', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
 end
+
+function geonosis()
+    for i=0,100 do
+        P2_deck_cards[i] = {'B1 Battle Droid',60,4}
+    end
+    P2_deck_cards[99] = {'B1 Battle Droid',60,4}
+    P2_deck_cards[14] = {'B2 Super Battle Droid',60,4}
+    P2_deck_cards[25] = {'B2 Super Battle Droid',60,4}
+    P2_deck_cards[53] = {'B2 Super Battle Droid',60,4}
+    P2_deck_cards[69] = {'B2 Super Battle Droid',60,4}
+
+    P2_deck_cards[71] = {'Droideka Sniper',60,4}
+    P2_deck_cards[78] = {'Droideka Sniper',60,4}
+
+    gStateMachine:change('GameState',{'Belsavis.jpg', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
+end

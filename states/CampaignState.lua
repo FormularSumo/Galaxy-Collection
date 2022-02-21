@@ -11,6 +11,7 @@ function CampaignState:init()
     gui[8] = Button('maxedDarkSide',nil,'Maxed Dark Side',font80,nil,'centre',820,1,1,1,true)
     gui[9] = Button('maxedLightSide',nil,'Maxed Light Side',font80,nil,'centre',950,1,1,1,true)
     gui[10] = Button('maxed',nil,'Maxed',font80,nil,'centre',1080,1,1,1,true)
+    gui[11] = Button('geonosis',nil,'Geonosis',font80,nil,'centre',1210,1,1,1,true)
 end
 
 function CampaignState:back()
