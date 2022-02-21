@@ -101,11 +101,7 @@ function Card:check_health()
 end
 
 function Card:fire()
-    if not self.projectile.inverse then
-        self.projectile:fire(self.x, self.y, self.enemy_deck[self.target].targetx, self.enemy_deck[self.target].targety)
-    else
-        self.projectile:fire(self.targetx, self.targety, self.enemy_deck[self.target].x, self.enemy_deck[self.target].y)
-    end
+    self.projectile:fire(self,self.enemy_deck[self.target])
 end
 
 function Card:move()

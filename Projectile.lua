@@ -15,19 +15,19 @@ function Projectile:init(projectile,team,xoffset,yoffset)
     end
 end
 
-function Projectile:fire(x,y,finalx,finaly)
+function Projectile:fire(card,card2)
     self.show = true
 
     if self.inverse then
-        self.x = finalx + self.xoffset
-        self.finalx = x + self.xoffset
-        self.y = finaly + self.yoffset
-        self.finaly = y + self.yoffset
+        self.x = card2.x + self.xoffset
+        self.finalx = card.targetx + self.xoffset
+        self.y = card2.y + self.yoffset
+        self.finaly = card.targety + self.yoffset
     else
-        self.x = x + self.xoffset
-        self.finalx = finalx + self.xoffset
-        self.y = y + self.yoffset
-        self.finaly = finaly + self.yoffset
+        self.x = card.x + self.xoffset
+        self.finalx = card2.targetx + self.xoffset
+        self.y = card.y + self.yoffset
+        self.finaly = card2.targety + self.yoffset
     end
 
     self.x_distance = tonumber(self.finalx-self.x)
