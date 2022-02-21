@@ -3,34 +3,31 @@ Projectile = Class{__includes = BaseState}
 function Projectile:init(projectile,team,xoffset,yoffset)
     self.team = team
     self.image = projectile
-    self.xoffset = xoffset
-    self.yoffset = yoffset
     self.width,self.height = self.image:getDimensions()
     self.inverse = self.image == Projectiles['Force Drain']
+
+    if self.team == 1 then
+        self.xoffset = xoffset / 2 - self.width / 2
+        self.yoffset = yoffset / 2 - self.height / 2
+    else
+        self.xoffset = xoffset / 2 + self.width / 2
+        self.yoffset = yoffset / 2 + self.height / 2
+    end
 end
 
 function Projectile:fire(x,y,finalx,finaly)
     self.show = true
 
     if self.inverse then
-        tempx = x
-        tempy = y
-        x = finalx
-        y = finaly
-        finalx = tempx
-        finaly = tempy
-    end
-
-    if self.team == 1 then
-        self.x = x + self.xoffset / 2 - self.width / 2
-        self.finalx = finalx + self.xoffset / 2 - self.width / 2
-        self.y = y + self.yoffset / 2 - self.height / 2
-        self.finaly = finaly + self.yoffset / 2 - self.height / 2
+        self.x = finalx + self.xoffset
+        self.finalx = x + self.xoffset
+        self.y = finaly + self.yoffset
+        self.finaly = y + self.yoffset
     else
-        self.x = x + self.xoffset / 2 + self.width / 2
-        self.finalx = finalx + self.xoffset / 2 + self.width / 2
-        self.y = y + self.yoffset / 2 + self.height / 2
-        self.finaly = finaly + self.yoffset / 2 + self.height / 2
+        self.x = x + self.xoffset
+        self.finalx = finalx + self.xoffset
+        self.y = y + self.yoffset
+        self.finaly = finaly + self.yoffset
     end
 
     self.x_distance = tonumber(self.finalx-self.x)
