@@ -98,42 +98,43 @@ function kamino()
 end
 
 function geonosis()
-    for i=0,101 do
+    for i=0,203 do
         P2_deck_cards[i] = {'B1 Battle Droid',60,4}
     end
 
-    for i=7,10 do
+
+    for i=0,35 do
         P2_deck_cards[i] = {'B2 Super Battle Droid',60,4}
     end
 
-    P2_deck_cards[13] = {'B2-RP Super Battle Droid',60,4}
-    P2_deck_cards[16] = {'B2-RP Super Battle Droid',60,4}
-
-    P2_deck_cards[18] = {'Droideka Sniper',60,4}
-    P2_deck_cards[23] = {'Droideka Sniper',60,4}
-
-    for i=30,35 do
-        P2_deck_cards[i] = {'Droideka',60,4}
-    end
-    P2_deck_cards[38] = {'Hailfire Droid',60,4}
-    P2_deck_cards[39] = {'Hailfire Droid',60,4}
-
-    for i=54,59 do
+    for i=36,59 do
         P2_deck_cards[i] = {'Geonosian Brood Alpha',60,4}
     end
 
-    for i=60,63 do
-        P2_deck_cards[i] = {'Dwarf Spider Droid',60,4}
+    P2_deck_cards[36] = {'B2-RP Super Battle Droid',60,4}
+    P2_deck_cards[37] = {'Droideka Sniper',60,4}
+    P2_deck_cards[38] = {'Hailfire Droid',60,4}
+    P2_deck_cards[39] = {'Hailfire Droid',60,4}
+    P2_deck_cards[40] = {'Droideka Sniper',60,4}
+    P2_deck_cards[41] = {'B2-RP Super Battle Droid',60,4}
+
+    for i=60,65 do
+        P2_deck_cards[i] = {'Droideka',60,4}
     end
 
-    P2_deck_cards[71] = {'Crab Droid',60,4}
-    for i=72,73 do
-        P2_deck_cards[i] = {'Octuptarra Droid',60,4}
+    for i=84,89 do
+        P2_deck_cards[i] = {'Crab Droid',60,4}
     end
-    P2_deck_cards[74] = {'Crab Droid',60,4}
 
-    P2_deck_cards[98] = {'Tactical Droid',60,4}
-    P2_deck_cards[99] = {'Poggle The Lesser',60,4}
+    P2_deck_cards[90] = {'Dwarf Spider Droid',60,4}
+    P2_deck_cards[91] = {'Dwarf Spider Droid',60,4}
+    P2_deck_cards[92] = {'Octuptarra Droid',60,4}
+    P2_deck_cards[93] = {'Octuptarra Droid',60,4}
+    P2_deck_cards[94] = {'Dwarf Spider Droid',60,4}
+    P2_deck_cards[95] = {'Dwarf Spider Droid',60,4}
+
+    P2_deck_cards[200] = {'Tactical Droid',60,4}
+    P2_deck_cards[201] = {'Poggle The Lesser',60,4}
     
     if Settings['videos'] then
         gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Clone Wars Theme.oga'})
