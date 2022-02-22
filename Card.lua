@@ -5,9 +5,15 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.row = row
     self.column = column
     if self.name['filename'] then
-        self.image = love.graphics.newImage('Characters/' .. self.name['filename'] .. '/' .. self.name['filename'] .. '.png')
+        self.image = 'Characters/' .. self.name['filename'] .. '/' .. self.name['filename'] .. '.png'
     else
-        self.image = love.graphics.newImage('Characters/' .. name .. '/' .. name .. '.png')
+        self.image = 'Characters/' .. name .. '/' .. name .. '.png'
+    end
+    if Cards[self.image] then
+        self.image = Cards[self.image]
+    else
+        Cards[self.image] = love.graphics.newImage(self.image)
+        self.image = Cards[self.image]
     end
     self.width,self.height = self.image:getDimensions()
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20

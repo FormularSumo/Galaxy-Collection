@@ -9,6 +9,7 @@ function GameState:init()
     P2_deck = {}
     Projectiles = {}
     Weapons = {}
+    Cards = {}
     winner = 'none'
     gamespeed = 1
 
@@ -46,6 +47,9 @@ function GameState:init()
     P1column = nil
     P2column = nil
     row_correctment = nil
+    Projectiles = nil
+    Weapons = nil
+    Cards = nil
 end
 
 function GameState:enter(Background)
@@ -293,8 +297,6 @@ function GameState:update(dt)
                 elseif P2_deck == nil then
                     winner = 'P1'
                 end
-                Projectiles = nil
-                Weapons = nil
                 collectgarbage()
             end
         end
@@ -354,8 +356,6 @@ function GameState:exit()
     deck = nil
     P1_deck_cards = {}
     P2_deck_cards = {}
-    Projectiles = nil
-    Weapons = nil
     Evolution = nil
     EvolutionMax = nil
     timer = nil
