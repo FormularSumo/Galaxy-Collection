@@ -79,8 +79,6 @@ function Card:check_health()
             P2_deck[self.number] = nil
         end 
         self.alive = false
-        self.weapon = nil
-        self.projectile = nil
     end
 end
 
