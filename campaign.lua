@@ -115,17 +115,15 @@ function geonosis()
     for i=30,35 do
         P2_deck_cards[i] = {'Droideka',60,4}
     end
-    P2_deck_cards[37] = {'Tank Droid',60,4}
     P2_deck_cards[38] = {'Hailfire Droid',60,4}
     P2_deck_cards[39] = {'Hailfire Droid',60,4}
-    P2_deck_cards[40] = {'Tank Droid',60,4}
 
     for i=54,59 do
         P2_deck_cards[i] = {'Geonosian Brood Alpha',60,4}
     end
 
     P2_deck_cards[98] = {'Tactical Droid',60,4}
-
+    P2_deck_cards[99] = {'Poggle The Lesser',60,4}
     
     if Settings['videos'] then
         gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Clone Wars Theme.oga'})
