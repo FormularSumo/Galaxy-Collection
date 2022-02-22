@@ -122,6 +122,16 @@ function geonosis()
         P2_deck_cards[i] = {'Geonosian Brood Alpha',60,4}
     end
 
+    for i=60,63 do
+        P2_deck_cards[i] = {'Dwarf Spider Droid',60,4}
+    end
+
+    P2_deck_cards[71] = {'Crab Droid',60,4}
+    for i=72,73 do
+        P2_deck_cards[i] = {'Octuptarra Droid',60,4}
+    end
+    P2_deck_cards[74] = {'Crab Droid',60,4}
+
     P2_deck_cards[98] = {'Tactical Droid',60,4}
     P2_deck_cards[99] = {'Poggle The Lesser',60,4}
     
