@@ -97,6 +97,43 @@ function kamino()
     gStateMachine:change('GameState',{'Kamino.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
 end
 
+function geonosis()
+    for i=0,101 do
+        P2_deck_cards[i] = {'B1 Battle Droid',60,4}
+    end
+
+    for i=7,10 do
+        P2_deck_cards[i] = {'B2 Super Battle Droid',60,4}
+    end
+
+    P2_deck_cards[13] = {'B2-RP Super Battle Droid',60,4}
+    P2_deck_cards[16] = {'B2-RP Super Battle Droid',60,4}
+
+    P2_deck_cards[18] = {'Droideka Sniper',60,4}
+    P2_deck_cards[23] = {'Droideka Sniper',60,4}
+
+    for i=30,35 do
+        P2_deck_cards[i] = {'Droideka',60,4}
+    end
+    P2_deck_cards[37] = {'Tank Droid',60,4}
+    P2_deck_cards[38] = {'Hailfire Droid',60,4}
+    P2_deck_cards[39] = {'Hailfire Droid',60,4}
+    P2_deck_cards[40] = {'Tank Droid',60,4}
+
+    for i=54,59 do
+        P2_deck_cards[i] = {'Geonosian Brood Alpha',60,4}
+    end
+
+    P2_deck_cards[98] = {'Tactical Droid',60,4}
+
+    
+    if Settings['videos'] then
+        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Clone Wars Theme.oga'})
+    else
+        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 0, 0, 0, 0, 'Clone Wars Theme.oga'})
+    end
+end
+
 function sithTriumvirate()
     P2_deck_cards[0] = {'Sith Marauder',60,4}
     P2_deck_cards[1] = {'Sith Assassin',60,4}
@@ -189,22 +226,6 @@ function maxed()
     P2_deck_cards[15] = {'Force Priestess',60,4}
     P2_deck_cards[16] = {'Sith Eternal Emperor',60,4}
     P2_deck_cards[17] = {'Bendu',60,4}
-
-    gStateMachine:change('GameState',{'Belsavis.jpg', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
-end
-
-function geonosis()
-    for i=0,100 do
-        P2_deck_cards[i] = {'B1 Battle Droid',60,4}
-    end
-    P2_deck_cards[99] = {'B1 Battle Droid',60,4}
-    P2_deck_cards[14] = {'B2 Super Battle Droid',60,4}
-    P2_deck_cards[25] = {'B2 Super Battle Droid',60,4}
-    P2_deck_cards[53] = {'B2 Super Battle Droid',60,4}
-    P2_deck_cards[69] = {'B2 Super Battle Droid',60,4}
-
-    P2_deck_cards[71] = {'Droideka Sniper',60,4}
-    P2_deck_cards[78] = {'Droideka Sniper',60,4}
 
     gStateMachine:change('GameState',{'Belsavis.jpg', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
 end
