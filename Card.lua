@@ -245,31 +245,33 @@ function Card:update(dt)
 end
 
 function Card:render()
-    love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-    if self.evolution == 4 then
-        love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
-    elseif self.evolution > 0 then
-        love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90))
-        if self.evolution > 1 then
-            love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90))
-            if self.evolution > 2 then
-                love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90))
+    if self.x + self.width > 0 and self.x < VIRTUAL_WIDTH then
+        love.graphics.draw(self.image,self.x,self.y,0,1,sx)
+        if self.evolution == 4 then
+            love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
+        elseif self.evolution > 0 then
+            love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90))
+            if self.evolution > 1 then
+                love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90))
+                if self.evolution > 2 then
+                    love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90))
+                end
             end
         end
-    end
-            
-    if self.health < 1000 then
-        love.graphics.setColor(0.3,0.3,0.3)
-        love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
-        if self.dodge == 0 then
-            love.graphics.setColor(1,0.82,0)
-        else
-            self.colour = self.dodge / self.attacks_taken
-            self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
-            love.graphics.setColor(self.colour,self.colour,self.colour)
+                
+        if self.health < 1000 then
+            love.graphics.setColor(0.3,0.3,0.3)
+            love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
+            if self.dodge == 0 then
+                love.graphics.setColor(1,0.82,0)
+            else
+                self.colour = self.dodge / self.attacks_taken
+                self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
+                love.graphics.setColor(self.colour,self.colour,self.colour)
+            end
+            love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
+            love.graphics.setColor(1,1,1)
         end
-        love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
-        love.graphics.setColor(1,1,1)
     end
 
     -- if self.number == 3 and self.team == 2 then
