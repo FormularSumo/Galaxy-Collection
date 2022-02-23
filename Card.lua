@@ -100,6 +100,7 @@ function Card:move()
             P2_deck[self.number] = nil
         end
     end
+    self.show = (self.column > -1 and self.column < 12)
 end
 
 function Card:position()
@@ -124,41 +125,43 @@ function Card:position()
 end
 
 function Card:aim()
-    self.melee_attack = false
-    if (self.column == 5 or self.column == 6) and self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
-        self.targets[1] = self.number
-        if self.melee_projectile then
-            self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
-        end
-        self.melee_attack = true
-    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense_stat > self.ranged_offense_stat) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
-        if self.enemy_deck[self.number-1] ~= nil then
-            self.targets[1] = self.number-1
-        elseif self.enemy_deck[self.number+1] ~= nil then 
-            self.targets[1] = self.number+1
-        end
-        if self.melee_projectile then
-            self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
-        end
-        self.melee_attack = true
-    elseif self.range > 1 then
-        self.targets[1] = self:target(self.range)
-        if self.projectile then
-            if self.targets[1] then
-                self.projectile.Projectiles[1]:fire(self,self.enemy_deck[self.targets[1]])
+    if self.show then
+        self.melee_attack = false
+        if (self.column == 5 or self.column == 6) and self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
+            self.targets[1] = self.number
+            if self.melee_projectile then
+                self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
             end
-            for k, pair in pairs(self.projectile.Projectiles) do
-                if k > 1 then
-                    self.targets[k] = self:target(pair.range)
-                    if self.targets[k] then
-                        pair:fire(self,self.enemy_deck[self.targets[k]])
+            self.melee_attack = true
+        elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense_stat > self.ranged_offense_stat) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
+            if self.enemy_deck[self.number-1] ~= nil then
+                self.targets[1] = self.number-1
+            elseif self.enemy_deck[self.number+1] ~= nil then 
+                self.targets[1] = self.number+1
+            end
+            if self.melee_projectile then
+                self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
+            end
+            self.melee_attack = true
+        elseif self.range > 1 then
+            self.targets[1] = self:target(self.range)
+            if self.projectile then
+                if self.targets[1] then
+                    self.projectile.Projectiles[1]:fire(self,self.enemy_deck[self.targets[1]])
+                end
+                for k, pair in pairs(self.projectile.Projectiles) do
+                    if k > 1 then
+                        self.targets[k] = self:target(pair.range)
+                        if self.targets[k] then
+                            pair:fire(self,self.enemy_deck[self.targets[k]])
+                        end
                     end
                 end
             end
         end
-    end
-    if self.weapon then
-        self.weapon.show = self.melee_attack
+        if self.weapon then
+            self.weapon.show = self.melee_attack
+        end
     end
 end
 
@@ -249,7 +252,7 @@ function Card:update(dt)
 end
 
 function Card:render()
-    if self.x + self.width > 0 and self.x < VIRTUAL_WIDTH then
+    if self.show then
         love.graphics.draw(self.image,self.x,self.y,0,1,sx)
         if self.evolution == 4 then
             love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
