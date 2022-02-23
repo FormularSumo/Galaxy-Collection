@@ -122,6 +122,10 @@ function Card:position()
             self.number = self.row + (self.column - 5 - math.ceil(6 - timer)) * 6 - 6
         end
     end
+    if not self.show then
+        self.x = self.targetx
+        self.y = self.targety
+    end
 end
 
 function Card:aim()
@@ -222,13 +226,14 @@ function Card:attack2(target)
 end
 
 function Card:update(dt)
-    if self.projectile then
-        self.projectile:update(dt)
-    end
-    if self.weapon then
-        self.weapon:update(dt)
-    end
-    if self.targetx ~= self.x or self.targety ~= self.y then
+    if self.show then
+        if self.projectile then
+            self.projectile:update(dt)
+        end
+        if self.weapon then
+            self.weapon:update(dt)
+        end
+
         if self.targetx > self.x then
             self.x = self.x + dt * 500
             if self.x > self.targetx then self.x = self.targetx end
