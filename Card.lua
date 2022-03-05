@@ -79,6 +79,7 @@ function Card:move()
             self.column = self.column + 1
             P1_deck[self.number-6] = P1_deck[self.number]
             P1_deck[self.number] = nil
+            self.number = self.number - 6
             self.moved = true
         end
     else
@@ -89,6 +90,7 @@ function Card:move()
             self.column = self.column - 1
             P2_deck[self.number-6] = P2_deck[self.number]
             P2_deck[self.number] = nil
+            self.number = self.number - 6
             self.moved = true
         end
     end
@@ -96,19 +98,6 @@ function Card:move()
 end
 
 function Card:move2()
-    if timer > 6 then
-        if self.team == 1 then
-            self.number = self.row + (math.abs(6 - self.column)) * 6 - 6
-        else
-            self.number = self.row + (self.column - 5) * 6 - 6
-        end
-    else
-        if self.team == 1 then
-            self.number = self.row + (math.abs(6 - self.column - math.ceil(6 - timer))) * 6 - 6
-        else
-            self.number = self.row + (self.column - 5 - math.ceil(6 - timer)) * 6 - 6
-        end
-    end
     self.show = (self.column > -1 and self.column < 12)
 
     self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
