@@ -280,18 +280,22 @@ function GameState:update(dt)
             attack_timer = attack_timer - 1
 
             for k, pair in pairs(P1_deck) do
+                if not pair.show then break end
                 P1_deck[k].dodge = 0
                 P1_deck[k].attacks_taken = 0
             end
             for k, pair in pairs(P2_deck) do
+                if not pair.show then break end
                 P2_deck[k].dodge = 0
                 P2_deck[k].attacks_taken = 0
             end
 
             for k, pair in pairs(P1_deck) do
+                if not pair.show then break end
                 P1_deck[k]:attack()
             end
             for k, pair in pairs(P2_deck) do
+                if not pair.show then break end
                 P2_deck[k]:attack()
             end
 
