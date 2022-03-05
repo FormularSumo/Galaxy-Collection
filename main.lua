@@ -193,6 +193,13 @@ function love.keypressed(key,scancode,isrepeat)
             if gStateMachine.state == 'SettingsState' then
                 gui[2].percentage = love.audio.getVolume()
             end
+
+        elseif gStateMachine.state == 'GameState' then
+            if key == 'pageup' then 
+                gui[3]:update_percentage(gui[3].percentage * 2,false)
+            elseif key == 'pagedown' then
+                gui[3]:update_percentage(gui[3].percentage / 2,false)
+            end
         end
     else
         love.keyboard.keysPressed[key] = 'repeat'
