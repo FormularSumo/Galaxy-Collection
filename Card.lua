@@ -117,43 +117,41 @@ function Card:position()
 end
 
 function Card:aim()
-    if self.show then
-        self.melee_attack = false
-        if (self.column == 5 or self.column == 6) and self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
-            self.targets[1] = self.number
-            if self.melee_projectile then
-                self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
+    self.melee_attack = false
+    if (self.column == 5 or self.column == 6) and self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
+        self.targets[1] = self.number
+        if self.melee_projectile then
+            self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
+        end
+        self.melee_attack = true
+    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense_stat > self.ranged_offense_stat) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
+        if self.enemy_deck[self.number-1] ~= nil then
+            self.targets[1] = self.number-1
+        elseif self.enemy_deck[self.number+1] ~= nil then 
+            self.targets[1] = self.number+1
+        end
+        if self.melee_projectile then
+            self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
+        end
+        self.melee_attack = true
+    elseif self.range > 1 then
+        self.targets[1] = self:target(self.range)
+        if self.projectile then
+            if self.targets[1] then
+                self.projectile.Projectiles[1]:fire(self,self.enemy_deck[self.targets[1]])
             end
-            self.melee_attack = true
-        elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense_stat > self.ranged_offense_stat) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
-            if self.enemy_deck[self.number-1] ~= nil then
-                self.targets[1] = self.number-1
-            elseif self.enemy_deck[self.number+1] ~= nil then 
-                self.targets[1] = self.number+1
-            end
-            if self.melee_projectile then
-                self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
-            end
-            self.melee_attack = true
-        elseif self.range > 1 then
-            self.targets[1] = self:target(self.range)
-            if self.projectile then
-                if self.targets[1] then
-                    self.projectile.Projectiles[1]:fire(self,self.enemy_deck[self.targets[1]])
-                end
-                for k, pair in pairs(self.projectile.Projectiles) do
-                    if k > 1 then
-                        self.targets[k] = self:target(pair.range)
-                        if self.targets[k] then
-                            pair:fire(self,self.enemy_deck[self.targets[k]])
-                        end
+            for k, pair in pairs(self.projectile.Projectiles) do
+                if k > 1 then
+                    self.targets[k] = self:target(pair.range)
+                    if self.targets[k] then
+                        pair:fire(self,self.enemy_deck[self.targets[k]])
                     end
                 end
             end
         end
-        if self.weapon then
-            self.weapon.show = self.melee_attack
-        end
+    end
+    if self.weapon then
+        self.weapon.show = self.melee_attack
     end
 end
 
@@ -215,64 +213,60 @@ function Card:attack2(target)
 end
 
 function Card:update(dt)
-    if self.show then
-        if self.projectile then
-            self.projectile:update(dt)
-        end
-        if self.weapon then
-            self.weapon:update(dt)
-        end
+    if self.projectile then
+        self.projectile:update(dt)
+    end
+    if self.weapon then
+        self.weapon:update(dt)
+    end
 
-        if self.targetx > self.x then
-            self.x = self.x + dt * 500
-            if self.x > self.targetx then self.x = self.targetx end
-        elseif self.targetx < self.x then
-            self.x = self.x - dt * 500
-            if self.x < self.targetx then self.x = self.targetx end
-        end
+    if self.targetx > self.x then
+        self.x = self.x + dt * 500
+        if self.x > self.targetx then self.x = self.targetx end
+    elseif self.targetx < self.x then
+        self.x = self.x - dt * 500
+        if self.x < self.targetx then self.x = self.targetx end
+    end
 
-        if self.targety > self.y then
-            self.y = self.y + dt * 500
-            if self.y > self.targety then self.y = self.targety end
-        elseif self.targety < self.y then
-            self.y = self.y - dt * 500
-            if self.y < self.targety then self.y = self.targety end
-        end
+    if self.targety > self.y then
+        self.y = self.y + dt * 500
+        if self.y > self.targety then self.y = self.targety end
+    elseif self.targety < self.y then
+        self.y = self.y - dt * 500
+        if self.y < self.targety then self.y = self.targety end
+    end
 
-        if self.weapon then
-            self.weapon:updateposition(self.x,self.y)
-        end
+    if self.weapon then
+        self.weapon:updateposition(self.x,self.y)
     end
 end
 
 function Card:render()
-    if self.show then
-        love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-        if self.evolution == 4 then
-            love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
-        elseif self.evolution > 0 then
-            love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90))
-            if self.evolution > 1 then
-                love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90))
-                if self.evolution > 2 then
-                    love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90))
-                end
+    love.graphics.draw(self.image,self.x,self.y,0,1,sx)
+    if self.evolution == 4 then
+        love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
+    elseif self.evolution > 0 then
+        love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90))
+        if self.evolution > 1 then
+            love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90))
+            if self.evolution > 2 then
+                love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90))
             end
         end
-                
-        if self.health < 1000 then
-            love.graphics.setColor(0.3,0.3,0.3)
-            love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
-            if self.dodge == 0 then
-                love.graphics.setColor(1,0.82,0)
-            else
-                self.colour = self.dodge / self.attacks_taken
-                self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
-                love.graphics.setColor(self.colour,self.colour,self.colour)
-            end
-            love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
-            love.graphics.setColor(1,1,1)
+    end
+            
+    if self.health < 1000 then
+        love.graphics.setColor(0.3,0.3,0.3)
+        love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
+        if self.dodge == 0 then
+            love.graphics.setColor(1,0.82,0)
+        else
+            self.colour = self.dodge / self.attacks_taken
+            self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
+            love.graphics.setColor(self.colour,self.colour,self.colour)
         end
+        love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
+        love.graphics.setColor(1,1,1)
     end
 
     -- if self.number == 15 then
