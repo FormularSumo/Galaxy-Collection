@@ -239,49 +239,49 @@ function GameState:update(dt)
 
         for k, pair in pairs(P1_deck) do
             if not pair.show then break end
-            P1_deck[k]:update(dt)
+            pair:update(dt)
         end
         for k, pair in pairs(P2_deck) do
             if not pair.show then break end
-            P2_deck[k]:update(dt)
+            pair:update(dt)
         end
 
         if move_aim_timer >= 1 then
             move_aim_timer = move_aim_timer - 1
             
             for k, pair in pairs(P1_deck) do
-                P1_deck[k]:move()
+                pair:move()
             end 
             for k, pair in pairs(P2_deck) do
-                P2_deck[k]:move()
+                pair:move()
             end 
             if timer > 3 then
                 Move()
             end
 
             for k, pair in pairs(P1_deck) do
-                P1_deck[k]:position()
+                pair:position()
             end
             for k, pair in pairs(P2_deck) do
-                P2_deck[k]:position()
+                pair:position()
             end
 
             for k, pair in pairs(P1_deck) do
                 if pair.column < -1 then break end
-                P1_deck[k]:position2()
+                pair:position2()
             end
             for k, pair in pairs(P2_deck) do
                 if pair.column > 12 then break end
-                P2_deck[k]:position2()
+                pair:position2()
             end
 
             for k, pair in pairs(P1_deck) do
                 if not pair.show then break end
-                P1_deck[k]:aim()
+                pair:aim()
             end
             for k, pair in pairs(P2_deck) do
                 if not pair.show then break end
-                P2_deck[k]:aim()
+                pair:aim()
             end
         end
 
@@ -290,22 +290,22 @@ function GameState:update(dt)
 
             for k, pair in pairs(P1_deck) do
                 if not pair.show then break end
-                P1_deck[k].dodge = 0
-                P1_deck[k].attacks_taken = 0
+                pair.dodge = 0
+                pair.attacks_taken = 0
             end
             for k, pair in pairs(P2_deck) do
                 if not pair.show then break end
-                P2_deck[k].dodge = 0
-                P2_deck[k].attacks_taken = 0
+                pair.dodge = 0
+                pair.attacks_taken = 0
             end
 
             for k, pair in pairs(P1_deck) do
                 if not pair.show then break end
-                P1_deck[k]:attack()
+                pair:attack()
             end
             for k, pair in pairs(P2_deck) do
                 if not pair.show then break end
-                P2_deck[k]:attack()
+                pair:attack()
             end
 
             checkHealth()
@@ -334,29 +334,29 @@ function GameState:render()
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
             if not pair.show then break end
-            P1_deck[k]:render()
+            pair:render()
         end
     end
     if P2_deck ~= nil then
         for k, pair in pairs(P2_deck) do
             if not pair.show then break end
-            P2_deck[k]:render()
+            pair:render()
         end
     end
 
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
             if not pair.show then break end
-            if P1_deck[k].weapon ~= nil then
-                P1_deck[k].weapon:render()
+            if pair.weapon ~= nil then
+                pair.weapon:render()
             end
         end
     end
     if P2_deck ~= nil then
         for k, pair in pairs(P2_deck) do
             if not pair.show then break end
-            if P2_deck[k].weapon ~= nil then
-                P2_deck[k].weapon:render()
+            if pair.weapon ~= nil then
+                pair.weapon:render()
             end
         end
     end
@@ -364,16 +364,16 @@ function GameState:render()
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
             if not pair.show then break end
-            if P1_deck[k].projectile ~= nil then
-                P1_deck[k].projectile:render()
+            if pair.projectile ~= nil then
+                pair.projectile:render()
             end
         end
     end
     if P2_deck ~= nil then
         for k, pair in pairs(P2_deck) do
             if not pair.show then break end
-            if P2_deck[k].projectile ~= nil then
-                P2_deck[k].projectile:render()
+            if pair.projectile ~= nil then
+                pair.projectile:render()
             end
         end
     end
