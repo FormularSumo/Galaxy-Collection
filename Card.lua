@@ -51,7 +51,6 @@ function Card:init(name,row,column,team,number,level,evolution)
 
     self.melee_projectile = (self.name['projectile1'] == 'Lightning' or self.name['projectile1'] == 'Force Blast' or self.name['projectile1'] == 'Force Drain') and self.weapon == nil
 
-    self.alive = true
     self.attack_roll = 0
     self.ranged_attack_roll = 0
     self.possible_targets = {}
@@ -69,17 +68,6 @@ end
 
 function Card:distance(target)
     return math.abs(self.column - target.column) + math.abs(self.row - target.row)
-end
-
-function Card:check_health()
-    if self.health <= 0 and self.alive == true then
-        if self.team == 1 then
-            P1_deck[self.number] = nil
-        else
-            P2_deck[self.number] = nil
-        end 
-        self.alive = false
-    end
 end
 
 function Card:move()
@@ -286,12 +274,6 @@ function Card:render()
             love.graphics.setColor(1,1,1)
         end
     end
-
-    -- if self.number == 3 and self.team == 2 then
-    --     love.graphics.print(self.modifier)
-    --     love.graphics.print(self.offense,0,100)
-    --     love.graphics.print(self.defense,0,200)
-    -- end
 
     -- if self.number == 15 then
     --     if self.team == 1 then

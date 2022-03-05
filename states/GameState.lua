@@ -199,6 +199,19 @@ function MoveUp(deck,row)
     end
 end
 
+function checkHealth()
+    for k, pair in pairs(P1_deck) do
+        if pair.health <= 0 then
+            P1_deck[k] = nil
+        end
+    end
+    for k, pair in pairs(P2_deck) do
+        if pair.health <= 0 then
+            P2_deck[k] = nil
+        end
+    end
+end
+
 
 function GameState:back()
     gStateMachine:change('HomeState')
@@ -276,12 +289,7 @@ function GameState:update(dt)
                 P2_deck[k]:attack()
             end
 
-            for k, pair in pairs(P1_deck) do
-                P1_deck[k]:check_health()
-            end
-            for k, pair in pairs(P2_deck) do
-                P2_deck[k]:check_health()
-            end
+            checkHealth()
             
             if not next(P1_deck) then
                 P1_deck = nil
