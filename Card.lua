@@ -170,9 +170,12 @@ function Card:aim()
 end
 
 function Card:target(range)
-    self.possible_targets = {}
+    for k, pair in pairs(self.possible_targets) do
+        self.possible_targets[k] = nil
+    end
     self.total_probability = 0
     for k, pair in pairs(self.enemy_deck) do
+        if not pair.show then break end
         distance = self:distance(pair)
         if distance <= range then
             self.possible_targets[k] = self.total_probability + range/distance
@@ -191,13 +194,11 @@ function Card:target(range)
 end
 
 function Card:attack()
-    if self.targets ~= {} then
-        for k, pair in pairs(self.targets) do
-            self:attack2(pair)
-        end
-        self.targets = {}
-        if self.projectile then self.projectile:hide() end
+    for k, pair in pairs(self.targets) do
+        self:attack2(pair)
+        self.targets[k] = nil
     end
+    if self.projectile then self.projectile:hide() end
 end
 
 function Card:attack2(target)
