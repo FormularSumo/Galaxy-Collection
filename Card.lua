@@ -68,7 +68,7 @@ function Card:init(name,row,column,team,number,level,evolution)
 end
 
 function Card:distance(target)
-    return math.abs(self.column - self.enemy_deck[target].column) + math.abs(self.row - self.enemy_deck[target].row)
+    return math.abs(self.column - target.column) + math.abs(self.row - target.row)
 end
 
 function Card:check_health()
@@ -173,7 +173,7 @@ function Card:target(range)
     self.possible_targets = {}
     self.total_probability = 0
     for k, pair in pairs(self.enemy_deck) do
-        distance = self:distance(k)
+        distance = self:distance(pair)
         if distance <= range then
             self.possible_targets[k] = self.total_probability + range/distance
             self.total_probability = self.total_probability + range/distance
