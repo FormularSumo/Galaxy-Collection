@@ -116,7 +116,9 @@ function RowsRemaining(deck)
     }
 
     for k, pair in pairs(deck) do
+        if not pair.show then break end
         rows[pair.row] = true
+        if rows[0] and rows[1] and rows[2] and rows[3] and rows[4] and rows[5] and rows[6] then break end
     end
 
     rowsRemaining = 0
