@@ -182,9 +182,9 @@ function MoveDown(deck,row)
         for k, pair in pairs(deck) do
             if deck[k].row == row then
                 deck[k].row = row + 1
+                deck[k].moved = true
                 deck[k+1] = deck[k]
                 deck[k] = nil
-                deck[k].moved = true
             end
         end
     end
@@ -195,9 +195,9 @@ function MoveUp(deck,row)
         for k, pair in pairs(deck) do
             if deck[k].row == row then
                 deck[k].row = row - 1
+                deck[k].moved = true
                 deck[k-1] = deck[k]
                 deck[k] = nil
-                deck[k].moved = true
             end
         end
     end
