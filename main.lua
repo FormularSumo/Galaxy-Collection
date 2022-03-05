@@ -180,10 +180,9 @@ function love.keypressed(key,scancode,isrepeat)
         --F11 toggles between fullscreen and maximised
         if key == 'f11' then
             love.window.setFullscreen(not love.window.getFullscreen())
-        end
 
         --M mutes/unmutes
-        if key == 'm' then
+        elseif key == 'm' then
             if love.audio.getVolume() == 0 then
                 love.audio.setVolume(0.5)
             else
@@ -191,8 +190,8 @@ function love.keypressed(key,scancode,isrepeat)
             end
             Settings['volume_level'] = love.audio.getVolume()
             bitser.dumpLoveFile('Settings.txt', Settings)
-            if gui['Volume Slider'] ~= nil then
-                gui['Volume Slider'].percentage = love.audio.getVolume()
+            if gStateMachine.state == 'SettingsState' then
+                gui[2].percentage = love.audio.getVolume()
             end
         end
     else
@@ -227,9 +226,8 @@ function love.keyreleased(key)
 
     if key == 'return' or key == 'kpenter' then
         love.mouse.buttonsPressed[1] = true
-    end
 
-    if key == 'escape' then
+    elseif key == 'escape' then
         gStateMachine:back()
     end
 end
