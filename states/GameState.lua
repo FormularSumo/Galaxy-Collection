@@ -184,6 +184,7 @@ function MoveDown(deck,row)
                 deck[k].row = row + 1
                 deck[k+1] = deck[k]
                 deck[k] = nil
+                deck[k].moved = true
             end
         end
     end
@@ -196,6 +197,7 @@ function MoveUp(deck,row)
                 deck[k].row = row - 1
                 deck[k-1] = deck[k]
                 deck[k] = nil
+                deck[k].moved = true
             end
         end
     end
@@ -250,6 +252,10 @@ function GameState:update(dt)
 
         if move_aim_timer >= 1 then
             move_aim_timer = move_aim_timer - 1
+
+            if timer > 3 then
+                Move()
+            end
             
             for k, pair in pairs(P1_deck) do
                 pair:move()
@@ -257,9 +263,6 @@ function GameState:update(dt)
             for k, pair in pairs(P2_deck) do
                 pair:move()
             end 
-            if timer > 3 then
-                Move()
-            end
 
             for k, pair in pairs(P1_deck) do
                 if not pair.show then break end
