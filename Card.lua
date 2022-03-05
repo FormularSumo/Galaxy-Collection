@@ -92,11 +92,6 @@ function Card:move()
 end
 
 function Card:position()
-    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-    self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-    if self.column > 5 then
-        self.targetx = self.targetx + 40
-    end
     if timer > 6 then
         if self.team == 1 then
             self.number = self.row + (math.abs(6 - self.column)) * 6 - 6
@@ -109,6 +104,14 @@ function Card:position()
         else
             self.number = self.row + (self.column - 5 - math.ceil(6 - timer)) * 6 - 6
         end
+    end
+end
+
+function Card:position2()
+    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+    self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+    if self.column > 5 then
+        self.targetx = self.targetx + 40
     end
     if not self.show then
         self.x = self.targetx

@@ -267,6 +267,15 @@ function GameState:update(dt)
             end
 
             for k, pair in pairs(P1_deck) do
+                if pair.column < -1 then break end
+                P1_deck[k]:position2()
+            end
+            for k, pair in pairs(P2_deck) do
+                if pair.column > 12 then break end
+                P2_deck[k]:position2()
+            end
+
+            for k, pair in pairs(P1_deck) do
                 if not pair.show then break end
                 P1_deck[k]:aim()
             end
