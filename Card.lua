@@ -16,13 +16,6 @@ function Card:init(name,row,column,team,number,level,evolution)
         self.image = Cards[self.image]
     end
     self.width,self.height = self.image:getDimensions()
-    self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-    self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-    if self.column > 5 then
-        self.x = self.x + 40
-    end
-    self.targetx = self.x
-    self.targety = self.y
     self.team = team
     self.number = number
     if not level then self.level = 1 else self.level = level end
@@ -72,6 +65,8 @@ function Card:move()
                 self.show = true
                 self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
                 self.x = self.targetx - 160
+                self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+                self.y = self.targety
             else
                 self.targetx = self.targetx + 160
             end
@@ -83,6 +78,8 @@ function Card:move()
                 self.show = true
                 self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
                 self.x = self.targetx + 160
+                self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+                self.y = self.targety
             else
                 self.targetx = self.targetx - 160
             end
@@ -102,6 +99,8 @@ function Card:move2()
                     self.show = true
                     self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
                     self.x = self.targetx - 160
+                    self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+                    self.y = self.targety
                 else
                     self.targetx = self.targetx + 160
                 end
@@ -117,6 +116,8 @@ function Card:move2()
                 self.show = true
                 self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
                 self.x = self.targetx + 160
+                self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+                self.y = self.targety
             else
                 self.targetx = self.targetx - 160
             end
