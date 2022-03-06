@@ -66,18 +66,33 @@ end
 
 function Card:move()
     if self.team == 1 then
-        if (self.number < (5 - self.column) * 6) then
-            self.column = self.column + 1
-            if self.column > -1 then
-                if not self.show then
-                    self.show = true
-                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-                    self.x = self.targetx - 160
-                else
-                    self.targetx = self.targetx + 160
-                end
-            end            
-        elseif P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        self.column = self.column + 1
+        if self.column > -1 then
+            if not self.show then
+                self.show = true
+                self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+                self.x = self.targetx - 160
+            else
+                self.targetx = self.targetx + 160
+            end
+        end
+    else
+        self.column = self.column - 1
+        if self.column < 12 then
+            if not self.show then
+                self.show = true
+                self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+                self.x = self.targetx + 160
+            else
+                self.targetx = self.targetx - 160
+            end
+        end
+    end
+end
+
+function Card:move2()
+    if self.team == 1 then
+        if P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column + 1
             P1_deck[self.number-6] = P1_deck[self.number]
             P1_deck[self.number] = nil
@@ -92,35 +107,23 @@ function Card:move()
                 end
             end
         end
-    else
-        if (self.number < (self.column - 6) * 6) then
-            self.column = self.column - 1
-            if self.column < 12 then
-                if not self.show then
-                    self.show = true
-                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-                    self.x = self.targetx + 160
-                else
-                    self.targetx = self.targetx - 160
-                end
-            end  
-        elseif P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
-            self.column = self.column - 1
-            P2_deck[self.number-6] = P2_deck[self.number]
-            P2_deck[self.number] = nil
-            self.number = self.number - 6
-            if self.column < 12 then
-                if not self.show then
-                    self.show = true
-                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-                    self.x = self.targetx + 160
-                else
-                    self.targetx = self.targetx - 160
-                end
+    elseif P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
+        self.column = self.column - 1
+        P2_deck[self.number-6] = P2_deck[self.number]
+        P2_deck[self.number] = nil
+        self.number = self.number - 6
+        if self.column < 12 then
+            if not self.show then
+                self.show = true
+                self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+                self.x = self.targetx + 160
+            else
+                self.targetx = self.targetx - 160
             end
         end
     end
 end
+
 
 function Card:aim()
     self.melee_attack = false

@@ -265,11 +265,20 @@ function GameState:update(dt)
                 Move()
             end
 
-            for k, pair in pairs(P1_deck) do
-                pair:move()
-            end 
-            for k, pair in pairs(P2_deck) do
-                pair:move()
+            if timer < 7 then
+                for k, pair in pairs(P1_deck) do
+                    pair:move()
+                end 
+                for k, pair in pairs(P2_deck) do
+                    pair:move()
+                end
+            else
+                for k, pair in pairs(P1_deck) do
+                    pair:move2()
+                end 
+                for k, pair in pairs(P2_deck) do
+                    pair:move2()
+                end
             end
 
             for k, pair in pairs(P1_deck) do
