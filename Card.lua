@@ -51,19 +51,13 @@ function Card:init(name,row,column,team,number,level,evolution)
 
     self.melee_projectile = (self.name['projectile1'] == 'Lightning' or self.name['projectile1'] == 'Force Blast' or self.name['projectile1'] == 'Force Drain') and self.weapon == nil
 
-    self.attack_roll = 0
-    self.ranged_attack_roll = 0
     self.possible_targets = {}
-    self.dodge = 0
-    self.attacks_taken = 0
+    self.targets = {}
     if self.team == 1 then
         self.enemy_deck = P2_deck
     else
         self.enemy_deck = P1_deck
     end
-    self.damage = 0
-    self.defence_down = 0
-    self.targets = {}
 end
 
 function Card:distance(target)
