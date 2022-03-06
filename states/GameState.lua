@@ -183,6 +183,7 @@ function MoveDown(deck,row)
             if deck[k].row == row then
                 deck[k].row = row + 1
                 deck[k].number = deck[k].number + 1
+                deck[k].y = deck[k].y + 180
                 deck[k].moved = true
                 deck[k+1] = deck[k]
                 deck[k] = nil
@@ -197,6 +198,7 @@ function MoveUp(deck,row)
             if deck[k].row == row then
                 deck[k].row = row - 1
                 deck[k].number = deck[k].number - 1
+                deck[k].y = deck[k].y - 180
                 deck[k].moved = true
                 deck[k-1] = deck[k]
                 deck[k] = nil
