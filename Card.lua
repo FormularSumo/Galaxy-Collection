@@ -59,30 +59,24 @@ end
 
 function Card:move()
     if self.team == 1 then
-        self.column = self.column + 1
-        if self.column > -1 then
-            if not self.show then
-                self.show = true
-                self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-                self.x = self.targetx - 160
-                self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-                self.y = self.targety
-            else
-                self.targetx = self.targetx + 160
-            end
+        if not self.show then
+            self.show = true
+            self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+            self.x = self.targetx - 160
+            self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+            self.y = self.targety
+        else
+            self.targetx = self.targetx + 160
         end
     else
-        self.column = self.column - 1
-        if self.column < 12 then
-            if not self.show then
-                self.show = true
-                self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
-                self.x = self.targetx + 160
-                self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-                self.y = self.targety
-            else
-                self.targetx = self.targetx - 160
-            end
+        if not self.show then
+            self.show = true
+            self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
+            self.x = self.targetx + 160
+            self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+            self.y = self.targety
+        else
+            self.targetx = self.targetx - 160
         end
     end
 end

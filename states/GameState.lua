@@ -261,11 +261,21 @@ function GameState:update(dt)
 
             if timer < 7 then
                 for k, pair in pairs(P1_deck) do
-                    pair:move()
-                end 
-                for k, pair in pairs(P2_deck) do
+                    pair.column = pair.column + 1
+                end
+                for k, pair in pairs(P1_deck) do
+                    if pair.column < -1 then break end
                     pair:move()
                 end
+
+                for k, pair in pairs(P2_deck) do
+                    pair.column = pair.column - 1
+                end
+                for k, pair in pairs(P2_deck) do
+                    if pair.column > 12 then break end
+                    pair:move()
+                end
+
             else
                 for k, pair in pairs(P1_deck) do
                     pair:move2()
