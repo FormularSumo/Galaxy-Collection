@@ -97,7 +97,7 @@ function Card:move2()
             if self.column > -1 then
                 if not self.show then
                     self.show = true
-                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
+                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
                     self.x = self.targetx - 160
                     self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
                     self.y = self.targety
@@ -114,7 +114,7 @@ function Card:move2()
         if self.column < 12 then
             if not self.show then
                 self.show = true
-                self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+                self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
                 self.x = self.targetx + 160
                 self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
                 self.y = self.targety
