@@ -68,41 +68,58 @@ function Card:move()
     if self.team == 1 then
         if (self.number < (5 - self.column) * 6) then
             self.column = self.column + 1
-            self.targetx = self.targetx + 160
-            self.moved = true
+            if self.column > -1 then
+                if not self.show then
+                    self.show = true
+                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+                    self.x = self.targetx - 160
+                else
+                    self.targetx = self.targetx + 160
+                end
+            end            
         elseif P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column + 1
-            self.targetx = self.targetx + 160
             P1_deck[self.number-6] = P1_deck[self.number]
             P1_deck[self.number] = nil
             self.number = self.number - 6
-            self.moved = true
+            if self.column > -1 then
+                if not self.show then
+                    self.show = true
+                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+                    self.x = self.targetx - 160
+                else
+                    self.targetx = self.targetx + 160
+                end
+            end
         end
     else
         if (self.number < (self.column - 6) * 6) then
             self.column = self.column - 1
-            self.targetx = self.targetx - 160
-            self.moved = true
+            if self.column < 12 then
+                if not self.show then
+                    self.show = true
+                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+                    self.x = self.targetx + 160
+                else
+                    self.targetx = self.targetx - 160
+                end
+            end  
         elseif P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
             self.column = self.column - 1
-            self.targetx = self.targetx - 160
             P2_deck[self.number-6] = P2_deck[self.number]
             P2_deck[self.number] = nil
             self.number = self.number - 6
-            self.moved = true
+            if self.column < 12 then
+                if not self.show then
+                    self.show = true
+                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+                    self.x = self.targetx + 160
+                else
+                    self.targetx = self.targetx - 160
+                end
+            end
         end
     end
-    if self.moved then self:move2() end
-end
-
-function Card:move2()
-    if (self.column > -1 and self.column < 12) then
-        self.show = true
-    else
-        self.x = self.targetx
-        self.y = self.targety
-    end
-    self.moved = false
 end
 
 function Card:aim()
