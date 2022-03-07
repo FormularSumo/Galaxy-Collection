@@ -1,22 +1,26 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(name,team,number,level,evolution)
-    self.stats = Characters[name]
+function Card:init(card,team,number)
+    self.card = card
     self.team = team
     self.number = number
-    if not level then self.level = 1 else self.level = level end
-    if not evolution then self.evolution = 0 else self.evolution = evolution end
-
-    if self.stats['filename'] then
-        self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
-    else
-        self.image = 'Characters/' .. name .. '/' .. name .. '.png'
-    end
 end
 
 function Card:init2()
     self.show = true
-    self.row = self.number % 6
+    self.name = self.card[1]
+
+    self.stats = Characters[self.name]
+    if not self.card[2] then self.level = 1 else self.level = self.card[2] end
+    if not self.card[3] then self.evolution = 0 else self.evolution = self.card[3] end
+
+    if self.stats['filename'] then
+        self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
+    else
+        self.image = 'Characters/' .. self.name .. '/' .. self.name .. '.png'
+    end
+    self.card = nil
+    self.name = nil
 
     if Cards[self.image] then
         self.image = Cards[self.image]
@@ -57,6 +61,7 @@ function Card:init2()
         self.enemy_deck = P1_deck
     end
 
+    self.row = self.number % 6
     if self.team == 1 then
         self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
         self.x = self.targetx - 160

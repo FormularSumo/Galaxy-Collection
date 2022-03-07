@@ -28,10 +28,10 @@ function GameState:init()
 
     for i=0,math.max(P1length,P2length) do
         if P1_deck_cards[i] then
-            P1_deck[i] = Card(P1_deck_cards[i][1],1,i,P1_deck_cards[i][2],P1_deck_cards[i][3])
+            P1_deck[i] = Card(P1_deck_cards[i],1,i)
         end
         if P2_deck_cards[i] then
-            P2_deck[i] = Card(P2_deck_cards[i][1],2,i,P2_deck_cards[i][2],P2_deck_cards[i][3])
+            P2_deck[i] = Card(P2_deck_cards[i],2,i)
         end
     end
 end
