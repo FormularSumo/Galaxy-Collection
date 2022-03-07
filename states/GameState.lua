@@ -79,6 +79,7 @@ function GameState:enter(Background)
     end
     move_aim_timer = timer
     attack_timer = timer - 0.9
+    love.timer.step()
 end
 
 function Move()
