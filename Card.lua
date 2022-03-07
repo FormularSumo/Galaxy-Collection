@@ -1,14 +1,14 @@
 Card = Class{__includes = BaseState}
 
 function Card:init(name,team,number,level,evolution)
-    self.name = Characters[name]
+    self.stats = Characters[name]
     self.team = team
     self.number = number
     if not level then self.level = 1 else self.level = level end
     if not evolution then self.evolution = 0 else self.evolution = evolution end
 
-    if self.name['filename'] then
-        self.image = 'Characters/' .. self.name['filename'] .. '/' .. self.name['filename'] .. '.png'
+    if self.stats['filename'] then
+        self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
     else
         self.image = 'Characters/' .. name .. '/' .. name .. '.png'
     end
@@ -27,27 +27,27 @@ function Card:init2()
     self.width,self.height = self.image:getDimensions()
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-    self.melee_offense = self.name['melee_offense'] * (self.modifier)
-    if self.name['ranged_offense'] then
-        self.ranged_offense = self.name['ranged_offense'] * (self.modifier)
+    self.melee_offense = self.stats['melee_offense'] * (self.modifier)
+    if self.stats['ranged_offense'] then
+        self.ranged_offense = self.stats['ranged_offense'] * (self.modifier)
     else
         self.ranged_offense = self.melee_offense
     end
-    self.defense = self.name['defense'] * (self.modifier)
-    self.evade = self.name['evade']
-    self.range = self.name['range']
+    self.defense = self.stats['defense'] * (self.modifier)
+    self.evade = self.stats['evade']
+    self.range = self.stats['range']
     self.melee_offense_stat = (self.melee_offense/800)^4/2
     self.ranged_offense_stat = (self.ranged_offense/800)^4
-    if self.name['projectile1'] then
-        self.projectile = Projectile(self.name, self.team, self.width, self.height)
+    if self.stats['projectile1'] then
+        self.projectile = Projectile(self.stats, self.team, self.width, self.height)
         self.ranged_offense_stat = self.ranged_offense_stat * self.projectile.projectile_count
     end
 
-    if self.name['weapon1'] then
-        self.weapon = Weapon(self.name, self.team, self.width, self.height)
+    if self.stats['weapon1'] then
+        self.weapon = Weapon(self.stats, self.team, self.width, self.height)
     end
 
-    self.melee_projectile = (self.name['projectile1'] == 'Lightning' or self.name['projectile1'] == 'Force Blast' or self.name['projectile1'] == 'Force Drain') and self.weapon == nil
+    self.melee_projectile = (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain') and self.weapon == nil
 
     self.possible_targets = {}
     self.targets = {}
@@ -290,7 +290,7 @@ function Card:render()
     --                 love.graphics.print(self.total_probability,0,100)
     --             end
     --         end
-    --         love.graphics.print(self.name,0,0)
+    --         love.graphics.print(self.stats,0,0)
     --     end
     -- end
 
