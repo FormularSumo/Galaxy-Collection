@@ -26,27 +26,14 @@ function GameState:init()
         end
     end
 
-    local P1column = -1
-    local P2column = 12
-    local row_correctment = 0
-
     for i=0,math.max(P1length,P2length),1 do
-        if i % 6 == 0 and i ~= 0 then
-            P1column = -1 - i / 6 
-            P2column = 12 + i / 6 
-            row_correctment = i
-        end
-        row = i - row_correctment
         if P1_deck_cards[i] ~= nil then
-            P1_deck[i] = Card(P1_deck_cards[i][1],row,P1column,1,i,P1_deck_cards[i][2],P1_deck_cards[i][3])
+            P1_deck[i] = Card(P1_deck_cards[i][1],1,i,P1_deck_cards[i][2],P1_deck_cards[i][3])
         end
         if P2_deck_cards[i] ~= nil then
-            P2_deck[i] = Card(P2_deck_cards[i][1],row,P2column,2,i,P2_deck_cards[i][2],P2_deck_cards[i][3])
+            P2_deck[i] = Card(P2_deck_cards[i][1],2,i,P2_deck_cards[i][2],P2_deck_cards[i][3])
         end
     end
-    P1column = nil
-    P2column = nil
-    row_correctment = nil
 end
 
 function GameState:enter(Background)
@@ -179,10 +166,10 @@ function MoveDown(deck,row)
     if rows[row] then
         for k, pair in pairs(deck) do
             if deck[k].row == row then
-                deck[k].row = row + 1
                 deck[k].number = deck[k].number + 1
                 if deck[k].show then
                     deck[k].targety = deck[k].targety + 180
+                    deck[k].row = row + 1
                 end
                 deck[k+1] = deck[k]
                 deck[k] = nil
@@ -195,10 +182,10 @@ function MoveUp(deck,row)
     if rows[row] then
         for k, pair in pairs(deck) do
             if deck[k].row == row then
-                deck[k].row = row - 1
                 deck[k].number = deck[k].number - 1
                 if deck[k].show then
                     deck[k].targety = deck[k].targety - 180
+                    deck[k].row = row - 1
                 end
                 deck[k-1] = deck[k]
                 deck[k] = nil
@@ -259,18 +246,12 @@ function GameState:update(dt)
 
             if timer < 7 then
                 for k, pair in pairs(P1_deck) do
-                    pair.column = pair.column + 1
-                end
-                for k, pair in pairs(P1_deck) do
-                    if pair.column < -1 then break end
+                    if pair.number+1 > (timer) * 6 then break end
                     pair:move()
                 end
 
                 for k, pair in pairs(P2_deck) do
-                    pair.column = pair.column - 1
-                end
-                for k, pair in pairs(P2_deck) do
-                    if pair.column > 12 then break end
+                    if pair.number+1 > (timer) * 6 then break end
                     pair:move()
                 end
 

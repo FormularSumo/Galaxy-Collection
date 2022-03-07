@@ -1,9 +1,7 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(name,row,column,team,number,level,evolution)
+function Card:init(name,team,number,level,evolution)
     self.name = Characters[name]
-    self.row = row
-    self.column = column
     self.team = team
     self.number = number
     if not level then self.level = 1 else self.level = level end
@@ -18,6 +16,7 @@ end
 
 function Card:init2()
     self.show = true
+    self.row = self.number % 6
 
     if Cards[self.image] then
         self.image = Cards[self.image]
@@ -77,15 +76,19 @@ end
 function Card:move()
     if self.team == 1 then
         if not self.show then
+            self.column = 0
             self:init2()
         else
             self.targetx = self.targetx + 160
+            self.column = self.column + 1
         end
     else
         if not self.show then
+            self.column = 11
             self:init2()
         else
             self.targetx = self.targetx - 160
+            self.column = self.column - 1
         end
     end
 end
@@ -93,28 +96,30 @@ end
 function Card:move2()
     if self.team == 1 then
         if P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
-            self.column = self.column + 1
             P1_deck[self.number-6] = P1_deck[self.number]
             P1_deck[self.number] = nil
             self.number = self.number - 6
-            if self.column > -1 then
+            if self.number < 36 then
                 if not self.show then
+                    self.column = 5 - math.floor((self.number+0.01)/6)
                     self:init2()
                 else
                     self.targetx = self.targetx + 160
+                    self.column = self.column + 1
                 end
             end
         end
     elseif P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
-        self.column = self.column - 1
         P2_deck[self.number-6] = P2_deck[self.number]
         P2_deck[self.number] = nil
         self.number = self.number - 6
-        if self.column < 12 then
+        if self.number < 36 then
             if not self.show then
+                self.column = 6 + math.floor((self.number+0.01)/6)
                 self:init2()
             else
                 self.targetx = self.targetx - 160
+                self.column = self.column - 1
             end
         end
     end
