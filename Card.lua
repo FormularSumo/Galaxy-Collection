@@ -4,11 +4,21 @@ function Card:init(name,row,column,team,number,level,evolution)
     self.name = Characters[name]
     self.row = row
     self.column = column
+    self.team = team
+    self.number = number
+    if not level then self.level = 1 else self.level = level end
+    if not evolution then self.evolution = 0 else self.evolution = evolution end
+
     if self.name['filename'] then
         self.image = 'Characters/' .. self.name['filename'] .. '/' .. self.name['filename'] .. '.png'
     else
         self.image = 'Characters/' .. name .. '/' .. name .. '.png'
     end
+end
+
+function Card:init2()
+    self.show = true
+
     if Cards[self.image] then
         self.image = Cards[self.image]
     else
@@ -16,10 +26,6 @@ function Card:init(name,row,column,team,number,level,evolution)
         self.image = Cards[self.image]
     end
     self.width,self.height = self.image:getDimensions()
-    self.team = team
-    self.number = number
-    if not level then self.level = 1 else self.level = level end
-    if not evolution then self.evolution = 0 else self.evolution = evolution end
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.melee_offense = self.name['melee_offense'] * (self.modifier)
@@ -51,6 +57,17 @@ function Card:init(name,row,column,team,number,level,evolution)
     else
         self.enemy_deck = P1_deck
     end
+
+    if self.team == 1 then
+        self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+        self.x = self.targetx - 160
+    else
+        self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
+        self.x = self.targetx + 160
+    end
+
+    self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+    self.y = self.targety
 end
 
 function Card:distance(target)
@@ -60,21 +77,13 @@ end
 function Card:move()
     if self.team == 1 then
         if not self.show then
-            self.show = true
-            self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-            self.x = self.targetx - 160
-            self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-            self.y = self.targety
+            self:init2()
         else
             self.targetx = self.targetx + 160
         end
     else
         if not self.show then
-            self.show = true
-            self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
-            self.x = self.targetx + 160
-            self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-            self.y = self.targety
+            self:init2()
         else
             self.targetx = self.targetx - 160
         end
@@ -90,11 +99,7 @@ function Card:move2()
             self.number = self.number - 6
             if self.column > -1 then
                 if not self.show then
-                    self.show = true
-                    self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-                    self.x = self.targetx - 160
-                    self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-                    self.y = self.targety
+                    self:init2()
                 else
                     self.targetx = self.targetx + 160
                 end
@@ -107,11 +112,7 @@ function Card:move2()
         self.number = self.number - 6
         if self.column < 12 then
             if not self.show then
-                self.show = true
-                self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
-                self.x = self.targetx + 160
-                self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
-                self.y = self.targety
+                self:init2()
             else
                 self.targetx = self.targetx - 160
             end
