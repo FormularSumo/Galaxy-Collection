@@ -14,13 +14,13 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
         else
             self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
         end
+        if not level then self.level = 1 else self.level = level end
+        if not evolution then self.evolution = 0 else self.evolution = evolution end
     end
     self.width,self.height = self.image:getDimensions()
     self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
     self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     self.number = number
-    if not level then self.level = 1 else self.level = level end
-    if not evolution then self.evolution = 0 else self.evolution = evolution end
     self.in_deck = in_deck
     -- if self.name ~= 'Blank' then
     --     self.health = 1000
@@ -44,32 +44,16 @@ function Card_editor:swap()
 
         if temporary2.in_deck then
             P1_deck[self.number] = temporary2
-            if temporary2.name ~= 'Blank' then
-                P1_deck_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
-            else
-                P1_deck_edit(temporary2.number,nil)
-            end
+            P1_deck_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
         else
-            if temporary2.name ~= 'Blank' then
-                P1_cards_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
-            else
-                P1_cards_edit(temporary2.number,nil)
-            end
+            P1_cards_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
         end
 
         if temporary.in_deck then
             P1_deck[mouseTrapped.number] = temporary
-            if temporary.name ~= 'Blank' then
-                P1_deck_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
-            else
-                P1_deck_edit(temporary.number,nil)
-            end
+            P1_deck_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
         else
-            if temporary.name ~= 'Blank' then
-                P1_cards_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
-            else
-                P1_cards_edit(temporary.number,nil)
-            end
+            P1_cards_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
         end
 
         temporary = nil
@@ -153,14 +137,16 @@ function Card_editor:render()
         love.graphics.setColor(1,1,1)
     end
     love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
-    if self.evolution == 4 then
-        love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
-    elseif self.evolution > 0 then
-        love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
-        if self.evolution > 1 then
-            love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
-            if self.evolution > 2 then
-                love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
+    if self.name ~= 'Blank' then
+        if self.evolution == 4 then
+            love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
+        elseif self.evolution > 0 then
+            love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
+            if self.evolution > 1 then
+                love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
+                if self.evolution > 2 then
+                    love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
+                end
             end
         end
     end

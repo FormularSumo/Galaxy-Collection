@@ -144,6 +144,7 @@ end
 function P1_deck_edit(position,name)
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
 
+    if name and name[1] == 'Blank' then name = nil end
     P1_deck_cards[position] = name
 
     bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
@@ -152,6 +153,7 @@ end
 function P1_cards_edit(position,name)
     P1_cards = bitser.loadLoveFile('Player 1 cards.txt')
 
+    if name and name[1] == 'Blank' then name = nil end
     P1_cards[position] = name
 
     bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
