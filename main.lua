@@ -432,10 +432,11 @@ function love.draw()
     end
     gStateMachine:render()
     for k, pair in pairs(gui) do
-        if mouseTouching ~= pair then
+        if mouseTouching ~= pair and mouseTrapped ~= pair then
             pair:render()
         end
     end
+    if mouseTrapped then mouseTrapped:render() end
     if mouseTouching then mouseTouching:render() end
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
