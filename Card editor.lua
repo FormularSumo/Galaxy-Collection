@@ -146,7 +146,6 @@ function Card_editor:update()
 end
 
 function Card_editor:render()
-
     if self.deleting then
         love.graphics.setColor(1,0,0)
         love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)

@@ -40,18 +40,14 @@ function sort_inventory(reload)
         for k, pair in pairs(P1_deck_cards) do
             for k2, pair2 in pairs(P1_cards) do
                 if pair[1] == pair2[1] then
-                    if pair[2] == pair[2] then
-                        if pair[3] == pair[3] then
-                            P1_cards[k2] = nil
-                            count = 0
-                            for k, pair in pairs(P1_cards) do
-                                count = count + 1
-                                P1_cards[count] = pair
-                            end
-                            P1_cards[#P1_cards] = nil
-                            break
-                        end
+                    P1_cards[k2] = nil
+                    count = 0
+                    for k, pair in pairs(P1_cards) do
+                        count = count + 1
+                        P1_cards[count] = pair
                     end
+                    P1_cards[#P1_cards] = nil
+                    break
                 end
             end
         end
