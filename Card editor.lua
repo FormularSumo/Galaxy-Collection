@@ -38,6 +38,7 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
 end
 
 function Card_editor:swap()
+    self.clicked = false
     if mouseTrapped2 == self then
         self.row, self.column, self.number, self.x, self.y, self.in_deck, mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.in_deck = mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.in_deck, self.row, self.column, self.number, self.x, self.y, self.in_deck
 
@@ -58,11 +59,13 @@ function Card_editor:swap()
         if not (mouseTrapped.in_deck and self.in_deck) then
             sort_inventory()
         end
+
+        mouseTrapped = false
+        mouseTrapped2 = false
+        self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
+        self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
         return
     end
-    self.clicked = false
-    self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
-    self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
 end
 
 function Card_editor:update()
@@ -130,6 +133,7 @@ function Card_editor:update()
 end
 
 function Card_editor:render()
+    if self.clicked then love.graphics.print('t') end
     if self.deleting then
         love.graphics.setColor(1,0,0)
         love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
