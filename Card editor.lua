@@ -119,7 +119,7 @@ function Card_editor:update()
         else
             self.scaling = 1
         end
-        if (mouseTrapped == false or mouseTrapped == self) or not love.mouse.isVisible() then
+        if mouseTrapped == false or not love.mouse.isVisible() then
             mouseTouching = self
         end
     else
