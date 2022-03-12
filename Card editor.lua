@@ -39,25 +39,22 @@ end
 
 function Card_editor:swap()
     if mouseTrapped2 == self then
-        temporary = Card_editor(self.name,mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,self.level,self.evolution,mouseTrapped.in_deck)
-        temporary2 = Card_editor(mouseTrapped.name,self.row,self.column,self.number,mouseTrapped.level,mouseTrapped.evolution,self.in_deck)
+        self.row, self.column, self.number, self.x, self.y, self.in_deck, mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.in_deck = mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.in_deck, self.row, self.column, self.number, self.x, self.y, self.in_deck
 
-        if temporary2.in_deck then
-            P1_deck[self.number] = temporary2
-            P1_deck_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
+        if mouseTrapped.in_deck then
+            P1_deck[mouseTrapped.number] = mouseTrapped
+            P1_deck_edit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
         else
-            P1_cards_edit(temporary2.number,{temporary2.name,temporary2.level,temporary2.evolution})
+            P1_cards_edit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
         end
 
-        if temporary.in_deck then
-            P1_deck[mouseTrapped.number] = temporary
-            P1_deck_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
+        if self.in_deck then
+            P1_deck[self.number] = self
+            P1_deck_edit(self.number,{self.name,self.level,self.evolution})
         else
-            P1_cards_edit(temporary.number,{temporary.name,temporary.level,temporary.evolution})
+            P1_cards_edit(self.number,{self.name,self.level,self.evolution})
         end
 
-        temporary = nil
-        temporary2 = nil
         sort_inventory()
         return
     end
