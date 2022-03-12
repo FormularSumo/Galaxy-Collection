@@ -127,7 +127,12 @@ function Card_editor:update()
         end
     end
 
-    if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
+    if mouseTrapped == self then
+        self.scaling = 1.08
+        if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
+            mouseTouching = self
+        end
+    elseif mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
         if self.name ~= 'Blank' or not love.mouse.isVisible() then
             self.scaling = 1.04
         else
@@ -136,12 +141,8 @@ function Card_editor:update()
         if (mouseTrapped == false or mouseTrapped == self) or not love.mouse.isVisible() then
             mouseTouching = self
         end
-    elseif (mouseTrapped ~= self) then
+    else
         self.scaling = 1
-    end
-
-    if mouseTrapped == self then
-        self.scaling = 1.08
     end
 end
 
