@@ -10,9 +10,15 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
-            self.image = love.graphics.newImage('Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png')
+            self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
         else
-            self.image = love.graphics.newImage('Characters/' .. self.name .. '/' .. self.name .. '.png')
+            self.image = 'Characters/' .. self.name .. '/' .. self.name .. '.png'
+        end
+        if Cards[self.image] then
+            self.image = Cards[self.image]
+        else
+            Cards[self.image] = love.graphics.newImage(self.image)
+            self.image = Cards[self.image]
         end
         if not level then self.level = 1 else self.level = level end
         if not evolution then self.evolution = 0 else self.evolution = evolution end

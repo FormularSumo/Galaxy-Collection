@@ -3,6 +3,7 @@ DeckeditState = Class{__includes = BaseState}
 function DeckeditState:init()
     P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
     P1_deck = {}
+    Cards = {}
     sort_inventory(false)
 
     Cards_on_display = {}
@@ -281,6 +282,7 @@ end
 function DeckeditState:exit(partial)
     P1_deck = nil
     P1_cards = nil
+    Cards = nil
     Cards_on_display = nil
     Evolution = nil
     EvolutionMax = nil
