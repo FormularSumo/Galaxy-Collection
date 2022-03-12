@@ -439,7 +439,7 @@ function love.draw()
         end
     end
     if mouseTrapped then mouseTrapped:render() end
-    if mouseTouching then mouseTouching:render() end
+    if mouseTouching ~= mouseTrapped then mouseTouching:render() end
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
