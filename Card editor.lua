@@ -55,7 +55,9 @@ function Card_editor:swap()
             P1_cards_edit(self.number,{self.name,self.level,self.evolution})
         end
 
-        sort_inventory()
+        if not (mouseTrapped.in_deck and self.in_deck) then
+            sort_inventory()
+        end
         return
     end
     self.clicked = false
