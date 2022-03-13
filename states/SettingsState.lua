@@ -17,7 +17,3 @@ end
 function SettingsState:back()
     gStateMachine:change('HomeState',true,true)
 end
-
-function SettingsState:exit(partial)
-    exitState(partial)
-end

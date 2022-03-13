@@ -8,7 +8,3 @@ end
 function ExitState:back()
     gStateMachine:change('HomeState',true,true)
 end
-
-function ExitState:exit(partial)
-    exitState(partial)
-end

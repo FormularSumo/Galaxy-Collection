@@ -26,9 +26,9 @@ function exitState(partial)
     end
     gui = {}
     paused = false
-    collectgarbage()
     mouseLocked = false
     yscroll = 0
+    collectgarbage()
 end
 
 function gamespeedSlider(percentage)

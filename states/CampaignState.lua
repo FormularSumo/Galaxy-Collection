@@ -17,7 +17,3 @@ end
 function CampaignState:back()
     gStateMachine:change('HomeState',true,true)
 end
-
-function CampaignState:exit(partial)
-    exitState(partial)
-end

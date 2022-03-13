@@ -52,14 +52,11 @@ function sort_inventory(reload)
                 end
             end
         end
-    else
-        Unsorted = bitser.loadLoveFile('Player 1 cards.txt')
-    
-        for k, pair in pairs(Unsorted) do
+    else  
+        for k, pair in pairs(bitser.loadLoveFile('Player 1 cards.txt')) do
             count = count + 1
             P1_cards[count] = pair
         end
-        Unsorted = nil
     end
 
     table.sort(P1_cards,compareCharacterStrength)
