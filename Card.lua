@@ -106,7 +106,7 @@ function Card:move2()
             self.number = self.number - 6
             if self.number < 36 then
                 if not self.show then
-                    self.column = 5 - math.floor((self.number)/6)
+                    self.column = 0
                     self:init2()
                 else
                     self.targetx = self.targetx + 160
@@ -120,7 +120,7 @@ function Card:move2()
         self.number = self.number - 6
         if self.number < 36 then
             if not self.show then
-                self.column = 6 + math.floor((self.number)/6)
+                self.column = 11
                 self:init2()
             else
                 self.targetx = self.targetx - 160
