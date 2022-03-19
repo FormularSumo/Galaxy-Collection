@@ -34,7 +34,7 @@ function GameState:init()
         end
     end
 
-    for i=0,math.min(18,P1length,P2length) do
+    for i=0,math.min(18,math.max(P1length,P2length)) do
         if P1_deck_cards[i] then
             P1_deck[i] = Card(P1_deck_cards[i],1,i,-1 - math.floor((i)/6))
         end

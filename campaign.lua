@@ -98,7 +98,7 @@ function kamino()
 end
 
 function geonosis()
-    for i=0,203 do
+    for i=0,10000000 do
         P2_deck_cards[i] = {'B1 Battle Droid',60,4}
     end
 
