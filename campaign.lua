@@ -107,16 +107,16 @@ function geonosis()
         P2_deck_cards[i] = {'B2 Super Battle Droid',60,4}
     end
 
-    for i=36,59 do
-        P2_deck_cards[i] = {'Geonosian Brood Alpha',60,4}
-    end
-
     P2_deck_cards[36] = {'B2-RP Super Battle Droid',60,4}
     P2_deck_cards[37] = {'Droideka Sniper',60,4}
     P2_deck_cards[38] = {'Hailfire Droid',60,4}
     P2_deck_cards[39] = {'Hailfire Droid',60,4}
     P2_deck_cards[40] = {'Droideka Sniper',60,4}
     P2_deck_cards[41] = {'B2-RP Super Battle Droid',60,4}
+    
+    for i=42,59 do
+        P2_deck_cards[i] = {'Geonosian Brood Alpha',60,4}
+    end
 
     for i=60,65 do
         P2_deck_cards[i] = {'Droideka',60,4}
