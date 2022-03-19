@@ -89,7 +89,7 @@ function Button:update()
         mouseTouching = self
         if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.finaly and mouseLastY < self.finaly + self.height then
             if love.mouse.buttonsPressed[1] and mouseTrapped == self then
-                _G[self.func](self.arg)
+                self.func(self.arg)
                 mouseLastX = -1
                 mouseLasty = -1
                 if lastClickIsTouch then

@@ -62,7 +62,7 @@ function Slider:update(dt)
         else
             self.clicked = false
             if self.func2 ~= nil then
-                _G[self.func2]()
+                self.func2()
             end
             if lastClickIsTouch then
                 mouseX = -1
@@ -104,7 +104,7 @@ end
 function Slider:update_slider()
     self.held_time = 0.5
     if self.func2 ~= nil then
-        _G[self.func2]()
+        self.func2()
     end
 end
 function Slider:update_percentage(percentage,trap)
@@ -112,7 +112,7 @@ function Slider:update_percentage(percentage,trap)
     if self.percentage < 0.001 then self.percentage = 0.001 
     elseif self.percentage > 1 then self.percentage = 1
     elseif self.percentage > self.trap1 and self.percentage < self.trap2 and trap == true then self.percentage = self.trap3 end
-    _G[self.func](self.percentage)
+    self.func(self.percentage)
 end
 
 function Slider:render()

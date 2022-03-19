@@ -17,12 +17,12 @@ function DeckeditState:init()
 
     background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     background['Type'] = 'photo'
-    gui[1] = Button('switchState',{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
-    gui[2] = Button('reset_deck','strongest','Auto',font80,nil,'centre',200)
-    gui[3] = Button('reset_deck','blank','Clear',font80,nil,'centre',380)
+    gui[1] = Button(switchState,{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
+    gui[2] = Button(reset_deck,'strongest','Auto',font80,nil,'centre',200)
+    gui[3] = Button(reset_deck,'blank','Clear',font80,nil,'centre',380)
     gui['Remove_card'] = Remove_card()
-    gui[22] = Button('update_cards_on_display','left',nil,nil,'Left Arrow','centre_left',1030)
-    gui[23] = Button('update_cards_on_display','right',nil,nil,'Right Arrow','centre_right',1030)
+    gui[22] = Button(update_cards_on_display,'left',nil,nil,'Left Arrow','centre_left',1030)
+    gui[23] = Button(update_cards_on_display,'right',nil,nil,'Right Arrow','centre_right',1030)
 end
 
 
