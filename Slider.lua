@@ -64,10 +64,6 @@ function Slider:update(dt)
             if self.func2 ~= nil then
                 self.func2()
             end
-            if lastClickIsTouch then
-                mouseX = -1
-                mouseY = -1
-            end
         end
     end
 

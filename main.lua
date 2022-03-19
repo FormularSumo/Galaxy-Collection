@@ -269,7 +269,7 @@ function love.gamepadpressed(joystick,button)
     lastClickIsTouch = false
 end
 
-function love.mousemoved(x,y)
+function love.mousemoved(x,y,dx,dy,istouch)
     mouseX,mouseY = push.toGame(x,y)
     if mouseX == false or mouseY == false then
         mouseX = -1
@@ -279,6 +279,7 @@ function love.mousemoved(x,y)
         return
     end
     love.mouse.setVisible(true)
+    lastClickIsTouch = istouch
 end
 
 function love.touchmoved(id,x,y,dx,dy)
@@ -408,6 +409,10 @@ function love.update(dt)
         end
     end
 
+    if lastClickIsTouch and mouseDown == false and mouseTrapped == false then
+        mouseX = -1
+        mouseY = -1
+    end
     mouseTouching = false
 
     --Update GUI elements
