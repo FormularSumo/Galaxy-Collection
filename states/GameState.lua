@@ -12,6 +12,14 @@ function GameState:init()
     Cards = {}
     winner = 'none'
     gamespeed = 1
+    NextCards = {
+        [0] = 18,
+        [1] = 19,
+        [2] = 20,
+        [3] = 21,
+        [4] = 22,
+        [5] = 23,
+    }
 
     P1length = 0
     for k, pair in pairs(P1_deck_cards) do
@@ -36,11 +44,6 @@ function GameState:init()
             P2_deck[i] = Card(P2_deck_cards[i],2,i)
             P2_deck[i].column = 12 + math.floor((i)/6)
             P2_deck[i]:init2()
-        end
-    end
-    for i=18,P2length do
-        if P2_deck_cards[i] then
-            P2_deck[i] = Card(P2_deck_cards[i],2,i)
         end
     end
 end
@@ -263,8 +266,25 @@ function GameState:update(dt)
                     if pair.number+1 > (timer) * 6 and not pair.show then break end
                     pair:move()
                 end
+                
+                if timer > 3 and P2length > timer * 6 then
+                    for i=0,5 do
+                        if P2_deck_cards[NextCards[i]] then
+                            P2_deck[NextCards[i]] = Card(P2_deck_cards[NextCards[i]],2,NextCards[i])
+                            NextCards[i] = NextCards[i] + 6
+                        end
+                    end
+                end
 
             else
+                if P2length > timer * 6 then
+                    for i=0,5 do
+                        if not P2_deck[36+i] and P2_deck_cards[NextCards[i]] then
+                            P2_deck[36+i] = Card(P2_deck_cards[NextCards[i]],2,36+i)
+                            NextCards[i] = NextCards[i] + 6
+                        end
+                    end
+                end
                 for k, pair in pairs(P1_deck) do
                     pair:move2()
                 end 
