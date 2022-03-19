@@ -27,19 +27,14 @@ function GameState:init()
             P1length = k
         end
     end
-    P2length = 0
-    for k, pair in pairs(P2_deck_cards) do
-        if k > P2length then
-            P2length = k
-        end
-    end
+    P2length = P2_deck_cards('max')
 
     for i=0,math.min(18,math.max(P1length,P2length)) do
         if P1_deck_cards[i] then
             P1_deck[i] = Card(P1_deck_cards[i],1,i,-1 - math.floor((i)/6))
         end
-        if P2_deck_cards[i] then
-            P2_deck[i] = Card(P2_deck_cards[i],2,i,12 + math.floor((i)/6))
+        if P2_deck_cards(i) then
+            P2_deck[i] = Card(P2_deck_cards(i),2,i,12 + math.floor((i)/6))
         end
     end
 end
@@ -254,8 +249,8 @@ function GameState:update(dt)
                 
                 if timer > 3 and P2length > timer * 6 then
                     for i=0,5 do
-                        if P2_deck_cards[NextCards[i]] then
-                            P2_deck[NextCards[i]] = Card(P2_deck_cards[NextCards[i]],2,NextCards[i],12)
+                        if P2_deck_cards(NextCards[i]) then
+                            P2_deck[NextCards[i]] = Card(P2_deck_cards(NextCards[i]),2,NextCards[i],12)
                             NextCards[i] = NextCards[i] + 6
                         end
                     end
@@ -264,8 +259,8 @@ function GameState:update(dt)
             else
                 if P2length > timer * 6 then
                     for i=0,5 do
-                        if not P2_deck[36+i] and P2_deck_cards[NextCards[i]] then
-                            P2_deck[36+i] = Card(P2_deck_cards[NextCards[i]],2,36+i,12)
+                        if not P2_deck[36+i] and P2_deck_cards(NextCards[i]) then
+                            P2_deck[36+i] = Card(P2_deck_cards(NextCards[i]),2,36+i,12)
                             NextCards[i] = NextCards[i] + 6
                         end
                     end
@@ -386,7 +381,7 @@ function GameState:exit()
     P2_deck = nil
     deck = nil
     P1_deck_cards = {}
-    P2_deck_cards = {}
+    P2_deck_cards = nil
     Evolution = nil
     EvolutionMax = nil
     timer = nil

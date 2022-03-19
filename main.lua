@@ -52,7 +52,6 @@ function love.load()
     background = {}
     paused = false
 
-    P2_deck_cards = {}
     UserData = {}
 
     love.keyboard.keysPressed = {}

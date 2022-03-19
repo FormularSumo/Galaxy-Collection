@@ -49,6 +49,15 @@ function switchState(state)
     gStateMachine:change(state[1],state[2],state[3])
 end
 
+function loadBattle(table,video)
+    P2_deck_cards = table[8]
+    if table[2] and Settings['video'] then
+        gStateMachine:change('GameState',{table[1], 'video', table[3], table[4], table[5], table[6], table[7]})
+    else
+        gStateMachine:change('GameState',{table[1], 'photo', 0, table[4], table[5], table[6], table[7]})
+    end
+end
+
 function exitGame()
     love.event.quit()
 end
