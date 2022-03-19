@@ -51,7 +51,7 @@ end
 
 function loadBattle(table,video)
     P2_deck_cards = table[8]
-    if table[2] and Settings['video'] then
+    if table[2] == 'video' and Settings['videos'] then
         gStateMachine:change('GameState',{table[1], 'video', table[3], table[4], table[5], table[6], table[7]})
     else
         gStateMachine:change('GameState',{table[1], 'photo', 0, table[4], table[5], table[6], table[7]})
