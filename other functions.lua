@@ -28,6 +28,7 @@ function exitState(partial)
     paused = false
     mouseLocked = false
     yscroll = 0
+    rawyscroll = 0
     collectgarbage()
 end
 
