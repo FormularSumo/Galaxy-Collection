@@ -382,6 +382,7 @@ function GameState:exit()
     deck = nil
     P1_deck_cards = {}
     P2_deck_cards = nil
+    NextCards = nil
     Evolution = nil
     EvolutionMax = nil
     timer = nil
