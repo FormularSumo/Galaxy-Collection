@@ -26,10 +26,19 @@ function GameState:init()
         end
     end
 
-    for i=0,math.max(P1length,P2length) do
+    for i=0,math.min(18,P1length,P2length) do
         if P1_deck_cards[i] then
             P1_deck[i] = Card(P1_deck_cards[i],1,i)
+            P1_deck[i].column = -1 - math.floor((i)/6)
+            P1_deck[i]:init2()
         end
+        if P2_deck_cards[i] then
+            P2_deck[i] = Card(P2_deck_cards[i],2,i)
+            P2_deck[i].column = 12 + math.floor((i)/6)
+            P2_deck[i]:init2()
+        end
+    end
+    for i=18,P2length do
         if P2_deck_cards[i] then
             P2_deck[i] = Card(P2_deck_cards[i],2,i)
         end
@@ -246,12 +255,12 @@ function GameState:update(dt)
 
             if timer < 7 then
                 for k, pair in pairs(P1_deck) do
-                    if pair.number+1 > (timer) * 6 then break end
+                    if pair.number+1 > (timer) * 6 and not pair.show then break end
                     pair:move()
                 end
 
                 for k, pair in pairs(P2_deck) do
-                    if pair.number+1 > (timer) * 6 then break end
+                    if pair.number+1 > (timer) * 6 and not pair.show then break end
                     pair:move()
                 end
 
