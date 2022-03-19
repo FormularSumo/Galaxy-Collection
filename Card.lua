@@ -53,15 +53,8 @@ function Card:init(card,team,number,column)
         self.enemy_deck = P1_deck
     end
 
-    if column then
-        self.column = column
-    else
-        if team == 1 then
-            self.column = -1
-        else
-            self.column = 12
-        end
-    end
+    self.column = column
+    self.row = self.number % 6
 
     if self.team == 1 then
         self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
@@ -71,7 +64,6 @@ function Card:init(card,team,number,column)
         self.x = self.targetx
     end
 
-    self.row = self.number % 6
     self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     self.y = self.targety
 end

@@ -255,7 +255,7 @@ function GameState:update(dt)
                 if timer > 3 and P2length > timer * 6 then
                     for i=0,5 do
                         if P2_deck_cards[NextCards[i]] then
-                            P2_deck[NextCards[i]] = Card(P2_deck_cards[NextCards[i]],2,NextCards[i])
+                            P2_deck[NextCards[i]] = Card(P2_deck_cards[NextCards[i]],2,NextCards[i],12)
                             NextCards[i] = NextCards[i] + 6
                         end
                     end
@@ -265,7 +265,7 @@ function GameState:update(dt)
                 if P2length > timer * 6 then
                     for i=0,5 do
                         if not P2_deck[36+i] and P2_deck_cards[NextCards[i]] then
-                            P2_deck[36+i] = Card(P2_deck_cards[NextCards[i]],2,36+i)
+                            P2_deck[36+i] = Card(P2_deck_cards[NextCards[i]],2,36+i,12)
                             NextCards[i] = NextCards[i] + 6
                         end
                     end
