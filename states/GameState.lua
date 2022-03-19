@@ -36,14 +36,10 @@ function GameState:init()
 
     for i=0,math.min(18,P1length,P2length) do
         if P1_deck_cards[i] then
-            P1_deck[i] = Card(P1_deck_cards[i],1,i)
-            P1_deck[i].column = -1 - math.floor((i)/6)
-            P1_deck[i]:init2()
+            P1_deck[i] = Card(P1_deck_cards[i],1,i,-1 - math.floor((i)/6))
         end
         if P2_deck_cards[i] then
-            P2_deck[i] = Card(P2_deck_cards[i],2,i)
-            P2_deck[i].column = 12 + math.floor((i)/6)
-            P2_deck[i]:init2()
+            P2_deck[i] = Card(P2_deck_cards[i],2,i,12 + math.floor((i)/6))
         end
     end
 end
@@ -113,7 +109,6 @@ function RowsRemaining(deck)
     }
 
     for k, pair in pairs(deck) do
-        if not pair.show then break end
         rows[pair.row] = true
         if rows[0] and rows[1] and rows[2] and rows[3] and rows[4] and rows[5] and rows[6] then break end
     end
@@ -179,10 +174,8 @@ function MoveDown(deck,row)
         for k, pair in pairs(deck) do
             if deck[k].row == row then
                 deck[k].number = deck[k].number + 1
-                if deck[k].show then
-                    deck[k].targety = deck[k].targety + 180
-                    deck[k].row = row + 1
-                end
+                deck[k].targety = deck[k].targety + 180
+                deck[k].row = row + 1
                 deck[k+1] = deck[k]
                 deck[k] = nil
             end
@@ -195,10 +188,8 @@ function MoveUp(deck,row)
         for k, pair in pairs(deck) do
             if deck[k].row == row then
                 deck[k].number = deck[k].number - 1
-                if deck[k].show then
-                    deck[k].targety = deck[k].targety - 180
-                    deck[k].row = row - 1
-                end
+                deck[k].targety = deck[k].targety - 180
+                deck[k].row = row - 1
                 deck[k-1] = deck[k]
                 deck[k] = nil
             end
@@ -208,13 +199,11 @@ end
 
 function checkHealth()
     for k, pair in pairs(P1_deck) do
-        if not pair.show then break end
         if pair.health <= 0 then
             P1_deck[k] = nil
         end
     end
     for k, pair in pairs(P2_deck) do
-        if not pair.show then break end
         if pair.health <= 0 then
             P2_deck[k] = nil
         end
@@ -245,11 +234,9 @@ function GameState:update(dt)
         attack_timer = attack_timer + dt
 
         for k, pair in pairs(P1_deck) do
-            if not pair.show then break end
             pair:update(dt)
         end
         for k, pair in pairs(P2_deck) do
-            if not pair.show then break end
             pair:update(dt)
         end
 
@@ -258,12 +245,10 @@ function GameState:update(dt)
 
             if timer < 7 then
                 for k, pair in pairs(P1_deck) do
-                    if pair.number+1 > (timer) * 6 and not pair.show then break end
                     pair:move()
                 end
 
                 for k, pair in pairs(P2_deck) do
-                    if pair.number+1 > (timer) * 6 and not pair.show then break end
                     pair:move()
                 end
                 
@@ -298,11 +283,9 @@ function GameState:update(dt)
             end
 
             for k, pair in pairs(P1_deck) do
-                if not pair.show then break end
                 pair:aim()
             end
             for k, pair in pairs(P2_deck) do
-                if not pair.show then break end
                 pair:aim()
             end
         end
@@ -311,22 +294,18 @@ function GameState:update(dt)
             attack_timer = attack_timer - 1
 
             for k, pair in pairs(P1_deck) do
-                if not pair.show then break end
                 pair.dodge = 0
                 pair.attacks_taken = 0
             end
             for k, pair in pairs(P2_deck) do
-                if not pair.show then break end
                 pair.dodge = 0
                 pair.attacks_taken = 0
             end
 
             for k, pair in pairs(P1_deck) do
-                if not pair.show then break end
                 pair:attack()
             end
             for k, pair in pairs(P2_deck) do
-                if not pair.show then break end
                 pair:attack()
             end
 
@@ -358,20 +337,17 @@ end
 function GameState:render()
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
-            if not pair.show then break end
             pair:render()
         end
     end
     if P2_deck ~= nil then
         for k, pair in pairs(P2_deck) do
-            if not pair.show then break end
             pair:render()
         end
     end
 
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
-            if not pair.show then break end
             if pair.weapon ~= nil then
                 pair.weapon:render()
             end
@@ -379,7 +355,6 @@ function GameState:render()
     end
     if P2_deck ~= nil then
         for k, pair in pairs(P2_deck) do
-            if not pair.show then break end
             if pair.weapon ~= nil then
                 pair.weapon:render()
             end
@@ -388,7 +363,6 @@ function GameState:render()
 
     if P1_deck ~= nil then
         for k, pair in pairs(P1_deck) do
-            if not pair.show then break end
             if pair.projectile ~= nil then
                 pair.projectile:render()
             end
@@ -396,7 +370,6 @@ function GameState:render()
     end
     if P2_deck ~= nil then
         for k, pair in pairs(P2_deck) do
-            if not pair.show then break end
             if pair.projectile ~= nil then
                 pair.projectile:render()
             end

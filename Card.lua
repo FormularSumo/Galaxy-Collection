@@ -1,24 +1,18 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number)
-    self.card = card
+function Card:init(card,team,number,column)
     self.team = team
     self.number = number
-end
 
-function Card:init2()
-    self.show = true
-
-    self.stats = Characters[self.card[1]]
-    if not self.card[2] then self.level = 1 else self.level = self.card[2] end
-    if not self.card[3] then self.evolution = 0 else self.evolution = self.card[3] end
+    self.stats = Characters[card[1]]
+    if not card[2] then self.level = 1 else self.level = card[2] end
+    if not card[3] then self.evolution = 0 else self.evolution = card[3] end
 
     if self.stats['filename'] then
         self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
     else
-        self.image = 'Characters/' .. self.card[1] .. '/' .. self.card[1] .. '.png'
+        self.image = 'Characters/' .. card[1] .. '/' .. card[1] .. '.png'
     end
-    self.card = nil
 
     if Cards[self.image] then
         self.image = Cards[self.image]
@@ -59,15 +53,25 @@ function Card:init2()
         self.enemy_deck = P1_deck
     end
 
-    self.row = self.number % 6
-    if self.team == 1 then
-        self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
-        self.x = self.targetx - 160
+    if column then
+        self.column = column
     else
-        self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
-        self.x = self.targetx + 160
+        if team == 1 then
+            self.column = -1
+        else
+            self.column = 12
+        end
     end
 
+    if self.team == 1 then
+        self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+        self.x = self.targetx
+    else
+        self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
+        self.x = self.targetx
+    end
+
+    self.row = self.number % 6
     self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
     self.y = self.targety
 end
@@ -78,21 +82,11 @@ end
 
 function Card:move()
     if self.team == 1 then
-        if not self.show then
-            self.column = 0
-            self:init2()
-        else
-            self.targetx = self.targetx + 160
-            self.column = self.column + 1
-        end
+        self.targetx = self.targetx + 160
+        self.column = self.column + 1
     else
-        if not self.show then
-            self.column = 11
-            self:init2()
-        else
-            self.targetx = self.targetx - 160
-            self.column = self.column - 1
-        end
+        self.targetx = self.targetx - 160
+        self.column = self.column - 1
     end
 end
 
@@ -102,29 +96,15 @@ function Card:move2()
             P1_deck[self.number-6] = P1_deck[self.number]
             P1_deck[self.number] = nil
             self.number = self.number - 6
-            if self.number < 36 then
-                if not self.show then
-                    self.column = 0
-                    self:init2()
-                else
-                    self.targetx = self.targetx + 160
-                    self.column = self.column + 1
-                end
-            end
+            self.targetx = self.targetx + 160
+            self.column = self.column + 1
         end
     elseif P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
         P2_deck[self.number-6] = P2_deck[self.number]
         P2_deck[self.number] = nil
         self.number = self.number - 6
-        if self.number < 36 then
-            if not self.show then
-                self.column = 11
-                self:init2()
-            else
-                self.targetx = self.targetx - 160
-                self.column = self.column - 1
-            end
-        end
+        self.targetx = self.targetx - 160
+        self.column = self.column - 1
     end
 end
 
@@ -174,7 +154,6 @@ function Card:target(range)
     end
     self.total_probability = 0
     for k, pair in pairs(self.enemy_deck) do
-        if not pair.show then break end
         distance = self:distance(pair)
         if distance <= range then
             self.possible_targets[k] = self.total_probability + range/distance
@@ -282,35 +261,31 @@ function Card:render()
         love.graphics.setColor(1,1,1)
     end
 
-    -- if self.number == 15 then
-    --     if self.team == 1 then
-    --         if self.possible_targets ~= nil then
-    --             y = 100
-    --             for k, pair in pairs(self.possible_targets) do
-    --                 y = y + 100
-    --                 love.graphics.print(tostring(k) .. ' ' .. tostring(pair),0,y)
-    --                 love.graphics.print(self.ranged_attack_roll,800,100)
-    --                 love.graphics.print(self.total_probability,0,100)
-    --             end
+    -- if self.number == 15 and self.team == 2 then
+    --     if self.possible_targets ~= nil then
+    --         y = 100
+    --         for k, pair in pairs(self.possible_targets) do
+    --             y = y + 100
+    --             love.graphics.print(tostring(k) .. ' ' .. tostring(pair),0,y)
+    --             love.graphics.print(self.ranged_attack_roll,800,100)
+    --             love.graphics.print(self.total_probability,0,100)
     --         end
-    --         love.graphics.print(self.stats,0,0)
     --     end
+    --     love.graphics.print(self.stats,0,0)
     -- end
 
-    -- if self.number == 2 then
-    --     if self.team == 2 then
-    --         love.graphics.print(self.attacks_taken)
-    --         love.graphics.print(self.defense,0,100)
-    --     end
+    -- if self.number == 2 and if self.team == 2 then
+    --     love.graphics.print(self.attacks_taken)
+    --     love.graphics.print(self.defense,0,100)
     -- end
-    --         love.graphics.print(self.damage)
-    --         love.graphics.print(self.defence_down,0,100)
-    --         love.graphics.print(self.defense,0,200)
-    --     elseif self.team == 2 then
-    --         love.graphics.print(self.damage,1600)
-    --         love.graphics.print(self.defence_down,1600,100)
-    --         love.graphics.print(self.defense,1600,200)
-    --     end       
+    --     love.graphics.print(self.damage)
+    --     love.graphics.print(self.defence_down,0,100)
+    --     love.graphics.print(self.defense,0,200)
+    -- elseif self.team == 2 then
+    --     love.graphics.print(self.damage,1600)
+    --     love.graphics.print(self.defence_down,1600,100)
+    --     love.graphics.print(self.defense,1600,200)
+    -- end       
     -- end
     
     -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
