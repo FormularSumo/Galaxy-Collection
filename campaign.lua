@@ -8,7 +8,7 @@ function endor()
     P2_deck_cards[8] = {'Ewok Elder',60,4}
     P2_deck_cards[9] = {'Ewok Scout',60,4}
 
-    gStateMachine:change('GameState',{'Endor.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Duet.mp3'})
+    gStateMachine:change('GameState',{'Endor', 'photo', 0, 1, 1 ,1, 'Imperial March Duet.mp3'})
 end
 
 function mosEisley()
@@ -32,9 +32,9 @@ function mosEisley()
     P2_deck_cards[17] = {'Imperial Stormtrooper',60,4}
     
     if Settings['videos'] then
-        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
     else
-        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 0, 0, 0, 0, 'Binary Sunset.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes', 'photo', 0, 0, 0, 0, 'Binary Sunset.oga'})
     end
 end
 
@@ -59,9 +59,9 @@ function mosEspa()
     P2_deck_cards[17] = {'Peli Motto',60,4}
     
     if Settings['videos'] then
-        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Throne Room.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes', 'video', 2, 0, 0, 0, 'Throne Room.oga'})
     else
-        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 0, 0, 0, 0, 'Throne Room.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes', 'photo', 0, 0, 0, 0, 'Throne Room.oga'})
     end
 end
 
@@ -71,7 +71,7 @@ function throneRoom()
     P2_deck_cards[3] = {'Darth Vader',60,4}
     P2_deck_cards[4] = {'Royal Guard',60,4}
    
-    gStateMachine:change('GameState',{'Death Star Control Room.jpg', 'photo', 0, 1, 1 ,1, 'Imperial March Piano.oga'})
+    gStateMachine:change('GameState',{'Death Star Control Room', 'photo', 0, 1, 1 ,1, 'Imperial March Piano.oga'})
 end
 
 function kamino()
@@ -94,7 +94,7 @@ function kamino()
     P2_deck_cards[16] = {'Kamino Training Droid',60,4}
     P2_deck_cards[17] = {'Grand Moff Tarkin',60,4}
 
-    gStateMachine:change('GameState',{'Kamino.jpg', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
+    gStateMachine:change('GameState',{'Kamino', 'photo', 0, 1, 1 ,1, 'Clone Wars Theme.oga'})
 end
 
 function geonosis()
@@ -137,9 +137,9 @@ function geonosis()
     P2_deck_cards[201] = {'Poggle The Lesser',60,4}
     
     if Settings['videos'] then
-        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Clone Wars Theme.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes', 'video', 2, 0, 0, 0, 'Clone Wars Theme.oga'})
     else
-        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 0, 0, 0, 0, 'Clone Wars Theme.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes', 'photo', 0, 0, 0, 0, 'Clone Wars Theme.oga'})
     end
 end
 
@@ -163,7 +163,7 @@ function sithTriumvirate()
     P2_deck_cards[16] = {'Mira',60,4}
     P2_deck_cards[17] = {'Hanharr',60,4}
 
-    gStateMachine:change('GameState',{'Sith Triumvirate.jpg', 'photo', 0, 1, 1 ,1, 'The Old Republic.oga'})
+    gStateMachine:change('GameState',{'Sith Triumvirate', 'photo', 0, 1, 1 ,1, 'The Old Republic.oga'})
 end
 
 function maxedDarkSide()
@@ -187,9 +187,9 @@ function maxedDarkSide()
     P2_deck_cards[17] = {'Eighth Brother',60,4}
 
     if Settings['videos'] then
-        gStateMachine:change('GameState',{'Sand Dunes.ogv', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes', 'video', 2, 0, 0, 0, 'Binary Sunset.oga'})
     else
-        gStateMachine:change('GameState',{'Sand Dunes.jpg', 'photo', 0, 0, 0, 0, 'Binary Sunset.oga'})
+        gStateMachine:change('GameState',{'Sand Dunes', 'photo', 0, 0, 0, 0, 'Binary Sunset.oga'})
     end
 end
 
@@ -213,7 +213,7 @@ function maxedLightSide()
     P2_deck_cards[16] = {'Quinlan Vos',60,4}
     P2_deck_cards[17] = {'Atris',60,4}
     
-    gStateMachine:change('GameState',{'Voss.jpg', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})
+    gStateMachine:change('GameState',{'Voss', 'photo', 0, 1, 1, 1, 'The Mandalorian.oga'})
 end
 
 function maxed()
@@ -236,5 +236,5 @@ function maxed()
     P2_deck_cards[16] = {'Sith Eternal Emperor',60,4}
     P2_deck_cards[17] = {'Bendu',60,4}
 
-    gStateMachine:change('GameState',{'Belsavis.jpg', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
+    gStateMachine:change('GameState',{'Belsavis', 'photo', 0, 0, 0 ,0, 'Throne Room.oga'})
 end
