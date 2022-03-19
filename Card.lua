@@ -8,19 +8,17 @@ end
 
 function Card:init2()
     self.show = true
-    self.name = self.card[1]
 
-    self.stats = Characters[self.name]
+    self.stats = Characters[self.card[1]]
     if not self.card[2] then self.level = 1 else self.level = self.card[2] end
     if not self.card[3] then self.evolution = 0 else self.evolution = self.card[3] end
 
     if self.stats['filename'] then
         self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
     else
-        self.image = 'Characters/' .. self.name .. '/' .. self.name .. '.png'
+        self.image = 'Characters/' .. self.card[1] .. '/' .. self.card[1] .. '.png'
     end
     self.card = nil
-    self.name = nil
 
     if Cards[self.image] then
         self.image = Cards[self.image]
