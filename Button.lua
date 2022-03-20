@@ -88,12 +88,12 @@ function Button:update()
     if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.finaly and mouseY < self.finaly + self.height then
         mouseTouching = self
         if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.finaly and mouseLastY < self.finaly + self.height then
-            if love.mouse.buttonsPressed[1] and mouseTrapped == self then
+            if love.mouse.buttonsPressed[1] and mouseTrapped == self and not touchLocked then
                 self.func(self.arg)
                 mouseLastX = -1
                 mouseLasty = -1
             end
-            if mouseDown and (mouseTrapped == false or mouseTrapped == self) then
+            if mouseDown and (mouseTrapped == false or mouseTrapped == self) and not touchLocked then
                 self.scaling = 1.08
                 mouseTrapped = self
             end

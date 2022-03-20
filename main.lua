@@ -283,7 +283,8 @@ function love.mousemoved(x,y,dx,dy,istouch)
 end
 
 function love.touchmoved(id,x,y,dx,dy)
-    if (yscroll > -1080 or dy > 0) and (yscroll < 1080 or dy < 0) then
+    if (yscroll > -1080 or dy > 0) and (yscroll < 1080 or dy < 0) and math.abs(dy) > 1.5 then
+        touchLocked = true
         rawyscroll = rawyscroll + dy
         lastScrollIsTouch = true
     end
@@ -412,6 +413,7 @@ function love.update(dt)
     if lastClickIsTouch and mouseDown == false and mouseTrapped == false then
         mouseX = -1
         mouseY = -1
+        touchLocked = false
     end
     mouseTouching = false
 
