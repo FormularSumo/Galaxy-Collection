@@ -114,7 +114,7 @@ end
 function Slider:render()
     love.graphics.setColor(self.r1,self.g1,self.b1)
     love.graphics.rectangle('fill',self.x,self.y,self.width,self.height,5)
-    if mouseTouching == self or mouseTrapped == self then
+    if (mouseTouching == self and not touchLocked) or mouseTrapped == self then
         love.graphics.setColor(66/255,169/255,229/255)
     else
         love.graphics.setColor(self.r2,self.g2,self.b2)
