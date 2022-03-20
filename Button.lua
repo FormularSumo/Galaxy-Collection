@@ -94,7 +94,9 @@ function Button:update()
                 mouseLasty = -1
             end
             if mouseDown and (mouseTrapped == false or mouseTrapped == self) and not touchLocked then
-                self.scaling = 1.08
+                if not (self.scroll and lastClickIsTouch) then
+                    self.scaling = 1.08
+                end
                 mouseTrapped = self
             end
         else
@@ -121,7 +123,7 @@ function Button:render()
         if self.bg_image ~= nil then
             love.graphics.draw(self.bg_image, self.imagex, self.finalimagey,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
         end
-        if (mouseTouching == self or mouseTrapped == self) and not touchLocked then
+        if (mouseTouching == self or mouseTrapped == self) and not touchLocked and not(self.scroll and lastClickIsTouch) then
             love.graphics.setColor(66/255,169/255,229/255)
         else
             love.graphics.setColor(self.r,self.g,self.b)
