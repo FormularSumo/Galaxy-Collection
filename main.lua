@@ -471,11 +471,5 @@ function love.draw()
     --     y = y + 100
     -- end
     -- love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
-    -- if temporary then
-    --     love.graphics.print(tostring(temporary.name .. ' ' .. temporary.row),0,400)
-    -- end
-    -- if temporary2 then
-    --     love.graphics.print(tostring(temporary2.name .. ' ' .. temporary2.row),0,500)
-    -- end
     push.finish()
 end
