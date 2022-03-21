@@ -59,6 +59,7 @@ function love.load()
     love.keyboard.keysDown = {}
     love.mouse.buttonsPressed = {}
     mouseDown = false
+    touchDown = false
     mouseTouching = false
     mouseTrapped = false
     mouseTrapped2 = false
@@ -252,6 +253,14 @@ function love.keyboard.wasDown(key)
     return love.keyboard.keysDown[key]
 end
 
+function love.touchpressed()
+    touchDown = true
+end
+
+function love.touchreleased()
+    touchDown = false
+end
+
 function love.mousereleased(x,y,button,istouch)
     love.mouse.buttonsPressed[button] = true
     if button == 4 then love.keypressed('escape') end
@@ -285,7 +294,8 @@ end
 function love.touchmoved(id,x,y,dx,dy)
     if (yscroll > -1080 or dy > 0) and (yscroll < 1080 or dy < 0) and (math.abs(dy) > 1.5 or touchLocked) then
         touchLocked = true
-        rawyscroll = rawyscroll + dy
+        yscroll = yscroll + dy * 1.5
+        rawyscroll = dy * 150/12
         lastScrollIsTouch = true
     end
 end
@@ -376,9 +386,10 @@ function love.update(dt)
     end
 
     --Smooth scrolling
-    if (yscroll > -1080 or rawyscroll > 0) and (yscroll < 1080 or rawyscroll < 0) then
+    if (yscroll > -1080 or rawyscroll > 0) and (yscroll < 1080 or rawyscroll < 0) and not touchDown then
         yscroll = yscroll + rawyscroll * dt * 12
         if lastScrollIsTouch then
+            -- yscroll = yscroll + rawyscroll * dt * 100
             rawyscroll = rawyscroll - rawyscroll * math.min(dt*3,0.1)
         else
             rawyscroll = rawyscroll - rawyscroll * math.min(dt*10,1)
