@@ -59,6 +59,7 @@ function StateMachine:change(stateName, enterParams, exitParams)
             repositionMouse(1)
         end
     end
+	maxScroll = gui[#gui].y + gui[#gui].height
 end
 
 function StateMachine:update(dt)
