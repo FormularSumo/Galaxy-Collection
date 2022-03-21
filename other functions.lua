@@ -86,7 +86,6 @@ function repositionMouse(index)
 end
 
 function updateMousePosition()
-    mouseDown = true
     mouseLastX,mouseLastY = push.toGame(love.mouse.getPosition())
     if mouseLastX == false or mouseLastY == false then
         mouseLastX = -1

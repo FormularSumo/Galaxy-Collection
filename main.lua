@@ -355,7 +355,10 @@ function love.update(dt)
 
     --Handle mouse inputs
     if love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter') then
+        mouseDown = true
         updateMousePosition()
+    else
+        mouseDown = false
     end
 
     --Handle holding down keys
@@ -430,7 +433,6 @@ function love.update(dt)
     love.keyboard.keysReleased = {}
     love.mouse.buttonsPressed = {}
     if mouseDown == false and mouseLocked == false then mouseTrapped = false mouseLastX = -1 mouseLastY = -1 end
-    mouseDown = false
 end
 
 function love.draw()
