@@ -100,7 +100,9 @@ function Button:update()
                 mouseTrapped = self
             end
         else
-            self.scaling = 1.04
+            if not (self.scroll and lastClickIsTouch) then
+                self.scaling = 1.04
+            end
             if mouseTrapped == self then
                 mouseLastX = -1
                 mouseLasty = -1
