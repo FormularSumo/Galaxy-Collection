@@ -292,7 +292,7 @@ function love.mousemoved(x,y,dx,dy,istouch)
 end
 
 function love.touchmoved(id,x,y,dx,dy)
-    if (yscroll > -maxScroll or dy > 0) and (yscroll < 1080 or dy < 0) and (math.abs(dy) > 1.5 or touchLocked) then
+    if (yscroll > -maxScroll or dy > 0) and (yscroll < 0 or dy < 0) and (math.abs(dy) > 1.5 or touchLocked) then
         touchLocked = true
         yscroll = yscroll + dy * 1.5
         rawyscroll = dy * 150/12
@@ -301,7 +301,7 @@ function love.touchmoved(id,x,y,dx,dy)
 end
 
 function love.wheelmoved(x,y)
-    if (yscroll > -maxScroll or y > 0) and (yscroll < 1080 or y < 0) then
+    if (yscroll > -maxScroll or y > 0) and (yscroll < 0 or y < 0) then
         rawyscroll = rawyscroll + y * 50
         lastScrollIsTouch = false
     end
@@ -386,7 +386,7 @@ function love.update(dt)
     end
 
     --Smooth scrolling
-    if (yscroll > -maxScroll or rawyscroll > 0) and (yscroll < 1080 or rawyscroll < 0) and not touchDown then
+    if (yscroll > -maxScroll or rawyscroll > 0) and (yscroll < 0 or rawyscroll < 0) and not touchDown then
         yscroll = yscroll + rawyscroll * dt * 12
         if lastScrollIsTouch then
             -- yscroll = yscroll + rawyscroll * dt * 100
@@ -395,7 +395,7 @@ function love.update(dt)
             rawyscroll = rawyscroll - rawyscroll * math.min(dt*10,1)
         end
     else
-        if yscroll > 1080 then yscroll = 1080 rawyscroll = 0 end
+        if yscroll > 0 then yscroll = 0 rawyscroll = 0 end
         if yscroll < -maxScroll then yscroll = -maxScroll rawyscroll = 0 end
     end
 
