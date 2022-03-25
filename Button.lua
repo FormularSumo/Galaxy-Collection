@@ -116,7 +116,7 @@ function Button:update()
         self.y = self.initialy + yscroll
         self.texty = self.initialtexty + yscroll
         if self.intitalimagey then
-            self.imagey = self.intitalimagey + ycsroll
+            self.imagey = self.intitalimagey + yscroll
         end
     end
 end
