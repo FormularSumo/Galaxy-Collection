@@ -37,16 +37,16 @@ function Projectile2:fire(card,card2)
         self.finalx = self.finalx + 20
     end
 
-    self.x_distance = tonumber(self.finalx-self.x)
-    self.y_distance = tonumber(self.finaly-self.y)
-    self.angle = math.atan(self.y_distance/self.x_distance)
+    self.xDistance = tonumber(self.finalx-self.x)
+    self.yDistance = tonumber(self.finaly-self.y)
+    self.angle = math.atan(self.yDistance/self.xDistance)
     if self.team == 2 then self.angle = self.angle + math.rad(180) end
 end
 
 function Projectile2:update(dt)
     if self.show then
-        self.x = self.x + (self.x_distance * dt) / 0.9
-        self.y = self.y + (self.y_distance * dt) / 0.9
+        self.x = self.x + (self.xDistance * dt) / 0.9
+        self.y = self.y + (self.yDistance * dt) / 0.9
     end
 end
 

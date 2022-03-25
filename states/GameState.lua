@@ -1,17 +1,17 @@
 GameState = Class{__includes = BaseState}
 
 function GameState:init()
-    Evolution = love.graphics.newImage('Graphics/Evolution.png')
-    EvolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
+    evolution= love.graphics.newImage('Graphics/Evolution.png')
+    evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
 
-    P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
-    P1_deck = {}
-    P2_deck = {}
+    P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
+    P1deck = {}
+    P2deck = {}
     Projectiles = {}
     Weapons = {}
-    Cards = {}
+    cards = {}
     gamespeed = 1
-    NextCards = {
+    Nextcards = {
         [0] = 18,
         [1] = 19,
         [2] = 20,
@@ -21,19 +21,19 @@ function GameState:init()
     }
 
     P1length = 0
-    for k, pair in pairs(P1_deck_cards) do
+    for k, pair in pairs(P1deckCards) do
         if k > P1length then
             P1length = k
         end
     end
-    P2length = P2_deck_cards('max')
+    P2length = P2deckCards('max')
 
     for i=0,math.min(18,math.max(P1length,P2length)) do
-        if P1_deck_cards[i] then
-            P1_deck[i] = Card(P1_deck_cards[i],1,i,-1 - math.floor((i)/6))
+        if P1deckCards[i] then
+            P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6))
         end
-        if P2_deck_cards(i) then
-            P2_deck[i] = Card(P2_deck_cards(i),2,i,12 + math.floor((i)/6))
+        if P2deckCards(i) then
+            P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6))
         end
     end
 end
@@ -66,21 +66,21 @@ function GameState:enter(Background)
     else
         timer = 0
     end
-    move_aim_timer = timer
-    attack_timer = timer - 0.9
+    moveAimTimer = timer
+    attackTimer = timer - 0.9
     love.timer.step()
 end
 
 function Move()
-    RowsRemaining(P1_deck)
-    RowsRemaining(P2_deck)
+    RowsRemaining(P1deck)
+    RowsRemaining(P2deck)
     if P1rowsRemaining == 1 and P2rowsRemaining == 1 then
         if P1rows[3] then
-            MoveUp(P1_deck,3)
+            MoveUp(P1deck,3)
             return
         end
         if P2rows[3] then
-            MoveUp(P2_deck,3)
+            MoveUp(P2deck,3)
             return
         end
     end
@@ -88,11 +88,11 @@ function Move()
     rows = P1rows
     enemyRows = P2rows
     rowsRemaining = P2rowsRemaining
-    Move2(P1_deck)
+    Move2(P1deck)
     rows = P2rows
     enemyRows = P1rows
     rowsRemaining = P1rowsRemaining
-    Move2(P2_deck)
+    Move2(P2deck)
 end
 
 function RowsRemaining(deck)
@@ -116,7 +116,7 @@ function RowsRemaining(deck)
             rowsRemaining = rowsRemaining + 1
         end
     end
-    if deck == P1_deck then
+    if deck == P1deck then
         P1rows = rows
         P1rowsRemaining = rowsRemaining
     else
@@ -195,14 +195,14 @@ function MoveUp(deck,row)
 end
 
 function checkHealth()
-    for k, pair in pairs(P1_deck) do
+    for k, pair in pairs(P1deck) do
         if pair.health <= 0 then
-            P1_deck[k] = nil
+            P1deck[k] = nil
         end
     end
-    for k, pair in pairs(P2_deck) do
+    for k, pair in pairs(P2deck) do
         if pair.health <= 0 then
-            P2_deck[k] = nil
+            P2deck[k] = nil
         end
     end
 end
@@ -210,10 +210,10 @@ end
 
 function GameState:pause()
     if paused == true then
-        gui[1]:update_text('Play','centre',220,font80)
+        gui[1]:updateText('Play','centre',220,font80)
         gui[2]:updatePosition('centre',380)
         if not winner then
-            gui[4]:update_text('Main Menu','centre',1080-220-font80:getHeight('Main Menu'))
+            gui[4]:updateText('Main Menu','centre',1080-220-font80:getHeight('Main Menu'))
         end
         gui[2].visible = true
         gui[4].visible = true
@@ -221,9 +221,9 @@ function GameState:pause()
         gui[3].visible = true
         gui['VolumeLabel'].visible = true
     else
-        gui[1]:update_text('Pause',1591,0,font100)
+        gui[1]:updateText('Pause',1591,0,font100)
         gui[2]:updatePosition('1591',130,1591,0)
-        gui[4]:update_text('Main Menu',35,20)
+        gui[4]:updateText('Main Menu',35,20)
         if not winner then
             gui[4].visible = false
         end
@@ -252,33 +252,33 @@ function GameState:update(dt)
         dt = dt * gamespeed
         timer = timer + dt
         if timer >= 7.4 then timer = timer - 1 end
-        move_aim_timer = move_aim_timer + dt
-        attack_timer = attack_timer + dt
+        moveAimTimer = moveAimTimer + dt
+        attackTimer = attackTimer + dt
 
-        for k, pair in pairs(P1_deck) do
+        for k, pair in pairs(P1deck) do
             pair:update(dt)
         end
-        for k, pair in pairs(P2_deck) do
+        for k, pair in pairs(P2deck) do
             pair:update(dt)
         end
 
-        if move_aim_timer >= 1 then
-            move_aim_timer = move_aim_timer - 1
+        if moveAimTimer >= 1 then
+            moveAimTimer = moveAimTimer - 1
 
             if timer < 7 then
-                for k, pair in pairs(P1_deck) do
+                for k, pair in pairs(P1deck) do
                     pair:move()
                 end
 
-                for k, pair in pairs(P2_deck) do
+                for k, pair in pairs(P2deck) do
                     pair:move()
                 end
                 
                 if timer > 3 and P2length > timer * 6 then
                     for i=0,5 do
-                        if P2_deck_cards(NextCards[i]) then
-                            P2_deck[NextCards[i]] = Card(P2_deck_cards(NextCards[i]),2,NextCards[i],12)
-                            NextCards[i] = NextCards[i] + 6
+                        if P2deckCards(Nextcards[i]) then
+                            P2deck[Nextcards[i]] = Card(P2deckCards(Nextcards[i]),2,Nextcards[i],12)
+                            Nextcards[i] = Nextcards[i] + 6
                         end
                     end
                 end
@@ -286,16 +286,16 @@ function GameState:update(dt)
             else
                 if P2length > timer * 6 then
                     for i=0,5 do
-                        if not P2_deck[36+i] and P2_deck_cards(NextCards[i]) then
-                            P2_deck[36+i] = Card(P2_deck_cards(NextCards[i]),2,36+i,12)
-                            NextCards[i] = NextCards[i] + 6
+                        if not P2deck[36+i] and P2deckCards(Nextcards[i]) then
+                            P2deck[36+i] = Card(P2deckCards(Nextcards[i]),2,36+i,12)
+                            Nextcards[i] = Nextcards[i] + 6
                         end
                     end
                 end
-                for k, pair in pairs(P1_deck) do
+                for k, pair in pairs(P1deck) do
                     pair:move2()
                 end 
-                for k, pair in pairs(P2_deck) do
+                for k, pair in pairs(P2deck) do
                     pair:move2()
                 end
             end
@@ -304,54 +304,54 @@ function GameState:update(dt)
                 Move()
             end
 
-            for k, pair in pairs(P1_deck) do
+            for k, pair in pairs(P1deck) do
                 pair:aim()
             end
-            for k, pair in pairs(P2_deck) do
+            for k, pair in pairs(P2deck) do
                 pair:aim()
             end
         end
 
-        if attack_timer >= 1 then
-            attack_timer = attack_timer - 1
+        if attackTimer >= 1 then
+            attackTimer = attackTimer - 1
 
-            for k, pair in pairs(P1_deck) do
+            for k, pair in pairs(P1deck) do
                 pair.dodge = 0
-                pair.attacks_taken = 0
+                pair.attacksTaken = 0
             end
-            for k, pair in pairs(P2_deck) do
+            for k, pair in pairs(P2deck) do
                 pair.dodge = 0
-                pair.attacks_taken = 0
+                pair.attacksTaken = 0
             end
 
-            for k, pair in pairs(P1_deck) do
+            for k, pair in pairs(P1deck) do
                 pair:attack()
             end
-            for k, pair in pairs(P2_deck) do
+            for k, pair in pairs(P2deck) do
                 pair:attack()
             end
 
             checkHealth()
             
-            if not next(P1_deck) then
-                P1_deck = nil
+            if not next(P1deck) then
+                P1deck = nil
             end
-            if not next(P2_deck) then
-                P2_deck = nil
+            if not next(P2deck) then
+                P2deck = nil
             end
-            if P1_deck == nil or P2_deck == nil then
-                if P1_deck == nil and P2_deck == nil then 
+            if P1deck == nil or P2deck == nil then
+                if P1deck == nil and P2deck == nil then 
                     winner = 'Draw'
-                elseif P1_deck == nil then
+                elseif P1deck == nil then
                     winner = 'P2'
-                elseif P2_deck == nil then
+                elseif P2deck == nil then
                     winner = 'P1'
                 end
                 gui[4].visible = true
-                gui[4]:update_text('Main Menu',35,20)
+                gui[4]:updateText('Main Menu',35,20)
                 Projectiles = nil
                 Weapons = nil
-                Cards = nil
+                cards = nil
                 collectgarbage()
             end
         end
@@ -359,41 +359,41 @@ function GameState:update(dt)
 end
 
 function GameState:render()
-    if P1_deck ~= nil then
-        for k, pair in pairs(P1_deck) do
+    if P1deck ~= nil then
+        for k, pair in pairs(P1deck) do
             pair:render()
         end
     end
-    if P2_deck ~= nil then
-        for k, pair in pairs(P2_deck) do
+    if P2deck ~= nil then
+        for k, pair in pairs(P2deck) do
             pair:render()
         end
     end
 
-    if P1_deck ~= nil then
-        for k, pair in pairs(P1_deck) do
+    if P1deck ~= nil then
+        for k, pair in pairs(P1deck) do
             if pair.weapon ~= nil then
                 pair.weapon:render()
             end
         end
     end
-    if P2_deck ~= nil then
-        for k, pair in pairs(P2_deck) do
+    if P2deck ~= nil then
+        for k, pair in pairs(P2deck) do
             if pair.weapon ~= nil then
                 pair.weapon:render()
             end
         end
     end
 
-    if P1_deck ~= nil then
-        for k, pair in pairs(P1_deck) do
+    if P1deck ~= nil then
+        for k, pair in pairs(P1deck) do
             if pair.projectile ~= nil then
                 pair.projectile:render()
             end
         end
     end
-    if P2_deck ~= nil then
-        for k, pair in pairs(P2_deck) do
+    if P2deck ~= nil then
+        for k, pair in pairs(P2deck) do
             if pair.projectile ~= nil then
                 pair.projectile:render()
             end
@@ -406,18 +406,18 @@ function GameState:render()
 end
 
 function GameState:exit()
-    P1_deck = nil
-    P2_deck = nil
+    P1deck = nil
+    P2deck = nil
     deck = nil
     winner = nil
-    P1_deck_cards = {}
-    P2_deck_cards = nil
-    NextCards = nil
-    Evolution = nil
-    EvolutionMax = nil
+    P1deckCards = {}
+    P2deckCards = nil
+    Nextcards = nil
+    evolution= nil
+    evolutionMax = nil
     timer = nil
-    move_aim_timer = nil
-    attack_timer = nil
+    moveAimTimer = nil
+    attackTimer = nil
     P1length = nil
     P2length = nil
     rowsRemaining = nil
@@ -428,6 +428,6 @@ function GameState:exit()
     P2rows = nil
     Projectiles = nil
     Weapons = nil
-    Cards = nil
+    cards = nil
     exitState()
 end

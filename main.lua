@@ -29,11 +29,11 @@ function love.load()
     --Operating System
     OS = love.system.getOS()
 
-    VIRTUAL_WIDTH = 1920
-    VIRTUAL_HEIGHT = 1080
+    VIRTUALWIDTH = 1920
+    VIRTUALHEIGHT = 1080
 
     -- initialise virtual resolution
-    push.setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, {
+    push.setupScreen(VIRTUALWIDTH, VIRTUALHEIGHT, {
         upscale = 'normal',
     })
     love.window.maximize()
@@ -43,7 +43,7 @@ function love.load()
     font60 = love.graphics.newFont(60)
     font80 = love.graphics.newFont(80)
     -- font80SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',80)
-    -- font80SW_runes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
+    -- font80SWrunes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
     font100 = love.graphics.newFont(100)
     love.graphics.setFont(font80)
     
@@ -96,30 +96,30 @@ function love.load()
     
     else
         if love.filesystem.getInfo('Player 1 deck.txt') == nil or bitser.loadLoveFile('Player 1 deck.txt') == nil then
-            P1_deck_cards = {}
-            bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
+            P1deckCards = {}
+            bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
         else
-            P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
-            for k, pair in pairs(P1_deck_cards) do
-                if P1_deck_cards[k] ~= nil and not Characters[P1_deck_cards[k][1]] then
-                    P1_deck_cards[k] = nil
+            P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
+            for k, pair in pairs(P1deckCards) do
+                if P1deckCards[k] ~= nil and not Characters[P1deckCards[k][1]] then
+                    P1deckCards[k] = nil
                 end
             end
-            bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
-            P1_deck_cards = {}
+            bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+            P1deckCards = {}
         end
 
         if love.filesystem.getInfo('Player 1 cards.txt') == nil or bitser.loadLoveFile('Player 1 cards.txt') == nil then
-            bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
+            bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
         else
-            P1_cards = bitser.loadLoveFile('Player 1 cards.txt')
-            for k, pair in pairs(P1_cards) do
-                if P1_cards[k] ~= nil and not Characters[P1_cards[k][1]] then
-                    P1_cards[k] = nil
+            P1cards = bitser.loadLoveFile('Player 1 cards.txt')
+            for k, pair in pairs(P1cards) do
+                if P1cards[k] ~= nil and not Characters[P1cards[k][1]] then
+                    P1cards[k] = nil
                 end
             end
-            bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
-            P1_cards = nil
+            bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+            P1cards = nil
         end
 
         if love.filesystem.getInfo('User Data.txt') == nil then
@@ -141,22 +141,22 @@ function love.load()
     gStateMachine:change('HomeState')
 end
 
-function P1_deck_edit(position,name)
-    P1_deck_cards = bitser.loadLoveFile('Player 1 deck.txt')
+function P1deckEdit(position,name)
+    P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
 
     if name and name[1] == 'Blank' then name = nil end
-    P1_deck_cards[position] = name
+    P1deckCards[position] = name
 
-    bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
+    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
 end
 
-function P1_cards_edit(position,name)
-    P1_cards = bitser.loadLoveFile('Player 1 cards.txt')
+function P1cardsEdit(position,name)
+    P1cards = bitser.loadLoveFile('Player 1 cards.txt')
 
     if name and name[1] == 'Blank' then name = nil end
-    P1_cards[position] = name
+    P1cards[position] = name
 
-    bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
+    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
 end
 
 function love.resize(w, h)
@@ -198,9 +198,9 @@ function love.keypressed(key,scancode,isrepeat)
 
         elseif gStateMachine.state == 'GameState' then
             if key == 'pageup' then 
-                gui[3]:update_percentage(gui[3].percentage * 2,false)
+                gui[3]:updatePercentage(gui[3].percentage * 2,false)
             elseif key == 'pagedown' then
-                gui[3]:update_percentage(gui[3].percentage / 2,false)
+                gui[3]:updatePercentage(gui[3].percentage / 2,false)
             end
         end
     else
@@ -401,13 +401,13 @@ function love.update(dt)
 
     --Manage song queue
     if songs[0] ~= nil then
-        if songs[current_song]:isPlaying() == false and paused == false then
-            if next_song <= queue_length then
-                songs[next_song]:play()
-                current_song = next_song
-                next_song = next_song + 1
+        if songs[currentSong]:isPlaying() == false and paused == false then
+            if nextSong <= queueLength then
+                songs[nextSong]:play()
+                currentSong = nextSong
+                nextSong = nextSong + 1
             else
-                next_song = 0
+                nextSong = 0
             end
         end
     end

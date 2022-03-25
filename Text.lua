@@ -13,12 +13,12 @@ function Text:init(text,font,x,y,r,g,b,visible)
     self.text = love.graphics.newText(self.font,text)
     self.width,self.height = self.text:getDimensions()
     if self.centrex then
-        self.x = VIRTUAL_WIDTH / 2 - self.width / 2
+        self.x = VIRTUALWIDTH / 2 - self.width / 2
     else
         self.x = x
     end
     if self.centrey then
-        self.y = VIRTUAL_HEIGHT / 2 - self.height / 2
+        self.y = VIRTUALHEIGHT / 2 - self.height / 2
     else
         self.y = y
     end
@@ -29,15 +29,15 @@ function Text:init(text,font,x,y,r,g,b,visible)
     if visible == nil then self.visible = true else self.visible = visible end
 end
 
-function Text:update_text(text,font)
+function Text:updateText(text,font)
     if font then self.font = font end
     self.text = love.graphics.newText(self.font,text)
     self.width,self.height = self.text:getDimensions()
     if self.centrex then
-        self.x = VIRTUAL_WIDTH / 2 - self.width / 2
+        self.x = VIRTUALWIDTH / 2 - self.width / 2
     end
     if self.centrey then
-        self.y = VIRTUAL_HEIGHT / 2 - self.height / 2
+        self.y = VIRTUALHEIGHT / 2 - self.height / 2
     end
 end
 

@@ -9,11 +9,11 @@ function Weapon:init(name,team,xoffset,yoffset)
         self.angle = math.rad(150)
     end
 
-    self.weapon_count = name['weapon_count']
-    if not self.weapon_count then self.weapon_count = 1 end
+    self.weaponCount = name['weaponCount']
+    if not self.weaponCount then self.weaponCount = 1 end
 
     self.Weapons = {}
-    for i=1,self.weapon_count do
+    for i=1,self.weaponCount do
         if name['weapon' .. tostring(i)] then
             if not Weapons[name['weapon'..tostring(i)]] then
                 Weapons[name['weapon'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['weapon'..tostring(i)]..'.png')

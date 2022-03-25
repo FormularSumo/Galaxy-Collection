@@ -1,12 +1,12 @@
-Card_editor = Class{__includes = BaseState}
+CardEditor = Class{__includes = BaseState}
 
-function Card_editor:init(name,row,column,number,level,evolution,in_deck)
+function CardEditor:init(name,row,column,number,level,evolution,inDeck)
     self.name = name
     self.row = row
     self.column = column
     self.scaling = 1
     if self.name == 'Blank' then
-        self.image = BlankCard
+        self.image = blankCard
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
@@ -14,28 +14,28 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
         else
             self.image = 'Characters/' .. self.name .. '/' .. self.name .. '.png'
         end
-        if Cards[self.image] then
-            self.image = Cards[self.image]
+        if cards[self.image] then
+            self.image = cards[self.image]
         else
-            Cards[self.image] = love.graphics.newImage(self.image)
-            self.image = Cards[self.image]
+            cards[self.image] = love.graphics.newImage(self.image)
+            self.image = cards[self.image]
         end
         if not level then self.level = 1 else self.level = level end
         if not evolution then self.evolution = 0 else self.evolution = evolution end
     end
     self.width,self.height = self.image:getDimensions()
-    self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
-    self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+    self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
+    self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.number = number
-    self.in_deck = in_deck
+    self.inDeck = inDeck
     -- if self.name ~= 'Blank' then
     --     self.health = 1000
     --     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-    --     self.melee_offense = self.stats['melee_offense'] * (self.modifier)
-    --     if self.stats['ranged_offense'] then
-    --         self.ranged_offense = self.stats['ranged_offense'] * (self.modifier)
+    --     self.meleeOffense = self.stats['meleeOffense'] * (self.modifier)
+    --     if self.stats['rangedOffense'] then
+    --         self.rangedOffense = self.stats['rangedOffense'] * (self.modifier)
     --     else
-    --         self.ranged_offense = self.melee_offense
+    --         self.rangedOffense = self.meleeOffense
     --     end
     --     self.defense = self.stats['defense'] * (self.modifier)
     --     self.evade = self.stats['evade']
@@ -43,47 +43,47 @@ function Card_editor:init(name,row,column,number,level,evolution,in_deck)
     -- end
 end
 
-function Card_editor:swap()
+function CardEditor:swap()
     self.clicked = false
     if mouseTrapped2 == self then
-        self.row, self.column, self.number, self.x, self.y, self.in_deck, mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.in_deck = mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.in_deck, self.row, self.column, self.number, self.x, self.y, self.in_deck
+        self.row, self.column, self.number, self.x, self.y, self.inDeck, mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck = mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck, self.row, self.column, self.number, self.x, self.y, self.inDeck
 
-        if mouseTrapped.in_deck then
-            P1_deck[mouseTrapped.number] = mouseTrapped
-            P1_deck_edit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
+        if mouseTrapped.inDeck then
+            P1deck[mouseTrapped.number] = mouseTrapped
+            P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
         else
-            P1_cards_edit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
+            P1cardsEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
         end
 
-        if self.in_deck then
-            P1_deck[self.number] = self
-            P1_deck_edit(self.number,{self.name,self.level,self.evolution})
+        if self.inDeck then
+            P1deck[self.number] = self
+            P1deckEdit(self.number,{self.name,self.level,self.evolution})
         else
-            P1_cards_edit(self.number,{self.name,self.level,self.evolution})
+            P1cardsEdit(self.number,{self.name,self.level,self.evolution})
         end
 
-        if not (mouseTrapped.in_deck and self.in_deck) then
-            sort_inventory()
+        if not (mouseTrapped.inDeck and self.inDeck) then
+            sortInventory()
         end
 
         mouseTrapped = false
         mouseTrapped2 = false
-        self.x = ((VIRTUAL_WIDTH / 12) * self.column) + 22
-        self.y = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+        self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
+        self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
         return
     end
 end
 
-function Card_editor:update()
+function CardEditor:update()
     --When mouse visible cards are swapped by dragging and dropping, when not (ie using controller or keyboard to navigate) cards are selected by clicking and swapped by clicking on a different card
     if love.mouse.isVisible() then
         if self.clicked == true then
             if mouseDown then
                 if mouseTrapped == self then
                     self.scaling = 1.08
-                    if self.clicked_positionX and self.clicked_positionY then
-                        self.x = mouseLastX - self.clicked_positionX
-                        self.y = mouseLastY - self.clicked_positionY
+                    if self.clickedPositionX and self.clickedPositionY then
+                        self.x = mouseLastX - self.clickedPositionX
+                        self.y = mouseLastY - self.clickedPositionY
                     end
                 end
             else
@@ -94,8 +94,8 @@ function Card_editor:update()
             self.clicked = true
             if mouseTrapped == false and self.name ~= 'Blank' then
                 mouseTrapped = self
-                self.clicked_positionX = mouseLastX - self.x
-                self.clicked_positionY = mouseLastY - self.y
+                self.clickedPositionX = mouseLastX - self.x
+                self.clickedPositionY = mouseLastY - self.y
             elseif (mouseTrapped ~= self and self.name ~= 'Blank') or (mouseTrapped ~= false and self.name == 'Blank') then
                 mouseTrapped2 = self
             end
@@ -138,7 +138,7 @@ function Card_editor:update()
     end
 end
 
-function Card_editor:render()
+function CardEditor:render()
     if self.deleting then
         love.graphics.setColor(1,0,0)
         love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
@@ -146,13 +146,13 @@ function Card_editor:render()
     end
     love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
     if self.name ~= 'Blank' then
-        if self.evolution == 4 then
-            love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
-        elseif self.evolution > 0 then
+        if self.evolution== 4 then
+            love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
+        elseif self.evolution> 0 then
             love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
-            if self.evolution > 1 then
+            if self.evolution> 1 then
                 love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
-                if self.evolution > 2 then
+                if self.evolution> 2 then
                     love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
                 end
             end

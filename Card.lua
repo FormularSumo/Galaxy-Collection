@@ -6,7 +6,7 @@ function Card:init(card,team,number,column)
 
     self.stats = Characters[card[1]]
     if not card[2] then self.level = 1 else self.level = card[2] end
-    if not card[3] then self.evolution = 0 else self.evolution = card[3] end
+    if not card[3] then self.evolution= 0 else self.evolution= card[3] end
 
     if self.stats['filename'] then
         self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
@@ -14,57 +14,57 @@ function Card:init(card,team,number,column)
         self.image = 'Characters/' .. card[1] .. '/' .. card[1] .. '.png'
     end
 
-    if Cards[self.image] then
-        self.image = Cards[self.image]
+    if cards[self.image] then
+        self.image = cards[self.image]
     else
-        Cards[self.image] = love.graphics.newImage(self.image)
-        self.image = Cards[self.image]
+        cards[self.image] = love.graphics.newImage(self.image)
+        self.image = cards[self.image]
     end
     self.width,self.height = self.image:getDimensions()
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-    self.melee_offense = self.stats['melee_offense'] * (self.modifier)
-    if self.stats['ranged_offense'] then
-        self.ranged_offense = self.stats['ranged_offense'] * (self.modifier)
+    self.meleeOffense = self.stats['meleeOffense'] * (self.modifier)
+    if self.stats['rangedOffense'] then
+        self.rangedOffense = self.stats['rangedOffense'] * (self.modifier)
     else
-        self.ranged_offense = self.melee_offense
+        self.rangedOffense = self.meleeOffense
     end
     self.defense = self.stats['defense'] * (self.modifier)
     self.evade = self.stats['evade']
     self.range = self.stats['range']
-    self.melee_offense_stat = (self.melee_offense/800)^4/2
-    self.ranged_offense_stat = (self.ranged_offense/800)^4
+    self.meleeOffenseStat = (self.meleeOffense/800)^4/2
+    self.rangedOffenseStat = (self.rangedOffense/800)^4
     if self.stats['projectile1'] then
         self.projectile = Projectile(self.stats, self.team, self.width, self.height)
-        self.ranged_offense_stat = self.ranged_offense_stat * self.projectile.projectile_count
+        self.rangedOffenseStat = self.rangedOffenseStat * self.projectile.projectileCount
     end
 
     if self.stats['weapon1'] then
         self.weapon = Weapon(self.stats, self.team, self.width, self.height)
     end
 
-    self.melee_projectile = (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain') and self.weapon == nil
+    self.meleeProjectile = (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain') and self.weapon == nil
 
-    self.possible_targets = {}
+    self.possibleTargets = {}
     self.targets = {}
     if self.team == 1 then
-        self.enemy_deck = P2_deck
+        self.enemyDeck = P2deck
     else
-        self.enemy_deck = P1_deck
+        self.enemyDeck = P1deck
     end
 
     self.column = column
     self.row = self.number % 6
 
     if self.team == 1 then
-        self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 - 20
+        self.targetx = ((VIRTUALWIDTH / 12) * self.column) + 22 - 20
         self.x = self.targetx
     else
-        self.targetx = ((VIRTUAL_WIDTH / 12) * self.column) + 22 + 20
+        self.targetx = ((VIRTUALWIDTH / 12) * self.column) + 22 + 20
         self.x = self.targetx
     end
 
-    self.targety = ((VIRTUAL_HEIGHT / 6) * self.row + (self.height / 48))
+    self.targety = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.y = self.targety
 end
 
@@ -84,16 +84,16 @@ end
 
 function Card:move2()
     if self.team == 1 then
-        if P1_deck[self.number-6] == nil and self.number - 6 >= 0 then
-            P1_deck[self.number-6] = P1_deck[self.number]
-            P1_deck[self.number] = nil
+        if P1deck[self.number-6] == nil and self.number - 6 >= 0 then
+            P1deck[self.number-6] = P1deck[self.number]
+            P1deck[self.number] = nil
             self.number = self.number - 6
             self.targetx = self.targetx + 160
             self.column = self.column + 1
         end
-    elseif P2_deck[self.number-6] == nil and self.number - 6 >= 0 then
-        P2_deck[self.number-6] = P2_deck[self.number]
-        P2_deck[self.number] = nil
+    elseif P2deck[self.number-6] == nil and self.number - 6 >= 0 then
+        P2deck[self.number-6] = P2deck[self.number]
+        P2deck[self.number] = nil
         self.number = self.number - 6
         self.targetx = self.targetx - 160
         self.column = self.column - 1
@@ -102,61 +102,61 @@ end
 
 
 function Card:aim()
-    self.melee_attack = false
-    if (self.column == 5 or self.column == 6) and self.enemy_deck[self.number] ~= nil and (self.enemy_deck[self.number].column == 6 or self.enemy_deck[self.number].column == 5) then
+    self.meleeAttack = false
+    if (self.column == 5 or self.column == 6) and self.enemyDeck[self.number] ~= nil and (self.enemyDeck[self.number].column == 6 or self.enemyDeck[self.number].column == 5) then
         self.targets[1] = self.number
-        if self.melee_projectile then
-            self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
+        if self.meleeProjectile then
+            self.projectile:fireall(self,self.enemyDeck[self.targets[1]])
         end
-        self.melee_attack = true
-    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.melee_offense_stat > self.ranged_offense_stat) and (self.enemy_deck[self.number-1] ~= nil and ((self.enemy_deck[self.number-1].column == 6 or self.enemy_deck[self.number-1].column == 5)) or (self.enemy_deck[self.number+1] ~= nil and (self.enemy_deck[self.number+1].column == 6 or self.enemy_deck[self.number+1].column == 6))) then
-        if self.enemy_deck[self.number-1] ~= nil then
+        self.meleeAttack = true
+    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.meleeOffenseStat > self.rangedOffenseStat) and (self.enemyDeck[self.number-1] ~= nil and ((self.enemyDeck[self.number-1].column == 6 or self.enemyDeck[self.number-1].column == 5)) or (self.enemyDeck[self.number+1] ~= nil and (self.enemyDeck[self.number+1].column == 6 or self.enemyDeck[self.number+1].column == 6))) then
+        if self.enemyDeck[self.number-1] ~= nil then
             self.targets[1] = self.number-1
-        elseif self.enemy_deck[self.number+1] ~= nil then 
+        elseif self.enemyDeck[self.number+1] ~= nil then 
             self.targets[1] = self.number+1
         end
-        if self.melee_projectile then
-            self.projectile:fireall(self,self.enemy_deck[self.targets[1]])
+        if self.meleeProjectile then
+            self.projectile:fireall(self,self.enemyDeck[self.targets[1]])
         end
-        self.melee_attack = true
+        self.meleeAttack = true
     elseif self.range > 1 then
         self.targets[1] = self:target(self.range)
         if self.projectile then
             if self.targets[1] then
-                self.projectile.Projectiles[1]:fire(self,self.enemy_deck[self.targets[1]])
+                self.projectile.Projectiles[1]:fire(self,self.enemyDeck[self.targets[1]])
             end
             for k, pair in pairs(self.projectile.Projectiles) do
                 if k > 1 then
                     self.targets[k] = self:target(pair.range)
                     if self.targets[k] then
-                        pair:fire(self,self.enemy_deck[self.targets[k]])
+                        pair:fire(self,self.enemyDeck[self.targets[k]])
                     end
                 end
             end
         end
     end
     if self.weapon then
-        self.weapon.show = self.melee_attack
+        self.weapon.show = self.meleeAttack
     end
 end
 
 function Card:target(range)
-    for k, pair in pairs(self.possible_targets) do
-        self.possible_targets[k] = nil
+    for k, pair in pairs(self.possibleTargets) do
+        self.possibleTargets[k] = nil
     end
-    self.total_probability = 0
-    for k, pair in pairs(self.enemy_deck) do
+    self.totalProbability = 0
+    for k, pair in pairs(self.enemyDeck) do
         distance = self:distance(pair)
         if distance <= range then
-            self.possible_targets[k] = self.total_probability + range/distance
-            self.total_probability = self.total_probability + range/distance
+            self.possibleTargets[k] = self.totalProbability + range/distance
+            self.totalProbability = self.totalProbability + range/distance
         end
     end
 
-    if self.total_probability > 0 then
-        self.ranged_attack_roll = love.math.random() * self.total_probability
-        for k, pair in pairs(self.possible_targets) do
-            if self.ranged_attack_roll < self.possible_targets[k] then
+    if self.totalProbability > 0 then
+        self.rangedAttackRoll = love.math.random() * self.totalProbability
+        for k, pair in pairs(self.possibleTargets) do
+            if self.rangedAttackRoll < self.possibleTargets[k] then
                 return k
             end
         end
@@ -172,27 +172,27 @@ function Card:attack()
 end
 
 function Card:attack2(target)
-    self.attack_roll = love.math.random(100) / 100
-    self.enemy_deck[target].attacks_taken = self.enemy_deck[target].attacks_taken + 1
-    if self.attack_roll > self.enemy_deck[target].evade then
-        if self.melee_attack then self.offense = self.melee_offense else self.offense = self.ranged_offense end
-        self.damage = ((self.offense - self.enemy_deck[target].defense) / 800)
+    self.attackRoll = love.math.random(100) / 100
+    self.enemyDeck[target].attacksTaken = self.enemyDeck[target].attacksTaken + 1
+    if self.attackRoll > self.enemyDeck[target].evade then
+        if self.meleeAttack then self.offense = self.meleeOffense else self.offense = self.rangedOffense end
+        self.damage = ((self.offense - self.enemyDeck[target].defense) / 800)
         if self.damage < 0 then self.damage = 0 end
         self.damage = (self.damage ^ 3)
-        self.defence_down = (self.offense / 100) * (self.offense / self.enemy_deck[target].defense) ^ 3
+        self.defenceDown = (self.offense / 100) * (self.offense / self.enemyDeck[target].defense) ^ 3
         if target ~= self.number and self.range == 1 then 
             self.damage = self.damage / 2 
-            self.defence_down = self.defence_down / 2 
+            self.defenceDown = self.defenceDown / 2 
         end
-        self.enemy_deck[target].health = self.enemy_deck[target].health - (self.damage + 1)
-        if self.enemy_deck[target].defense > 0 then
-            self.enemy_deck[target].defense = self.enemy_deck[target].defense - self.defence_down
-            if self.enemy_deck[target].defense < 0 then self.enemy_deck[target].defense = 0 end
+        self.enemyDeck[target].health = self.enemyDeck[target].health - (self.damage + 1)
+        if self.enemyDeck[target].defense > 0 then
+            self.enemyDeck[target].defense = self.enemyDeck[target].defense - self.defenceDown
+            if self.enemyDeck[target].defense < 0 then self.enemyDeck[target].defense = 0 end
         else
-            self.enemy_deck[target].defense = 0
+            self.enemyDeck[target].defense = 0
         end
     else
-        self.enemy_deck[target].dodge = self.enemy_deck[target].dodge + 1
+        self.enemyDeck[target].dodge = self.enemyDeck[target].dodge + 1
     end
 end
 
@@ -227,13 +227,13 @@ end
 
 function Card:render()
     love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-    if self.evolution == 4 then
-        love.graphics.draw(EvolutionMax,self.x+self.width-EvolutionMax:getWidth()-3,self.y+3)
-    elseif self.evolution > 0 then
+    if self.evolution== 4 then
+        love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3)
+    elseif self.evolution> 0 then
         love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90))
-        if self.evolution > 1 then
+        if self.evolution> 1 then
             love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90))
-            if self.evolution > 2 then
+            if self.evolution> 2 then
                 love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90))
             end
         end
@@ -245,7 +245,7 @@ function Card:render()
         if self.dodge == 0 then
             love.graphics.setColor(1,0.82,0)
         else
-            self.colour = self.dodge / self.attacks_taken
+            self.colour = self.dodge / self.attacksTaken
             self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
             love.graphics.setColor(self.colour,self.colour,self.colour)
         end
@@ -254,33 +254,33 @@ function Card:render()
     end
 
     -- if self.number == 15 and self.team == 2 then
-    --     if self.possible_targets ~= nil then
+    --     if self.possibleTargets ~= nil then
     --         y = 100
-    --         for k, pair in pairs(self.possible_targets) do
+    --         for k, pair in pairs(self.possibleTargets) do
     --             y = y + 100
     --             love.graphics.print(tostring(k) .. ' ' .. tostring(pair),0,y)
-    --             love.graphics.print(self.ranged_attack_roll,800,100)
-    --             love.graphics.print(self.total_probability,0,100)
+    --             love.graphics.print(self.rangedAttackRoll,800,100)
+    --             love.graphics.print(self.totalProbability,0,100)
     --         end
     --     end
     --     love.graphics.print(self.stats,0,0)
     -- end
 
     -- if self.number == 2 and if self.team == 2 then
-    --     love.graphics.print(self.attacks_taken)
+    --     love.graphics.print(self.attacksTaken)
     --     love.graphics.print(self.defense,0,100)
     -- end
     --     love.graphics.print(self.damage)
-    --     love.graphics.print(self.defence_down,0,100)
+    --     love.graphics.print(self.defenceDown,0,100)
     --     love.graphics.print(self.defense,0,200)
     -- elseif self.team == 2 then
     --     love.graphics.print(self.damage,1600)
-    --     love.graphics.print(self.defence_down,1600,100)
+    --     love.graphics.print(self.defenceDown,1600,100)
     --     love.graphics.print(self.defense,1600,200)
     -- end       
     -- end
     
-    -- love.graphics.line(VIRTUAL_WIDTH / 2,0,VIRTUAL_WIDTH / 2,VIRTUAL_HEIGHT)
+    -- love.graphics.line(VIRTUALWIDTH / 2,0,VIRTUALWIDTH / 2,VIRTUALHEIGHT)
     -- love.graphics.print(self.offense, self.x, self.y)
     -- love.graphics.print(self.defense, self.x, self.y)
     -- love.graphics.print(self.evade, self.x, self.y)

@@ -5,7 +5,7 @@ function pause(pause)
         paused = not paused
     end
     if songs[0] ~= nil then
-        if paused then songs[current_song]:pause() else songs[current_song]:play() end
+        if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
     end
     gStateMachine:pause()
 end
@@ -44,7 +44,7 @@ function switchState(state)
 end
 
 function loadBattle(table,video)
-    P2_deck_cards = table[8]
+    P2deckCards = table[8]
     if table[2] == 'video' and Settings['videos'] then
         gStateMachine:change('GameState',{table[1], 'video', table[3], table[4], table[5], table[6], table[7]})
     else
@@ -71,8 +71,8 @@ function repositionMouse(index)
         end
     end
 
-    if mouseTouching.y + mouseTouching.height > VIRTUAL_HEIGHT then
-        yscroll = yscroll + (VIRTUAL_HEIGHT - (mouseTouching.y + mouseTouching.height + 50))
+    if mouseTouching.y + mouseTouching.height > VIRTUALHEIGHT then
+        yscroll = yscroll + (VIRTUALHEIGHT - (mouseTouching.y + mouseTouching.height + 50))
         mouseTouching.y = mouseTouching.y + yscroll
     elseif mouseTouching.y < 0 then
         yscroll = yscroll - (mouseTouching.y - 50)
@@ -103,23 +103,23 @@ function testForBackgroundImageLoop(video,seek) --Replays the inputted video if 
 end
 
 function calculateQueueLength()
-    queue_length = -1
+    queueLength = -1
     for k, pair in pairs(songs) do
-        queue_length = queue_length + 1
+        queueLength = queueLength + 1
     end
-    current_song = 0
-    next_song = 1
+    currentSong = 0
+    nextSong = 1
 end
 
 function togglePauseOnLooseFocus()
     Settings['pause_on_loose_focus'] = not Settings['pause_on_loose_focus']
-    gui[4]:update_text('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']))
+    gui[4]:updateText('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']))
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
 function toggleVideos()
     Settings['videos'] = not Settings['videos']
-    gui[3]:update_text('Videos: ' .. tostring(Settings['videos']))
+    gui[3]:updateText('Videos: ' .. tostring(Settings['videos']))
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
@@ -153,14 +153,14 @@ function characterStrength(character)
         modifier = 1
     end
 
-    if stats['ranged_offense'] then
-        if stats['projectile_count'] then
-            offense = ((stats['melee_offense']*modifier)/800)^4/2+(((stats['ranged_offense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)*stats['projectile_count']
+    if stats['rangedOffense'] then
+        if stats['projectileCount'] then
+            offense = ((stats['meleeOffense']*modifier)/800)^4/2+(((stats['rangedOffense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)*stats['projectileCount']
         else
-            offense = ((stats['melee_offense']*modifier)/800)^4/2+(((stats['ranged_offense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)
+            offense = ((stats['meleeOffense']*modifier)/800)^4/2+(((stats['rangedOffense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)
         end
     else
-        offense = ((stats['melee_offense']*modifier)/800)^4*(1+((stats['range']-1)/20)^0.5/9)
+        offense = ((stats['meleeOffense']*modifier)/800)^4*(1+((stats['range']-1)/20)^0.5/9)
     end
     return (offense+((stats['defense']*modifier)/800)^4)*(1+stats['evade']^1/2*2)
 end
@@ -170,16 +170,16 @@ function compareCharacterStrength(character1, character2)
 end
 
 function tutorial()
-    P1_cards = {}
-    P1_deck_cards = {}
-    bitser.dumpLoveFile('Player 1 deck.txt',P1_deck_cards)
+    P1cards = {}
+    P1deckCards = {}
+    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
 
-    P1_deck_edit(1,{'Grogu',60,4})
-    P1_deck_edit(2,{'Farmboy Luke Skywalker',60,4})
-    P1_deck_edit(3,{'C-3PO',60,4})
-    P1_deck_edit(4,{'R2-D2',60,4})
+    P1deckEdit(1,{'Grogu',60,4})
+    P1deckEdit(2,{'Farmboy Luke Skywalker',60,4})
+    P1deckEdit(3,{'C-3PO',60,4})
+    P1deckEdit(4,{'R2-D2',60,4})
 
-    bitser.dumpLoveFile('Player 1 cards.txt',P1_cards)
-    P1_cards = nil
+    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    P1cards = nil
     UserData['Credits'] = 100
 end

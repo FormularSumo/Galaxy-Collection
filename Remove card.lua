@@ -1,19 +1,19 @@
-Remove_card = Class{__includes = BaseState}
+RemoveCard = Class{__includes = BaseState}
 
-function Remove_card:init()
+function RemoveCard:init()
     self.image = love.graphics.newImage('Buttons/X.png')
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
-    self.x = VIRTUAL_WIDTH / 2 - self.width / 2
+    self.x = VIRTUALWIDTH / 2 - self.width / 2
     self.y = 740
 end
 
-function Remove_card:swap()
-    P1_deck[mouseTrapped.number] = Card_editor('Blank',mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,nil,nil,true)
-    P1_cards_edit(-1,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
-    P1_deck_edit(mouseTrapped.number,nil)
+function RemoveCard:swap()
+    P1deck[mouseTrapped.number] = CardEditor('Blank',mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,nil,nil,true)
+    P1cardsEdit(-1,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
+    P1deckEdit(mouseTrapped.number,nil)
     collectgarbage()
-    sort_inventory()
+    sortInventory()
     if love.mouse.isVisible() == false then
         if mouseTrapped.number < 6 then
             repositionMouse(gui[mouseTrapped.number+16])
@@ -28,8 +28,8 @@ function Remove_card:swap()
     mouseTrapped2 = false
 end
 
-function Remove_card:update()
-    if mouseTrapped and mouseTrapped.in_deck then
+function RemoveCard:update()
+    if mouseTrapped and mouseTrapped.inDeck then
         self.visible = true
         if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
             self.scaling = 1.04
@@ -49,7 +49,7 @@ function Remove_card:update()
     end
 end
 
-function Remove_card:render()
+function RemoveCard:render()
     if self.visible then
         love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
     end
