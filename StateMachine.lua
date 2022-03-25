@@ -38,6 +38,7 @@ function StateMachine:init(states)
 	self.empty = {
 		render = function() end,
 		update = function() end,
+		pause = function() end,
 		back = function() end,
 		enter = function() end,
 		exit = function() end
@@ -63,6 +64,10 @@ end
 
 function StateMachine:update(dt)
 	self.current:update(dt)
+end
+
+function StateMachine:pause()
+	self.current:pause()
 end
 
 function StateMachine:back()

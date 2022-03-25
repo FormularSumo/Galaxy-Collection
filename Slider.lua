@@ -1,20 +1,8 @@
 Slider = Class{}
 
-function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,func2,default)
+function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,func2,default,visible)
     self.width = width
     self.height = height
-
-    if x == 'centre' then
-        self.x = VIRTUAL_WIDTH / 2 - self.width / 2
-    else
-        self.x = x 
-    end
-    if y == 'centre' then
-        self.y = VIRTUAL_HEIGHT / 2 - self.height / 2
-    else
-        self.y = y 
-    end
-
 
     self.func = func
     self.r1 = r1
@@ -39,10 +27,24 @@ function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,fun
         self.trap2 = 0
         self.trap3 = 0
     end
-
     self.trap3 = (self.trap1 + self.trap2) / 2
     self.diameter_to_circle = 3
     self.radius_to_circle = self.diameter_to_circle / 2
+    self:updatePosition(x,y)
+    if visible == nil then self.visible = true else self.visible = visible end
+end
+
+function Slider:updatePosition(x,y)
+    if x == 'centre' then
+        self.x = VIRTUAL_WIDTH / 2 - self.width / 2
+    else
+        self.x = x 
+    end
+    if y == 'centre' then
+        self.y = VIRTUAL_HEIGHT / 2 - self.height / 2
+    else
+        self.y = y 
+    end
     self.clickablex = self.x - self.height * self.radius_to_circle
     self.clickabley = self.y + self.height / 2 - self.height * self.radius_to_circle
     self.held_time = 0.5
@@ -112,14 +114,16 @@ function Slider:update_percentage(percentage,trap)
 end
 
 function Slider:render()
-    love.graphics.setColor(self.r1,self.g1,self.b1)
-    love.graphics.rectangle('fill',self.x,self.y,self.width,self.height,5)
-    if (mouseTouching == self and not touchLocked) or mouseTrapped == self then
-        love.graphics.setColor(66/255,169/255,229/255)
-    else
-        love.graphics.setColor(self.r2,self.g2,self.b2)
+    if self.visible then
+        love.graphics.setColor(self.r1,self.g1,self.b1)
+        love.graphics.rectangle('fill',self.x,self.y,self.width,self.height,5)
+        if (mouseTouching == self and not touchLocked) or mouseTrapped == self then
+            love.graphics.setColor(66/255,169/255,229/255)
+        else
+            love.graphics.setColor(self.r2,self.g2,self.b2)
+        end
+        love.graphics.rectangle('fill',self.x,self.y,self.width*self.percentage,self.height,5)
+        love.graphics.circle('fill',(self.x + (self.width*self.percentage)),(self.y + self.height / 2),self.height*self.radius_to_circle)
+        love.graphics.setColor(1,1,1)
     end
-    love.graphics.rectangle('fill',self.x,self.y,self.width*self.percentage,self.height,5)
-    love.graphics.circle('fill',(self.x + (self.width*self.percentage)),(self.y + self.height / 2),self.height*self.radius_to_circle)
-    love.graphics.setColor(1,1,1)
 end

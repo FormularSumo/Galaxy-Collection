@@ -44,11 +44,12 @@ function Button:init(func,arg,text,font,bg_image,x,y,r,g,b,scroll,visible)
     if r == nil then self.r = 1 else self.r = r end
     if g == nil then self.g = 1 else self.g = g end
     if b == nil then self.b = 1 else self.b = b end
-    -- if visible == nil then self.visible = true else self.visible = visible end
     self.scroll = scroll
+    if visible == nil then self.visible = true else self.visible = visible end
 end
 
-function Button:update_text(text,x,y)
+function Button:update_text(text,x,y,font)
+    if font then self.font = font end
     self.text = love.graphics.newText(self.font,text)
     self.textwidth,self.textheight = self.text:getDimensions()
     if x then self.centrex = x end
@@ -121,7 +122,7 @@ function Button:update()
 end
 
 function Button:render()
-    -- if self.visible then
+    if self.visible then
         if self.bg_image ~= nil then
             love.graphics.draw(self.bg_image, self.imagex, self.imagey,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
         end
@@ -132,5 +133,5 @@ function Button:render()
         end
         love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.textwidth,(-1+self.scaling)/2*self.textheight)
         love.graphics.setColor(1,1,1)
-    -- end
+    end
 end

@@ -7,13 +7,7 @@ function pause(pause)
     if songs[0] ~= nil then
         if paused then songs[current_song]:pause() else songs[current_song]:play() end
     end
-    if gStateMachine.state == 'GameState' then
-        if paused == true then
-            gui[2]:update_text('Play',1591+(font100:getWidth('Pause')-font100:getWidth('Play'))/2)
-        else
-            gui[2]:update_text('Pause',1591)
-        end
-    end
+    gStateMachine:pause()
 end
 
 function exitState(partial)
