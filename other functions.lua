@@ -1,13 +1,15 @@
 function pause(pause)
-    if pause ~= nil then 
-        paused = pause
-    else
-        paused = not paused
+    if not (winner and gStateMachine.state == 'GameState') then
+        if pause ~= nil then 
+            paused = pause
+        else
+            paused = not paused
+        end
+        if songs[0] ~= nil then
+            if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
+        end
+        gStateMachine:pause()
     end
-    if songs[0] ~= nil then
-        if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
-    end
-    gStateMachine:pause()
 end
 
 function exitState(partial)

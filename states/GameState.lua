@@ -234,7 +234,11 @@ function GameState:pause()
 end
 
 function GameState:back()
-    pause()
+    if not winner then
+        pause()
+    else
+        gStateMachine:change('HomeState')
+    end
 end
 
 function GameState:update(dt)
@@ -349,6 +353,8 @@ function GameState:update(dt)
                 end
                 gui[4].visible = true
                 gui[4]:updateText('Main Menu',35,20)
+                gui[1].visible = false
+                gui[2].visible = false
                 Projectiles = nil
                 Weapons = nil
                 cards = nil
