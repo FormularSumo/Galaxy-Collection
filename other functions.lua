@@ -77,17 +77,17 @@ function repositionMouse(index)
         end
     end
 
-    if mouseTouching.finaly + mouseTouching.height > VIRTUAL_HEIGHT then
-        yscroll = yscroll + (VIRTUAL_HEIGHT - (mouseTouching.finaly + mouseTouching.height + 50))
-        mouseTouching.finaly = mouseTouching.y + yscroll
-    elseif mouseTouching.finaly < 0 then
-        yscroll = yscroll - (mouseTouching.finaly - 50)
-        mouseTouching.finaly = mouseTouching.y + yscroll
+    if mouseTouching.y + mouseTouching.height > VIRTUAL_HEIGHT then
+        yscroll = yscroll + (VIRTUAL_HEIGHT - (mouseTouching.y + mouseTouching.height + 50))
+        mouseTouching.y = mouseTouching.y + yscroll
+    elseif mouseTouching.y < 0 then
+        yscroll = yscroll - (mouseTouching.y - 50)
+        mouseTouching.y = mouseTouching.y + yscroll
     end
     if mouseTouching.percentage then
-        mouseButtonX,mouseButtonY = push.toReal(mouseTouching.x + (mouseTouching.width*mouseTouching.percentage),mouseTouching.finaly + mouseTouching.height/2)
+        mouseButtonX,mouseButtonY = push.toReal(mouseTouching.x + (mouseTouching.width*mouseTouching.percentage),mouseTouching.y + mouseTouching.height/2)
     else
-        mouseButtonX,mouseButtonY = push.toReal(mouseTouching.x+mouseTouching.width/2,mouseTouching.finaly+mouseTouching.height/2)
+        mouseButtonX,mouseButtonY = push.toReal(mouseTouching.x+mouseTouching.width/2,mouseTouching.y+mouseTouching.height/2)
     end
     love.mouse.setPosition(mouseButtonX,mouseButtonY)
     love.mouse.setVisible(false)
