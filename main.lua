@@ -194,6 +194,8 @@ function love.keypressed(key,scancode,isrepeat)
             bitser.dumpLoveFile('Settings.txt', Settings)
             if gStateMachine.state == 'SettingsState' then
                 gui[2].percentage = love.audio.getVolume()
+            elseif gStateMachine.state == 'GameState' then
+                gui[3].percentage = love.audio.getVolume()
             end
 
         elseif gStateMachine.state == 'GameState' then
