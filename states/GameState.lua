@@ -10,7 +10,6 @@ function GameState:init()
     Projectiles = {}
     Weapons = {}
     Cards = {}
-    winner = 'none'
     gamespeed = 1
     NextCards = {
         [0] = 18,
@@ -221,7 +220,7 @@ function GameState:update(dt)
         repositionMouse(1)
     end
 
-    if paused == false and winner == 'none' then
+    if paused == false and not winner then
         dt = dt * gamespeed
         timer = timer + dt
         if timer >= 7.4 then timer = timer - 1 end
@@ -380,6 +379,7 @@ function GameState:exit()
     P1_deck = nil
     P2_deck = nil
     deck = nil
+    winner = nil
     P1_deck_cards = {}
     P2_deck_cards = nil
     NextCards = nil
