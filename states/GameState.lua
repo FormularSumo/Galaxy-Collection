@@ -370,7 +370,7 @@ function GameState:render()
         end
     end
 
-    if winner ~= 'none' then 
+    if winner then 
         love.graphics.print({{r,g,b},'Winner: ' .. winner},35,110)
     end
 end
