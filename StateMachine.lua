@@ -39,7 +39,6 @@ function StateMachine:init(states)
 		render = function() end,
 		update = function() end,
 		back = function() end,
-		arrow = function() end,
 		enter = function() end,
 		exit = function() end
 	}
