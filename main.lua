@@ -453,10 +453,19 @@ function love.draw()
     if background['Background'] then
         love.graphics.draw(background['Background'])
     end
-    gStateMachine:render()
-    for k, pair in pairs(gui) do
-        if mouseTouching ~= pair and mouseTrapped ~= pair then
-            pair:render()
+    if gStateMachine.state == 'GameState' and not winner and not paused then
+        for k, pair in pairs(gui) do
+            if mouseTouching ~= pair and mouseTrapped ~= pair then
+                pair:render()
+            end
+        end
+        gStateMachine:render()
+    else
+        gStateMachine:render()
+        for k, pair in pairs(gui) do
+            if mouseTouching ~= pair and mouseTrapped ~= pair then
+                pair:render()
+            end
         end
     end
     if mouseTrapped then
