@@ -347,6 +347,8 @@ function GameState:update(dt)
                 elseif P2_deck == nil then
                     winner = 'P1'
                 end
+                gui[4].visible = true
+                gui[4]:update_text('Main Menu',35,20)
                 Projectiles = nil
                 Weapons = nil
                 Cards = nil
