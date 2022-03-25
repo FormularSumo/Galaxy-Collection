@@ -3,8 +3,8 @@ Text = Class{}
 function Text:init(text,font,x,y,r,g,b,visible)
     self.font = font 
     
-    self.centrex = x == 'centre'
-    self.centrey = y == 'centre'
+    self.centreX = x == 'centre'
+    self.centreY = y == 'centre'
     
     if self.font == nil then 
         self.font = love.graphics.getFont()
@@ -12,12 +12,12 @@ function Text:init(text,font,x,y,r,g,b,visible)
 
     self.text = love.graphics.newText(self.font,text)
     self.width,self.height = self.text:getDimensions()
-    if self.centrex then
+    if self.centreX then
         self.x = VIRTUALWIDTH / 2 - self.width / 2
     else
         self.x = x
     end
-    if self.centrey then
+    if self.centreY then
         self.y = VIRTUALHEIGHT / 2 - self.height / 2
     else
         self.y = y
@@ -33,10 +33,10 @@ function Text:updateText(text,font)
     if font then self.font = font end
     self.text = love.graphics.newText(self.font,text)
     self.width,self.height = self.text:getDimensions()
-    if self.centrex then
+    if self.centreX then
         self.x = VIRTUALWIDTH / 2 - self.width / 2
     end
-    if self.centrey then
+    if self.centreY then
         self.y = VIRTUALHEIGHT / 2 - self.height / 2
     end
 end

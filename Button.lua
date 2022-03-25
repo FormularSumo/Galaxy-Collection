@@ -5,40 +5,40 @@ function Button:init(func,arg,text,font,bgImage,x,y,r,g,b,scroll,visible)
     self.arg = arg
     self.font = font 
     self.scaling = 1
-    self.centrex = x
-    self.centrey = y
+    self.centreX = x
+    self.centreY = y
     if self.font == nil then 
         self.font = love.graphics.getFont()
     end
     self.text = love.graphics.newText(self.font,text)
-    self.textwidth,self.textheight = self.text:getDimensions()
+    self.textWidth,self.textHeight = self.text:getDimensions()
     self:updateText(text)
 
     self.hasPicture = not(bgImage == nil)
 
     if self.hasPicture == true then
         self.bgImage = love.graphics.newImage('Buttons/' .. bgImage .. '.png')
-        self.imagewidth,self.imageheight = self.bgImage:getDimensions()
-        if self.centrex == 'centre' then
-            self.imagex = VIRTUALWIDTH / 2 - self.imagewidth / 2
-        elseif self.centrex == 'centre right' then
-            self.imagex = VIRTUALWIDTH / 2 + 10
-        elseif self.centrex == 'centre left' then
-            self.imagex = VIRTUALWIDTH / 2 - self.imagewidth - 10
+        self.imageWidth,self.imageHeight = self.bgImage:getDimensions()
+        if self.centreX == 'centre' then
+            self.imageX = VIRTUALWIDTH / 2 - self.imageWidth / 2
+        elseif self.centreX == 'centre right' then
+            self.imageX = VIRTUALWIDTH / 2 + 10
+        elseif self.centreX == 'centre left' then
+            self.imageX = VIRTUALWIDTH / 2 - self.imageWidth - 10
         else
-            self.imagex = x - (self.imagewidth - self.textwidth) / 2
+            self.imageX = x - (self.imageWidth - self.textWidth) / 2
         end
-        if self.centrey == 'centre' then
-            self.intitalimagey = VIRTUALWIDTH / 2 - self.imageheight / 2
+        if self.centreY == 'centre' then
+            self.intitalImageY = VIRTUALWIDTH / 2 - self.imageHeight / 2
         else 
-            self.intitalimagey = y - (self.imageheight - self.textheight) / 2
+            self.intitalImageY = y - (self.imageHeight - self.textHeight) / 2
         end
-        self.height = math.max(self.imageheight,self.textheight)
-        self.width = math.max(self.imagewidth,self.textwidth)
-        self.initialy = math.min(self.intitalimagey,self.initialtexty)
-        self.x = math.min(self.imagex,self.textx)
-        self.imagey = self.intitalimagey
-        self.y = self.initialy
+        self.height = math.max(self.imageHeight,self.textHeight)
+        self.width = math.max(self.imageWidth,self.textWidth)
+        self.initialY = math.min(self.intitalImageY,self.initialTextY)
+        self.x = math.min(self.imageX,self.textX)
+        self.imageY = self.intitalImageY
+        self.y = self.initialY
     end
 
     if r == nil then self.r = 1 else self.r = r end
@@ -51,38 +51,38 @@ end
 function Button:updateText(text,x,y,font)
     if font then self.font = font end
     self.text = love.graphics.newText(self.font,text)
-    self.textwidth,self.textheight = self.text:getDimensions()
-    if x then self.centrex = x end
-    if y then self.centrey = y end
+    self.textWidth,self.textHeight = self.text:getDimensions()
+    if x then self.centreX = x end
+    if y then self.centreY = y end
 
-    if self.centrex == 'centre' then
-        self.textx = VIRTUALWIDTH / 2 - self.textwidth / 2
-    elseif self.centrex == 'centre right' then
-        self.textx = VIRTUALWIDTH / 2 + 10
-    elseif self.centrex == 'centre left' then
-        self.textx = VIRTUALWIDTH / 2 - self.textwidth - 10
+    if self.centreX == 'centre' then
+        self.textX = VIRTUALWIDTH / 2 - self.textWidth / 2
+    elseif self.centreX == 'centre right' then
+        self.textX = VIRTUALWIDTH / 2 + 10
+    elseif self.centreX == 'centre left' then
+        self.textX = VIRTUALWIDTH / 2 - self.textWidth - 10
     else
-        self.textx = self.centrex
+        self.textX = self.centreX
     end
-    if self.centrey == 'centre' then
-        self.initialtexty = VIRTUALHEIGHT / 2 - self.textheight / 2
+    if self.centreY == 'centre' then
+        self.initialTextY = VIRTUALHEIGHT / 2 - self.textHeight / 2
     else
-        self.initialtexty = self.centrey
+        self.initialTextY = self.centreY
     end
 
     if self.hasPicture then
-        self.height = math.max(self.imageheight,self.textheight)
-        self.width = math.max(self.imagewidth,self.textwidth)
-        self.initialy = math.min(self.intitalimagey,self.initialtexty)
-        self.x = math.min(self.imagex,self.textx)
+        self.height = math.max(self.imageHeight,self.textHeight)
+        self.width = math.max(self.imageWidth,self.textWidth)
+        self.initialY = math.min(self.intitalImageY,self.initialTextY)
+        self.x = math.min(self.imageX,self.textX)
     else
-        self.height = self.textheight
-        self.width = self.textwidth
-        self.initialy = self.initialtexty
-        self.x = self.textx
+        self.height = self.textHeight
+        self.width = self.textWidth
+        self.initialY = self.initialTextY
+        self.x = self.textX
     end
-    self.texty = self.initialtexty
-    self.y = self.initialy
+    self.textY = self.initialTextY
+    self.y = self.initialY
 end
 
 function Button:update()
@@ -113,10 +113,10 @@ function Button:update()
         self.scaling = 1
     end
     if self.scroll then
-        self.y = self.initialy + yscroll
-        self.texty = self.initialtexty + yscroll
-        if self.intitalimagey then
-            self.imagey = self.intitalimagey + yscroll
+        self.y = self.initialY + yscroll
+        self.textY = self.initialTextY + yscroll
+        if self.intitalImageY then
+            self.imageY = self.intitalImageY + yscroll
         end
     end
 end
@@ -124,14 +124,14 @@ end
 function Button:render()
     if self.visible then
         if self.bgImage ~= nil then
-            love.graphics.draw(self.bgImage, self.imagex, self.imagey,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imagewidth,(-1+self.scaling)/2*self.imageheight)
+            love.graphics.draw(self.bgImage, self.imageX, self.imageY,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imageWidth,(-1+self.scaling)/2*self.imageHeight)
         end
         if (mouseTouching == self or mouseTrapped == self) and not touchLocked and not(self.scroll and lastClickIsTouch) then
             love.graphics.setColor(66/255,169/255,229/255)
         else
             love.graphics.setColor(self.r,self.g,self.b)
         end
-        love.graphics.draw(self.text, self.textx, self.texty,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.textwidth,(-1+self.scaling)/2*self.textheight)
+        love.graphics.draw(self.text, self.textX, self.textY,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.textWidth,(-1+self.scaling)/2*self.textHeight)
         love.graphics.setColor(1,1,1)
     end
 end

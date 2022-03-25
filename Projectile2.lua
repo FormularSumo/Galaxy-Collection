@@ -21,24 +21,24 @@ function Projectile2:fire(card,card2)
     self.show = true
     if self.inverse then
         self.x = card2.x + self.xoffset
-        self.finalx = card.targetx + self.xoffset
+        self.finalX = card.targetX + self.xoffset
         self.y = card2.y + self.yoffset
-        self.finaly = card.targety + self.yoffset
+        self.finalY = card.targetY + self.yoffset
     else
         self.x = card.x + self.xoffset
-        self.finalx = card2.targetx + self.xoffset
+        self.finalX = card2.targetX + self.xoffset
         self.y = card.y + self.yoffset
-        self.finaly = card2.targety + self.yoffset
+        self.finalY = card2.targetY + self.yoffset
     end
 
     if (self.team == 1 and not self.inverse) or (self.team == 2 and self.inverse) then
-        self.finalx = self.finalx - 20
+        self.finalX = self.finalX - 20
     else
-        self.finalx = self.finalx + 20
+        self.finalX = self.finalX + 20
     end
 
-    self.xDistance = tonumber(self.finalx-self.x)
-    self.yDistance = tonumber(self.finaly-self.y)
+    self.xDistance = tonumber(self.finalX-self.x)
+    self.yDistance = tonumber(self.finalY-self.y)
     self.angle = math.atan(self.yDistance/self.xDistance)
     if self.team == 2 then self.angle = self.angle + math.rad(180) end
 end

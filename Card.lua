@@ -57,15 +57,15 @@ function Card:init(card,team,number,column)
     self.row = self.number % 6
 
     if self.team == 1 then
-        self.targetx = ((VIRTUALWIDTH / 12) * self.column) + 22 - 20
-        self.x = self.targetx
+        self.targetX = ((VIRTUALWIDTH / 12) * self.column) + 22 - 20
+        self.x = self.targetX
     else
-        self.targetx = ((VIRTUALWIDTH / 12) * self.column) + 22 + 20
-        self.x = self.targetx
+        self.targetX = ((VIRTUALWIDTH / 12) * self.column) + 22 + 20
+        self.x = self.targetX
     end
 
-    self.targety = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
-    self.y = self.targety
+    self.targetY = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
+    self.y = self.targetY
 end
 
 function Card:distance(target)
@@ -74,10 +74,10 @@ end
 
 function Card:move()
     if self.team == 1 then
-        self.targetx = self.targetx + 160
+        self.targetX = self.targetX + 160
         self.column = self.column + 1
     else
-        self.targetx = self.targetx - 160
+        self.targetX = self.targetX - 160
         self.column = self.column - 1
     end
 end
@@ -88,14 +88,14 @@ function Card:move2()
             P1deck[self.number-6] = P1deck[self.number]
             P1deck[self.number] = nil
             self.number = self.number - 6
-            self.targetx = self.targetx + 160
+            self.targetX = self.targetX + 160
             self.column = self.column + 1
         end
     elseif P2deck[self.number-6] == nil and self.number - 6 >= 0 then
         P2deck[self.number-6] = P2deck[self.number]
         P2deck[self.number] = nil
         self.number = self.number - 6
-        self.targetx = self.targetx - 160
+        self.targetX = self.targetX - 160
         self.column = self.column - 1
     end
 end
@@ -204,20 +204,20 @@ function Card:update(dt)
         self.weapon:update(dt)
     end
 
-    if self.targetx > self.x then
+    if self.targetX > self.x then
         self.x = self.x + dt * 500
-        if self.x > self.targetx then self.x = self.targetx end
-    elseif self.targetx < self.x then
+        if self.x > self.targetX then self.x = self.targetX end
+    elseif self.targetX < self.x then
         self.x = self.x - dt * 500
-        if self.x < self.targetx then self.x = self.targetx end
+        if self.x < self.targetX then self.x = self.targetX end
     end
 
-    if self.targety > self.y then
+    if self.targetY > self.y then
         self.y = self.y + dt * 500
-        if self.y > self.targety then self.y = self.targety end
-    elseif self.targety < self.y then
+        if self.y > self.targetY then self.y = self.targetY end
+    elseif self.targetY < self.y then
         self.y = self.y - dt * 500
-        if self.y < self.targety then self.y = self.targety end
+        if self.y < self.targetY then self.y = self.targetY end
     end
 
     if self.weapon then

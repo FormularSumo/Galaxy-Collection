@@ -45,15 +45,15 @@ function Slider:updatePosition(x,y)
     else
         self.y = y 
     end
-    self.clickablex = self.x - self.height * self.radiusToCircle
-    self.clickabley = self.y + self.height / 2 - self.height * self.radiusToCircle
+    self.clickableX = self.x - self.height * self.radiusToCircle
+    self.clickableY = self.y + self.height / 2 - self.height * self.radiusToCircle
     self.heldTime = 0.5
 end
 
 function Slider:update(dt)
-    if mouseX > self.clickablex and mouseX < self.clickablex + self.width + self.height * self.diameterToCircle and mouseY > self.clickabley and mouseY < self.clickabley + self.height * self.diameterToCircle then
+    if mouseX > self.clickableX and mouseX < self.clickableX + self.width + self.height * self.diameterToCircle and mouseY > self.clickableY and mouseY < self.clickableY + self.height * self.diameterToCircle then
         mouseTouching = self
-        if mouseDown and love.mouse.isVisible() and mouseTrapped == false and mouseLastX > self.clickablex and mouseLastX < self.clickablex + self.width + self.height * self.diameterToCircle and mouseLastY > self.clickabley and mouseLastY < self.clickabley + self.height * self.diameterToCircle and not touchLocked then
+        if mouseDown and love.mouse.isVisible() and mouseTrapped == false and mouseLastX > self.clickableX and mouseLastX < self.clickableX + self.width + self.height * self.diameterToCircle and mouseLastY > self.clickableY and mouseLastY < self.clickableY + self.height * self.diameterToCircle and not touchLocked then
             self.clicked = true
             mouseTrapped = self
         end
