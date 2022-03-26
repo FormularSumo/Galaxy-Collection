@@ -86,37 +86,39 @@ function Button:updateText(text,x,y,font)
 end
 
 function Button:update()
-    if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
-        mouseTouching = self
-        if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-            if love.mouse.buttonsPressed[1] and mouseTrapped == self and not touchLocked then
-                self.func(self.arg)
-                mouseLastX = -1
-                mouseLasty = -1
-            end
-            if mouseDown and (mouseTrapped == false or mouseTrapped == self) and not touchLocked then
-                if not (self.scroll and lastClickIsTouch) then
-                    self.scaling = 1.08
+    if self.visible then
+        if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
+            mouseTouching = self
+            if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
+                if love.mouse.buttonsPressed[1] and mouseTrapped == self and not touchLocked then
+                    self.func(self.arg)
+                    mouseLastX = -1
+                    mouseLasty = -1
                 end
-                mouseTrapped = self
+                if mouseDown and (mouseTrapped == false or mouseTrapped == self) and not touchLocked then
+                    if not (self.scroll and lastClickIsTouch) then
+                        self.scaling = 1.08
+                    end
+                    mouseTrapped = self
+                end
+            else
+                if not (self.scroll and lastClickIsTouch) then
+                    self.scaling = 1.04
+                end
+                if mouseTrapped == self then
+                    mouseLastX = -1
+                    mouseLasty = -1
+                end
             end
         else
-            if not (self.scroll and lastClickIsTouch) then
-                self.scaling = 1.04
-            end
-            if mouseTrapped == self then
-                mouseLastX = -1
-                mouseLasty = -1
-            end
+            self.scaling = 1
         end
-    else
-        self.scaling = 1
-    end
-    if self.scroll then
-        self.y = self.initialY + yscroll
-        self.textY = self.initialTextY + yscroll
-        if self.intitalImageY then
-            self.imageY = self.intitalImageY + yscroll
+        if self.scroll then
+            self.y = self.initialY + yscroll
+            self.textY = self.initialTextY + yscroll
+            if self.intitalImageY then
+                self.imageY = self.intitalImageY + yscroll
+            end
         end
     end
 end

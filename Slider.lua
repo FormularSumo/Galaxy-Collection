@@ -51,29 +51,31 @@ function Slider:updatePosition(x,y)
 end
 
 function Slider:update(dt)
-    if mouseX > self.clickableX and mouseX < self.clickableX + self.width + self.height * self.diameterToCircle and mouseY > self.clickableY and mouseY < self.clickableY + self.height * self.diameterToCircle then
-        mouseTouching = self
-        if mouseDown and love.mouse.isVisible() and mouseTrapped == false and mouseLastX > self.clickableX and mouseLastX < self.clickableX + self.width + self.height * self.diameterToCircle and mouseLastY > self.clickableY and mouseLastY < self.clickableY + self.height * self.diameterToCircle and not touchLocked then
-            self.clicked = true
-            mouseTrapped = self
-        end
-    end
-    if self.clicked == true then    
-        if mouseDown and love.mouse.isVisible() then
-            self:updatePercentage((mouseLastX - self.x) / self.width,true)
-        else
-            self.clicked = false
-            if self.func2 ~= nil then
-                self.func2()
+    if self.visible then
+        if mouseX > self.clickableX and mouseX < self.clickableX + self.width + self.height * self.diameterToCircle and mouseY > self.clickableY and mouseY < self.clickableY + self.height * self.diameterToCircle then
+            mouseTouching = self
+            if mouseDown and love.mouse.isVisible() and mouseTrapped == false and mouseLastX > self.clickableX and mouseLastX < self.clickableX + self.width + self.height * self.diameterToCircle and mouseLastY > self.clickableY and mouseLastY < self.clickableY + self.height * self.diameterToCircle and not touchLocked then
+                self.clicked = true
+                mouseTrapped = self
             end
         end
-    end
+        if self.clicked == true then    
+            if mouseDown and love.mouse.isVisible() then
+                self:updatePercentage((mouseLastX - self.x) / self.width,true)
+            else
+                self.clicked = false
+                if self.func2 ~= nil then
+                    self.func2()
+                end
+            end
+        end
 
-    if mouseTouching == self or (self.default and mouseTouching == false) then
-        self:checkKeysDown(dt,'left','right')
-    end
-    if self.default then
-        self:checkKeysDown(dt,'dpleft','dpright')
+        if mouseTouching == self or (self.default and mouseTouching == false) then
+            self:checkKeysDown(dt,'left','right')
+        end
+        if self.default then
+            self:checkKeysDown(dt,'dpleft','dpright')
+        end
     end
 end
 
