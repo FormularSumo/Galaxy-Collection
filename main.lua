@@ -51,10 +51,6 @@ function love.load()
     blur = moonshine(moonshine.effects.fastgaussianblur).chain(moonshine.effects.vignette)
     blur.fastgaussianblur.sigma = 5
     blur.vignette.radius = 1
-    -- blur = moonshine(moonshine.effects.gaussianblur)
-    -- blur.gaussianblur.sigma = 2
-    -- blur = moonshine(moonshine.effects.boxblur)
-    -- blur.boxblur.radius = 5
 
     backgroundCanvas = love.graphics.newCanvas(1920,1080)
     foregroundCanvas = love.graphics.newCanvas(1920,1080)
