@@ -457,8 +457,12 @@ end
 
 function love.draw()
     if blurred ~= true then
-        love.graphics.setCanvas(backgroundCanvas)
-        love.graphics.clear()
+        if blurred == 1 then
+            love.graphics.setCanvas(backgroundCanvas)
+            love.graphics.clear()
+        else
+            push.start()
+        end
         if background['Background'] then
             love.graphics.draw(background['Background'])
         end
@@ -473,13 +477,14 @@ function love.draw()
         if blurred == 1 then
             blur(function() love.graphics.draw(backgroundCanvas) end)
             blurred = true
+            love.graphics.setCanvas()
+            push.start()
+            love.graphics.draw(backgroundCanvas)
         end
-        love.graphics.setCanvas()
+    else
+        push.start()
+        love.graphics.draw(backgroundCanvas)
     end
-
-    push.start()
-
-    love.graphics.draw(backgroundCanvas)
 
     gStateMachine:renderForeground()
     if not(gStateMachine.state == 'GameState' and not winner and not paused) then
