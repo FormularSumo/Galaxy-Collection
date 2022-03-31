@@ -81,10 +81,10 @@ function repositionMouse(index)
 
     if mouseTouching.y + mouseTouching.height > VIRTUALHEIGHT then
         yscroll = yscroll + (VIRTUALHEIGHT - (mouseTouching.y + mouseTouching.height + 50))
-        mouseTouching.y = mouseTouching.y + yscroll
+        mouseTouching.y = mouseTouching.initialY + yscroll
     elseif mouseTouching.y < 0 then
         yscroll = yscroll - (mouseTouching.y - 50)
-        mouseTouching.y = mouseTouching.y + yscroll
+        mouseTouching.y = mouseTouching.initialY + yscroll
     end
     if mouseTouching.percentage then
         mouseButtonX,mouseButtonY = push.toReal(mouseTouching.x + (mouseTouching.width*mouseTouching.percentage),mouseTouching.y + mouseTouching.height/2)
