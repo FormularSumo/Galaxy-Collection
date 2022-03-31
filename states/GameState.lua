@@ -365,7 +365,6 @@ function GameState:update(dt)
 end
 
 function GameState:render()
-    love.graphics.setCanvas(backgroundCanvas)
     if P1deck ~= nil then
         for k, pair in pairs(P1deck) do
             pair:render()
