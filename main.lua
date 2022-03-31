@@ -3,6 +3,7 @@ function love.load()
     push = require 'push'
     Class = require 'class'
     bitser = require 'bitser'
+    moonshine = require 'moonshine'
     
     require 'Card'
     require 'Button'
@@ -46,6 +47,17 @@ function love.load()
     -- font80SWrunes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
     font100 = love.graphics.newFont(100)
     love.graphics.setFont(font80)
+
+    blur = moonshine(moonshine.effects.fastgaussianblur).chain(moonshine.effects.vignette)
+    blur.fastgaussianblur.sigma = 5
+    blur.vignette.radius = 1
+    -- blur = moonshine(moonshine.effects.gaussianblur)
+    -- blur.gaussianblur.sigma = 2
+    -- blur = moonshine(moonshine.effects.boxblur)
+    -- blur.boxblur.radius = 5
+
+    backgroundCanvas = love.graphics.newCanvas(1920,1080)
+    foregroundCanvas = love.graphics.newCanvas(1920,1080)
     
     gui = {}
     songs = {}
@@ -449,7 +461,8 @@ function love.update(dt)
 end
 
 function love.draw()
-    push.start()
+    love.graphics.setCanvas(backgroundCanvas)
+    love.graphics.clear()
     if background['Background'] then
         love.graphics.draw(background['Background'])
     end
@@ -459,9 +472,12 @@ function love.draw()
                 pair:render()
             end
         end
-        gStateMachine:render()
-    else
-        gStateMachine:render()
+    end
+    gStateMachine:render()
+
+    love.graphics.setCanvas(foregroundCanvas)
+    love.graphics.clear()
+    if not(gStateMachine.state == 'GameState' and not winner and not paused) then
         for k, pair in pairs(gui) do
             if mouseTouching ~= pair and mouseTrapped ~= pair then
                 pair:render()
@@ -470,7 +486,7 @@ function love.draw()
     end
     if mouseTrapped then
         mouseTrapped:render()
-        if mouseTouching and mouseTouching ~= mouseTrapped  then 
+        if mouseTouching and mouseTouching ~= mouseTrapped then 
             mouseTouching:render()
         end
     elseif mouseTouching then
@@ -479,6 +495,17 @@ function love.draw()
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
+
+    love.graphics.setCanvas()
+
+    if paused and gStateMachine.state == 'GameState' then
+        blur(function() love.graphics.draw(backgroundCanvas) end)
+    end
+
+    push.start()
+    love.graphics.draw(backgroundCanvas)
+    love.graphics.draw(foregroundCanvas)
+
 
     -- for k, v in pairs(joysticks) do
     --     love.graphics.print(tostring(v),0,300+k*100)

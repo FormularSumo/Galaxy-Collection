@@ -365,6 +365,7 @@ function GameState:update(dt)
 end
 
 function GameState:render()
+    love.graphics.setCanvas(backgroundCanvas)
     if P1deck ~= nil then
         for k, pair in pairs(P1deck) do
             pair:render()
@@ -406,6 +407,7 @@ function GameState:render()
         end
     end
 
+    love.graphics.setCanvas(foregroundCanvas)
     if winner then 
         love.graphics.print({{r,g,b},'Winner: ' .. winner},35,110)
     end
