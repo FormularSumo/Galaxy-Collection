@@ -1,6 +1,6 @@
 Button = Class{}
 
-function Button:init(func,arg,text,font,bgImage,x,y,r,g,b,scroll,visible)
+function Button:init(func,arg,text,font,bgImage,x,y,r,g,b,scroll,visible,held)
     self.func = func
     self.arg = arg
     self.font = font 
@@ -46,6 +46,7 @@ function Button:init(func,arg,text,font,bgImage,x,y,r,g,b,scroll,visible)
     if b == nil then self.b = 1 else self.b = b end
     self.scroll = scroll
     if visible == nil then self.visible = true else self.visible = visible end
+    if held == true then self.timer = 0 end
 end
 
 function Button:updateText(text,x,y,font)
@@ -85,12 +86,12 @@ function Button:updateText(text,x,y,font)
     self.y = self.initialY
 end
 
-function Button:update()
+function Button:update(dt)
     if self.visible then
         if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
             mouseTouching = self
             if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-                if love.mouse.buttonsReleased[1] and mouseTrapped == self and not touchLocked then
+                if love.mouse.buttonsReleased[1] and mouseTrapped == self and not touchLocked and not self.timer then
                     self.func(self.arg)
                     mouseLastX = -1
                     mouseLasty = -1
@@ -100,6 +101,16 @@ function Button:update()
                         self.scaling = 1.08
                     end
                     mouseTrapped = self
+                    if self.timer then
+                        if self.timer == 0 then self.func(self.arg) end
+                        self.timer = self.timer + dt
+                        if self.timer > 0.3 then
+                            self.func(self.arg)
+                            self.timer = self.timer - 0.08
+                        end
+                    end
+                else
+                    if self.timer then self.timer = 0 end
                 end
             else
                 if not (self.scroll and lastClickIsTouch) then
@@ -112,6 +123,7 @@ function Button:update()
             end
         else
             self.scaling = 1
+            if self.timer then self.timer = 0 end
         end
         if self.scroll then
             self.y = self.initialY + yscroll

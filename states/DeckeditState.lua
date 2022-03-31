@@ -21,8 +21,8 @@ function DeckeditState:init()
     gui[2] = Button(resetDeck,'strongest','Auto',font80,nil,'centre',200)
     gui[3] = Button(resetDeck,'blank','Clear',font80,nil,'centre',380)
     gui['RemoveCard'] = RemoveCard()
-    gui[22] = Button(updateCardsOnDisplay,'left',nil,nil,'Left Arrow','centre left',1030)
-    gui[23] = Button(updateCardsOnDisplay,'right',nil,nil,'Right Arrow','centre right',1030)
+    gui[22] = Button(updateCardsOnDisplay,'left',nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,nil,nil,true)
+    gui[23] = Button(updateCardsOnDisplay,'right',nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,nil,nil,true)
 end
 
 

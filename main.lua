@@ -64,6 +64,7 @@ function love.load()
     love.keyboard.keysPressed = {}
     love.keyboard.keysReleased = {}
     love.keyboard.keysDown = {}
+    love.mouse.buttonsPressed = {}
     love.mouse.buttonsReleased = {}
     mouseDown = false
     touchDown = false
@@ -186,8 +187,11 @@ function love.keypressed(key,scancode,isrepeat)
         lastPressed = key
         keyHoldTimer = 0
 
+        if key == 'return' or key == 'kpenter' then
+            love.mouse.buttonsPressed[1] = true
+
         --F11 toggles between fullscreen and maximised
-        if key == 'f11' then
+        elseif key == 'f11' then
             love.window.setFullscreen(not love.window.getFullscreen())
 
         --M mutes/unmutes
@@ -268,6 +272,10 @@ end
 
 function love.touchreleased()
     touchDown = false
+end
+
+function love.mousepressed(x,y,button,istouch)
+    love.mouse.buttonsPressed[button] = true
 end
 
 function love.mousereleased(x,y,button,istouch)
@@ -387,7 +395,7 @@ function love.update(dt)
             keyHoldTimer = keyHoldTimer + dt
             if keyHoldTimer > 0.5 then
                 love.keypressed(lastPressed,nil,true)
-                keyHoldTimer = keyHoldTimer - 0.05
+                keyHoldTimer = keyHoldTimer - 0.08
             end
         else
             keyHoldTimer = 0
@@ -451,6 +459,7 @@ function love.update(dt)
     --Reset tables of clicked keys/mousebuttons so last frame's inputs aren't used next frame
     love.keyboard.keysPressed = {}
     love.keyboard.keysReleased = {}
+    love.mouse.buttonsPressed = {}
     love.mouse.buttonsReleased = {}
     if mouseDown == false and mouseLocked == false then mouseTrapped = false mouseLastX = -1 mouseLastY = -1 end
 end
