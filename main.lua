@@ -272,7 +272,7 @@ end
 
 function love.mousereleased(x,y,button,istouch)
     love.mouse.buttonsReleased[button] = true
-    if button == 4 then love.keypressed('escape') end
+    if button == 4 then love.keyreleased('escape') end
     lastClickIsTouch = istouch
 end
 
