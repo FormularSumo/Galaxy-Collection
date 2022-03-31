@@ -104,7 +104,7 @@ function Button:update(dt)
                     if self.timer then
                         if self.timer == 0 then self.func(self.arg) end
                         self.timer = self.timer + dt
-                        if self.timer > 0.3 then
+                        if self.timer > 0.5 then
                             self.func(self.arg)
                             self.timer = self.timer - 0.08
                         end
