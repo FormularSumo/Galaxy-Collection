@@ -461,15 +461,17 @@ function love.update(dt)
 end
 
 function love.draw()
-    love.graphics.setCanvas(backgroundCanvas)
-    love.graphics.clear()
-    if background['Background'] then
-        love.graphics.draw(background['Background'])
-    end
-    if gStateMachine.state == 'GameState' and not winner and not paused then
-        for k, pair in pairs(gui) do
-            if mouseTouching ~= pair and mouseTrapped ~= pair then
-                pair:render()
+    if blurred ~= true then
+        love.graphics.setCanvas(backgroundCanvas)
+        love.graphics.clear()
+        if background['Background'] then
+            love.graphics.draw(background['Background'])
+        end
+        if gStateMachine.state == 'GameState' and not winner and not paused then
+            for k, pair in pairs(gui) do
+                if mouseTouching ~= pair and mouseTrapped ~= pair then
+                    pair:render()
+                end
             end
         end
     end
@@ -498,8 +500,9 @@ function love.draw()
 
     love.graphics.setCanvas()
 
-    if paused and gStateMachine.state == 'GameState' then
+    if blurred == 1 then
         blur(function() love.graphics.draw(backgroundCanvas) end)
+        blurred = true
     end
 
     push.start()

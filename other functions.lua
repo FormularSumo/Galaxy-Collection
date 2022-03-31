@@ -9,6 +9,11 @@ function pause(pause)
             if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
         end
         gStateMachine:pause()
+        if gStateMachine.state == 'GameState' and not blurred then
+            blurred = 1
+        else
+            blurred = nil
+        end
     end
 end
 
@@ -25,6 +30,7 @@ function exitState(partial)
     mouseLocked = false
     yscroll = 0
     rawyscroll = 0
+    blurred = nil
     collectgarbage()
 end
 
