@@ -64,7 +64,7 @@ function love.load()
     love.keyboard.keysPressed = {}
     love.keyboard.keysReleased = {}
     love.keyboard.keysDown = {}
-    love.mouse.buttonsPressed = {}
+    love.mouse.buttonsReleased = {}
     mouseDown = false
     touchDown = false
     mouseTouching = false
@@ -243,7 +243,7 @@ function love.keyreleased(key)
     love.keyboard.keysDown[key] = false
 
     if key == 'return' or key == 'kpenter' then
-        love.mouse.buttonsPressed[1] = true
+        love.mouse.buttonsReleased[1] = true
 
     elseif key == 'escape' then
         gStateMachine:back()
@@ -271,7 +271,7 @@ function love.touchreleased()
 end
 
 function love.mousereleased(x,y,button,istouch)
-    love.mouse.buttonsPressed[button] = true
+    love.mouse.buttonsReleased[button] = true
     if button == 4 then love.keypressed('escape') end
     lastClickIsTouch = istouch
 end
@@ -451,7 +451,7 @@ function love.update(dt)
     --Reset tables of clicked keys/mousebuttons so last frame's inputs aren't used next frame
     love.keyboard.keysPressed = {}
     love.keyboard.keysReleased = {}
-    love.mouse.buttonsPressed = {}
+    love.mouse.buttonsReleased = {}
     if mouseDown == false and mouseLocked == false then mouseTrapped = false mouseLastX = -1 mouseLastY = -1 end
 end
 

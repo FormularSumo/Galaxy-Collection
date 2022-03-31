@@ -37,7 +37,7 @@ function RemoveCard:update()
             if not love.mouse.isVisible() then
                 mouseTouching = self
             end
-            if love.mouse.buttonsPressed[1] then
+            if love.mouse.buttonsReleased[1] then
                 self:swap()
             end
         else

@@ -103,7 +103,7 @@ function CardEditor:update()
             mouseTrapped2 = false
         end
     else
-        if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height and love.mouse.buttonsPressed[1] then
+        if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height and love.mouse.buttonsReleased[1] then
             if mouseTrapped == false and self.name ~= 'Blank' then
                 mouseTrapped = self
                 mouseLocked = true

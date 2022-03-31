@@ -90,7 +90,7 @@ function Button:update()
         if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
             mouseTouching = self
             if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
-                if love.mouse.buttonsPressed[1] and mouseTrapped == self and not touchLocked then
+                if love.mouse.buttonsReleased[1] and mouseTrapped == self and not touchLocked then
                     self.func(self.arg)
                     mouseLastX = -1
                     mouseLasty = -1
