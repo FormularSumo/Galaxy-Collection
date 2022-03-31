@@ -53,7 +53,6 @@ function love.load()
     blur.vignette.radius = 1
 
     backgroundCanvas = love.graphics.newCanvas(1920,1080)
-    foregroundCanvas = love.graphics.newCanvas(1920,1080)
     
     gui = {}
     songs = {}
@@ -470,11 +469,19 @@ function love.draw()
                 end
             end
         end
+        gStateMachine:renderBackground()
+        if blurred == 1 then
+            blur(function() love.graphics.draw(backgroundCanvas) end)
+            blurred = true
+        end
+        love.graphics.setCanvas()
     end
-    gStateMachine:render()
 
-    love.graphics.setCanvas(foregroundCanvas)
-    love.graphics.clear()
+    push.start()
+
+    love.graphics.draw(backgroundCanvas)
+
+    gStateMachine:renderForeground()
     if not(gStateMachine.state == 'GameState' and not winner and not paused) then
         for k, pair in pairs(gui) do
             if mouseTouching ~= pair and mouseTrapped ~= pair then
@@ -493,18 +500,6 @@ function love.draw()
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
     end
-
-    love.graphics.setCanvas()
-
-    if blurred == 1 then
-        blur(function() love.graphics.draw(backgroundCanvas) end)
-        blurred = true
-    end
-
-    push.start()
-    love.graphics.draw(backgroundCanvas)
-    love.graphics.draw(foregroundCanvas)
-
 
     -- for k, v in pairs(joysticks) do
     --     love.graphics.print(tostring(v),0,300+k*100)

@@ -364,51 +364,50 @@ function GameState:update(dt)
     end
 end
 
-function GameState:render()
-    if blurred ~= true then
-        if P1deck ~= nil then
-            for k, pair in pairs(P1deck) do
-                pair:render()
-            end
+function GameState:renderBackground()
+    if P1deck ~= nil then
+        for k, pair in pairs(P1deck) do
+            pair:render()
         end
-        if P2deck ~= nil then
-            for k, pair in pairs(P2deck) do
-                pair:render()
-            end
+    end
+    if P2deck ~= nil then
+        for k, pair in pairs(P2deck) do
+            pair:render()
         end
+    end
 
-        if P1deck ~= nil then
-            for k, pair in pairs(P1deck) do
-                if pair.weapon ~= nil then
-                    pair.weapon:render()
-                end
+    if P1deck ~= nil then
+        for k, pair in pairs(P1deck) do
+            if pair.weapon ~= nil then
+                pair.weapon:render()
             end
         end
-        if P2deck ~= nil then
-            for k, pair in pairs(P2deck) do
-                if pair.weapon ~= nil then
-                    pair.weapon:render()
-                end
-            end
-        end
-
-        if P1deck ~= nil then
-            for k, pair in pairs(P1deck) do
-                if pair.projectile ~= nil then
-                    pair.projectile:render()
-                end
-            end
-        end
-        if P2deck ~= nil then
-            for k, pair in pairs(P2deck) do
-                if pair.projectile ~= nil then
-                    pair.projectile:render()
-                end
+    end
+    if P2deck ~= nil then
+        for k, pair in pairs(P2deck) do
+            if pair.weapon ~= nil then
+                pair.weapon:render()
             end
         end
     end
 
-    love.graphics.setCanvas(foregroundCanvas)
+    if P1deck ~= nil then
+        for k, pair in pairs(P1deck) do
+            if pair.projectile ~= nil then
+                pair.projectile:render()
+            end
+        end
+    end
+    if P2deck ~= nil then
+        for k, pair in pairs(P2deck) do
+            if pair.projectile ~= nil then
+                pair.projectile:render()
+            end
+        end
+    end
+end
+
+function GameState:renderForeground()
     if winner then 
         love.graphics.print({{r,g,b},'Winner: ' .. winner},35,110)
     end

@@ -74,6 +74,10 @@ function StateMachine:back()
 	self.current:back()
 end
 
-function StateMachine:render()
-	self.current:render()
+function StateMachine:renderBackground()
+	self.current:renderBackground()
+end
+
+function StateMachine:renderForeground()
+	self.current:renderForeground()
 end
