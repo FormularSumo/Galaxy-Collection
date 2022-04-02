@@ -1441,7 +1441,7 @@ Characters = {
     ['range'] = 5,
     ['range2'] = 3,
     ['projectile1'] = 'Purple Lightning',
-    ['projectile2'] = 'Red Laser',
+    ['projectile2'] = 'Yellow Laser',
     ['projectileCount'] = 69,
     ['weapon1'] = 'Purple Lightsaber'
 },
