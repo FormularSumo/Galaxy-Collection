@@ -68,10 +68,9 @@ function CardEditor:swap()
 
         mouseTrapped = false
         mouseTrapped2 = false
-        self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
-        self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
-        return
     end
+    self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
+    self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
 end
 
 function CardEditor:update()
