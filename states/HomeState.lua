@@ -8,14 +8,10 @@ end
 
 function HomeState:enter(partial)
     if not partial then
-        if Settings['videos'] then
-            background['Background'] = love.graphics.newVideo('Backgrounds/Starry Sky.ogv')
-            background['Type'] = 'video'
-        else
-            background['Background'] = love.graphics.newImage('Backgrounds/Starry Sky.jpg')
-            background['Type'] = 'photo'
-        end
+        background['Name'] = 'Starry Sky'
+        background['Video'] = Settings['videos']
         background['Seek'] = 0
+        createBackground()
         if love.math.random(0,1) == 1 then
             songs[0] = love.audio.newSource('Music/Ahsoka\'s Theme.oga','stream')
             songs[1] = love.audio.newSource('Music/Across The Stars.oga','stream')
@@ -27,14 +23,10 @@ function HomeState:enter(partial)
         songs[0]:play()
         calculateQueueLength()
     elseif partial == 'music' then
-        if Settings['videos'] then
-            background['Background'] = love.graphics.newVideo('Backgrounds/Starry Sky.ogv')
-            background['Type'] = 'video'
-        else
-            background['Background'] = love.graphics.newImage('Backgrounds/Starry Sky.jpg')
-            background['Type'] = 'photo'
-        end
+        background['Name'] = 'Starry Sky'
+        background['Video'] = Settings['videos']
         background['Seek'] = 0
+        createBackground()
     end
 end
 

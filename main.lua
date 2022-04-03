@@ -171,6 +171,10 @@ function love.resize(w, h)
     push.resize(w, h)
 end
 
+function love.lowmemory()
+    toggleVideos(false)
+end
+
 function love.joystickadded(joystick)
     joysticks = love.joystick.getJoysticks()
 end
@@ -430,7 +434,7 @@ function love.update(dt)
     end
 
     --Manage background video looping and pausing
-    if background['Type'] == 'video' then
+    if background['Video'] == true then
         if paused == true then
             background['Background']:pause()
         else

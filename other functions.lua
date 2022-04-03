@@ -53,10 +53,18 @@ end
 
 function loadBattle(table,video)
     P2deckCards = table[8]
-    if table[2] == 'video' and Settings['videos'] then
-        gStateMachine:change('GameState',{table[1], 'video', table[3], table[4], table[5], table[6], table[7]})
+    if table[2] and Settings['videos'] then
+        gStateMachine:change('GameState',{table[1], true, table[3], table[4], table[5], table[6], table[7]})
     else
-        gStateMachine:change('GameState',{table[1], 'photo', 0, table[4], table[5], table[6], table[7]})
+        gStateMachine:change('GameState',{table[1], false, 0, table[4], table[5], table[6], table[7]})
+    end
+end
+
+function createBackground()
+    if background['Video'] then
+        background['Background'] = love.graphics.newVideo('Backgrounds/' .. background['Name'] .. '.ogv')
+    else
+        background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.jpg')
     end
 end
 
@@ -125,10 +133,32 @@ function togglePauseOnLooseFocus()
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 
-function toggleVideos()
-    Settings['videos'] = not Settings['videos']
-    gui[3]:updateText('Videos: ' .. tostring(Settings['videos']))
+function toggleVideos(toggle)
+    if toggle ~= nil then
+        if toggle == Settings['videos'] then return end
+        Settings['videos'] = toggle
+    else
+        Settings['videos'] = not Settings['videos']
+    end
     bitser.dumpLoveFile('Settings.txt',Settings)
+
+    if gStateMachine.state == 'SettingsState' then
+        gui[3]:updateText('Videos: ' .. tostring(Settings['videos']))
+    end
+
+    if Settings['videos'] ~= background['Video'] then
+        if Settings['videos'] then
+            if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.ogv') then
+                background['Video'] = true
+            else
+                return
+            end
+        else
+            background['Video'] = false
+        end
+        createBackground(Settings['videos'])
+        collectgarbage()
+    end
 end
 
 function toggleFPS()

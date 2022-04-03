@@ -15,8 +15,9 @@ function DeckeditState:init()
 
     reloadDeckeditor()
 
-    background['Background'] = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
-    background['Type'] = 'photo'
+    background['Name'] = 'Death Star Control Room'
+    background['Video'] = false
+    createBackground()
     gui[1] = Button(switchState,{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
     gui[2] = Button(resetDeck,'strongest','Auto',font80,nil,'centre',200)
     gui[3] = Button(resetDeck,'blank','Clear',font80,nil,'centre',380)
