@@ -181,6 +181,24 @@ function controllerBinds(button)
     return false
 end
 
+function P1deckEdit(position,name)
+    P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
+
+    if name and name[1] == 'Blank' then name = nil end
+    P1deckCards[position] = name
+
+    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+end
+
+function P1cardsEdit(position,name)
+    P1cards = bitser.loadLoveFile('Player 1 cards.txt')
+
+    if name and name[1] == 'Blank' then name = nil end
+    P1cards[position] = name
+
+    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+end
+
 function characterStrength(character)
     if character == nil then return 0 end
     if character[1] then
