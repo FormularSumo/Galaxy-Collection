@@ -1,8 +1,7 @@
 Projectile = Class{__includes = BaseState}
 
 function Projectile:init(name,team,xoffset,yoffset)
-    self.projectileCount = name['projectileCount']
-    if not self.projectileCount then self.projectileCount = 1 end
+    self.projectileCount = name['projectileCount'] or 1
 
     self.Projectiles = {}
     for i=1,self.projectileCount do

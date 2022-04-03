@@ -5,8 +5,8 @@ function Card:init(card,team,number,column)
     self.number = number
 
     self.stats = Characters[card[1]]
-    if not card[2] then self.level = 1 else self.level = card[2] end
-    if not card[3] then self.evolution= 0 else self.evolution= card[3] end
+    self.level = card[2] or 1
+    self.evolution = card[3] or 0
 
     if self.stats['filename'] then
         self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
@@ -58,12 +58,11 @@ function Card:init(card,team,number,column)
 
     if self.team == 1 then
         self.targetX = ((VIRTUALWIDTH / 12) * self.column) + 22 - 20
-        self.x = self.targetX
     else
         self.targetX = ((VIRTUALWIDTH / 12) * self.column) + 22 + 20
-        self.x = self.targetX
     end
 
+    self.x = self.targetX
     self.targetY = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.y = self.targetY
 end

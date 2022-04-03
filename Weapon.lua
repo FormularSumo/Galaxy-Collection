@@ -9,8 +9,7 @@ function Weapon:init(name,team,xoffset,yoffset)
         self.angle = math.rad(150)
     end
 
-    self.weaponCount = name['weaponCount']
-    if not self.weaponCount then self.weaponCount = 1 end
+    self.weaponCount = name['weaponCount'] or 1
 
     self.Weapons = {}
     for i=1,self.weaponCount do

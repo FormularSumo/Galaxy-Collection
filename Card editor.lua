@@ -20,8 +20,8 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck)
             cards[self.image] = love.graphics.newImage(self.image)
             self.image = cards[self.image]
         end
-        if not level then self.level = 1 else self.level = level end
-        if not evolution then self.evolution = 0 else self.evolution = evolution end
+        self.level = level or 1
+        self.evolution = evolution or 0
     end
     self.width,self.height = self.image:getDimensions()
     self.x = ((VIRTUALWIDTH / 12) * self.column) + 22

@@ -3,13 +3,10 @@ Button = Class{}
 function Button:init(func,arg,text,font,bgImage,x,y,r,g,b,scroll,visible,held)
     self.func = func
     self.arg = arg
-    self.font = font 
+    self.font = font or love.graphics.getFont()
     self.scaling = 1
     self.centreX = x
     self.centreY = y
-    if self.font == nil then 
-        self.font = love.graphics.getFont()
-    end
     self.text = love.graphics.newText(self.font,text)
     self.textWidth,self.textHeight = self.text:getDimensions()
     self:updateText(text)
@@ -41,20 +38,20 @@ function Button:init(func,arg,text,font,bgImage,x,y,r,g,b,scroll,visible,held)
         self.y = self.initialY
     end
 
-    if r == nil then self.r = 1 else self.r = r end
-    if g == nil then self.g = 1 else self.g = g end
-    if b == nil then self.b = 1 else self.b = b end
+    self.r = r or 1
+    self.g = g or 1
+    self.b = b or 1
     self.scroll = scroll
     if visible == nil then self.visible = true else self.visible = visible end
     if held == true then self.timer = 0 end
 end
 
 function Button:updateText(text,x,y,font)
-    if font then self.font = font end
+    self.font = font or self.font
     self.text = love.graphics.newText(self.font,text)
     self.textWidth,self.textHeight = self.text:getDimensions()
-    if x then self.centreX = x end
-    if y then self.centreY = y end
+    self.centreX = x or self.centreX
+    self.centreY = y or self.centreY
 
     if self.centreX == 'centre' then
         self.textX = VIRTUALWIDTH / 2 - self.textWidth / 2
