@@ -68,10 +68,6 @@ function createBackground()
     end
 end
 
-function exitGame()
-    love.event.quit()
-end
-
 function repositionMouse(index)
     if gui[index] then
         mouseTouching = gui[index]
