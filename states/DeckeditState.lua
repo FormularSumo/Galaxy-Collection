@@ -18,12 +18,12 @@ function DeckeditState:init()
     background['Name'] = 'Death Star Control Room'
     background['Video'] = false
     createBackground()
-    gui[1] = Button(switchState,{'HomeState','music','music'},'Main Menu',font80,nil,'centre',20)
-    gui[2] = Button(resetDeck,'strongest','Auto',font80,nil,'centre',200)
-    gui[3] = Button(resetDeck,'blank','Clear',font80,nil,'centre',380)
+    gui[1] = Button(function() gStateMachine:change('HomeState','music','music') end,'Main Menu',font80,nil,'centre',20)
+    gui[2] = Button(function() resetDeck('strongest') end,'Auto',font80,nil,'centre',200)
+    gui[3] = Button(function() resetDeck('blank') end,'Clear',font80,nil,'centre',380)
     gui['RemoveCard'] = RemoveCard()
-    gui[22] = Button(updateCardsOnDisplay,'left',nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,nil,nil,true)
-    gui[23] = Button(updateCardsOnDisplay,'right',nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,nil,nil,true)
+    gui[22] = Button(function() updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,nil,nil,true)
+    gui[23] = Button(function() updateCardsOnDisplay('right') end,nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,nil,nil,true)
 end
 
 

@@ -1,12 +1,15 @@
 Button = Class{}
 
-function Button:init(func,arg,text,font,bgImage,x,y,r,g,b,scroll,visible,held)
+function Button:init(func,text,font,bgImage,x,y,r,g,b,scroll,visible,held)
     self.func = func
-    self.arg = arg
     self.font = font or love.graphics.getFont()
     self.scaling = 1
     self.centreX = x
     self.centreY = y
+    if pcall(text) then
+        self.textConstructor = text
+        text = text()
+    end
     self.text = love.graphics.newText(self.font,text)
     self.textWidth,self.textHeight = self.text:getDimensions()
     self:updateText(text)
@@ -83,13 +86,17 @@ function Button:updateText(text,x,y,font)
     self.y = self.initialY
 end
 
+function Button:toggle()
+    if self.textConstructor then self:updateText(self.textConstructor()) end
+end
+
 function Button:update(dt)
     if self.visible then
         if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
             mouseTouching = self
             if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
                 if love.mouse.buttonsReleased[1] and mouseTrapped == self and not touchLocked and not self.timer then
-                    self.func(self.arg)
+                    self.func()
                     mouseLastX = -1
                     mouseLasty = -1
                 end
@@ -102,7 +109,7 @@ function Button:update(dt)
                         if self.timer == 0 then self.func(self.arg) end
                         self.timer = self.timer + dt
                         if self.timer > 0.5 then
-                            self.func(self.arg)
+                            self.func()
                             self.timer = self.timer - 0.08
                         end
                     end

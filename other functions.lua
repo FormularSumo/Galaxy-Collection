@@ -34,29 +34,12 @@ function exitState(partial)
     collectgarbage()
 end
 
-function gamespeedSlider(percentage)
-    gamespeed = percentage * 4
-end
-
-function volumeSlider(percentage)
-    love.audio.setVolume(percentage)
-    Settings['volume_level'] = percentage
-end
-
-function volumeSlider2()
-    bitser.dumpLoveFile('Settings.txt',Settings)
-end
-
-function switchState(state)
-    gStateMachine:change(state[1],state[2],state[3])
-end
-
-function loadBattle(table)
-    P2deckCards = table[8]
-    if table[2] and Settings['videos'] then
-        gStateMachine:change('GameState',{table[1], true, table[3], table[4], table[5], table[6], table[7]})
+function loadBattle(background,videos,seek,r,g,b,music,level)
+    P2deckCards = level
+    if videos and Settings['videos'] then
+        gStateMachine:change('GameState',{background, true, seek, r, g, b, music})
     else
-        gStateMachine:change('GameState',{table[1], false, 0, table[4], table[5], table[6], table[7]})
+        gStateMachine:change('GameState',{background, false, seek, r, g, b, music})
     end
 end
 
@@ -65,6 +48,22 @@ function createBackground()
         background['Background'] = love.graphics.newVideo('Backgrounds/' .. background['Name'] .. '.ogv')
     else
         background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.jpg')
+    end
+end
+
+function updateBackground()
+    if Settings['videos'] ~= background['Video'] then
+        if Settings['videos'] then
+            if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.ogv') then
+                background['Video'] = true
+            else
+                return
+            end
+        else
+            background['Video'] = false
+        end
+        createBackground(Settings['videos'])
+        collectgarbage()
     end
 end
 
@@ -123,42 +122,13 @@ function calculateQueueLength()
     nextSong = 1
 end
 
-function togglePauseOnLooseFocus()
-    Settings['pause_on_loose_focus'] = not Settings['pause_on_loose_focus']
-    gui[4]:updateText('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus']))
-    bitser.dumpLoveFile('Settings.txt',Settings)
-end
-
-function toggleVideos(toggle)
+function toggleSetting(setting,toggle)
     if toggle ~= nil then
-        if toggle == Settings['videos'] then return end
-        Settings['videos'] = toggle
+        if toggle == Settings[setting] then return end
+        Settings[setting] = toggle
     else
-        Settings['videos'] = not Settings['videos']
+        Settings[setting] = not Settings[setting]
     end
-    bitser.dumpLoveFile('Settings.txt',Settings)
-
-    if gStateMachine.state == 'SettingsState' then
-        gui[3]:updateText('Videos: ' .. tostring(Settings['videos']))
-    end
-
-    if Settings['videos'] ~= background['Video'] then
-        if Settings['videos'] then
-            if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.ogv') then
-                background['Video'] = true
-            else
-                return
-            end
-        else
-            background['Video'] = false
-        end
-        createBackground(Settings['videos'])
-        collectgarbage()
-    end
-end
-
-function toggleFPS()
-    Settings['FPS_counter'] = not Settings['FPS_counter']
     bitser.dumpLoveFile('Settings.txt',Settings)
 end
 

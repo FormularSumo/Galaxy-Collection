@@ -1,9 +1,9 @@
 HomeState = Class{__includes = BaseState}
 
 function HomeState:init()
-    gui[1] = Button(switchState,{'CampaignState',true,true},'Campaign',font100,nil,'centre',100)
-    gui[2] = Button(switchState,{'DeckeditState','music','music'},'Deck Editor',font100,nil,'centre','centre')
-    gui[3] = Button(switchState,{'SettingsState',true,true},'Settings',font100,nil,'centre',980-font100:getHeight('Settings'))
+    gui[1] = Button(function() gStateMachine:change('CampaignState',true,true) end,'Campaign',font100,nil,'centre',100)
+    gui[2] = Button(function() gStateMachine:change('DeckeditState','music','music') end,'Deck Editor',font100,nil,'centre','centre')
+    gui[3] = Button(function() gStateMachine:change('SettingsState',true,true) end,'Settings',font100,nil,'centre',980-font100:getHeight('Settings'))
 end
 
 function HomeState:enter(partial)
