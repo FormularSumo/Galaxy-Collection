@@ -9,8 +9,8 @@ function CampaignState:init()
     gui[6] = Button(loadBattle,{'Kamino', nil, 0, 1, 1, 1, 'Clone Wars Theme.oga', kamino},'Kamino',font80,nil,'centre',560,1,1,1,true)
     gui[7] = Button(loadBattle,{'Sand Dunes', 'video', 2, 0, 0, 0, 'Clone Wars Theme.oga', geonosis},'Geonosis',font80,nil,'centre',690,1,1,1,true)
     gui[8] = Button(loadBattle,{'Sith Triumvirate', nil, 0, 1, 1 ,1, 'The Old Republic.oga',sithTriumvirate},'Sith Triumvirate',font80,nil,'centre',820,1,1,1,true)
-    gui[9] = Button(loadBattle,{'Sand Dunes', 'video', 2, 0, 0, 0, 'Binary Sunset.oga', maxedDarkSide},'Maxed Dark Side',font80,nil,'centre',950,1,1,1,true)
-    gui[10] = Button(loadBattle,{'Voss', nil, 0, 1, 1, 1, 'The Mandalorian.oga', maxedLightSide},'Maxed Light Side',font80,nil,'centre',1080,1,1,1,true)
+    gui[9] = Button(loadBattle,{'Voss', nil, 0, 1, 1, 1, 'The Mandalorian.oga', maxedLightSide},'Maxed Light Side',font80,nil,'centre',950,1,1,1,true)
+    gui[10] = Button(loadBattle,{'Sand Dunes', 'video', 2, 0, 0, 0, 'Binary Sunset.oga', maxedDarkSide},'Maxed Dark Side',font80,nil,'centre',1080,1,1,1,true)
     gui[11] = Button(loadBattle,{'Belsavis', nil, 0, 0, 0 ,0, 'Throne Room.oga', maxed},'Maxed',font80,nil,'centre',1210,1,1,1,true)
 end
 

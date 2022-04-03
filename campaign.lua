@@ -143,29 +143,6 @@ function sithTriumvirate(number)
     if number == 17 then return {'Hanharr',60,4} end
 end
 
-function maxedDarkSide(number)
-    if number == 'max' then return 18 end
-
-    if number == 0 then return {'Ajunta Pall',60,4} end
-    if number == 1 then return {'Exar Kun',60,4} end
-    if number == 2 then return {'Darth Revan',60,4} end
-    if number == 3 then return {'Tulak Hord',60,4} end
-    if number == 4 then return {'Darth Vader',60,4} end
-    if number == 5 then return {'Darth Bane',60,4} end
-    if number == 6 then return {'Darth Traya',60,4} end
-    if number == 7 then return {'Starkiller',60,4} end
-    if number == 8 then return {'Darth Sidious',60,4} end
-    if number == 9 then return {'Emperor Palpatine',60,4} end
-    if number == 10 then return {'Lord Vader',60,4} end
-    if number == 11 then return {'Marka Ragnos',60,4} end
-    if number == 12 then return {'Darth Nihilus',60,4} end
-    if number == 13 then return {'Vitiate',60,4} end
-    if number == 14 then return {'Abeloth',60,4} end
-    if number == 15 then return {'The Son',60,4} end
-    if number == 16 then return {'Sith Eternal Emperor',60,4} end
-    if number == 17 then return {'Freedon Nadd',60,4} end
-end
-
 function maxedLightSide(number)
     if number == 'max' then return 18 end
 
@@ -187,6 +164,29 @@ function maxedLightSide(number)
     if number == 15 then return {'Hermit Yoda',60,4} end
     if number == 16 then return {'General Skywalker',60,4} end
     if number == 17 then return {'Ahsoka Tano S7',60,4} end
+end
+
+function maxedDarkSide(number)
+    if number == 'max' then return 18 end
+
+    if number == 0 then return {'Ajunta Pall',60,4} end
+    if number == 1 then return {'Exar Kun',60,4} end
+    if number == 2 then return {'Darth Revan',60,4} end
+    if number == 3 then return {'Tulak Hord',60,4} end
+    if number == 4 then return {'Darth Vader',60,4} end
+    if number == 5 then return {'Darth Bane',60,4} end
+    if number == 6 then return {'Darth Traya',60,4} end
+    if number == 7 then return {'Starkiller',60,4} end
+    if number == 8 then return {'Darth Sidious',60,4} end
+    if number == 9 then return {'Emperor Palpatine',60,4} end
+    if number == 10 then return {'Lord Vader',60,4} end
+    if number == 11 then return {'Marka Ragnos',60,4} end
+    if number == 12 then return {'Darth Nihilus',60,4} end
+    if number == 13 then return {'Vitiate',60,4} end
+    if number == 14 then return {'Abeloth',60,4} end
+    if number == 15 then return {'The Son',60,4} end
+    if number == 16 then return {'Sith Eternal Emperor',60,4} end
+    if number == 17 then return {'Freedon Nadd',60,4} end
 end
 
 function maxed(number)
