@@ -9,7 +9,7 @@ function Projectile:init(name,team,xoffset,yoffset)
             if not Projectiles[name['projectile'..tostring(i)]] then
                 Projectiles[name['projectile'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['projectile'..tostring(i)]..'.png')
             end
-            self.Projectiles[i] = Projectile2(Projectiles[name['projectile'..tostring(i)]],team,xoffset,yoffset,name['range'..tostring(i)])
+            self.Projectiles[i] = Projectile2(Projectiles[name['projectile'..tostring(i)]],team,xoffset,yoffset,name['range'..tostring(i)] or name['range'])
         else 
             self.Projectiles[i] = Projectile2(Projectiles[name['projectile1']],team,xoffset,yoffset,name['range'])
         end
