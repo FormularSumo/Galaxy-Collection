@@ -51,7 +51,7 @@ function switchState(state)
     gStateMachine:change(state[1],state[2],state[3])
 end
 
-function loadBattle(table,video)
+function loadBattle(table)
     P2deckCards = table[8]
     if table[2] and Settings['videos'] then
         gStateMachine:change('GameState',{table[1], true, table[3], table[4], table[5], table[6], table[7]})
