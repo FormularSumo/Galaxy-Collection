@@ -80,6 +80,12 @@ Characters = {
     ['evade'] = 0.20,
     ['range'] = 5,
     ['projectile1'] = 'Force Drain',
+    ['projectile2'] = 'Force Drain',
+    ['projectile3'] = 'Lightning',
+    ['projectile4'] = 'Lightning',
+    ['projectile5'] = 'Red Force Blast',
+    ['projectile6'] = 'Red Force Blast',
+    ['projectileCount'] = 6,
     ['weapon1'] = 'Lightning'
 },
 
@@ -4296,7 +4302,8 @@ Characters = {
     ['defense'] = 20696,
     ['evade'] = 0.05,
     ['range'] = 3,
-    ['projectile1'] = 'Blue Force Blast'
+    ['projectile1'] = 'Blue Force Blast',
+    ['projectileCount'] = 2
 },
 
 ['The Handmaiden'] = {
