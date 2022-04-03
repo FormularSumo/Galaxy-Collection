@@ -194,7 +194,20 @@ function DeckeditState:back()
 end
 
 function DeckeditState:update()
-    if love.mouse.isVisible() then mouseLocked = false end
+    if love.mouse.isVisible() then mouseLocked = false 
+        if love.keyboard.wasDown('right') and lastPressed == 'right' and keyHoldTimer ~= 0 then
+            gui[23].scaling = 1.05
+        end
+        if love.keyboard.wasDown('left') and lastPressed == 'left' and keyHoldTimer ~= 0 then
+            gui[22].scaling = 1.05
+        end
+    end
+    if love.keyboard.wasDown('dpright') and lastPressed == 'dpright' and keyHoldTimer ~= 0 then
+        gui[23].scaling = 1.05
+    end
+    if love.keyboard.wasDown('dpleft') and lastPressed == 'dpleft' and keyHoldTimer ~= 0 then
+        gui[22].scaling = 1.05
+    end
     if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('left') or love.keyboard.wasPressed('dpright') or love.keyboard.wasPressed('dpleft') then
         if love.mouse.isVisible() or love.keyboard.wasPressed('dpright') or love.keyboard.wasPressed('dpleft') then
             if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('dpright') then
