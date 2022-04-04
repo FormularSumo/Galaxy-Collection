@@ -140,9 +140,13 @@ function controllerBinds(button)
     elseif button == 'start' then
         return 'space'
     elseif button == 'dpleft' then
-        return 'dpleft'
+        return 'left'
     elseif button == 'dpright' then
-        return 'dpright'
+        return 'right'
+    elseif button == 'dpup' then
+        return 'up'
+    elseif button == 'dpdown' then
+        return 'down'
     end
     return false
 end

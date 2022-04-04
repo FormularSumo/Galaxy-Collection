@@ -320,9 +320,11 @@ function love.update(dt)
     if joysticks and focus then
         local leftx = 0
         local lefty = 0
+        local rightx = 0
         for k, v in pairs(joysticks) do
             leftx = leftx + v:getGamepadAxis('leftx')
             lefty = lefty + v:getGamepadAxis('lefty')
+            rightx = rightx + v:getGamepadAxis('rightx')
         end
         if math.abs(leftx) > 0.2 or math.abs(lefty) > 0.2 then --Deadzone because otherwise joysticks are so sensitive they trap mouse inside game unless you alt-tab
             if math.abs(leftx) > math.abs(lefty) then
@@ -361,6 +363,32 @@ function love.update(dt)
         elseif direction then
             love.keyreleased(direction)
             direction = nil
+            lastPressed = nil
+            keyHoldTimer = 0
+        end
+        if math.abs(rightx) > 0.2 then
+            if rightx < 0 then
+                direction2 = 'dpleft'
+            else
+                direction2 = 'dpright'
+            end
+            if direction2 ~= lastPressed then
+
+                if love.keyboard.wasDown('dpleft') and direction ~= 'dpleft' then
+                    love.keyreleased('left')
+                end
+                if love.keyboard.wasDown('dpright') and direction ~= 'dpright' then
+                    love.keyreleased('dpright')
+                end
+
+                if love.timer.getTime() > keyPressedTimer + 0.1 then
+                    love.keypressed(direction2)
+                    keyPressedTimer = love.timer.getTime()
+                end
+            end
+        elseif direction2 then
+            love.keyreleased(direction2)
+            direction2 = nil
             lastPressed = nil
             keyHoldTimer = 0
         end
