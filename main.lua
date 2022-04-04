@@ -212,12 +212,12 @@ function love.keypressed(key,scancode,isrepeat)
             for k, v in ipairs(gui) do
                 if v == mouseTouching then
                     if key == 'up' then
-                        if gui[k-1] and gui[k-1].visible then
+                        if gui[k-1] and (gui[k-1].visible or gui[k-1].visible == nil) then
                             repositionMouse(k-1)
                         end
                     end
                     if key == 'down' then
-                        if gui[k+1] and gui[k+1].visible then
+                        if gui[k+1] and (gui[k+1].visible or gui[k+1].visible == nil) then
                             repositionMouse(k+1)
                         end
                     end
