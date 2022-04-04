@@ -352,8 +352,13 @@ function GameState:update(dt)
                 end
                 gui[4].visible = true
                 gui[4]:updateText('Main Menu',35,20)
-                gui[1].visible = false
-                gui[2].visible = false
+                if mouseTouching == gui[1] and not love.mouse.isVisible() then repositionMouse(gui[4]) end
+                gui[1] = gui[4]
+                for k, pair in pairs(gui) do
+                    if k ~= 1 then
+                        gui[k] = nil
+                    end
+                end
                 Projectiles = nil
                 Weapons = nil
                 cards = nil
