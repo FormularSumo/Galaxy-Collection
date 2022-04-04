@@ -245,12 +245,6 @@ function GameState:update(dt)
         pause()
     end
 
-    if love.keyboard.wasPressed('right') and mouseTouching == gui[1] then
-        repositionMouse(2)
-    elseif love.keyboard.wasPressed('left') and mouseTouching == gui[2] then
-        repositionMouse(1)
-    end
-
     if paused == false and not winner then
         dt = dt * gamespeed
         timer = timer + dt
