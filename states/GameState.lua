@@ -54,7 +54,7 @@ function GameState:enter(Background)
     gui[1] = Button(pause,'Pause',font100,nil,1591,0,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
     gui[2] = Slider(1591,130,300,16,function(percentage) gamespeed = percentage * 4 end,0.3,0.3,0.3,r,g,b,0.25,0.25)
     gui['SpeedLabel'] = Text('Speed',font80,'centre',410,r,g,b,false)
-    gui[3] = Slider('centre',570,300,16,function(percentage) love.audio.setVolume(percentage) Settings['volume_level'] = percentage end,0.3,0.3,0.3,r,g,b,Settings['volume_level'],0.5,function() bitser.dumpLoveFile('Settings.txt',Settings) end,nil,false)
+    gui[3] = Slider('centre',570,300,16,function(percentage) love.audio.setVolume(percentage) Settings['volume_level'] = percentage end,0.3,0.3,0.3,r,g,b,Settings['volume_level'],0.5,function() bitser.dumpLoveFile('Settings.txt',Settings) end,false,false)
     gui['VolumeLabel'] = Text('Volume',font80,'centre',600,r,g,b,false)
     gui[4] = Button(function() gStateMachine:change('HomeState') end,'Main Menu',font80,nil,'centre',1080-220-font80:getHeight('Main Menu'),r,g,b,nil,false)
 
@@ -209,6 +209,7 @@ function GameState:pause()
     if paused == true then
         gui[1]:updateText('Play','centre',220,font80)
         gui[2]:updatePosition('centre',380)
+        gui[2].default = false
         if not winner then
             gui[4]:updateText('Main Menu','centre',1080-220-font80:getHeight('Main Menu'))
         end
@@ -219,6 +220,7 @@ function GameState:pause()
         gui['VolumeLabel'].visible = true
     else
         gui[1]:updateText('Pause',1591,0,font100)
+        gui[2].default = true
         gui[2]:updatePosition('1591',130,1591,0)
         gui[4]:updateText('Main Menu',35,20)
         if not winner then
