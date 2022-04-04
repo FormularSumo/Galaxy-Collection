@@ -48,6 +48,9 @@ function Slider:updatePosition(x,y)
     self.clickableX = self.x - self.height * self.radiusToCircle
     self.clickableY = self.y + self.height / 2 - self.height * self.radiusToCircle
     self.heldTime = 0.5
+    if mouseTouching == self then
+        repositionMouse(self)
+    end
 end
 
 function Slider:update(dt)
