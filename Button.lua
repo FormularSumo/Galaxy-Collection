@@ -84,7 +84,7 @@ function Button:updateText(text,x,y,font)
     end
     self.textY = self.initialTextY
     self.y = self.initialY
-    if mouseTouching == self then
+    if mouseTouching == self and not love.mouse.isVisible() then
         repositionMouse(self)
     end
 end
