@@ -466,6 +466,11 @@ function love.update(dt)
     for k, pair in pairs(gui) do
         pair:update(dt)
     end
+    for k, pair in pairs(gui) do --for functions which rely on mouseTouching being calculated first
+        if pair.update2 then
+            pair:update2(dt)
+        end
+    end
 
     --Update state machine
     gStateMachine:update(dt)

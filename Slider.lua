@@ -72,13 +72,15 @@ function Slider:update(dt)
                 end
             end
         end
+    end
+end
 
-        if mouseTouching == self or (self.default and mouseTouching == false) then
-            self:checkKeysDown(dt,'left','right')
-        end
-        if self.default then
-            self:checkKeysDown(dt,'dpleft','dpright')
-        end
+function Slider:update2(dt)
+    if mouseTouching == self or (self.default and mouseTouching == false) then
+        self:checkKeysDown(dt,'left','right')
+    end
+    if self.default then
+        self:checkKeysDown(dt,'dpleft','dpright')
     end
 end
 
