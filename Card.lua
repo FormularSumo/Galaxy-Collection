@@ -40,7 +40,7 @@ function Card:init(card,team,number,column)
     end
 
     if self.stats['weapon1'] then
-        self.weapon = Weapon(self.stats, self.team, self.width, self.height)
+        self.weapon = Weapon(self.stats, self.team, self.width, self.height, self)
     end
 
     self.meleeProjectile = (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain') and self.weapon == nil
