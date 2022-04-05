@@ -14,6 +14,14 @@ function SettingsState:init()
     end
 end
 
+function SettingsState:keypressed(key,isrepeat)
+    if not isrepeat then
+        if key == 'm' then
+            gui[2].percentage = love.audio.getVolume()
+        end
+    end
+end
+
 function SettingsState:back()
     gStateMachine:change('HomeState',true,true)
 end

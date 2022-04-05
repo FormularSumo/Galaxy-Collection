@@ -187,18 +187,6 @@ function love.keypressed(key,scancode,isrepeat)
             end
             Settings['volume_level'] = love.audio.getVolume()
             bitser.dumpLoveFile('Settings.txt', Settings)
-            if gStateMachine.state == 'SettingsState' then
-                gui[2].percentage = love.audio.getVolume()
-            elseif gStateMachine.state == 'GameState' then
-                gui[3].percentage = love.audio.getVolume()
-            end
-
-        elseif gStateMachine.state == 'GameState' then
-            if key == 'pageup' then 
-                gui[3]:updatePercentage(gui[3].percentage * 2,false)
-            elseif key == 'pagedown' then
-                gui[3]:updatePercentage(gui[3].percentage / 2,false)
-            end
         end
     end
     if key == 'up' or key == 'down' then

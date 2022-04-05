@@ -240,7 +240,16 @@ function GameState:back()
     end
 end
 
-function GameState:keypressed(key)
+function GameState:keypressed(key,isrepeat)
+    if not isrepeat then
+        if key == 'm' then
+            gui[3].percentage = love.audio.getVolume()
+        elseif key == 'pageup' then 
+            gui[3]:updatePercentage(gui[3].percentage * 2,false)
+        elseif key == 'pagedown' then
+            gui[3]:updatePercentage(gui[3].percentage / 2,false)
+        end
+    end
     if key == 'space' then
         pause()
     end
