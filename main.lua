@@ -224,7 +224,7 @@ function love.keyreleased(key)
 
     if key == 'return' or key == 'kpenter' then
         love.mouse.buttonsReleased[1] = true
-
+        if not (love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter')) then mouseDown = false end
     elseif key == 'escape' then
         gStateMachine:back()
     end
@@ -257,6 +257,7 @@ function love.mousereleased(x,y,button,istouch)
     love.mouse.buttonsReleased[button] = true
     if button == 4 then love.keyreleased('escape') end
     lastClickIsTouch = istouch
+    if not (love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter')) then mouseDown = false end
 end
 
 function love.gamepadreleased(joystick,button)
@@ -384,10 +385,8 @@ function love.update(dt)
     end
 
     --Handle mouse inputs
-    if love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter') then
+    if mouseDown then
         updateMousePosition()
-    else
-        mouseDown = false
     end
 
     --Handle holding down keys
