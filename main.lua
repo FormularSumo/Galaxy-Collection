@@ -161,11 +161,11 @@ function love.lowmemory()
     updateBackground()
 end
 
-function love.joystickadded(joystick)
+function love.joystickadded()
     joysticks = love.joystick.getJoysticks()
 end
 
-function love.joystickremoved(joystick)
+function love.joystickremoved()
     joysticks = love.joystick.getJoysticks()
 end
 
