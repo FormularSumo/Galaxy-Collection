@@ -22,6 +22,8 @@ function BaseState:enter() end
 function BaseState:exit(partial) exitState(partial) end
 function BaseState:update(dt) end
 function BaseState:pause() end
+function BaseState:keypressed() end
+function BaseState:keyreleased() end
 function BaseState:back() gStateMachine:change('HomeState') end
 function BaseState:renderBackground() end
 function BaseState:renderForeground() end

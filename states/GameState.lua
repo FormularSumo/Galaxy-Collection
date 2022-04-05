@@ -240,11 +240,13 @@ function GameState:back()
     end
 end
 
-function GameState:update(dt)
-    if love.keyboard.wasPressed('space') == true then
+function GameState:keypressed(key)
+    if key == 'space' then
         pause()
     end
+end
 
+function GameState:update(dt)
     if paused == false and not winner then
         dt = dt * gamespeed
         timer = timer + dt

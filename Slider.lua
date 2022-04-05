@@ -49,6 +49,14 @@ function Slider:updatePosition(x,y)
     end
 end
 
+function Slider:keyreleased(key)
+    if mouseTouching == self or (self.default and mouseTouching == false) or self.default then
+        if key == 'left' or key == 'right' or key  == 'dpleft' or key == 'dpright' then
+            self:updateSlider()
+        end
+    end
+end
+
 function Slider:update(dt)
     if self.visible then
         if mouseX > self.clickableX and mouseX < self.clickableX + self.width + self.height * self.diameterToCircle and mouseY > self.clickableY and mouseY < self.clickableY + self.height * self.diameterToCircle then
@@ -96,9 +104,6 @@ function Slider:checkKeysDown(dt,left,right)
         if love.mouse.isVisible() == false and left == 'left' then
             repositionMouse(self)
         end
-    end
-    if love.keyboard.wasReleased(left) or love.keyboard.wasReleased(right) then
-        self:updateSlider()
     end
 end
 

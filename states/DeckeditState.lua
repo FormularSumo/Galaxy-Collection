@@ -193,33 +193,18 @@ function DeckeditState:back()
     gStateMachine:change('HomeState','music','music')
 end
 
-function DeckeditState:update()
-    if love.mouse.isVisible() then
-        mouseLocked = false 
-        if love.keyboard.wasDown('right') and lastPressed == 'right' and keyHoldTimer ~= 0 then
-            gui[23].scaling = 1.05
-        end
-        if love.keyboard.wasDown('left') and lastPressed == 'left' and keyHoldTimer ~= 0 then
-            gui[22].scaling = 1.05
-        end
-    end
-    if love.keyboard.wasDown('dpright') and lastPressed == 'dpright' and keyHoldTimer ~= 0 then
-        gui[23].scaling = 1.05
-    end
-    if love.keyboard.wasDown('dpleft') and lastPressed == 'dpleft' and keyHoldTimer ~= 0 then
-        gui[22].scaling = 1.05
-    end
-    if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('left') or love.keyboard.wasPressed('dpright') or love.keyboard.wasPressed('dpleft') then
-        if love.mouse.isVisible() or love.keyboard.wasPressed('dpright') or love.keyboard.wasPressed('dpleft') then
-            if love.keyboard.wasPressed('right') or love.keyboard.wasPressed('dpright') then
+function DeckeditState:keypressed(key)
+    if key == 'right' or key == 'left' or key == 'dpright' or key == 'dpleft' then
+        if love.mouse.isVisible() or key == 'dpright' or key == 'dpleft' then
+            if key == 'right' or key == 'dpright' then
                 updateCardsOnDisplay('right')
             else
                 updateCardsOnDisplay('left')
             end
-        elseif love.keyboard.wasPressed('right') or love.keyboard.wasPressed('left') then
+        elseif key == 'right' or key == 'left' then
             for k, v in ipairs(gui) do
                 if v == mouseTouching then
-                    if love.keyboard.wasPressed('right') then
+                    if key == 'right' then
                         if k == 1 then
                             repositionMouse(24)
                         elseif k == 2 then
@@ -248,7 +233,7 @@ function DeckeditState:update()
                             repositionMouse(mouseTouching.row+4)
                         end
                     end
-                    if love.keyboard.wasPressed('left') then
+                    if key == 'left' then
                         if k == 1 then
                             repositionMouse(16)
                         elseif k == 2 then
@@ -281,13 +266,31 @@ function DeckeditState:update()
                 end
             end
             if mouseTouching == gui['RemoveCard'] then
-                if love.keyboard.wasPressed('left') then
+                if key == 'left' then
                     repositionMouse(20)
-                elseif love.keyboard.wasPressed('right') then
+                elseif key == 'right' then
                     repositionMouse(28)
                 end
             end
         end
+    end
+end
+
+function DeckeditState:update()
+    if love.mouse.isVisible() then
+        mouseLocked = false 
+        if love.keyboard.wasDown('right') and lastPressed == 'right' and keyHoldTimer ~= 0 then
+            gui[23].scaling = 1.05
+        end
+        if love.keyboard.wasDown('left') and lastPressed == 'left' and keyHoldTimer ~= 0 then
+            gui[22].scaling = 1.05
+        end
+    end
+    if love.keyboard.wasDown('dpright') and lastPressed == 'dpright' and keyHoldTimer ~= 0 then
+        gui[23].scaling = 1.05
+    end
+    if love.keyboard.wasDown('dpleft') and lastPressed == 'dpleft' and keyHoldTimer ~= 0 then
+        gui[22].scaling = 1.05
     end
 end
 

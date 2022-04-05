@@ -40,6 +40,7 @@ function StateMachine:init(states)
 		update = function() end,
 		pause = function() end,
 		back = function() end,
+		keypressed = function() end,
 		enter = function() end,
 		exit = function() end
 	}
@@ -72,6 +73,14 @@ end
 
 function StateMachine:back()
 	self.current:back()
+end
+
+function StateMachine:keypressed(key,isrepeat)
+	self.current:keypressed(key,isrepeat)
+end
+
+function StateMachine:keypressed(key,isrepeat)
+	self.current:keypressed(key,isrepeat)
 end
 
 function StateMachine:renderBackground()

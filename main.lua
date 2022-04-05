@@ -61,8 +61,6 @@ function love.load()
 
     UserData = {}
 
-    love.keyboard.keysPressed = {}
-    love.keyboard.keysReleased = {}
     love.keyboard.keysDown = {}
     love.mouse.buttonsPressed = {}
     love.mouse.buttonsReleased = {}
@@ -168,7 +166,6 @@ end
 function love.keypressed(key,scancode,isrepeat)
     --Stop mute/fullscreen being repeatedly toggled if you hold keys
     if not isrepeat then
-        love.keyboard.keysPressed[key] = true
         love.keyboard.keysDown[key] = true
         lastPressed = key
         keyHoldTimer = 0
@@ -202,8 +199,6 @@ function love.keypressed(key,scancode,isrepeat)
                 gui[3]:updatePercentage(gui[3].percentage / 2,false)
             end
         end
-    else
-        love.keyboard.keysPressed[key] = 'repeat'
     end
     if key == 'up' or key == 'down' then
         if mouseTouching == false then
@@ -226,10 +221,15 @@ function love.keypressed(key,scancode,isrepeat)
             end
         end
     end
+    gStateMachine:keypressed(key,isrepeat)
+    -- for k, pair in pairs(gui) do
+    --     if pair.keypressed then
+    --         pair:keypressed(key,isrepeat)
+    --     end
+    -- end
 end
 
 function love.keyreleased(key)
-    love.keyboard.keysReleased[key] = true
     love.keyboard.keysDown[key] = false
 
     if key == 'return' or key == 'kpenter' then
@@ -238,14 +238,12 @@ function love.keyreleased(key)
     elseif key == 'escape' then
         gStateMachine:back()
     end
-end
-
-function love.keyboard.wasPressed(key)
-    return love.keyboard.keysPressed[key] 
-end
-
-function love.keyboard.wasReleased(key)
-    return love.keyboard.keysReleased[key] 
+    -- gStateMachine:keyreleased(key)
+    for k, pair in pairs(gui) do
+        if pair.keyreleased then
+            pair:keyreleased(key)
+        end
+    end
 end
 
 function love.keyboard.wasDown(key)
@@ -475,9 +473,7 @@ function love.update(dt)
     --Update state machine
     gStateMachine:update(dt)
 
-    --Reset tables of clicked keys/mousebuttons so last frame's inputs aren't used next frame
-    love.keyboard.keysPressed = {}
-    love.keyboard.keysReleased = {}
+    --Reset tables of clicked keys so last frame's inputs aren't used next frame
     love.mouse.buttonsPressed = {}
     love.mouse.buttonsReleased = {}
     if mouseDown == false and mouseLocked == false then mouseTrapped = false mouseLastX = -1 mouseLastY = -1 end
