@@ -406,7 +406,7 @@ function GameState:renderBackground()
         end
     end
 
-    if timer >  6.4 then
+    if timer > 6.4 then
         if P1deck ~= nil then
             for k, pair in pairs(P1deck) do
                 if pair.weapon ~= nil then
