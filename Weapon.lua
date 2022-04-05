@@ -3,11 +3,6 @@ Weapon = Class{__includes = BaseState}
 function Weapon:init(name,team,xoffset,yoffset,card)
     self.show = false
     self.team = team
-    if self.team == 1 then
-        self.angle = math.rad(210)
-    else
-        self.angle = math.rad(150)
-    end
 
     self.weaponCount = name['weaponCount'] or 1
 
@@ -27,7 +22,7 @@ end
 function Weapon:render()
     if self.show then
         for k, pair in pairs(self.Weapons) do
-            pair:render(self.angle)
+            pair:render()
         end
     end
 end
