@@ -60,7 +60,7 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
     end
 end
 
-function Weapon2:updateposition(x,y)
+function Weapon2:update(x,y)
     self.x = x + self.xoffset
     self.y = y + self.yoffset
 end

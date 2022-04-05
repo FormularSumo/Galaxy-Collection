@@ -200,7 +200,7 @@ function Card:update(dt)
         self.projectile:update(dt)
     end
     if self.weapon then
-        self.weapon:update(dt)
+        self.weapon:update(dt,self.x,self.y)
     end
 
     if self.targetX > self.x then
@@ -217,10 +217,6 @@ function Card:update(dt)
     elseif self.targetY < self.y then
         self.y = self.y - dt * 500
         if self.y < self.targetY then self.y = self.targetY end
-    end
-
-    if self.weapon then
-        self.weapon:updateposition(self.x,self.y)
     end
 end
 

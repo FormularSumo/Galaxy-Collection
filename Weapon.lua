@@ -24,14 +24,7 @@ function Weapon:init(name,team,xoffset,yoffset)
     end
 end
 
-function Weapon:updateposition(x,y)
-    --Called when card is moved and position needs updating
-    for k, pair in pairs(self.Weapons) do
-        pair:updateposition(x,y)
-    end
-end
-
-function Weapon:update(dt)
+function Weapon:update(dt,x,y)
     if timer > 6.4 then
         if timer < 6.9 then
             if self.team == 1 and self.angle < math.rad(270) then
@@ -45,6 +38,9 @@ function Weapon:update(dt)
             elseif self.angle < math.rad(150) then
                 self.angle = self.angle + dt * 2
             end
+        end
+        for k, pair in pairs(self.Weapons) do
+            pair:update(x,y)
         end
     end
 end
