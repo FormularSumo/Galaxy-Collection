@@ -151,6 +151,11 @@ function love.resize(w, h)
     push.resize(w, h)
 end
 
+function love.focus(InFocus)
+    focus = InFocus
+    if Settings['pause_on_loose_focus'] and not (paused and gStateMachine.state == 'GameState') then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
+end
+
 function love.lowmemory()
     toggleSetting('videos',false)
     updateBackground()
@@ -260,15 +265,16 @@ function love.mousereleased(x,y,button,istouch)
     if not (love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter')) then mouseDown = false end
 end
 
-function love.gamepadreleased(joystick,button)
-    local key = controllerBinds(button)
-    love.keyreleased(key)
-end
-
 function love.gamepadpressed(joystick,button)
     local key = controllerBinds(button)
     love.keypressed(key)
     lastClickIsTouch = false
+end
+
+
+function love.gamepadreleased(joystick,button)
+    local key = controllerBinds(button)
+    love.keyreleased(key)
 end
 
 function love.mousemoved(x,y,dx,dy,istouch)
@@ -298,11 +304,6 @@ function love.wheelmoved(x,y)
         rawyscroll = rawyscroll + y * 50
         lastScrollIsTouch = false
     end
-end
-
-function love.focus(InFocus)
-    focus = InFocus
-    if Settings['pause_on_loose_focus'] and not (paused and gStateMachine.state == 'GameState') then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
 end
 
 function love.update(dt)
