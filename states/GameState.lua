@@ -406,17 +406,19 @@ function GameState:renderBackground()
         end
     end
 
-    if P1deck ~= nil then
-        for k, pair in pairs(P1deck) do
-            if pair.weapon ~= nil then
-                pair.weapon:render()
+    if timer >  6.4 then
+        if P1deck ~= nil then
+            for k, pair in pairs(P1deck) do
+                if pair.weapon ~= nil then
+                    pair.weapon:render()
+                end
             end
         end
-    end
-    if P2deck ~= nil then
-        for k, pair in pairs(P2deck) do
-            if pair.weapon ~= nil then
-                pair.weapon:render()
+        if P2deck ~= nil then
+            for k, pair in pairs(P2deck) do
+                if pair.weapon ~= nil then
+                    pair.weapon:render()
+                end
             end
         end
     end

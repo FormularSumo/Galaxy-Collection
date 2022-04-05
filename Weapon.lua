@@ -25,7 +25,7 @@ function Weapon:init(name,team,xoffset,yoffset,card)
 end
 
 function Weapon:render()
-    if timer > 6.4 and self.show then
+    if self.show then
         for k, pair in pairs(self.Weapons) do
             pair:render(self.angle)
         end
