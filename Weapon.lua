@@ -24,21 +24,8 @@ function Weapon:init(name,team,xoffset,yoffset)
     end
 end
 
-function Weapon:update(dt,x,y)
+function Weapon:update(x,y)
     if timer > 6.4 then
-        if timer < 6.9 then
-            if self.team == 1 and self.angle < math.rad(270) then
-                self.angle = self.angle + dt * 2
-            elseif self.angle > math.rad(90) then
-                self.angle = self.angle - dt * 2
-            end
-        elseif timer < 7.4 then
-            if self.team == 1 and self.angle > math.rad(210) then
-                self.angle = self.angle - dt * 2
-            elseif self.angle < math.rad(150) then
-                self.angle = self.angle + dt * 2
-            end
-        end
         for k, pair in pairs(self.Weapons) do
             pair:update(x,y)
         end

@@ -65,10 +65,10 @@ function Weapon2:update(x,y)
     self.y = y + self.yoffset
 end
 
-function Weapon2:render(angle)
+function Weapon2:render()
     if self.static then
         love.graphics.draw(self.image,self.x,self.y,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
     else
-        love.graphics.draw(self.image,self.x,self.y,angle,self.scalefactorx,1,self.width/2,self.yoriginoffset)
+        love.graphics.draw(self.image,self.x,self.y,_G['P' .. tostring(self.team) .. 'angle'],self.scalefactorx,1,self.width/2,self.yoriginoffset)
     end
 end

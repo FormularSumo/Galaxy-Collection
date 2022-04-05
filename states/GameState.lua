@@ -36,6 +36,8 @@ function GameState:init()
             P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6))
         end
     end
+    P1angle = math.rad(210)
+    P2angle = math.rad(150)
 end
 
 function GameState:enter(Background)
@@ -272,6 +274,24 @@ function GameState:update(dt)
             pair:update(dt)
         end
 
+        if timer > 6.4 then
+            if timer < 6.9 then
+                if P1angle < math.rad(270) then
+                    P1angle = P1angle + dt * 2
+                end
+                if P2angle > math.rad(90) then
+                    P2angle = P2angle - dt * 2
+                end
+            elseif timer < 7.4 then
+                if P1angle > math.rad(210) then
+                    P1angle = P1angle - dt * 2
+                end
+                if P2angle < math.rad(150) then
+                    P2angle = P2angle + dt * 2
+                end
+            end
+        end
+
         if moveAimTimer >= 1 then
             moveAimTimer = moveAimTimer - 1
 
@@ -279,7 +299,6 @@ function GameState:update(dt)
                 for k, pair in pairs(P1deck) do
                     pair:move()
                 end
-
                 for k, pair in pairs(P2deck) do
                     pair:move()
                 end
@@ -448,5 +467,7 @@ function GameState:exit()
     Projectiles = nil
     Weapons = nil
     cards = nil
+    P1angle = nil
+    P2angle = nil
     exitState()
 end
