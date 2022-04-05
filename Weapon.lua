@@ -2,7 +2,6 @@ Weapon = Class{__includes = BaseState}
 
 function Weapon:init(name,team,xoffset,yoffset,card)
     self.show = false
-    self.team = team
 
     self.weaponCount = name['weaponCount'] or 1
 
