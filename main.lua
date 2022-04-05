@@ -152,7 +152,8 @@ function love.resize(w, h)
 end
 
 function love.lowmemory()
-    toggleVideos(false)
+    toggleSetting('videos',false)
+    updateBackground()
 end
 
 function love.joystickadded(joystick)
