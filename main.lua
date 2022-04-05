@@ -172,6 +172,7 @@ function love.keypressed(key,scancode,isrepeat)
 
         if key == 'return' or key == 'kpenter' then
             love.mouse.buttonsPressed[1] = true
+            mouseDown == true
 
         --F11 toggles between fullscreen and maximised
         elseif key == 'f11' then
@@ -260,6 +261,7 @@ end
 
 function love.mousepressed(x,y,button,istouch)
     love.mouse.buttonsPressed[button] = true
+    mouseDown == true
 end
 
 function love.mousereleased(x,y,button,istouch)
@@ -394,7 +396,6 @@ function love.update(dt)
 
     --Handle mouse inputs
     if love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter') then
-        mouseDown = true
         updateMousePosition()
     else
         mouseDown = false
