@@ -199,9 +199,6 @@ function Card:update(dt)
     if self.projectile then
         self.projectile:update(dt)
     end
-    if self.weapon then
-        self.weapon:update(self.x,self.y)
-    end
 
     if self.targetX > self.x then
         self.x = self.x + dt * 500

@@ -1,6 +1,6 @@
 Weapon2 = Class{__includes = BaseState}
 
-function Weapon2:init(image,number,team,xoffset,yoffset)
+function Weapon2:init(image,number,team,xoffset,yoffset,card)
     self.team = team
     self.xoffset = 0
     self.yoffset = 0
@@ -58,17 +58,14 @@ function Weapon2:init(image,number,team,xoffset,yoffset)
     else
         self.scalefactorx = 1
     end
-end
 
-function Weapon2:update(x,y)
-    self.x = x + self.xoffset
-    self.y = y + self.yoffset
+    self.card = card
 end
 
 function Weapon2:render()
     if self.static then
-        love.graphics.draw(self.image,self.x,self.y,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
+        love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
     else
-        love.graphics.draw(self.image,self.x,self.y,_G['P' .. tostring(self.team) .. 'angle'],self.scalefactorx,1,self.width/2,self.yoriginoffset)
+        love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,_G['P' .. tostring(self.team) .. 'angle'],self.scalefactorx,1,self.width/2,self.yoriginoffset)
     end
 end

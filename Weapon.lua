@@ -1,6 +1,6 @@
 Weapon = Class{__includes = BaseState}
 
-function Weapon:init(name,team,xoffset,yoffset)
+function Weapon:init(name,team,xoffset,yoffset,card)
     self.show = false
     self.team = team
     if self.team == 1 then
@@ -17,17 +17,9 @@ function Weapon:init(name,team,xoffset,yoffset)
             if not Weapons[name['weapon'..tostring(i)]] then
                 Weapons[name['weapon'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['weapon'..tostring(i)]..'.png')
             end
-            self.Weapons[i] = Weapon2(Weapons[name['weapon'..tostring(i)]],i,team,xoffset,yoffset)
+            self.Weapons[i] = Weapon2(Weapons[name['weapon'..tostring(i)]],i,team,xoffset,yoffset,card)
         else 
-            self.Weapons[i] = Weapon2(Weapons[name['weapon1']],i,team,xoffset,yoffset)
-        end
-    end
-end
-
-function Weapon:update(x,y)
-    if timer > 6.4 then
-        for k, pair in pairs(self.Weapons) do
-            pair:update(x,y)
+            self.Weapons[i] = Weapon2(Weapons[name['weapon1']],i,team,xoffset,yoffset,card)
         end
     end
 end
