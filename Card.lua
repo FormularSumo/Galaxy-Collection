@@ -271,10 +271,4 @@ function Card:render()
     --     love.graphics.print(self.defense,1600,200)
     -- end       
     -- end
-    
-    -- love.graphics.line(VIRTUALWIDTH / 2,0,VIRTUALWIDTH / 2,VIRTUALHEIGHT)
-    -- love.graphics.print(self.offense, self.x, self.y)
-    -- love.graphics.print(self.defense, self.x, self.y)
-    -- love.graphics.print(self.evade, self.x, self.y)
-    -- love.graphics.print(tostring(self.y),100,0)
 end
