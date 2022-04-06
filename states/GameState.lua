@@ -11,7 +11,7 @@ function GameState:init()
     Weapons = {}
     cards = {}
     gamespeed = 1
-    Nextcards = {
+    self.Nextcards = {
         [0] = 18,
         [1] = 19,
         [2] = 20,
@@ -20,15 +20,15 @@ function GameState:init()
         [5] = 23,
     }
 
-    P1length = 0
+    self.P1length = 0
     for k, pair in pairs(P1deckCards) do
-        if k > P1length then
-            P1length = k
+        if k > self.P1length then
+            self.P1length = k
         end
     end
-    P2length = P2deckCards('max')
+    self.P2length = P2deckCards('max')
 
-    for i=0,math.min(18,math.max(P1length,P2length)) do
+    for i=0,math.min(18,math.max(self.P1length,self.P2length)) do
         if P1deckCards[i] then
             P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6))
         end
@@ -38,6 +38,7 @@ function GameState:init()
     end
     P1angle = math.rad(210)
     P2angle = math.rad(150)
+    self.next = next
 end
 
 function GameState:enter(Background)
@@ -61,41 +62,41 @@ function GameState:enter(Background)
     gui[4] = Button(function() gStateMachine:change('HomeState') end,'Main Menu',font80,nil,'centre',1080-220-font80:getHeight('Main Menu'),r,g,b,nil,false)
 
     if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
-        timer = 0 - (background['Seek'] - 1)
+        self.timer = 0 - (background['Seek'] - 1)
     else
-        timer = 0
+        self.timer = 0
     end
-    moveAimTimer = timer
-    attackTimer = timer - 0.9
+    self.moveAimTimer = self.timer
+    self.attackTimer = self.timer - 0.9
     love.timer.step()
 end
 
-function Move()
-    RowsRemaining(P1deck)
-    RowsRemaining(P2deck)
-    if P1rowsRemaining == 1 and P2rowsRemaining == 1 then
-        if P1rows[3] then
-            MoveUp(P1deck,3)
+function GameState:Move()
+    GameState:RowsRemaining(P1deck)
+    GameState:RowsRemaining(P2deck)
+    if self.P1rowsRemaining == 1 and self.P2rowsRemaining == 1 then
+        if self.P1rows[3] then
+            GameState:MoveUp(P1deck,3)
             return
         end
-        if P2rows[3] then
-            MoveUp(P2deck,3)
+        if self.P2rows[3] then
+            GameState:MoveUp(P2deck,3)
             return
         end
     end
    
-    rows = P1rows
-    enemyRows = P2rows
-    rowsRemaining = P2rowsRemaining
-    Move2(P1deck)
-    rows = P2rows
-    enemyRows = P1rows
-    rowsRemaining = P1rowsRemaining
-    Move2(P2deck)
+    self.rows = self.P1rows
+    enemyRows = self.P2rows
+    self.rowsRemaining = self.P2rowsRemaining
+    GameState:Move2(P1deck)
+    self.rows = self.P2rows
+    enemyRows = self.P1rows
+    self.rowsRemaining = self.P1rowsRemaining
+    GameState:Move2(P2deck)
 end
 
-function RowsRemaining(deck)
-    rows = {
+function GameState:RowsRemaining(deck)
+    self.rows = {
         [0] = false,
         [1] = false,
         [2] = false,
@@ -105,68 +106,68 @@ function RowsRemaining(deck)
     }
 
     for k, pair in pairs(deck) do
-        rows[pair.row] = true
-        if rows[0] and rows[1] and rows[2] and rows[3] and rows[4] and rows[5] and rows[6] then break end
+        self.rows[pair.row] = true
+        if self.rows[0] and self.rows[1] and self.rows[2] and self.rows[3] and self.rows[4] and self.rows[5] and self.rows[6] then break end
     end
 
-    rowsRemaining = 0
-    for k, pair in pairs(rows) do
+    self.rowsRemaining = 0
+    for k, pair in pairs(self.rows) do
         if pair == true then
-            rowsRemaining = rowsRemaining + 1
+            self.rowsRemaining = self.rowsRemaining + 1
         end
     end
     if deck == P1deck then
-        P1rows = rows
-        P1rowsRemaining = rowsRemaining
+        self.P1rows = self.rows
+        self.P1rowsRemaining = self.rowsRemaining
     else
-        P2rows = rows
-        P2rowsRemaining = rowsRemaining
+        self.P2rows = self.rows
+        self.P2rowsRemaining = self.rowsRemaining
     end
 end
 
-function Move2(deck)
-    if rows[0] == false and rows[1] == false and rows[5] == true then
-        MoveUp(deck,2)
-        MoveUp(deck,3)
-        MoveUp(deck,4)
-        MoveUp(deck,5)
-    elseif rows[4] == false and rows[5] == false and rows[0] == true then
-        MoveDown(deck,3)
-        MoveDown(deck,2)
-        MoveDown(deck,1)
-        MoveDown(deck,0)
+function GameState:Move2(deck)
+    if self.rows[0] == false and self.rows[1] == false and self.rows[5] == true then
+        GameState:MoveUp(deck,2)
+        GameState:MoveUp(deck,3)
+        GameState:MoveUp(deck,4)
+        GameState:MoveUp(deck,5)
+    elseif self.rows[4] == false and self.rows[5] == false and self.rows[0] == true then
+        GameState:MoveDown(deck,3)
+        GameState:MoveDown(deck,2)
+        GameState:MoveDown(deck,1)
+        GameState:MoveDown(deck,0)
     else
-        if rows[2] == false then
-            if (rows[0] == false and rows[5] == true) or (rows[1] == false and rows[4] == true) or ((rowsRemaining == 1 and enemyRows[2]) and (rows[5] or not rows[0] and rows[4])) then
-                MoveUp(deck,3)
-                MoveUp(deck,4)
-                MoveUp(deck,5)
+        if self.rows[2] == false then
+            if (self.rows[0] == false and self.rows[5] == true) or (self.rows[1] == false and self.rows[4] == true) or ((self.rowsRemaining == 1 and enemyRows[2]) and (self.rows[5] or not self.rows[0] and self.rows[4])) then
+                GameState:MoveUp(deck,3)
+                GameState:MoveUp(deck,4)
+                GameState:MoveUp(deck,5)
                 return
             else
-                MoveDown(deck,1)
-                MoveDown(deck,0)
+                GameState:MoveDown(deck,1)
+                GameState:MoveDown(deck,0)
             end
-        elseif rows[1] == false then 
-            MoveDown(deck,0)
+        elseif self.rows[1] == false then 
+            GameState:MoveDown(deck,0)
         end
-        if rows[3] == false then
-            if (rows[5] == false and rows[0] == true) or (rows[4] == false and rows[1] == true) or (rowsRemaining == 1 and enemyRows[3])  then
-                MoveDown(deck,2)
-                MoveDown(deck,1)
-                MoveDown(deck,0)
+        if self.rows[3] == false then
+            if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and enemyRows[3])  then
+                GameState:MoveDown(deck,2)
+                GameState:MoveDown(deck,1)
+                GameState:MoveDown(deck,0)
                 return
             else
-                MoveUp(deck,4)
-                MoveUp(deck,5)
+                GameState:MoveUp(deck,4)
+                GameState:MoveUp(deck,5)
             end
-        elseif rows[4] == false then
-            MoveUp(deck,5)
+        elseif self.rows[4] == false then
+            GameState:MoveUp(deck,5)
         end
     end
 end
 
-function MoveDown(deck,row)
-    if rows[row] then
+function GameState:MoveDown(deck,row)
+    if self.rows[row] then
         for k, pair in pairs(deck) do
             if deck[k].row == row then
                 deck[k].number = deck[k].number + 1
@@ -179,8 +180,8 @@ function MoveDown(deck,row)
     end
 end
 
-function MoveUp(deck,row)
-    if rows[row] then
+function GameState:MoveUp(deck,row)
+    if self.rows[row] then
         for k, pair in pairs(deck) do
             if deck[k].row == row then
                 deck[k].number = deck[k].number - 1
@@ -192,20 +193,6 @@ function MoveUp(deck,row)
         end
     end
 end
-
-function checkHealth()
-    for k, pair in pairs(P1deck) do
-        if pair.health <= 0 then
-            P1deck[k] = nil
-        end
-    end
-    for k, pair in pairs(P2deck) do
-        if pair.health <= 0 then
-            P2deck[k] = nil
-        end
-    end
-end
-
 
 function GameState:pause()
     if paused == true then
@@ -262,10 +249,10 @@ end
 function GameState:update(dt)
     if paused == false and not winner then
         dt = dt * gamespeed
-        timer = timer + dt
-        if timer >= 7.4 then timer = timer - 1 end
-        moveAimTimer = moveAimTimer + dt
-        attackTimer = attackTimer + dt
+        self.timer = self.timer + dt
+        if self.timer >= 7.4 then self.timer = self.timer - 1 end
+        self.moveAimTimer = self.moveAimTimer + dt
+        self.attackTimer = self.attackTimer + dt
 
         for k, pair in pairs(P1deck) do
             pair:update(dt)
@@ -274,15 +261,15 @@ function GameState:update(dt)
             pair:update(dt)
         end
 
-        if timer > 6.4 then
-            if timer < 6.9 then
+        if self.timer > 6.4 then
+            if self.timer < 6.9 then
                 if P1angle < math.rad(270) then
                     P1angle = P1angle + dt * 2
                 end
                 if P2angle > math.rad(90) then
                     P2angle = P2angle - dt * 2
                 end
-            elseif timer < 7.4 then
+            elseif self.timer < 7.4 then
                 if P1angle > math.rad(210) then
                     P1angle = P1angle - dt * 2
                 end
@@ -292,10 +279,10 @@ function GameState:update(dt)
             end
         end
 
-        if moveAimTimer >= 1 then
-            moveAimTimer = moveAimTimer - 1
+        if self.moveAimTimer >= 1 then
+            self.moveAimTimer = self.moveAimTimer - 1
 
-            if timer < 7 then
+            if self.timer < 7 then
                 for k, pair in pairs(P1deck) do
                     pair:move()
                 end
@@ -303,21 +290,21 @@ function GameState:update(dt)
                     pair:move()
                 end
                 
-                if timer > 3 and P2length > timer * 6 then
+                if self.timer > 3 and self.P2length > self.timer * 6 then
                     for i=0,5 do
-                        if P2deckCards(Nextcards[i]) then
-                            P2deck[Nextcards[i]] = Card(P2deckCards(Nextcards[i]),2,Nextcards[i],12)
-                            Nextcards[i] = Nextcards[i] + 6
+                        if P2deckCards(self.Nextcards[i]) then
+                            P2deck[self.Nextcards[i]] = Card(P2deckCards(self.Nextcards[i]),2,self.Nextcards[i],12)
+                            self.Nextcards[i] = self.Nextcards[i] + 6
                         end
                     end
                 end
 
             else
-                if P2length > timer * 6 then
+                if self.P2length > self.timer * 6 then
                     for i=0,5 do
-                        if not P2deck[36+i] and P2deckCards(Nextcards[i]) then
-                            P2deck[36+i] = Card(P2deckCards(Nextcards[i]),2,36+i,12)
-                            Nextcards[i] = Nextcards[i] + 6
+                        if not P2deck[36+i] and P2deckCards(self.Nextcards[i]) then
+                            P2deck[36+i] = Card(P2deckCards(self.Nextcards[i]),2,36+i,12)
+                            self.Nextcards[i] = self.Nextcards[i] + 6
                         end
                     end
                 end
@@ -329,8 +316,8 @@ function GameState:update(dt)
                 end
             end
 
-            if timer > 3 then
-                Move()
+            if self.timer > 3 then
+                GameState:Move()
             end
 
             for k, pair in pairs(P1deck) do
@@ -341,8 +328,8 @@ function GameState:update(dt)
             end
         end
 
-        if attackTimer >= 1 then
-            attackTimer = attackTimer - 1
+        if self.attackTimer >= 1 then
+            self.attackTimer = self.attackTimer - 1
 
             for k, pair in pairs(P1deck) do
                 pair.dodge = 0
@@ -360,12 +347,21 @@ function GameState:update(dt)
                 pair:attack()
             end
 
-            checkHealth()
+            for k, pair in pairs(P1deck) do
+                if pair.health <= 0 then
+                    P1deck[k] = nil
+                end
+            end
+            for k, pair in pairs(P2deck) do
+                if pair.health <= 0 then
+                    P2deck[k] = nil
+                end
+            end
             
-            if not next(P1deck) then
+            if not self.next(P1deck) then
                 P1deck = nil
             end
-            if not next(P2deck) then
+            if not self.next(P2deck) then
                 P2deck = nil
             end
             if P1deck == nil or P2deck == nil then
@@ -406,7 +402,7 @@ function GameState:renderBackground()
         end
     end
 
-    if timer > 6.4 then
+    if self.timer > 6.4 then
         if P1deck ~= nil then
             for k, pair in pairs(P1deck) do
                 if pair.weapon ~= nil then
@@ -448,24 +444,11 @@ end
 function GameState:exit()
     P1deck = nil
     P2deck = nil
-    deck = nil
     winner = nil
     P1deckCards = {}
     P2deckCards = nil
-    Nextcards = nil
     evolution= nil
     evolutionMax = nil
-    timer = nil
-    moveAimTimer = nil
-    attackTimer = nil
-    P1length = nil
-    P2length = nil
-    rowsRemaining = nil
-    P1rowsRemaining = nil
-    P2rowsRemaining = nil
-    rows = nil
-    P1rows = nil
-    P2rows = nil
     Projectiles = nil
     Weapons = nil
     cards = nil
