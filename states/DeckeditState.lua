@@ -4,30 +4,30 @@ function DeckeditState:init()
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     cards = {}
-    sortInventory(false)
+    self:sortInventory(false)
 
-    cardsOnDisplay = {}
-    evolution= love.graphics.newImage('Graphics/Evolution.png')
+    self.cardsOnDisplay = {}
+    evolution = love.graphics.newImage('Graphics/Evolution.png')
     evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
     blankCard = love.graphics.newImage('Graphics/Blank Card.png')
-    page = 0
-    cardsOnDisplayAreBlank = false
+    self.page = 0
+    self.cardsOnDisplayAreBlank = false
 
-    reloadDeckeditor()
+    self:reloadDeckeditor()
 
     background['Name'] = 'Death Star Control Room'
     background['Video'] = false
     createBackground()
     gui[1] = Button(function() gStateMachine:change('HomeState','music','music') end,'Main Menu',font80,nil,'centre',20)
-    gui[2] = Button(function() resetDeck('strongest') end,'Auto',font80,nil,'centre',200)
-    gui[3] = Button(function() resetDeck('blank') end,'Clear',font80,nil,'centre',380)
+    gui[2] = Button(function() self:resetDeck('strongest') end,'Auto',font80,nil,'centre',200)
+    gui[3] = Button(function() self:resetDeck('blank') end,'Clear',font80,nil,'centre',380)
     gui['RemoveCard'] = RemoveCard()
-    gui[22] = Button(function() updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,nil,nil,true)
-    gui[23] = Button(function() updateCardsOnDisplay('right') end,nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,nil,nil,true)
+    gui[22] = Button(function() self:updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,nil,nil,true)
+    gui[23] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,nil,nil,true)
 end
 
 
-function sortInventory(reload)
+function DeckeditState:sortInventory(reload)
     P1cards = {}
     count = 0
 
@@ -67,22 +67,22 @@ function sortInventory(reload)
     P1cards[#P1cards] = nil
     bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
     if reload ~= false then
-        updateCardsOnDisplay()
+        self:updateCardsOnDisplay()
     end
 end
 
-function updateCardsOnDisplay(direction)
-    if not (direction == 'left' and page == 0) and not (direction == 'right' and page > math.ceil((#P1cards+1)/18) - 2) then
+function DeckeditState:updateCardsOnDisplay(direction)
+    if not (direction == 'left' and self.page == 0) and not (direction == 'right' and self.page > math.ceil((#P1cards+1)/18) - 2) then
         if direction == 'right' then
-            page = page + 1
+            self.page = self.page + 1
         elseif direction == 'left' then
-            page = page - 1
+            self.page = self.page - 1
         end
 
-        cardsOnDisplay = {}
+        self.cardsOnDisplay = {}
         column = 9
         rowCorrectment = 0
-        cardsOnDisplayAreBlank = true
+        self.cardsOnDisplayAreBlank = true
 
         for i=0,17,1 do
             if i % 6 == 0 and i ~= 0 then
@@ -90,21 +90,21 @@ function updateCardsOnDisplay(direction)
                 rowCorrectment = i
             end
             row = i - rowCorrectment
-            y = i+(page*18)
+            y = i+(self.page*18)
             if P1cards[y] ~= nil then
-                cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false)
-                cardsOnDisplayAreBlank = false
+                self.cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false)
+                self.cardsOnDisplayAreBlank = false
             else
-                cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false)
+                self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false)
             end
         end
         column = nil
         rowCorrectment = nil
-        updateGui()
+        self:updateGui()
     end
 end
 
-function reloadDeckeditor()
+function DeckeditState:reloadDeckeditor()
     P1column = 2
     rowCorrectment = 0
     
@@ -126,10 +126,10 @@ function reloadDeckeditor()
     end
     P1column = nil
     rowCorrectment = nil
-    updateCardsOnDisplay()
+    self:updateCardsOnDisplay()
 end
 
-function resetDeck(deck)
+function DeckeditState:resetDeck(deck)
     count = 0
     sortedCharacters = {}
  
@@ -170,10 +170,10 @@ function resetDeck(deck)
     end
 
     bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
-    reloadDeckeditor()
+    self:reloadDeckeditor()
 end
 
-function updateGui()
+function DeckeditState:updateGui()
     for k, v in pairs(P1deck) do
         if k < 6 then
             gui[k+16] = v
@@ -183,7 +183,7 @@ function updateGui()
             gui[k-8] = v
         end
     end
-    for k, v in pairs(cardsOnDisplay) do
+    for k, v in pairs(self.cardsOnDisplay) do
         gui[k+24] = v
     end
     collectgarbage()
@@ -197,9 +197,9 @@ function DeckeditState:keypressed(key)
     if key == 'right' or key == 'left' or key == 'dpright' or key == 'dpleft' then
         if love.mouse.isVisible() or key == 'dpright' or key == 'dpleft' then
             if key == 'right' or key == 'dpright' then
-                updateCardsOnDisplay('right')
+                self:updateCardsOnDisplay('right')
             else
-                updateCardsOnDisplay('left')
+                self:updateCardsOnDisplay('left')
             end
         elseif key == 'right' or key == 'left' then
             for k, v in ipairs(gui) do
@@ -302,11 +302,8 @@ function DeckeditState:exit(partial)
     P1deck = nil
     P1cards = nil
     cards = nil
-    cardsOnDisplay = nil
     evolution= nil
     evolutionMax = nil
     blankCard = nil
-    page = nil
-    cardsOnDisplayAreBlank = nil
     exitState(partial)
 end
