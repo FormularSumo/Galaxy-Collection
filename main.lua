@@ -425,13 +425,12 @@ function love.update(dt)
     --Manage song queue and background video looping
     if not paused then
         if songs[0] and not songs[currentSong]:isPlaying() then
-            if nextSong <= queueLength then
-                songs[nextSong]:play()
-                currentSong = nextSong
-                nextSong = nextSong + 1
+            if songs[currentSong+1] then
+                currentSong = currentSong+1
             else
-                nextSong = 0
+                currentSong = 0
             end
+            songs[currentSong]:play()
         end
 
         if background['Video'] and not background['Background']:isPlaying() then

@@ -20,8 +20,6 @@ function HomeState:enter(partial)
             songs[0] = love.audio.newSource('Music/Across The Stars.oga','stream')
         end
 
-        songs[0]:play()
-        calculateQueueLength()
     elseif partial == 'music' then
         background['Name'] = 'Starry Sky'
         background['Video'] = Settings['videos']

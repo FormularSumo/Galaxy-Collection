@@ -48,8 +48,6 @@ function GameState:enter(Background)
     createBackground()
 
     songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
-    songs[0]:play()
-    calculateQueueLength()
 
     if Background[4] == nil then r = 0 else r = Background[4] end
     if Background[5] == nil then g = 0 else g = Background[5] end

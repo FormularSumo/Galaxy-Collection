@@ -69,10 +69,12 @@ function StateMachine:change(stateName, enterParams, exitParams)
 	self.current = self.states[stateName]()
 	self.state = stateName
 	self.current:enter(enterParams)
-    if love.mouse.isVisible() == false then
-        if gui[1] then
-            repositionMouse(1)
-        end
+	if songs[0] and not exitParams then
+		currentSong = 0
+		songs[0]:play()
+	end
+    if not love.mouse.isVisible() and gui[1] then
+        repositionMouse(1)
     end
 	maxScroll = math.max(gui[#gui].y + gui[#gui].height + 50 - 1080, 0)
 end

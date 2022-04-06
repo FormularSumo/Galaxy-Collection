@@ -85,15 +85,6 @@ function repositionMouse(index)
     love.mouse.setVisible(false)
 end
 
-function calculateQueueLength()
-    queueLength = -1
-    for k, pair in pairs(songs) do
-        queueLength = queueLength + 1
-    end
-    currentSong = 0
-    nextSong = 1
-end
-
 function toggleSetting(setting,toggle)
     if toggle ~= nil then
         if toggle == Settings[setting] then return end
