@@ -440,10 +440,13 @@ function love.update(dt)
         if paused == true then
             background['Background']:pause()
         else
-            if background['Background']:isPlaying() == false then
+            if not background['Background']:isPlaying() then
                 background['Background']:play()
+                if not background['Background']:isPlaying() then
+                    background['Background']:seek(background['Seek'])
+                    background['Background']:play() 
+                end
             end
-            testForBackgroundImageLoop(background['Background'],background['Seek'])
         end
     end
 

@@ -81,12 +81,6 @@ function repositionMouse(index)
     love.mouse.setVisible(false)
 end
 
-function testForBackgroundImageLoop(video,seek) --Replays the inputted video if it's finished
-    if video:isPlaying() then return end
-    video:seek(seek)
-    video:play()
-end
-
 function calculateQueueLength()
     queueLength = -1
     for k, pair in pairs(songs) do
