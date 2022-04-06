@@ -81,15 +81,6 @@ function repositionMouse(index)
     love.mouse.setVisible(false)
 end
 
-function updateMousePosition()
-    mouseLastX,mouseLastY = push.toGame(love.mouse.getPosition())
-    if mouseLastX == false or mouseLastY == false then
-        mouseLastX = -1
-        mouseLastY = -1
-        mouseDown = false
-    end
-end
-
 function testForBackgroundImageLoop(video,seek) --Replays the inputted video if it's finished
     if video:isPlaying() then return end
     video:seek(seek)

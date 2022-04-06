@@ -387,7 +387,12 @@ function love.update(dt)
 
     --Handle mouse inputs
     if mouseDown then
-        updateMousePosition()
+        mouseLastX,mouseLastY = push.toGame(love.mouse.getPosition())
+        if mouseLastX == false or mouseLastY == false then
+            mouseLastX = -1
+            mouseLastY = -1
+            mouseDown = false
+        end
     end
 
     --Handle holding down keys
