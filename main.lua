@@ -413,7 +413,6 @@ function love.update(dt)
     if (yscroll > -maxScroll or rawyscroll > 0) and (yscroll < 0 or rawyscroll < 0) and not touchDown then
         yscroll = yscroll + rawyscroll * dt * 12
         if lastScrollIsTouch then
-            -- yscroll = yscroll + rawyscroll * dt * 100
             rawyscroll = rawyscroll - rawyscroll * math.min(dt*3,0.1)
         else
             rawyscroll = rawyscroll - rawyscroll * math.min(dt*10,1)
