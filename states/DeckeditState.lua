@@ -298,12 +298,11 @@ function DeckeditState:update()
     end
 end
 
-function DeckeditState:exit(partial)
+function DeckeditState:exit()
     P1deck = nil
     P1cards = nil
     cards = nil
     evolution= nil
     evolutionMax = nil
     blankCard = nil
-    exitState(partial)
 end

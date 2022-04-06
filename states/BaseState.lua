@@ -19,8 +19,8 @@ BaseState = Class{}
 
 function BaseState:init() end
 function BaseState:enter() end
-function BaseState:exit(partial) exitState(partial) end
-function BaseState:update(dt) end
+function BaseState:exit() end
+function BaseState:update() end
 function BaseState:pause() end
 function BaseState:keypressed() end
 function BaseState:keyreleased() end

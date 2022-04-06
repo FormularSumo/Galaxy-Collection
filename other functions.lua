@@ -17,23 +17,6 @@ function pause(pause)
     end
 end
 
-function exitState(partial)
-    if not partial then 
-        love.audio.stop()
-        songs = {}
-        background = {}
-    elseif partial == 'music' then
-        background = {}
-    end
-    gui = {}
-    paused = false
-    mouseLocked = false
-    yscroll = 0
-    rawyscroll = 0
-    blurred = nil
-    collectgarbage()
-end
-
 function loadBattle(background,videos,seek,r,g,b,music,level)
     P2deckCards = level
     if videos and Settings['videos'] then

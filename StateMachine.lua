@@ -52,6 +52,20 @@ end
 function StateMachine:change(stateName, enterParams, exitParams)
 	assert(self.states[stateName]) -- state must exist!
 	self.current:exit(exitParams)
+	if not exitParams then 
+        love.audio.stop()
+        songs = {}
+        background = {}
+    elseif exitParams == 'music' then
+        background = {}
+    end
+    gui = {}
+    paused = false
+    mouseLocked = false
+    yscroll = 0
+    rawyscroll = 0
+    blurred = nil
+    collectgarbage()
 	self.current = self.states[stateName]()
 	self.state = stateName
 	self.current:enter(enterParams)

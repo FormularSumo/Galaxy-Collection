@@ -454,5 +454,4 @@ function GameState:exit()
     cards = nil
     P1angle = nil
     P2angle = nil
-    exitState()
 end
