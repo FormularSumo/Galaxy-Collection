@@ -5,8 +5,11 @@ function pause(pause)
         else
             paused = not paused
         end
-        if songs[0] ~= nil then
+        if songs[0] then
             if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
+        end
+        if background['Video'] then
+            if paused then background['Background']:pause() else background['Background']:play() end
         end
         gStateMachine:pause()
         if gStateMachine.state == 'GameState' and not blurred then
@@ -29,6 +32,7 @@ end
 function createBackground()
     if background['Video'] then
         background['Background'] = love.graphics.newVideo('Backgrounds/' .. background['Name'] .. '.ogv')
+        background['Background']:play()
     else
         background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.jpg')
     end

@@ -422,9 +422,9 @@ function love.update(dt)
         if yscroll < -maxScroll then yscroll = -maxScroll rawyscroll = 0 end
     end
 
-    --Manage song queue
-    if songs[0] ~= nil then
-        if songs[currentSong]:isPlaying() == false and paused == false then
+    --Manage song queue and background video looping
+    if not paused then
+        if songs[0] and not songs[currentSong]:isPlaying() then
             if nextSong <= queueLength then
                 songs[nextSong]:play()
                 currentSong = nextSong
@@ -433,20 +433,10 @@ function love.update(dt)
                 nextSong = 0
             end
         end
-    end
 
-    --Manage background video looping and pausing
-    if background['Video'] == true then
-        if paused == true then
-            background['Background']:pause()
-        else
-            if not background['Background']:isPlaying() then
-                background['Background']:play()
-                if not background['Background']:isPlaying() then
-                    background['Background']:seek(background['Seek'])
-                    background['Background']:play() 
-                end
-            end
+        if background['Video'] and not background['Background']:isPlaying() then
+            background['Background']:seek(background['Seek'])
+            background['Background']:play() 
         end
     end
 
