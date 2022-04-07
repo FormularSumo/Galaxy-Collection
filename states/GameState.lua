@@ -70,15 +70,15 @@ function GameState:enter(Background)
 end
 
 function GameState:Move()
-    GameState:RowsRemaining(P1deck)
-    GameState:RowsRemaining(P2deck)
+    self:RowsRemaining(P1deck)
+    self:RowsRemaining(P2deck)
     if self.P1rowsRemaining == 1 and self.P2rowsRemaining == 1 then
         if self.P1rows[3] then
-            GameState:MoveUp(P1deck,3)
+            self:MoveUp(P1deck,3)
             return
         end
         if self.P2rows[3] then
-            GameState:MoveUp(P2deck,3)
+            self:MoveUp(P2deck,3)
             return
         end
     end
@@ -86,11 +86,11 @@ function GameState:Move()
     self.rows = self.P1rows
     enemyRows = self.P2rows
     self.rowsRemaining = self.P2rowsRemaining
-    GameState:Move2(P1deck)
+    self:Move2(P1deck)
     self.rows = self.P2rows
     enemyRows = self.P1rows
     self.rowsRemaining = self.P1rowsRemaining
-    GameState:Move2(P2deck)
+    self:Move2(P2deck)
 end
 
 function GameState:RowsRemaining(deck)
@@ -125,41 +125,41 @@ end
 
 function GameState:Move2(deck)
     if self.rows[0] == false and self.rows[1] == false and self.rows[5] == true then
-        GameState:MoveUp(deck,2)
-        GameState:MoveUp(deck,3)
-        GameState:MoveUp(deck,4)
-        GameState:MoveUp(deck,5)
+        self:MoveUp(deck,2)
+        self:MoveUp(deck,3)
+        self:MoveUp(deck,4)
+        self:MoveUp(deck,5)
     elseif self.rows[4] == false and self.rows[5] == false and self.rows[0] == true then
-        GameState:MoveDown(deck,3)
-        GameState:MoveDown(deck,2)
-        GameState:MoveDown(deck,1)
-        GameState:MoveDown(deck,0)
+        self:MoveDown(deck,3)
+        self:MoveDown(deck,2)
+        self:MoveDown(deck,1)
+        self:MoveDown(deck,0)
     else
         if self.rows[2] == false then
             if (self.rows[0] == false and self.rows[5] == true) or (self.rows[1] == false and self.rows[4] == true) or ((self.rowsRemaining == 1 and enemyRows[2]) and (self.rows[5] or not self.rows[0] and self.rows[4])) then
-                GameState:MoveUp(deck,3)
-                GameState:MoveUp(deck,4)
-                GameState:MoveUp(deck,5)
+                self:MoveUp(deck,3)
+                self:MoveUp(deck,4)
+                self:MoveUp(deck,5)
                 return
             else
-                GameState:MoveDown(deck,1)
-                GameState:MoveDown(deck,0)
+                self:MoveDown(deck,1)
+                self:MoveDown(deck,0)
             end
         elseif self.rows[1] == false then 
-            GameState:MoveDown(deck,0)
+            self:MoveDown(deck,0)
         end
         if self.rows[3] == false then
             if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and enemyRows[3])  then
-                GameState:MoveDown(deck,2)
-                GameState:MoveDown(deck,1)
-                GameState:MoveDown(deck,0)
+                self:MoveDown(deck,2)
+                self:MoveDown(deck,1)
+                self:MoveDown(deck,0)
                 return
             else
-                GameState:MoveUp(deck,4)
-                GameState:MoveUp(deck,5)
+                self:MoveUp(deck,4)
+                self:MoveUp(deck,5)
             end
         elseif self.rows[4] == false then
-            GameState:MoveUp(deck,5)
+            self:MoveUp(deck,5)
         end
     end
 end
@@ -315,7 +315,7 @@ function GameState:update(dt)
             end
 
             if self.timer > 3 then
-                GameState:Move()
+                self:Move()
             end
 
             for k, pair in pairs(P1deck) do
