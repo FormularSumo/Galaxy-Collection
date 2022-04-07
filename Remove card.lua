@@ -13,7 +13,7 @@ function RemoveCard:swap()
     P1cardsEdit(-1,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
     P1deckEdit(mouseTrapped.number,nil)
     collectgarbage()
-    DeckeditState:sortInventory()
+    gStateMachine.current:sortInventory()
     if love.mouse.isVisible() == false then
         if mouseTrapped.number < 6 then
             repositionMouse(gui[mouseTrapped.number+16])
