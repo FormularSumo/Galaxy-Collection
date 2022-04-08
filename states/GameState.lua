@@ -75,11 +75,7 @@ function GameState:enter(Background)
     gui['VolumeLabel'] = Text('Volume',font80,'centre',600,r,g,b,false)
     gui[4] = Button(function() gStateMachine:change('HomeState') end,'Main Menu',font80,nil,'centre',1080-220-font80:getHeight('Main Menu'),r,g,b,nil,false)
 
-    if background['Seek'] > 1 then --All levels have at least a 1 second delay before spawing characters
-        self.timer = 0 - (background['Seek'] - 1)
-    else
-        self.timer = 0
-    end
+    self.timer = math.min(-(background['Seek'] - 1), 0) --All levels have at least a 1 second delay before spawing characters
     self.moveAimTimer = self.timer
     self.attackTimer = self.timer - 0.9
     love.timer.step()
