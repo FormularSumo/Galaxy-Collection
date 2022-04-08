@@ -63,7 +63,7 @@ function CardEditor:swap()
         end
 
         if not (mouseTrapped.inDeck and self.inDeck) then
-            DeckeditState:sortInventory()
+            gStateMachine.current:sortInventory()
         end
 
         mouseTrapped = false
