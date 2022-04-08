@@ -19,6 +19,22 @@ function GameState:init()
         [4] = 22,
         [5] = 23,
     }
+    self.currentRows = {
+        [0] = 0,
+        [1] = 1,
+        [2] = 2,
+        [3] = 3,
+        [4] = 4,
+        [5] = 5,
+    }
+    self.initialRows = {
+        [0] = 0,
+        [1] = 1,
+        [2] = 2,
+        [3] = 3,
+        [4] = 4,
+        [5] = 5,
+    }
 
     self.P1length = 0
     for k, pair in pairs(P1deckCards) do
@@ -166,6 +182,12 @@ end
 
 function GameState:MoveDown(deck,row)
     if self.rows[row] then
+        if deck == P2deck then
+            self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] + 1
+
+            self.initialRows[row+1] = self.initialRows[row]
+            self.initialRows[row] = nil
+        end
         for k, pair in pairs(deck) do
             if deck[k].row == row then
                 deck[k].number = deck[k].number + 1
@@ -180,6 +202,12 @@ end
 
 function GameState:MoveUp(deck,row)
     if self.rows[row] then
+        if deck == P2deck then
+            self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] - 1
+
+            self.initialRows[row-1] = self.initialRows[row]
+            self.initialRows[row] = nil
+        end        
         for k, pair in pairs(deck) do
             if deck[k].row == row then
                 deck[k].number = deck[k].number - 1
@@ -300,8 +328,8 @@ function GameState:update(dt)
             else
                 if self.P2length > 42 then
                     for i=0,5 do
-                        if not P2deck[36+i] and P2deckCards(self.Nextcards[i]) then
-                            P2deck[36+i] = Card(P2deckCards(self.Nextcards[i]),2,36+i,12)
+                        if not P2deck[36+self.currentRows[i]] and P2deckCards(self.Nextcards[i]) ~= nil then
+                            P2deck[36+self.currentRows[i]] = Card(P2deckCards(self.Nextcards[i]),2,36+self.currentRows[i],12)
                             self.Nextcards[i] = self.Nextcards[i] + 6
                         end
                     end
