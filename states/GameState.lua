@@ -298,7 +298,7 @@ function GameState:update(dt)
                 end
 
             else
-                if self.P2length > self.timer * 6 then
+                if self.P2length > 42 then
                     for i=0,5 do
                         if not P2deck[36+i] and P2deckCards(self.Nextcards[i]) then
                             P2deck[36+i] = Card(P2deckCards(self.Nextcards[i]),2,36+i,12)
