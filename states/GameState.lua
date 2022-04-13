@@ -177,41 +177,43 @@ function GameState:Move2(deck)
 end
 
 function GameState:MoveDown(deck,row)
-    if self.rows[row] then
-        if deck == P2deck then
-            self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] + 1
+    if deck == P1deck then
+        if not self.P1rows[row] then return end
+    else
+        if not self.P2rows[row] then return end
+        self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] + 1
 
-            self.initialRows[row+1] = self.initialRows[row]
-            self.initialRows[row] = nil
-        end
-        for k, pair in pairs(deck) do
-            if deck[k].row == row then
-                deck[k].number = deck[k].number + 1
-                deck[k].targetY = deck[k].targetY + 180
-                deck[k].row = row + 1
-                deck[k+1] = deck[k]
-                deck[k] = nil
-            end
+        self.initialRows[row+1] = self.initialRows[row]
+        self.initialRows[row] = nil
+    end
+    for k, pair in pairs(deck) do
+        if deck[k].row == row then
+            deck[k].number = deck[k].number + 1
+            deck[k].targetY = deck[k].targetY + 180
+            deck[k].row = row + 1
+            deck[k+1] = deck[k]
+            deck[k] = nil
         end
     end
 end
 
 function GameState:MoveUp(deck,row)
-    if self.rows[row] then
-        if deck == P2deck then
-            self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] - 1
+    if deck == P1deck then
+        if not self.P1rows[row] then return end
+    else
+        if not self.P2rows[row] then return end
+        self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] - 1
 
-            self.initialRows[row-1] = self.initialRows[row]
-            self.initialRows[row] = nil
-        end        
-        for k, pair in pairs(deck) do
-            if deck[k].row == row then
-                deck[k].number = deck[k].number - 1
-                deck[k].targetY = deck[k].targetY - 180
-                deck[k].row = row - 1
-                deck[k-1] = deck[k]
-                deck[k] = nil
-            end
+        self.initialRows[row-1] = self.initialRows[row]
+        self.initialRows[row] = nil
+    end 
+    for k, pair in pairs(deck) do
+        if deck[k].row == row then
+            deck[k].number = deck[k].number - 1
+            deck[k].targetY = deck[k].targetY - 180
+            deck[k].row = row - 1
+            deck[k-1] = deck[k]
+            deck[k] = nil
         end
     end
 end
