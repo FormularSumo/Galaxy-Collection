@@ -251,7 +251,7 @@ function DeckeditState:keypressed(key)
                         elseif k == 28 then
                             repositionMouse(gui['RemoveCard'])
                         elseif k == 29 then
-                            repositionMouse(22)
+                            repositionMouse(23)
                         elseif k == 23 then
                             repositionMouse(22)
                         elseif k == 22 then
