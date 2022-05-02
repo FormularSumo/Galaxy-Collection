@@ -80,11 +80,6 @@ Characters = {
     ['evade'] = 0.20,
     ['range'] = 5,
     ['projectile1'] = 'Force Drain',
-    ['projectile3'] = 'Lightning',
-    ['projectile4'] = 'Lightning',
-    ['projectile5'] = 'Red Force Blast',
-    ['projectile6'] = 'Red Force Blast',
-    ['projectileCount'] = 6,
     ['weapon1'] = 'Lightning'
 },
 
@@ -1381,11 +1376,8 @@ Characters = {
     ['rangedOffense'] = 20150,
     ['defense'] = 20000,
     ['evade'] = 0.06,
-    ['range'] = 3,
-    ['range2'] = 2,
+    ['range'] = 2,
     ['projectile1'] = 'Purple Lightning',
-    ['projectile2'] = 'Red Force Blast',
-    ['projectileCount'] = 2,
     ['weapon1'] = 'Red Lightsaber'
 },
 
@@ -1395,10 +1387,7 @@ Characters = {
     ['defense'] = 18132,
     ['evade'] = 0.06,
     ['range'] = 3,
-    ['range2'] = 2,
     ['projectile1'] = 'Lightning',
-    ['projectile2'] = 'Red Force Blast',
-    ['projectileCount'] = 2,
     ['weapon1'] = 'Red Lightsaber',
     ['weaponCount'] = 2
 },
@@ -1695,10 +1684,7 @@ Characters = {
     ['defense'] = 18340,
     ['evade'] = 0.06,
     ['range'] = 3,
-    ['range3'] = 2,
     ['projectile1'] = 'Lightning',
-    ['projectile3'] = 'Red Force Blast',
-    ['projectileCount'] = 3,
     ['weapon1'] = 'Lightning'
 },
 
@@ -1757,7 +1743,6 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['projectileCount'] = 2,
     ['weapon1'] = 'Double Blue Lightsaber'
 },
 
@@ -1885,8 +1870,7 @@ Characters = {
     ['defense'] = 20130,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile1'] = 'Blue Force Blast',
-    ['projectileCount'] = 2
+    ['projectile1'] = 'Blue Force Blast'
 },
 
 ['Freedon Nadd'] = {
@@ -2602,7 +2586,6 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
-    ['projectileCount'] = 2,
     ['weapon1'] = 'Purple Lightsaber'
 },
 
@@ -4051,12 +4034,7 @@ Characters = {
     ['defense'] = 19256,
     ['evade'] = 0,
     ['range'] = 5,
-    ['range5'] = 2,
-    ['range6'] = 2,
     ['projectile1'] = 'Lightning',
-    ['projectile5'] = 'Force Drain',
-    ['projectile6'] = 'Force Drain',
-    ['projectileCount'] = 6,
     ['weapon1'] = 'Lightning'
 },
 
@@ -4300,8 +4278,7 @@ Characters = {
     ['defense'] = 20250,
     ['evade'] = 0.15,
     ['range'] = 5,
-    ['projectile1'] = 'Blue Force Blast',
-    ['projectileCount'] = 2
+    ['projectile1'] = 'Blue Force Blast'
 },
 
 ['The Disciple'] = {
@@ -4319,8 +4296,7 @@ Characters = {
     ['defense'] = 20696,
     ['evade'] = 0.05,
     ['range'] = 3,
-    ['projectile1'] = 'Blue Force Blast',
-    ['projectileCount'] = 2
+    ['projectile1'] = 'Blue Force Blast'
 },
 
 ['The Handmaiden'] = {
@@ -4356,9 +4332,6 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Lightning',
-    ['projectile2'] = 'Red Force Blast',
-    ['projectile3'] = 'Force Drain',
-    ['projectileCount'] = 3,
     ['weapon1'] = 'Dagger of Mortis'
 },
 
@@ -4444,7 +4417,6 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
-    ['projectileCount'] = 2,
     ['weapon1'] = 'Orange Lightsaber'
 },
 
@@ -4608,10 +4580,7 @@ Characters = {
     ['defense'] = 18900,
     ['evade'] = 0.05,
     ['range'] = 5,
-    ['projectile1'] = 'Force Drain',
-    ['projectile3'] = 'Red Force Blast',
-    ['projectile4'] = 'Purple Lightning',
-    ['projectileCount'] = 4,
+    ['projectile1'] = 'Purple Lightning',
     ['weapon1'] = 'Red Lightsaber'
 },
 
