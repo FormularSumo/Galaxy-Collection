@@ -136,42 +136,58 @@ function GameState:RowsRemaining(deck)
 end
 
 function GameState:Move2(deck)
+    self.movements = {
+        [0] = nil,
+        [1] = nil,
+        [2] = nil,
+        [3] = nil,
+        [4] = nil,
+        [5] = nil,
+    }
     if self.rows[0] == false and self.rows[1] == false and self.rows[5] == true then
-        self:MoveUp(deck,2)
-        self:MoveUp(deck,3)
-        self:MoveUp(deck,4)
-        self:MoveUp(deck,5)
+        self.movements[2] = 'up'
+        self.movements[3] = 'up'
+        self.movements[4] = 'up'
+        self.movements[5] = 'up'
     elseif self.rows[4] == false and self.rows[5] == false and self.rows[0] == true then
-        self:MoveDown(deck,3)
-        self:MoveDown(deck,2)
-        self:MoveDown(deck,1)
-        self:MoveDown(deck,0)
+        self.movements[3] = 'down'
+        self.movements[2] = 'down'
+        self.movements[1] = 'down'
+        self.movements[0] = 'down'
     else
         if self.rows[2] == false then
             if (self.rows[0] == false and self.rows[5] == true) or (self.rows[1] == false and self.rows[4] == true) or ((self.rowsRemaining == 1 and self.enemyRows[2]) and (self.rows[5] or not self.rows[0] and self.rows[4])) then
-                self:MoveUp(deck,3)
-                self:MoveUp(deck,4)
-                self:MoveUp(deck,5)
-                return
+                self.movements[3] = 'up'
+                self.movements[4] = 'up'
+                self.movements[5] = 'up'
             else
-                self:MoveDown(deck,1)
-                self:MoveDown(deck,0)
+                self.movements[1] = 'down'
+                self.movements[0] = 'down'
             end
-        elseif self.rows[1] == false then 
-            self:MoveDown(deck,0)
+        end
+        if self.rows[1] == false then 
+            self.movements[0] = 'down'
         end
         if self.rows[3] == false then
-            if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and self.enemyRows[3])  then
-                self:MoveDown(deck,2)
-                self:MoveDown(deck,1)
-                self:MoveDown(deck,0)
-                return
+            if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and self.enemyRows[3]) then
+                self.movements[2] = 'down'
+                self.movements[1] = 'down'
+                self.movements[0] = 'down'
             else
-                self:MoveUp(deck,4)
-                self:MoveUp(deck,5)
+                self.movements[4] = 'up'
+                self.movements[5] = 'up'
             end
-        elseif self.rows[4] == false then
-            self:MoveUp(deck,5)
+        end
+        if self.rows[4] == false then
+            self.movements[5] = 'up'
+        end
+    end
+
+    for k, pair in pairs(self.movements) do
+        if pair == 'up' then
+            self:MoveUp(deck,k)
+        elseif pair == 'down' then
+            self:MoveDown(deck,k)
         end
     end
 end
