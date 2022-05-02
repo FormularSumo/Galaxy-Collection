@@ -136,100 +136,98 @@ function GameState:RowsRemaining(deck)
 end
 
 function GameState:Move2(deck)
-    self.movements = {
-        [0] = nil,
-        [1] = nil,
-        [2] = nil,
-        [3] = nil,
-        [4] = nil,
-        [5] = nil,
+    self.rowsMoved = {
+        [0] = false,
+        [1] = false,
+        [2] = false,
+        [3] = false,
+        [4] = false,
+        [5] = false,
     }
     if self.rows[0] == false and self.rows[1] == false and self.rows[5] == true then
-        self.movements[2] = 'up'
-        self.movements[3] = 'up'
-        self.movements[4] = 'up'
-        self.movements[5] = 'up'
+        self:MoveUp(deck,2)
+        self:MoveUp(deck,3)
+        self:MoveUp(deck,4)
+        self:MoveUp(deck,5)
     elseif self.rows[4] == false and self.rows[5] == false and self.rows[0] == true then
-        self.movements[3] = 'down'
-        self.movements[2] = 'down'
-        self.movements[1] = 'down'
-        self.movements[0] = 'down'
+        self:MoveDown(deck,3)
+        self:MoveDown(deck,2)
+        self:MoveDown(deck,1)
+        self:MoveDown(deck,0)
     else
         if self.rows[2] == false then
             if (self.rows[0] == false and self.rows[5] == true) or (self.rows[1] == false and self.rows[4] == true) or ((self.rowsRemaining == 1 and self.enemyRows[2]) and (self.rows[5] or not self.rows[0] and self.rows[4])) then
-                self.movements[3] = 'up'
-                self.movements[4] = 'up'
-                self.movements[5] = 'up'
+                self:MoveUp(deck,3)
+                self:MoveUp(deck,4)
+                self:MoveUp(deck,5)
             else
-                self.movements[1] = 'down'
-                self.movements[0] = 'down'
+                self:MoveDown(deck,1)
+                self:MoveDown(deck,0)
             end
         end
         if self.rows[1] == false then 
-            self.movements[0] = 'down'
+            self:MoveDown(deck,0)
         end
         if self.rows[3] == false then
-            if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and self.enemyRows[3]) then
-                self.movements[2] = 'down'
-                self.movements[1] = 'down'
-                self.movements[0] = 'down'
+            if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and self.enemyRows[3])  then
+                self:MoveDown(deck,2)
+                self:MoveDown(deck,1)
+                self:MoveDown(deck,0)
             else
-                self.movements[4] = 'up'
-                self.movements[5] = 'up'
+                self:MoveUp(deck,4)
+                self:MoveUp(deck,5)
             end
         end
         if self.rows[4] == false then
-            self.movements[5] = 'up'
-        end
-    end
-
-    for k, pair in pairs(self.movements) do
-        if pair == 'up' then
-            self:MoveUp(deck,k)
-        elseif pair == 'down' then
-            self:MoveDown(deck,k)
+            self:MoveUp(deck,5)
         end
     end
 end
 
 function GameState:MoveDown(deck,row)
-    if deck == P1deck then
-        if not self.P1rows[row] then return end
-    else
-        if not self.P2rows[row] then return end
-        self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] + 1
+    if not self.rowsMoved[row] then
+        self.rowsMoved[row] = true
+        if deck == P1deck then
+            if not self.P1rows[row] then return end
+        else
+            if not self.P2rows[row] then return end
+            self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] + 1
 
-        self.initialRows[row+1] = self.initialRows[row]
-        self.initialRows[row] = nil
-    end
-    for k, pair in pairs(deck) do
-        if deck[k].row == row then
-            deck[k].number = deck[k].number + 1
-            deck[k].targetY = deck[k].targetY + 180
-            deck[k].row = row + 1
-            deck[k+1] = deck[k]
-            deck[k] = nil
+            self.initialRows[row+1] = self.initialRows[row]
+            self.initialRows[row] = nil
+        end
+        for k, pair in pairs(deck) do
+            if deck[k].row == row then
+                deck[k].number = deck[k].number + 1
+                deck[k].targetY = deck[k].targetY + 180
+                deck[k].row = row + 1
+                deck[k+1] = deck[k]
+                deck[k] = nil
+            end
         end
     end
 end
 
 function GameState:MoveUp(deck,row)
-    if deck == P1deck then
-        if not self.P1rows[row] then return end
-    else
-        if not self.P2rows[row] then return end
-        self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] - 1
+    if not self.rowsMoved[row] then
+        self.rowsMoved[row] = true
+        if deck == P1deck then
+            if not self.P1rows[row] then return end
+        else
+            if not self.P2rows[row] then return end
+            self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] - 1
 
-        self.initialRows[row-1] = self.initialRows[row]
-        self.initialRows[row] = nil
-    end 
-    for k, pair in pairs(deck) do
-        if deck[k].row == row then
-            deck[k].number = deck[k].number - 1
-            deck[k].targetY = deck[k].targetY - 180
-            deck[k].row = row - 1
-            deck[k-1] = deck[k]
-            deck[k] = nil
+            self.initialRows[row-1] = self.initialRows[row]
+            self.initialRows[row] = nil
+        end 
+        for k, pair in pairs(deck) do
+            if deck[k].row == row then
+                deck[k].number = deck[k].number - 1
+                deck[k].targetY = deck[k].targetY - 180
+                deck[k].row = row - 1
+                deck[k-1] = deck[k]
+                deck[k] = nil
+            end
         end
     end
 end
