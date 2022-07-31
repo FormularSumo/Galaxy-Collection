@@ -34,16 +34,16 @@ function Card:init(card,team,number,column)
     self.range = self.stats['range']
     self.meleeOffenseStat = (self.meleeOffense/800)^4/2
     self.rangedOffenseStat = (self.rangedOffense/800)^4
+
     if self.stats['projectile1'] then
         self.projectile = Projectile(self.stats, self.team, self.width, self.height)
         self.rangedOffenseStat = self.rangedOffenseStat * self.projectile.projectileCount
     end
-
     if self.stats['weapon1'] then
         self.weapon = Weapon(self.stats, self.team, self.width, self.height, self)
     end
 
-    self.meleeProjectile = (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain') and self.weapon == nil
+    self.meleeProjectile = self.weapon == nil and (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain')
 
     self.possibleTargets = {}
     self.targets = {}
