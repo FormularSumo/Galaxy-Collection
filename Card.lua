@@ -34,16 +34,18 @@ function Card:init(card,team,number,column)
     self.range = self.stats['range']
     self.meleeOffenseStat = (self.meleeOffense/800)^4/2
     self.rangedOffenseStat = (self.rangedOffense/800)^4
+
     if self.stats['projectile1'] then
         self.projectile = Projectile(self.stats, self.team, self.width, self.height)
-        self.rangedOffenseStat = self.rangedOffenseStat * self.projectile.projectileCount
+        if self.projectile.projectileCount > 1 then
+            self.rangedOffense = self.rangedOffense / (self.projectile.projectileCount^0.2)
+        end
     end
-
     if self.stats['weapon1'] then
         self.weapon = Weapon(self.stats, self.team, self.width, self.height, self)
     end
 
-    self.meleeProjectile = (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain') and self.weapon == nil
+    self.meleeProjectile = self.weapon == nil and (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain')
 
     self.possibleTargets = {}
     self.targets = {}
@@ -175,10 +177,15 @@ function Card:attack2(target)
     self.enemyDeck[target].attacksTaken = self.enemyDeck[target].attacksTaken + 1
     if self.attackRoll > self.enemyDeck[target].evade then
         if self.meleeAttack then self.offense = self.meleeOffense else self.offense = self.rangedOffense end
-        self.damage = ((self.offense - self.enemyDeck[target].defense) / 800)
-        if self.damage < 0 then self.damage = 0 end
-        self.damage = (self.damage ^ 3)
+        if self.offense < self.enemyDeck[target].defense then
+            self.damage = 0
+        else
+            self.damage = ((self.offense - self.enemyDeck[target].defense) / 800) ^ 3
+        end
         self.defenceDown = (self.offense / 100) * (self.offense / self.enemyDeck[target].defense) ^ 3
+        if self.projectile and self.projectile.projectileCount > 1 then
+            self.defenceDown = self.defenceDown / (self.projectile.projectileCount^0.2)
+        end
         if target ~= self.number and self.range == 1 then 
             self.damage = self.damage / 2 
             self.defenceDown = self.defenceDown / 2 
