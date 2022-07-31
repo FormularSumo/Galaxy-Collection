@@ -175,9 +175,11 @@ function Card:attack2(target)
     self.enemyDeck[target].attacksTaken = self.enemyDeck[target].attacksTaken + 1
     if self.attackRoll > self.enemyDeck[target].evade then
         if self.meleeAttack then self.offense = self.meleeOffense else self.offense = self.rangedOffense end
-        self.damage = ((self.offense - self.enemyDeck[target].defense) / 800)
-        if self.damage < 0 then self.damage = 0 end
-        self.damage = (self.damage ^ 3)
+        if self.offense < self.enemyDeck[target].defense then
+            self.damage = 0
+        else
+            self.damage = ((self.offense - self.enemyDeck[target].defense) / 800) ^ 3
+        end
         self.defenceDown = (self.offense / 100) * (self.offense / self.enemyDeck[target].defense) ^ 3
         if target ~= self.number and self.range == 1 then 
             self.damage = self.damage / 2 
