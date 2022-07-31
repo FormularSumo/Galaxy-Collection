@@ -24,7 +24,9 @@ Characters = {
     ['defense'] = 6921,
     ['evade'] = 0.01,
     ['range'] = 3,
-    ['projectile1'] = 'Blue Laser'
+    ['projectile1'] = 'Blue Laser',
+    ['projectile2'] = 'Thermal Detonator',
+    ['projectileCount'] = 2
 },
 
 ['212th Clone Trooper'] = {
@@ -1805,6 +1807,9 @@ Characters = {
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
+    ['projectile2'] = 'Blue Force Blast',
+    ['projectile3'] = 'Yellow Lightning',
+    ['projectileCount'] = 3,
     ['weapon1'] = 'Blue Lightsaber'
 },
 
@@ -1946,6 +1951,7 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
+    ['projectileCount'] = 2,
     ['weapon1'] = 'Lightning'
 },
 
@@ -2814,6 +2820,8 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Purple Laser',
+    ['projectile1'] = 'Fire',
+    ['projectileCount'] = 2,
     ['weapon1'] = 'Sword',
     ['weaponCount'] = 2
 },
@@ -3335,7 +3343,9 @@ Characters = {
     ['defense'] = 9412,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['projectile1'] = 'Purple Laser'
+    ['projectile1'] = 'Purple Laser',
+    ['projectile2'] = 'Fire',
+    ['projectileCount'] = 2
 },
 
 ['Nightbrother Warrior'] = {
@@ -3361,7 +3371,8 @@ Characters = {
     ['defense'] = 9464,
     ['evade'] = 0.25,
     ['range'] = 3,
-    ['projectile1'] = 'Fire'
+    ['projectile1'] = 'Fire',
+    ['projectileCount'] = 2
 },
 
 ['Nightsister Zombie'] = {
@@ -4254,7 +4265,8 @@ Characters = {
     ['defense'] = 9788,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile1'] = 'Red Laser'
+    ['projectile1'] = 'Red Laser',
+    ['projectileCount'] = 2
 },
 
 ['Tactical Droid'] = {
