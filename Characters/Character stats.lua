@@ -3279,7 +3279,8 @@ Characters = {
     ['defense'] = 15011,
     ['evade'] = 0.04,
     ['range'] = 2,
-    ['projectile1'] = 'Red Laser'
+    ['projectile1'] = 'Red Laser',
+    ['projectileCount'] = 2
 },
 
 ['Mission Vao'] = {
