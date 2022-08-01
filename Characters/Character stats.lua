@@ -2337,7 +2337,7 @@ Characters = {
     ['rangedOffense'] = 9012,
     ['defense'] = 9323,
     ['evade'] = 0.03,
-    ['range'] = 3,
+    ['range'] = 4,
     ['projectile1'] = 'Red Laser'
 },
 
