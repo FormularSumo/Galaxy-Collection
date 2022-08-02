@@ -271,7 +271,6 @@ function love.gamepadpressed(joystick,button)
     lastClickIsTouch = false
 end
 
-
 function love.gamepadreleased(joystick,button)
     local key = controllerBinds(button)
     love.keyreleased(key)
