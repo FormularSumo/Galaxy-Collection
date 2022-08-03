@@ -152,7 +152,7 @@ function CardEditor:render()
     end
     love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
     if self.name ~= 'Blank' then
-        if self.evolution== 4 then
+        if self.evolution == 4 then
             love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
         elseif self.evolution> 0 then
             love.graphics.draw(evolution,self.x+115-11,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)

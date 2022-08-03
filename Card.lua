@@ -226,7 +226,7 @@ end
 
 function Card:render()
     love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-    if self.evolution== 4 then
+    if self.evolution == 4 then
         love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3)
     elseif self.evolution> 0 then
         love.graphics.draw(evolution,self.x+115-11,self.y+3,math.rad(90))
