@@ -199,13 +199,15 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck)
 
     self.cardDisplayed = love.graphics.newImage(imageName .. '.jpg')
     self.evolution = evolution
+    self.modifier = ((level + (60 - level) / 1.7) / 60) * (1 - ((4 - evolution) * 0.1))
     self.y = 80
 
-    self:createStat(Characters[name]['meleeOffense'],'Melee Offense')
+    self:createStat(level,'Level')
+    self:createStat(math.floor(Characters[name]['meleeOffense'] * self.modifier),'Melee Offense')
     if Characters[name].range > 1 then
-        self:createStat(Characters[name]['rangedOffense'],'Ranged Offense')
+        self:createStat(math.floor(Characters[name]['rangedOffense'] * self.modifier),'Ranged Offense')
     end
-    self:createStat(Characters[name]['defense'],'Defense')
+    self:createStat(math.floor(Characters[name]['defense'] * self.modifier),'Defense')
     self:createStat(Characters[name]['evade'],'Evade')
     self:createStat(Characters[name]['range'],'Range')
 
