@@ -10,15 +10,15 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck)
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
-            self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
+            self.imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
         else
-            self.image = 'Characters/' .. self.name .. '/' .. self.name .. '.png'
+            self.imageName = 'Characters/' .. self.name .. '/' .. self.name
         end
-        if cards[self.image] then
-            self.image = cards[self.image]
+        if cards[self.imageName] then
+            self.image = cards[self.imageName]
         else
-            cards[self.image] = love.graphics.newImage(self.image)
-            self.image = cards[self.image]
+            cards[self.imageName] = love.graphics.newImage(self.imageName .. '.png')
+            self.image = cards[self.imageName]
         end
         self.level = level or 1
         self.evolution = evolution or 0
@@ -85,6 +85,8 @@ function CardEditor:update()
                         self.y = mouseLastY - self.clickedPositionY
                     end
                 end
+            elseif math.abs(mouseLastX - mousePressedX) < 10 and math.abs(mouseLastY - mousePressedY) < 10 and love.timer.getTime() - mousePressedTime < 0.15 and self.name ~= 'Blank'then
+                gStateMachine.current:stats(self.name,self.imageName,self.level,self.evolution,self.inDeck)
             else
                 self:swap()
             end
@@ -102,6 +104,11 @@ function CardEditor:update()
             mouseTrapped2 = false
         end
     else
+        if mouseDown and mousePressedX > self.x and mousePressedX < self.x + self.width and mousePressedY > self.y and mousePressedY < self.y + self.height and love.timer.getTime() - mousePressedTime > 0.3 and self.name ~= 'Blank' then
+            gStateMachine.current:stats(self.name,self.imageName,self.level,self.evolution,self.inDeck)
+            mouseDown = false
+            mouseLocked = false
+        end
         if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height and love.mouse.buttonsReleased[1] then
             if mouseTrapped == false and self.name ~= 'Blank' then
                 mouseTrapped = self

@@ -12,6 +12,7 @@ function DeckeditState:init()
     blankCard = love.graphics.newImage('Graphics/Blank Card.png')
     self.page = 0
     self.cardsOnDisplayAreBlank = false
+    self.subState = 'deck'
 
     self:reloadDeckeditor()
 
@@ -189,8 +190,94 @@ function DeckeditState:updateGui()
     collectgarbage()
 end
 
+function DeckeditState:stats(name,imageName,level,evolution,inDeck)
+    self.subState = 'info'
+    self.gui = gui
+    gui = {}
+
+    gui[1] = Button(function() gStateMachine:back() end,nil,font80,'X',1800,120)
+    gui['cardDisplayed'] = Button(nil,nil,nil,imageName .. '.jpg',390,540)
+    self.y = 80
+
+    self:createStat(Characters[name]['meleeOffense'],'Melee Offense')
+    if Characters[name].range > 1 then
+        self:createStat(Characters[name]['rangedOffense'],'Ranged Offense')
+    end
+    self:createStat(Characters[name]['defense'],'Defense')
+    self:createStat(Characters[name]['evade'],'Evade')
+    self:createStat(Characters[name]['range'],'Range')
+
+    if Characters[name].weaponCount then
+        self.weapons = {}
+        self.weapons[Characters[name]['weapon1']] = 1
+        for i=2,Characters[name]['weaponCount'] do
+            if Characters[name]['weapon'..tostring(i)] then
+                if self.weapons[Characters[name]['weapon'..tostring(i)]] then
+                    self.weapons[Characters[name]['weapon'..tostring(i)]] = self.weapons[Characters[name]['weapon'..tostring(i)]] + 1
+                else
+                    self.weapons[Characters[name]['weapon'..tostring(i)]] = 1
+                end
+            else
+                self.weapons[Characters[name]['weapon1']] = self.weapons[Characters[name]['weapon1']] + 1
+            end
+        end
+        self:createStat(nil,'weapons:')
+        for k, pair in pairs(self.weapons) do
+            self:createStat(k,pair .. 'x','weapon' .. k)
+        end
+    elseif Characters[name]['weapon1'] then
+        self:createStat(Characters[name]['weapon1'],'weapon')
+    end
+
+    if Characters[name].projectileCount then
+        self.projectiles = {}
+        self.projectiles[Characters[name]['projectile1']] = 1
+        for i=2,Characters[name]['projectileCount'] do
+            if Characters[name]['projectile'..tostring(i)] then
+                if self.projectiles[Characters[name]['projectile'..tostring(i)]] then
+                    self.projectiles[Characters[name]['projectile'..tostring(i)]] = self.projectiles[Characters[name]['projectile'..tostring(i)]] + 1
+                else
+                    self.projectiles[Characters[name]['projectile'..tostring(i)]] = 1
+                end
+            else
+                self.projectiles[Characters[name]['projectile1']] = self.projectiles[Characters[name]['projectile1']] + 1
+            end
+        end
+        self:createStat(nil,'Projectiles:')
+        for k, pair in pairs(self.projectiles) do
+            self:createStat(k,pair .. 'x','projectile' .. k)
+        end
+    elseif Characters[name]['projectile1'] then
+        self:createStat(Characters[name]['projectile1'],'Projectile')
+    end
+end
+
+function DeckeditState:createStat(stat, displayName, name)
+    if name == nil then name = displayName end
+    self.y = self.y + 80
+    if stat then
+        gui[name] = Text(displayName .. ': ' .. stat,font60SW,'centre',self.y)
+    else
+        gui[name] = Text(displayName,font60SW,'centre',self.y)
+    end
+    gui[name].x = gui[name].x + 350
+end
+
+function DeckeditState:exitStats()
+    self.subState = 'deck'
+    for k, pair in pairs(gui) do
+        gui[k] = nil
+    end
+    gui = self.gui
+    collectgarbage()
+end
+
 function DeckeditState:back()
-    gStateMachine:change('HomeState','music','music')
+    if self.subState == 'deck' then
+        gStateMachine:change('HomeState','music','music')
+    else
+        self:exitStats()
+    end
 end
 
 function DeckeditState:keypressed(key)
@@ -295,6 +382,18 @@ function DeckeditState:update()
         if love.keyboard.wasDown('dpleft') and lastPressed == 'dpleft' then
             gui[22].scaling = 1.05
         end
+    end
+end
+
+function DeckeditState:renderBackground()
+    if self.subState == 'info' then
+        love.graphics.setColor(0,0,0,0.4)
+        love.graphics.rectangle('fill',50,50,1820,980,20)
+        love.graphics.setColor(1,1,1,0.3)
+        love.graphics.rectangle('line',50,50,1820,980,20)
+        love.graphics.rectangle('line',51,51,1819,979,20)
+        love.graphics.rectangle('line',52,52,1818,978,20)
+        love.graphics.setColor(1,1,1,1)
     end
 end
 

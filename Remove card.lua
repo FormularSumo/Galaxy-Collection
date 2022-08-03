@@ -29,7 +29,7 @@ function RemoveCard:swap()
 end
 
 function RemoveCard:update()
-    if mouseTrapped and mouseTrapped.inDeck then
+    if mouseTrapped and mouseTrapped.inDeck and ((math.abs(mouseLastX - mousePressedX) > 10 or math.abs(mouseLastY - mousePressedY) > 10) or not love.mouse.isVisible())then
         self.visible = true
         if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
             self.scaling = 1.04

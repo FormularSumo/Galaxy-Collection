@@ -43,7 +43,7 @@ function love.load()
     font50 = love.graphics.newFont(50)
     font60 = love.graphics.newFont(60)
     font80 = love.graphics.newFont(80)
-    -- font80SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',80)
+    font60SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',60)
     -- font80SWrunes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
     font100 = love.graphics.newFont(100)
     love.graphics.setFont(font80)
@@ -71,6 +71,8 @@ function love.load()
     mouseTrapped2 = false
     mouseLastX = 0
     mouseLastY = 0
+    mousePressedX = 0
+    mousePressedY = 0
     mouseX = 0
     mouseY = 0
     mouseButtonX = 0
@@ -177,8 +179,7 @@ function love.keypressed(key,scancode,isrepeat)
         keyHoldTimer = 0
 
         if key == 'return' or key == 'kpenter' then
-            love.mouse.buttonsPressed[1] = true
-            mouseDown = true
+            love.mousepressed(love.mouse.getPosition(),1,false)
 
         --F11 toggles between fullscreen and maximised
         elseif key == 'f11' then
@@ -256,6 +257,8 @@ end
 function love.mousepressed(x,y,button,istouch)
     love.mouse.buttonsPressed[button] = true
     mouseDown = true
+    mousePressedX, mousePressedY = push.toGame(love.mouse.getPosition())
+    mousePressedTime = love.timer.getTime()
 end
 
 function love.mousereleased(x,y,button,istouch)

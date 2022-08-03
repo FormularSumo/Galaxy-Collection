@@ -17,7 +17,11 @@ function Button:init(func,text,font,bgImage,x,y,r,g,b,scroll,visible,held)
     self.hasPicture = not(bgImage == nil)
 
     if self.hasPicture == true then
-        self.bgImage = love.graphics.newImage('Buttons/' .. bgImage .. '.png')
+        if love.filesystem.getInfo(bgImage) then
+            self.bgImage = love.graphics.newImage(bgImage)
+        else
+            self.bgImage = love.graphics.newImage('Buttons/' .. bgImage .. '.png')
+        end
         self.imageWidth,self.imageHeight = self.bgImage:getDimensions()
         if self.centreX == 'centre' then
             self.imageX = VIRTUALWIDTH / 2 - self.imageWidth / 2
@@ -94,7 +98,7 @@ function Button:toggle()
 end
 
 function Button:update(dt)
-    if self.visible then
+    if self.visible and self.func then
         if mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
             mouseTouching = self
             if mouseLastX > self.x and mouseLastX < self.x + self.width and mouseLastY > self.y and mouseLastY < self.y + self.height then
