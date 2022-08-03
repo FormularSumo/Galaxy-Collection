@@ -155,11 +155,11 @@ function CardEditor:render()
         if self.evolution== 4 then
             love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
         elseif self.evolution> 0 then
-            love.graphics.draw(Evolution,self.x+5,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
+            love.graphics.draw(evolution,self.x+5,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
             if self.evolution> 1 then
-                love.graphics.draw(Evolution,self.x+6+Evolution:getHeight(),self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
+                love.graphics.draw(evolution,self.x+6+evolution:getHeight(),self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
                 if self.evolution> 2 then
-                    love.graphics.draw(Evolution,self.x+7+Evolution:getHeight()*2,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
+                    love.graphics.draw(evolution,self.x+7+evolution:getHeight()*2,self.y+2,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(-1+self.scaling)/2*-self.height*0.6)
                 end
             end
         end
