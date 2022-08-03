@@ -1,19 +1,20 @@
 DeckeditState = Class{__includes = BaseState}
 
 function DeckeditState:init()
+    evolution = love.graphics.newImage('Graphics/Evolution.png')
+    evolutionBig = love.graphics.newImage('Graphics/Evolution Big.png')
+    evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
+    evolutionMaxBig = love.graphics.newImage('Graphics/Evolution Max Big.png')
+    blankCard = love.graphics.newImage('Graphics/Blank Card.png')
+
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     cards = {}
     self:sortInventory(false)
-
     self.cardsOnDisplay = {}
-    evolution = love.graphics.newImage('Graphics/Evolution.png')
-    evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
-    blankCard = love.graphics.newImage('Graphics/Blank Card.png')
     self.page = 0
     self.cardsOnDisplayAreBlank = false
     self.subState = 'deck'
-
     self:reloadDeckeditor()
 
     background['Name'] = 'Death Star Control Room'
@@ -194,9 +195,10 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck)
     self.subState = 'info'
     self.gui = gui
     gui = {}
-
     gui[1] = Button(function() gStateMachine:back() end,nil,font80,'X',1800,120)
-    gui['cardDisplayed'] = Button(nil,nil,nil,imageName .. '.jpg',390,540)
+
+    self.cardDisplayed = love.graphics.newImage(imageName .. '.jpg')
+    self.evolution = evolution
     self.y = 80
 
     self:createStat(Characters[name]['meleeOffense'],'Melee Offense')
@@ -394,6 +396,18 @@ function DeckeditState:renderBackground()
         love.graphics.rectangle('line',51,51,1819,979,20)
         love.graphics.rectangle('line',52,52,1818,978,20)
         love.graphics.setColor(1,1,1,1)
+        love.graphics.draw(self.cardDisplayed,90,90)
+        if self.evolution == 4 then
+            love.graphics.draw(evolutionMaxBig,690-evolutionMaxBig:getWidth()-12,90+12)
+        elseif self.evolution > 0 then
+            love.graphics.draw(evolutionBig,690-evolutionBig:getHeight()-4,90+12,math.rad(90))
+            if self.evolution > 1 then
+                love.graphics.draw(evolutionBig,690-evolutionBig:getHeight()*2-7,90+12,math.rad(90))
+                if self.evolution > 2 then
+                    love.graphics.draw(evolutionBig,690-evolutionBig:getHeight()*3-10,90+12,math.rad(90))
+                end
+            end
+        end
     end
 end
 
@@ -401,7 +415,9 @@ function DeckeditState:exit()
     P1deck = nil
     P1cards = nil
     cards = nil
-    evolution= nil
+    evolution = nil
+    evolutionBig = nil
     evolutionMax = nil
+    evolutionBigMax = nil
     blankCard = nil
 end

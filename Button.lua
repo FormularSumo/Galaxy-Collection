@@ -17,10 +17,14 @@ function Button:init(func,text,font,bgImage,x,y,r,g,b,scroll,visible,held)
     self.hasPicture = not(bgImage == nil)
 
     if self.hasPicture == true then
-        if love.filesystem.getInfo(bgImage) then
-            self.bgImage = love.graphics.newImage(bgImage)
+        if type(bgImage) == "string" then
+            if love.filesystem.getInfo(bgImage) then
+                self.bgImage = love.graphics.newImage(bgImage)
+            else
+                self.bgImage = love.graphics.newImage('Buttons/' .. bgImage .. '.png')
+            end
         else
-            self.bgImage = love.graphics.newImage('Buttons/' .. bgImage .. '.png')
+            self.bgImage = bgImage
         end
         self.imageWidth,self.imageHeight = self.bgImage:getDimensions()
         if self.centreX == 'centre' then
