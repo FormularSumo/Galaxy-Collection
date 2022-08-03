@@ -229,11 +229,11 @@ function Card:render()
     if self.evolution== 4 then
         love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3)
     elseif self.evolution> 0 then
-        love.graphics.draw(evolution,self.x+5,self.y+2,math.rad(90))
+        love.graphics.draw(evolution,self.x+115-11,self.y+3,math.rad(90))
         if self.evolution> 1 then
-            love.graphics.draw(evolution,self.x+6+evolution:getHeight(),self.y+2,math.rad(90))
+            love.graphics.draw(evolution,self.x+115-10+evolution:getHeight(),self.y+3,math.rad(90))
             if self.evolution> 2 then
-                love.graphics.draw(evolution,self.x+7+evolution:getHeight()*2,self.y+2,math.rad(90))
+                love.graphics.draw(evolution,self.x+115-9+evolution:getHeight()*2,self.y+3,math.rad(90))
             end
         end
     end
