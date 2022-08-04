@@ -200,7 +200,10 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck)
     self.cardDisplayed = love.graphics.newImage(imageName .. '.jpg')
     self.evolution = evolution
     self.modifier = ((level + (60 - level) / 1.7) / 60) * (1 - ((4 - evolution) * 0.1))
-    self.y = 25
+    self.y = 0
+
+    self:createStat(math.floor(characterStrength(name,level,evolution)),'Overall strength')
+    self.y = self.y + 30
 
     self:createStat(level,'Level')
     self:createStat(math.floor(Characters[name]['meleeOffense'] * self.modifier),'Melee Offense')
@@ -210,6 +213,8 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck)
     self:createStat(math.floor(Characters[name]['defense'] * self.modifier),'Defense')
     self:createStat(Characters[name]['evade'],'Evade')
     self:createStat(Characters[name]['range'],'Range')
+
+    self.y = self.y + 45
 
     if Characters[name].weaponCount then
         self.weapons = {}
@@ -225,12 +230,14 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck)
                 self.weapons[Characters[name]['weapon1']] = self.weapons[Characters[name]['weapon1']] + 1
             end
         end
-        self:createStat(nil,'weapons:')
+        self:createStat(nil,'weapons:',nil,font50SW)
         for k, pair in pairs(self.weapons) do
-            self:createStat(k,pair .. 'x','weapon' .. k)
+            self:createStat(k,pair .. 'x','weapon' .. k,font50SW)
         end
+        self.y = self.y + 10
     elseif Characters[name]['weapon1'] then
-        self:createStat(Characters[name]['weapon1'],'weapon')
+        self:createStat(Characters[name]['weapon1'],'weapon',nil,font50SW)
+        self.y = self.y + 10
     end
 
     if Characters[name].projectileCount then
@@ -247,24 +254,25 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck)
                 self.projectiles[Characters[name]['projectile1']] = self.projectiles[Characters[name]['projectile1']] + 1
             end
         end
-        self:createStat(nil,'Projectiles:')
+        self:createStat(nil,'Projectiles:',nil,font50SW)
         for k, pair in pairs(self.projectiles) do
-            self:createStat(k,pair .. 'x','projectile' .. k)
+            self:createStat(k,pair .. 'x','projectile' .. k,font50SW)
         end
     elseif Characters[name]['projectile1'] then
-        self:createStat(Characters[name]['projectile1'],'Projectile')
+        self:createStat(Characters[name]['projectile1'],'Projectile',nil,font50SW)
     end
 end
 
-function DeckeditState:createStat(stat, displayName, name)
+function DeckeditState:createStat(stat, displayName, name, font)
     if name == nil then name = displayName end
-    self.y = self.y + 75
+    if font == nil then font = font60SW self.y = self.y + 70 else self.y = self.y + 65 end
+    
     if stat then
-        gui[name] = Text(displayName .. ': ' .. stat,font60SW,'centre',self.y)
+        gui[name] = Text(displayName .. ': ' .. stat,font,'centre',self.y)
     else
-        gui[name] = Text(displayName,font60SW,'centre',self.y)
+        gui[name] = Text(displayName,font,'centre',self.y)
     end
-    gui[name].x = gui[name].x + 350
+    gui[name].x = gui[name].x + 320
 end
 
 function DeckeditState:exitStats()
@@ -393,10 +401,11 @@ function DeckeditState:renderBackground()
     if self.subState == 'info' then
         love.graphics.setColor(0,0,0,0.4)
         love.graphics.rectangle('fill',50,50,1820,980,20)
-        love.graphics.setColor(1,1,1,0.4)
+        love.graphics.setColor(1,1,1,1)
         love.graphics.rectangle('line',50,50,1820,980,20)
-        love.graphics.rectangle('line',51,51,1819,979,20)
-        love.graphics.rectangle('line',52,52,1818,978,20)
+        love.graphics.rectangle('line',51,51,1818,978,20)
+        love.graphics.rectangle('line',52,52,1816,976,20)
+        love.graphics.rectangle('line',53,53,1814,974,20)
         love.graphics.setColor(1,1,1,1)
         love.graphics.draw(self.cardDisplayed,90,90)
         if self.evolution == 4 then
