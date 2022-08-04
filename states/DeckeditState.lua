@@ -393,7 +393,7 @@ function DeckeditState:renderBackground()
     if self.subState == 'info' then
         love.graphics.setColor(0,0,0,0.4)
         love.graphics.rectangle('fill',50,50,1820,980,20)
-        love.graphics.setColor(1,1,1,0.3)
+        love.graphics.setColor(1,1,1,0.4)
         love.graphics.rectangle('line',50,50,1820,980,20)
         love.graphics.rectangle('line',51,51,1819,979,20)
         love.graphics.rectangle('line',52,52,1818,978,20)
