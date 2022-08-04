@@ -1909,6 +1909,13 @@ Characters = {
     ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
+['Finis Valorum'] = {
+    ['meleeOffense'] = 1610,
+    ['defense'] = 1590,
+    ['evade'] = 0.02,
+    ['range'] = 1,
+},
+
 ['Finn'] = {
     ['meleeOffense'] = 9990,
     ['rangedOffense'] = 9023,
@@ -3588,6 +3595,15 @@ Characters = {
     ['range'] = 1
 },
 
+['O-Mer'] = {
+    ['meleeOffense'] = 8123,
+    ['rangedOffense'] = 10302,
+    ['defense'] = 10201,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile1'] = 'Blue Force Blast'
+},
+
 ['Octuptarra Droid'] = {
     ['meleeOffense'] = 10011,
     ['rangedOffense'] = 16788,
@@ -3626,16 +3642,6 @@ Characters = {
     ['projectile1'] = 'Purple Laser'
 },
 
-
-['O-Mer'] = {
-    ['meleeOffense'] = 8123,
-    ['rangedOffense'] = 10302,
-    ['defense'] = 10201,
-    ['evade'] = 0.06,
-    ['range'] = 2,
-    ['projectile1'] = 'Blue Force Blast'
-},
-
 ['Onaconda Farr'] = {
     ['meleeOffense'] = 1834,
     ['defense'] = 1899,
@@ -3661,6 +3667,13 @@ Characters = {
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
     ['weapon1'] = 'Blue Lightsaber'
+},
+
+['Orn Free Taa'] = {
+    ['meleeOffense'] = 600,
+    ['defense'] = 1696,
+    ['evade'] = 0.01,
+    ['range'] = 1,
 },
 
 ['Pablo-Jill'] = {
@@ -3720,6 +3733,13 @@ Characters = {
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
     ['weapon1'] = 'Spear'
+},
+
+['Passel Argente'] = {
+    ['meleeOffense'] = 1269,
+    ['defense'] = 1869,
+    ['evade'] = 0.02,
+    ['range'] = 1,
 },
 
 ['Patrol Trooper'] = {
@@ -4310,6 +4330,13 @@ Characters = {
     ['projectile1'] = 'Red Laser',
 },
 
+['Shmi Skywalker'] = {
+    ['meleeOffense'] = 800,
+    ['defense'] = 2300,
+    ['evade'] = 0.02,
+    ['range'] = 1,
+}
+
 ['Shock Trooper'] = {
     ['meleeOffense'] = 9155,
     ['rangedOffense'] = 9534,
@@ -4592,6 +4619,13 @@ Characters = {
     ['defense'] = 1556,
     ['evade'] = 0.01,
     ['range'] = 1
+},
+
+['TC-14'] = {
+    ['meleeOffense'] = 169,
+    ['defense'] = 1969,
+    ['evade'] = 0.01,
+    ['range'] = 1,
 },
 
 ['Tech'] = {
