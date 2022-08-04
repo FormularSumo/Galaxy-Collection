@@ -405,7 +405,6 @@ function DeckeditState:renderBackground()
         love.graphics.rectangle('line',50,50,1820,980,20)
         love.graphics.rectangle('line',51,51,1818,978,20)
         love.graphics.rectangle('line',52,52,1816,976,20)
-        love.graphics.rectangle('line',53,53,1814,974,20)
         love.graphics.setColor(1,1,1,1)
         love.graphics.draw(self.cardDisplayed,90,90)
         if self.evolution == 4 then
