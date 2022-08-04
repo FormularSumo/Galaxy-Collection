@@ -10,6 +10,7 @@ function DeckeditState:init()
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     cards = {}
+    P1strength = 0
     self:sortInventory(false)
     self.cardsOnDisplay = {}
     self.page = 0
@@ -120,7 +121,7 @@ function DeckeditState:reloadDeckeditor()
         if P1deckCards[i] ~= nil then
             if P1deckCards[i][1] ~= nil then
                 P1deck[i] = CardEditor(P1deckCards[i][1],row,P1column,i,P1deckCards[i][2],P1deckCards[i][3],true)
-                P1strength = P1strength + characterStrength(P1deckCards[i][1],P1deckCards[i][2],P1deckCards[i][3])
+                P1strength = P1strength + characterStrength({P1deckCards[i][1],P1deckCards[i][2],P1deckCards[i][3]})
             else
                 P1deck[i] = CardEditor(P1deckCards[i],row,P1column,i,1,0,true)
                 P1strength = P1strength + characterStrength(P1deckCards[i])
@@ -421,6 +422,16 @@ function DeckeditState:renderBackground()
                 end
             end
         end
+    end
+end
+
+function DeckeditState:renderForeground()
+    if self.subState ~= 'info' then
+        love.graphics.setColor(0,0,0,0.4)
+        love.graphics.rectangle('fill',VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength))/2-20,890,font50SW:getWidth('Formation strength: ' .. math.floor(P1strength))+40,69,20)
+        love.graphics.setColor(1,1,1,1)
+        love.graphics.setColor(1,1,1,1)
+        love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength))/2,900)
     end
 end
 

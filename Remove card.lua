@@ -12,6 +12,7 @@ function RemoveCard:swap()
     P1deck[mouseTrapped.number] = CardEditor('Blank',mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,nil,nil,true)
     P1cardsEdit(-1,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
     P1deckEdit(mouseTrapped.number,nil)
+    P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
     collectgarbage()
     gStateMachine.current:sortInventory()
     if love.mouse.isVisible() == false then
