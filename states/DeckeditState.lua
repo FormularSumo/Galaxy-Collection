@@ -109,6 +109,7 @@ end
 function DeckeditState:reloadDeckeditor()
     P1column = 2
     rowCorrectment = 0
+    P1strength = 0
     
     for i=0,17,1 do
         if i % 6 == 0 and i ~= 0 then
@@ -119,8 +120,10 @@ function DeckeditState:reloadDeckeditor()
         if P1deckCards[i] ~= nil then
             if P1deckCards[i][1] ~= nil then
                 P1deck[i] = CardEditor(P1deckCards[i][1],row,P1column,i,P1deckCards[i][2],P1deckCards[i][3],true)
+                P1strength = P1strength + characterStrength(P1deckCards[i][1],P1deckCards[i][2],P1deckCards[i][3])
             else
                 P1deck[i] = CardEditor(P1deckCards[i],row,P1column,i,1,0,true)
+                P1strength = P1strength + characterStrength(P1deckCards[i])
             end
         else
             P1deck[i] = CardEditor('Blank',row,P1column,i,nil,nil,true)
@@ -202,7 +205,7 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck)
     self.modifier = ((level + (60 - level) / 1.7) / 60) * (1 - ((4 - evolution) * 0.1))
     self.y = 0
 
-    self:createStat(math.floor(characterStrength(name,level,evolution)),'Overall strength')
+    self:createStat(math.floor(characterStrength({name,level,evolution})),'Overall strength')
     self.y = self.y + 30
 
     self:createStat(level,'Level')
@@ -425,6 +428,7 @@ function DeckeditState:exit()
     P1deck = nil
     P1cards = nil
     cards = nil
+    P1strength = nil
     evolution = nil
     evolutionBig = nil
     evolutionMax = nil
