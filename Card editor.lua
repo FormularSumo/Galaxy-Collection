@@ -45,7 +45,7 @@ end
 
 function CardEditor:swap()
     self.clicked = false
-    if mouseTrapped2 == self then
+    if mouseTrapped2 == self and not (not self.inDeck and not mouseTrapped.inDeck) then
         self.row, self.column, self.number, self.x, self.y, self.inDeck, mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck = mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck, self.row, self.column, self.number, self.x, self.y, self.inDeck
 
         if mouseTrapped.inDeck then
