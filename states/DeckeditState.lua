@@ -204,7 +204,7 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck)
 
     self:createStat(level,'Level')
     self:createStat(math.floor(Characters[name]['meleeOffense'] * self.modifier),'Melee Offense')
-    if Characters[name].range > 1 then
+    if Characters[name]['rangedOffense'] then
         self:createStat(math.floor(Characters[name]['rangedOffense'] * self.modifier),'Ranged Offense')
     end
     self:createStat(math.floor(Characters[name]['defense'] * self.modifier),'Defense')
