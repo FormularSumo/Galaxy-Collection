@@ -33,7 +33,7 @@ function DeckeditState:sortInventory(reload)
     P1cards = {}
     count = 0
 
-    if sandbox then
+    if sandbox and reload == false then
         for k, pair in pairs(Characters) do
             if k ~= 'DarthNoscoper' then
                 count = count + 1
