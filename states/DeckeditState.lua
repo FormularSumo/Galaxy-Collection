@@ -200,7 +200,7 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck)
     self.cardDisplayed = love.graphics.newImage(imageName .. '.jpg')
     self.evolution = evolution
     self.modifier = ((level + (60 - level) / 1.7) / 60) * (1 - ((4 - evolution) * 0.1))
-    self.y = 30
+    self.y = 25
 
     self:createStat(level,'Level')
     self:createStat(math.floor(Characters[name]['meleeOffense'] * self.modifier),'Melee Offense')
@@ -258,7 +258,7 @@ end
 
 function DeckeditState:createStat(stat, displayName, name)
     if name == nil then name = displayName end
-    self.y = self.y + 80
+    self.y = self.y + 75
     if stat then
         gui[name] = Text(displayName .. ': ' .. stat,font60SW,'centre',self.y)
     else
