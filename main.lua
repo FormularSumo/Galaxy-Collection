@@ -515,7 +515,7 @@ function love.draw()
         mouseTouching:render() 
     end
     if Settings['FPS_counter'] == true then
-        love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1680, 1020)
+        love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1697, 1027)
     end
 
     -- for k, v in pairs(joysticks) do
