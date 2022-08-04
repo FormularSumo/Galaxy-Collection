@@ -4000,7 +4000,7 @@ Characters = {
     ['defense'] = 8800,
     ['evade'] = 0.03,
     ['range'] = 3,
-    ['range2] = 2,
+    ['range2'] = 2,
     ['projectileCount'] = 2,
     ['projectile1'] = 'Red Laser'
 },
