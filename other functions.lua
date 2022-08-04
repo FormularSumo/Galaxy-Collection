@@ -143,11 +143,7 @@ function characterStrength(character)
     end
 
     if stats['rangedOffense'] then
-        if stats['projectileCount'] then
-            offense = ((stats['meleeOffense']*modifier)/800)^4/2+(((stats['rangedOffense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)*stats['projectileCount']
-        else
-            offense = ((stats['meleeOffense']*modifier)/800)^4/2+(((stats['rangedOffense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)
-        end
+        offense = ((stats['meleeOffense']*modifier)/800)^4/2+(((stats['rangedOffense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)
     else
         offense = ((stats['meleeOffense']*modifier)/800)^4*(1+((stats['range']-1)/20)^0.5/9)
     end
