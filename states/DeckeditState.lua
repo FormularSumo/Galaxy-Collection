@@ -74,12 +74,14 @@ function DeckeditState:sortInventory(reload)
     end
 end
 
-function DeckeditState:updateCardsOnDisplay(direction)
+function DeckeditState:updateCardsOnDisplay(direction,visible)
     if not (direction == 'left' and self.page == 0) and not (direction == 'right' and self.page > math.ceil((#P1cards+1)/18) - 2) then
         if direction == 'right' then
             self.page = self.page + 1
         elseif direction == 'left' then
             self.page = self.page - 1
+        elseif type(direction) == "number" then
+            self.page = direction
         end
 
         self.cardsOnDisplay = {}
@@ -103,7 +105,11 @@ function DeckeditState:updateCardsOnDisplay(direction)
         end
         column = nil
         rowCorrectment = nil
-        self:updateGui()
+        if not visible then
+            self:updateGui()
+        end
+    else
+        return false
     end
 end
 
@@ -195,12 +201,82 @@ function DeckeditState:updateGui()
     collectgarbage()
 end
 
-function DeckeditState:stats(name,imageName,level,evolution,inDeck)
-    self.subState = 'info'
-    self.gui = gui
-    gui = {}
-    gui[1] = Button(function() gStateMachine:back() end,nil,font80,'X',1800,120)
+function DeckeditState:updateCardViewer(direction)
+    if self.cardDisplayedInDeck then
+        if direction == 'right' then
+            if self.cardDisplayedNumber == 17 then
+                self.cardDisplayedNumber = 6
+            elseif self.cardDisplayedNumber == 11 then
+                self.cardDisplayedNumber = 0
+            elseif self.cardDisplayedNumber == 5 then
+                self.cardDisplayedNumber = 12
+            else
+                self.cardDisplayedNumber = self.cardDisplayedNumber + 1
+            end
+        elseif direction == 'left' then
+            if self.cardDisplayedNumber == 6 then
+                self.cardDisplayedNumber = 17
+            elseif self.cardDisplayedNumber == 0 then
+                self.cardDisplayedNumber = 11
+            elseif self.cardDisplayedNumber == 12 then
+                self.cardDisplayedNumber = 5
+            else
+                self.cardDisplayedNumber = self.cardDisplayedNumber -1
+            end
+        end
+        if P1deck[self.cardDisplayedNumber].imageName == nil then
+            self:updateCardViewer(direction)
+        else
+            P1deck[self.cardDisplayedNumber]:CardViewer()
+        end
+    else
+        if direction == 'right' then
+            if self.cardDisplayedNumber == 17 then
+                if self:updateCardsOnDisplay('right',true) == false then
+                    self:updateCardsOnDisplay(0,true)
+                end
+                self.cardsOnDisplay[0]:CardViewer()
+            else
+                if self.cardsOnDisplay[self.cardDisplayedNumber+1].imageName ~= nil then
+                    self.cardsOnDisplay[self.cardDisplayedNumber+1]:CardViewer()
+                else
+                    self:updateCardsOnDisplay(0,true)
+                    self.cardsOnDisplay[0]:CardViewer()
+                end
+            end
+        else
+            if self.cardDisplayedNumber == 0 then
+                if self:updateCardsOnDisplay('left',true) == false then
+                    self:updateCardsOnDisplay(math.ceil((#P1cards+1)/18) - 1,true)
+                    self.cardsOnDisplay[#P1cards-self.page*18]:CardViewer()
+                else
+                    self.cardsOnDisplay[17]:CardViewer()
+                end
+            else
+                self.cardsOnDisplay[self.cardDisplayedNumber-1]:CardViewer()
+            end
+        end
+    end
+end
 
+function DeckeditState:stats(name,imageName,level,evolution,inDeck,number)
+    if self.subState == 'deck' then
+        self.subState = 'info'
+        self.gui = gui
+        gui = {}
+        gui[1] = Button(function() gStateMachine:back() end,nil,font80,'X',1800,120)
+        gui[2] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,nil,nil,true)
+        gui[3] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,nil,nil,true)
+    else
+        for k, pair in pairs(gui) do
+            if type(k) == "string" then 
+                gui[k] = nil
+            end
+        end
+    end
+
+    self.cardDisplayedNumber = number - self.page * 18
+    self.cardDisplayedInDeck = inDeck
     self.cardDisplayed = love.graphics.newImage(imageName .. '.jpg')
     self.evolution = evolution
     self.modifier = ((level + (60 - level) / 1.7) / 60) * (1 - ((4 - evolution) * 0.1))
@@ -285,7 +361,7 @@ function DeckeditState:exitStats()
         gui[k] = nil
     end
     gui = self.gui
-    collectgarbage()
+    self:updateGui()
 end
 
 function DeckeditState:back()
@@ -300,79 +376,99 @@ function DeckeditState:keypressed(key)
     if key == 'right' or key == 'left' or key == 'dpright' or key == 'dpleft' then
         if love.mouse.isVisible() or key == 'dpright' or key == 'dpleft' then
             if key == 'right' or key == 'dpright' then
-                self:updateCardsOnDisplay('right')
+                if self.subState == 'deck' then
+                    self:updateCardsOnDisplay('right')
+                else
+                    self:updateCardViewer('right')
+                end
             else
-                self:updateCardsOnDisplay('left')
-            end
-        elseif key == 'right' or key == 'left' then
-            for k, v in ipairs(gui) do
-                if v == mouseTouching then
-                    if key == 'right' then
-                        if k == 1 then
-                            repositionMouse(24)
-                        elseif k == 2 then
-                            repositionMouse(25)
-                        elseif k == 3 then
-                            repositionMouse(26)   
-                        elseif k == 16 then
-                            repositionMouse(1)
-                        elseif k == 17 then
-                            repositionMouse(2)
-                        elseif k == 18 then
-                            repositionMouse(3)
-                        elseif (k < 20 and k > 16) or (k == 20 and gui['RemoveCard'].visible == false) then
-                            repositionMouse(k+8)
-                        elseif k == 20 then
-                            repositionMouse(gui['RemoveCard'])
-                        elseif k == 21 then
-                            repositionMouse(22)
-                        elseif k == 22 then
-                            repositionMouse(23)
-                        elseif k == 23 then
-                            repositionMouse(29)
-                        elseif gui[k+6] then
-                            repositionMouse(k+6)
-                        else
-                            repositionMouse(mouseTouching.row+4)
-                        end
-                    end
-                    if key == 'left' then
-                        if k == 1 then
-                            repositionMouse(16)
-                        elseif k == 2 then
-                            repositionMouse(17)
-                        elseif k == 3 then
-                            repositionMouse(18)
-                        elseif k == 24 then
-                            repositionMouse(1)
-                        elseif k == 25 then
-                            repositionMouse(2)
-                        elseif k == 26 then
-                            repositionMouse(3)
-                        elseif (k < 28 and k > 24) or (k == 28 and gui['RemoveCard'].visible == false) then
-                            repositionMouse(k-8) 
-                        elseif k == 28 then
-                            repositionMouse(gui['RemoveCard'])
-                        elseif k == 29 then
-                            repositionMouse(23)
-                        elseif k == 23 then
-                            repositionMouse(22)
-                        elseif k == 22 then
-                            repositionMouse(21)
-                        elseif gui[k-6] and k - 6 ~= 1 then
-                            repositionMouse(k-6)
-                        else
-                            repositionMouse(mouseTouching.row+24+12)
-                        end
-                    end
-                    return
+                if self.subState == 'deck' then
+                    self:updateCardsOnDisplay('left')
+                else
+                    self:updateCardViewer('left')
                 end
             end
-            if mouseTouching == gui['RemoveCard'] then
-                if key == 'left' then
-                    repositionMouse(20)
-                elseif key == 'right' then
-                    repositionMouse(28)
+        elseif key == 'right' or key == 'left' then
+            if self.subState == 'deck' then
+                for k, v in ipairs(gui) do
+                    if v == mouseTouching then
+                        if key == 'right' then
+                            if k == 1 then
+                                repositionMouse(24)
+                            elseif k == 2 then
+                                repositionMouse(25)
+                            elseif k == 3 then
+                                repositionMouse(26)   
+                            elseif k == 16 then
+                                repositionMouse(1)
+                            elseif k == 17 then
+                                repositionMouse(2)
+                            elseif k == 18 then
+                                repositionMouse(3)
+                            elseif (k < 20 and k > 16) or (k == 20 and gui['RemoveCard'].visible == false) then
+                                repositionMouse(k+8)
+                            elseif k == 20 then
+                                repositionMouse(gui['RemoveCard'])
+                            elseif k == 21 then
+                                repositionMouse(22)
+                            elseif k == 22 then
+                                repositionMouse(23)
+                            elseif k == 23 then
+                                repositionMouse(29)
+                            elseif gui[k+6] then
+                                repositionMouse(k+6)
+                            else
+                                repositionMouse(mouseTouching.row+4)
+                            end
+                        end
+                        if key == 'left' then
+                            if k == 1 then
+                                repositionMouse(16)
+                            elseif k == 2 then
+                                repositionMouse(17)
+                            elseif k == 3 then
+                                repositionMouse(18)
+                            elseif k == 24 then
+                                repositionMouse(1)
+                            elseif k == 25 then
+                                repositionMouse(2)
+                            elseif k == 26 then
+                                repositionMouse(3)
+                            elseif (k < 28 and k > 24) or (k == 28 and gui['RemoveCard'].visible == false) then
+                                repositionMouse(k-8) 
+                            elseif k == 28 then
+                                repositionMouse(gui['RemoveCard'])
+                            elseif k == 29 then
+                                repositionMouse(23)
+                            elseif k == 23 then
+                                repositionMouse(22)
+                            elseif k == 22 then
+                                repositionMouse(21)
+                            elseif gui[k-6] and k - 6 ~= 1 then
+                                repositionMouse(k-6)
+                            else
+                                repositionMouse(mouseTouching.row+24+12)
+                            end
+                        end
+                        return
+                    end
+                end
+                if mouseTouching == gui['RemoveCard'] then
+                    if key == 'left' then
+                        repositionMouse(20)
+                    elseif key == 'right' then
+                        repositionMouse(28)
+                    end
+                end
+            else    
+                for k, v in ipairs(gui) do
+                    if v == mouseTouching then
+                        if key == 'right' and k == 2 then
+                            repositionMouse(3)
+                        elseif key == 'left' and k == 3 then
+                            repositionMouse(2)
+                        end
+                    end
                 end
             end
         end
@@ -380,23 +476,30 @@ function DeckeditState:keypressed(key)
 end
 
 function DeckeditState:update()
+    if self.subState == 'deck' then
+        self.left = 22
+        self.right = 23
+    else
+        self.left = 2
+        self.right = 3
+    end
     if love.mouse.isVisible() then
         mouseLocked = false
         if keyHoldtimer ~= 0 then
             if love.keyboard.wasDown('right') and lastPressed == 'right' then
-                gui[23].scaling = 1.05
+                gui[self.right].scaling = 1.05
             end
             if love.keyboard.wasDown('left') and lastPressed == 'left' then
-                gui[22].scaling = 1.05
+                gui[self.left].scaling = 1.05
             end
         end
     end
     if keyHoldTimer ~= 0 then
         if love.keyboard.wasDown('dpright') and lastPressed == 'dpright' then
-            gui[23].scaling = 1.05
+            gui[self.right].scaling = 1.05
         end
         if love.keyboard.wasDown('dpleft') and lastPressed == 'dpleft' then
-            gui[22].scaling = 1.05
+            gui[self.left].scaling = 1.05
         end
     end
 end

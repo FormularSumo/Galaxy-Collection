@@ -80,6 +80,10 @@ function CardEditor:swap()
     self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
 end
 
+function CardEditor:CardViewer()
+    gStateMachine.current:stats(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number)
+end
+
 function CardEditor:update()
     --When mouse visible cards are swapped by dragging and dropping, when not (ie using controller or keyboard to navigate) cards are selected by clicking and swapped by clicking on a different card
     if love.mouse.isVisible() then
@@ -93,7 +97,7 @@ function CardEditor:update()
                     end
                 end
             elseif math.abs(mouseLastX - mousePressedX) < 10 and math.abs(mouseLastY - mousePressedY) < 10 and love.timer.getTime() - mousePressedTime < 0.15 and self.name ~= 'Blank'then
-                gStateMachine.current:stats(self.name,self.imageName,self.level,self.evolution,self.inDeck)
+                self:CardViewer()
             else
                 self:swap()
             end
@@ -112,7 +116,7 @@ function CardEditor:update()
         end
     else
         if mouseDown and mousePressedX > self.x and mousePressedX < self.x + self.width and mousePressedY > self.y and mousePressedY < self.y + self.height and love.timer.getTime() - mousePressedTime > 0.3 and self.name ~= 'Blank' then
-            gStateMachine.current:stats(self.name,self.imageName,self.level,self.evolution,self.inDeck)
+            self:CardViewer()
             mouseDown = false
             mouseLocked = false
         end
