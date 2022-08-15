@@ -807,9 +807,9 @@ Characters = {
 },
 
 ['Cal Kestis'] = {
-    ['meleeOffense'] = 17346,
-    ['rangedOffense'] = 16746,
-    ['defense'] = 14967,
+    ['meleeOffense'] = 17396,
+    ['rangedOffense'] = 16796,
+    ['defense'] = 14997,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -1262,7 +1262,7 @@ Characters = {
 ['Commander Luke Skywalker'] = {
     ['meleeOffense'] = 15832,
     ['rangedOffense'] = 15529,
-    ['defense'] = 15411,
+    ['defense'] = 15400,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -1802,12 +1802,14 @@ Characters = {
 },
 
 ['Eighth Brother'] = {
-    ['meleeOffense'] = 17445,
-    ['rangedOffense'] = 16445,
-    ['defense'] = 17991,
+    ['meleeOffense'] = 15445,
+    ['rangedOffense'] = 16745,
+    ['defense'] = 14991,
     ['evade'] = 0.15,
     ['range'] = 3,
-    ['projectile1'] = 'Red Force Blast',
+    ['projectile1'] = 'Thermal Detonator',
+    ['projectile2'] = 'Red Force Blast',
+    ['projectileCount'] = 4,
     ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
@@ -1966,9 +1968,9 @@ Characters = {
 },
 
 ['Fifth Brother'] = {
-    ['meleeOffense'] = 17679,
-    ['rangedOffense'] = 16699,
-    ['defense'] = 17787,
+    ['meleeOffense'] = 15679,
+    ['rangedOffense'] = 15699,
+    ['defense'] = 15487,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
@@ -3640,8 +3642,8 @@ Characters = {
 
 ['Nightsister Merrin'] = {
     ['meleeOffense'] = 16579,
-    ['rangedOffense'] = 17151,
-    ['defense'] = 14756,
+    ['rangedOffense'] = 17251,
+    ['defense'] = 14856,
     ['evade'] = 0.08,
     ['range'] = 3,
     ['projectile1'] = 'Fire',
@@ -3674,9 +3676,9 @@ Characters = {
 },
 
 ['Ninth Sister'] = {
-    ['meleeOffense'] = 17330,
-    ['rangedOffense'] = 16250,
-    ['defense'] = 18206,
+    ['meleeOffense'] = 15330,
+    ['rangedOffense'] = 15250,
+    ['defense'] = 16406,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
@@ -4454,12 +4456,14 @@ Characters = {
 },
 
 ['Seventh Sister'] = {
-    ['meleeOffense'] = 17556,
-    ['rangedOffense'] = 16556,
-    ['defense'] = 17912,
+    ['meleeOffense'] = 16796,
+    ['rangedOffense'] = 15556,
+    ['defense'] = 14912,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
+    ['projectile2'] = 'Lightning',
+    ['projectileCount'] = 2,
     ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
@@ -4975,9 +4979,9 @@ Characters = {
 },
 
 ['Trilla Suduri'] = {
-    ['meleeOffense'] = 18254,
-    ['rangedOffense'] = 17254,
-    ['defense'] = 17245,
+    ['meleeOffense'] = 16004,
+    ['rangedOffense'] = 16054,
+    ['defense'] = 16045,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
