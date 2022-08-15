@@ -4861,8 +4861,8 @@ Characters = {
     ['meleeOffense'] = 20696,
     ['rangedOffense'] = 20696,
     ['defense'] = 20696,
-    ['evade'] = 0.05,
-    ['range'] = 3,
+    ['evade'] = 0.15,
+    ['range'] = 5,
     ['projectile1'] = 'Blue Force Blast',
     ['projectileCount'] = 2
 },
@@ -5230,7 +5230,7 @@ Characters = {
     ['defense'] = 1920,
     ['evade'] = 0.15,
     ['range'] = 2,
-    ['weapon1'] = 'Tool',
+    ['weapon1'] = 'Fusioncutter',
     ['weaponCount'] = 2
 },
 
@@ -5327,7 +5327,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 1,
     ['weaponCount'] = 2,
-    ['weapon1'] = 'Tool'
+    ['weapon1'] = 'Fusioncutter'
 },
 
 ['Young Han Solo'] = {
