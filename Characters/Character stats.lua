@@ -3247,7 +3247,7 @@ Characters = {
 ['L0-LA59'] = {
     ['meleeOffense'] = 5458,
     ['rangeOffense'] = 5458,
-    ['defense'] = 8546933,
+    ['defense'] = 5469,
     ['evade'] = 0.16,
     ['range'] = 2
 },
