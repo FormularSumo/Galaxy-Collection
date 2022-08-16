@@ -101,7 +101,14 @@ function geonosis(number)
     if number == 40 then return {'Droideka Sniper',60,4} end
     if number == 41 then return {'B2-RP Super Battle Droid',60,4} end
 
-    if number < 60 then return {'Geonosian Brood Alpha',60,4} end
+    if number == 42 then return {'Geonosian Spy',60,4} end
+    if number == 43 then return {'Geonosian Spy',60,4} end
+    if number == 44 then return {'Sun Fac',60,4} end
+    if number == 45 then return {'Geonosian Brood Alpha',60,4} end
+    if number == 46 then return {'Geonosian Spy',60,4} end
+    if number == 47 then return {'Geonosian Spy',60,4} end
+
+    if number < 60 then return {'Geonosian Soldier',60,4} end
 
     if number < 66 then return {'Droideka',60,4} end
 
