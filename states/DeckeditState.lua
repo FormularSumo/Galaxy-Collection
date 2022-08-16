@@ -275,7 +275,11 @@ function DeckeditState:stats(name,imageName,level,evolution,inDeck,number)
         end
     end
 
-    self.cardDisplayedNumber = number - self.page * 18
+    if inDeck then
+        self.cardDisplayedNumber = number
+    else
+        self.cardDisplayedNumber = number - self.page * 18
+    end
     self.cardDisplayedInDeck = inDeck
     self.cardDisplayed = love.graphics.newImage(imageName .. '.jpg')
     self.evolution = evolution
