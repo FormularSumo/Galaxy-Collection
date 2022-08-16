@@ -1031,6 +1031,7 @@ Characters = {
 
 ['Chopper'] = {
     ['meleeOffense'] = 9696,
+    ['rangedOffense'] = 9696,
     ['defense'] = 8598,
     ['evade'] = 0.15,
     ['range'] = 2,
@@ -2066,6 +2067,16 @@ Characters = {
     ['projectileCount'] = 2
 },
 
+['Fourth Sister'] = {
+    ['meleeOffense'] = 15567,
+    ['rangedOffense'] = 15322,
+    ['defense'] = 15603,
+    ['evade'] = 0.15,
+    ['range'] = 3,
+    ['projectile1'] = 'Red Force Blast',
+    ['weapon1'] = 'Inquisitor Lightsaber'
+},
+
 ['Freedon Nadd'] = {
     ['meleeOffense'] = 18244,
     ['rangedOffense'] = 18333,
@@ -2403,6 +2414,15 @@ Characters = {
     ['projectileCount'] = 4
 },
 
+['Haja Estree'] = {
+    ['meleeOffense'] = 8342,
+    ['rangedOffense'] = 8832,
+    ['defense'] = 8220,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile1'] = 'Red Laser',
+},
+
 ['Hanharr'] = {
     ['meleeOffense'] = 15553,
     ['rangedOffense'] = 13786,
@@ -2482,6 +2502,17 @@ Characters = {
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
     ['projectileCount'] = 2,
+    ['weapon1'] = 'Blue Lightsaber'
+},
+
+['Hermit Obi-Wan Kenobi'] = {
+    ['meleeOffense'] = 18112,
+    ['rangedOffense'] = 18325,
+    ['defense'] = 18462,
+    ['evade'] = 0.06,
+    ['range'] = 2,
+    ['projectile1'] = 'Blue Force Blast',
+    ['projectileCount'] = 4,
     ['weapon1'] = 'Blue Lightsaber'
 },
 
@@ -3059,6 +3090,15 @@ Characters = {
     ['weaponCount'] = 2
 },
 
+['Kawlan Roken'] = {
+    ['meleeOffense'] = 9670,
+    ['rangedOffense'] = 9023,
+    ['defense'] = 8872,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile1'] = 'Red Laser',
+},
+
 ['Kaydel Ko Connix'] = {
     ['meleeOffense'] = 8110,
     ['rangedOffense'] = 8110,
@@ -3202,6 +3242,14 @@ Characters = {
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
     ['weapon1'] = 'Crossguard Lightsaber'
+},
+
+['L0-LA59'] = {
+    ['meleeOffense'] = 5458,
+    ['rangeOffense'] = 5458,
+    ['defense'] = 8546933,
+    ['evade'] = 0.16,
+    ['range'] = 2
 },
 
 ['L3-37'] = {
@@ -4729,6 +4777,15 @@ Characters = {
     ['range'] = 1
 },
 
+['Tala Durith'] = {
+    ['meleeOffense'] = 9191,
+    ['rangedOffense'] = 9191,
+    ['defense'] = 9407,
+    ['evade'] = 0.03,
+    ['range'] = 2,
+    ['projectile1'] = 'Red Laser',
+},
+
 ['Talia'] = {
     ['meleeOffense'] = 9912,
     ['rangedOffense'] = 9790,
@@ -4908,6 +4965,16 @@ Characters = {
     ['projectile3'] = 'Force Drain',
     ['projectileCount'] = 3,
     ['weapon1'] = 'Dagger of Mortis'
+},
+
+['Third Sister'] = {
+    ['meleeOffense'] = 15789,
+    ['rangedOffense'] = 15391,
+    ['defense'] = 15204,
+    ['evade'] = 0.15,
+    ['range'] = 3,
+    ['projectile1'] = 'Red Force Blast',
+    ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
 ['Tiplee'] = {
@@ -5130,6 +5197,15 @@ Characters = {
     ['defense'] = 14369,
     ['evade'] = 0.03,
     ['range'] = 3,
+    ['projectile1'] = 'Red Laser'
+},
+
+['Vect Nokru'] = {
+    ['meleeOffense'] = 8412,
+    ['rangedOffense'] = 9050,
+    ['defense'] = 9300,
+    ['evade'] = 0.03,
+    ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
