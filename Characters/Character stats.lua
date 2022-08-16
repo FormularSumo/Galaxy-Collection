@@ -3466,7 +3466,8 @@ Characters = {
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
     ['projectile2'] = 'Red Force Blast',
-    ['projectileCount'] = 2,
+    ['projectile3'] = 'Thermal Detonator',
+    ['projectileCount'] = 3,
     ['weapon1'] = 'Purple Lightsaber'
 },
 
