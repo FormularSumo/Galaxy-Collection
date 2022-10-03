@@ -7,7 +7,7 @@ function DeckeditState:init()
     evolutionMaxBig = love.graphics.newImage('Graphics/Evolution Max Big.png')
     blankCard = love.graphics.newImage('Graphics/Blank Card.png')
 
-    P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
+    P1deckCards = binser.readFile('Player 1 deck.txt')
     P1deck = {}
     cards = {}
     P1strength = 0
@@ -57,7 +57,7 @@ function DeckeditState:sortInventory(reload)
             end
         end
     else  
-        for k, pair in pairs(bitser.loadLoveFile('Player 1 cards.txt')) do
+        for k, pair in pairs(binser.readFile('Player 1 cards.txt')) do
             count = count + 1
             P1cards[count] = pair
         end
@@ -68,7 +68,7 @@ function DeckeditState:sortInventory(reload)
         P1cards[k-1] = pair
     end
     P1cards[#P1cards] = nil
-    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    binser.writeFile('Player 1 cards.txt',P1cards)
     if reload ~= false then
         self:updateCardsOnDisplay()
     end
@@ -181,7 +181,7 @@ function DeckeditState:resetDeck(deck)
         end
     end
 
-    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    binser.writeFile('Player 1 cards.txt',P1cards)
     self:reloadDeckeditor()
 end
 

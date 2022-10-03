@@ -2,7 +2,7 @@ function love.load()
     --Libraries and other files that are required
     push = require 'push'
     Class = require 'class'
-    bitser = require 'bitser'
+    binser = require 'binser'
     moonshine = require 'moonshine'
     
     require 'Card'
@@ -94,47 +94,47 @@ function love.load()
             ['FPS_counter'] = false,
             ['videos'] = true
         }
-        bitser.dumpLoveFile('Settings.txt',Settings)
+        binser.writeFile('Settings.txt',Settings)
     end
 
-    Settings = bitser.loadLoveFile('Settings.txt')
+    Settings = binser.readFile('Settings.txt')
     love.audio.setVolume(Settings['volume_level'])
 
     if love.filesystem.getInfo('Player 1 deck.txt') == nil and love.filesystem.getInfo('Player 1 cards.txt') == nil and love.filesystem.getInfo('User Data.txt') == nil then
         tutorial()
     
     else
-        if love.filesystem.getInfo('Player 1 deck.txt') == nil or bitser.loadLoveFile('Player 1 deck.txt') == nil then
+        if love.filesystem.getInfo('Player 1 deck.txt') == nil or binser.readFile('Player 1 deck.txt') == nil then
             P1deckCards = {}
-            bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+            binser.writeFile('Player 1 deck.txt',P1deckCards)
         else
-            P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
+            P1deckCards = binser.readFile('Player 1 deck.txt')
             for k, pair in pairs(P1deckCards) do
                 if P1deckCards[k] ~= nil and not Characters[P1deckCards[k][1]] then
                     P1deckCards[k] = nil
                 end
             end
-            bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+            binser.writeFile('Player 1 deck.txt',P1deckCards)
             P1deckCards = {}
         end
 
-        if love.filesystem.getInfo('Player 1 cards.txt') == nil or bitser.loadLoveFile('Player 1 cards.txt') == nil then
-            bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+        if love.filesystem.getInfo('Player 1 cards.txt') == nil or binser.readFile('Player 1 cards.txt') == nil then
+            binser.writeFile('Player 1 cards.txt',P1cards)
         else
-            P1cards = bitser.loadLoveFile('Player 1 cards.txt')
+            P1cards = binser.readFile('Player 1 cards.txt')
             for k, pair in pairs(P1cards) do
                 if P1cards[k] ~= nil and not Characters[P1cards[k][1]] then
                     P1cards[k] = nil
                 end
             end
-            bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+            binser.writeFile('Player 1 cards.txt',P1cards)
             P1cards = nil
         end
 
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
             if Settings['videos'] == nil then Settings['videos'] = true end
-            bitser.dumpLoveFile('User Data.txt',UserData)
+            binser.writeFile('User Data.txt',UserData)
         end
     end
 
@@ -194,7 +194,7 @@ function love.keypressed(key,scancode,isrepeat)
                 love.audio.setVolume(0)
             end
             Settings['volume_level'] = love.audio.getVolume()
-            bitser.dumpLoveFile('Settings.txt', Settings)
+            binser.writeFile('Settings.txt', Settings)
         end
     end
     if key == 'up' or key == 'down' then

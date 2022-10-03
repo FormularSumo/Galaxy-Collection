@@ -92,7 +92,7 @@ function toggleSetting(setting,toggle)
     else
         Settings[setting] = not Settings[setting]
     end
-    bitser.dumpLoveFile('Settings.txt',Settings)
+    binser.writeFile('Settings.txt',Settings)
 end
 
 function controllerBinds(button)
@@ -115,21 +115,21 @@ function controllerBinds(button)
 end
 
 function P1deckEdit(position,name)
-    P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
+    P1deckCards = binser.readFile('Player 1 deck.txt')
 
     if name and name[1] == 'Blank' then name = nil end
     P1deckCards[position] = name
 
-    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+    binser.writeFile('Player 1 deck.txt',P1deckCards)
 end
 
 function P1cardsEdit(position,name)
-    P1cards = bitser.loadLoveFile('Player 1 cards.txt')
+    P1cards = binser.readFile('Player 1 cards.txt')
 
     if name and name[1] == 'Blank' then name = nil end
     P1cards[position] = name
 
-    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    binser.writeFile('Player 1 cards.txt',P1cards)
 end
 
 function characterStrength(character)
@@ -157,14 +157,14 @@ end
 function tutorial()
     P1cards = {}
     P1deckCards = {}
-    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+    binser.writeFile('Player 1 deck.txt',P1deckCards)
 
     P1deckEdit(1,{'Grogu',60,4})
     P1deckEdit(2,{'Farmboy Luke Skywalker',60,4})
     P1deckEdit(3,{'C-3PO',60,4})
     P1deckEdit(4,{'R2-D2',60,4})
 
-    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    binser.writeFile('Player 1 cards.txt',P1cards)
     P1cards = nil
     UserData['Credits'] = 100
 end
