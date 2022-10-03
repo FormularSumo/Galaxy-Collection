@@ -53,7 +53,7 @@ function StateMachine:change(stateName, enterParams, exitParams)
 	assert(self.states[stateName]) -- state must exist!
 	self.current:exit(exitParams)
 	if not exitParams then 
-        love.audio.stop()
+        if songs[currentSong] then love.audio.stop(songs[currentSong]) end
         songs = {}
         background = {}
     elseif exitParams == 'music' then
