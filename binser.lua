@@ -485,11 +485,11 @@ local function newbinser()
     end
 
     local function writeFile(name, ...)
-        return serialize_to_file(saveDirectory .. '/' .. name, "wb", ...)
+        return serialize_to_file(name, "wb", ...)
     end
 
     local function appendFile(name, ...)
-        return serialize_to_file(saveDirectory .. '/' .. name, "ab", ...)
+        return serialize_to_file(name, "ab", ...)
     end
 
     local function deserialize(str, index)
@@ -539,7 +539,7 @@ local function newbinser()
     end
 
     local function readFile(name)
-        local file, err = io.open(saveDirectory .. '/' .. name, "rb")
+        local file, err = io.open(name, "rb")
         assert(file, err)
         local str = file:read("*all")
         -- print(str)
