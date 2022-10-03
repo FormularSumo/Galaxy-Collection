@@ -55,9 +55,9 @@ function StateMachine:change(stateName, enterParams, exitParams)
 	if not exitParams then 
         if songs[currentSong] then love.audio.stop(songs[currentSong]) end
         songs = {}
-        background = {}
+        background = nil
     elseif exitParams == 'music' then
-        background = {}
+        background = nil
     end
     gui = {}
     paused = false

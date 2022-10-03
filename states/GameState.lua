@@ -58,16 +58,13 @@ function GameState:init()
 end
 
 function GameState:enter(Background)
-    background['Name'] = Background[1]
-    background['Video'] = Background[2]
-    background['Seek'] = Background[3]
-    createBackground()
+    background = love.graphics.newImage('Backgrounds/' .. Background[1] .. '.jpg')
 
-    songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
+    songs[0] = love.audio.newSource('Music/' .. Background[5],'stream')
 
-    if Background[4] == nil then r = 0 else r = Background[4] end
-    if Background[5] == nil then g = 0 else g = Background[5] end
-    if Background[6] == nil then b = 0 else b = Background[6] end
+    if Background[2] == nil then r = 0 else r = Background[2] end
+    if Background[3] == nil then g = 0 else g = Background[3] end
+    if Background[4] == nil then b = 0 else b = Background[4] end
     gui[1] = Button(pause,'Pause',font100,nil,1591,0,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
     gui[2] = Slider(1591,130,300,16,function(percentage) gamespeed = percentage * 4 end,0.3,0.3,0.3,r,g,b,0.25,0.25)
     gui['SpeedLabel'] = Text('Speed',font80,'centre',410,r,g,b,false)
@@ -75,7 +72,7 @@ function GameState:enter(Background)
     gui['VolumeLabel'] = Text('Volume',font80,'centre',600,r,g,b,false)
     gui[4] = Button(function() gStateMachine:change('HomeState') end,'Main Menu',font80,nil,'centre',1080-220-font80:getHeight('Main Menu'),r,g,b,nil,false)
 
-    self.timer = math.min(-(background['Seek'] - 1), 0) --All levels have at least a 1 second delay before spawing characters
+    self.timer = 0 --All levels have at least a 1 second delay before spawing characters
     self.moveAimTimer = self.timer
     self.attackTimer = self.timer - 0.9
     love.timer.step()

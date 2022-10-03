@@ -8,9 +8,6 @@ function pause(pause)
         if songs[0] then
             if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
         end
-        if background['Video'] then
-            if paused then background['Background']:pause() else background['Background']:play() end
-        end
         gStateMachine:pause()
         if gStateMachine.state == 'GameState' and not blurred then
             blurred = 1
@@ -20,38 +17,9 @@ function pause(pause)
     end
 end
 
-function loadBattle(background,videos,seek,r,g,b,music,level)
+function loadBattle(background,r,g,b,music,level)
     P2deckCards = level
-    if videos and Settings['videos'] then
-        gStateMachine:change('GameState',{background, true, seek, r, g, b, music})
-    else
-        gStateMachine:change('GameState',{background, false, seek, r, g, b, music})
-    end
-end
-
-function createBackground()
-    if background['Video'] then
-        background['Background'] = love.graphics.newVideo('Backgrounds/' .. background['Name'] .. '.ogv')
-        background['Background']:play()
-    else
-        background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.jpg')
-    end
-end
-
-function updateBackground()
-    if Settings['videos'] ~= background['Video'] then
-        if Settings['videos'] then
-            if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.ogv') then
-                background['Video'] = true
-            else
-                return
-            end
-        else
-            background['Video'] = false
-        end
-        createBackground(Settings['videos'])
-        collectgarbage()
-    end
+    gStateMachine:change('GameState',{background, r, g, b, music})
 end
 
 function repositionMouse(index)

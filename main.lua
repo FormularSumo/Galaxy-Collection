@@ -57,7 +57,6 @@ function love.load()
     
     gui = {}
     songs = {}
-    background = {}
     paused = false
 
     UserData = {}
@@ -92,7 +91,6 @@ function love.load()
             ['pause_on_loose_focus'] = true,
             ['volume_level'] = 0.5,
             ['FPS_counter'] = false,
-            ['videos'] = false
         }
         binser.writeFile('Settings.txt',Settings)
     end
@@ -133,7 +131,6 @@ function love.load()
 
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
-            if Settings['videos'] == nil then Settings['videos'] = true end
             binser.writeFile('User Data.txt',UserData)
         end
     end
@@ -157,11 +154,6 @@ end
 function love.focus(InFocus)
     focus = InFocus
     if Settings['pause_on_loose_focus'] and not (paused and gStateMachine.state == 'GameState') then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
-end
-
-function love.lowmemory()
-    toggleSetting('videos',false)
-    updateBackground()
 end
 
 function love.joystickadded()
@@ -425,7 +417,7 @@ function love.update(dt)
         if yscroll < -maxScroll then yscroll = -maxScroll rawyscroll = 0 end
     end
 
-    --Manage song queue and background video looping
+    --Manage song queue
     if not paused then
         if songs[0] and not songs[currentSong]:isPlaying() then
             if songs[currentSong+1] then
@@ -434,11 +426,6 @@ function love.update(dt)
                 currentSong = 0
             end
             songs[currentSong]:play()
-        end
-
-        if background['Video'] and not background['Background']:isPlaying() then
-            background['Background']:seek(background['Seek'])
-            background['Background']:play() 
         end
     end
 
@@ -476,8 +463,8 @@ function love.draw()
         else
             push.start()
         end
-        if background['Background'] then
-            love.graphics.draw(background['Background'])
+        if background then
+            love.graphics.draw(background)
         end
         if gStateMachine.state == 'GameState' and not winner and not paused then
             for k, pair in pairs(gui) do
