@@ -92,7 +92,7 @@ function love.load()
             ['pause_on_loose_focus'] = true,
             ['volume_level'] = 0.5,
             ['FPS_counter'] = false,
-            ['videos'] = true
+            ['videos'] = false
         }
         binser.writeFile('Settings.txt',Settings)
     end
