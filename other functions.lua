@@ -49,7 +49,7 @@ function updateBackground()
         else
             background['Video'] = false
         end
-        createBackground(Settings['videos'])
+        createBackground()
         collectgarbage()
     end
 end
