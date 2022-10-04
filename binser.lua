@@ -38,7 +38,6 @@ local dump = string.dump
 local floor = math.floor
 local frexp = math.frexp
 local unpack = unpack or table.unpack
-local saveDirectory = love.filesystem.getSaveDirectory()
 
 -- Lua 5.3 frexp polyfill
 -- From https://github.com/excessive/cpml/blob/master/modules/utils.lua
