@@ -224,7 +224,7 @@ function love.keyreleased(key)
     if key == 'return' or key == 'kpenter' then
         love.mouse.buttonsReleased[1] = true
         if not (love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter')) then mouseDown = false end
-    elseif key == 'escape' then
+    elseif key == 'backspace' then
         gStateMachine:back()
     end
     -- gStateMachine:keyreleased(key)
