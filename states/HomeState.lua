@@ -17,7 +17,3 @@ function HomeState:enter(partial)
         end
     background = love.graphics.newImage('Backgrounds/Starry Sky.jpg')
 end
-
-function HomeState:back()
-    gStateMachine:change('ExitState',true,true)
-end
