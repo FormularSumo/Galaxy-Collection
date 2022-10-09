@@ -6,6 +6,9 @@ function HomeState:init()
     gui[3] = Button(function() gStateMachine:change('SettingsState',true,true) end,'Settings',font100,nil,'centre',980-font100:getHeight('Settings'))
 end
 
+function HomeState:back()
+end
+
 function HomeState:enter(partial)
     if not partial then
         if love.math.random(0,1) == 1 then
