@@ -6,7 +6,7 @@ function SettingsState:init()
     gui['VolumeLabel'] = Text('Volume',font80,'centre',360)
 
     if OS ~= 'Android' then
-        gui[3] = Button(function() toggleSetting('pause_on_loose_focus') gui[4]:toggle() end,function() return ('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus'])) end,font80,nil,'centre',574)
+        gui[3] = Button(function() toggleSetting('pause_on_loose_focus') gui[3]:toggle() end,function() return ('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus'])) end,font80,nil,'centre',574)
         gui[4] = Button(function() gStateMachine:change('HomeState',true,true) end,'Main Menu',font80,nil,'centre',965)
     else
         gui[3] = Button(function() gStateMachine:change('HomeState',true,true) end,'Main Menu',font80,nil,'centre',965)
