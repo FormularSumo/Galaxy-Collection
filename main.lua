@@ -25,6 +25,7 @@ function love.load()
     require 'Projectile2'
     require 'Card editor'
     require 'Remove card'
+    require 'js'
 
     --Operating System
     OS = love.system.getOS()
