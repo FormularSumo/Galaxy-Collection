@@ -76,7 +76,11 @@ function StateMachine:change(stateName, enterParams, exitParams)
     if not love.mouse.isVisible() and gui[1] then
         repositionMouse(1)
     end
-	maxScroll = math.max(gui[#gui].y + gui[#gui].height + 50 - 1080, 0)
+	if gui[#gui] then
+		maxScroll = math.max(gui[#gui].y + gui[#gui].height + 50 - 1080, 0)
+	else
+		maxScroll = 0
+	end
 end
 
 function StateMachine:update(dt)
