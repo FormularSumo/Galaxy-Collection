@@ -7,8 +7,8 @@ function CardViewer:init(name,imageName,level,evolution,inDeck,number)
 
     gui[1] = Button(function() if gui['CardViewer'].mode == 'stats' then gui['CardViewer'].mode = 'biography' else gui['CardViewer'].mode = 'stats' end end,nil,nil,imageName .. '.jpg',390,540)
     if self.stats['biography'] then
-        self.biography = Text(wrap(self.stats['biography'],46),font40SW,'centre',90)
-        self.biography.x = self.biography.x + 320
+        self.biography = Text(wrap(self.stats['biography'],40),font40SW,'centre',90)
+        self.biography.x = self.biography.x + 270
     end
 
 
@@ -100,7 +100,7 @@ function CardViewer:createStat(stat, displayName, name, font)
     else
         self.statsOnDisplay[name] = Text(displayName,font,'centre',self.y)
     end
-    self.statsOnDisplay[name].x = self.statsOnDisplay[name].x + 320
+    self.statsOnDisplay[name].x = self.statsOnDisplay[name].x + 270
 end
 
 function CardViewer:update()
