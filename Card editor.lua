@@ -81,7 +81,7 @@ function CardEditor:swap()
 end
 
 function CardEditor:CardViewer()
-    gStateMachine.current:stats(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number)
+    gui[1] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number)
 end
 
 function CardEditor:update()
@@ -97,6 +97,7 @@ function CardEditor:update()
                     end
                 end
             elseif math.abs(mouseLastX - mousePressedX) < 10 and math.abs(mouseLastY - mousePressedY) < 10 and love.timer.getTime() - mousePressedTime < 0.15 and self.name ~= 'Blank'then
+                gStateMachine.current:enterStats()
                 self:CardViewer()
             else
                 self:swap()
@@ -116,6 +117,7 @@ function CardEditor:update()
         end
     else
         if mouseDown and mousePressedX > self.x and mousePressedX < self.x + self.width and mousePressedY > self.y and mousePressedY < self.y + self.height and love.timer.getTime() - mousePressedTime > 0.3 and self.name ~= 'Blank' then
+            gStateMachine.current:enterStats()
             self:CardViewer()
             mouseDown = false
             mouseLocked = false

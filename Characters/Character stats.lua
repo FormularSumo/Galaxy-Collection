@@ -88,7 +88,8 @@ Characters = {
     ['projectile5'] = 'Red Force Blast',
     ['projectile6'] = 'Red Force Blast',
     ['projectileCount'] = 6,
-    ['weapon1'] = 'Lightning'
+    ['weapon1'] = 'Lightning',
+    ['biography'] = 'Abeloth was a mortal woman who served The Ones, acting as The Mother to The Daughter and The Son. However, as she grew old and feared losing her family, she drank from the Well of Power and bathed in the Pool of Knowledge, corrupting her into a twisted immortal entity capable of Force feats unrivalled. Her powers included force draining, possession, shape-shifting, force healing and extreme telekinesis.'
 },
 
 ['Acklay'] = {
@@ -4926,7 +4927,8 @@ Characters = {
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Blue Force Blast',
-    ['projectileCount'] = 2
+    ['projectileCount'] = 2,
+    ['biography'] = 'The Father was an ancient and wise Force Wielder residing in the realm of Mortis, a place speculated to be the origin point of the Force. He was tasked with keeping his two children in check, The Daughter and The Son, until news reached him of The Chosen One during the Clone Wars. After testing Jedi Knight Anakin Skywalker vigorously, he was forced to impale himself with the Dagger of Mortis to strip his evil son of his powers, allowing Anakin to kill him. His powers included turning off a lightsaber blade with his bare hand, appearing as others through apparitions, and teleportation, in addition to sprouting wings and purging memories. It is possible he created the World Between Worlds.'
 },
 
 ['The Handmaiden'] = {
