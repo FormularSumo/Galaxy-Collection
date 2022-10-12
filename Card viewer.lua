@@ -5,7 +5,7 @@ function CardViewer:init(name,imageName,level,evolution,inDeck,number)
     self.statsOnDisplay = {}
     self.mode = 'stats'
 
-    self.image = Button(function() if gui[1].mode == 'stats' then gui[1].mode = 'biography' else gui[1].mode = 'stats' end end,nil,nil,imageName .. '.jpg',390,540)
+    gui[1] = Button(function() if gui['CardViewer'].mode == 'stats' then gui['CardViewer'].mode = 'biography' else gui['CardViewer'].mode = 'stats' end end,nil,nil,imageName .. '.jpg',390,540)
     if self.stats['biography'] then
         self.biography = Text(wrap(self.stats['biography'],46),font40SW,'centre',90)
         self.biography.x = self.biography.x + 320
@@ -104,12 +104,9 @@ function CardViewer:createStat(stat, displayName, name, font)
 end
 
 function CardViewer:update()
-    self.image:update()
 end
 
 function CardViewer:render()
-    self.image:render()
-
     if self.mode == 'stats' then
         for k, pair in pairs(self.statsOnDisplay) do
             pair:render()
@@ -121,13 +118,13 @@ end
 
 function CardViewer:renderInFront()
     if self.evolution == 4 then
-        love.graphics.draw(evolutionMaxBig,690+((600*(self.image.scaling-1))/2)-evolutionMaxBig:getWidth()-12,(90+12)-((900*(self.image.scaling-1))/2),0,self.image.scaling,self.image.scaling,(self.image.scaling-1)/2*evolutionMaxBig:getWidth(),(self.image.scaling-1)/2*evolutionMaxBig:getWidth())
+        love.graphics.draw(evolutionMaxBig,690+((600*(gui[1].scaling-1))/2)-evolutionMaxBig:getWidth()-12,(90+12)-((900*(gui[1].scaling-1))/2),0,gui[1].scaling,gui[1].scaling,(gui[1].scaling-1)/2*evolutionMaxBig:getWidth(),(gui[1].scaling-1)/2*evolutionMaxBig:getWidth())
     elseif self.evolution > 0 then
-        love.graphics.draw(evolutionBig,690+((600*(self.image.scaling-1))/2)-evolutionBig:getHeight()-4,(90+12)-((900*(self.image.scaling-1))/2),math.rad(90),self.image.scaling,self.image.scaling,(self.image.scaling-1)/2*evolutionBig:getWidth(),(self.image.scaling-1)/2*evolutionBig:getWidth())
+        love.graphics.draw(evolutionBig,690+((600*(gui[1].scaling-1))/2)-evolutionBig:getHeight()-4,(90+12)-((900*(gui[1].scaling-1))/2),math.rad(90),gui[1].scaling,gui[1].scaling,(gui[1].scaling-1)/2*evolutionBig:getWidth(),(gui[1].scaling-1)/2*evolutionBig:getWidth())
         if self.evolution > 1 then
-            love.graphics.draw(evolutionBig,690+((600*(self.image.scaling-1))/2)-evolutionBig:getHeight()*2-7,(90+12)-((900*(self.image.scaling-1))/2),math.rad(90),self.image.scaling,self.image.scaling,(self.image.scaling-1)/2*evolutionBig:getWidth(),(self.image.scaling-1)/2*evolutionBig:getWidth())
+            love.graphics.draw(evolutionBig,690+((600*(gui[1].scaling-1))/2)-evolutionBig:getHeight()*2-7,(90+12)-((900*(gui[1].scaling-1))/2),math.rad(90),gui[1].scaling,gui[1].scaling,(gui[1].scaling-1)/2*evolutionBig:getWidth(),(gui[1].scaling-1)/2*evolutionBig:getWidth())
             if self.evolution > 2 then
-                love.graphics.draw(evolutionBig,690+((600*(self.image.scaling-1))/2)-evolutionBig:getHeight()*3-10,(90+12)-((900*(self.image.scaling-1))/2),math.rad(90),self.image.scaling,self.image.scaling,(self.image.scaling-1)/2*evolutionBig:getWidth(),(self.image.scaling-1)/2*evolutionBig:getWidth())
+                love.graphics.draw(evolutionBig,690+((600*(gui[1].scaling-1))/2)-evolutionBig:getHeight()*3-10,(90+12)-((900*(gui[1].scaling-1))/2),math.rad(90),gui[1].scaling,gui[1].scaling,(gui[1].scaling-1)/2*evolutionBig:getWidth(),(gui[1].scaling-1)/2*evolutionBig:getWidth())
             end
         end
     end

@@ -263,8 +263,9 @@ function DeckeditState:enterStats(name,imageName,level,evolution,inDeck,number)
     self.subState = 'info'
     self.gui = gui
     gui = {}
-    gui[2] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,nil,nil,true)
-    gui[3] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,nil,nil,true)
+    gui[2] = Button(function() gStateMachine:back() end,nil,font80,'X',1800,120)
+    gui[3] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,nil,nil,true)
+    gui[4] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,nil,nil,true)
 end
 
 function DeckeditState:exitStats()

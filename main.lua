@@ -521,7 +521,7 @@ function love.draw()
     --For GUI elements that need rendering in front of mouseTouching (eg evolution icons)
     if not(gStateMachine.state == 'GameState' and not winner and not paused) then
         for k, pair in pairs(gui) do
-            if pair.renderInFront ~= nil and mouseTouching ~= pair and mouseTrapped ~= pair then
+            if pair.renderInFront and mouseTouching ~= pair and mouseTrapped ~= pair then
                 pair:renderInFront()
             end
         end
