@@ -82,6 +82,20 @@ function controllerBinds(button)
     return false
 end
 
+function wrap(str, limit)
+    limit = limit or 72
+    local here = 1
+  
+    -- the "".. is there because :gsub returns multiple values
+    return ""..str:gsub("(%s+)()(%S+)()",
+    function(sp, st, word, fi)
+          if fi-here > limit then
+            here = st
+            return "\n"..word
+          end
+    end)
+  end
+  
 function P1deckEdit(position,name)
     P1deckCards = binser.readFile('Player 1 deck.txt')
 

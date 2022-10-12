@@ -25,6 +25,7 @@ function love.load()
     require 'Projectile2'
     require 'Card editor'
     require 'Remove card'
+    require 'Card viewer'
     require 'js'
 
     --Operating System
@@ -43,6 +44,7 @@ function love.load()
     font50 = love.graphics.newFont(50)
     font60 = love.graphics.newFont(60)
     font80 = love.graphics.newFont(80)
+    font40SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',40)
     font50SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',50)
     font60SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',60)
     -- font80SWrunes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
@@ -501,6 +503,16 @@ function love.draw()
     elseif mouseTouching then
         mouseTouching:render() 
     end
+
+    --For GUI elements that need rendering in front of mouseTouching (eg evolution icons)
+    if not(gStateMachine.state == 'GameState' and not winner and not paused) then
+        for k, pair in pairs(gui) do
+            if pair.renderInFront and mouseTouching ~= pair and mouseTrapped ~= pair then
+                pair:renderInFront()
+            end
+        end
+    end
+
     if Settings['FPS_counter'] == true then
         love.graphics.print({{0,255,0,255}, 'FPS: ' .. tostring(love.timer.getFPS())}, font50, 1697, 1027)
     end
