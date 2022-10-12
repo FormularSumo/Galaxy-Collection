@@ -18,5 +18,6 @@ function HomeState:enter(partial)
             songs[1] = love.audio.newSource('Music/Ahsoka\'s Theme.oga','stream')
             songs[0] = love.audio.newSource('Music/Across The Stars.oga','stream')
         end
+    end
     background = love.graphics.newImage('Backgrounds/Starry Sky.jpg')
 end
