@@ -5,6 +5,13 @@ function CardViewer:init(name,imageName,level,evolution,inDeck,number,mode)
     self.statsOnDisplay = {}
     self.mode = mode or 'stats'
 
+    if inDeck then
+        gStateMachine.current.cardDisplayedNumber = number
+    else
+        gStateMachine.current.cardDisplayedNumber = number - gStateMachine.current.page * 18
+    end
+    gStateMachine.current.cardDisplayedInDeck = inDeck
+
     --Create image which toggles between displaying stats and description
     gui[1] = Button(function() if gui['CardViewer'].mode == 'stats' then gui['CardViewer'].mode = 'biography' else gui['CardViewer'].mode = 'stats' end end,nil,nil,imageName .. '.jpg',390,540)
     
@@ -15,12 +22,6 @@ function CardViewer:init(name,imageName,level,evolution,inDeck,number,mode)
     end
 
     --Create stats
-    if inDeck then
-        gStateMachine.current.cardDisplayedNumber = number
-    else
-        gStateMachine.current.cardDisplayedNumber = number - gStateMachine.current.page * 18
-    end
-    gStateMachine.current.cardDisplayedInDeck = inDeck
     self.evolution = evolution
     self.modifier = ((level + (60 - level) / 1.7) / 60) * (1 - ((4 - evolution) * 0.1))
     self.y = 0
