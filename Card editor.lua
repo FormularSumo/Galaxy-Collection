@@ -81,7 +81,12 @@ function CardEditor:swap()
 end
 
 function CardEditor:CardViewer()
-    gui['CardViewer'] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number)
+    if gui['CardViewer'] then
+        mode = gui['CardViewer'].mode
+        gui['CardViewer'] = nil
+        collectgarbage()
+    end
+    gui['CardViewer'] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number,mode)
 end
 
 function CardEditor:update()

@@ -1,16 +1,18 @@
 CardViewer = Class{__includes = BaseState}
 
-function CardViewer:init(name,imageName,level,evolution,inDeck,number)
+function CardViewer:init(name,imageName,level,evolution,inDeck,number,mode)
     self.stats = Characters[name]
     self.statsOnDisplay = {}
-    self.mode = 'stats'
+    self.mode = mode or 'stats'
 
+    --Create image which toggles between displaying stats and description
     gui[1] = Button(function() if gui['CardViewer'].mode == 'stats' then gui['CardViewer'].mode = 'biography' else gui['CardViewer'].mode = 'stats' end end,nil,nil,imageName .. '.jpg',390,540)
+    
+    --Create biography
     if self.stats['biography'] then
         self.biography = Text(wrap(self.stats['biography'],40),font40SW,'centre',90)
         self.biography.x = self.biography.x + 270
     end
-
 
     --Create stats
     if inDeck then
