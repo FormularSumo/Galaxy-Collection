@@ -69,11 +69,11 @@ end
 
 function CardEditor:CardViewer()
     if gui['CardViewer'] then
-        mode = gui['CardViewer'].mode
+        self.mode = gui['CardViewer'].mode
         gui['CardViewer'] = nil
         collectgarbage()
     end
-    gui['CardViewer'] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number,self,mode)
+    gui['CardViewer'] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number,self,self.mode)
 end
 
 function CardEditor:update()
