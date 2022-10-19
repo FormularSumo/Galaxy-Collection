@@ -409,9 +409,12 @@ function DeckeditState:update()
     if self.subState == 'deck' then
         self.left = 22
         self.right = 23
+    elseif gui['CardViewer'].mode == 'stats' then
+        self.left = 7
+        self.right = 8
     else
-        self.left = 2
-        self.right = 3
+        self.left = 3
+        self.right = 4
     end
     if love.mouse.isVisible() then
         mouseLocked = false
