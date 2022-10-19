@@ -202,6 +202,10 @@ function DeckeditState:updateGui()
 end
 
 function DeckeditState:updateCardViewer(direction)
+    if gui['CardViewer'].statsUpdated then
+        gui['CardViewer']:saveStats()
+        gui['CardViewer'].statsUpdated = false
+    end
     if self.cardDisplayedInDeck then
         if direction == 'right' then
             if self.cardDisplayedNumber == 17 then
@@ -264,17 +268,30 @@ function DeckeditState:enterStats(name,imageName,level,evolution,inDeck,number)
     self.gui = gui
     gui = {}
     gui[2] = Button(function() gStateMachine:back() end,nil,font80,'X',1800,120)
-    gui[3] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,nil,nil,true)
-    gui[4] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,nil,nil,true)
+    if sandbox then
+        gui[7] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,nil,nil,true)
+        gui[8] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,nil,nil,true)
+    else
+        gui[3] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,nil,nil,true)
+        gui[4] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,nil,nil,true)
+    end
 end
 
 function DeckeditState:exitStats()
+    if gui['CardViewer'].statsUpdated then
+        gui['CardViewer']:saveStats()
+    end
     self.subState = 'deck'
     for k, pair in pairs(gui) do
         gui[k] = nil
     end
     gui = self.gui
-    self:updateGui()
+    if DeckeditState.reload then
+        self:reloadDeckeditor()
+        DeckeditState.reload = false
+    else
+        self:updateGui()
+    end
 end
 
 function DeckeditState:back()

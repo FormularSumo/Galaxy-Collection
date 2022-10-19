@@ -1,14 +1,10 @@
 Text = Class{}
 
 function Text:init(text,font,x,y,r,g,b,visible)
-    self.font = font 
+    self.font = font or love.graphics.getFont()
     
     self.centreX = x == 'centre'
     self.centreY = y == 'centre'
-    
-    if self.font == nil then 
-        self.font = love.graphics.getFont()
-    end
 
     self.text = love.graphics.newText(self.font,text)
     self.width,self.height = self.text:getDimensions()
@@ -23,9 +19,9 @@ function Text:init(text,font,x,y,r,g,b,visible)
         self.y = y
     end
 
-    if r == nil then self.r = 1 else self.r = r end
-    if g == nil then self.g = 1 else self.g = g end
-    if b == nil then self.b = 1 else self.b = b end
+    self.r = r or 1
+    self.g = g or 1
+    self.b = b or 1
     if visible == nil then self.visible = true else self.visible = visible end
 end
 

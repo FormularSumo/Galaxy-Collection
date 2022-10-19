@@ -1,6 +1,7 @@
 CardViewer = Class{__includes = BaseState}
 
 function CardViewer:init(name,imageName,level,evolution,inDeck,number,mode)
+    self.name = name
     self.stats = Characters[name]
     self.statsOnDisplay = {}
     self.name = name
@@ -12,6 +13,7 @@ function CardViewer:init(name,imageName,level,evolution,inDeck,number,mode)
     else
         self:createBiography()
     end
+    self.statsUpdated = false
 
     if inDeck then
         gStateMachine.current.cardDisplayedNumber = number
@@ -24,16 +26,81 @@ function CardViewer:init(name,imageName,level,evolution,inDeck,number,mode)
     gui[1] = Button(function() self:swapMode() end,nil,nil,imageName .. '.jpg',390,540)
 end
 
+function CardViewer:changeStat(stat, difference)
+    if stat == 'Evolution' then
+        if self.evolution + difference >= 0 and self.evolution + difference <= 4 then
+            self.evolution = self.evolution + difference
+            self:updateStats()
+        end
+    else
+        if self.level + difference >= 1 and self.level + difference <= 60 then
+            self.level = self.level + difference
+            self:updateStats(true)
+        end
+    end
+end
+
+function CardViewer:updateStats(stat)
+    self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
+
+    if stat then
+        self.statsOnDisplay['Level']:updateText('Level: ' .. self.level)
+        self.statsOnDisplay['Level'].x = self.statsOnDisplay['Level'].x + 270
+    end
+
+    self.statsOnDisplay['Melee Offense']:updateText('Melee Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier))
+    self.statsOnDisplay['Melee Offense'].x = self.statsOnDisplay['Melee Offense'].x + 270
+    if self.stats['rangedOffense'] then
+        self.statsOnDisplay['Ranged Offense']:updateText('Ranged Offense: ' .. math.floor(self.stats['rangedOffense'] * self.modifier))
+        self.statsOnDisplay['Ranged Offense'].x = self.statsOnDisplay['Ranged Offense'].x + 270
+    end
+    self.statsOnDisplay['Defense']:updateText('Defense: ' .. math.floor(self.stats['defense'] * self.modifier))
+    self.statsOnDisplay['Defense'].x = self.statsOnDisplay['Defense'].x + 270
+    self.statsOnDisplay['Overall Strength']:updateText('Overall Strength: ' .. math.floor(characterStrength({self.name,self.level,self.evolution})))
+    self.statsOnDisplay['Overall Strength'].x = self.statsOnDisplay['Overall Strength'].x + 270
+    
+    self.statsUpdated = true
+end
+
+function CardViewer:saveStats()
+    if gStateMachine.current.cardDisplayedInDeck then
+        P1deckEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
+    else
+        P1cardsEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
+    end
+    DeckeditState.reload = true
+end
+
 function CardViewer:swapMode()
     if self.mode == 'stats' then
         self.mode = 'biography'
         if self.biography == nil then
             self:createBiography()
         end
+        gui['Evolution'].visible = false
+        gui[3].visible = false
+        gui[4].visible = false
+        gui[5].visible = false
+        gui[6].visible = false
+        self.hiddenbuttons = {gui[3], gui[4]}
+        gui[3] = gui[7]
+        gui[4] = gui[8]
+        gui[7] = nil
+        gui[8] = nil
     else
         self.mode = 'stats'
         if next(self.statsOnDisplay) == nil then
             self:createStats()
+        else
+            gui[7] = gui[3]
+            gui[8] = gui[4]
+            gui[3] = self.hiddenbuttons[1]
+            gui[4] = self.hiddenbuttons[2]
+            gui['Evolution'].visible = true
+            gui[3].visible = true
+            gui[4].visible = true
+            gui[5].visible = true
+            gui[6].visible = true
         end
     end
 end
@@ -51,7 +118,7 @@ function CardViewer:createStats()
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.y = 0
 
-    self:createStat(math.floor(characterStrength({self.name,self.level,self.evolution})),'Overall strength')
+    self:createStat(math.floor(characterStrength({self.name,self.level,self.evolution})),'Overall Strength')
     self.y = self.y + 30
 
     self:createStat(self.level,'Level')
@@ -109,6 +176,15 @@ function CardViewer:createStats()
         end
     elseif self.stats['projectile1'] then
         self:createStat(self.stats['projectile1'],'Projectile',nil,font50SW)
+    end
+
+    if sandbox then
+        gui['Evolution'] = Text('Evolution',font60SW,'centre',950)
+        gui['Evolution'].x = gui['Evolution'].x + 270
+        gui[3] = Button(function() self:changeStat('Level',-1) end,nil,nil,'Minus',1920/2+40,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,nil,nil,true)
+        gui[4] = Button(function() self:changeStat('Level',1) end,nil,nil,'Plus',1920/2+500,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,nil,nil,true)
+        gui[5] = Button(function() self:changeStat('Evolution',-1) end,nil,nil,'Minus',1920/2+20,950+gui['Evolution'].height/2,nil,nil,nil,nil,nil,true)
+        gui[6] = Button(function() self:changeStat('Evolution',1) end,nil,nil,'Plus',1920/2+520,950+gui['Evolution'].height/2,nil,nil,nil,nil,nil,true)
     end
 end
 
