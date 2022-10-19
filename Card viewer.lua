@@ -65,10 +65,15 @@ end
 function CardViewer:saveStats()
     if gStateMachine.current.cardDisplayedInDeck then
         P1deckEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
+        if not gStateMachine.current.reloadCards then
+            gStateMachine.current.reloadCards = true
+        end
     else
         P1cardsEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
+        if not gStateMachine.current.reloadCards then
+            gStateMachine.current.reloadCards = 'sort'
+        end
     end
-    DeckeditState.reload = true
 end
 
 function CardViewer:swapMode()
