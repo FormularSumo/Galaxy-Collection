@@ -286,12 +286,9 @@ function DeckeditState:exitStats()
         gui[k] = nil
     end
     gui = self.gui
-    if self.reloadCards == 'sort' then
+    if self.sort == true then
         self:sortInventory()
-        self.reloadCards = nil
-    elseif self.reloadCards then
-        self:reloadDeckeditor()
-        self.reloadCards = nil
+        self.sort = nil
     else
         self:updateGui()
     end

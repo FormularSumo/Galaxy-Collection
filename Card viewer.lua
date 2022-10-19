@@ -1,6 +1,6 @@
 CardViewer = Class{__includes = BaseState}
 
-function CardViewer:init(name,imageName,level,evolution,inDeck,number,mode)
+function CardViewer:init(name,imageName,level,evolution,inDeck,number,parent,mode)
     self.name = name
     self.stats = Characters[name]
     self.statsOnDisplay = {}
@@ -13,10 +13,10 @@ function CardViewer:init(name,imageName,level,evolution,inDeck,number,mode)
     else
         self:createBiography()
     end
-    self.statsUpdated = false
 
     if inDeck then
         gStateMachine.current.cardDisplayedNumber = number
+        self.parent = parent
     else
         gStateMachine.current.cardDisplayedNumber = number - gStateMachine.current.page * 18
     end
@@ -65,13 +65,12 @@ end
 function CardViewer:saveStats()
     if gStateMachine.current.cardDisplayedInDeck then
         P1deckEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
-        if not gStateMachine.current.reloadCards then
-            gStateMachine.current.reloadCards = true
-        end
+        self.parent.level = self.level
+        self.parent.evolution = self.evolution
     else
         P1cardsEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
-        if not gStateMachine.current.reloadCards then
-            gStateMachine.current.reloadCards = 'sort'
+        if not gStateMachine.current.sort then
+            gStateMachine.current.sort = true
         end
     end
 end
