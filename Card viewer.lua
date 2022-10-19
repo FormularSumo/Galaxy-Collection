@@ -1,86 +1,198 @@
 CardViewer = Class{__includes = BaseState}
 
-function CardViewer:init(name,imageName,level,evolution,inDeck,number)
+function CardViewer:init(name,imageName,level,evolution,inDeck,number,parent,mode)
+    self.name = name
     self.stats = Characters[name]
     self.statsOnDisplay = {}
-    self.mode = 'stats'
-
-    gui[1] = Button(function() if gui['CardViewer'].mode == 'stats' then gui['CardViewer'].mode = 'biography' else gui['CardViewer'].mode = 'stats' end end,nil,nil,imageName .. '.jpg',390,540)
-    if self.stats['biography'] then
-        self.biography = Text(wrap(self.stats['biography'],40),font40SW,'centre',90)
-        self.biography.x = self.biography.x + 270
+    self.name = name
+    self.level = level
+    self.evolution = evolution
+    self.mode = mode or 'stats'
+    if self.mode == 'stats' then
+        self:createStats()
+    else
+        self:createBiography()
     end
 
-
-    --Create stats
     if inDeck then
         gStateMachine.current.cardDisplayedNumber = number
+        self.parent = parent
     else
         gStateMachine.current.cardDisplayedNumber = number - gStateMachine.current.page * 18
     end
     gStateMachine.current.cardDisplayedInDeck = inDeck
-    self.evolution = evolution
-    self.modifier = ((level + (60 - level) / 1.7) / 60) * (1 - ((4 - evolution) * 0.1))
+
+    --Create image which toggles between displaying stats and description
+    gui[1] = Button(function() self:swapMode() end,nil,nil,imageName .. '.jpg',390,540)
+end
+
+function CardViewer:changeStat(stat, difference)
+    if stat == 'Evolution' then
+        if self.evolution + difference >= 0 and self.evolution + difference <= 4 then
+            self.evolution = self.evolution + difference
+            self:updateStats()
+        end
+    else
+        if self.level + difference >= 1 and self.level + difference <= 60 then
+            self.level = self.level + difference
+            self:updateStats(true)
+        end
+    end
+end
+
+function CardViewer:updateStats(stat)
+    self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
+
+    if stat then
+        self.statsOnDisplay['Level']:updateText('Level: ' .. self.level)
+        self.statsOnDisplay['Level'].x = self.statsOnDisplay['Level'].x + 270
+    end
+
+    self.statsOnDisplay['Melee Offense']:updateText('Melee Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier))
+    self.statsOnDisplay['Melee Offense'].x = self.statsOnDisplay['Melee Offense'].x + 270
+    if self.stats['rangedOffense'] then
+        self.statsOnDisplay['Ranged Offense']:updateText('Ranged Offense: ' .. math.floor(self.stats['rangedOffense'] * self.modifier))
+        self.statsOnDisplay['Ranged Offense'].x = self.statsOnDisplay['Ranged Offense'].x + 270
+    end
+    self.statsOnDisplay['Defense']:updateText('Defense: ' .. math.floor(self.stats['defense'] * self.modifier))
+    self.statsOnDisplay['Defense'].x = self.statsOnDisplay['Defense'].x + 270
+    self.statsOnDisplay['Overall Strength']:updateText('Overall Strength: ' .. math.floor(characterStrength({self.name,self.level,self.evolution})))
+    self.statsOnDisplay['Overall Strength'].x = self.statsOnDisplay['Overall Strength'].x + 270
+    
+    self.statsUpdated = true
+end
+
+function CardViewer:saveStats()
+    if gStateMachine.current.cardDisplayedInDeck then
+        P1deckEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
+        self.parent.level = self.level
+        self.parent.evolution = self.evolution
+    else
+        P1cardsEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
+        if not gStateMachine.current.sort then
+            gStateMachine.current.sort = true
+        end
+    end
+end
+
+function CardViewer:swapMode()
+    if self.mode == 'stats' then
+        self.mode = 'biography'
+        if self.biography == nil then
+            self:createBiography()
+        end
+        if sandbox then
+            gui['Evolution'].visible = false
+            gui[3].visible = false
+            gui[4].visible = false
+            gui[5].visible = false
+            gui[6].visible = false
+            self.hiddenbuttons = {gui[3], gui[4]}
+            gui[3] = gui[7]
+            gui[4] = gui[8]
+            gui[7] = nil
+            gui[8] = nil
+        end
+    else
+        self.mode = 'stats'
+        if sandbox and gui[7] == nil then
+            gui[7] = gui[3]
+            gui[8] = gui[4]
+        end
+        if next(self.statsOnDisplay) == nil then
+            self:createStats()
+        elseif sandbox then
+            gui[3] = self.hiddenbuttons[1]
+            gui[4] = self.hiddenbuttons[2]
+            gui['Evolution'].visible = true
+            gui[3].visible = true
+            gui[4].visible = true
+            gui[5].visible = true
+            gui[6].visible = true
+        end
+    end
+end
+
+function CardViewer:createBiography()
+    if self.stats['biography'] then
+        self.biography = Text(wrap(self.stats['biography'],40),font40SW,'centre',90)
+        self.biography.x = self.biography.x + 270
+    else
+        self.biography = false
+    end
+end
+
+function CardViewer:createStats()
+    self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.y = 0
 
-    self:createStat(math.floor(characterStrength({name,level,evolution})),'Overall strength')
+    self:createStat(math.floor(characterStrength({self.name,self.level,self.evolution})),'Overall Strength')
     self.y = self.y + 30
 
-    self:createStat(level,'Level')
-    self:createStat(math.floor(Characters[name]['meleeOffense'] * self.modifier),'Melee Offense')
-    if Characters[name]['rangedOffense'] then
-        self:createStat(math.floor(Characters[name]['rangedOffense'] * self.modifier),'Ranged Offense')
+    self:createStat(self.level,'Level')
+    self:createStat(math.floor(self.stats['meleeOffense'] * self.modifier),'Melee Offense')
+    if self.stats['rangedOffense'] then
+        self:createStat(math.floor(self.stats['rangedOffense'] * self.modifier),'Ranged Offense')
     end
-    self:createStat(math.floor(Characters[name]['defense'] * self.modifier),'Defense')
-    self:createStat(Characters[name]['evade'],'Evade')
-    self:createStat(Characters[name]['range'],'Range')
+    self:createStat(math.floor(self.stats['defense'] * self.modifier),'Defense')
+    self:createStat(self.stats['evade'],'Evade')
+    self:createStat(self.stats['range'],'Range')
 
     self.y = self.y + 45
 
-    if Characters[name].weaponCount then
+    if self.stats.weaponCount then
         self.weapons = {}
-        self.weapons[Characters[name]['weapon1']] = 1
-        for i=2,Characters[name]['weaponCount'] do
-            if Characters[name]['weapon'..tostring(i)] then
-                if self.weapons[Characters[name]['weapon'..tostring(i)]] then
-                    self.weapons[Characters[name]['weapon'..tostring(i)]] = self.weapons[Characters[name]['weapon'..tostring(i)]] + 1
+        self.weapons[self.stats['weapon1']] = 1
+        for i=2,self.stats['weaponCount'] do
+            if self.stats['weapon'..tostring(i)] then
+                if self.weapons[self.stats['weapon'..tostring(i)]] then
+                    self.weapons[self.stats['weapon'..tostring(i)]] = self.weapons[self.stats['weapon'..tostring(i)]] + 1
                 else
-                    self.weapons[Characters[name]['weapon'..tostring(i)]] = 1
+                    self.weapons[self.stats['weapon'..tostring(i)]] = 1
                 end
             else
-                self.weapons[Characters[name]['weapon1']] = self.weapons[Characters[name]['weapon1']] + 1
+                self.weapons[self.stats['weapon1']] = self.weapons[self.stats['weapon1']] + 1
             end
         end
         self:createStat(nil,'weapons:',nil,font50SW)
         for k, pair in pairs(self.weapons) do
             self:createStat(k,pair .. 'x','weapon' .. k,font50SW)
         end
-        self.y = self.y + 10
-    elseif Characters[name]['weapon1'] then
-        self:createStat(Characters[name]['weapon1'],'weapon',nil,font50SW)
-        self.y = self.y + 10
+        self.y = self.y + 15
+    elseif self.stats['weapon1'] then
+        self:createStat(self.stats['weapon1'],'weapon',nil,font50SW)
+        self.y = self.y + 15
     end
 
-    if Characters[name].projectileCount then
+    if self.stats.projectileCount then
         self.projectiles = {}
-        self.projectiles[Characters[name]['projectile1']] = 1
-        for i=2,Characters[name]['projectileCount'] do
-            if Characters[name]['projectile'..tostring(i)] then
-                if self.projectiles[Characters[name]['projectile'..tostring(i)]] then
-                    self.projectiles[Characters[name]['projectile'..tostring(i)]] = self.projectiles[Characters[name]['projectile'..tostring(i)]] + 1
+        self.projectiles[self.stats['projectile1']] = 1
+        for i=2,self.stats['projectileCount'] do
+            if self.stats['projectile'..tostring(i)] then
+                if self.projectiles[self.stats['projectile'..tostring(i)]] then
+                    self.projectiles[self.stats['projectile'..tostring(i)]] = self.projectiles[self.stats['projectile'..tostring(i)]] + 1
                 else
-                    self.projectiles[Characters[name]['projectile'..tostring(i)]] = 1
+                    self.projectiles[self.stats['projectile'..tostring(i)]] = 1
                 end
             else
-                self.projectiles[Characters[name]['projectile1']] = self.projectiles[Characters[name]['projectile1']] + 1
+                self.projectiles[self.stats['projectile1']] = self.projectiles[self.stats['projectile1']] + 1
             end
         end
         self:createStat(nil,'Projectiles:',nil,font50SW)
         for k, pair in pairs(self.projectiles) do
             self:createStat(k,pair .. 'x','projectile' .. k,font50SW)
         end
-    elseif Characters[name]['projectile1'] then
-        self:createStat(Characters[name]['projectile1'],'Projectile',nil,font50SW)
+    elseif self.stats['projectile1'] then
+        self:createStat(self.stats['projectile1'],'Projectile',nil,font50SW)
+    end
+
+    if sandbox then
+        gui['Evolution'] = Text('Evolution',font60SW,'centre',950)
+        gui['Evolution'].x = gui['Evolution'].x + 270
+        gui[3] = Button(function() self:changeStat('Level',-1) end,nil,nil,'Minus',1920/2+40,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,nil,nil,true)
+        gui[4] = Button(function() self:changeStat('Level',1) end,nil,nil,'Plus',1920/2+500,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,nil,nil,true)
+        gui[5] = Button(function() self:changeStat('Evolution',-1) end,nil,nil,'Minus',1920/2+20,950+gui['Evolution'].height/2,nil,nil,nil,nil,nil,true)
+        gui[6] = Button(function() self:changeStat('Evolution',1) end,nil,nil,'Plus',1920/2+520,950+gui['Evolution'].height/2,nil,nil,nil,nil,nil,true)
     end
 end
 
@@ -92,7 +204,7 @@ function CardViewer:createStat(stat, displayName, name, font)
         font = font60SW
         self.y = self.y + 70
     else
-        self.y = self.y + 65
+        self.y = self.y + 60
     end
     
     if stat then

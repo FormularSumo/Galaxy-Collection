@@ -532,6 +532,5 @@ function love.draw()
     --     y = y + 100
     -- end
     -- love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
-    -- love.graphics.line(VIRTUALWIDTH / 2,0,VIRTUALWIDTH / 2,VIRTUALHEIGHT)
     push.finish()
 end

@@ -28,19 +28,6 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck)
     self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.number = number
     self.inDeck = inDeck
-    -- if self.name ~= 'Blank' then
-    --     self.health = 1000
-    --     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
-    --     self.meleeOffense = self.stats['meleeOffense'] * (self.modifier)
-    --     if self.stats['rangedOffense'] then
-    --         self.rangedOffense = self.stats['rangedOffense'] * (self.modifier)
-    --     else
-    --         self.rangedOffense = self.meleeOffense
-    --     end
-    --     self.defense = self.stats['defense'] * (self.modifier)
-    --     self.evade = self.stats['evade']
-    --     self.range = self.stats['range']
-    -- end
 end
 
 function CardEditor:swap()
@@ -81,7 +68,12 @@ function CardEditor:swap()
 end
 
 function CardEditor:CardViewer()
-    gui['CardViewer'] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number)
+    if gui['CardViewer'] then
+        self.mode = gui['CardViewer'].mode
+        gui['CardViewer'] = nil
+        collectgarbage()
+    end
+    gui['CardViewer'] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number,self,self.mode)
 end
 
 function CardEditor:update()
