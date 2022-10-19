@@ -157,10 +157,10 @@ function CardViewer:createStats()
         for k, pair in pairs(self.weapons) do
             self:createStat(k,pair .. 'x','weapon' .. k,font50SW)
         end
-        self.y = self.y + 10
+        self.y = self.y + 15
     elseif self.stats['weapon1'] then
         self:createStat(self.stats['weapon1'],'weapon',nil,font50SW)
-        self.y = self.y + 10
+        self.y = self.y + 15
     end
 
     if self.stats.projectileCount then
@@ -203,7 +203,7 @@ function CardViewer:createStat(stat, displayName, name, font)
         font = font60SW
         self.y = self.y + 70
     else
-        self.y = self.y + 65
+        self.y = self.y + 60
     end
     
     if stat then
