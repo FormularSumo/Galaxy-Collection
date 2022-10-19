@@ -95,11 +95,13 @@ function CardViewer:swapMode()
         end
     else
         self.mode = 'stats'
+        if sandbox and gui[7] == nil then
+            gui[7] = gui[3]
+            gui[8] = gui[4]
+        end
         if next(self.statsOnDisplay) == nil then
             self:createStats()
         elseif sandbox then
-            gui[7] = gui[3]
-            gui[8] = gui[4]
             gui[3] = self.hiddenbuttons[1]
             gui[4] = self.hiddenbuttons[2]
             gui['Evolution'].visible = true
