@@ -56,7 +56,7 @@ function DeckeditState:sortInventory(reload)
                 end
             end
         end
-    else  
+    else
         for k, pair in pairs(bitser.loadLoveFile('Player 1 cards.txt')) do
             count = count + 1
             P1cards[count] = pair
