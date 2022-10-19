@@ -77,21 +77,23 @@ function CardViewer:swapMode()
         if self.biography == nil then
             self:createBiography()
         end
-        gui['Evolution'].visible = false
-        gui[3].visible = false
-        gui[4].visible = false
-        gui[5].visible = false
-        gui[6].visible = false
-        self.hiddenbuttons = {gui[3], gui[4]}
-        gui[3] = gui[7]
-        gui[4] = gui[8]
-        gui[7] = nil
-        gui[8] = nil
+        if sandbox then
+            gui['Evolution'].visible = false
+            gui[3].visible = false
+            gui[4].visible = false
+            gui[5].visible = false
+            gui[6].visible = false
+            self.hiddenbuttons = {gui[3], gui[4]}
+            gui[3] = gui[7]
+            gui[4] = gui[8]
+            gui[7] = nil
+            gui[8] = nil
+        end
     else
         self.mode = 'stats'
         if next(self.statsOnDisplay) == nil then
             self:createStats()
-        else
+        elseif sandbox then
             gui[7] = gui[3]
             gui[8] = gui[4]
             gui[3] = self.hiddenbuttons[1]
