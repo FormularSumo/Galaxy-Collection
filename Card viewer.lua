@@ -68,7 +68,7 @@ function CardViewer:saveStats()
         self.parent.level = self.level
         self.parent.evolution = self.evolution
     else
-        P1cardsEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
+        P1cardsEdit(gStateMachine.current.cardDisplayedNumber+(gStateMachine.current.page * 18),{self.name, self.level, self.evolution})
         if not gStateMachine.current.sort then
             gStateMachine.current.sort = true
         end
