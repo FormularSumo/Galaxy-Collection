@@ -106,39 +106,43 @@ function love.load()
         tutorial()
     
     else
+        if love.filesystem.getInfo('User Data.txt') == nil then
+            UserData['Credits'] = 0
+            if Settings['videos'] == nil then Settings['videos'] = true end
+            bitser.dumpLoveFile('User Data.txt',UserData)
+
+            --If any save data is from pre 0.11 (doesn't contain userdata, character levels or evolutions), delete it to avoid crashing
+            if love.filesystem.getInfo('Player 1 deck.txt') ~= nil and bitser.loadLoveFile('Player 1 deck.txt') ~= nil then
+                P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
+                for k, pair in pairs(P1deckCards) do
+                    if P1deckCards[k] ~= nil and not Characters[P1deckCards[k][1]] then
+                        P1deckCards[k] = nil
+                    end
+                end
+                bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+                P1deckCards = {}
+            end
+            if love.filesystem.getInfo('Player 1 deck.txt') ~= nil and bitser.loadLoveFile('Player 1 deck.txt') ~= nil then
+                P1cards = bitser.loadLoveFile('Player 1 cards.txt')
+                for k, pair in pairs(P1cards) do
+                    if P1cards[k] ~= nil and not Characters[P1cards[k][1]] then
+                        P1cards[k] = nil
+                    end
+                end
+                bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+                P1cards = nil
+            end
+        end
+
         if love.filesystem.getInfo('Player 1 deck.txt') == nil or bitser.loadLoveFile('Player 1 deck.txt') == nil then
             P1deckCards = {}
             bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
-        else
-            P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
-            for k, pair in pairs(P1deckCards) do
-                if P1deckCards[k] ~= nil and not Characters[P1deckCards[k][1]] then
-                    P1deckCards[k] = nil
-                end
-            end
-            bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
-            P1deckCards = {}
         end
 
         if love.filesystem.getInfo('Player 1 cards.txt') == nil or bitser.loadLoveFile('Player 1 cards.txt') == nil then
             P1cards = {}
             bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
             P1cards = nil
-        else
-            P1cards = bitser.loadLoveFile('Player 1 cards.txt')
-            for k, pair in pairs(P1cards) do
-                if P1cards[k] ~= nil and not Characters[P1cards[k][1]] then
-                    P1cards[k] = nil
-                end
-            end
-            bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
-            P1cards = nil
-        end
-
-        if love.filesystem.getInfo('User Data.txt') == nil then
-            UserData['Credits'] = 0
-            if Settings['videos'] == nil then Settings['videos'] = true end
-            bitser.dumpLoveFile('User Data.txt',UserData)
         end
     end
 
