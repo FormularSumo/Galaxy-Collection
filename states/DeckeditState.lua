@@ -45,13 +45,9 @@ function DeckeditState:sortInventory(reload)
         for k, pair in pairs(P1deckCards) do
             for k2, pair2 in pairs(P1cards) do
                 if pair[1] == pair2[1] then
-                    P1cards[k2] = nil
-                    count = 0
-                    for k, pair in pairs(P1cards) do
-                        count = count + 1
-                        P1cards[count] = pair
+                    for k=k2,#P1cards do
+                        P1cards[k] = P1cards[k+1]
                     end
-                    P1cards[#P1cards] = nil
                     break
                 end
             end
