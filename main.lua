@@ -104,36 +104,20 @@ function love.load()
         tutorial()
     
     else
-        if love.filesystem.getInfo('Player 1 deck.txt') == nil or binser.readFile('Player 1 deck.txt') == nil then
-            P1deckCards = {}
-            binser.writeFile('Player 1 deck.txt',P1deckCards)
-        else
-            P1deckCards = binser.readFile('Player 1 deck.txt')
-            for k, pair in pairs(P1deckCards) do
-                if P1deckCards[k] ~= nil and not Characters[P1deckCards[k][1]] then
-                    P1deckCards[k] = nil
-                end
-            end
-            binser.writeFile('Player 1 deck.txt',P1deckCards)
-            P1deckCards = {}
-        end
-
-        if love.filesystem.getInfo('Player 1 cards.txt') == nil or binser.readFile('Player 1 cards.txt') == nil then
-            binser.writeFile('Player 1 cards.txt',P1cards)
-        else
-            P1cards = binser.readFile('Player 1 cards.txt')
-            for k, pair in pairs(P1cards) do
-                if P1cards[k] ~= nil and not Characters[P1cards[k][1]] then
-                    P1cards[k] = nil
-                end
-            end
-            binser.writeFile('Player 1 cards.txt',P1cards)
-            P1cards = nil
-        end
-
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
             binser.writeFile('User Data.txt',UserData)
+        end
+
+        if love.filesystem.getInfo('Player 1 deck.txt') == nil or binser.readFile('Player 1 deck.txt') == nil then
+            P1deckCards = {}
+            binser.writeFile('Player 1 deck.txt',P1deckCards)
+        end
+
+        if love.filesystem.getInfo('Player 1 cards.txt') == nil or binser.readFile('Player 1 cards.txt') == nil then
+            P1cards = {}
+            binser.writeFile('Player 1 cards.txt',P1cards)
+            P1cards = nil
         end
     end
 
