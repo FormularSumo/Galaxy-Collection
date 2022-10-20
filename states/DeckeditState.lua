@@ -159,15 +159,13 @@ function DeckeditState:resetDeck(deck)
     P1cards = {}
 
     table.sort(sortedCharacters,compareCharacterStrength)
-    count = -1
 
     if deck == 'strongest' then
         for k, pair in ipairs(sortedCharacters) do
-            count = count + 1
-            if count < 18 then
-                P1deckEdit(count,pair)
+            if k-1 < 18 then
+                P1deckEdit(k-1,pair)
             else
-                P1cards[count-18] = pair
+                P1cards[k-19] = pair
             end
         end
     elseif deck == 'blank' then
@@ -175,8 +173,7 @@ function DeckeditState:resetDeck(deck)
             P1deckEdit(i,nil)
         end
         for k, pair in ipairs(sortedCharacters) do
-            count = count + 1
-            P1cards[count] = pair
+            P1cards[k-1] = pair
         end
     end
 
