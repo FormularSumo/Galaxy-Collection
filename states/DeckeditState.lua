@@ -30,9 +30,9 @@ end
 
 function DeckeditState:sortInventory(reload)
     P1cards = {}
-    count = 0
 
     if sandbox and reload == false then
+        count = 0
         for k, pair in pairs(Characters) do
             if k ~= 'DarthNoscoper' then
                 count = count + 1
@@ -56,8 +56,7 @@ function DeckeditState:sortInventory(reload)
         end
     else  
         for k, pair in pairs(binser.readFile('Player 1 cards.txt')) do
-            count = count + 1
-            P1cards[count] = pair
+            P1cards[k+1] = pair
         end
     end
 
