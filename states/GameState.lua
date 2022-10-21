@@ -103,6 +103,7 @@ function GameState:Move()
 end
 
 function GameState:RowsRemaining(deck)
+    self.rowsRemaining = 0
     self.rows = {
         [0] = false,
         [1] = false,
@@ -113,16 +114,13 @@ function GameState:RowsRemaining(deck)
     }
 
     for k, pair in pairs(deck) do
-        self.rows[pair.row] = true
-        if self.rows[0] and self.rows[1] and self.rows[2] and self.rows[3] and self.rows[4] and self.rows[5] and self.rows[6] then break end
-    end
-
-    self.rowsRemaining = 0
-    for k, pair in pairs(self.rows) do
-        if pair == true then
+        if self.rows[pair.row] == false then
+            self.rows[pair.row] = true
             self.rowsRemaining = self.rowsRemaining + 1
+            if self.rowsRemaining == 6 then break end
         end
     end
+
     if deck == P1deck then
         self.P1rows = self.rows
         self.P1rowsRemaining = self.rowsRemaining
