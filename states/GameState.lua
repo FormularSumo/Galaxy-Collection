@@ -35,6 +35,14 @@ function GameState:init()
         [4] = 4,
         [5] = 5,
     }
+    self.rowsMoved = {
+        [0] = false,
+        [1] = false,
+        [2] = false,
+        [3] = false,
+        [4] = false,
+        [5] = false,
+    }
 
     self.P1length = 0
     for k, pair in pairs(P1deckCards) do
