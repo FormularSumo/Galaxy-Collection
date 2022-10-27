@@ -93,14 +93,17 @@ function GameState:Move()
     self:RowsRemaining(P1deck)
     self:RowsRemaining(P2deck)
     if self.P1rowsRemaining == 1 and self.P2rowsRemaining == 1 then
-        if self.P1rows[3] then
-            self:MoveUp(P1deck,3)
-            return
+        if not self.P1rows[3] and self.P2rows[3] then
+            if self.P1rows[3] then
+                self:MoveUp(P1deck,3)
+            end
+            if self.P2rows[3] then
+                self:MoveUp(P2deck,3)
+            end
         end
-        if self.P2rows[3] then
-            self:MoveUp(P2deck,3)
+        if (self.P1rows[2] or self.P1rows[3]) and (self.P2rows[2] and self.P2rows[3]) then
             return
-        end
+        end 
     end
    
     self.rows = self.P1rows
