@@ -59,10 +59,12 @@ function DeckeditState:sortInventory(reload)
     end
 
     table.sort(P1cards,compareCharacterStrength)
+    Temporary = {}
     for k, pair in pairs(P1cards) do
-        P1cards[k-1] = pair
+        Temporary[k-1] = pair
     end
-    P1cards[#P1cards] = nil
+    P1cards = Temporary
+    Temporary = nil
     bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
     if reload ~= false then
         self:updateCardsOnDisplay()
