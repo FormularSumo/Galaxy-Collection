@@ -150,6 +150,27 @@ function sithTriumvirate(number)
     if number == 17 then return {'Hanharr',60,4} end
 end
 
+function jediCouncilChamber(number)
+    if number == 'max' then return 18 end
+
+    if number == 0 then return {'Kit Fisto',60,4} end
+    if number == 1 then return {'Jedi Knight Anakin Skywalker',60,4} end
+    if number == 2 then return {'Mace Windu',60,4} end
+    if number == 3 then return {'Yoda',60,4} end
+    if number == 4 then return {'Jedi Master Obi-Wan Kenobi',60,4} end
+    if number == 5 then return {'Agen Kolar',60,4} end
+    if number == 6 then return {'Coleman Kcaj',60,4} end
+    if number == 7 then return {'Shaak Ti',60,4} end
+    if number == 8 then return {'Ki-Adi-Mundi',60,4} end
+    if number == 9 then return {'Saesee Tiin',60,4} end
+    if number == 10 then return {'Plo Koon',60,4} end
+    if number == 11 then return {'Luminara Unduli',60,4} end
+    if number == 13 then return {'Oppo Rancisis',60,4} end
+    if number == 14 then return {'Depa Billaba',60,4} end
+    if number == 15 then return {'Stass Allie',60,4} end
+    if number == 16 then return {'Jedi Temple Guard',60,4} end
+end
+
 function maxedLightSide(number)
     if number == 'max' then return 18 end
 
