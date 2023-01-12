@@ -105,8 +105,6 @@ function GameState:Move()
             return
         end 
     end
-
-    print('e')
    
     self.rows = self.P1rows
     self.enemyRows = self.P2rows
