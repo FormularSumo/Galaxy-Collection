@@ -98,7 +98,7 @@ function GameState:Move()
                 self:MoveUp(P2deck,3)
             end
         end
-        if (self.P1rows[2] or self.P1rows[3]) and (self.P2rows[2] and self.P2rows[3]) then
+        if (self.P1rows[2] or self.P1rows[3]) and (self.P2rows[2] or self.P2rows[3]) then
             return
         end 
     end
