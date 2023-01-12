@@ -7,7 +7,13 @@ function HomeState:init()
 end
 
 function HomeState:enter(partial)
-    if not partial then
+    if partial ~= true then --If partial is equal to 'music' or false or nil
+        background['Name'] = 'Starry Sky'
+        background['Video'] = Settings['videos']
+        background['Seek'] = 0
+        createBackground()
+    end
+    if not partial then --If partial is set to false or nil
         if love.math.random(0,1) == 1 then
             songs[0] = love.audio.newSource('Music/Ahsoka\'s Theme.oga','stream')
             songs[1] = love.audio.newSource('Music/Across The Stars.oga','stream')
@@ -16,10 +22,7 @@ function HomeState:enter(partial)
             songs[0] = love.audio.newSource('Music/Across The Stars.oga','stream')
         end
     end
-    background['Name'] = 'Starry Sky'
-    background['Video'] = Settings['videos']
-    background['Seek'] = 0
-    createBackground()
+
 end
 
 function HomeState:back()
