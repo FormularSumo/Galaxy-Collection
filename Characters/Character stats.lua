@@ -2874,6 +2874,17 @@ Characters = {
     ['weapon1'] = 'Purple Lightsaber'
 },
 
+['Jedi Master Dooku'] = {
+    ['meleeOffense'] = 18164,
+    ['rangedOffense'] = 17994,
+    ['defense'] = 17271,
+    ['evade'] = 0.05,
+    ['range'] = 2,
+    ['projectile1'] = 'Blue Force Blast',
+    ['projectileCount'] = 2,
+    ['weapon1'] = 'Blue Lightsaber'
+},
+
 ['Jedi Master Obi-Wan Kenobi'] = {
     ['meleeOffense'] = 17421,
     ['rangedOffense'] = 16421,
