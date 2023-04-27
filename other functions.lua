@@ -174,7 +174,7 @@ function characterStrength(character)
         end
     end
 
-    return (offense+((stats['defense']*modifier)/800)^4)*(1+stats['evade']^1.4*3)
+    return offense+((stats['defense']*modifier)/800)^4*(1+stats['evade']^1.4*3)
 end
 
 function compareCharacterStrength(character1, character2)
