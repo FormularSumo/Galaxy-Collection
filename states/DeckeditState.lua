@@ -447,10 +447,10 @@ end
 function DeckeditState:renderForeground()
     if self.subState == 'deck' then
         love.graphics.setColor(0,0,0,0.4)
-        love.graphics.rectangle('fill',VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength))/2-20,890,font50SW:getWidth('Formation strength: ' .. math.floor(P1strength))+40,69,20)
+        love.graphics.rectangle('fill',VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2-20,890,font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))+40,69,20)
         love.graphics.setColor(1,1,1,1)
         love.graphics.setColor(1,1,1,1)
-        love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength))/2,900)
+        love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength+0.5)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2,900)
     end
 end
 

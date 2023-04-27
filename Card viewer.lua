@@ -48,15 +48,15 @@ function CardViewer:updateStats(stat)
         self.statsOnDisplay['Level'].x = self.statsOnDisplay['Level'].x + 270
     end
 
-    self.statsOnDisplay['Melee Offense']:updateText('Melee Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier))
+    self.statsOnDisplay['Melee Offense']:updateText('Melee Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
     self.statsOnDisplay['Melee Offense'].x = self.statsOnDisplay['Melee Offense'].x + 270
     if self.stats['rangedOffense'] then
-        self.statsOnDisplay['Ranged Offense']:updateText('Ranged Offense: ' .. math.floor(self.stats['rangedOffense'] * self.modifier))
+        self.statsOnDisplay['Ranged Offense']:updateText('Ranged Offense: ' .. math.floor(self.stats['rangedOffense'] * self.modifier+0.5))
         self.statsOnDisplay['Ranged Offense'].x = self.statsOnDisplay['Ranged Offense'].x + 270
     end
-    self.statsOnDisplay['Defense']:updateText('Defense: ' .. math.floor(self.stats['defense'] * self.modifier))
+    self.statsOnDisplay['Defense']:updateText('Defense: ' .. math.floor(self.stats['defense'] * self.modifier+0.5))
     self.statsOnDisplay['Defense'].x = self.statsOnDisplay['Defense'].x + 270
-    self.statsOnDisplay['Overall Strength']:updateText('Overall Strength: ' .. math.floor(characterStrength({self.name,self.level,self.evolution})))
+    self.statsOnDisplay['Overall Strength']:updateText('Overall Strength: ' .. math.floor(characterStrength({self.name,self.level,self.evolution})+0.5))
     self.statsOnDisplay['Overall Strength'].x = self.statsOnDisplay['Overall Strength'].x + 270
     
     self.statsUpdated = true
@@ -126,15 +126,15 @@ function CardViewer:createStats()
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.y = 0
 
-    self:createStat(math.floor(characterStrength({self.name,self.level,self.evolution})),'Overall Strength')
+    self:createStat(math.floor(characterStrength({self.name,self.level,self.evolution})+0.5),'Overall Strength')
     self.y = self.y + 30
 
     self:createStat(self.level,'Level')
-    self:createStat(math.floor(self.stats['meleeOffense'] * self.modifier),'Melee Offense')
+    self:createStat(math.floor(self.stats['meleeOffense'] * self.modifier+0.5),'Melee Offense')
     if self.stats['rangedOffense'] then
-        self:createStat(math.floor(self.stats['rangedOffense'] * self.modifier),'Ranged Offense')
+        self:createStat(math.floor(self.stats['rangedOffense'] * self.modifier+0.5),'Ranged Offense')
     end
-    self:createStat(math.floor(self.stats['defense'] * self.modifier),'Defense')
+    self:createStat(math.floor(self.stats['defense'] * self.modifier+0.5),'Defense')
     self:createStat(self.stats['evade'],'Evade')
     self:createStat(self.stats['range'],'Range')
 
