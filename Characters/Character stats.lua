@@ -5275,9 +5275,10 @@ Characters = {
     ['rangedOffense'] = 17182,
     ['defense'] = 17695,
     ['evade'] = 0.05,
-    ['range'] = 2,
-    ['projectile1'] = 'Red Force Blast',
-    ['projectile2'] = 'Force Drain',
+    ['range'] = 3,
+    ['range2'] = 2,
+    ['projectile1'] = 'Force Drain',
+    ['projectile2'] = 'Red Force Blast',
     ['projectileCount'] = 2,
     ['weapon1'] = 'Red Lightsaber'
 },
