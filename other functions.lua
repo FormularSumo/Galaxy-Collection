@@ -176,7 +176,7 @@ function characterStrength(character)
     if offense < 10 then
         offense = 10 - (10-offense) / 2
     end
-    return offense+((stats['defense']*modifier)/800)^4*(1+stats['evade']^1.4*3)
+    return offense+((stats['defense']*modifier)/800)^4*(1+stats['evade']^1.4*2.5)
 end
 
 function compareCharacterStrength(character1, character2)
