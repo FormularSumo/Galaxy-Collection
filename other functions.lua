@@ -127,12 +127,27 @@ function characterStrength(character)
         modifier = 1
     end
 
-    if stats['rangedOffense'] then
-        offense = ((stats['meleeOffense']*modifier)/800)^4/2+(((stats['rangedOffense']*modifier)/800)^4)/2*(1+((stats['range']-1)/20)^0.5/4.5)
+    if stats['range'] == 1 then
+        offense = ((stats['meleeOffense']*modifier)/800)^4 * 0.9
     else
-        offense = ((stats['meleeOffense']*modifier)/800)^4*(1+((stats['range']-1)/20)^0.5/9)
+        rangedOffense = stats['rangedOffense'] or stats['meleeOffense']
+
+        rangedOffense = (rangedOffense/800)^4
+        meleeOffense = ((stats['meleeOffense']*modifier)/800)^4
+
+        rangeFactor = ((stats['range']-1.5)/20)^0.55*4.6
+        
+        if rangedOffense < meleeOffense then
+            offense = meleeOffense * 0.9 + rangedOffense * 0.1 * rangeFactor^0.1
+        else
+            rangeProportion = rangeFactor / (rangeFactor + 1)
+            offense = meleeOffense * (1-rangeProportion) + rangedOffense * rangeProportion + (rangedOffense * rangeFactor^0.1 - rangedOffense) * 0.1
+        end
     end
-    return (offense+((stats['defense']*modifier)/800)^4)*(1+stats['evade']^1/2*2)
+    if offense < 10 then
+        offense = 10 - (10-offense) / 2
+    end
+    return offense+((stats['defense']*modifier)/800)^4*(1+stats['evade']^0.6*0.3)
 end
 
 function compareCharacterStrength(character1, character2)
