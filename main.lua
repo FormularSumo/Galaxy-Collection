@@ -168,8 +168,12 @@ function love.focus(InFocus)
 end
 
 function love.lowmemory()
-    toggleSetting('videos',false)
-    updateBackground()
+    if toggleSetting('videos',false) ~= false then
+        if GameState == "SettingsState" then
+            gui[3]:toggle()
+        end
+        updateBackground()
+    end
 end
 
 function love.joystickadded()

@@ -39,19 +39,17 @@ function createBackground()
 end
 
 function updateBackground()
-    if Settings['videos'] ~= background['Video'] then
-        if Settings['videos'] then
-            if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.ogv') then
-                background['Video'] = true
-            else
-                return
-            end
+    if Settings['videos'] then
+        if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.ogv') then
+            background['Video'] = true
         else
-            background['Video'] = false
+            return
         end
-        createBackground()
-        collectgarbage()
+    else
+        background['Video'] = false
     end
+    createBackground()
+    collectgarbage()
 end
 
 function repositionMouse(index)
@@ -87,7 +85,7 @@ end
 
 function toggleSetting(setting,toggle)
     if toggle ~= nil then
-        if toggle == Settings[setting] then return end
+        if toggle == Settings[setting] then return false end
         Settings[setting] = toggle
     else
         Settings[setting] = not Settings[setting]
