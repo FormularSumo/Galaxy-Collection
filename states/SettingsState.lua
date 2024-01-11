@@ -10,7 +10,7 @@ function SettingsState:init()
         gui[4] = Button(function() toggleSetting('pause_on_loose_focus') gui[4]:toggle() end,function() return ('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus'])) end,font80,nil,'centre',788)
         gui[5] = Button(function() gStateMachine:change('HomeState',true,true) end,'Main Menu',font80,nil,'centre',965)
     else
-        gui[4] = Button(function() love.system.openURL('https://docs.google.com/document/d/1byO6tONbLSp6fiS2z8zM9zzbytuskc25wgCKwmUS16Q/edit?usp=sharing') end,"Private Policy",font80,nil,'centre',788)
+        gui[4] = Button(function() love.system.openURL('https://docs.google.com/document/d/1byO6tONbLSp6fiS2z8zM9zzbytuskc25wgCKwmUS16Q/edit?usp=sharing') end,"Privacy Policy",font80,nil,'centre',788)
         gui[5] = Button(function() gStateMachine:change('HomeState',true,true) end,'Main Menu',font80,nil,'centre',965)
     end
 end
