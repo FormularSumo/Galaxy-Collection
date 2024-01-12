@@ -58,7 +58,7 @@ end
 
 function toggleSetting(setting,toggle)
     if toggle ~= nil then
-        if toggle == Settings[setting] then return end
+        if toggle == Settings[setting] then return false end
         Settings[setting] = toggle
     else
         Settings[setting] = not Settings[setting]

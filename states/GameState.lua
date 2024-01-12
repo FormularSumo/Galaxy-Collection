@@ -242,20 +242,21 @@ function GameState:pause()
     if paused == true then
         gui[1]:updateText('Play','centre',220,font80)
         gui[2]:updatePosition('centre',380)
-        gui[2].default = false
         if not winner then
             gui[4]:updateText('Main Menu','centre',1080-220-font80:getHeight('Main Menu'))
         end
-        gui[2].visible = true
+        gui[2].default = false
+        gui[3].default = true
         gui[4].visible = true
         gui['SpeedLabel'].visible = true
         gui[3].visible = true
         gui['VolumeLabel'].visible = true
     else
         gui[1]:updateText('Pause',1591,0,font100)
-        gui[2].default = true
         gui[2]:updatePosition('1591',130,1591,0)
         gui[4]:updateText('Main Menu',35,20)
+        gui[2].default = true
+        gui[3].default = false
         if not winner then
             gui[4].visible = false
         end
