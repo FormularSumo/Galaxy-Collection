@@ -13,7 +13,6 @@ function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,fun
     self.g2 = g2
     self.percentage = percentage
     self.func2 = func2
-    self.default = default or true
     if trap ~= nil then 
         self.trap3 = trap
         self.trap1 = trap - 0.03
@@ -27,6 +26,7 @@ function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,fun
     self.diameterToCircle = 3
     self.radiusToCircle = self.diameterToCircle / 2
     self:updatePosition(x,y)
+    if default == nil then self.default = true else self.default = default end
     if visible == nil then self.visible = true else self.visible = visible end
 end
 
