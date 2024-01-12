@@ -7,7 +7,7 @@ function DeckeditState:init()
     evolutionMaxBig = love.graphics.newImage('Graphics/Evolution Max Big.png')
     blankCard = love.graphics.newImage('Graphics/Blank Card.png')
 
-    P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
+    P1deckCards = binser.readFile('Player 1 deck.txt')
     P1deck = {}
     cards = {}
     P1strength = 0
@@ -18,9 +18,7 @@ function DeckeditState:init()
     self.subState = 'deck'
     self:reloadDeckeditor()
 
-    background['Name'] = 'Death Star Control Room'
-    background['Video'] = false
-    createBackground()
+    background = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     gui[1] = Button(function() gStateMachine:change('HomeState','music','music') end,'Main Menu',font80,nil,'centre',20)
     gui[2] = Button(function() self:resetDeck('strongest') end,'Auto',font80,nil,'centre',200)
     gui[3] = Button(function() self:resetDeck('blank') end,'Clear',font80,nil,'centre',380)
@@ -53,7 +51,7 @@ function DeckeditState:sortInventory(reload)
             end
         end
     else
-        for k, pair in pairs(bitser.loadLoveFile('Player 1 cards.txt')) do
+        for k, pair in pairs(binser.readFile('Player 1 cards.txt')) do
             count = count + 1
             P1cards[count] = pair
         end
@@ -66,7 +64,7 @@ function DeckeditState:sortInventory(reload)
     end
     P1cards = Temporary
     Temporary = nil
-    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    binser.writeFile('Player 1 cards.txt',P1cards)
     if reload ~= false then
         self:updateCardsOnDisplay()
     end
@@ -176,7 +174,7 @@ function DeckeditState:resetDeck(deck)
         end
     end
 
-    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    binser.writeFile('Player 1 cards.txt',P1cards)
     self:reloadDeckeditor()
 end
 

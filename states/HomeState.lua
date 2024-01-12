@@ -8,10 +8,7 @@ end
 
 function HomeState:enter(partial)
     if partial ~= true then --If partial is equal to 'music' or false or nil
-        background['Name'] = 'Starry Sky'
-        background['Video'] = Settings['videos']
-        background['Seek'] = 0
-        createBackground()
+        background = love.graphics.newImage('Backgrounds/Starry Sky.jpg')
     end
     if not partial then --If partial is set to false or nil
         if love.math.random(0,1) == 1 then
@@ -22,9 +19,7 @@ function HomeState:enter(partial)
             songs[0] = love.audio.newSource('Music/Across The Stars.oga','stream')
         end
     end
-
 end
 
 function HomeState:back()
-    gStateMachine:change('ExitState',true,true)
 end
