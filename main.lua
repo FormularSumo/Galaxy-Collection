@@ -26,7 +26,6 @@ function love.load()
     require 'Card editor'
     require 'Remove card'
     require 'Card viewer'
-    require 'js'
 
     --Operating System
     OS = love.system.getOS()
