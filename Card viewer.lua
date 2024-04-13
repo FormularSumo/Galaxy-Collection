@@ -48,12 +48,14 @@ function CardViewer:updateStats(stat)
         self.statsOnDisplay['Level'].x = self.statsOnDisplay['Level'].x + 270
     end
 
-    self.statsOnDisplay['Melee Offense']:updateText('Melee Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
-    self.statsOnDisplay['Melee Offense'].x = self.statsOnDisplay['Melee Offense'].x + 270
     if self.stats['rangedOffense'] then
+        self.statsOnDisplay['Melee Offense']:updateText('Melee Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
         self.statsOnDisplay['Ranged Offense']:updateText('Ranged Offense: ' .. math.floor(self.stats['rangedOffense'] * self.modifier+0.5))
         self.statsOnDisplay['Ranged Offense'].x = self.statsOnDisplay['Ranged Offense'].x + 270
+    else
+        self.statsOnDisplay['Melee Offense']:updateText('Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
     end
+    self.statsOnDisplay['Melee Offense'].x = self.statsOnDisplay['Melee Offense'].x + 270
     self.statsOnDisplay['Defense']:updateText('Defense: ' .. math.floor(self.stats['defense'] * self.modifier+0.5))
     self.statsOnDisplay['Defense'].x = self.statsOnDisplay['Defense'].x + 270
     self.statsOnDisplay['Overall Strength']:updateText('Overall Strength: ' .. math.floor(characterStrength({self.name,self.level,self.evolution})+0.5))
@@ -130,9 +132,11 @@ function CardViewer:createStats()
     self.y = self.y + 30
 
     self:createStat(self.level,'Level')
-    self:createStat(math.floor(self.stats['meleeOffense'] * self.modifier+0.5),'Melee Offense')
     if self.stats['rangedOffense'] then
+        self:createStat(math.floor(self.stats['meleeOffense'] * self.modifier+0.5),'Melee Offense')
         self:createStat(math.floor(self.stats['rangedOffense'] * self.modifier+0.5),'Ranged Offense')
+    else
+        self:createStat(math.floor(self.stats['meleeOffense'] * self.modifier+0.5),'Offense')
     end
     self:createStat(math.floor(self.stats['defense'] * self.modifier+0.5),'Defense')
     self:createStat(self.stats['evade'],'Evade')
