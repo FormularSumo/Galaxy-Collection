@@ -90,7 +90,7 @@ function kamino(number)
 end
 
 function geonosis(number)
-    if number == 'max' then return 204 end
+    if number == 'max' then return 205 end
 
     if number < 36 then return {'B2 Super Battle Droid',60,4} end
 
@@ -123,8 +123,9 @@ function geonosis(number)
 
     if number == 200 then return {'Tactical Droid',60,4} end
     if number == 201 then return {'Poggle The Lesser',60,4} end
+    if number == 202 then return {'Wat Tambor',60,4} end
 
-    if number < 203 then return {'B1 Battle Droid',60,4} end
+    if number < 204 then return {'B1 Battle Droid',60,4} end
 end
 
 function sithTriumvirate(number)
