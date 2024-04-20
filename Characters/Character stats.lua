@@ -2287,7 +2287,7 @@ Characters = {
 
 ['Gonk Droid'] = {
     ['meleeOffense'] = 69,
-    ['defense'] = 1979,
+    ['defense'] = 1978,
     ['evade'] = 0,
     ['range'] = 1
 },
