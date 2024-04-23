@@ -110,7 +110,7 @@ function Card:aim()
             self.projectile:fireall(self,self.enemyDeck[self.targets[1]])
         end
         self.meleeAttack = true
-    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.meleeOffenseStat > self.rangedOffenseStat) and (self.enemyDeck[self.number-1] ~= nil and ((self.enemyDeck[self.number-1].column == 6 or self.enemyDeck[self.number-1].column == 5)) or (self.enemyDeck[self.number+1] ~= nil and (self.enemyDeck[self.number+1].column == 6 or self.enemyDeck[self.number+1].column == 6))) then
+    elseif (self.column == 5 or self.column == 6) and (self.range == 1 or self.meleeOffenseStat > self.rangedOffenseStat) and (self.enemyDeck[self.number-1] ~= nil and (self.enemyDeck[self.number-1].column == 6 or self.enemyDeck[self.number-1].column == 5) or (self.enemyDeck[self.number+1] ~= nil and (self.enemyDeck[self.number+1].column == 6 or self.enemyDeck[self.number+1].column == 6))) then
         if self.enemyDeck[self.number-1] ~= nil then
             self.targets[1] = self.number-1
         elseif self.enemyDeck[self.number+1] ~= nil then 

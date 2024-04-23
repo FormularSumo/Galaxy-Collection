@@ -1,27 +1,27 @@
 Characters = {
 
 ['4-LOM'] = {
-    ['meleeOffense'] = 12956,
-    ['rangedOffense'] = 14956,
-    ['defense'] = 12794,
+    ['meleeOffense'] = 12927,
+    ['rangedOffense'] = 14927,
+    ['defense'] = 12765,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['41st Scout Battalion Clone Trooper'] = {
-    ['meleeOffense'] = 9425,
-    ['rangedOffense'] = 9925,
-    ['defense'] = 9612,
+    ['meleeOffense'] = 9437,
+    ['rangedOffense'] = 9937,
+    ['defense'] = 9624,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['99'] = {
-    ['meleeOffense'] = 6134,
-    ['rangedOffense'] = 6134,
-    ['defense'] = 6921,
+    ['meleeOffense'] = 6095,
+    ['rangedOffense'] = 6095,
+    ['defense'] = 6882,
     ['evade'] = 0.01,
     ['range'] = 3,
     ['range2'] = 2,
@@ -31,36 +31,36 @@ Characters = {
 },
 
 ['212th Clone Trooper'] = {
-    ['meleeOffense'] = 9574,
-    ['rangedOffense'] = 9874,
-    ['defense'] = 9579,
+    ['meleeOffense'] = 9593,
+    ['rangedOffense'] = 9894,
+    ['defense'] = 9599,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['322nd Clone Trooper'] = {
-    ['meleeOffense'] = 13165,
-    ['rangedOffense'] = 14165,
-    ['defense'] = 13818,
+    ['meleeOffense'] = 13246,
+    ['rangedOffense'] = 14246,
+    ['defense'] = 13887,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['327th Clone Trooper'] = {
-    ['meleeOffense'] = 9481,
-    ['rangedOffense'] = 9621,
-    ['defense'] = 9729,
+    ['meleeOffense'] = 9501,
+    ['rangedOffense'] = 9641,
+    ['defense'] = 9749,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['501st Clone Trooper'] = {
-    ['meleeOffense'] = 13765,
-    ['rangedOffense'] = 14165,
-    ['defense'] = 13518,
+    ['meleeOffense'] = 13860,
+    ['rangedOffense'] = 14260,
+    ['defense'] = 13610,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
@@ -77,9 +77,9 @@ Characters = {
 },
 
 ['Abeloth'] = {
-    ['meleeOffense'] = 20684,
-    ['rangedOffense'] = 21034,
-    ['defense'] = 20085,
+    ['meleeOffense'] = 20683,
+    ['rangedOffense'] = 21033,
+    ['defense'] = 20084,
     ['evade'] = 0.20,
     ['range'] = 5,
     ['projectile1'] = 'Force Drain',
@@ -93,8 +93,8 @@ Characters = {
 },
 
 ['Acklay'] = {
-    ['meleeOffense'] = 15488,
-    ['defense'] = 14908,
+    ['meleeOffense'] = 15779,
+    ['defense'] = 15299,
     ['evade'] = 0.02,
     ['range'] = 1
 },
@@ -110,9 +110,9 @@ Characters = {
 },
 
 ['Admiral Ackbar'] = {
-    ['meleeOffense'] = 9040,
-    ['rangedOffense'] = 9040,
-    ['defense'] = 9020,
+    ['meleeOffense'] = 9074,
+    ['rangedOffense'] = 9074,
+    ['defense'] = 9074,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -128,35 +128,35 @@ Characters = {
 },
 
 ['Admiral Piett'] = {
-    ['meleeOffense'] = 6545,
-    ['rangedOffense'] = 6635,
-    ['defense'] = 6314,
+    ['meleeOffense'] = 6538,
+    ['rangedOffense'] = 6628,
+    ['defense'] = 6307,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Admiral Raddus'] = {
-    ['meleeOffense'] = 8007,
-    ['rangedOffense'] = 8244,
-    ['defense'] = 8272,
+    ['meleeOffense'] = 8037,
+    ['rangedOffense'] = 8274,
+    ['defense'] = 8302,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Admiral Statura'] = {
-    ['meleeOffense'] = 6334,
-    ['rangedOffense'] = 6433,
-    ['defense'] = 6623,
+    ['meleeOffense'] = 6324,
+    ['rangedOffense'] = 6423,
+    ['defense'] = 6613,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Admiral Trench'] = {
-    ['meleeOffense'] = 9655,
-    ['defense'] = 8350,
+    ['meleeOffense'] = 9765,
+    ['defense'] = 8460,
     ['evade'] = 0.02,
     ['range'] = 1,
     ['projectile1'] = 'Red Laser',
@@ -174,9 +174,9 @@ Characters = {
 },
 
 ['Agent Kallus'] = {
-    ['meleeOffense'] = 15121,
-    ['rangedOffense'] = 15121,
-    ['defense'] = 14919,
+    ['meleeOffense'] = 15287,
+    ['rangedOffense'] = 15285,
+    ['defense'] = 15084,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
@@ -208,9 +208,9 @@ Characters = {
 },
 
 ['Ahsoka Tano Padawan'] = {
-    ['meleeOffense'] = 16082,
-    ['rangedOffense'] = 15082,
-    ['defense'] = 15234,
+    ['meleeOffense'] = 16034,
+    ['rangedOffense'] = 15034,
+    ['defense'] = 15186,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -231,9 +231,9 @@ Characters = {
 },
 
 ['Airborne Clone Trooper'] = {
-    ['meleeOffense'] = 12390,
-    ['rangedOffense'] = 14790,
-    ['defense'] = 13805,
+    ['meleeOffense'] = 12214,
+    ['rangedOffense'] = 14614,
+    ['defense'] = 13715,
     ['evade'] = 0.07,
     ['range'] = 4,
     ['projectile1'] = 'Blue Laser'
@@ -252,44 +252,44 @@ Characters = {
 },
 
 ['Aldar Beedo'] = {
-    ['meleeOffense'] = 5329,
-    ['rangedOffense'] = 5499,
-    ['defense'] = 5535,
+    ['meleeOffense'] = 5270,
+    ['rangedOffense'] = 5430,
+    ['defense'] = 5466,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Amilyn Holdo'] = {
-    ['meleeOffense'] = 6755,
-    ['rangedOffense'] = 6677,
-    ['defense'] = 6222,
+    ['meleeOffense'] = 6715,
+    ['rangedOffense'] = 6637,
+    ['defense'] = 6182,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Antoc Merrick'] = {
-    ['meleeOffense'] = 8050,
-    ['rangedOffense'] = 8450,
-    ['defense'] = 8550,
+    ['meleeOffense'] = 8077,
+    ['rangedOffense'] = 8477,
+    ['defense'] = 8577,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Ap\'lek'] = {
-    ['meleeOffense'] = 15526,
-    ['defense'] = 15103,
+    ['meleeOffense'] = 15895,
+    ['defense'] = 15473,
     ['evade'] = 0.04,
     ['range'] = 1,
     ['weapon1'] = 'Ap\'lek\'s Axe'
 },
 
 ['Aqua Droid'] = {
-    ['meleeOffense'] = 8115,
-    ['rangedOffense'] = 8115,
-    ['defense'] = 8300,
+    ['meleeOffense'] = 8120,
+    ['rangedOffense'] = 8120,
+    ['defense'] = 8305,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -308,9 +308,9 @@ Characters = {
 },
 
 ['ARC Trooper'] = {
-    ['meleeOffense'] = 13678,
-    ['rangedOffense'] = 14378,
-    ['defense'] = 14435,
+    ['meleeOffense'] = 13841,
+    ['rangedOffense'] = 14541,
+    ['defense'] = 14608,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser',
@@ -318,18 +318,18 @@ Characters = {
 },
 
 ['ARC Trooper Echo'] = {
-    ['meleeOffense'] = 12852,
-    ['rangedOffense'] = 15852,
-    ['defense'] = 15853,
+    ['meleeOffense'] = 12807,
+    ['rangedOffense'] = 15807,
+    ['defense'] = 15808,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['ARC Trooper Fives'] = {
-    ['meleeOffense'] = 14856,
-    ['rangedOffense'] = 13856,
-    ['defense'] = 15852,
+    ['meleeOffense'] = 14773,
+    ['rangedOffense'] = 13773,
+    ['defense'] = 15768,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser',
@@ -337,27 +337,27 @@ Characters = {
 },
 
 ['ARC Trooper Jesse'] = {
-    ['rangedOffense'] = 14664,
-    ['meleeOffense'] = 14564,
-    ['defense'] = 15655,
+    ['rangedOffense'] = 14767,
+    ['meleeOffense'] = 14665,
+    ['defense'] = 15755,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['ARF Trooper'] = {
-    ['meleeOffense'] = 13700,
-    ['rangedOffense'] = 14100,
-    ['defense'] = 13799,
+    ['meleeOffense'] = 13772,
+    ['rangedOffense'] = 14172,
+    ['defense'] = 13871,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Artillery Trooper'] = {
-    ['meleeOffense'] = 8788,
-    ['rangedOffense'] = 10122,
-    ['defense'] = 8726,
+    ['meleeOffense'] = 8669,
+    ['rangedOffense'] = 10001,
+    ['defense'] = 8615,
     ['evade'] = 0,
     ['range'] = 5,
     ['projectile1'] = 'Thermal Detonator'
@@ -377,18 +377,18 @@ Characters = {
 },
 
 ['AT-AT Pilot'] = {
-    ['meleeOffense'] = 8090,
-    ['rangedOffense'] = 8055,
-    ['defense'] = 8254,
+    ['meleeOffense'] = 8092,
+    ['rangedOffense'] = 8057,
+    ['defense'] = 8256,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['AT-DP Driver'] = {
-    ['meleeOffense'] = 8100,
-    ['rangedOffense'] = 8133,
-    ['defense'] = 8200,
+    ['meleeOffense'] = 8107,
+    ['rangedOffense'] = 8140,
+    ['defense'] = 8207,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -406,18 +406,18 @@ Characters = {
 },
 
 ['AT-ST Driver'] = {
-    ['meleeOffense'] = 8180,
-    ['rangedOffense'] = 8141,
-    ['defense'] = 8155,
+    ['meleeOffense'] = 8182,
+    ['rangedOffense'] = 8143,
+    ['defense'] = 8157,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Atton Rand'] = {
-    ['meleeOffense'] = 15470,
-    ['rangedOffense'] = 15880,
-    ['defense'] = 14530,
+    ['meleeOffense'] = 15643,
+    ['rangedOffense'] = 16053,
+    ['defense'] = 14703,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -425,9 +425,9 @@ Characters = {
 },
 
 ['Aurra Sing'] = {
-    ['meleeOffense'] = 14123,
-    ['rangedOffense'] = 16111,
-    ['defense'] = 14266,
+    ['meleeOffense'] = 14055,
+    ['rangedOffense'] = 16043,
+    ['defense'] = 14199,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['range2'] = 2,
@@ -436,70 +436,70 @@ Characters = {
 },
 
 ['AZI'] = {
-    ['meleeOffense'] = 1899,
-    ['defense'] = 2169,
+    ['meleeOffense'] = 2001,
+    ['defense'] = 2271,
     ['evade'] = 0.15,
     ['range'] = 2
 },
 
 ['Azmorigan'] = {
-    ['meleeOffense'] = 8455,
-    ['rangedOffense'] = 8655,
-    ['defense'] = 8412,
+    ['meleeOffense'] = 8496,
+    ['rangedOffense'] = 8696,
+    ['defense'] = 8453,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['B1 Battle Droid'] = {
-    ['meleeOffense'] = 5502,
-    ['rangedOffense'] = 6300,
-    ['defense'] = 6900,
+    ['meleeOffense'] = 5381,
+    ['rangedOffense'] = 6179,
+    ['defense'] = 6779,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['B2 Super Battle Droid'] = {
-    ['meleeOffense'] = 9085,
-    ['rangedOffense'] = 9785,
-    ['defense'] = 9524,
+    ['meleeOffense'] = 9092,
+    ['rangedOffense'] = 9792,
+    ['defense'] = 9531,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['B2-RP Super Battle Droid'] = {
-    ['meleeOffense'] = 9285,
-    ['rangedOffense'] = 9285,
-    ['defense'] = 9694,
+    ['meleeOffense'] = 9217,
+    ['rangedOffense'] = 9217,
+    ['defense'] = 9626,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Bail Organa'] = {
-    ['meleeOffense'] = 8411,
-    ['rangedOffense'] = 8593,
-    ['defense'] = 8844,
+    ['meleeOffense'] = 8426,
+    ['rangedOffense'] = 8609,
+    ['defense'] = 8861,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Bala-Tik'] = {
-    ['meleeOffense'] = 12920,
-    ['rangedOffense'] = 13910,
-    ['defense'] = 13800,
+    ['meleeOffense'] = 12976,
+    ['rangedOffense'] = 13965,
+    ['defense'] = 13866,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Bao-Dur'] = {
-    ['meleeOffense'] = 15906,
-    ['rangedOffense'] = 13203,
-    ['defense'] = 13113,
+    ['meleeOffense'] = 15295,
+    ['rangedOffense'] = 12592,
+    ['defense'] = 12502,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -507,9 +507,9 @@ Characters = {
 },
 
 ['Barriss Offee'] = {
-    ['meleeOffense'] = 15850,
-    ['rangedOffense'] = 14850,
-    ['defense'] = 15458,
+    ['meleeOffense'] = 15798,
+    ['rangedOffense'] = 14798,
+    ['defense'] = 15426,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -517,9 +517,9 @@ Characters = {
 },
 
 ['Bastila Shan'] = {
-    ['meleeOffense'] = 17823,
-    ['rangedOffense'] = 16922,
-    ['defense'] = 14999,
+    ['meleeOffense'] = 17689,
+    ['rangedOffense'] = 16788,
+    ['defense'] = 14865,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -539,42 +539,42 @@ Characters = {
 },
 
 ['Baze Malbus'] = {
-    ['meleeOffense'] = 14402,
-    ['rangedOffense'] = 15402,
-    ['defense'] = 15303,
+    ['meleeOffense'] = 14538,
+    ['rangedOffense'] = 15538,
+    ['defense'] = 15439,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['BB-8'] = {
-    ['meleeOffense'] = 8666,
-    ['defense'] = 8978,
+    ['meleeOffense'] = 8758,
+    ['defense'] = 9070,
     ['evade'] = 0.05,
     ['range'] = 1,
     ['weapon1'] = 'Lightning'
 },
 
 ['BB-9E'] = {
-    ['meleeOffense'] = 8193,
-    ['defense'] = 8111,
+    ['meleeOffense'] = 8282,
+    ['defense'] = 8200,
     ['evade'] = 0.06,
     ['range'] = 1,
     ['weapon1'] = 'Lightning'
 },
 
 ['BD-1'] = {
-    ['meleeOffense'] = 7890,
-    ['defense'] = 6012,
+    ['meleeOffense'] = 7850,
+    ['defense'] = 5962,
     ['evade'] = 0.05,
     ['range'] = 1,
     ['weapon1'] = 'Lightning'
 },
 
 ['Bendak Starkiller'] = {
-    ['meleeOffense'] = 15123,
-    ['rangedOffense'] = 16111,
-    ['defense'] = 15241,
+    ['meleeOffense'] = 15365,
+    ['rangedOffense'] = 16343,
+    ['defense'] = 15483,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -591,18 +591,18 @@ Characters = {
 },
 
 ['Ben Quadinaros'] = {
-    ['meleeOffense'] = 5623,
-    ['rangedOffense'] = 5454,
-    ['defense'] = 5403,
+    ['meleeOffense'] = 5513,
+    ['rangedOffense'] = 5344,
+    ['defense'] = 5293,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Beskar Armour Din Djarin'] = {
-    ['meleeOffense'] = 15888,
-    ['rangedOffense'] = 15144,
-    ['defense'] = 16000,
+    ['meleeOffense'] = 15710,
+    ['rangedOffense'] = 15066,
+    ['defense'] = 15973,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -611,8 +611,8 @@ Characters = {
 },
 
 ['Bib Fortuna'] = {
-    ['meleeOffense'] = 5111,
-    ['defense'] = 5533,
+    ['meleeOffense'] = 5100,
+    ['defense'] = 5522,
     ['evade'] = 0.01,
     ['range'] = 1,
     ['weapon1'] = 'Vice Chair Staff'
@@ -628,27 +628,27 @@ Characters = {
 },
 
 ['Bistan'] = {
-    ['meleeOffense'] = 8599,
-    ['rangedOffense'] = 9599,
-    ['defense'] = 9499,
+    ['meleeOffense'] = 8587,
+    ['rangedOffense'] = 9587,
+    ['defense'] = 9487,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Black Krssantan'] = {
-    ['meleeOffense'] = 15400,
-    ['rangedOffense'] = 15510,
-    ['defense'] = 15103,
+    ['meleeOffense'] = 15597,
+    ['rangedOffense'] = 15609,
+    ['defense'] = 15300,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Boba Fett Mandalorian'] = {
-    ['meleeOffense'] = 15579,
-    ['rangedOffense'] = 17601,
-    ['defense'] = 14848,
+    ['meleeOffense'] = 15334,
+    ['rangedOffense'] = 17356,
+    ['defense'] = 14749,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['range2'] = 3,
@@ -658,9 +658,9 @@ Characters = {
 },
 
 ['Boba Fett ROTJ'] = {
-    ['meleeOffense'] = 16602,
-    ['rangedOffense'] = 16602,
-    ['defense'] = 14205,
+    ['meleeOffense'] = 16569,
+    ['rangedOffense'] = 16569,
+    ['defense'] = 14173,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -668,27 +668,27 @@ Characters = {
 },
 
 ['Bodhi Rook'] = {
-    ['meleeOffense'] = 8698,
-    ['rangedOffense'] = 9020,
-    ['defense'] = 8709,
+    ['meleeOffense'] = 8732,
+    ['rangedOffense'] = 9054,
+    ['defense'] = 8743,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Boil'] = {
-    ['meleeOffense'] = 9156,
-    ['rangedOffense'] = 10156,
-    ['defense'] = 9739,
+    ['meleeOffense'] = 9151,
+    ['rangedOffense'] = 10151,
+    ['defense'] = 9735,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Bo-Katan Kryze'] = {
-    ['meleeOffense'] = 16500,
-    ['rangedOffense'] = 16500,
-    ['defense'] = 14305,
+    ['meleeOffense'] = 16497,
+    ['rangedOffense'] = 16497,
+    ['defense'] = 14302,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
@@ -697,9 +697,9 @@ Characters = {
 },
 
 ['Bolla Ropal'] = {
-    ['meleeOffense'] = 15988,
-    ['rangedOffense'] = 15979,
-    ['defense'] = 14393,
+    ['meleeOffense'] = 16120,
+    ['rangedOffense'] = 16111,
+    ['defense'] = 14525,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -707,27 +707,27 @@ Characters = {
 },
 
 ['Boolio'] = {
-    ['meleeOffense'] = 6550,
-    ['rangedOffense'] = 6550,
-    ['defense'] = 6000,
+    ['meleeOffense'] = 6540,
+    ['rangedOffense'] = 6540,
+    ['defense'] = 5990,
     ['evade'] = 0.01,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Bossk'] = {
-    ['meleeOffense'] = 14010,
-    ['rangedOffense'] = 15003,
-    ['defense'] = 15890,
+    ['meleeOffense'] = 14044,
+    ['rangedOffense'] = 15039,
+    ['defense'] = 15923,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Boushh'] = {
-    ['meleeOffense'] = 12500,
-    ['rangedOffense'] = 13500,
-    ['defense'] = 14155,
+    ['meleeOffense'] = 12597,
+    ['rangedOffense'] = 13597,
+    ['defense'] = 14250,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Thermal Detonator',
@@ -735,17 +735,17 @@ Characters = {
 },
 
 ['Broonmark'] = {
-    ['meleeOffense'] = 15666,
-    ['defense'] = 14011,
+    ['meleeOffense'] = 15978,
+    ['defense'] = 14324,
     ['evade'] = 0.3,
     ['range'] = 1,
     ['weapon1'] = 'Vibroblade'
 },
 
 ['Burg'] = {
-    ['meleeOffense'] = 15710,
-    ['rangedOffense'] = 13022,
-    ['defense'] = 15304,
+    ['meleeOffense'] = 15307,
+    ['rangedOffense'] = 12619,
+    ['defense'] = 14901,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -753,15 +753,15 @@ Characters = {
 
 ['Buzz Droid'] = {
     ['meleeOffense'] = 9112,
-    ['defense'] = 7273,
+    ['defense'] = 7283,
     ['evade'] = 0.04,
     ['range'] = 1
 },
 
 ['Byph'] = {
-    ['meleeOffense'] = 10222,
-    ['rangedOffense'] = 8797,
-    ['defense'] = 9697,
+    ['meleeOffense'] = 9929,
+    ['rangedOffense'] = 8504,
+    ['defense'] = 9404,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -769,9 +769,9 @@ Characters = {
 },
 
 ['C-21 Highsinger'] = {
-    ['meleeOffense'] = 13111,
-    ['rangedOffense'] = 14899,
-    ['defense'] = 13823,
+    ['meleeOffense'] = 13159,
+    ['rangedOffense'] = 14947,
+    ['defense'] = 13871,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['range2'] = 2,
@@ -780,16 +780,16 @@ Characters = {
 },
 
 ['C-3PO'] = {
-    ['meleeOffense'] = 1335,
-    ['defense'] = 1824,
+    ['meleeOffense'] = 1635,
+    ['defense'] = 2124,
     ['evade'] = 0.01,
     ['range'] = 1
 },
 
 ['Cad Bane'] = {
-    ['meleeOffense'] = 15814,
-    ['rangedOffense'] = 15814,
-    ['defense'] = 15054,
+    ['meleeOffense'] = 15882,
+    ['rangedOffense'] = 15882,
+    ['defense'] = 15122,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -798,9 +798,9 @@ Characters = {
 },
 
 ['Cad Bane BOBF'] = {
-    ['meleeOffense'] = 15619,
-    ['rangedOffense'] = 15969,
-    ['defense'] = 15069,
+    ['meleeOffense'] = 15820,
+    ['rangedOffense'] = 16175,
+    ['defense'] = 15275,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -808,9 +808,9 @@ Characters = {
 },
 
 ['Cal Kestis'] = {
-    ['meleeOffense'] = 17396,
-    ['rangedOffense'] = 16796,
-    ['defense'] = 14997,
+    ['meleeOffense'] = 17346,
+    ['rangedOffense'] = 16746,
+    ['defense'] = 14947,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -818,9 +818,9 @@ Characters = {
 },
 
 ['Calo Nord'] = {
-    ['meleeOffense'] = 15311,
-    ['rangedOffense'] = 15611,
-    ['defense'] = 15099,
+    ['meleeOffense'] = 15603,
+    ['rangedOffense'] = 15903,
+    ['defense'] = 15182,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -828,18 +828,18 @@ Characters = {
 },
 
 ['Canderous Ordo'] = {
-    ['meleeOffense'] = 14122,
-    ['rangedOffense'] = 16355,
-    ['defense'] = 15145,
+    ['meleeOffense'] = 14203,
+    ['rangedOffense'] = 16436,
+    ['defense'] = 15226,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Captain Han Solo'] = {
-    ['meleeOffense'] = 14866,
-    ['rangedOffense'] = 14111,
-    ['defense'] = 14711,
+    ['meleeOffense'] = 14868,
+    ['rangedOffense'] = 14115,
+    ['defense'] = 14715,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -847,9 +847,9 @@ Characters = {
 },
 
 ['Captain Howzer'] = {
-    ['meleeOffense'] = 12051,
-    ['rangedOffense'] = 14566,
-    ['defense'] = 15594,
+    ['meleeOffense'] = 12100,
+    ['rangedOffense'] = 14615,
+    ['defense'] = 15643,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -857,9 +857,9 @@ Characters = {
 },
 
 ['Captain Jag'] = {
-    ['meleeOffense'] = 14351,
-    ['rangedOffense'] = 14351,
-    ['defense'] = 14003,
+    ['meleeOffense'] = 14478,
+    ['rangedOffense'] = 14478,
+    ['defense'] = 14130,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
@@ -875,18 +875,18 @@ Characters = {
 },
 
 ['Captain Panaka'] = {
-    ['meleeOffense'] = 8707,
-    ['rangedOffense'] = 9104,
-    ['defense'] = 9312,
+    ['meleeOffense'] = 8739,
+    ['rangedOffense'] = 9136,
+    ['defense'] = 9344,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Captain Phasma'] = {
-    ['meleeOffense'] = 14017,
-    ['rangedOffense'] = 14217,
-    ['defense'] = 14177,
+    ['meleeOffense'] = 14134,
+    ['rangedOffense'] = 14334,
+    ['defense'] = 14304,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -894,9 +894,9 @@ Characters = {
 },
 
 ['Captain Rex'] = {
-    ['meleeOffense'] = 14423,
-    ['rangedOffense'] = 15423,
-    ['defense'] = 15476,
+    ['meleeOffense'] = 14620,
+    ['rangedOffense'] = 15621,
+    ['defense'] = 15682,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -904,9 +904,9 @@ Characters = {
 },
 
 ['Captain Tarpals'] = {
-    ['meleeOffense'] = 9670,
-    ['rangedOffense'] = 9023,
-    ['defense'] = 8872,
+    ['meleeOffense'] = 9550,
+    ['rangedOffense'] = 8893,
+    ['defense'] = 8741,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Booma',
@@ -914,36 +914,36 @@ Characters = {
 },
 
 ['Captain Vaughn'] = {
-    ['meleeOffense'] = 12955,
-    ['rangedOffense'] = 14455,
-    ['defense'] = 15090,
+    ['meleeOffense'] = 12990,
+    ['rangedOffense'] = 14490,
+    ['defense'] = 15125,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Cara Dune'] = {
-    ['meleeOffense'] = 15579,
-    ['rangedOffense'] = 16193,
-    ['defense'] = 14514,
+    ['meleeOffense'] = 15665,
+    ['rangedOffense'] = 16329,
+    ['defense'] = 14649,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Cardo'] = {
-    ['meleeOffense'] = 14551,
-    ['rangedOffense'] = 15551,
-    ['defense'] = 15546,
+    ['meleeOffense'] = 14797,
+    ['rangedOffense'] = 15316,
+    ['defense'] = 15801,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Carth Onasi'] = {
-    ['meleeOffense'] = 14233,
-    ['rangedOffense'] = 15579,
-    ['defense'] = 14311,
+    ['meleeOffense'] = 14436,
+    ['rangedOffense'] = 15792,
+    ['defense'] = 14524,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -951,9 +951,9 @@ Characters = {
 },
 
 ['Cassian Andor'] = {
-    ['meleeOffense'] = 14319,
-    ['rangedOffense'] = 16670,
-    ['defense'] = 14100,
+    ['meleeOffense'] = 14175,
+    ['rangedOffense'] = 16526,
+    ['defense'] = 13946,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['range2'] = 2,
@@ -962,9 +962,9 @@ Characters = {
 },
 
 ['Cere Junda'] = {
-    ['meleeOffense'] = 16489,
-    ['rangedOffense'] = 15979,
-    ['defense'] = 14866,
+    ['meleeOffense'] = 16522,
+    ['rangedOffense'] = 16012,
+    ['defense'] = 14899,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -974,27 +974,27 @@ Characters = {
 },
 
 ['Cham Syndulla'] = {
-    ['meleeOffense'] = 8961,
-    ['rangedOffense'] = 9555,
-    ['defense'] = 9344,
+    ['meleeOffense'] = 9019,
+    ['rangedOffense'] = 9613,
+    ['defense'] = 9402,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Chewbacca'] = {
-    ['meleeOffense'] = 15710,
-    ['rangedOffense'] = 15770,
-    ['defense'] = 14269,
+    ['meleeOffense'] = 15824,
+    ['rangedOffense'] = 15894,
+    ['defense'] = 14394,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Chief Chirpa'] = {
-    ['meleeOffense'] = 5600,
-    ['rangedOffense'] = 5600,
-    ['defense'] = 5845,
+    ['meleeOffense'] = 5560,
+    ['rangedOffense'] = 5560,
+    ['defense'] = 5805,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
@@ -1002,18 +1002,18 @@ Characters = {
 },
 
 ['Chief Nebit'] = {
-    ['meleeOffense'] = 5269,
-    ['rangedOffense'] = 5515,
-    ['defense'] = 5819,
+    ['meleeOffense'] = 5204,
+    ['rangedOffense'] = 5450,
+    ['defense'] = 5754,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
 },
 
 ['Chieftain Tarfful'] = {
-    ['meleeOffense'] = 15066,
-    ['rangedOffense'] = 14043,
-    ['defense'] = 15124,
+    ['meleeOffense'] = 15151,
+    ['rangedOffense'] = 14128,
+    ['defense'] = 15208,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -1021,9 +1021,9 @@ Characters = {
 
 ['Chirrut Îmwe'] = {
     ['filename'] = 'Chirrut Imwe', --because filepaths can't have accents on Android
-    ['meleeOffense'] = 15520,
-    ['rangedOffense'] = 15299,
-    ['defense'] = 15020,
+    ['meleeOffense'] = 15562,
+    ['rangedOffense'] = 15341,
+    ['defense'] = 15062,
     ['evade'] = 0.12,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
@@ -1031,17 +1031,17 @@ Characters = {
 },
 
 ['Chopper'] = {
-    ['meleeOffense'] = 9696,
-    ['rangedOffense'] = 9696,
-    ['defense'] = 8598,
+    ['meleeOffense'] = 9635,
+    ['rangedOffense'] = 9635,
+    ['defense'] = 8537,
     ['evade'] = 0.15,
     ['range'] = 2,
 },
 
 ['Chuundar'] = {
-    ['meleeOffense'] = 15010,
-    ['rangedOffense'] = 15111,
-    ['defense'] = 14611,
+    ['meleeOffense'] = 15164,
+    ['rangedOffense'] = 15265,
+    ['defense'] = 14767,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -1049,18 +1049,18 @@ Characters = {
 },
 
 ['Cid'] = {
-    ['meleeOffense'] = 9023,
-    ['rangedOffense'] = 9488,
-    ['defense'] = 9022,
+    ['meleeOffense'] = 9070,
+    ['rangedOffense'] = 9535,
+    ['defense'] = 9069,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Cikatro Vizago'] = {
-    ['meleeOffense'] = 9012,
-    ['rangedOffense'] = 9344,
-    ['defense'] = 9195,
+    ['meleeOffense'] = 9052,
+    ['rangedOffense'] = 9384,
+    ['defense'] = 9235,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -1077,54 +1077,54 @@ Characters = {
 },
 
 ['Clegg Holdfast'] = {
-    ['meleeOffense'] = 5250,
-    ['rangedOffense'] = 5550,
-    ['defense'] = 5550,
+    ['meleeOffense'] = 5184,
+    ['rangedOffense'] = 5484,
+    ['defense'] = 5484,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Clone Commando'] = {
-    ['meleeOffense'] = 14820,
-    ['rangedOffense'] = 14900,
-    ['defense'] = 15500,
+    ['meleeOffense'] = 14959,
+    ['rangedOffense'] = 15039,
+    ['defense'] = 15639,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Clone Commando Gregor'] = {
-    ['meleeOffense'] = 14908,
-    ['rangedOffense'] = 14903,
-    ['defense'] = 15490,
+    ['meleeOffense'] = 15050,
+    ['rangedOffense'] = 15042,
+    ['defense'] = 15631,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Clone Commando Scorch'] = {
-    ['meleeOffense'] = 14794,
-    ['rangedOffense'] = 15001,
-    ['defense'] = 15490,
+    ['meleeOffense'] = 14934,
+    ['rangedOffense'] = 15141,
+    ['defense'] = 15629,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser',
 },
 
 ['Clone Gunner'] = {
-    ['meleeOffense'] = 9001,
-    ['rangedOffense'] = 9992,
-    ['defense'] = 9693,
+    ['meleeOffense'] = 8995,
+    ['rangedOffense'] = 9986,
+    ['defense'] = 9677,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Clone Jet Trooper'] = {
-    ['meleeOffense'] = 13750,
-    ['rangedOffense'] = 13650,
-    ['defense'] = 13976,
+    ['meleeOffense'] = 13727,
+    ['rangedOffense'] = 13626,
+    ['defense'] = 13963,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser',
@@ -1132,36 +1132,36 @@ Characters = {
 },
 
 ['Clone Pilot'] = {
-    ['meleeOffense'] = 9056,
-    ['rangedOffense'] = 9643,
-    ['defense'] = 9295,
+    ['meleeOffense'] = 9084,
+    ['rangedOffense'] = 9671,
+    ['defense'] = 9345,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Clone Sergeant'] = {
-    ['meleeOffense'] = 9600,
-    ['rangedOffense'] = 9888,
-    ['defense'] = 9559,
+    ['meleeOffense'] = 9620,
+    ['rangedOffense'] = 9908,
+    ['defense'] = 9579,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Clone Wars Chewbacca'] = {
-    ['meleeOffense'] = 15411,
-    ['rangedOffense'] = 15611,
-    ['defense'] = 14455,
+    ['meleeOffense'] = 15570,
+    ['rangedOffense'] = 15770,
+    ['defense'] = 14574,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Cobb Vanth'] = {
-    ['meleeOffense'] = 14411,
-    ['rangedOffense'] = 14808,
-    ['defense'] = 14411,
+    ['meleeOffense'] = 14589,
+    ['rangedOffense'] = 14985,
+    ['defense'] = 14588,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -1178,9 +1178,9 @@ Characters = {
 },
 
 ['Coleman Trebor'] = {
-    ['meleeOffense'] = 16899,
-    ['rangedOffense'] = 15899,
-    ['defense'] = 14524,
+    ['meleeOffense'] = 16781,
+    ['rangedOffense'] = 15781,
+    ['defense'] = 14406,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -1207,45 +1207,45 @@ Characters = {
 },
 
 ['Commander Appo'] = {
-    ['meleeOffense'] = 13250,
-    ['rangedOffense'] = 14350,
-    ['defense'] = 14870,
+    ['meleeOffense'] = 13321,
+    ['rangedOffense'] = 14421,
+    ['defense'] = 14941,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Commander Bacara'] = {
-    ['meleeOffense'] = 12032,
-    ['rangedOffense'] = 15230,
-    ['defense'] = 15222,
+    ['meleeOffense'] = 11958,
+    ['rangedOffense'] = 15136,
+    ['defense'] = 15136,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Commander Bly'] = {
-    ['meleeOffense'] = 12459,
-    ['rangedOffense'] = 14459,
-    ['defense'] = 15433,
+    ['meleeOffense'] = 12424,
+    ['rangedOffense'] = 14424,
+    ['defense'] = 15390,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Commander Cody'] = {
-    ['meleeOffense'] = 14319,
-    ['rangedOffense'] = 15319,
-    ['defense'] = 15371,
+    ['meleeOffense'] = 14451,
+    ['rangedOffense'] = 15450,
+    ['defense'] = 15501,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Commander Fox'] = {
-    ['meleeOffense'] = 13957,
-    ['rangedOffense'] = 14357,
-    ['defense'] = 14450,
+    ['meleeOffense'] = 14118,
+    ['rangedOffense'] = 14518,
+    ['defense'] = 14611,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser',
@@ -1253,9 +1253,9 @@ Characters = {
 },
 
 ['Commander Gree'] = {
-    ['meleeOffense'] = 13030,
-    ['rangedOffense'] = 14230,
-    ['defense'] = 15220,
+    ['meleeOffense'] = 13063,
+    ['rangedOffense'] = 14263,
+    ['defense'] = 15253,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
@@ -1274,36 +1274,36 @@ Characters = {
 },
 
 ['Commander Neyo'] = {
-    ['meleeOffense'] = 13856,
-    ['rangedOffense'] = 14756,
-    ['defense'] = 14249,
+    ['meleeOffense'] = 13964,
+    ['rangedOffense'] = 14864,
+    ['defense'] = 14364,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Commander Ponds'] = {
-    ['meleeOffense'] = 14111,
-    ['rangedOffense'] = 14556,
-    ['defense'] = 14203,
+    ['meleeOffense'] = 14134,
+    ['rangedOffense'] = 14579,
+    ['defense'] = 14425,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Commander Sato'] = {
-    ['meleeOffense'] = 8500,
-    ['rangedOffense'] = 8500,
-    ['defense'] = 9341,
+    ['meleeOffense'] = 8495,
+    ['rangedOffense'] = 8495,
+    ['defense'] = 9336,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Commander Wolffe'] = {
-    ['meleeOffense'] = 12859,
-    ['rangedOffense'] = 14359,
-    ['defense'] = 15393,
+    ['meleeOffense'] = 12965,
+    ['rangedOffense'] = 14465,
+    ['defense'] = 15499,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -1311,9 +1311,9 @@ Characters = {
 },
 
 ['Commando Droid'] = {
-    ['meleeOffense'] = 10881,
-    ['rangedOffense'] = 8391,
-    ['defense'] = 9679,
+    ['meleeOffense'] = 10331,
+    ['rangedOffense'] = 7841,
+    ['defense'] = 9129,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -1321,18 +1321,18 @@ Characters = {
 },
 
 ['Coruscant Guard Clone Trooper'] = {
-    ['meleeOffense'] = 9100,
-    ['rangedOffense'] = 9900,
-    ['defense'] = 9779,
+    ['meleeOffense'] = 9099,
+    ['rangedOffense'] = 9899,
+    ['defense'] = 9778,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Coruscant Underworld Police'] = {
-    ['meleeOffense'] = 8112,
-    ['rangedOffense'] = 8677,
-    ['defense'] = 8545,
+    ['meleeOffense'] = 8150,
+    ['rangedOffense'] = 8715,
+    ['defense'] = 8583,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -1353,18 +1353,18 @@ Characters = {
 },
 
 ['Crab Droid'] = {
-    ['meleeOffense'] = 9345,
-    ['rangedOffense'] = 9767,
-    ['defense'] = 9407,
+    ['meleeOffense'] = 9350,
+    ['rangedOffense'] = 9772,
+    ['defense'] = 9412,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Crosshair'] = {
-    ['meleeOffense'] = 15009,
-    ['rangedOffense'] = 16610,
-    ['defense'] = 14600,
+    ['meleeOffense'] = 14978,
+    ['rangedOffense'] = 16579,
+    ['defense'] = 14569,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['range2'] = 2,
@@ -1373,18 +1373,18 @@ Characters = {
 },
 
 ['Cut Lawquane'] = {
-    ['meleeOffense'] = 9923,
-    ['rangedOffense'] = 10123,
-    ['defense'] = 9311,
+    ['meleeOffense'] = 9913,
+    ['rangedOffense'] = 10113,
+    ['defense'] = 9301,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile1'] = 'Blue Laser',
 },
 
 ['Daimyo Boba Fett'] = {
-    ['meleeOffense'] = 15745,
-    ['rangedOffense'] = 15211,
-    ['defense'] = 15978,
+    ['meleeOffense'] = 15606,
+    ['rangedOffense'] = 15072,
+    ['defense'] = 15997,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -1392,9 +1392,9 @@ Characters = {
 },
 
 ['Darksaber Din Djarin'] = {
-    ['meleeOffense'] = 16419,
-    ['rangedOffense'] = 15044,
-    ['defense'] = 15843,
+    ['meleeOffense'] = 16182,
+    ['rangedOffense'] = 14677,
+    ['defense'] = 15665,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['range2'] = 3,
@@ -1404,9 +1404,9 @@ Characters = {
 },
 
 ['Dark Trooper'] = {
-    ['meleeOffense'] = 16000,
-    ['rangedOffense'] = 14439,
-    ['defense'] = 15558,
+    ['meleeOffense'] = 15730,
+    ['rangedOffense'] = 14189,
+    ['defense'] = 15308,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
@@ -1596,45 +1596,45 @@ Characters = {
 },
 
 ['Dash Rendar'] = {
-    ['meleeOffense'] = 14069,
-    ['rangedOffense'] = 14269,
-    ['defense'] = 14969,
+    ['meleeOffense'] = 14327,
+    ['rangedOffense'] = 13326,
+    ['defense'] = 15126,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Dathcha'] = {
-    ['meleeOffense'] = 5200,
-    ['rangedOffense'] = 5500,
-    ['defense'] = 5859,
+    ['meleeOffense'] = 5130,
+    ['rangedOffense'] = 5430,
+    ['defense'] = 5789,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Davik Kang'] = {
-    ['meleeOffense'] = 14025,
-    ['rangedOffense'] = 14011,
-    ['defense'] = 15000,
+    ['meleeOffense'] = 14142,
+    ['rangedOffense'] = 14128,
+    ['defense'] = 15117,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Death Trooper'] = {
-    ['meleeOffense'] = 13348,
-    ['rangedOffense'] = 14348,
-    ['defense'] = 13696,
+    ['meleeOffense'] = 13426,
+    ['rangedOffense'] = 14426,
+    ['defense'] = 13776,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Death Watch Mandalorian'] = {
-    ['meleeOffense'] = 14208,
-    ['rangedOffense'] = 13078,
-    ['defense'] = 14605,
+    ['meleeOffense'] = 13976,
+    ['rangedOffense'] = 12846,
+    ['defense'] = 14373,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Yellow Laser',
@@ -1642,18 +1642,18 @@ Characters = {
 },
 
 ['Del Meeko'] = {
-    ['meleeOffense'] = 13123,
-    ['rangedOffense'] = 15899,
-    ['defense'] = 13481,
+    ['meleeOffense'] = 12895,
+    ['rangedOffense'] = 15671,
+    ['defense'] = 13253,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Dengar'] = {
-    ['meleeOffense'] = 14247,
-    ['rangedOffense'] = 14247,
-    ['defense'] = 14871,
+    ['meleeOffense'] = 14378,
+    ['rangedOffense'] = 14378,
+    ['defense'] = 15002,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -1670,9 +1670,9 @@ Characters = {
 },
 
 ['Din Djarin'] = {
-    ['meleeOffense'] = 15409,
-    ['rangedOffense'] = 15203,
-    ['defense'] = 15713,
+    ['meleeOffense'] = 15399,
+    ['rangedOffense'] = 15294,
+    ['defense'] = 15726,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['range2'] = 3,
@@ -1682,18 +1682,18 @@ Characters = {
 },
 
 ['Director Krennic'] = {
-    ['meleeOffense'] = 8379,
-    ['rangedOffense'] = 8300,
-    ['defense'] = 9450,
+    ['meleeOffense'] = 8335,
+    ['rangedOffense'] = 8256,
+    ['defense'] = 9406,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['DJ'] = {
-    ['meleeOffense'] = 8999,
-    ['rangedOffense'] = 9699,
-    ['defense'] = 8999,
+    ['meleeOffense'] = 9049,
+    ['rangedOffense'] = 9749,
+    ['defense'] = 9049,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -1720,18 +1720,18 @@ Characters = {
 },
 
 ['Drash'] = {
-    ['meleeOffense'] = 8995,
-    ['rangedOffense'] = 9393,
-    ['defense'] = 9199,
+    ['meleeOffense'] = 9040,
+    ['rangedOffense'] = 9438,
+    ['defense'] = 9244,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
 },
 
 ['Droideka'] = {
-    ['meleeOffense'] = 10000,
-    ['rangedOffense'] = 16038,
-    ['defense'] = 17033,
+    ['meleeOffense'] = 9486,
+    ['rangedOffense'] = 15524,
+    ['defense'] = 16419,
     ['evade'] = 0.01,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -1739,17 +1739,17 @@ Characters = {
 },
 
 ['Droideka Sniper'] = {
-    ['meleeOffense'] = 11740,
-    ['rangedOffense'] = 16999,
-    ['defense'] = 15690,
+    ['meleeOffense'] = 11307,
+    ['rangedOffense'] = 16566,
+    ['defense'] = 15257,
     ['evade'] = 0,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Dryden Vos'] = {
-    ['meleeOffense'] = 15000,
-    ['defense'] = 13187,
+    ['meleeOffense'] = 15337,
+    ['defense'] = 13524,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Kyuzo Petar',
@@ -1757,27 +1757,27 @@ Characters = {
 },
 
 ['Dud Bolt'] = {
-    ['meleeOffense'] = 4950,
-    ['rangedOffense'] = 5440,
-    ['defense'] = 5769,
+    ['meleeOffense'] = 4850,
+    ['rangedOffense'] = 5340,
+    ['defense'] = 5679,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Dwarf Spider Droid'] = {
-    ['meleeOffense'] = 11000,
-    ['rangedOffense'] = 16190,
-    ['defense'] = 13700,
+    ['meleeOffense'] = 10449,
+    ['rangedOffense'] = 15549,
+    ['defense'] = 13149,
     ['evade'] = 0.02,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['D-Wing Droid'] = {
-    ['meleeOffense'] = 8001,
-    ['rangedOffense'] = 9322,
-    ['defense'] = 9101,
+    ['meleeOffense'] = 7813,
+    ['rangedOffense'] = 9134,
+    ['defense'] = 8913,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectileCount'] = 2,
@@ -1785,9 +1785,9 @@ Characters = {
 },
 
 ['Echo'] = {
-    ['meleeOffense'] = 13579,
-    ['rangedOffense'] = 14600,
-    ['defense'] = 16250,
+    ['meleeOffense'] = 13663,
+    ['rangedOffense'] = 14684,
+    ['defense'] = 16334,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
@@ -1804,9 +1804,9 @@ Characters = {
 },
 
 ['Eighth Brother'] = {
-    ['meleeOffense'] = 15445,
-    ['rangedOffense'] = 16745,
-    ['defense'] = 14991,
+    ['meleeOffense'] = 15469,
+    ['rangedOffense'] = 16769,
+    ['defense'] = 15015,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Thermal Detonator',
@@ -1816,26 +1816,26 @@ Characters = {
 },
 
 ['Elite Praetorian Guard'] = {
-    ['meleeOffense'] = 15749,
-    ['defense'] = 15239,
+    ['meleeOffense'] = 15990,
+    ['defense'] = 15770,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Praetorian Weapon'
 },
 
 ['Elite Senate Commando'] = {
-    ['meleeOffense'] = 8867,
-    ['rangedOffense'] = 9678,
-    ['defense'] = 9224,
+    ['meleeOffense'] = 8861,
+    ['rangedOffense'] = 9672,
+    ['defense'] = 9218,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Elite Squad Trooper'] = {
-    ['meleeOffense'] = 14123,
-    ['rangedOffense'] = 14445,
-    ['defense'] = 13255,
+    ['meleeOffense'] = 14203,
+    ['rangedOffense'] = 14525,
+    ['defense'] = 13335,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -1843,9 +1843,9 @@ Characters = {
 },
 
 ['Embo'] = {
-    ['meleeOffense'] = 14481,
-    ['rangedOffense'] = 14481,
-    ['defense'] = 15681,
+    ['meleeOffense'] = 14535,
+    ['rangedOffense'] = 14935,
+    ['defense'] = 15795,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -1866,8 +1866,8 @@ Characters = {
 },
 
 ['Enfys Nest'] = {
-    ['meleeOffense'] = 14320,
-    ['defense'] = 15351,
+    ['meleeOffense'] = 14550,
+    ['defense'] = 15679,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Electroripper Staff'
@@ -1894,9 +1894,9 @@ Characters = {
 },
 
 ['Ewok Elder'] = {
-    ['meleeOffense'] = 5311,
-    ['rangedOffense'] = 5351,
-    ['defense'] = 5888,
+    ['meleeOffense'] = 5226,
+    ['rangedOffense'] = 5226,
+    ['defense'] = 5803,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
@@ -1904,9 +1904,9 @@ Characters = {
 },
 
 ['Ewok Scout'] = {
-    ['meleeOffense'] = 5306,
-    ['rangedOffense'] = 5563,
-    ['defense'] = 5784,
+    ['meleeOffense'] = 5244,
+    ['rangedOffense'] = 5501,
+    ['defense'] = 5722,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Arrow',
@@ -1914,9 +1914,9 @@ Characters = {
 },
 
 ['Exar Kun'] = {
-    ['meleeOffense'] = 19186,
-    ['rangedOffense'] = 18520,
-    ['defense'] = 18431,
+    ['meleeOffense'] = 19251,
+    ['rangedOffense'] = 18585,
+    ['defense'] = 18495,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
@@ -1925,9 +1925,9 @@ Characters = {
 },
 
 ['Ezra Bridger S2'] = {
-    ['meleeOffense'] = 9890,
-    ['rangedOffense'] = 9459,
-    ['defense'] = 9879,
+    ['meleeOffense'] = 9812,
+    ['rangedOffense'] = 9379,
+    ['defense'] = 9801,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -1938,9 +1938,9 @@ Characters = {
 },
 
 ['Ezra Bridger S4'] = {
-    ['meleeOffense'] = 16237,
-    ['rangedOffense'] = 15579,
-    ['defense'] = 15348,
+    ['meleeOffense'] = 16265,
+    ['rangedOffense'] = 15607,
+    ['defense'] = 15376,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -1950,18 +1950,18 @@ Characters = {
 },
 
 ['Farmboy Luke Skywalker'] = {
-    ['meleeOffense'] = 8667,
-    ['rangedOffense'] = 9987,
+    ['meleeOffense'] = 8539,
+    ['rangedOffense'] = 9879,
     ['defense'] = 9067,
-    ['evade'] = 0.03,
+    ['evade'] = 0.8939,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Fennec Shand'] = {
-    ['meleeOffense'] = 15579,
-    ['rangedOffense'] = 16427,
-    ['defense'] = 14393,
+    ['meleeOffense'] = 15612,
+    ['rangedOffense'] = 16461,
+    ['defense'] = 14425,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['range2'] = 2,
@@ -1970,19 +1970,26 @@ Characters = {
 },
 
 ['Fifth Brother'] = {
-    ['meleeOffense'] = 15679,
-    ['rangedOffense'] = 15699,
-    ['defense'] = 15487,
+    ['meleeOffense'] = 15735,
+    ['rangedOffense'] = 15755,
+    ['defense'] = 15573,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
     ['weapon1'] = 'Inquisitor Lightsaber'
 },
 
+['Finis Valorum'] = {
+    ['meleeOffense'] = 1910,
+    ['defense'] = 1990,
+    ['evade'] = 0.02,
+    ['range'] = 1,
+},
+
 ['Finn'] = {
-    ['meleeOffense'] = 9990,
-    ['rangedOffense'] = 9023,
-    ['defense'] = 9134,
+    ['meleeOffense'] = 9790,
+    ['rangedOffense'] = 8823,
+    ['defense'] = 8934,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser',
@@ -1990,60 +1997,60 @@ Characters = {
 },
 
 ['First Order Executioner'] = {
-    ['meleeOffense'] = 10100,
-    ['defense'] = 8080,
+    ['meleeOffense'] = 10141,
+    ['defense'] = 8121,
     ['evade'] = 0.02,
     ['range'] = 1,
     ['weapon1'] = 'Execution Axe'
 },
 
 ['First Order Flametrooper'] = {
-    ['meleeOffense'] = 10105,
-    ['defense'] = 8489,
+    ['meleeOffense'] = 10056,
+    ['defense'] = 8440,
     ['evade'] = 0.01,
     ['range'] = 2,
     ['weapon1'] = 'Flamethrower'
 },
 
 ['First Order Jet Trooper'] = {
-    ['meleeOffense'] = 9630,
-    ['rangedOffense'] = 9695,
-    ['defense'] = 9356,
+    ['meleeOffense'] = 9575,
+    ['rangedOffense'] = 9640,
+    ['defense'] = 9301,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['First Order Officer'] = {
-    ['meleeOffense'] = 6040,
-    ['rangedOffense'] = 6245,
-    ['defense'] = 6660,
+    ['meleeOffense'] = 6010,
+    ['rangedOffense'] = 6215,
+    ['defense'] = 6630,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['First Order Riot Control Trooper'] = {
-    ['meleeOffense'] = 9456,
-    ['defense'] = 9423,
+    ['meleeOffense'] = 9602,
+    ['defense'] = 9579,
     ['evade'] = 0.02,
     ['range'] = 1,
     ['weapon1'] = 'Z6 Riot Control Baton'
 },
 
 ['First Order Snowtrooper'] = {
-    ['meleeOffense'] = 8467,
-    ['rangedOffense'] = 9267,
-    ['defense'] = 9267,
+    ['meleeOffense'] = 8451,
+    ['rangedOffense'] = 9251,
+    ['defense'] = 9251,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['First Order Stormtrooper'] = {
-    ['meleeOffense'] = 8392,
-    ['rangedOffense'] = 9052,
-    ['defense'] = 9310,
+    ['meleeOffense'] = 8369,
+    ['rangedOffense'] = 9029,
+    ['defense'] = 9287,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -2069,9 +2076,9 @@ Characters = {
 },
 
 ['Fourth Sister'] = {
-    ['meleeOffense'] = 15567,
-    ['rangedOffense'] = 15322,
-    ['defense'] = 15603,
+    ['meleeOffense'] = 15584,
+    ['rangedOffense'] = 15339,
+    ['defense'] = 15619,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
@@ -2092,9 +2099,9 @@ Characters = {
 },
 
 ['G0-T0'] = {
-    ['meleeOffense'] = 9455,
-    ['rangedOffense'] = 9755,
-    ['defense'] = 8677,
+    ['meleeOffense'] = 9421,
+    ['rangedOffense'] = 9721,
+    ['defense'] = 8641,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -2103,32 +2110,32 @@ Characters = {
 },
 
 ['Galen Erso'] = {
-    ['meleeOffense'] = 5223,
-    ['defense'] = 5700,
+    ['meleeOffense'] = 5193,
+    ['defense'] = 5670,
     ['evade'] = 0.03,
     ['range'] = 1
 },
 
 ['Gamorrean Guard'] = {
-    ['meleeOffense'] = 8050,
-    ['defense'] = 8257,
+    ['meleeOffense'] = 8146,
+    ['defense'] = 8353,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Axe'
 },
 
 ['Gand Warrior'] = {
-    ['meleeOffense'] = 9677,
-    ['defense'] = 8537,
+    ['meleeOffense'] = 9785,
+    ['defense'] = 8655,
     ['evade'] = 0.04,
     ['range'] = 1,
     ['weapon1'] = 'Force Pike'
 },
 
 ['Ganodi'] = {
-    ['meleeOffense'] = 10132,
-    ['rangedOffense'] = 8765,
-    ['defense'] = 9964,
+    ['meleeOffense'] = 9850,
+    ['rangedOffense'] = 8481,
+    ['defense'] = 9682,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -2136,9 +2143,9 @@ Characters = {
 },
 
 ['Gar Saxon'] = {
-    ['meleeOffense'] = 14022,
-    ['rangedOffense'] = 16023,
-    ['defense'] = 15751,
+    ['meleeOffense'] = 13878,
+    ['rangedOffense'] = 15889,
+    ['defense'] = 15607,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -2146,9 +2153,9 @@ Characters = {
 },
 
 ['Garazeb Orrelios'] = {
-    ['meleeOffense'] = 15229,
-    ['rangedOffense'] = 15229,
-    ['defense'] = 14369,
+    ['meleeOffense'] = 15374,
+    ['rangedOffense'] = 15374,
+    ['defense'] = 14514,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -2156,16 +2163,16 @@ Characters = {
 },
 
 ['Garsa Fwip'] = {
-    ['meleeOffense'] = 5180,
-    ['defense'] = 5810,
+    ['meleeOffense'] = 5155,
+    ['defense'] = 5785,
     ['evade'] = 0.02,
     ['range'] = 1,
 },
 
 ['Gasgano'] = {
-    ['meleeOffense'] = 5006,
-    ['rangedOffense'] = 6132,
-    ['defense'] = 5389,
+    ['meleeOffense'] = 4959,
+    ['rangedOffense'] = 6085,
+    ['defense'] = 5342,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectileCount'] = 4,
@@ -2187,18 +2194,18 @@ Characters = {
 },
 
 ['General Hux'] = {
-    ['meleeOffense'] = 6925,
-    ['rangedOffense'] = 6925,
-    ['defense'] = 6830,
+    ['meleeOffense'] = 6935,
+    ['rangedOffense'] = 6935,
+    ['defense'] = 6840,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['General Kalani'] = {
-    ['meleeOffense'] = 8300,
-    ['rangedOffense'] = 9010,
-    ['defense'] = 9120,
+    ['meleeOffense'] = 8336,
+    ['rangedOffense'] = 9046,
+    ['defense'] = 9156,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -2215,9 +2222,9 @@ Characters = {
 },
 
 ['General Leia Organa'] = {
-    ['meleeOffense'] = 7817,
-    ['rangedOffense'] = 9417,
-    ['defense'] = 9801,
+    ['meleeOffense'] = 7776,
+    ['rangedOffense'] = 9376,
+    ['defense'] = 9760,
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
@@ -2235,26 +2242,26 @@ Characters = {
 },
 
 ['General Veers'] = {
-    ['meleeOffense'] = 6721,
-    ['rangedOffense'] = 6721,
-    ['defense'] = 6334,
+    ['meleeOffense'] = 6713,
+    ['rangedOffense'] = 6713,
+    ['defense'] = 6713,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Geonosian Brood Alpha'] = {
-    ['meleeOffense'] = 9964,
-    ['defense'] = 9445,
+    ['meleeOffense'] = 9924,
+    ['defense'] = 9405,
     ['evade'] = 0.15,
     ['range'] = 2,
     ['weapon1'] = 'Glaive'
 },
 
 ['Geonosian Soldier'] = {
-    ['meleeOffense'] = 8923,
-    ['rangedOffense'] = 9112,
-    ['defense'] = 9001,
+    ['meleeOffense'] = 8855,
+    ['rangedOffense'] = 9044,
+    ['defense'] = 8933,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Green Laser',
@@ -2262,17 +2269,17 @@ Characters = {
 },
 
 ['Geonosian Spy'] = {
-    ['meleeOffense'] = 9670,
-    ['defense'] = 8512,
+    ['meleeOffense'] = 9592,
+    ['defense'] = 8434,
     ['evade'] = 0.17,
     ['range'] = 2,
     ['weapon1']= 'Spear'
 },
 
 ['Gideon Hask'] = {
-    ['meleeOffense'] = 13005,
-    ['rangedOffense'] = 15000,
-    ['defense'] = 14000,
+    ['meleeOffense'] = 13045,
+    ['rangedOffense'] = 15041,
+    ['defense'] = 14042,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -2280,24 +2287,24 @@ Characters = {
 
 ['Gonk Droid'] = {
     ['meleeOffense'] = 69,
-    ['defense'] = 2022,
+    ['defense'] = 1978,
     ['evade'] = 0,
     ['range'] = 1
 },
 
 ['Governor Pryce'] = {
-    ['meleeOffense'] = 9834,
-    ['rangedOffense'] = 9234,
-    ['defense'] = 9384,
+    ['meleeOffense'] = 9731,
+    ['rangedOffense'] = 9131,
+    ['defense'] = 9291,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Grand Admiral Thrawn'] = {
-    ['meleeOffense'] = 16271,
-    ['rangedOffense'] = 15109,
-    ['defense'] = 15114,
+    ['meleeOffense'] = 16180,
+    ['rangedOffense'] = 15017,
+    ['defense'] = 15022,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -2315,27 +2322,27 @@ Characters = {
 },
 
 ['Grand Moff Tarkin'] = {
-    ['meleeOffense'] = 8845,
-    ['rangedOffense'] = 9545,
-    ['defense'] = 8819,
+    ['meleeOffense'] = 8909,
+    ['rangedOffense'] = 9609,
+    ['defense'] = 8883,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser', 
 },
 
 ['Greedo'] = {
-    ['meleeOffense'] = 9142,
-    ['rangedOffense'] = 9192,
-    ['defense'] = 9253,
+    ['meleeOffense'] = 9190,
+    ['rangedOffense'] = 9240,
+    ['defense'] = 9281,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Greef Karga'] = {
-    ['meleeOffense'] = 14677,
-    ['rangedOffense'] = 14788,
-    ['defense'] = 12678,
+    ['meleeOffense'] = 14701,
+    ['rangedOffense'] = 14813,
+    ['defense'] = 12703,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -2343,27 +2350,27 @@ Characters = {
 },
 
 ['Greez Dritus'] = {
-    ['meleeOffense'] = 6800,
-    ['rangedOffense'] = 5899,
-    ['defense'] = 6123,
+    ['meleeOffense'] = 6560,
+    ['rangedOffense'] = 5659,
+    ['defense'] = 5883,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Gregar Typho'] = {
-    ['meleeOffense'] = 9023,
-    ['rangedOffense'] = 9255,
-    ['defense'] = 9195,
+    ['meleeOffense'] = 9060,
+    ['rangedOffense'] = 9291,
+    ['defense'] = 9230,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Grogu'] = {
-    ['meleeOffense'] = 5560,
-    ['rangedOffense'] = 13900,
-    ['defense'] = 9970,
+    ['meleeOffense'] = 4865,
+    ['rangedOffense'] = 13205,
+    ['defense'] = 9275,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast'
@@ -2379,16 +2386,16 @@ Characters = {
 },
 
 ['Gundark'] = {
-    ['meleeOffense'] = 13911,
-    ['defense'] = 13661,
+    ['meleeOffense'] = 14192,
+    ['defense'] = 13934,
     ['evade'] = 0.04,
     ['range'] = 1
 },
 
 ['Gungan Warrior'] = {
-    ['meleeOffense'] = 7011,
-    ['rangedOffense'] = 8686,
-    ['defense'] = 9112,
+    ['meleeOffense'] = 6981,
+    ['rangedOffense'] = 8646,
+    ['defense'] = 9072,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Booma',
@@ -2396,9 +2403,9 @@ Characters = {
 },
 
 ['Gungi'] = {
-    ['meleeOffense'] = 10233,
-    ['rangedOffense'] = 8400,
-    ['defense'] = 10233,
+    ['meleeOffense'] = 9849,
+    ['rangedOffense'] = 8016,
+    ['defense'] = 9849,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -2406,9 +2413,9 @@ Characters = {
 },
 
 ['Hailfire Droid'] = {
-    ['meleeOffense'] = 9069,
-    ['rangedOffense'] = 18039,
-    ['defense'] = 16819,
+    ['meleeOffense'] = 7736,
+    ['rangedOffense'] = 16706,
+    ['defense'] = 15486,
     ['evade'] = 0.1,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -2416,18 +2423,18 @@ Characters = {
 },
 
 ['Haja Estree'] = {
-    ['meleeOffense'] = 8342,
-    ['rangedOffense'] = 8832,
-    ['defense'] = 8220,
+    ['meleeOffense'] = 8374,
+    ['rangedOffense'] = 8864,
+    ['defense'] = 8262,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
 },
 
 ['Hanharr'] = {
-    ['meleeOffense'] = 15553,
-    ['rangedOffense'] = 13786,
-    ['defense'] = 15010,
+    ['meleeOffense'] = 15345,
+    ['rangedOffense'] = 13568,
+    ['defense'] = 14802,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -2435,61 +2442,61 @@ Characters = {
 },
 
 ['Han Solo'] = {
-    ['meleeOffense'] = 13929,
-    ['rangedOffense'] = 15529,
-    ['defense'] = 14468,
+    ['meleeOffense'] = 14147,
+    ['rangedOffense'] = 15746,
+    ['defense'] = 14685,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Hardcase'] = {
-    ['meleeOffense'] = 14354,
-    ['rangedOffense'] = 14354,
-    ['defense'] = 14046,
+    ['meleeOffense'] = 14478,
+    ['rangedOffense'] = 14478,
+    ['defense'] = 14180,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Haxion Brood Bounty Droid'] = {
-    ['meleeOffense'] = 14555,
-    ['defense'] = 12999,
+    ['meleeOffense'] = 14832,
+    ['defense'] = 13266,
     ['evade'] = 0.03,
     ['range'] = 1
 },
 
 ['Haxion Brood Bounty Hunter'] = {
-    ['meleeOffense'] = 13444,
-    ['rangedOffense'] = 14565,
-    ['defense'] = 13567,
+    ['meleeOffense'] = 13351,
+    ['rangedOffense'] = 14470,
+    ['defense'] = 13473,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Haxion Brood Commando'] = {
-    ['meleeOffense'] = 14516,
-    ['rangedOffense'] = 11034,
-    ['defense'] = 14820,
+    ['meleeOffense'] = 13866,
+    ['rangedOffense'] = 10384,
+    ['defense'] = 14160,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['HELIOS-3D'] = {
-    ['meleeOffense'] = 8777,
-    ['rangedOffense'] = 9069,
-    ['defense'] = 9340,
+    ['meleeOffense'] = 8764,
+    ['rangedOffense'] = 9054,
+    ['defense'] = 9327,
     ['evade'] = 0.03,
     ['range'] = 4,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Hera Syndulla'] = {
-    ['meleeOffense'] = 14189,
-    ['rangedOffense'] = 15139,
-    ['defense'] = 14638,
+    ['meleeOffense'] = 14385,
+    ['rangedOfffense'] = 15335,
+    ['defense'] = 14834,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -2527,18 +2534,18 @@ Characters = {
 },
 
 ['Hevy'] = {
-    ['meleeOffense'] = 9199,
-    ['rangedOffense'] = 9799,
-    ['defense'] = 9873,
+    ['meleeOffense'] = 9200,
+    ['rangedOffense'] = 9800,
+    ['defense'] = 9874,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['HK-47'] = {
-    ['meleeOffense'] = 14101,
-    ['rangedOffense'] = 17305,
-    ['defense'] = 15101,
+    ['meleeOffense'] = 13895,
+    ['rangedOffense'] = 17100,
+    ['defense'] = 14898,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -2546,9 +2553,9 @@ Characters = {
 },
 
 ['HK-50'] = {
-    ['meleeOffense'] = 12301,
-    ['rangedOffense'] = 15700,
-    ['defense'] = 13664,
+    ['meleeOffense'] = 12211,
+    ['rangedOffense'] = 15610,
+    ['defense'] = 13567,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -2556,9 +2563,9 @@ Characters = {
 },
 
 ['Hondo Ohnaka'] = {
-    ['meleeOffense'] = 12724,
-    ['rangedOffense'] = 14434,
-    ['defense'] = 13632,
+    ['meleeOffense'] = 12882,
+    ['rangedOffense'] = 14592,
+    ['defense'] = 13790,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -2566,18 +2573,18 @@ Characters = {
 },
 
 ['Hoth Rebel Soldier'] = {
-    ['meleeOffense'] = 8517,
-    ['rangedOffense'] = 8717,
-    ['defense'] = 8528,
+    ['meleeOffense'] = 8537,
+    ['rangedOffense'] = 8737,
+    ['defense'] = 8548,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Hunter'] = {
-    ['meleeOffense'] = 15650,
-    ['rangedOffense'] = 15513,
-    ['defense'] = 15200,
+    ['meleeOffense'] = 15796,
+    ['rangedOffense'] = 15659,
+    ['defense'] = 15346,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -2585,9 +2592,9 @@ Characters = {
 },
 
 ['Iden Versio'] = {
-    ['meleeOffense'] = 15478,
-    ['rangedOffense'] = 15470,
-    ['defense'] = 14716,
+    ['meleeOffense'] = 15614,
+    ['rangedOffense'] = 15612,
+    ['defense'] = 14850,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['range2'] = 3,
@@ -2597,9 +2604,9 @@ Characters = {
 },
 
 ['IG-11'] = {
-    ['meleeOffense'] = 15579,
-    ['rangedOffense'] = 16102,
-    ['defense'] = 14560,
+    ['meleeOffense'] = 15672,
+    ['rangedOffense'] = 16195,
+    ['defense'] = 14653,
     ['evade'] = 0.04,
     ['range'] = 4,
     ['projectile1'] = 'Red Laser',
@@ -2607,18 +2614,18 @@ Characters = {
 },
 
 ['IG-86 Sentinel Droid'] = {
-    ['meleeOffense'] = 8834,
-    ['rangedOffense'] = 8940,
-    ['defense'] = 9310,
+    ['meleeOffense'] = 8824,
+    ['rangedOffense'] = 8930,
+    ['defense'] = 9300,
     ['evade'] = 0.04,
     ['range'] = 4,
     ['projectile1'] = 'Red Laser'
 },
 
 ['IG-88'] = {
-    ['meleeOffense'] = 14265,
-    ['rangedOffense'] = 15255,
-    ['defense'] = 14778,
+    ['meleeOffense'] = 14344,
+    ['rangedOffense'] = 15334,
+    ['defense'] = 14857,
     ['evade'] = 0.04,
     ['range'] = 4,
     ['projectile1'] = 'Red Laser',
@@ -2636,35 +2643,35 @@ Characters = {
 },
 
 ['Imperial Flametrooper'] = {
-    ['meleeOffense'] = 10012,
-    ['defense'] = 8543,
+    ['meleeOffense'] = 9982,
+    ['defense'] = 8513,
     ['evade'] = 0.01,
     ['range'] = 2,
     ['weapon1'] = 'Flamethrower'
 },
 
 ['Imperial Ground Crew'] = {
-    ['meleeOffense'] = 8285,
-    ['rangedOffense'] = 8100,
-    ['defense'] = 8134,
+    ['meleeOffense'] = 8268,
+    ['rangedOffense'] = 8083,
+    ['defense'] = 8117,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Imperial Hovertank Pilot'] = {
-    ['meleeOffense'] = 8405,
-    ['rangedOffense'] = 8502,
-    ['defense'] = 8811,
+    ['meleeOffense'] = 8418,
+    ['rangedOffense'] = 8515,
+    ['defense'] = 8824,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Imperial Infiltrator Droid'] = {
-    ['meleeOffense'] = 16022,
-    ['rangedOffense'] = 13022,
-    ['defense'] = 15000,
+    ['meleeOffense'] = 15516,
+    ['rangedOffense'] = 12536,
+    ['defense'] = 14504,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -2672,62 +2679,62 @@ Characters = {
 },
 
 ['Imperial Jump Trooper'] = {
-    ['meleeOffense'] = 9191,
-    ['rangedOffense'] = 9191,
-    ['defense'] = 9406,
+    ['meleeOffense'] = 9131,
+    ['rangedOffense'] = 9131,
+    ['defense'] = 9346,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Imperial Navy Trooper'] = {
-    ['meleeOffense'] = 8691,
-    ['rangedOffense'] = 8791,
-    ['defense'] = 8412,
+    ['meleeOffense'] = 8707,
+    ['rangedOffense'] = 8807,
+    ['defense'] = 8428,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Imperial Security Droid'] = {
-    ['meleeOffense'] = 10001,
-    ['rangedOffense'] = 8623,
-    ['defense'] = 9706,
+    ['meleeOffense'] = 9796,
+    ['rangedOffense'] = 8417,
+    ['defense'] = 9510,
     ['evade'] = 0.04,
     ['range'] = 1
 },
 
 ['Imperial Sentry Droid'] = {
-    ['meleeOffense'] = 9777,
-    ['rangedOffense'] = 9777,
-    ['defense'] = 8818,
+    ['meleeOffense'] = 9768,
+    ['rangedOffense'] = 9767,
+    ['defense'] = 8808,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Imperial Snowtrooper'] = {
-    ['meleeOffense'] = 9034,
-    ['rangedOffense'] = 9034,
-    ['defense'] = 9030,
+    ['meleeOffense'] = 9052,
+    ['rangedOffense'] = 9052,
+    ['defense'] = 9052,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Imperial Stormtrooper'] = {
-    ['meleeOffense'] = 8484,
-    ['rangedOffense'] = 8784,
-    ['defense'] = 8578,
+    ['meleeOffense'] = 8496,
+    ['rangedOffense'] = 8796,
+    ['defense'] = 8590,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Imperial Super Commando'] = {
-    ['meleeOffense'] = 9769,
-    ['rangedOffense'] = 9669,
-    ['defense'] = 9593,
+    ['meleeOffense'] = 9699,
+    ['rangedOffense'] = 9599,
+    ['defense'] = 9523,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Yellow Laser',
@@ -2735,33 +2742,33 @@ Characters = {
 },
 
 ['Imperial Tie Fighter Pilot'] = {
-    ['meleeOffense'] = 8002,
-    ['rangedOffense'] = 8100,
-    ['defense'] = 8430,
+    ['meleeOffense'] = 8006,
+    ['rangedOffense'] = 8104,
+    ['defense'] = 8434,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Incinerator Trooper'] = {
-    ['meleeOffense'] = 10211,
-    ['defense'] = 8367,
+    ['meleeOffense'] = 10131,
+    ['defense'] = 8287,
     ['evade'] = 0.01,
     ['range'] = 2,
     ['weapon1'] = 'Flamethrower'
 },
 
 ['Jabba The Hutt'] = {
-    ['meleeOffense'] = 249,
-    ['defense'] = 1913,
+    ['meleeOffense'] = 334,
+    ['defense'] = 1998,
     ['evade'] = 0,
     ['range'] = 1
 },
 
 ['Jaesa Willsaam'] = {
-    ['meleeOffense'] = 17111,
-    ['rangedOffense'] = 17344,
-    ['defense'] = 14333,
+    ['meleeOffense'] = 17178,
+    ['rangedOffense'] = 17411,
+    ['defense'] = 14325,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Purple Lightning',
@@ -2771,9 +2778,9 @@ Characters = {
 },
 
 ['Jango Fett'] = {
-    ['meleeOffense'] = 15779,
-    ['rangedOffense'] = 17536,
-    ['defense'] = 15724,
+    ['meleeOffense'] = 15780,
+    ['rangedOffense'] = 17567,
+    ['defense'] = 15735,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -2782,9 +2789,9 @@ Characters = {
 },
 
 ['Jar Jar Binks'] = {
-    ['meleeOffense'] = 6300,
-    ['rangedOffense'] = 6360,
-    ['defense'] = 6384,
+    ['meleeOffense'] = 6270,
+    ['rangedOffense'] = 6330,
+    ['defense'] = 6354,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Booma',
@@ -2804,9 +2811,9 @@ Characters = {
 
 
 ['Jawa'] = {
-    ['meleeOffense'] = 5187,
-    ['rangedOffense'] = 5487,
-    ['defense'] = 5771,
+    ['meleeOffense'] = 5107,
+    ['rangedOffense'] = 5407,
+    ['defense'] = 5691,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
@@ -2814,7 +2821,7 @@ Characters = {
 
 ['Jek'] = {
     ['meleeOffense'] = 9689,
-    ['rangedOffense'] = 9566,
+    ['rangedOffense'] = 9585,
     ['defense'] = 9678,
     ['evade'] = 0.03,
     ['range'] = 3,
@@ -2822,9 +2829,9 @@ Characters = {
 },
 
 ['Jedi Consular'] = {
-    ['meleeOffense'] = 15457,
-    ['rangedOffense'] = 15615,
-    ['defense'] = 15311,
+    ['meleeOffense'] = 15678,
+    ['rangedOffense'] = 15366,
+    ['defense'] = 15552,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -2843,9 +2850,9 @@ Characters = {
 },
 
 ['Jedi Knight Guardian'] = {
-    ['meleeOffense'] = 16104,
-    ['rangedOffense'] = 15353,
-    ['defense'] = 15134,
+    ['meleeOffense'] = 16115,
+    ['rangedOffense'] = 15364,
+    ['defense'] = 15145,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -2864,9 +2871,9 @@ Characters = {
 },
 
 ['Jedi Knight Revan'] = {
-    ['meleeOffense'] = 19976,
-    ['rangedOffense'] = 19976,
-    ['defense'] = 20081,
+    ['meleeOffense'] = 19963,
+    ['rangedOffense'] = 19963,
+    ['defense'] = 20067,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -2897,9 +2904,9 @@ Characters = {
 },
 
 ['Jedi Temple Guard'] = {
-    ['meleeOffense'] = 16033,
-    ['rangedOffense'] = 15209,
-    ['defense'] = 15230,
+    ['meleeOffense'] = 16034,
+    ['rangedOffense'] = 15210,
+    ['defense'] = 15231,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -2907,9 +2914,9 @@ Characters = {
 },
 
 ['Jedi Training Rey'] = {
-    ['meleeOffense'] = 15711,
-    ['rangedOffense'] = 15611,
-    ['defense'] = 15365,
+    ['meleeOffense'] = 15820,
+    ['rangedOffense'] = 15720,
+    ['defense'] = 15574,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -2937,27 +2944,27 @@ Characters = {
 },
 
 ['Jinx'] = {
-    ['meleeOffense'] = 8234,
-    ['rangedOffense'] = 10400,
-    ['defense'] = 10101,
+    ['meleeOffense'] = 8245,
+    ['rangedOffense'] = 10411,
+    ['defense'] = 10112,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
 },
 
 ['Jober Tavson'] = {
-    ['meleeOffense'] = 6005,
-    ['rangedOffense'] = 6044,
-    ['defense'] = 6778,
+    ['meleeOffense'] = 5945,
+    ['rangedOffense'] = 5984,
+    ['defense'] = 6718,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Jocasta Nu'] = {
-    ['meleeOffense'] = 15907,
-    ['rangedOffense'] = 15889,
-    ['defense'] = 14522,
+    ['meleeOffense'] = 16042,
+    ['rangedOffense'] = 16024,
+    ['defense'] = 14657,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -2965,9 +2972,9 @@ Characters = {
 },
 
 ['Jolee Bindo'] = {
-    ['meleeOffense'] = 15345,
-    ['rangedOffense'] = 15344,
-    ['defense'] = 15077,
+    ['meleeOffense'] = 15527,
+    ['rangedOffense'] = 15526,
+    ['defense'] = 15259,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -2975,27 +2982,27 @@ Characters = {
 },
 
 ['Jon Vander'] = {
-    ['meleeOffense'] = 8120,
-    ['rangedOffense'] = 8440,
-    ['defense'] = 8500,
+    ['meleeOffense'] = 8145,
+    ['rangedOffense'] = 8465,
+    ['defense'] = 8525,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Juggernaut Pilot'] = {
-    ['meleeOffense'] = 8455,
-    ['rangedOffense'] = 8455,
-    ['defense'] = 8811,
+    ['meleeOffense'] = 8463,
+    ['rangedOffense'] = 8463,
+    ['defense'] = 8819,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Juhani'] = {
-    ['meleeOffense'] = 15990,
-    ['rangedOffense'] = 15598,
-    ['defense'] = 15006,
+    ['meleeOffense'] = 16073,
+    ['rangedOffense'] = 15691,
+    ['defense'] = 15089,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -3003,9 +3010,9 @@ Characters = {
 },
 
 ['Jyn Erso'] = {
-    ['meleeOffense'] = 15513,
-    ['rangedOffense'] = 15513,
-    ['defense'] = 14849,
+    ['meleeOffense'] = 15673,
+    ['rangedOffense'] = 15673,
+    ['defense'] = 15020,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -3013,36 +3020,36 @@ Characters = {
 },
 
 ['K-2SO'] = {
-    ['meleeOffense'] = 10123,
-    ['rangedOffense'] = 8029,
-    ['defense'] = 10002,
+    ['meleeOffense'] = 9695,
+    ['rangedOffense'] = 7601,
+    ['defense'] = 9564,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Kalifa'] = {
-    ['meleeOffense'] = 8345,
-    ['rangedOffense'] = 10455,
-    ['defense'] = 10111,
+    ['meleeOffense'] = 8369,
+    ['rangedOffense'] = 10479,
+    ['defense'] = 10135,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
 },
 
 ['Kamino Training Droid'] = {
-    ['meleeOffense'] = 9144,
-    ['rangedOffense'] = 9342,
-    ['defense'] = 9163,
+    ['meleeOffense'] = 9159,
+    ['rangedOffense'] = 9347,
+    ['defense'] = 9178,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Kanan Jarrus'] = {
-    ['meleeOffense'] = 16699,
-    ['rangedOffense'] = 15579,
-    ['defense'] = 16203,
+    ['meleeOffense'] = 16659,
+    ['rangedOffense'] = 15539,
+    ['defense'] = 16163,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -3052,9 +3059,9 @@ Characters = {
 },
 
 ['Karis'] = {
-    ['meleeOffense'] = 8780,
-    ['rangedOffense'] = 9756,
-    ['defense'] = 9345,
+    ['meleeOffense'] = 8770,
+    ['rangedOffense'] = 9746,
+    ['defense'] = 9335,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Purple Laser',
@@ -3065,25 +3072,25 @@ Characters = {
 },
 
 ['Kassius Konstantine'] = {
-    ['meleeOffense'] = 6234,
-    ['rangedOffense'] = 6554,
-    ['defense'] = 6411,
+    ['meleeOffense'] = 6239,
+    ['rangedOffense'] = 6559,
+    ['defense'] = 6416,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Kath Hound'] = {
-    ['meleeOffense'] = 8840,
-    ['defense'] = 8870,
+    ['meleeOffense'] = 8958,
+    ['defense'] = 8988,
     ['evade'] = 0.04,
     ['range'] = 1
 },
 
 ['Katooni'] = {
-    ['meleeOffense'] = 10590,
-    ['rangedOffense'] = 9590,
-    ['defense'] = 9800,
+    ['meleeOffense'] = 10379,
+    ['rangedOffense'] = 9379,
+    ['defense'] = 9589,
     ['evade'] = 0.7,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -3103,9 +3110,9 @@ Characters = {
 },
 
 ['Kawlan Roken'] = {
-    ['meleeOffense'] = 9670,
-    ['rangedOffense'] = 9023,
-    ['defense'] = 8872,
+    ['meleeOffense'] = 9544,
+    ['rangedOffense'] = 8897,
+    ['defense'] = 8746,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -3121,9 +3128,9 @@ Characters = {
 },
 
 ['Kelborn'] = {
-    ['meleeOffense'] = 15111,
-    ['rangedOffense'] = 15479,
-    ['defense'] = 15111,
+    ['meleeOffense'] = 15119,
+    ['rangedOffense'] = 15486,
+    ['defense'] = 15117,
     ['evade'] = 0.3,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -3131,9 +3138,9 @@ Characters = {
 },
 
 ['Ketsu Onyo'] = {
-    ['meleeOffense'] = 14788,
-    ['rangedOffense'] = 15940,
-    ['defense'] = 14996,
+    ['meleeOffense'] = 14921,
+    ['rangedOffense'] = 16063,
+    ['defense'] = 15120,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -3151,8 +3158,8 @@ Characters = {
 },
 
 ['Kinrath'] = {
-    ['meleeOffense'] = 9007,
-    ['defense'] = 9004,
+    ['meleeOffense'] = 9137,
+    ['defense'] = 9134,
     ['evade'] = 0.03,
     ['range'] = 1
 },
@@ -3168,9 +3175,9 @@ Characters = {
 },
 
 ['Kix'] = {
-    ['meleeOffense'] = 13792,
-    ['rangedOffense'] = 14092,
-    ['defense'] = 14093,
+    ['meleeOffense'] = 13936,
+    ['rangedOffense'] = 14235,
+    ['defense'] = 14236,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser',
@@ -3188,16 +3195,16 @@ Characters = {
 },
 
 ['K\'lor\'slug'] = {
-    ['meleeOffense'] = 9667,
-    ['defense'] = 8869,
+    ['meleeOffense'] = 9818,
+    ['defense'] = 9010,
     ['evade'] = 0.02,
     ['range'] = 1
 },
 
 ['Koska Reeves'] = {
-    ['meleeOffense'] = 15597,
-    ['rangedOffense'] = 15797,
-    ['defense'] = 14968,
+    ['meleeOffense'] = 15648,
+    ['rangedOffense'] = 15858,
+    ['defense'] = 15039,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
@@ -3218,17 +3225,17 @@ Characters = {
 },
 
 ['Kuiil'] = {
-    ['meleeOffense'] = 8400,
-    ['defense'] = 8050,
+    ['meleeOffense'] = 8528,
+    ['defense'] = 8178,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Fusioncutter'
 },
 
 ['Kuruk'] = {
-    ['meleeOffense'] = 15579,
-    ['rangedOffense'] = 16347,
-    ['defense'] = 14654,
+    ['meleeOffense'] = 15634,
+    ['rangedOffense'] = 16402,
+    ['defense'] = 14709,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
@@ -3257,23 +3264,22 @@ Characters = {
 },
 
 ['L0-LA59'] = {
-    ['meleeOffense'] = 5458,
-    ['rangeOffense'] = 5458,
-    ['defense'] = 5469,
+    ['meleeOffense'] = 5347,
+    ['defense'] = 5368,
     ['evade'] = 0.16,
     ['range'] = 2
 },
 
 ['L3-37'] = {
-    ['meleeOffense'] = 9877,
-    ['defense'] = 8133,
+    ['meleeOffense'] = 9950,
+    ['defense'] = 8206,
     ['evade'] = 0.02,
     ['range'] = 1
 },
 
 ['Laigrek'] = {
-    ['meleeOffense'] = 8912,
-    ['defense'] = 9229,
+    ['meleeOffense'] = 9026,
+    ['defense'] = 9343,
     ['evade'] = 0.03,
     ['range'] = 1
 },
@@ -3291,18 +3297,18 @@ Characters = {
 },
 
 ['Lando Calrissian'] = {
-    ['meleeOffense'] = 13122,
-    ['rangedOffense'] = 14677,
-    ['defense'] = 12899,
+    ['meleeOffense'] = 13278,
+    ['rangedOffense'] = 14813,
+    ['defense'] = 13035,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Latts Razzi'] = {
-    ['meleeOffense'] = 15033,
-    ['rangedOffense'] = 15052,
-    ['defense'] = 12378,
+    ['meleeOffense'] = 14980,
+    ['rangedOffense'] = 14999,
+    ['defense'] = 12325,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['weapon1'] = 'Vine',
@@ -3310,36 +3316,36 @@ Characters = {
 },
 
 ['Leia Organa'] = {
-    ['meleeOffense'] = 13218,
-    ['rangedOffense'] = 15018,
-    ['defense'] = 13103,
+    ['meleeOffense'] = 13385,
+    ['rangedOffense'] = 15183,
+    ['defense'] = 13268,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Lieutenant Thire'] = {
-    ['meleeOffense'] = 9805,
-    ['rangedOffense'] = 9355,
-    ['defense'] = 9800,
+    ['meleeOffense'] = 9735,
+    ['rangedOffense'] = 9285,
+    ['defense'] = 9730,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Lobot'] = {
-    ['meleeOffense'] = 8490,
-    ['rangedOffense'] = 8490,
-    ['defense'] = 9350,
+    ['meleeOffense'] = 8478,
+    ['rangedOffense'] = 8478,
+    ['defense'] = 9328,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Logray'] = {
-    ['meleeOffense'] = 5344,
-    ['rangedOffense'] = 5344,
-    ['defense'] = 5900,
+    ['meleeOffense'] = 5274,
+    ['rangedOffense'] = 5274,
+    ['defense'] = 5840,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
@@ -3358,8 +3364,8 @@ Characters = {
 },
 
 ['Lott Dod'] = {
-    ['meleeOffense'] = 1910,
-    ['defense'] = 1903,
+    ['meleeOffense'] = 2120,
+    ['defense'] = 2113,
     ['evade'] = 0.03,
     ['range'] = 1
 },
@@ -3385,18 +3391,18 @@ Characters = {
 },
 
 ['Lux Bonteri'] = {
-    ['meleeOffense'] = 8696,
-    ['rangedOffense'] = 8886,
-    ['defense'] = 8899,
+    ['meleeOffense'] = 8718,
+    ['rangedOffense'] = 8908,
+    ['defense'] = 8931,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Lyra Erso'] = {
-    ['meleeOffense'] = 8344,
-    ['rangedOffense'] = 8834,
-    ['defense'] = 8221,
+    ['meleeOffense'] = 8387,
+    ['rangedOffense'] = 8877,
+    ['defense'] = 8264,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -3413,9 +3419,9 @@ Characters = {
 },
 
 ['Magmatrooper'] = {
-    ['meleeOffense'] = 8890,
-    ['rangedOffense'] = 9456,
-    ['defense'] = 9001,
+    ['meleeOffense'] = 8891,
+    ['rangedOffense'] = 9457,
+    ['defense'] = 9002,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['range2'] = 2,
@@ -3425,9 +3431,9 @@ Characters = {
 },
 
 ['MagnaGuard'] = {
-    ['meleeOffense'] = 14352,
-    ['rangedOffense'] = 13352,
-    ['defense'] = 13484,
+    ['meleeOffense'] = 14236,
+    ['rangedOffense'] = 13236,
+    ['defense'] = 13368,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -3435,36 +3441,36 @@ Characters = {
 },
 
 ['Major Brance'] = {
-    ['meleeOffense'] = 6324,
-    ['rangedOffense'] = 6411,
-    ['defense'] = 6633,
+    ['meleeOffense'] = 6314,
+    ['rangedOffense'] = 6401,
+    ['defense'] = 6401,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Malavai Quinn'] = {
-    ['meleeOffense'] = 9739,
-    ['rangedOffense'] = 9359,
-    ['defense'] = 9326,
+    ['meleeOffense'] = 9687,
+    ['rangedOffense'] = 9307,
+    ['defense'] = 9274,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Mandalore The Preserver'] = {
-    ['meleeOffense'] = 15780,
-    ['rangedOffense'] = 15990,
-    ['defense'] = 14520,
+    ['meleeOffense'] = 15913,
+    ['rangedOffense'] = 16124,
+    ['defense'] = 14654,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
 },
 
 ['Mandalorian Neo-Crusader'] = {
-    ['meleeOffense'] = 15013,
-    ['rangedOffense'] = 15560,
-    ['defense'] = 15110,
+    ['meleeOffense'] = 14979,
+    ['rangedOffense'] = 15527,
+    ['defense'] = 15075,
     ['evade'] = 0.3,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -3495,8 +3501,8 @@ Characters = {
 },
 
 ['Mas Amedda'] = {
-    ['meleeOffense'] = 6023,
-    ['defense'] = 6443,
+    ['meleeOffense'] = 6053,
+    ['defense'] = 6473,
     ['evade'] = 0.01,
     ['range'] = 1,
     ['weapon1'] = 'Vice Chair Staff'
@@ -3514,18 +3520,18 @@ Characters = {
 },
 
 ['Mawhonic'] = {
-    ['meleeOffense'] = 4774,
-    ['rangedOffense'] = 5669,
-    ['defense'] = 5769,
+    ['meleeOffense'] = 4656,
+    ['rangedOffense'] = 5549,
+    ['defense'] = 5651,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Maz Kanata'] = {
-    ['meleeOffense'] = 8969,
-    ['rangedOffense'] = 9369,
-    ['defense'] = 8975,
+    ['meleeOffense'] = 9010,
+    ['rangedOffense'] = 9410,
+    ['defense'] = 9016,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -3543,9 +3549,9 @@ Characters = {
 },
 
 ['Migs Mayfeld'] = {
-    ['meleeOffense'] = 12004,
-    ['rangedOffense'] = 15607,
-    ['defense'] = 15090,
+    ['meleeOffense'] = 11871,
+    ['rangedOffense'] = 15474,
+    ['defense'] = 15017,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -3553,9 +3559,9 @@ Characters = {
 },
 
 ['Mining Droid'] = {
-    ['meleeOffense'] = 8345,
-    ['rangedOffense'] = 8469,
-    ['defense'] = 8532,
+    ['meleeOffense'] = 8356,
+    ['rangedOffense'] = 8480,
+    ['defense'] = 8543,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -3563,9 +3569,9 @@ Characters = {
 },
 
 ['Mira'] = {
-    ['meleeOffense'] = 14034,
-    ['rangedOffense'] = 14033,
-    ['defense'] = 15011,
+    ['meleeOffense'] = 14140,
+    ['rangedOffense'] = 14139,
+    ['defense'] = 15118,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -3573,18 +3579,18 @@ Characters = {
 },
 
 ['Mission Vao'] = {
-    ['meleeOffense'] = 12955,
-    ['rangedOffense'] = 14567,
-    ['defense'] = 13623,
+    ['meleeOffense'] = 13121,
+    ['rangedOffense'] = 14732,
+    ['defense'] = 13788,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Moff Gideon'] = {
-    ['meleeOffense'] = 16378,
-    ['rangedOffense'] = 15599,
-    ['defense'] = 14793,
+    ['meleeOffense'] = 16365,
+    ['rangedOffense'] = 15586,
+    ['defense'] = 14780,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -3592,18 +3598,18 @@ Characters = {
 },
 
 ['Moff Jerjerrod'] = {
-    ['meleeOffense'] = 6588,
-    ['rangedOffense'] = 6555,
-    ['defense'] = 6345,
+    ['meleeOffense'] = 6570,
+    ['rangedOffense'] = 6537,
+    ['defense'] = 6327,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Moloch'] = {
-    ['meleeOffense'] = 8456,
-    ['rangedOffense'] = 8435,
-    ['defense'] = 8547,
+    ['meleeOffense'] = 8458,
+    ['rangedOffense'] = 8437,
+    ['defense'] = 8437,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -3618,17 +3624,17 @@ Characters = {
 },
 
 ['Moralo Eval'] = {
-    ['meleeOffense'] = 15767,
-    ['rangedOffense'] = 14145,
-    ['defense'] = 12455,
+    ['meleeOffense'] = 15295,
+    ['rangedOffense'] = 13673,
+    ['defense'] = 11992,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Morgan Elsbeth'] = {
-    ['meleeOffense'] = 16302,
-    ['defense'] = 14501,
+    ['meleeOffense'] = 16618,
+    ['defense'] = 14917,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Beskar Spear'
@@ -3637,7 +3643,7 @@ Characters = {
 ['Mother Talzin'] = {
     ['meleeOffense'] = 17638,
     ['rangedOffense'] = 17638,
-    ['defense'] = 14760,
+    ['defense'] = 14750,
     ['evade'] = 0.08,
     ['range'] = 3,
     ['projectile1'] = 'Fire',
@@ -3657,9 +3663,9 @@ Characters = {
 },
 
 ['Nahdar Vebb'] = {
-    ['meleeOffense'] = 16344,
-    ['rangedOffense'] = 14579,
-    ['defense'] = 14218,
+    ['meleeOffense'] = 16071,
+    ['rangedOffense'] = 14295,
+    ['defense'] = 13933,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -3667,25 +3673,25 @@ Characters = {
 },
 
 ['Nexu'] = {
-    ['meleeOffense'] = 14641,
-    ['defense'] = 13034,
+    ['meleeOffense'] = 14911,
+    ['defense'] = 13294,
     ['evade'] = 0.04,
     ['range'] = 1
 },
 
 ['Nien Nunb'] = {
-    ['meleeOffense'] = 8223,
-    ['rangedOffense'] = 8506,
-    ['defense'] = 8444,
+    ['meleeOffense'] = 8241,
+    ['rangedOffense'] = 8524,
+    ['defense'] = 8462,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Nightbrother Archer'] = {
-    ['meleeOffense'] = 8456,
-    ['rangedOffense'] = 9923,
-    ['defense'] = 9412,
+    ['meleeOffense'] = 8417,
+    ['rangedOffense'] = 9884,
+    ['defense'] = 9372,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Purple Laser',
@@ -3694,17 +3700,17 @@ Characters = {
 },
 
 ['Nightbrother Warrior'] = {
-    ['meleeOffense'] = 9912,
-    ['defense'] = 8692,
+    ['meleeOffense'] = 10038,
+    ['defense'] = 8818,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Nightbrother Weapon'
 },
 
 ['Nightsister Merrin'] = {
-    ['meleeOffense'] = 16579,
-    ['rangedOffense'] = 17251,
-    ['defense'] = 14856,
+    ['meleeOffense'] = 16638,
+    ['rangedOffense'] = 17277,
+    ['defense'] = 14915,
     ['evade'] = 0.08,
     ['range'] = 3,
     ['projectile1'] = 'Fire',
@@ -3712,9 +3718,9 @@ Characters = {
 },
 
 ['Nightsister Spirit'] = {
-    ['meleeOffense'] = 9345,
-    ['rangedOffense'] = 10132,
-    ['defense'] = 9464,
+    ['meleeOffense'] = 9243,
+    ['rangedOffense'] = 10030,
+    ['defense'] = 9362,
     ['evade'] = 0.25,
     ['range'] = 3,
     ['projectile1'] = 'Fire',
@@ -3722,24 +3728,24 @@ Characters = {
 },
 
 ['Nightsister Zombie'] = {
-    ['meleeOffense'] = 7999,
-    ['defense'] = 10199,
+    ['meleeOffense'] = 7864,
+    ['defense'] = 10064,
     ['evade'] = 0.03,
     ['range'] = 1
 },
 
 ['Nightwind Assassin'] = {
-    ['meleeOffense'] = 14515,
-    ['defense'] = 14377,
+    ['meleeOffense'] = 14842,
+    ['defense'] = 14714,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Riot Control Baton'
 },
 
 ['Ninth Sister'] = {
-    ['meleeOffense'] = 15330,
-    ['rangedOffense'] = 15250,
-    ['defense'] = 16406,
+    ['meleeOffense'] = 15246,
+    ['rangedOffense'] = 15166,
+    ['defense'] = 16474,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
@@ -3756,16 +3762,16 @@ Characters = {
 },
 
 ['Nuvo Vindi'] = {
-    ['meleeOffense'] = 5211,
-    ['defense'] = 5688,
+    ['meleeOffense'] = 5171,
+    ['defense'] = 5648,
     ['evade'] = 0.04,
     ['range'] = 1
 },
 
 ['Octuptarra Droid'] = {
-    ['meleeOffense'] = 10011,
-    ['rangedOffense'] = 16788,
-    ['defense'] = 16789,
+    ['meleeOffense'] = 9138,
+    ['rangedOffense'] = 15939,
+    ['defense'] = 15941,
     ['evade'] = 0.02,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -3773,9 +3779,9 @@ Characters = {
 },
 
 ['Ody Mandrell'] = {
-    ['meleeOffense'] = 5410,
-    ['rangedOffense'] = 5500,
-    ['defense'] = 5503,
+    ['meleeOffense'] = 5336,
+    ['rangedOffense'] = 5426,
+    ['defense'] = 5429,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -3801,9 +3807,9 @@ Characters = {
 },
 
 ['Omega'] = {
-    ['meleeOffense'] = 6011,
-    ['rangedOffense'] = 9766,
-    ['defense'] = 9777,
+    ['meleeOffense'] = 5586,
+    ['rangedOffense'] = 9341,
+    ['defense'] = 9352,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Purple Laser'
@@ -3811,25 +3817,25 @@ Characters = {
 
 
 ['O-Mer'] = {
-    ['meleeOffense'] = 8123,
-    ['rangedOffense'] = 10302,
-    ['defense'] = 10201,
+    ['meleeOffense'] = 8116,
+    ['rangedOffense'] = 10295,
+    ['defense'] = 10194,
     ['evade'] = 0.06,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast'
 },
 
 ['Onaconda Farr'] = {
-    ['meleeOffense'] = 1834,
-    ['defense'] = 1899,
+    ['meleeOffense'] = 2064,
+    ['defense'] = 2119,
     ['evade'] = 0.02,
     ['range'] = 1
 },
 
 ['Oppo Rancisis'] = {
-    ['meleeOffense'] = 15797,
-    ['rangedOffense'] = 15789,
-    ['defense'] = 15122,
+    ['meleeOffense'] = 15969,
+    ['rangedOffense'] = 15961,
+    ['defense'] = 15293,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -3837,19 +3843,26 @@ Characters = {
 },
 
 ['Ord Enisence'] = {
-    ['meleeOffense'] = 15990,
-    ['rangedOffense'] = 15980,
-    ['defense'] = 14430,
+    ['meleeOffense'] = 16126,
+    ['rangedOffense'] = 16116,
+    ['defense'] = 14566,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
     ['weapon1'] = 'Blue Lightsaber'
 },
 
+['Orn Free Taa'] = {
+    ['meleeOffense'] = 900,
+    ['defense'] = 1996,
+    ['evade'] = 0.01,
+    ['range'] = 1,
+},
+
 ['Pablo-Jill'] = {
-    ['meleeOffense'] = 16889,
-    ['rangedOffense'] = 15889,
-    ['defense'] = 14986,
+    ['meleeOffense'] = 16840,
+    ['rangedOffense'] = 15840,
+    ['defense'] = 14860,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -3857,9 +3870,9 @@ Characters = {
 },
 
 ['Padawan Anakin Skywalker'] = {
-    ['meleeOffense'] = 16699,
-    ['rangedOffense'] = 15123,
-    ['defense'] = 16311,
+    ['meleeOffense'] = 16562,
+    ['rangedOffense'] = 14986,
+    ['defense'] = 16174,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -3878,46 +3891,53 @@ Characters = {
 
 ['Padmé Amidala'] = {
     ['filename'] = 'Padme Amidala',
-    ['meleeOffense'] = 9128,
-    ['rangedOffense'] = 9160,
-    ['defense'] = 9120,
+    ['meleeOffense'] = 9150,
+    ['rangedOffense'] = 9183,
+    ['defense'] = 9143,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Pao'] = {
-    ['meleeOffense'] = 8600,
-    ['rangedOffense'] = 9600,
-    ['defense'] = 9500,
+    ['meleeOffense'] = 8588,
+    ['rangedOffense'] = 9588,
+    ['defense'] = 9488,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Paploo'] = {
-    ['meleeOffense'] = 6300,
-    ['rangedOffense'] = 5759,
-    ['defense'] = 5972,
+    ['meleeOffense'] = 6147,
+    ['rangedOffense'] = 5606,
+    ['defense'] = 5819,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
     ['weapon1'] = 'Spear'
 },
 
+['Passel Argente'] = {
+    ['meleeOffense'] = 1519,
+    ['defense'] = 2119,
+    ['evade'] = 0.02,
+    ['range'] = 1,
+},
+
 ['Patrol Trooper'] = {
-    ['meleeOffense'] = 9012,
-    ['rangedOffense'] = 9012,
-    ['defense'] = 9001,
+    ['meleeOffense'] = 9029,
+    ['rangedOffense'] = 9029,
+    ['defense'] = 9018,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Paz Vizsla'] = {
-    ['meleeOffense'] = 15311,
-    ['rangedOffense'] = 15511,
-    ['defense'] = 15411,
+    ['meleeOffense'] = 15353,
+    ['rangedOffense'] = 15553,
+    ['defense'] = 15453,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -3925,9 +3945,9 @@ Characters = {
 },
 
 ['Peli Motto'] = {
-    ['meleeOffense'] = 6760,
-    ['rangedOffense'] = 6660,
-    ['defense'] = 6220,
+    ['meleeOffense'] = 6710,
+    ['rangedOffense'] = 6610,
+    ['defense'] = 6170,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -3945,27 +3965,27 @@ Characters = {
 },
 
 ['Phase 1 Clone Trooper'] = {
-    ['meleeOffense'] = 9473,
-    ['rangedOffense'] = 9473,
-    ['defense'] = 9544,
+    ['meleeOffense'] = 9494,
+    ['rangedOffense'] = 9494,
+    ['defense'] = 9565,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Phase 2 Clone Trooper'] = {
-    ['meleeOffense'] = 9786,
-    ['rangedOffense'] = 9736,
-    ['defense'] = 9481,
+    ['meleeOffense'] = 9796,
+    ['rangedOffense'] = 9746,
+    ['defense'] = 9491,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Pilot Battle Droid'] = {
-    ['meleeOffense'] = 5301,
-    ['rangedOffense'] = 6101,
-    ['defense'] = 6303,
+    ['meleeOffense'] = 5221,
+    ['rangedOffense'] = 6021,
+    ['defense'] = 6223,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -3983,26 +4003,26 @@ Characters = {
 },
 
 ['Poe Dameron'] = {
-    ['meleeOffense'] = 9128,
-    ['rangedOffense'] = 9128,
-    ['defense'] = 9739,
+    ['meleeOffense'] = 9120,
+    ['rangedOffense'] = 9120,
+    ['defense'] = 9731,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Poggle The Lesser'] = {
-    ['meleeOffense'] = 6202,
-    ['defense'] = 6600,
+    ['meleeOffense'] = 6103,
+    ['defense'] = 6501,
     ['evade'] = 0.15,
     ['range'] = 2,
     ['weapon1'] = 'Cane'
 },
 
 ['Ponda Baba'] = {
-    ['meleeOffense'] = 9344,
-    ['rangedOffense'] = 8877,
-    ['defense'] = 9123,
+    ['meleeOffense'] = 9273,
+    ['rangedOffense'] = 8806,
+    ['defense'] = 9052,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -4022,9 +4042,9 @@ Characters = {
 },
 
 ['Pre Vizsla'] = {
-    ['meleeOffense'] = 17336,
-    ['rangedOffense'] = 15979,
-    ['defense'] = 14724,
+    ['meleeOffense'] = 16978,
+    ['rangedOffense'] = 15621,
+    ['defense'] = 14510,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
@@ -4034,18 +4054,18 @@ Characters = {
 },
 
 ['Prime Minister Almec'] = {
-    ['meleeOffense'] = 9340,
-    ['rangedOffense'] = 8801,
-    ['defense'] = 10340,
+    ['meleeOffense'] = 9204,
+    ['rangedOffense'] = 8665,
+    ['defense'] = 10204,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
 },
 
 ['Prince Lee-Char'] = {
-    ['meleeOffense'] = 8495,
-    ['rangedOffense'] = 9445,
-    ['defense'] = 9393,
+    ['meleeOffense'] = 8465,
+    ['rangedOffense'] = 9415,
+    ['defense'] = 9363,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -4053,9 +4073,9 @@ Characters = {
 },
 
 ['Purge Trooper'] = {
-    ['meleeOffense'] = 15614,
-    ['rangedOffense'] = 15209,
-    ['defense'] = 15063,
+    ['meleeOffense'] = 15696,
+    ['rangedOffense'] = 15291,
+    ['defense'] = 15155,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -4063,18 +4083,18 @@ Characters = {
 },
 
 ['Pyke Syndicate Soldier'] = {
-    ['meleeOffense'] = 8401,
-    ['rangedOffense'] = 9111,
-    ['defense'] = 9269,
+    ['meleeOffense'] = 8383,
+    ['rangedOffense'] = 9093,
+    ['defense'] = 9251,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Qi\'ra'] = {
-    ['meleeOffense'] = 13999,
-    ['rangedOffense'] = 13999,
-    ['defense'] = 12999,
+    ['meleeOffense'] = 14077,
+    ['rangedOffense'] = 14077,
+    ['defense'] = 13077,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -4101,25 +4121,25 @@ Characters = {
 },
 
 ['R2-D2'] = {
-    ['meleeOffense'] = 9421,
-    ['defense'] = 9765,
+    ['meleeOffense'] = 9369,
+    ['defense'] = 9714,
     ['evade'] = 0.15,
     ['range'] = 2,
     ['weapon1'] = 'Lightning'
 },
 
 ['Rafa Martez'] = {
-    ['meleeOffense'] = 8433,
-    ['rangedOffense'] = 8573,
-    ['defense'] = 9174,
+    ['meleeOffense'] = 8424,
+    ['rangedOffense'] = 8564,
+    ['defense'] = 9165,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Rakatan Warrior'] = {
-    ['meleeOffense'] = 9459,
-    ['defense'] = 8815,
+    ['meleeOffense'] = 9601,
+    ['defense'] = 8947,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weaponCount'] = 2,
@@ -4127,76 +4147,76 @@ Characters = {
 },
 
 ['Rakghoul'] = {
-    ['meleeOffense'] = 8565,
-    ['defense'] = 8369,
+    ['meleeOffense'] = 8687,
+    ['defense'] = 8491,
     ['evade'] = 0.02,
     ['range'] = 1
 },
 
 ['Rako Hardeen'] = {
-    ['meleeOffense'] = 13222,
-    ['rangedOffense'] = 15889,
-    ['defense'] = 14644,
+    ['meleeOffense'] = 13093,
+    ['rangedOffense'] = 15760,
+    ['defense'] = 14514,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Range Trooper'] = {
-    ['meleeOffense'] = 9000,
-    ['rangedOffense'] = 9310,
-    ['defense'] = 9025,
+    ['meleeOffense'] = 9007,
+    ['rangedOffense'] = 9317,
+    ['defense'] = 9032,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Ratts Tyerell'] = {
-    ['meleeOffense'] = 5449,
-    ['rangedOffense'] = 5480,
-    ['defense'] = 5486,
+    ['meleeOffense'] = 5375,
+    ['rangedOffense'] = 5406,
+    ['defense'] = 5412,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Raymus Antilles'] = {
-    ['meleeOffense'] = 8557,
-    ['rangedOffense'] = 8787,
-    ['defense'] = 8896,
+    ['meleeOffense'] = 8581,
+    ['rangedOffense'] = 8811,
+    ['defense'] = 8920,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Rebel Fleet Trooper'] = {
-    ['meleeOffense'] = 8404,
-    ['rangedOffense'] = 8569,
-    ['defense'] = 8450,
+    ['meleeOffense'] = 8417,
+    ['rangedOffense'] = 8582,
+    ['defense'] = 8463,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Red Guard'] = {
-    ['meleeOffense'] = 8260,
-    ['defense'] = 8750,
+    ['meleeOffense'] = 8356,
+    ['defense'] = 8846,
     ['evade'] = 0.02,
     ['range'] = 1,
     ['weapon1'] = 'Force Pike'
 },
 
 ['Reek'] = {
-    ['meleeOffense'] = 15000,
-    ['defense'] = 15188,
+    ['meleeOffense'] = 15354,
+    ['defense'] = 15543,
     ['evade'] = 0.03,
     ['range'] = 1
 },
 
 ['Ree-Yees'] = {
-    ['meleeOffense'] = 8789,
-    ['rangedOffense'] = 9123,
-    ['defense'] = 8800,
+    ['meleeOffense'] = 8793,
+    ['rangedOffense'] = 9127,
+    ['defense'] = 8804,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['range2'] = 2,
@@ -4205,45 +4225,45 @@ Characters = {
 },
 
 ['Republic Trooper'] = {
-    ['meleeOffense'] = 8677,
-    ['rangedOffense'] = 9677,
-    ['defense'] = 9425,
+    ['meleeOffense'] = 8664,
+    ['rangedOffense'] = 9664,
+    ['defense'] = 9412,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Resistance Hero Finn'] = {
-    ['meleeOffense'] = 13569,
-    ['rangedOffense'] = 13069,
-    ['defense'] = 13899,
+    ['meleeOffense'] = 13560,
+    ['rangedOffense'] = 13062,
+    ['defense'] = 13892,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Resistance Hero Poe Dameron'] = {
-    ['meleeOffense'] = 13459,
-    ['rangedOffense'] = 13819,
-    ['defense'] = 13579,
+    ['meleeOffense'] = 13572,
+    ['rangedOffense'] = 13932,
+    ['defense'] = 13690,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Resistance Pilot'] = {
-    ['meleeOffense'] = 8012,
-    ['rangedOffense'] = 8350,
-    ['defense'] = 8301,
+    ['meleeOffense'] = 8035,
+    ['rangedOffense'] = 8373,
+    ['defense'] = 8324,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Resistance Trooper'] = {
-    ['meleeOffense'] = 8300,
-    ['rangedOffense'] = 8569,
-    ['defense'] = 8500,
+    ['meleeOffense'] = 8305,
+    ['rangedOffense'] = 8574,
+    ['defense'] = 8505,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
@@ -4263,9 +4283,9 @@ Characters = {
 },
 
 ['Ric Olié'] = {
-    ['meleeOffense'] = 6467,
-    ['rangedOffense'] = 6550,
-    ['defense'] = 6408,
+    ['meleeOffense'] = 6452,
+    ['rangedOffense'] = 6534,
+    ['defense'] = 6392,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -4273,24 +4293,24 @@ Characters = {
 },
 
 ['Riff Tamson'] = {
-    ['meleeOffense'] = 9695,
-    ['defense'] = 8061,
+    ['meleeOffense'] = 9756,
+    ['defense'] = 8158,
     ['evade'] = 0.03,
     ['range'] = 1
 },
 
 ['Rio Durant'] = {
-    ['meleeOffense'] = 9001,
-    ['rangedOffense'] = 8993,
-    ['defense'] = 8691,
+    ['meleeOffense'] = 9022,
+    ['rangedOffense'] = 9014,
+    ['defense'] = 9014,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Riot Control Clone Trooper'] = {
-    ['meleeOffense'] = 9945,
-    ['defense'] = 9299,
+    ['meleeOffense'] = 10110,
+    ['defense'] = 9434,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Riot Control Shield',
@@ -4299,17 +4319,17 @@ Characters = {
 },
 
 ['Robonino'] = {
-    ['meleeOffense'] = 9856,
-    ['defense'] = 8549,
+    ['meleeOffense'] = 9966,
+    ['defense'] = 8659,
     ['evade'] = 0.04,
     ['range'] = 1,
     ['weapon1'] = 'Lightning'
 },
 
 ['Roland Durand'] = {
-    ['meleeOffense'] = 8799,
-    ['rangedOffense'] = 8677,
-    ['defense'] = 8856,
+    ['meleeOffense'] = 8793,
+    ['rangedOffense'] = 8671,
+    ['defense'] = 8850,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -4317,9 +4337,9 @@ Characters = {
 },
 
 ['Rook Kast'] = {
-    ['meleeOffense'] = 15677,
-    ['rangedOffense'] = 15268,
-    ['defense'] = 15011,
+    ['meleeOffense'] = 15660,
+    ['rangedOffense'] = 15251,
+    ['defense'] = 14994,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -4328,9 +4348,9 @@ Characters = {
 },
 
 ['Rose Tico'] = {
-    ['meleeOffense'] = 8553,
-    ['rangedOffense'] = 8093,
-    ['defense'] = 8151,
+    ['meleeOffense'] = 8474,
+    ['rangedOffense'] = 8014,
+    ['defense'] = 8072,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -4338,43 +4358,43 @@ Characters = {
 },
 
 ['Royal Guard'] = {
-    ['meleeOffense'] = 15030,
-    ['defense'] = 15160,
+    ['meleeOffense'] = 15387,
+    ['defense'] = 15516,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Force Pike'
 },
 
 ['Rukh'] = {
-    ['meleeOffense'] = 14910,
-    ['defense'] = 14900,
+    ['meleeOffense'] = 15238,
+    ['defense'] = 15228,
     ['evade'] = 0.05,
     ['range'] = 1,
     ['weapon1'] = 'Electrostaff'
 },
 
 ['Rush Clovis'] = {
-    ['meleeOffense'] = 8950,
-    ['rangedOffense'] = 9150,
-    ['defense'] = 9190,
+    ['meleeOffense'] = 8981,
+    ['rangedOffense'] = 9181,
+    ['defense'] = 9221,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Ryder Azadi'] = {
-    ['meleeOffense'] = 8855,
-    ['rangedOffense'] = 9985,
-    ['defense'] = 8973,
+    ['meleeOffense'] = 8746,
+    ['rangedOffense'] = 9876,
+    ['defense'] = 8864,
     ['evade'] = 0.04,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Sabé'] = {
-    ['meleeOffense'] = 8769,
-    ['rangedOffense'] = 8760,
-    ['defense'] = 8830,
+    ['meleeOffense'] = 8775,
+    ['rangedOffense'] = 8766,
+    ['defense'] = 8836,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -4382,9 +4402,9 @@ Characters = {
 },
 
 ['Sabine Wren'] = {
-    ['meleeOffense'] = 15579,
-    ['rangedOffense'] = 14571,
-    ['defense'] = 15320,
+    ['meleeOffense'] = 15458,
+    ['rangedOffense'] = 14410,
+    ['defense'] = 15160,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -4403,9 +4423,9 @@ Characters = {
 },
 
 ['Sand Trooper'] = {
-    ['meleeOffense'] = 8516,
-    ['rangedOffense'] = 8716,
-    ['defense'] = 8719,
+    ['meleeOffense'] = 8533,
+    ['rangedOffense'] = 8733,
+    ['defense'] = 8736,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -4423,18 +4443,18 @@ Characters = {
 },
 
 ['Satine Kryze'] = {
-    ['meleeOffense'] = 5111,
-    ['rangedOffense'] = 5322,
-    ['defense'] = 5428,
+    ['meleeOffense'] = 5061,
+    ['rangedOffense'] = 5272,
+    ['defense'] = 5378,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Saul Karath'] = {
-    ['meleeOffense'] = 8224,
-    ['rangedOffense'] = 8455,
-    ['defense'] = 8600,
+    ['meleeOffense'] = 8245,
+    ['rangedOffense'] = 8476,
+    ['defense'] = 8621,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -4451,9 +4471,9 @@ Characters = {
 },
 
 ['Saw Gerrera'] = {
-    ['meleeOffense'] = 12911,
-    ['rangedOffense'] = 13911,
-    ['defense'] = 13921,
+    ['meleeOffense'] = 13067,
+    ['rangedOffense'] = 14067,
+    ['defense'] = 14077,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -4461,9 +4481,9 @@ Characters = {
 },
 
 ['Scarif Rebel Pathfinder'] = {
-    ['meleeOffense'] = 8222,
-    ['rangedOffense'] = 8345,
-    ['defense'] = 8684,
+    ['meleeOffense'] = 8232,
+    ['rangedOffense'] = 8355,
+    ['defense'] = 8694,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['range2'] = 2,
@@ -4473,9 +4493,9 @@ Characters = {
 },
 
 ['Scavenger Rey'] = {
-    ['meleeOffense'] = 9790,
-    ['rangedOffense'] = 9400,
-    ['defense'] = 9369,
+    ['meleeOffense'] = 9728,
+    ['rangedOffense'] = 9338,
+    ['defense'] = 9307,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -4483,9 +4503,9 @@ Characters = {
 },
 
 ['Scorpenek Droid'] = {
-    ['meleeOffense'] = 14111,
-    ['rangedOffense'] = 15004,
-    ['defense'] = 17000,
+    ['meleeOffense'] = 14146,
+    ['rangedOffense'] = 15039,
+    ['defense'] = 16950,
     ['evade'] = 0.02,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -4493,24 +4513,24 @@ Characters = {
 },
 
 ['Scout Trooper'] = {
-    ['meleeOffense'] = 9023,
-    ['rangedOffense'] = 9043,
-    ['defense'] = 9031,
+    ['meleeOffense'] = 9048,
+    ['rangedOffense'] = 9068,
+    ['defense'] = 9056,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Sebulba'] = {
-    ['meleeOffense'] = 6910,
-    ['defense'] = 6009,
+    ['meleeOffense'] = 6950,
+    ['defense'] = 6059,
     ['evade'] = 0.04,
     ['range'] = 1
 },
 
 ['Senate Guard'] = {
-    ['meleeOffense'] = 8500,
-    ['defense'] = 8507,
+    ['meleeOffense'] = 8623,
+    ['defense'] = 8630,
     ['evade'] = 0.02,
     ['range'] = 1,
     ['weapon1'] = 'Force Pike'
@@ -4539,51 +4559,58 @@ Characters = {
 },
 
 ['Shadow Guard'] = {
-    ['meleeOffense'] = 14200,
-    ['defense'] = 13990,
+    ['meleeOffense'] = 14511,
+    ['defense'] = 14300,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Lightsaber Pike'
 },
 
 ['Shadow Trooper'] = {
-    ['meleeOffense'] = 12680,
-    ['rangedOffense'] = 13950,
-    ['defense'] = 13991,
+    ['meleeOffense'] = 12529,
+    ['rangedOffense'] = 13799,
+    ['defense'] = 13840,
     ['evade'] = 0.3,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
 },
 
+['Shmi Skywalker'] = {
+    ['meleeOffense'] = 675,
+    ['defense'] = 2175,
+    ['evade'] = 0.2,
+    ['range'] = 1,
+},
+
 ['Shock Trooper'] = {
-    ['meleeOffense'] = 9155,
-    ['rangedOffense'] = 9534,
-    ['defense'] = 9311,
+    ['meleeOffense'] = 9163,
+    ['rangedOffense'] = 9542,
+    ['defense'] = 9319,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Shoretrooper'] = {
-    ['meleeOffense'] = 9013,
-    ['rangedOffense'] = 9013,
-    ['defense'] = 9050,
+    ['meleeOffense'] = 9031,
+    ['rangedOffense'] = 9031,
+    ['defense'] = 9068,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Shyrack'] = {
-    ['meleeOffense'] = 9123,
-    ['defense'] = 8890,
+    ['meleeOffense'] = 9083,
+    ['defense'] = 9083,
     ['evade'] = 0.15,
     ['range'] = 2
 },
 
 ['Sidon Ithano'] = {
-    ['meleeOffense'] = 14655,
-    ['rangedOffense'] = 14655,
-    ['defense'] = 14655,
+    ['meleeOffense'] = 14801,
+    ['rangedOffense'] = 14821,
+    ['defense'] = 14801,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -4600,24 +4627,24 @@ Characters = {
 },
 
 ['Sio Bibble'] = {
-    ['meleeOffense'] = 1776,
-    ['defense'] = 1781,
+    ['meleeOffense'] = 2076,
+    ['defense'] = 2081,
     ['evade'] = 0.02,
     ['range'] = 1
 },
 
 ['Sith Assassin'] = {
-    ['meleeOffense'] = 15102,
-    ['defense'] = 15297,
+    ['meleeOffense'] = 15246,
+    ['defense'] = 15440,
     ['evade'] = 0.3,
     ['range'] = 1,
     ['weapon1'] = 'War Sword'
 },
 
 ['Sith Empire Trooper'] = {
-    ['meleeOffense'] = 8792,
-    ['rangedOffense'] = 9678,
-    ['defense'] = 9366,
+    ['meleeOffense'] = 8787,
+    ['rangedOffense'] = 9673,
+    ['defense'] = 9362,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
@@ -4639,18 +4666,18 @@ Characters = {
 },
 
 ['Sith Jet Trooper'] = {
-    ['meleeOffense'] = 9823,
-    ['rangedOffense'] = 9567,
-    ['defense'] = 9395,
+    ['meleeOffense'] = 9711,
+    ['rangedOffense'] = 9473,
+    ['defense'] = 9303,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Sith Marauder'] = {
-    ['meleeOffense'] = 17122,
-    ['rangedOffense'] = 15676,
-    ['defense'] = 14622,
+    ['meleeOffense'] = 16893,
+    ['rangedOffense'] = 15437,
+    ['defense'] = 14393,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
@@ -4659,18 +4686,18 @@ Characters = {
 },
 
 ['Sith Trooper'] = {
-    ['meleeOffense'] = 9005,
-    ['rangedOffense'] = 9705,
-    ['defense'] = 9678,
+    ['meleeOffense'] = 8994,
+    ['rangedOffense'] = 9694,
+    ['defense'] = 9667,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Snap Wexley'] = {
-    ['meleeOffense'] = 8100,
-    ['rangedOffense'] = 8510,
-    ['defense'] = 8501,
+    ['meleeOffense'] = 8129,
+    ['rangedOffense'] = 8539,
+    ['defense'] = 8530,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
@@ -4702,9 +4729,9 @@ Characters = {
 },
 
 ['Steela Gerrera'] = {
-    ['meleeOffense'] = 9944,
-    ['rangedOffense'] = 9710,
-    ['defense'] = 9412,
+    ['meleeOffense'] = 9907,
+    ['rangedOffense'] = 9674,
+    ['defense'] = 9376,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['range2'] = 2,
@@ -4713,18 +4740,18 @@ Characters = {
 },
 
 ['Stormtrooper Han Solo'] = {
-    ['meleeOffense'] = 14033,
-    ['rangedOffense'] = 14375,
-    ['defense'] = 14934,
+    ['meleeOffense'] = 14141,
+    ['rangedOffense'] = 14483,
+    ['defense'] = 15042,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Sugi'] = {
-    ['meleeOffense'] = 14123,
-    ['rangedOffense'] = 13112,
-    ['defense'] = 13604,
+    ['meleeOffense'] = 14009,
+    ['rangedOffense'] = 12999,
+    ['defense'] = 13491,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -4732,9 +4759,9 @@ Characters = {
 },
 
 ['Sun Fac'] = {
-    ['meleeOffense'] = 8677,
-    ['rangedOffense'] = 9069,
-    ['defense'] = 9400,
+    ['meleeOffense'] = 8595,
+    ['rangedOffense'] = 8987,
+    ['defense'] = 9277,
     ['evade'] = 0.15,
     ['range'] = 5,
     ['projectile1'] = 'Green Laser',
@@ -4753,9 +4780,9 @@ Characters = {
 
 
 ['Supreme Leader Snoke'] = {
-    ['meleeOffense'] = 18745,
-    ['rangedOffense'] = 18745,
-    ['defense'] = 17829,
+    ['meleeOffense'] = 18743,
+    ['rangedOffense'] = 18743,
+    ['defense'] = 17827,
     ['evade'] = 0.01,
     ['range'] = 2,
     ['projectile1'] = 'Lightning',
@@ -4765,18 +4792,18 @@ Characters = {
 },
 
 ['Swamp Trooper'] = {
-    ['meleeOffense'] = 9021,
-    ['rangedOffense'] = 9020,
-    ['defense'] = 9061,
+    ['meleeOffense'] = 9031,
+    ['rangedOffense'] = 9030,
+    ['defense'] = 9071,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['T3-M4'] = {
-    ['meleeOffense'] = 7745,
-    ['rangedOffense'] = 9512,
-    ['defense'] = 9788,
+    ['meleeOffense'] = 7731,
+    ['rangedOffense'] = 9499,
+    ['defense'] = 9776,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -4791,18 +4818,18 @@ Characters = {
 },
 
 ['Tala Durith'] = {
-    ['meleeOffense'] = 9191,
-    ['rangedOffense'] = 9191,
-    ['defense'] = 9407,
+    ['meleeOffense'] = 9212,
+    ['rangedOffense'] = 9212,
+    ['defense'] = 9428,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
 },
 
 ['Talia'] = {
-    ['meleeOffense'] = 9912,
-    ['rangedOffense'] = 9790,
-    ['defense'] = 9590,
+    ['meleeOffense'] = 9894,
+    ['rangedOffense'] = 9772,
+    ['defense'] = 9572,
     ['evade'] = 0.05,
     ['range'] = 3,
     ['projectile1'] = 'Fire',
@@ -4811,18 +4838,18 @@ Characters = {
 },
 
 ['Tallie Lintra'] = {
-    ['meleeOffense'] = 8050,
-    ['rangedOffense'] = 8250,
-    ['defense'] = 8467,
+    ['meleeOffense'] = 8058,
+    ['rangedOffense'] = 8258,
+    ['defense'] = 8475,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Tank Droid'] = {
-    ['meleeOffense'] = 9009,
-    ['rangedOffense'] = 16758,
-    ['defense'] = 16788,
+    ['meleeOffense'] = 7884,
+    ['rangedOffense'] = 15631,
+    ['defense'] = 15660,
     ['evade'] = 0.05,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -4830,9 +4857,9 @@ Characters = {
 },
 
 ['Taron Malicos'] = {
-    ['meleeOffense'] = 18416,
-    ['rangedOffense'] = 16816,
-    ['defense'] = 13987,
+    ['meleeOffense'] = 17911,
+    ['rangedOffense'] = 16311,
+    ['defense'] = 13412,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -4840,25 +4867,32 @@ Characters = {
 },
 
 ['Tasu Leech'] = {
-    ['meleeOffense'] = 12855,
-    ['rangedOffense'] = 13855,
-    ['defense'] = 13861,
+    ['meleeOffense'] = 12922,
+    ['rangedOffense'] = 13923,
+    ['defense'] = 13908,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Taun We'] = {
-    ['meleeOffense'] = 753,
-    ['defense'] = 1556,
+    ['meleeOffense'] = 1183,
+    ['defense'] = 1986,
+    ['evade'] = 0.01,
+    ['range'] = 1
+},
+
+['TC-14'] = {
+    ['meleeOffense'] = 179,
+    ['defense'] = 1979,
     ['evade'] = 0.01,
     ['range'] = 1
 },
 
 ['Tech'] = {
-    ['meleeOffense'] = 14579,
-    ['rangedOffense'] = 15509,
-    ['defense'] = 15290,
+    ['meleeOffense'] = 14801,
+    ['rangedOffense'] = 15732,
+    ['defense'] = 15513,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Laser',
@@ -4866,9 +4900,9 @@ Characters = {
 },
 
 ['Teebo'] = {
-    ['meleeOffense'] = 5747,
-    ['rangedOffense'] = 5747,
-    ['defense'] = 5912,
+    ['meleeOffense'] = 5697,
+    ['rangedOffense'] = 5697,
+    ['defense'] = 5862,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
@@ -4884,18 +4918,18 @@ Characters = {
 },
 
 ['Teemto Pagalies'] = {
-    ['meleeOffense'] = 5810,
-    ['rangedOffense'] = 5755,
-    ['defense'] = 5169,
+    ['meleeOffense'] = 5711,
+    ['rangedOffense'] = 5656,
+    ['defense'] = 5070,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Tera Sinube'] = {
-    ['meleeOffense'] = 15850,
-    ['rangedOffense'] = 15950,
-    ['defense'] = 14520,
+    ['meleeOffense'] = 15998,
+    ['rangedOffense'] = 16138,
+    ['defense'] = 14668,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -4903,8 +4937,8 @@ Characters = {
 },
 
 ['The Armorer'] = {
-    ['meleeOffense'] = 14044,
-    ['defense'] = 15000,
+    ['meleeOffense'] = 14304,
+    ['defense'] = 15261,
     ['evade'] = 0.04,
     ['range'] = 1,
     ['weapon1'] = 'Tool 1',
@@ -4923,9 +4957,9 @@ Characters = {
 },
 
 ['The Disciple'] = {
-    ['meleeOffense'] = 15307,
-    ['rangedOffense'] = 15579,
-    ['defense'] = 15103,
+    ['meleeOffense'] = 15462,
+    ['rangedOffense'] = 15734,
+    ['defense'] = 15258,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -4943,16 +4977,16 @@ Characters = {
 },
 
 ['The Handmaiden'] = {
-    ['meleeOffense'] = 15123,
-    ['defense'] = 15262,
+    ['meleeOffense'] = 15470,
+    ['defense'] = 15610,
     ['evade'] = 0.04,
     ['range'] = 1,
     ['weapon1'] = 'Phasma\'s Spear'
 },
 
 ['The One'] = {
-    ['meleeOffense'] = 15600,
-    ['defense'] = 14760,
+    ['meleeOffense'] = 15978,
+    ['defense'] = 15139,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Vibroblade',
@@ -4973,9 +5007,9 @@ Characters = {
 },
 
 ['Theron Shan'] = {
-    ['meleeOffense'] = 14223,
-    ['rangedOffense'] = 14527,
-    ['defense'] = 14516,
+    ['meleeOffense'] = 14386,
+    ['rangedOffense'] = 14669,
+    ['defense'] = 14695,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -4983,8 +5017,8 @@ Characters = {
 
 ['Third Sister'] = {
     ['meleeOffense'] = 15789,
-    ['rangedOffense'] = 15391,
-    ['defense'] = 15204,
+    ['rangedOffense'] = 15390,
+    ['defense'] = 15182,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
@@ -5012,18 +5046,18 @@ Characters = {
 },
 
 ['TK Trooper'] = {
-    ['meleeOffense'] = 8567,
-    ['rangedOffense'] = 9727,
-    ['defense'] = 9067,
+    ['meleeOffense'] = 8543,
+    ['rangedOffense'] = 9703,
+    ['defense'] = 9043,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Tobias Beckett'] = {
-    ['meleeOffense'] = 13023,
-    ['rangedOffense'] = 15023,
-    ['defense'] = 13980,
+    ['meleeOffense'] = 13226,
+    ['rangedOffense'] = 15225,
+    ['defense'] = 14182,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -5031,9 +5065,9 @@ Characters = {
 },
 
 ['Tokkat'] = {
-    ['meleeOffense'] = 5555,
-    ['rangedOffense'] = 5955,
-    ['defense'] = 5912,
+    ['meleeOffense'] = 5525,
+    ['rangedOffense'] = 5925,
+    ['defense'] = 5882,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Arrow',
@@ -5041,18 +5075,18 @@ Characters = {
 },
 
 ['Trace Martez'] = {
-    ['meleeOffense'] = 8492,
-    ['rangedOffense'] = 8694,
-    ['defense'] = 8855,
+    ['meleeOffense'] = 8520,
+    ['rangedOffense'] = 8722,
+    ['defense'] = 8883,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Trask Ulgo'] = {
-    ['meleeOffense'] = 8969,
-    ['rangedOffense'] = 9212,
-    ['defense'] = 9099,
+    ['meleeOffense'] = 8979,
+    ['rangedOffense'] = 9221,
+    ['defense'] = 9107,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -5060,9 +5094,9 @@ Characters = {
 },
 
 ['Trilla Suduri'] = {
-    ['meleeOffense'] = 16004,
-    ['rangedOffense'] = 16054,
-    ['defense'] = 16045,
+    ['meleeOffense'] = 16093,
+    ['rangedOffense'] = 16100,
+    ['defense'] = 16125,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Red Force Blast',
@@ -5070,16 +5104,16 @@ Characters = {
 },
 
 ['Trudgen'] = {
-    ['meleeOffense'] = 15617,
-    ['defense'] = 15000,
+    ['meleeOffense'] = 15988,
+    ['defense'] = 15372,
     ['evade'] = 0.04,
     ['range'] = 1,
     ['weapon1'] = 'Vibrocleaver'
 },
 
 ['Tuk\'ata'] = {
-    ['meleeOffense'] = 9110,
-    ['defense'] = 8925,
+    ['meleeOffense'] = 9240,
+    ['defense'] = 9055,
     ['evade'] = 0.04,
     ['range'] = 1
 },
@@ -5096,26 +5130,26 @@ Characters = {
 },
 
 ['Turk Falso'] = {
-    ['meleeOffense'] = 8596,
-    ['rangedOffense'] = 8599,
-    ['defense'] = 9112,
+    ['meleeOffense'] = 8601,
+    ['rangedOffense'] = 8604,
+    ['defense'] = 9117,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Tusken Chieftain'] = {
-    ['meleeOffense'] = 8300,
-    ['defense'] = 8010,
+    ['meleeOffense'] = 8411,
+    ['defense'] = 8121,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Gaffi Stick'
 },
 
 ['Tusken Raider'] = {
-    ['meleeOffense'] = 8210,
-    ['rangedOffense'] = 8120,
-    ['defense'] = 8140,
+    ['meleeOffense'] = 8189,
+    ['rangedOffense'] = 8099,
+    ['defense'] = 8119,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser',
@@ -5123,8 +5157,8 @@ Characters = {
 },
 
 ['Tusken Warrior'] = {
-    ['meleeOffense'] = 8969,
-    ['defense'] = 9569,
+    ['meleeOffense'] = 9080,
+    ['defense'] = 9660,
     ['evade'] = 0.03,
     ['range'] = 1,
     ['weapon1'] = 'Gaffi Stick'
@@ -5148,9 +5182,9 @@ Characters = {
 },
 
 ['Unkar Plutt'] = {
-    ['meleeOffense'] = 5110,
-    ['rangedOffense'] = 6110,
-    ['defense'] = 6400,
+    ['meleeOffense'] = 5080,
+    ['rangedOffense'] = 6080,
+    ['defense'] = 6370,
     ['evade'] = 0.01,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -5167,9 +5201,9 @@ Characters = {
 },
 
 ['Ursa Wren'] = {
-    ['meleeOffense'] = 15856,
-    ['rangedOffense'] = 15543,
-    ['defense'] = 15078,
+    ['meleeOffense'] = 15860,
+    ['rangedOffense'] = 15548,
+    ['defense'] = 15083,
     ['evade'] = 0.15,
     ['range'] = 3,
     ['projectile1'] = 'Yellow Laser',
@@ -5178,17 +5212,17 @@ Characters = {
 },
 
 ['Ushar'] = {
-    ['meleeOffense'] = 15482,
-    ['defense'] = 15134,
+    ['meleeOffense'] = 15850,
+    ['defense'] = 15502,
     ['evade'] = 0.04,
     ['range'] = 1,
     ['weapon1'] = 'War Club'
 },
 
 ['Val'] = {
-    ['meleeOffense'] = 9199,
-    ['rangedOffense'] = 9599,
-    ['defense'] = 8999,
+    ['meleeOffense'] = 9253,
+    ['rangedOffense'] = 9653,
+    ['defense'] = 9053,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -5206,36 +5240,36 @@ Characters = {
 },
 
 ['Vandor Chewbacca'] = {
-    ['meleeOffense'] = 15512,
-    ['rangedOffense'] = 15733,
-    ['defense'] = 14369,
+    ['meleeOffense'] = 15639,
+    ['rangedOffense'] = 15860,
+    ['defense'] = 14506,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Vect Nokru'] = {
-    ['meleeOffense'] = 8412,
-    ['rangedOffense'] = 9050,
-    ['defense'] = 9300,
+    ['meleeOffense'] = 8442,
+    ['rangedOffense'] = 9080,
+    ['defense'] = 9330,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Veteran Chewbacca'] = {
-    ['meleeOffense'] = 15222,
-    ['rangedOffense'] = 15777,
-    ['defense'] = 14540,
+    ['meleeOffense'] = 15372,
+    ['rangedOffense'] = 15929,
+    ['defense'] = 14692,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Veteran Han Solo'] = {
-    ['meleeOffense'] = 12946,
-    ['rangedOffense'] = 14996,
-    ['defense'] = 12895,
+    ['meleeOffense'] = 12913,
+    ['rangedOffense'] = 14963,
+    ['defense'] = 12862,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['range2'] = 2,
@@ -5244,9 +5278,9 @@ Characters = {
 },
 
 ['Vette'] = {
-    ['meleeOffense'] = 13855,
-    ['rangedOffense'] = 15723,
-    ['defense'] = 12811,
+    ['meleeOffense'] = 13966,
+    ['rangedOffense'] = 15834,
+    ['defense'] = 12922,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
@@ -5254,17 +5288,17 @@ Characters = {
 },
 
 ['Vice Admiral Rampart'] = {
-    ['meleeOffense'] = 7123,
-    ['rangedOffense'] = 6812,
-    ['defense'] = 6912,
+    ['meleeOffense'] = 7053,
+    ['rangedOffense'] = 6742,
+    ['defense'] = 6842,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Vicrul'] = {
-    ['meleeOffense'] = 15492,
-    ['defense'] = 15105,
+    ['meleeOffense'] = 15855,
+    ['defense'] = 15478,
     ['evade'] = 0.04,
     ['range'] = 1,
     ['weapon1'] = 'Scythe'
@@ -5307,22 +5341,22 @@ Characters = {
 },
 
 ['Wampa'] = {
-    ['meleeOffense'] = 10000,
-    ['defense'] = 8538,
+    ['meleeOffense'] = 10108,
+    ['defense'] = 8646,
     ['evade'] = 0.02,
     ['range'] = 1
 },
 
 ['Wat Tambor'] = {
-    ['meleeOffense'] = 850,
-    ['defense'] = 1694,
+    ['meleeOffense'] = 1160,
+    ['defense'] = 2006,
     ['evade'] = 0.01,
     ['range'] = 1
 },
 
 ['Watto'] = {
-    ['meleeOffense'] = 1910,
-    ['defense'] = 1920,
+    ['meleeOffense'] = 2110,
+    ['defense'] = 2120,
     ['evade'] = 0.15,
     ['range'] = 2,
     ['weapon1'] = 'Fusioncutter',
@@ -5330,36 +5364,36 @@ Characters = {
 },
 
 ['Waxer'] = {
-    ['meleeOffense'] = 9100,
-    ['rangedOffense'] = 10100,
-    ['defense'] = 9779,
+    ['meleeOffense'] = 9090,
+    ['rangedOffense'] = 10090,
+    ['defense'] = 9769,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Weazel'] = {
-    ['meleeOffense'] = 8734,
-    ['rangedOffense'] = 9956,
-    ['defense'] = 9256,
+    ['meleeOffense'] = 8694,
+    ['rangedOffense'] = 9916,
+    ['defense'] = 9236,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Wedge Antilles'] = {
-    ['meleeOffense'] = 8990,
-    ['rangedOffense'] = 8990,
-    ['defense'] = 8992,
+    ['meleeOffense'] = 9010,
+    ['rangedOffense'] = 9010,
+    ['defense'] = 9012,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Wicket W Warrick'] = {
-    ['meleeOffense'] = 6554,
-    ['rangedOffense'] = 5554,
-    ['defense'] = 5994,
+    ['meleeOffense'] = 6304,
+    ['rangedOffense'] = 5304,
+    ['defense'] = 5744,
     ['evade'] = 0.05,
     ['range'] = 2,
     ['projectile1'] = 'Wistie',
@@ -5367,18 +5401,18 @@ Characters = {
 },
 
 ['Wrecker'] = {
-    ['meleeOffense'] = 16000,
-    ['rangedOffense'] = 16000,
-    ['defense'] = 14660,
+    ['meleeOffense'] = 16142,
+    ['rangedOffense'] = 16142,
+    ['defense'] = 14802,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Blue Laser'
 },
 
 ['Wullf Yularen'] = {
-    ['meleeOffense'] = 6620,
-    ['rangedOffense'] = 6011,
-    ['defense'] = 6740,
+    ['meleeOffense'] = 6486,
+    ['rangedOffense'] = 5877,
+    ['defense'] = 6606,
     ['evade'] = 0.02,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
@@ -5395,9 +5429,9 @@ Characters = {
 },
 
 ['Yarael Poof'] = {
-    ['meleeOffense'] = 15002,
-    ['rangedOffense'] = 15610,
-    ['defense'] = 15110,
+    ['meleeOffense'] = 15205,
+    ['rangedOffense'] = 15813,
+    ['defense'] = 15313,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -5417,8 +5451,8 @@ Characters = {
 },
 
 ['Young Anakin Skywalker'] = {
-    ['meleeOffense'] = 5912,
-    ['defense'] = 5900,
+    ['meleeOffense'] = 5942,
+    ['defense'] = 5930,
     ['evade'] = 0.05,
     ['range'] = 1,
     ['weaponCount'] = 2,
@@ -5426,27 +5460,27 @@ Characters = {
 },
 
 ['Young Han Solo'] = {
-    ['meleeOffense'] = 9215,
-    ['rangedOffense'] = 9200,
-    ['defense'] = 9669,
+    ['meleeOffense'] = 9216,
+    ['rangedOffense'] = 9201,
+    ['defense'] = 9670,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Young Lando Calrissian'] = {
-    ['meleeOffense'] = 9001,
-    ['rangedOffense'] = 9116,
-    ['defense'] = 9001,
+    ['meleeOffense'] = 9031,
+    ['rangedOffense'] = 9146,
+    ['defense'] = 9031,
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
 },
 
 ['Yuthura Ban'] = {
-    ['meleeOffense'] = 16555,
-    ['rangedOffense'] = 16477,
-    ['defense'] = 15467,
+    ['meleeOffense'] = 16734,
+    ['rangedOffense'] = 16767,
+    ['defense'] = 15575,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Force Blast',
@@ -5454,9 +5488,9 @@ Characters = {
 },
 
 ['Zaalbar'] = {
-    ['meleeOffense'] = 15285,
-    ['rangedOffense'] = 14033,
-    ['defense'] = 15033,
+    ['meleeOffense'] = 15187,
+    ['rangedOffense'] = 13935,
+    ['defense'] = 14935,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -5464,9 +5498,9 @@ Characters = {
 },
 
 ['Zam Wesell'] = {
-    ['meleeOffense'] = 12443,
-    ['rangedOffense'] = 15323,
-    ['defense'] = 12911,
+    ['meleeOffense'] = 12157,
+    ['rangedOffense'] = 15037,
+    ['defense'] = 12625,
     ['evade'] = 0.03,
     ['range'] = 5,
     ['range2'] = 2,
@@ -5475,9 +5509,9 @@ Characters = {
 },
 
 ['Zatt'] = {
-    ['meleeOffense'] = 10122,
-    ['rangedOffense'] = 9788,
-    ['defense'] = 9678,
+    ['meleeOffense'] = 10060,
+    ['rangedOffense'] = 9726,
+    ['defense'] = 9616,
     ['evade'] = 0.07,
     ['range'] = 2,
     ['projectile1'] = 'Blue Force Blast',
@@ -5494,9 +5528,9 @@ Characters = {
 },
 
 ['Zeffo Tomb Guardian'] = {
-    ['meleeOffense'] = 15000,
-    ['rangedOffense'] = 17110,
-    ['defense'] = 14350,
+    ['meleeOffense'] = 15035,
+    ['rangedOffense'] = 17145,
+    ['defense'] = 14385,
     ['evade'] = 0.02,
     ['range'] = 3,
     ['projectile1'] = 'Blue Force Blast'
@@ -5520,9 +5554,9 @@ Characters = {
 },
 
 ['Zuckuss'] = {
-    ['meleeOffense'] = 14789,
-    ['rangedOffense'] = 14112,
-    ['defense'] = 13212,
+    ['meleeOffense'] = 14705,
+    ['rangedOffense'] = 14029,
+    ['defense'] = 13139,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser',
@@ -5530,9 +5564,9 @@ Characters = {
 },
 
 ['Zygerrian Slaver'] = {
-    ['meleeOffense'] = 9127,
-    ['rangedOffense'] = 9123,
-    ['defense'] = 9138,
+    ['meleeOffense'] = 9141,
+    ['rangedOffense'] = 9137,
+    ['defense'] = 9152,
     ['evade'] = 0.03,
     ['range'] = 3,
     ['projectile1'] = 'Red Laser'

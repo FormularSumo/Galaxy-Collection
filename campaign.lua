@@ -90,7 +90,7 @@ function kamino(number)
 end
 
 function geonosis(number)
-    if number == 'max' then return 204 end
+    if number == 'max' then return 205 end
 
     if number < 36 then return {'B2 Super Battle Droid',60,4} end
 
@@ -123,8 +123,9 @@ function geonosis(number)
 
     if number == 200 then return {'Tactical Droid',60,4} end
     if number == 201 then return {'Poggle The Lesser',60,4} end
+    if number == 202 then return {'Wat Tambor',60,4} end
 
-    if number < 203 then return {'B1 Battle Droid',60,4} end
+    if number < 204 then return {'B1 Battle Droid',60,4} end
 end
 
 function sithTriumvirate(number)
@@ -174,68 +175,68 @@ end
 function maxedLightSide(number)
     if number == 'max' then return 18 end
 
-    if number == 0 then return {'Ahsoka Tano Fulcrum',60,4} end
+    if number == 0 then return {'Mace Windu',60,4} end
     if number == 1 then return {'Yoda',60,4} end
-    if number == 2 then return {'Hermit Luke Skywalker',60,4} end
-    if number == 3 then return {'Jedi Knight Revan',60,4} end
+    if number == 2 then return {'Jedi Knight Revan',60,4} end
+    if number == 3 then return {'Hermit Luke Skywalker',60,4} end
     if number == 4 then return {'Jedi Master Obi-Wan Kenobi',60,4} end
-    if number == 5 then return {'Ahsoka Tano Mandalorian',60,4} end
-    if number == 6 then return {'Satele Shan',60,4} end
-    if number == 7 then return {'Meetra Surik',60,4} end
-    if number == 8 then return {'Mace Windu',60,4} end
-    if number == 9 then return {'Jedi Knight Anakin Skywalker',60,4} end
-    if number == 10 then return {'Jedi Knight Luke Skywalker',60,4} end
-    if number == 11 then return {'Yaddle',60,4} end
-    if number == 12 then return {'Kreia',60,4} end
-    if number == 13 then return {'Vandar Tokare',60,4} end
+    if number == 5 then return {'Jedi Knight Anakin Skywalker',60,4} end
+    if number == 6 then return {'Jedi Knight Luke Skywalker',60,4} end
+    if number == 7 then return {'Ahsoka Tano Mandalorian',60,4} end
+    if number == 8 then return {'Satele Shan',60,4} end
+    if number == 9 then return {'Hermit Obi-Wan Kenobi',60,4} end
+    if number == 10 then return {'Meetra Surik',60,4} end
+    if number == 11 then return {'Ahsoka Tano Fulcrum',60,4} end
+    if number == 12 then return {'General Skywalker',60,4} end
+    if number == 13 then return {'Kreia',60,4} end
     if number == 14 then return {'The Daughter',60,4} end
     if number == 15 then return {'Hermit Yoda',60,4} end
-    if number == 16 then return {'General Skywalker',60,4} end
-    if number == 17 then return {'Ahsoka Tano S7',60,4} end
+    if number == 16 then return {'Vandar Tokare',60,4} end
+    if number == 17 then return {'Vrook Lamar',60,4} end
 end
 
 function maxedDarkSide(number)
     if number == 'max' then return 18 end
 
-    if number == 0 then return {'Ajunta Pall',60,4} end
+    if number == 0 then return {'Darth Traya',60,4} end
     if number == 1 then return {'Exar Kun',60,4} end
-    if number == 2 then return {'Darth Revan',60,4} end
-    if number == 3 then return {'Tulak Hord',60,4} end
-    if number == 4 then return {'Darth Vader',60,4} end
-    if number == 5 then return {'Darth Bane',60,4} end
-    if number == 6 then return {'Darth Traya',60,4} end
-    if number == 7 then return {'Starkiller',60,4} end
-    if number == 8 then return {'Darth Sidious',60,4} end
-    if number == 9 then return {'Emperor Palpatine',60,4} end
-    if number == 10 then return {'Lord Vader',60,4} end
-    if number == 11 then return {'Marka Ragnos',60,4} end
+    if number == 2 then return {'Tulak Hord',60,4} end
+    if number == 3 then return {'Darth Vader',60,4} end
+    if number == 4 then return {'Lord Vader',60,4} end
+    if number == 5 then return {'Darth Malgus',60,4} end
+    if number == 6 then return {'Emperor Palpatine',60,4} end
+    if number == 7 then return {'Arcann',60,4} end
+    if number == 8 then return {'Darth Revan',60,4} end
+    if number == 9 then return {'Darth Sidious',60,4} end
+    if number == 10 then return {'Marka Ragnos',60,4} end
+    if number == 11 then return {'Freedon Nadd',60,4} end
     if number == 12 then return {'Darth Nihilus',60,4} end
     if number == 13 then return {'Vitiate',60,4} end
     if number == 14 then return {'Abeloth',60,4} end
     if number == 15 then return {'The Son',60,4} end
     if number == 16 then return {'Sith Eternal Emperor',60,4} end
-    if number == 17 then return {'Freedon Nadd',60,4} end
+    if number == 17 then return {'Starkiller',60,4} end
 end
 
 function maxed(number)
     if number == 'max' then return 18 end
 
-    if number == 0 then return {'Mace Windu',60,4} end
-    if number == 1 then return {'Tulak Hord',60,4} end
-    if number == 2 then return {'Darth Revan',60,4} end
+    if number == 0 then return {'Tulak Hord',60,4} end
+    if number == 1 then return {'Darth Vader',60,4} end
+    if number == 2 then return {'Zillo Beast',60,4} end
     if number == 3 then return {'Jedi Knight Revan',60,4} end
-    if number == 4 then return {'Zillo Beast',60,4} end
-    if number == 5 then return {'Exar Kun',60,4} end
-    if number == 6 then return {'Darth Nihilus',60,4} end
-    if number == 7 then return {'Emperor Palpatine',60,4} end
-    if number == 8 then return {'The Father',60,4} end
-    if number == 9 then return {'Darth Sidious',60,4} end
-    if number == 10 then return {'Hermit Luke Skywalker',60,4} end
-    if number == 11 then return {'Bendu',60,4} end
-    if number == 12 then return {'Vitiate',60,4} end
-    if number == 13 then return {'Force Priestess',60,4} end
+    if number == 4 then return {'Exar Kun',60,4} end
+    if number == 5 then return {'Mace Windu',60,4} end
+    if number == 6 then return {'Bendu',60,4} end
+    if number == 7 then return {'Darth Sidious',60,4} end
+    if number == 8 then return {'Darth Revan',60,4} end
+    if number == 9 then return {'The Father',60,4} end
+    if number == 10 then return {'Yoda',60,4} end
+    if number == 11 then return {'Emperor Palpatine',60,4} end
+    if number == 12 then return {'The Daughter',60,4} end
+    if number == 13 then return {'Vitiate',60,4} end
     if number == 14 then return {'Abeloth',60,4} end
     if number == 15 then return {'The Son',60,4} end
-    if number == 16 then return {'The Daughter',60,4} end
+    if number == 16 then return {'Force Priestess',60,4} end
     if number == 17 then return {'Sith Eternal Emperor',60,4} end
 end
