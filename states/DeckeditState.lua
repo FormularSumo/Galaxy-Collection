@@ -90,7 +90,9 @@ function DeckeditState:updateCardsOnDisplay(direction,visible)
 
         if not love.thread.getChannel("imageDecoderWorking"):peek() then
             love.thread.getChannel("imageDecoderWorking"):push("working")
-            imageDecoderThread:start()
+            for i = 1,#imageDecoderThreads do
+                imageDecoderThreads[i]:start()
+            end
         end
 
         for i=0,17,1 do
@@ -124,7 +126,9 @@ function DeckeditState:reloadDeckeditor()
     P1strength = 0
 
     love.thread.getChannel("imageDecoderWorking"):push("working")
-    imageDecoderThread:start()
+    for i = 1,#imageDecoderThreads do
+        imageDecoderThreads[i]:start()
+    end
     
     for i=0,17,1 do
         if i % 6 == 0 and i ~= 0 then
@@ -443,9 +447,6 @@ function DeckeditState:update()
 
     for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() / 2 do
         cards[love.thread.getChannel("imageDecoderOutput"):pop()] = love.graphics.newImage(love.thread.getChannel("imageDecoderOutput"):pop())
-    end
-    if love.thread.getChannel("imageDecoderOutput"):getCount() == 0 and imageDecoderThread:isRunning() == false then
-        collectgarbage()
     end
 end
 
