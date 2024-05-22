@@ -1,15 +1,11 @@
 DeckeditState = Class{__includes = BaseState}
 
 function DeckeditState:init()
-    evolution = love.graphics.newImage('Graphics/Evolution.png')
-    evolutionBig = love.graphics.newImage('Graphics/Evolution Big.png')
-    evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
-    evolutionMaxBig = love.graphics.newImage('Graphics/Evolution Max Big.png')
-    blankCard = love.graphics.newImage('Graphics/Blank Card.png')
 
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     cards = {}
+    cards["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') -- Maybe needed first for card editor before deocding has finished, should probably also be replaced with loading image
     P1strength = 0
     self:sortInventory(false)
     self.cardsOnDisplay = {}
@@ -17,6 +13,11 @@ function DeckeditState:init()
     self.cardsOnDisplayAreBlank = false
     self.subState = 'deck'
     self:reloadDeckeditor()
+
+    evolution = love.graphics.newImage('Graphics/Evolution.png')
+    evolutionBig = love.graphics.newImage('Graphics/Evolution Big.png')
+    evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
+    evolutionMaxBig = love.graphics.newImage('Graphics/Evolution Max Big.png')
 
     background['Name'] = 'Death Star Control Room'
     background['Video'] = false
@@ -87,6 +88,11 @@ function DeckeditState:updateCardsOnDisplay(direction,visible)
         rowCorrectment = 0
         self.cardsOnDisplayAreBlank = true
 
+        if not love.thread.getChannel("imageDecoderWorking"):peek() then
+            love.thread.getChannel("imageDecoderWorking"):push("working")
+            imageDecoderThread:start()
+        end
+
         for i=0,17,1 do
             if i % 6 == 0 and i ~= 0 then
                 column = 9 + i / 6
@@ -101,6 +107,7 @@ function DeckeditState:updateCardsOnDisplay(direction,visible)
                 self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false)
             end
         end
+        love.thread.getChannel("imageDecoderWorking"):pop()
         column = nil
         rowCorrectment = nil
         if not visible then
@@ -115,6 +122,9 @@ function DeckeditState:reloadDeckeditor()
     P1column = 2
     rowCorrectment = 0
     P1strength = 0
+
+    love.thread.getChannel("imageDecoderWorking"):push("working")
+    imageDecoderThread:start()
     
     for i=0,17,1 do
         if i % 6 == 0 and i ~= 0 then
@@ -430,6 +440,12 @@ function DeckeditState:update()
             gui[self.left].scaling = 1.05
         end
     end
+
+    if love.thread.getChannel("imageDecoderOutput"):peek() then
+        cards[love.thread.getChannel("imageDecoderOutput"):pop()] = love.graphics.newImage(love.thread.getChannel("imageDecoderOutput"):pop())
+    else if not love.thread.getChannel("imageDecoderQueue"):peek() then
+        collectgarbage()
+    end
 end
 
 function DeckeditState:renderBackground()
@@ -452,6 +468,7 @@ function DeckeditState:renderForeground()
         love.graphics.setColor(1,1,1,1)
         love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength+0.5)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2,900)
     end
+    love.graphics.print(tostring(imageDecoderThread:isRunning()))
 end
 
 function DeckeditState:exit()

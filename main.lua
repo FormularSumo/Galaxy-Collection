@@ -56,6 +56,10 @@ function love.load()
     blur.vignette.radius = 1
 
     backgroundCanvas = love.graphics.newCanvas(1920,1080)
+    imageDecoderThread = love.thread.newThread("ImageDecoderThread.lua")
+    love.thread.getChannel("imageDecoderQueue")
+    love.thread.getChannel("imageDecoderOutput")
+    love.thread.getChannel("imageDecoderWorking")
     
     gui = {}
     songs = {}
