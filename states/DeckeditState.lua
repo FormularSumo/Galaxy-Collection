@@ -441,9 +441,10 @@ function DeckeditState:update()
         end
     end
 
-    if love.thread.getChannel("imageDecoderOutput"):peek() then
+    for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() / 2 do
         cards[love.thread.getChannel("imageDecoderOutput"):pop()] = love.graphics.newImage(love.thread.getChannel("imageDecoderOutput"):pop())
-    elseif not love.thread.getChannel("imageDecoderQueue"):peek() then
+    end
+    if love.thread.getChannel("imageDecoderOutput"):getCount() == 0 and imageDecoderThread:isRunning() == false then
         collectgarbage()
     end
 end
@@ -468,7 +469,6 @@ function DeckeditState:renderForeground()
         love.graphics.setColor(1,1,1,1)
         love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength+0.5)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2,900)
     end
-    love.graphics.print(tostring(imageDecoderThread:isRunning()))
 end
 
 function DeckeditState:exit()
