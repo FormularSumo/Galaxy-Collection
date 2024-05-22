@@ -443,7 +443,7 @@ function DeckeditState:update()
 
     if love.thread.getChannel("imageDecoderOutput"):peek() then
         cards[love.thread.getChannel("imageDecoderOutput"):pop()] = love.graphics.newImage(love.thread.getChannel("imageDecoderOutput"):pop())
-    else if not love.thread.getChannel("imageDecoderQueue"):peek() then
+    elseif not love.thread.getChannel("imageDecoderQueue"):peek() then
         collectgarbage()
     end
 end
