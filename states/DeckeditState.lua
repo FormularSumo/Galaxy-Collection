@@ -1,7 +1,6 @@
 DeckeditState = Class{__includes = BaseState}
 
 function DeckeditState:init()
-
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     cards = {}
@@ -35,6 +34,7 @@ function DeckeditState:sortInventory(reload)
     P1cards = {}
     count = 0
 
+    -- if reload = true
     if sandbox and reload == false then
         for k, pair in pairs(Characters) do
             if k ~= 'DarthNoscoper' then
@@ -296,7 +296,7 @@ function DeckeditState:exitStats()
     end
     gui = self.gui
     if self.sort == true then
-        self:sortInventory()
+        self:sortInventory() --why is this needed? Couldn't it just be updateCardsOnDisplay or some other function that doesn't reload from file
         self.sort = nil
     else
         self:updateGui()
