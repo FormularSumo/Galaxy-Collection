@@ -1,7 +1,7 @@
 GameState = Class{__includes = BaseState}
 
 function GameState:init()
-    evolution= love.graphics.newImage('Graphics/Evolution.png')
+    evolution = love.graphics.newImage('Graphics/Evolution.png')
     evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
 
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
@@ -10,7 +10,7 @@ function GameState:init()
     Projectiles = {}
     Weapons = {}
     cards = {}
-    gamespeed = 1
+    self.gamespeed = 1
     self.Nextcards = {
         [0] = 18,
         [1] = 19,
@@ -60,8 +60,8 @@ function GameState:init()
             P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6))
         end
     end
-    P1angle = math.rad(210)
-    P2angle = math.rad(150)
+    self.P1angle = math.rad(210)
+    self.P2angle = math.rad(150)
     self.next = next
 end
 
@@ -77,7 +77,7 @@ function GameState:enter(Background)
     if Background[5] == nil then g = 0 else g = Background[5] end
     if Background[6] == nil then b = 0 else b = Background[6] end
     gui[1] = Button(pause,'Pause',font100,nil,1591,0,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
-    gui[2] = Slider(1591,130,300,16,function(percentage) gamespeed = percentage * 4 end,0.3,0.3,0.3,r,g,b,0.25,0.25)
+    gui[2] = Slider(1591,130,300,16,function(percentage) self.gamespeed = percentage * 4 end,0.3,0.3,0.3,r,g,b,0.25,0.25)
     gui['SpeedLabel'] = Text('Speed',font80,'centre',410,r,g,b,false)
     gui[3] = Slider('centre',570,300,16,function(percentage) love.audio.setVolume(percentage) Settings['volume_level'] = percentage end,0.3,0.3,0.3,r,g,b,Settings['volume_level'],0.5,function() bitser.dumpLoveFile('Settings.txt',Settings) end,false,false)
     gui['VolumeLabel'] = Text('Volume',font80,'centre',600,r,g,b,false)
@@ -296,7 +296,7 @@ end
 
 function GameState:update(dt)
     if paused == false and not winner then
-        dt = dt * gamespeed
+        dt = dt * self.gamespeed
         self.timer = self.timer + dt
         if self.timer >= 7.4 then self.timer = self.timer - 1 end
         self.moveAimTimer = self.moveAimTimer + dt
@@ -311,18 +311,18 @@ function GameState:update(dt)
 
         if self.timer > 6.4 then
             if self.timer < 6.9 then
-                if P1angle < math.rad(270) then
-                    P1angle = P1angle + dt * 2
+                if self.P1angle < math.rad(270) then
+                    self.P1angle = self.P1angle + dt * 2
                 end
-                if P2angle > math.rad(90) then
-                    P2angle = P2angle - dt * 2
+                if self.P2angle > math.rad(90) then
+                    self.P2angle = self.P2angle - dt * 2
                 end
             elseif self.timer < 7.4 then
-                if P1angle > math.rad(210) then
-                    P1angle = P1angle - dt * 2
+                if self.P1angle > math.rad(210) then
+                    self.P1angle = self.P1angle - dt * 2
                 end
-                if P2angle < math.rad(150) then
-                    P2angle = P2angle + dt * 2
+                if self.P2angle < math.rad(150) then
+                    self.P2angle = self.P2angle + dt * 2
                 end
             end
         end
@@ -454,14 +454,14 @@ function GameState:renderBackground()
         if P1deck ~= nil then
             for k, pair in pairs(P1deck) do
                 if pair.weapon ~= nil then
-                    pair.weapon:render()
+                    pair.weapon:render(self.P1angle)
                 end
             end
         end
         if P2deck ~= nil then
             for k, pair in pairs(P2deck) do
                 if pair.weapon ~= nil then
-                    pair.weapon:render()
+                    pair.weapon:render(self.P2angle)
                 end
             end
         end
@@ -500,6 +500,4 @@ function GameState:exit()
     Projectiles = nil
     Weapons = nil
     cards = nil
-    P1angle = nil
-    P2angle = nil
 end

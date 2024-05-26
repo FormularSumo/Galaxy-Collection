@@ -18,10 +18,10 @@ function Weapon:init(name,team,xoffset,yoffset,card)
     end
 end
 
-function Weapon:render()
+function Weapon:render(angle)
     if self.show then
         for k, pair in pairs(self.Weapons) do
-            pair:render()
+            pair:render(angle)
         end
     end
 end

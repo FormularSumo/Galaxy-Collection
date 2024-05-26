@@ -62,10 +62,10 @@ function Weapon2:init(image,number,team,xoffset,yoffset,card)
     self.card = card
 end
 
-function Weapon2:render()
+function Weapon2:render(angle)
     if self.static then
         love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
     else
-        love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,_G['P' .. tostring(self.team) .. 'angle'],self.scalefactorx,1,self.width/2,self.yoriginoffset)
+        love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,angle,self.scalefactorx,1,self.width/2,self.yoriginoffset)
     end
 end
