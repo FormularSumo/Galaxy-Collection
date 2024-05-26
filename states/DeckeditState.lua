@@ -6,7 +6,7 @@ function DeckeditState:init()
     cards = {}
     cards["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') --Maybe needed first for card editor before deocding has finished, should probably also be replaced with loading image
     P1strength = 0
-    self:sortInventory(false)
+    self:sortInventory()
     self.cardsOnDisplay = {}
     self.page = 0
     self.cardsOnDisplayAreBlank = false
@@ -30,12 +30,11 @@ function DeckeditState:init()
 end
 
 
-function DeckeditState:sortInventory(reload)
+function DeckeditState:sortInventory()
     P1cards = {}
     count = 0
 
-    -- if reload = true
-    if sandbox and reload == false then
+    if sandbox then
         local P1deckList = {}
         for k, pair in pairs(P1deckCards) do --Create list of cards already in deck
             P1deckList[pair[1]] = true
