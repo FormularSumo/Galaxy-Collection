@@ -61,9 +61,6 @@ function DeckeditState:sortInventory()
     P1cards = Temporary
     Temporary = nil
     bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
-    if reload ~= false then
-        self:updateCardsOnDisplay()
-    end
 end
 
 function DeckeditState:updateCardsOnDisplay(direction,visible)
@@ -288,11 +285,8 @@ function DeckeditState:exitStats()
         gui[k] = nil
     end
     gui = self.gui
-        self:updateGui()
-        self:updateGui()
-    end
+    self.gui = nil
     self:updateGui()
-    end
 end
 
 function DeckeditState:back()
