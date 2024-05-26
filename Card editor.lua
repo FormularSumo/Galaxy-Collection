@@ -48,7 +48,7 @@ function CardEditor:swap()
         end
 
         if not (mouseTrapped.inDeck and self.inDeck) then
-            gStateMachine.current:sortInventory()
+            gStateMachine.current:loadCards()
             if self.inDeck then
                 if self.level ~= nil then P1strength = P1strength + characterStrength({self.name,self.level,self.evolution}) end
                 if mouseTrapped.level ~= nil then P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) end

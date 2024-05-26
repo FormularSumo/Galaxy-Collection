@@ -14,7 +14,7 @@ function RemoveCard:swap()
     P1deckEdit(mouseTrapped.number,nil)
     P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
     collectgarbage()
-    gStateMachine.current:sortInventory()
+    gStateMachine.current:loadCards()
     if love.mouse.isVisible() == false then
         if mouseTrapped.number < 6 then
             repositionMouse(gui[mouseTrapped.number+16])

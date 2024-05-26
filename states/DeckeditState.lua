@@ -6,7 +6,7 @@ function DeckeditState:init()
     cards = {}
     cards["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') --Maybe needed first for card editor before deocding has finished, should probably also be replaced with loading image
     P1strength = 0
-    self:loadCards()
+    self:loadCards(false)
     self.cardsOnDisplay = {}
     self.page = 0
     self.cardsOnDisplayAreBlank = false
@@ -30,7 +30,7 @@ function DeckeditState:init()
 end
 
 
-function DeckeditState:loadCards() --Initial card loading and sorting
+function DeckeditState:loadCards(reload) --Initial card loading and sorting
     P1cards = {}
     local count = 0
 
@@ -60,6 +60,9 @@ function DeckeditState:loadCards() --Initial card loading and sorting
     end
     P1cards = Temporary
     Temporary = nil
+    if reload ~= false then
+        self:updateCardsOnDisplay()
+    end
 end
 
 function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the cards which are currently displayed in the inventory with new ones
