@@ -3,8 +3,8 @@ DeckeditState = Class{__includes = BaseState}
 function DeckeditState:init()
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
-    cards = {}
-    cards["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') --Maybe needed first for card editor before deocding has finished, should probably also be replaced with loading image
+    cardImages = {}
+    cardImages["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') --Maybe needed first for card editor before deocding has finished, should probably also be replaced with loading image
     P1strength = 0
     self:loadCards(false)
     self.cardsOnDisplay = {}
@@ -437,7 +437,7 @@ function DeckeditState:update()
     end
 
     for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() / 2 do
-        cards[love.thread.getChannel("imageDecoderOutput"):pop()] = love.graphics.newImage(love.thread.getChannel("imageDecoderOutput"):pop())
+        cardImages[love.thread.getChannel("imageDecoderOutput"):pop()] = love.graphics.newImage(love.thread.getChannel("imageDecoderOutput"):pop())
     end
 end
 
@@ -466,7 +466,7 @@ end
 function DeckeditState:exit()
     P1deck = nil
     P1cards = nil
-    cards = nil
+    cardImages = nil
     P1strength = nil
     evolution = nil
     evolutionBig = nil

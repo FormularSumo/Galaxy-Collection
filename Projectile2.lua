@@ -14,7 +14,7 @@ function Projectile2:init(image,team,xoffset,yoffset,range)
         self.yoffset = yoffset / 2 + self.height / 2
     end
 
-    self.inverse = self.image == Projectiles['Force Drain']
+    self.inverse = self.image == projectileImages['Force Drain']
 end
 
 function Projectile2:fire(card,card2)

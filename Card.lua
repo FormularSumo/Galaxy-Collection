@@ -14,11 +14,11 @@ function Card:init(card,team,number,column)
         self.image = 'Characters/' .. card[1] .. '/' .. card[1] .. '.png'
     end
 
-    if cards[self.image] then
-        self.image = cards[self.image]
+    if cardImages[self.image] then
+        self.image = cardImages[self.image]
     else
-        cards[self.image] = love.graphics.newImage(self.image)
-        self.image = cards[self.image]
+        cardImages[self.image] = love.graphics.newImage(self.image)
+        self.image = cardImages[self.image]
     end
     self.width,self.height = self.image:getDimensions()
     self.health = 1000

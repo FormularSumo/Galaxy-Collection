@@ -14,14 +14,14 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck)
         else
             self.imageName = 'Characters/' .. self.name .. '/' .. self.name
         end
-        if not cards[self.imageName] then
+        if not cardImages[self.imageName] then
             love.thread.getChannel("imageDecoderQueue"):push(self.imageName)
-            cards[self.imageName] = cards["blankCard"] -- test if needed
+            cardImages[self.imageName] = cardImages["blankCard"] -- test if needed
         end
         self.level = level or 1
         self.evolution = evolution or 0
     end
-    self.width,self.height = cards[self.imageName]:getDimensions()
+    self.width,self.height = cardImages[self.imageName]:getDimensions()
     self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
     self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.number = number
@@ -153,7 +153,7 @@ function CardEditor:render()
         love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
         love.graphics.setColor(1,1,1)
     end
-    love.graphics.draw(cards[self.imageName],self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+    love.graphics.draw(cardImages[self.imageName],self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
     if self.name ~= 'Blank' then
         if self.evolution == 4 then
             love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)

@@ -6,12 +6,12 @@ function Projectile:init(name,team,xoffset,yoffset)
     self.Projectiles = {}
     for i=1,self.projectileCount do
         if name['projectile' .. tostring(i)] then
-            if not Projectiles[name['projectile'..tostring(i)]] then
-                Projectiles[name['projectile'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['projectile'..tostring(i)]..'.png')
+            if not projectileImages[name['projectile'..tostring(i)]] then
+                projectileImages[name['projectile'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['projectile'..tostring(i)]..'.png')
             end
-            self.Projectiles[i] = Projectile2(Projectiles[name['projectile'..tostring(i)]],team,xoffset,yoffset,name['range'..tostring(i)] or name['range'])
+            self.Projectiles[i] = Projectile2(projectileImages[name['projectile'..tostring(i)]],team,xoffset,yoffset,name['range'..tostring(i)] or name['range'])
         else 
-            self.Projectiles[i] = Projectile2(Projectiles[name['projectile1']],team,xoffset,yoffset,name['range'])
+            self.Projectiles[i] = Projectile2(projectileImages[name['projectile1']],team,xoffset,yoffset,name['range'])
         end
     end
 end

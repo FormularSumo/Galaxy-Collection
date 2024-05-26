@@ -7,9 +7,9 @@ function GameState:init()
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     P2deck = {}
-    Projectiles = {}
-    Weapons = {}
-    cards = {}
+    projectileImages = {}
+    weaponImages = {}
+    cardImages = {}
     self.gamespeed = 1
     self.Nextcards = {
         [0] = 18,
@@ -429,9 +429,9 @@ function GameState:update(dt)
                         gui[k] = nil
                     end
                 end
-                Projectiles = nil
-                Weapons = nil
-                cards = nil
+                projectileImages = nil
+                weaponImages = nil
+                cardImages = nil
                 collectgarbage()
             end
         end
@@ -497,7 +497,7 @@ function GameState:exit()
     P2deckCards = nil
     evolution= nil
     evolutionMax = nil
-    Projectiles = nil
-    Weapons = nil
-    cards = nil
+    projectileImages = nil
+    weaponImages = nil
+    cardImages = nil
 end
