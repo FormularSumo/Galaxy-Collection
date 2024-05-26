@@ -39,7 +39,6 @@ function DeckeditState:sortInventory(reload)
         local P1deckList = {}
         for k, pair in pairs(P1deckCards) do --Create list of cards already in deck
             P1deckList[pair[1]] = true
-            print(pair[1])
         end
 
         for k, pair in pairs(Characters) do
@@ -290,11 +289,10 @@ function DeckeditState:exitStats()
         gui[k] = nil
     end
     gui = self.gui
-    if self.sort == true then
-        self:sortInventory() --Why is this needed? Couldn't it just be updateCardsOnDisplay or some other function that doesn't reload from file
-        self.sort = nil
-    else
         self:updateGui()
+        self:updateGui()
+    end
+    self:updateGui()
     end
 end
 
