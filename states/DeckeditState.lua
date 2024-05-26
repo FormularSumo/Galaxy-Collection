@@ -4,7 +4,7 @@ function DeckeditState:init()
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     cards = {}
-    cards["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') -- Maybe needed first for card editor before deocding has finished, should probably also be replaced with loading image
+    cards["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') --Maybe needed first for card editor before deocding has finished, should probably also be replaced with loading image
     P1strength = 0
     self:sortInventory(false)
     self.cardsOnDisplay = {}
@@ -36,19 +36,16 @@ function DeckeditState:sortInventory(reload)
 
     -- if reload = true
     if sandbox and reload == false then
-        for k, pair in pairs(Characters) do
-            count = count + 1
-            P1cards[count] = {k,60,4}
+        local P1deckList = {}
+        for k, pair in pairs(P1deckCards) do --Create list of cards already in deck
+            P1deckList[pair[1]] = true
+            print(pair[1])
         end
 
-        for k, pair in pairs(P1deckCards) do
-            for k2, pair2 in pairs(P1cards) do
-                if pair[1] == pair2[1] then
-                    for i=k2,#P1cards do
-                        P1cards[i] = P1cards[i+1]
-                    end
-                    break
-                end
+        for k, pair in pairs(Characters) do
+            if not P1deckList[k] then --Prevent cards already in deck also existing in inventory
+                count = count + 1
+                P1cards[count] = {k,60,4}
             end
         end
     else
@@ -294,7 +291,7 @@ function DeckeditState:exitStats()
     end
     gui = self.gui
     if self.sort == true then
-        self:sortInventory() --why is this needed? Couldn't it just be updateCardsOnDisplay or some other function that doesn't reload from file
+        self:sortInventory() --Why is this needed? Couldn't it just be updateCardsOnDisplay or some other function that doesn't reload from file
         self.sort = nil
     else
         self:updateGui()

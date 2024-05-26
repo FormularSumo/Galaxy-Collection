@@ -4,7 +4,6 @@ function love.load()
     Class = require 'class'
     bitser = require 'bitser'
     local moonshine = require 'moonshine'
-    profiler = require 'profile'
     
     require 'Card'
     require 'Button'
