@@ -37,17 +37,15 @@ function DeckeditState:sortInventory(reload)
     -- if reload = true
     if sandbox and reload == false then
         for k, pair in pairs(Characters) do
-            if k ~= 'DarthNoscoper' then
-                count = count + 1
-                P1cards[count] = {k,60,4}
-            end
+            count = count + 1
+            P1cards[count] = {k,60,4}
         end
 
         for k, pair in pairs(P1deckCards) do
             for k2, pair2 in pairs(P1cards) do
                 if pair[1] == pair2[1] then
-                    for k=k2,#P1cards do
-                        P1cards[k] = P1cards[k+1]
+                    for i=k2,#P1cards do
+                        P1cards[i] = P1cards[i+1]
                     end
                     break
                 end
