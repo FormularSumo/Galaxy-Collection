@@ -168,19 +168,20 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
     if deck == 'strongest' then
         for k, pair in ipairs(sortedCharacters) do
             if k-1 < 18 then
-                P1deckEdit(k-1,pair)
+                P1deckEdit(k-1,pair, true)
             else
                 P1cards[k-19] = pair
             end
         end
     elseif deck == 'blank' then
         for i = 0,18 do
-            P1deckEdit(i,nil)
+            P1deckEdit(i,nil,true)
         end
         for k, pair in ipairs(sortedCharacters) do
             P1cards[k-1] = pair
         end
     end
+    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
 
     if not sandbox then
         bitser.dumpLoveFile('Player 1 cards.txt',P1cards)

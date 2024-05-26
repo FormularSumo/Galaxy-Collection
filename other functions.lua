@@ -126,11 +126,13 @@ function wrap(str, limit)
     end)
   end
   
-function P1deckEdit(position,name)
+function P1deckEdit(position,name,nosave)
     if name and name[1] == 'Blank' then name = nil end
     P1deckCards[position] = name
 
-    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+    if not nosave then
+        bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+    end
 end
 
 function P1cardsEdit(position,name)
@@ -181,11 +183,12 @@ function tutorial()
     P1cards = {}
     P1deckCards = {}
     
-    P1deckEdit(1,{'Grogu',60,4})
-    P1deckEdit(2,{'Farmboy Luke Skywalker',60,4})
-    P1deckEdit(3,{'C-3PO',60,4})
-    P1deckEdit(4,{'R2-D2',60,4})
+    P1deckEdit(1,{'Grogu',60,4},true)
+    P1deckEdit(2,{'Farmboy Luke Skywalker',60,4},true)
+    P1deckEdit(3,{'C-3PO',60,4},true)
+    P1deckEdit(4,{'R2-D2',60,4},true)
 
+    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
     bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
     P1cards = nil
     UserData['Credits'] = 100
