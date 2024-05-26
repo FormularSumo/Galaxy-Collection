@@ -3,7 +3,7 @@ function love.load()
     push = require 'push'
     Class = require 'class'
     bitser = require 'bitser'
-    moonshine = require 'moonshine'
+    local moonshine = require 'moonshine'
     profiler = require 'profile'
     
     require 'Card'
