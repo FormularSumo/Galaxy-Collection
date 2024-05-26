@@ -453,15 +453,15 @@ function GameState:renderBackground()
     if self.timer > 6.4 then
         if P1deck ~= nil then
             for k, pair in pairs(P1deck) do
-                if pair.weapon ~= nil then
-                    pair.weapon:render(self.P1angle)
+                if pair.weaponManager ~= nil then
+                    pair.weaponManager:render(self.P1angle)
                 end
             end
         end
         if P2deck ~= nil then
             for k, pair in pairs(P2deck) do
-                if pair.weapon ~= nil then
-                    pair.weapon:render(self.P2angle)
+                if pair.weaponManager ~= nil then
+                    pair.weaponManager:render(self.P2angle)
                 end
             end
         end
@@ -469,15 +469,15 @@ function GameState:renderBackground()
 
     if P1deck ~= nil then
         for k, pair in pairs(P1deck) do
-            if pair.projectile ~= nil then
-                pair.projectile:render()
+            if pair.projectileManager ~= nil then
+                pair.projectileManager:render()
             end
         end
     end
     if P2deck ~= nil then
         for k, pair in pairs(P2deck) do
-            if pair.projectile ~= nil then
-                pair.projectile:render()
+            if pair.projectileManager ~= nil then
+                pair.projectileManager:render()
             end
         end
     end
