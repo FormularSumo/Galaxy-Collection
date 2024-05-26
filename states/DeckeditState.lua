@@ -6,7 +6,7 @@ function DeckeditState:init()
     cards = {}
     cards["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') --Maybe needed first for card editor before deocding has finished, should probably also be replaced with loading image
     P1strength = 0
-    self:sortInventory()
+    self:loadCards()
     self.cardsOnDisplay = {}
     self.page = 0
     self.cardsOnDisplayAreBlank = false
@@ -30,9 +30,9 @@ function DeckeditState:init()
 end
 
 
-function DeckeditState:sortInventory()
+function DeckeditState:loadCards() --Initial card loading and sorting
     P1cards = {}
-    count = 0
+    local count = 0
 
     if sandbox then
         local P1deckList = {}
@@ -60,10 +60,9 @@ function DeckeditState:sortInventory()
     end
     P1cards = Temporary
     Temporary = nil
-    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
 end
 
-function DeckeditState:updateCardsOnDisplay(direction,visible)
+function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the cards which are currently displayed in the inventory with new ones
     if not (direction == 'left' and self.page == 0) and not (direction == 'right' and self.page > math.ceil((#P1cards+1)/18) - 2) then
         if direction == 'right' then
             self.page = self.page + 1
@@ -74,8 +73,8 @@ function DeckeditState:updateCardsOnDisplay(direction,visible)
         end
 
         self.cardsOnDisplay = {}
-        column = 9
-        rowCorrectment = 0
+        local column = 9
+        local rowCorrectment = 0
         self.cardsOnDisplayAreBlank = true
 
         if not love.thread.getChannel("imageDecoderWorking"):peek() then
@@ -110,9 +109,9 @@ function DeckeditState:updateCardsOnDisplay(direction,visible)
     end
 end
 
-function DeckeditState:reloadDeckeditor()
-    P1column = 2
-    rowCorrectment = 0
+function DeckeditState:reloadDeckeditor() --Using the deck/inventory layout that's already been defined, create and store each of these cards in the relevant tables
+    local P1column = 2
+    local rowCorrectment = 0
     P1strength = 0
 
     love.thread.getChannel("imageDecoderWorking"):push("working")
@@ -143,9 +142,9 @@ function DeckeditState:reloadDeckeditor()
     self:updateCardsOnDisplay()
 end
 
-function DeckeditState:resetDeck(deck)
-    count = 0
-    sortedCharacters = {}
+function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre-defined buttons
+    local count = 0
+    local sortedCharacters = {}
  
     for k, pair in pairs(P1deckCards) do
         if pair ~= 'Blank' then
@@ -180,11 +179,13 @@ function DeckeditState:resetDeck(deck)
         end
     end
 
-    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    if not sandbox then
+        bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    end
     self:reloadDeckeditor()
 end
 
-function DeckeditState:updateGui()
+function DeckeditState:updateGui() --Update GUI with cards so that they're displayed+update correctly
     for k, v in pairs(P1deck) do
         if k < 6 then
             gui[k+16] = v
@@ -200,8 +201,8 @@ function DeckeditState:updateGui()
     collectgarbage()
 end
 
-function DeckeditState:updateCardViewer(direction)
-    if gui['CardViewer'].statsUpdated then
+function DeckeditState:updateCardViewer(direction) --Updates which card is selected in the Card Viewer, and changes the inventory page if necessary
+    if gui['CardViewer'].statsUpdated then --If stats have been updated while the viewer is open, save them
         gui['CardViewer']:saveStats()
         gui['CardViewer'].statsUpdated = false
     end
