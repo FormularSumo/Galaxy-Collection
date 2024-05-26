@@ -10,7 +10,9 @@ end
 
 function RemoveCard:swap()
     P1deck[mouseTrapped.number] = CardEditor('Blank',mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,nil,nil,true)
-    P1cardsEdit(-1,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
+    if not sandbox then --Not necessary if in sandbox as inventory is always reloaded from all characters, not save file
+        P1cardsEdit(-1,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
+    end
     P1deckEdit(mouseTrapped.number,nil)
     P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
     collectgarbage()

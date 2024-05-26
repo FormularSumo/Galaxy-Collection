@@ -36,14 +36,14 @@ function CardEditor:swap()
         if mouseTrapped.inDeck then
             P1deck[mouseTrapped.number] = mouseTrapped
             P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
-        else
+        elseif not sandbox then --Not necessary if in sandbox as inventory is always reloaded from all characters, not save file
             P1cardsEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
         end
 
         if self.inDeck then
             P1deck[self.number] = self
             P1deckEdit(self.number,{self.name,self.level,self.evolution})
-        else
+        elseif not sandbox then
             P1cardsEdit(self.number,{self.name,self.level,self.evolution})
         end
 
