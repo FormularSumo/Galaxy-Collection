@@ -555,13 +555,13 @@ function love.draw()
     --     love.graphics.print(tostring(v:isGamepad()),1920-font80:getWidth(tostring(v:isGamepad())),k*100-100)
     -- end
 
-    stats = love.graphics.getStats()
+    -- stats = love.graphics.getStats()
     -- stats = {love.graphics.getRendererInfo()}
-    y = 0
-    for k, pair in pairs(stats) do
-        love.graphics.print(k .. ' ' .. pair,0,y)
-        y = y + 100
-    end
+    -- y = 0
+    -- for k, pair in pairs(stats) do
+    --     love.graphics.print(k .. ' ' .. pair,0,y)
+    --     y = y + 100
+    -- end
     -- love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
     push.finish()
 end
