@@ -8,9 +8,13 @@ function Weapon:init(image,number,team,xoffset,yoffset,card)
     self.number = number
     self.double = self.image == weaponImages['Inquisitor Lightsaber'] or self.image == weaponImages['Double Red Lightsaber'] or self.image == weaponImages['Double Blue Lightsaber'] or self.image == weaponImages['Double Green Lightsaber'] or self.image == weaponImages['Double Yellow Lightsaber'] or self.image == weaponImages['Double Purple Lightsaber'] or self.image == weaponImages['Electrostaff'] or self.image == weaponImages['Staff'] or self.image == weaponImages['Kallus\' Bo-Rifle'] or self.image == weaponImages['Bo-Rifle'] or self.image == weaponImages['Phasma\'s Spear'] or self.image == weaponImages['War Sword'] or self.image == weaponImages['Chirrut\'s Staff']
     self.short = self.image == weaponImages['Dagger of Mortis'] or self.image == weaponImages['Lightning'] or self.image == weaponImages['Knife'] or self.image == weaponImages['Flamethrower'] or self.image == weaponImages['Truncheon'] or self.image == weaponImages['Embo\'s Shield'] or self.image == weaponImages['Tool 1'] or self.image == weaponImages['Tool 2'] or self.image == weaponImages['Kyuzo Petar'] or self.image == weaponImages['Vine'] or self.image == weaponImages['Sword'] or self.image == weaponImages['Vibrosword'] or self.image == weaponImages['Riot Control Baton'] or self.image == weaponImages['Z6 Riot Control Baton'] or self.image == weaponImages['Cane'] or self.image == weaponImages['Shock Prod'] or self.image == weaponImages['Fusioncutter'] or self.image == weaponImages['Axe'] or self.image == weaponImages['Spear']
-    self.static = self.image == weaponImages['Lightning'] or self.image == weaponImages['Flamethrower'] or self.image == weaponImages['Shock Prod'] or self.image == weaponImages['Riot Control Shield']
-    self.shield = self.image == weaponImages['Riot Control Shield'] or self.image == weaponImages['Embo\'s Shield']
-    if self.shield then self.static = true end
+    if self.image == weaponImages['Riot Control Shield'] or self.image == weaponImages['Embo\'s Shield'] then
+        self.static = true
+        self.shield = true
+    else
+        self.static = self.image == weaponImages['Lightning'] or self.image == weaponImages['Flamethrower'] or self.image == weaponImages['Shock Prod'] or self.image == weaponImages['Riot Control Shield']
+        self.shield = false
+    end
 
     self.width,self.height = self.image:getDimensions()
     if self.double or self.shield then self.yoriginoffset = self.height/2 end
