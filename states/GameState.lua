@@ -301,8 +301,9 @@ end
 
 function GameState:update(dt)
     if paused == false and not winner then
-        for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() / 2 do
-            cardImages[love.thread.getChannel("imageDecoderOutput"):pop()] = love.graphics.newImage(love.thread.getChannel("imageDecoderOutput"):pop())
+        for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
+            local result = love.thread.getChannel("imageDecoderOutput"):pop()
+            cardImages[result[1]] = love.graphics.newImage(result[2])
         end
 
         dt = dt * self.gamespeed
