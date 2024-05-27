@@ -2,8 +2,6 @@ Weapon = Class{__includes = BaseState}
 
 function Weapon:init(image,number,team,xoffset,yoffset,card)
     self.team = team
-    self.xoffset = 0
-    self.yoffset = 0
     self.image = image
     self.number = number
     self.double = self.image == weaponImages['Inquisitor Lightsaber'] or self.image == weaponImages['Double Red Lightsaber'] or self.image == weaponImages['Double Blue Lightsaber'] or self.image == weaponImages['Double Green Lightsaber'] or self.image == weaponImages['Double Yellow Lightsaber'] or self.image == weaponImages['Double Purple Lightsaber'] or self.image == weaponImages['Electrostaff'] or self.image == weaponImages['Staff'] or self.image == weaponImages['Kallus\' Bo-Rifle'] or self.image == weaponImages['Bo-Rifle'] or self.image == weaponImages['Phasma\'s Spear'] or self.image == weaponImages['War Sword'] or self.image == weaponImages['Chirrut\'s Staff']
@@ -22,22 +20,24 @@ function Weapon:init(image,number,team,xoffset,yoffset,card)
 
     --Modify X/Y offset based on whether short and/or static
     if self.shield then
-        self.xoffset = self.xoffset + xoffset * 0.95
-        self.yoffset = self.yoffset + yoffset * 0.4
+        self.xoffset = xoffset * 0.95
+        self.yoffset = yoffset * 0.4
     elseif not self.short then
-        self.xoffset = self.xoffset + xoffset * 0.35
-        self.yoffset = self.yoffset + yoffset * 0.7
+        self.xoffset = xoffset * 0.35
+        self.yoffset = yoffset * 0.7
     else   
         if self.short and self.static then
-            self.xoffset = self.xoffset + xoffset + self.width / 2
+            self.xoffset = xoffset + self.width / 2
         else
-            self.xoffset = self.xoffset + xoffset * 0.65
+            self.xoffset = xoffset * 0.65
         end
         if not self.static then
-            self.yoffset = self.yoffset + yoffset * 0.6
+            self.yoffset = yoffset * 0.6
         else
-            self.yoffset = self.yoffset + yoffset * 0.5 - self.height / 2
+            self.yoffset = yoffset * 0.5 - self.height / 2
         end
+        if not self.xoffset then self.xoffset = 0 end
+        if not self.yoffset then self.yoffset = 0 end
     end
 
     --Modify X/Y offset based on what number weapon is
