@@ -4,14 +4,15 @@ function DeckeditState:init()
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     cardImages = {}
-    cardImages["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') --Maybe needed first for card editor before deocding has finished, should probably also be replaced with loading image
+    cardImages["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') --Maybe needed first for card editor before decoding has finished, should probably also be replaced with loading image
     P1strength = 0
     self:loadCards(false)
     self.cardsOnDisplay = {}
     self.page = 0
     self.cardsOnDisplayAreBlank = false
     self.subState = 'deck'
-    self:reloadDeckeditor()
+    self:reloadDeck()
+    self:loadRemainingImages()
 
     evolution = love.graphics.newImage('Graphics/Evolution.png')
     evolutionBig = love.graphics.newImage('Graphics/Evolution Big.png')
@@ -34,14 +35,14 @@ function DeckeditState:loadCards(reload) --Initial card loading and sorting
     P1cards = {}
     local count = 0
 
-    if sandbox then
-        local P1deckList = {}
-        for k, pair in pairs(P1deckCards) do --Create list of cards already in deck
-            P1deckList[pair[1]] = true
-        end
+    self.P1deckList = {}
+    for k, pair in pairs(P1deckCards) do --Create list of cards already in deck
+        self.P1deckList[pair[1]] = true
+    end
 
+    if sandbox then
         for k, pair in pairs(Characters) do
-            if not P1deckList[k] then --Prevent cards already in deck also existing in inventory
+            if not self.P1deckList[k] then --Prevent cards already in deck also existing in inventory
                 count = count + 1
                 P1cards[count] = {k,60,4}
             end
@@ -59,60 +60,12 @@ function DeckeditState:loadCards(reload) --Initial card loading and sorting
         Temporary[k-1] = pair
     end
     P1cards = Temporary
-    Temporary = nil
     if reload ~= false then
         self:updateCardsOnDisplay()
     end
 end
 
-function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the cards which are currently displayed in the inventory with new ones
-    if not (direction == 'left' and self.page == 0) and not (direction == 'right' and self.page > math.ceil((#P1cards+1)/18) - 2) then
-        if direction == 'right' then
-            self.page = self.page + 1
-        elseif direction == 'left' then
-            self.page = self.page - 1
-        elseif type(direction) == "number" then
-            self.page = direction
-        end
-
-        self.cardsOnDisplay = {}
-        local column = 9
-        local rowCorrectment = 0
-        self.cardsOnDisplayAreBlank = true
-
-        if not love.thread.getChannel("imageDecoderWorking"):peek() then
-            love.thread.getChannel("imageDecoderWorking"):push("working")
-            for i = 1,#imageDecoderThreads do
-                imageDecoderThreads[i]:start()
-            end
-        end
-
-        for i=0,17,1 do
-            if i % 6 == 0 and i ~= 0 then
-                column = 9 + i / 6
-                rowCorrectment = i
-            end
-            row = i - rowCorrectment
-            y = i+(self.page*18)
-            if P1cards[y] ~= nil then
-                self.cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false)
-                self.cardsOnDisplayAreBlank = false
-            else
-                self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false)
-            end
-        end
-        love.thread.getChannel("imageDecoderWorking"):pop()
-        column = nil
-        rowCorrectment = nil
-        if not visible then
-            self:updateGui()
-        end
-    else
-        return false
-    end
-end
-
-function DeckeditState:reloadDeckeditor() --Using the deck/inventory layout that's already been defined, create and store each of these cards in the relevant tables
+function DeckeditState:reloadDeck() --Using the deck layout that's already been defined, create and store each of these cards in the relevant tables
     local P1column = 2
     local rowCorrectment = 0
     P1strength = 0
@@ -143,6 +96,76 @@ function DeckeditState:reloadDeckeditor() --Using the deck/inventory layout that
     P1column = nil
     rowCorrectment = nil
     self:updateCardsOnDisplay()
+end
+
+function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the cards which are currently displayed in the inventory with new ones
+    if not (direction == 'left' and self.page == 0) and not (direction == 'right' and self.page > math.ceil((#P1cards+1)/18) - 2) then
+        if direction == 'right' then
+            self.page = self.page + 1
+        elseif direction == 'left' then
+            self.page = self.page - 1
+        elseif type(direction) == "number" then
+            self.page = direction
+        end
+
+        self.cardsOnDisplay = {}
+        local column = 9
+        local rowCorrectment = 0
+        self.cardsOnDisplayAreBlank = true
+
+        for i=0,17,1 do
+            if i % 6 == 0 and i ~= 0 then
+                column = 9 + i / 6
+                rowCorrectment = i
+            end
+            row = i - rowCorrectment
+            y = i+(self.page*18)
+            if P1cards[y] ~= nil then
+                self.cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false)
+                self.cardsOnDisplayAreBlank = false
+            else
+                self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false)
+            end
+        end
+        column = nil
+        rowCorrectment = nil
+        if not visible then
+            self:updateGui()
+        end
+    else
+        return false
+    end
+end
+
+function DeckeditState:loadRemainingImages()
+    local P1cardsOnDisplayList = {}
+    for k, pair in pairs(self.cardsOnDisplay) do
+        P1cardsOnDisplayList[pair.name] = true
+    end
+
+    if sandbox == true then
+        for k, pair in pairs(Characters) do
+            if not self.P1deckList[k] and not P1cardsOnDisplayList[k] then
+                if pair['filename'] then
+                    love.thread.getChannel("imageDecoderQueue"):push('Characters/' .. pair['filename'] .. '/' .. pair['filename'])
+                else
+                    love.thread.getChannel("imageDecoderQueue"):push('Characters/' .. k .. '/' .. k)
+                end
+            end
+        end
+    else
+        for k, pair in pairs(P1cards) do
+            if not self.P1deckList[pair[1]] and not P1cardsOnDisplayList[pair[1]] then
+                if Characters[pair[1]]['filename'] then
+                    love.thread.getChannel("imageDecoderQueue"):push('Characters/' .. Characters[pair[1]]['filename'] .. '/' .. Characters[pair[1]]['filename'])
+                else
+                    love.thread.getChannel("imageDecoderQueue"):push('Characters/' .. pair[1] .. '/' .. pair[1])
+                end
+            end
+        end
+    end
+
+    love.thread.getChannel("imageDecoderWorking"):pop()
 end
 
 function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre-defined buttons
@@ -186,7 +209,7 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
     if not sandbox then
         bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
     end
-    self:reloadDeckeditor()
+    self:reloadDeck()
 end
 
 function DeckeditState:updateGui() --Update GUI with cards so that they're displayed+update correctly
