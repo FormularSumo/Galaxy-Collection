@@ -70,7 +70,7 @@ function DeckeditState:reloadDeck() --Using the deck layout that's already been 
     local rowCorrectment = 0
     P1strength = 0
 
-    love.thread.getChannel("imageDecoderWorking"):push("working")
+    love.thread.getChannel("imageDecoderWorking"):push(1)
     for i = 1,#imageDecoderThreads do
         imageDecoderThreads[i]:start()
     end

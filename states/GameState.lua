@@ -52,6 +52,10 @@ function GameState:init()
     end
     self.P2length = P2deckCards('max')
 
+    love.thread.getChannel("imageDecoderWorking"):push(1)
+    for i = 1,#imageDecoderThreads do
+        imageDecoderThreads[i]:start()
+    end
     for i=0,math.min(18,math.max(self.P1length,self.P2length)) do
         if P1deckCards[i] then
             P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6))
@@ -60,6 +64,7 @@ function GameState:init()
             P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6))
         end
     end
+    love.thread.getChannel("imageDecoderWorking"):pop()
     self.P1angle = math.rad(210)
     self.P2angle = math.rad(150)
     self.next = next
@@ -296,6 +301,10 @@ end
 
 function GameState:update(dt)
     if paused == false and not winner then
+        for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() / 2 do
+            cardImages[love.thread.getChannel("imageDecoderOutput"):pop()] = love.graphics.newImage(love.thread.getChannel("imageDecoderOutput"):pop())
+        end
+
         dt = dt * self.gamespeed
         self.timer = self.timer + dt
         if self.timer >= 7.4 then self.timer = self.timer - 1 end
@@ -339,16 +348,25 @@ function GameState:update(dt)
                 end
                 
                 if self.timer > 3 and self.P2length > self.timer * 6 then
+                    love.thread.getChannel("imageDecoderWorking"):push(1)
+                    for i = 1,#imageDecoderThreads do
+                        imageDecoderThreads[i]:start()
+                    end
                     for i=0,5 do
                         if P2deckCards(self.Nextcards[i]) then
                             P2deck[self.Nextcards[i]] = Card(P2deckCards(self.Nextcards[i]),2,self.Nextcards[i],12)
                             self.Nextcards[i] = self.Nextcards[i] + 6
                         end
                     end
+                    love.thread.getChannel("imageDecoderWorking"):pop()
                 end
 
             else
                 if self.P2length > 42 then
+                    love.thread.getChannel("imageDecoderWorking"):push(1)
+                    for i = 1,#imageDecoderThreads do
+                        imageDecoderThreads[i]:start()
+                    end
                     for i=0,5 do
                         if not P2deck[36+self.currentRows[i]] and P2deckCards(self.Nextcards[i]) ~= nil then
                             P2deck[36+self.currentRows[i]] = Card(P2deckCards(self.Nextcards[i]),2,36+self.currentRows[i],12)
@@ -362,6 +380,7 @@ function GameState:update(dt)
                 for k, pair in pairs(P2deck) do
                     pair:move2()
                 end
+                love.thread.getChannel("imageDecoderWorking"):pop()
             end
 
             if self.timer > 3 then
@@ -431,7 +450,6 @@ function GameState:update(dt)
                 end
                 projectileImages = nil
                 weaponImages = nil
-                cardImages = nil
                 collectgarbage()
             end
         end

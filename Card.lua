@@ -9,18 +9,15 @@ function Card:init(card,team,number,column)
     self.evolution = card[3] or 0
 
     if self.stats['filename'] then
-        self.image = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename'] .. '.png'
+        self.imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
     else
-        self.image = 'Characters/' .. card[1] .. '/' .. card[1] .. '.png'
+        self.imageName = 'Characters/' .. card[1] .. '/' .. card[1]
     end
 
-    if cardImages[self.image] then
-        self.image = cardImages[self.image]
-    else
-        cardImages[self.image] = love.graphics.newImage(self.image)
-        self.image = cardImages[self.image]
+    if not cardImages[self.imageName] then
+        love.thread.getChannel("imageDecoderQueue"):push(self.imageName)
     end
-    self.width,self.height = self.image:getDimensions()
+    self.width,self.height = 115,173 --Shouldn't really be hardcoded, but no cards have been loaded at this point so there's not much alternative
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.meleeOffense = self.stats['meleeOffense'] * (self.modifier)
@@ -225,7 +222,9 @@ function Card:update(dt)
 end
 
 function Card:render()
-    love.graphics.draw(self.image,self.x,self.y,0,1,sx)
+    if cardImages[self.imageName] then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
+        love.graphics.draw(cardImages[self.imageName],self.x,self.y,0,1,sx)
+    end
     if self.evolution == 4 then
         love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3)
     elseif self.evolution > 0 then
