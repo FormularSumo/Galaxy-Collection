@@ -1,31 +1,44 @@
 CardEditor = Class{__includes = BaseState}
 
-function CardEditor:init(name,row,column,number,level,evolution,inDeck)
+function CardEditor:init(name,row,column,number,level,evolution,inDeck,images,imagesInfo)
     self.name = name
     self.row = row
     self.column = column
     self.scaling = 1
+
+    local imageName;
     if self.name == 'Blank' then
-        self.imageName = "blankCard"
+        imageName = 'Graphics/Blank Card'
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
-            self.imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+            imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
         else
-            self.imageName = 'Characters/' .. self.name .. '/' .. self.name
-        end
-        if not cardImages[self.imageName] then
-            love.thread.getChannel("imageDecoderQueue"):push(self.imageName)
-            cardImages[self.imageName] = cardImages["blankCard"] -- test if needed
+            imageName = 'Characters/' .. self.name .. '/' .. self.name
         end
         self.level = level or 1
         self.evolution = evolution or 0
     end
-    self.width,self.height = cardImages[self.imageName]:getDimensions()
+
+    if images[imageName] then
+        self:init2(images[imageName])
+    else
+        if imagesInfo[imageName] then
+            table.insert(imagesInfo[imageName][1],self)
+        else
+            imagesInfo[imageName] = {{self}, false}
+        end
+    end
+
+    self.width,self.height = 115,173 --Shouldn't really be hardcoded, but no cards have been loaded at this point so there's not much alternative
     self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
     self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.number = number
     self.inDeck = inDeck
+end
+
+function CardEditor:init2(image)
+    self.image = image
 end
 
 function CardEditor:swap()
@@ -148,21 +161,23 @@ function CardEditor:update()
 end
 
 function CardEditor:render()
-    if self.deleting then
-        love.graphics.setColor(1,0,0)
-        love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
-        love.graphics.setColor(1,1,1)
-    end
-    love.graphics.draw(cardImages[self.imageName],self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
-    if self.name ~= 'Blank' then
-        if self.evolution == 4 then
-            love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
-        elseif self.evolution > 0 then
-            love.graphics.draw(evolution,self.x+115-5,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
-            if self.evolution > 1 then
-                love.graphics.draw(evolution,self.x+115-6-evolution:getHeight(),self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
-                if self.evolution > 2 then
-                    love.graphics.draw(evolution,self.x+115-7-evolution:getHeight()*2,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+    if self.image then
+        if self.deleting then
+            love.graphics.setColor(1,0,0)
+            love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
+            love.graphics.setColor(1,1,1)
+        end
+        love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+        if self.name ~= 'Blank' then
+            if self.evolution == 4 then
+                love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
+            elseif self.evolution > 0 then
+                love.graphics.draw(evolution,self.x+115-5,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                if self.evolution > 1 then
+                    love.graphics.draw(evolution,self.x+115-6-evolution:getHeight(),self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                    if self.evolution > 2 then
+                        love.graphics.draw(evolution,self.x+115-7-evolution:getHeight()*2,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                    end
                 end
             end
         end

@@ -3,8 +3,8 @@ DeckeditState = Class{__includes = BaseState}
 function DeckeditState:init()
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
-    cardImages = {}
-    cardImages["blankCard"] = love.graphics.newImage('Graphics/Blank Card.png') --Maybe needed first for card editor before decoding has finished, should probably also be replaced with loading image
+    self.images = {}
+    self.imagesInfo = {}
     P1strength = 0
     self:loadCards(false)
     self.cardsOnDisplay = {}
@@ -12,7 +12,17 @@ function DeckeditState:init()
     self.cardsOnDisplayAreBlank = false
     self.subState = 'deck'
     self:reloadDeck()
+    love.thread.getChannel("imageDecoderWorking"):push(1)
+    for i = 1,#imageDecoderThreads do
+        imageDecoderThreads[i]:start()
+    end
+    for k, pair in pairs(self.imagesInfo) do
+        if pair[2] == false then
+            love.thread.getChannel("imageDecoderQueue"):push(k)
+        end
+    end
     self:loadRemainingImages()
+    love.thread.getChannel("imageDecoderWorking"):pop()
 
     evolution = love.graphics.newImage('Graphics/Evolution.png')
     evolutionBig = love.graphics.newImage('Graphics/Evolution Big.png')
@@ -69,11 +79,6 @@ function DeckeditState:reloadDeck() --Using the deck layout that's already been 
     local P1column = 2
     local rowCorrectment = 0
     P1strength = 0
-
-    love.thread.getChannel("imageDecoderWorking"):push(1)
-    for i = 1,#imageDecoderThreads do
-        imageDecoderThreads[i]:start()
-    end
     
     for i=0,17,1 do
         if i % 6 == 0 and i ~= 0 then
@@ -83,18 +88,16 @@ function DeckeditState:reloadDeck() --Using the deck layout that's already been 
         row = i - rowCorrectment
         if P1deckCards[i] ~= nil then
             if P1deckCards[i][1] ~= nil then
-                P1deck[i] = CardEditor(P1deckCards[i][1],row,P1column,i,P1deckCards[i][2],P1deckCards[i][3],true)
+                P1deck[i] = CardEditor(P1deckCards[i][1],row,P1column,i,P1deckCards[i][2],P1deckCards[i][3],true,self.images,self.imagesInfo)
                 P1strength = P1strength + characterStrength({P1deckCards[i][1],P1deckCards[i][2],P1deckCards[i][3]})
             else
-                P1deck[i] = CardEditor(P1deckCards[i],row,P1column,i,1,0,true)
+                P1deck[i] = CardEditor(P1deckCards[i],row,P1column,i,1,0,true,self.images,self.imagesInfo)
                 P1strength = P1strength + characterStrength(P1deckCards[i])
             end
         else
-            P1deck[i] = CardEditor('Blank',row,P1column,i,nil,nil,true)
+            P1deck[i] = CardEditor('Blank',row,P1column,i,nil,nil,true,self.images,self.imagesInfo)
         end
     end
-    P1column = nil
-    rowCorrectment = nil
     self:updateCardsOnDisplay()
 end
 
@@ -121,14 +124,13 @@ function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the car
             row = i - rowCorrectment
             y = i+(self.page*18)
             if P1cards[y] ~= nil then
-                self.cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false)
+                self.cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false,self.images,self.imagesInfo)
                 self.cardsOnDisplayAreBlank = false
             else
-                self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false)
+                self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false,self.images,self.imagesInfo)
             end
         end
-        column = nil
-        rowCorrectment = nil
+
         if not visible then
             self:updateGui()
         end
@@ -164,8 +166,7 @@ function DeckeditState:loadRemainingImages()
             end
         end
     end
-
-    love.thread.getChannel("imageDecoderWorking"):pop()
+    love.thread.getChannel("imageDecoderQueue"):push('Graphics/Blank Card')
 end
 
 function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre-defined buttons
@@ -461,7 +462,13 @@ function DeckeditState:update()
 
     for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
         local result = love.thread.getChannel("imageDecoderOutput"):pop()
-        cardImages[result[1]] = love.graphics.newImage(result[2])
+        self.images[result[1]] = love.graphics.newImage(result[2])
+        if self.imagesInfo[result[1]] and self.imagesInfo[result[1]][2] == false then
+            self.imagesInfo[result[1]][2] = true
+            for i=1,#self.imagesInfo[result[1]][1] do
+                self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
+            end
+        end   
     end
 end
 
@@ -490,7 +497,6 @@ end
 function DeckeditState:exit()
     P1deck = nil
     P1cards = nil
-    cardImages = nil
     P1strength = nil
     evolution = nil
     evolutionBig = nil

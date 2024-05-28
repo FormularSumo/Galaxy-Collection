@@ -1,40 +1,45 @@
 Weapon = Class{__includes = BaseState}
 
-function Weapon:init(image,number,team,xoffset,yoffset,card)
-    self.team = team
-    self.image = image
+function Weapon:init(number,team,xoffset,yoffset,card,imageName)
     self.number = number
-    self.double = self.image == weaponImages['Inquisitor Lightsaber'] or self.image == weaponImages['Double Red Lightsaber'] or self.image == weaponImages['Double Blue Lightsaber'] or self.image == weaponImages['Double Green Lightsaber'] or self.image == weaponImages['Double Yellow Lightsaber'] or self.image == weaponImages['Double Purple Lightsaber'] or self.image == weaponImages['Electrostaff'] or self.image == weaponImages['Staff'] or self.image == weaponImages['Kallus\' Bo-Rifle'] or self.image == weaponImages['Bo-Rifle'] or self.image == weaponImages['Phasma\'s Spear'] or self.image == weaponImages['War Sword'] or self.image == weaponImages['Chirrut\'s Staff']
-    self.short = self.image == weaponImages['Dagger of Mortis'] or self.image == weaponImages['Lightning'] or self.image == weaponImages['Knife'] or self.image == weaponImages['Flamethrower'] or self.image == weaponImages['Truncheon'] or self.image == weaponImages['Embo\'s Shield'] or self.image == weaponImages['Tool 1'] or self.image == weaponImages['Tool 2'] or self.image == weaponImages['Kyuzo Petar'] or self.image == weaponImages['Vine'] or self.image == weaponImages['Sword'] or self.image == weaponImages['Vibrosword'] or self.image == weaponImages['Riot Control Baton'] or self.image == weaponImages['Z6 Riot Control Baton'] or self.image == weaponImages['Cane'] or self.image == weaponImages['Shock Prod'] or self.image == weaponImages['Fusioncutter'] or self.image == weaponImages['Axe'] or self.image == weaponImages['Spear']
-    if self.image == weaponImages['Riot Control Shield'] or self.image == weaponImages['Embo\'s Shield'] then
+    self.team = team
+    self.xoffset = xoffset
+    self.yoffset = yoffset
+    self.card = card
+
+    self.double = imageName == 'Inquisitor Lightsaber' or imageName == 'Double Red Lightsaber' or imageName == 'Double Blue Lightsaber' or imageName == 'Double Green Lightsaber' or imageName == 'Double Yellow Lightsaber' or imageName == 'Double Purple Lightsaber' or imageName == 'Electrostaff' or imageName == 'Staff' or imageName == 'Kallus\' Bo-Rifle' or imageName == 'Bo-Rifle' or imageName == 'Phasma\'s Spear' or imageName == 'War Sword' or imageName == 'Chirrut\'s Staff'
+    self.short = imageName == 'Dagger of Mortis' or imageName == 'Lightning' or imageName == 'Knife' or imageName == 'Flamethrower' or imageName == 'Truncheon' or imageName == 'Embo\'s Shield' or imageName == 'Tool 1' or imageName == 'Tool 2' or imageName == 'Kyuzo Petar' or imageName == 'Vine' or imageName == 'Sword' or imageName == 'Vibrosword' or imageName == 'Riot Control Baton' or imageName == 'Z6 Riot Control Baton' or imageName == 'Cane' or imageName == 'Shock Prod' or imageName == 'Fusioncutter' or imageName == 'Axe' or imageName == 'Spear'
+    if imageName == 'Riot Control Shield' or imageName == 'Embo\'s Shield' then
         self.static = true
         self.shield = true
     else
-        self.static = self.image == weaponImages['Lightning'] or self.image == weaponImages['Flamethrower'] or self.image == weaponImages['Shock Prod'] or self.image == weaponImages['Riot Control Shield']
+        self.static = imageName == 'Lightning' or imageName == 'Flamethrower' or imageName == 'Shock Prod' or imageName == 'Riot Control Shield'
         self.shield = false
     end
+end
 
+function Weapon:init2(image)
+    self.image = image
     self.width,self.height = self.image:getDimensions()
     if self.double or self.shield then self.yoriginoffset = self.height/2 end
 
-
     --Modify X/Y offset based on whether short and/or static
     if self.shield then
-        self.xoffset = xoffset * 0.95
-        self.yoffset = yoffset * 0.4
+        self.xoffset = self.xoffset * 0.95
+        self.yoffset = self.yoffset * 0.4
     elseif not self.short then
-        self.xoffset = xoffset * 0.35
-        self.yoffset = yoffset * 0.7
+        self.xoffset = self.xoffset * 0.35
+        self.yoffset = self.yoffset * 0.7
     else   
         if self.short and self.static then
-            self.xoffset = xoffset + self.width / 2
+            self.xoffset = self.xoffset + self.width / 2
         else
-            self.xoffset = xoffset * 0.65
+            self.xoffset = self.xoffset * 0.65
         end
         if not self.static then
-            self.yoffset = yoffset * 0.6
+            self.yoffset = self.yoffset * 0.6
         else
-            self.yoffset = yoffset * 0.5 - self.height / 2
+            self.yoffset = self.yoffset * 0.5 - self.height / 2
         end
         if not self.xoffset then self.xoffset = 0 end
         if not self.yoffset then self.yoffset = 0 end
@@ -58,18 +63,18 @@ function Weapon:init(image,number,team,xoffset,yoffset,card)
     --Flip weapon if on team 2
     if self.team == 2 then
         self.scalefactorx = -1
-        self.xoffset = (115 - self.xoffset) ----115 card width, mirrors for team 2 cards
+        self.xoffset = (115 - self.xoffset) --115 card width, mirrors for team 2 cards
     else
         self.scalefactorx = 1
     end
-
-    self.card = card
 end
 
 function Weapon:render(angle)
-    if self.static then
-        love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
-    else
-        love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,angle,self.scalefactorx,1,self.width/2,self.yoriginoffset)
+    if self.image then
+        if self.static then
+            love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
+        else
+            love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,angle,self.scalefactorx,1,self.width/2,self.yoriginoffset)
+        end
     end
 end

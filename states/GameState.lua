@@ -7,9 +7,8 @@ function GameState:init()
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     P2deck = {}
-    projectileImages = {}
-    weaponImages = {}
-    cardImages = {}
+    self.images = {}
+    self.imagesInfo = {}
     self.gamespeed = 1
     self.Nextcards = {
         [0] = 18,
@@ -58,10 +57,15 @@ function GameState:init()
     end
     for i=0,math.min(18,math.max(self.P1length,self.P2length)) do
         if P1deckCards[i] then
-            P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6))
+            P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6),self.images,self.imagesInfo)
         end
         if P2deckCards(i) then
-            P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6))
+            P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6),self.images,self.imagesInfo)
+        end
+    end
+    for k, pair in pairs(self.imagesInfo) do
+        if pair[2] == false then
+            love.thread.getChannel("imageDecoderQueue"):push(k)
         end
     end
     love.thread.getChannel("imageDecoderWorking"):pop()
@@ -303,7 +307,13 @@ function GameState:update(dt)
     if paused == false and not winner then
         for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
             local result = love.thread.getChannel("imageDecoderOutput"):pop()
-            cardImages[result[1]] = love.graphics.newImage(result[2])
+            self.images[result[1]] = love.graphics.newImage(result[2])
+            if self.imagesInfo[result[1]][2] == false then
+                self.imagesInfo[result[1]][2] = true
+                for i=1,#self.imagesInfo[result[1]][1] do
+                    self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
+                end
+            end   
         end
 
         dt = dt * self.gamespeed
@@ -355,8 +365,13 @@ function GameState:update(dt)
                     end
                     for i=0,5 do
                         if P2deckCards(self.Nextcards[i]) then
-                            P2deck[self.Nextcards[i]] = Card(P2deckCards(self.Nextcards[i]),2,self.Nextcards[i],12)
+                            P2deck[self.Nextcards[i]] = Card(P2deckCards(self.Nextcards[i]),2,self.Nextcards[i],12,self.images,self.imagesInfo)
                             self.Nextcards[i] = self.Nextcards[i] + 6
+                        end
+                    end
+                    for k, pair in pairs(self.imagesInfo) do
+                        if pair[2] == false then
+                            love.thread.getChannel("imageDecoderQueue"):push(k)
                         end
                     end
                     love.thread.getChannel("imageDecoderWorking"):pop()
@@ -370,18 +385,24 @@ function GameState:update(dt)
                     end
                     for i=0,5 do
                         if not P2deck[36+self.currentRows[i]] and P2deckCards(self.Nextcards[i]) ~= nil then
-                            P2deck[36+self.currentRows[i]] = Card(P2deckCards(self.Nextcards[i]),2,36+self.currentRows[i],12)
+                            P2deck[36+self.currentRows[i]] = Card(P2deckCards(self.Nextcards[i]),2,36+self.currentRows[i],12,self.images,self.imagesInfo)
                             self.Nextcards[i] = self.Nextcards[i] + 6
                         end
                     end
+                    for k, pair in pairs(self.imagesInfo) do
+                        if pair[2] == false then
+                            love.thread.getChannel("imageDecoderQueue"):push(k)
+                        end
+                    end
+                    love.thread.getChannel("imageDecoderWorking"):pop()
                 end
+
                 for k, pair in pairs(P1deck) do
                     pair:move2()
                 end 
                 for k, pair in pairs(P2deck) do
                     pair:move2()
                 end
-                love.thread.getChannel("imageDecoderWorking"):pop()
             end
 
             if self.timer > 3 then
@@ -449,8 +470,8 @@ function GameState:update(dt)
                         gui[k] = nil
                     end
                 end
-                projectileImages = nil
-                weaponImages = nil
+                self.images = {}
+                self.imagesInfo = {}
                 collectgarbage()
             end
         end
@@ -516,7 +537,4 @@ function GameState:exit()
     P2deckCards = nil
     evolution= nil
     evolutionMax = nil
-    projectileImages = nil
-    weaponImages = nil
-    cardImages = nil
 end

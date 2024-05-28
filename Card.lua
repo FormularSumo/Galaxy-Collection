@@ -1,6 +1,6 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number,column)
+function Card:init(card,team,number,column,images,imagesInfo)
     self.team = team
     self.number = number
 
@@ -8,15 +8,23 @@ function Card:init(card,team,number,column)
     self.level = card[2] or 1
     self.evolution = card[3] or 0
 
+    local imageName;
     if self.stats['filename'] then
-        self.imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+        imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
     else
-        self.imageName = 'Characters/' .. card[1] .. '/' .. card[1]
+        imageName = 'Characters/' .. card[1] .. '/' .. card[1]
     end
 
-    if not cardImages[self.imageName] then
-        love.thread.getChannel("imageDecoderQueue"):push(self.imageName)
+    if images[imageName] then
+        self:init2(images[imageName])
+    else
+        if imagesInfo[imageName] then
+            table.insert(imagesInfo[imageName][1],self)
+        else
+            imagesInfo[imageName] = {{self}, false}
+        end
     end
+
     self.width,self.height = 115,173 --Shouldn't really be hardcoded, but no cards have been loaded at this point so there's not much alternative
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
@@ -33,13 +41,13 @@ function Card:init(card,team,number,column)
     self.rangedOffenseStat = (self.rangedOffense/800)^4
 
     if self.stats['projectile1'] then
-        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height)
+        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height, images, imagesInfo)
         if self.projectileManager.projectileCount > 1 then
             self.rangedOffense = self.rangedOffense / (self.projectileManager.projectileCount^0.2)
         end
     end
     if self.stats['weapon1'] then
-        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self)
+        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self, images, imagesInfo)
     end
 
     self.meleeProjectile = self.weaponManager == nil and (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain')
@@ -64,6 +72,10 @@ function Card:init(card,team,number,column)
     self.x = self.targetX
     self.targetY = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.y = self.targetY
+end
+
+function Card:init2(image)
+    self.image = image
 end
 
 function Card:distance(target)
@@ -222,33 +234,33 @@ function Card:update(dt)
 end
 
 function Card:render()
-    if cardImages[self.imageName] then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
-        love.graphics.draw(cardImages[self.imageName],self.x,self.y,0,1,sx)
-    end
-    if self.evolution == 4 then
-        love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3)
-    elseif self.evolution > 0 then
-        love.graphics.draw(evolution,self.x+115-5,self.y+3,math.rad(90))
-        if self.evolution > 1 then
-            love.graphics.draw(evolution,self.x+115-6-evolution:getHeight(),self.y+3,math.rad(90))
-            if self.evolution > 2 then
-                love.graphics.draw(evolution,self.x+115-7-evolution:getHeight()*2,self.y+3,math.rad(90))
+    if self.image then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
+        love.graphics.draw(self.image,self.x,self.y,0,1,sx)
+        if self.evolution == 4 then
+            love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-3,self.y+3)
+        elseif self.evolution > 0 then
+            love.graphics.draw(evolution,self.x+115-5,self.y+3,math.rad(90))
+            if self.evolution > 1 then
+                love.graphics.draw(evolution,self.x+115-6-evolution:getHeight(),self.y+3,math.rad(90))
+                if self.evolution > 2 then
+                    love.graphics.draw(evolution,self.x+115-7-evolution:getHeight()*2,self.y+3,math.rad(90))
+                end
             end
         end
-    end
-            
-    if self.health < 1000 then
-        love.graphics.setColor(0.3,0.3,0.3)
-        love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
-        if self.dodge == 0 then
-            love.graphics.setColor(1,0.82,0)
-        else
-            self.colour = self.dodge / self.attacksTaken
-            self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
-            love.graphics.setColor(self.colour,self.colour,self.colour)
+                
+        if self.health < 1000 then
+            love.graphics.setColor(0.3,0.3,0.3)
+            love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
+            if self.dodge == 0 then
+                love.graphics.setColor(1,0.82,0)
+            else
+                self.colour = self.dodge / self.attacksTaken
+                self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
+                love.graphics.setColor(self.colour,self.colour,self.colour)
+            end
+            love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
+            love.graphics.setColor(1,1,1)
         end
-        love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
-        love.graphics.setColor(1,1,1)
     end
 
     -- if self.number == 15 and self.team == 2 then
