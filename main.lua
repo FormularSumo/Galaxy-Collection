@@ -92,7 +92,7 @@ function love.load()
     keyHoldTimer = 0
     keyPressedTimer = love.timer.getTime()
     mouseLocked = false
-    sandbox = false
+    sandbox = true
     yscroll = 0
     rawyscroll = 0
 
@@ -563,8 +563,5 @@ function love.draw()
     --     y = y + 100
     -- end
     -- love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
-    if timer then
-        love.graphics.print(timer)
-    end
     push.finish()
 end
