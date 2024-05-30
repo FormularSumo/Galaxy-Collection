@@ -155,7 +155,7 @@ function DeckeditState:loadRemainingImages()
             end
         end
     else
-        for k, pair in pairs(P1cards) do
+        for k, pair in pairs(P1cards) do --This could potential cause loading images multiple times, should be reworked to use imagesInfo table I think
             if not self.P1deckList[pair[1]] and not P1cardsOnDisplayList[pair[1]] then
                 if Characters[pair[1]]['filename'] then
                     love.thread.getChannel("imageDecoderQueue"):push('Characters/' .. Characters[pair[1]]['filename'] .. '/' .. Characters[pair[1]]['filename'])
@@ -462,10 +462,10 @@ function DeckeditState:update()
     for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
         local result = love.thread.getChannel("imageDecoderOutput"):pop()
         self.images[result[1]] = love.graphics.newImage(result[2])
-        if self.imagesInfo[result[1]] and self.imagesInfo[result[1]][2] == false then
-            self.imagesInfo[result[1]][2] = true
+        if self.imagesInfo[result[1]] and self.imagesInfo[result[1]][2] == false then --Check that this image needs pushing to an object, eg not if queued in loadRemainingImages
+            self.imagesInfo[result[1]][2] = true --Mark this image as having been created
             for i=1,#self.imagesInfo[result[1]][1] do
-                self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
+                self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]]) --Update the image attribute for all objects that use this image
             end
         end   
     end

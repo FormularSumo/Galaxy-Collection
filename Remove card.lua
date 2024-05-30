@@ -9,7 +9,7 @@ function RemoveCard:init()
 end
 
 function RemoveCard:swap()
-    P1deck[mouseTrapped.number] = CardEditor('Blank',mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,nil,nil,true)
+    P1deck[mouseTrapped.number] = CardEditor('Blank',mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,nil,nil,true,gStateMachine.current.images,gStateMachine.current.imagesInfo)
     if not sandbox then --Not necessary if in sandbox as inventory is always reloaded from all characters, not save file
         P1cardsEdit(-1,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
     end
