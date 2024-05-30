@@ -562,8 +562,5 @@ function love.draw()
     --     y = y + 100
     -- end
     -- love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
-    if timer then
-        love.graphics.print(timer)
-    end
     push.finish()
 end
