@@ -1,7 +1,6 @@
 DeckeditState = Class{__includes = BaseState}
 
 function DeckeditState:init()
-    P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     self.images = {}
     self.imagesInfo = {}

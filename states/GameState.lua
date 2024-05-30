@@ -1,7 +1,6 @@
 GameState = Class{__includes = BaseState}
 
 function GameState:init()
-    P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     P2deck = {}
     self.images = {}
@@ -527,7 +526,6 @@ function GameState:exit()
     P1deck = nil
     P2deck = nil
     winner = nil
-    P1deckCards = {}
     P2deckCards = nil
     evolution= nil
     evolutionMax = nil

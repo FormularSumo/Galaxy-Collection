@@ -109,7 +109,7 @@ function love.load()
     Settings = bitser.loadLoveFile('Settings.txt')
     love.audio.setVolume(Settings['volume_level'])
 
-    if love.filesystem.getInfo('Player 1 deck.txt') == nil and love.filesystem.getInfo('Player 1 cards.txt') == nil and love.filesystem.getInfo('User Data.txt') == nil then
+    if love.filesystem.getInfo('Player 1 cards.txt') == nil and love.filesystem.getInfo('User Data.txt') == nil then
         tutorial()
     
     else
@@ -127,7 +127,6 @@ function love.load()
                     end
                 end
                 bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
-                P1deckCards = {}
             end
             if love.filesystem.getInfo('Player 1 cards.txt') ~= nil and bitser.loadLoveFile('Player 1 cards.txt') ~= nil then
                 P1cards = bitser.loadLoveFile('Player 1 cards.txt')
@@ -141,9 +140,10 @@ function love.load()
             end
         end
 
-        if love.filesystem.getInfo('Player 1 deck.txt') == nil or bitser.loadLoveFile('Player 1 deck.txt') == nil then
+        if love.filesystem.getInfo('Player 1 deck.txt') == nil then
             P1deckCards = {}
-            bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+        else
+            P1deckCards = bitser.loadLoveFile('Player 1 deck.txt') or {} --In case save file has corrupted, or is a pre-bitser file
         end
 
         if love.filesystem.getInfo('Player 1 cards.txt') == nil or bitser.loadLoveFile('Player 1 cards.txt') == nil then
