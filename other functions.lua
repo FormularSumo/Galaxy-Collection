@@ -135,11 +135,13 @@ function P1deckEdit(position,name,nosave)
     end
 end
 
-function P1cardsEdit(position,name)
+function P1cardsEdit(position,name,nosave)
     if name and name[1] == 'Blank' then name = nil end
     P1cards[position] = name
 
-    bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    if not nosave then
+        bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+    end
 end
 
 function characterStrength(character)

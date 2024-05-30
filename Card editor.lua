@@ -48,16 +48,23 @@ function CardEditor:swap()
 
         if mouseTrapped.inDeck then
             P1deck[mouseTrapped.number] = mouseTrapped
-            P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
+            P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution},true)
         elseif not sandbox then --Not necessary if in sandbox as inventory is always reloaded from all characters, not save file
-            P1cardsEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
+            P1cardsEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution},true)
         end
 
         if self.inDeck then
             P1deck[self.number] = self
-            P1deckEdit(self.number,{self.name,self.level,self.evolution})
+            P1deckEdit(self.number,{self.name,self.level,self.evolution},true)
         elseif not sandbox then
-            P1cardsEdit(self.number,{self.name,self.level,self.evolution})
+            P1cardsEdit(self.number,{self.name,self.level,self.evolution},true)
+        end
+
+        if mouseTrapped.inDeck or self.inDeck then
+            bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+        end
+        if not sandbox and (not mouseTrapped.inDeck or not self.inDeck) then
+            bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
         end
 
         if not (mouseTrapped.inDeck and self.inDeck) then
