@@ -21,9 +21,7 @@ function DeckeditState:init()
     end
 
     evolution = love.graphics.newImage('Graphics/Evolution.png')
-    evolutionBig = love.graphics.newImage('Graphics/Evolution Big.png')
     evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
-    evolutionMaxBig = love.graphics.newImage('Graphics/Evolution Max Big.png')
 
     background['Name'] = 'Death Star Control Room'
     background['Video'] = false
@@ -174,6 +172,8 @@ function DeckeditState:loadRemainingImages()
     if not self.imagesInfo['Graphics/Blank Card'] then
         love.thread.getChannel("imageDecoderQueue"):push('Graphics/Blank Card')
     end
+    love.thread.getChannel("imageDecoderQueue"):push('Graphics/Evolution Big')
+    love.thread.getChannel("imageDecoderQueue"):push('Graphics/Evolution Max Big')
 end
 
 function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre-defined buttons
@@ -506,7 +506,5 @@ function DeckeditState:exit()
     P1cards = nil
     P1strength = nil
     evolution = nil
-    evolutionBig = nil
     evolutionMax = nil
-    evolutionBigMax = nil
 end
