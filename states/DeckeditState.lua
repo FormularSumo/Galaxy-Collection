@@ -166,7 +166,7 @@ function DeckeditState:loadRemainingImages()
             end
         end
     end
-    if not self.imagesInfo[imageName] then
+    if not self.imagesInfo['Graphics/Blank Card'] then
         love.thread.getChannel("imageDecoderQueue"):push('Graphics/Blank Card')
     end
 end
