@@ -62,7 +62,6 @@ function love.load()
     end
     love.thread.getChannel("imageDecoderQueue")
     love.thread.getChannel("imageDecoderOutput")
-    love.thread.getChannel("imageDecoderWorking")
     
     gui = {}
     songs = {}
@@ -563,5 +562,8 @@ function love.draw()
     --     y = y + 100
     -- end
     -- love.graphics.print(tostring(mouseTrapped) .. ' ' .. tostring(mouseTrapped2))
+    if timer then
+        love.graphics.print(timer)
+    end
     push.finish()
 end

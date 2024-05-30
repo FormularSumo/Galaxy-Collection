@@ -12,17 +12,16 @@ function DeckeditState:init()
     self.cardsOnDisplayAreBlank = false
     self.subState = 'deck'
     self:reloadDeck()
-    love.thread.getChannel("imageDecoderWorking"):push(1)
-    for i = 1,#imageDecoderThreads do
-        imageDecoderThreads[i]:start()
-    end
+
     for k, pair in pairs(self.imagesInfo) do
         if pair[2] == false then
             love.thread.getChannel("imageDecoderQueue"):push(k)
         end
     end
     self:loadRemainingImages()
-    love.thread.getChannel("imageDecoderWorking"):pop()
+    for i = 1,#imageDecoderThreads do
+        imageDecoderThreads[i]:start()
+    end
 
     evolution = love.graphics.newImage('Graphics/Evolution.png')
     evolutionBig = love.graphics.newImage('Graphics/Evolution Big.png')
