@@ -57,9 +57,8 @@ function GameState:init()
         end
     end
     for k, pair in pairs(self.imagesInfo) do
-        if pair[2] == false then
-            love.thread.getChannel("imageDecoderQueue"):push(k)
-        end
+        love.thread.getChannel("imageDecoderQueue"):push(k) --It's unnecessary to check here if images have already been pushed, as this is the first time they any are pushed
+        pair[2] = true --Mark image as pushed
     end
     for i = 1,#imageDecoderThreads do
         imageDecoderThreads[i]:start()
@@ -306,12 +305,11 @@ function GameState:update(dt)
         for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
             local result = love.thread.getChannel("imageDecoderOutput"):pop()
             self.images[result[1]] = love.graphics.newImage(result[2])
-            if self.imagesInfo[result[1]][2] == false then
-                self.imagesInfo[result[1]][2] = true
-                for i=1,#self.imagesInfo[result[1]][1] do
-                    self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
-                end
-            end   
+            self.imagesInfo[result[1]][2] = true
+            for i=1,#self.imagesInfo[result[1]][1] do
+                self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
+            end
+            self.imagesInfo[result[1]] = nil
         end
 
         dt = dt * self.gamespeed
@@ -366,6 +364,7 @@ function GameState:update(dt)
                     for k, pair in pairs(self.imagesInfo) do
                         if pair[2] == false then
                             love.thread.getChannel("imageDecoderQueue"):push(k)
+                            pair[2] = true --Mark image as pushed
                         end
                     end
                     for i = 1,#imageDecoderThreads do
@@ -384,6 +383,7 @@ function GameState:update(dt)
                     for k, pair in pairs(self.imagesInfo) do
                         if pair[2] == false then
                             love.thread.getChannel("imageDecoderQueue"):push(k)
+                            pair[2] = true --Mark image as pushed
                         end
                     end
                     for i = 1,#imageDecoderThreads do

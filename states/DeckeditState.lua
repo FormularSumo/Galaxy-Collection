@@ -14,10 +14,7 @@ function DeckeditState:init()
     self:reloadDeck()
 
     for k, pair in pairs(self.imagesInfo) do
-        if pair[2] == false then --Check that this image hasn't already been pushed
-            love.thread.getChannel("imageDecoderQueue"):push(k)
-            pair[2] = true --Mark image as pushed
-        end
+        love.thread.getChannel("imageDecoderQueue"):push(k)
     end
     self:loadRemainingImages()
     for i = 1,#imageDecoderThreads do
@@ -478,6 +475,7 @@ function DeckeditState:update()
             for i=1,#self.imagesInfo[result[1]][1] do
                 self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]]) --Update the image attribute for all objects that use this image
             end
+            self.imagesInfo[result[1]] = nil
         end   
     end
 end
