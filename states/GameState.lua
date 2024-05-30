@@ -74,6 +74,7 @@ function GameState:enter(Background)
     background['Name'] = Background[1]
     background['Video'] = Background[2]
     background['Seek'] = Background[3]
+        
     createBackground()
 
     songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
@@ -88,7 +89,11 @@ function GameState:enter(Background)
     gui['VolumeLabel'] = Text('Volume',font80,'centre',600,r,g,b,false)
     gui[4] = Button(function() gStateMachine:change('HomeState') end,'Main Menu',font80,nil,'centre',1080-220-font80:getHeight('Main Menu'),r,g,b,nil,false)
 
-    self.timer = math.min(-(background['Seek'] - 1), 0) --All levels have at least a 1 second delay before spawing characters
+    if Settings['videos'] == false or not background['Video'] then --If background is picture or videos are disabled in settings 
+        self.timer = 0 --Equals to 1 second delay before characters appear
+    else
+        self.timer = -(background['Seek'] - 1), 0 --If background has a starting animation (such as fade in), delay character spawning until it's finished
+    end
     self.moveAimTimer = self.timer
     self.attackTimer = self.timer - 0.9
     love.timer.step()
