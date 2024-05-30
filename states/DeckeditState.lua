@@ -165,7 +165,9 @@ function DeckeditState:loadRemainingImages()
             end
         end
     end
-    love.thread.getChannel("imageDecoderQueue"):push('Graphics/Blank Card')
+    if not self.imagesInfo[imageName] then
+        love.thread.getChannel("imageDecoderQueue"):push('Graphics/Blank Card')
+    end
 end
 
 function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre-defined buttons
@@ -501,5 +503,4 @@ function DeckeditState:exit()
     evolutionBig = nil
     evolutionMax = nil
     evolutionBigMax = nil
-    blankCard = nil
 end
