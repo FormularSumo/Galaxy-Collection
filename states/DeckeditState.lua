@@ -472,8 +472,8 @@ function DeckeditState:update()
         local result = love.thread.getChannel("imageDecoderOutput"):pop()
         self.images[result[1]] = love.graphics.newImage(result[2])
         if self.imagesInfo[result[1]] then --Check that this image needs pushing to an object, eg not if queued in loadRemainingImages
-            for i=1,#self.imagesInfo[result[1]][1] do
-                self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]]) --Update the image attribute for all objects that use this image
+            for i=1,#self.imagesInfo[result[1]] do
+                self.imagesInfo[result[1]][i]:init2(self.images[result[1]]) --Update the image attribute for all objects that use this image
             end
             self.imagesInfo[result[1]] = nil
         end   

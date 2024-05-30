@@ -23,9 +23,9 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images,im
         self:init2(images[self.imageName])
     else
         if imagesInfo[self.imageName] then
-            table.insert(imagesInfo[self.imageName][1],self)
+            table.insert(imagesInfo[self.imageName],self)
         else
-            imagesInfo[self.imageName] = {{self}, false}
+            imagesInfo[self.imageName] = {self}
         end
     end
 
