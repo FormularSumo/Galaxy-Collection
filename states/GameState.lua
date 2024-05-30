@@ -1,9 +1,6 @@
 GameState = Class{__includes = BaseState}
 
 function GameState:init()
-    evolution = love.graphics.newImage('Graphics/Evolution.png')
-    evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
-
     P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
     P1deck = {}
     P2deck = {}
@@ -70,6 +67,9 @@ function GameState:init()
     self.P1angle = math.rad(210)
     self.P2angle = math.rad(150)
     self.next = next
+
+    evolution = love.graphics.newImage('Graphics/Evolution.png')
+    evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
 end
 
 function GameState:enter(Background)

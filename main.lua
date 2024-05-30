@@ -56,6 +56,7 @@ function love.load()
     blur.vignette.radius = 1
 
     backgroundCanvas = love.graphics.newCanvas(1920,1080)
+    
     imageDecoderThreads = {}
     for i = 1, math.max(love.system.getProcessorCount()-1,2) do --Creates as many threads as the system has minus 1, but at least 1.
         imageDecoderThreads[i] = love.thread.newThread("ImageDecoderThread.lua")
