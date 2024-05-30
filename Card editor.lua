@@ -6,27 +6,26 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images,im
     self.column = column
     self.scaling = 1
 
-    local imageName;
     if self.name == 'Blank' then
-        imageName = 'Graphics/Blank Card'
+        self.imageName = 'Graphics/Blank Card'
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
-            imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+            self.imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
         else
-            imageName = 'Characters/' .. self.name .. '/' .. self.name
+            self.imageName = 'Characters/' .. self.name .. '/' .. self.name
         end
         self.level = level or 1
         self.evolution = evolution or 0
     end
 
-    if images[imageName] then
-        self:init2(images[imageName])
+    if images[self.imageName] then
+        self:init2(images[self.imageName])
     else
-        if imagesInfo[imageName] then
-            table.insert(imagesInfo[imageName][1],self)
+        if imagesInfo[self.imageName] then
+            table.insert(imagesInfo[self.imageName][1],self)
         else
-            imagesInfo[imageName] = {{self}, false}
+            imagesInfo[self.imageName] = {{self}, false}
         end
     end
 
