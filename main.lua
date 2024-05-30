@@ -147,9 +147,7 @@ function love.load()
         end
 
         if love.filesystem.getInfo('Player 1 cards.txt') == nil or bitser.loadLoveFile('Player 1 cards.txt') == nil then
-            P1cards = {}
-            bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
-            P1cards = nil
+            bitser.dumpLoveFile('Player 1 cards.txt',{})
         end
     end
 
