@@ -4,7 +4,6 @@ function CardViewer:init(name,imageName,level,evolution,inDeck,number,parent,mod
     self.name = name
     self.stats = Characters[name]
     self.statsOnDisplay = {}
-    self.name = name
     self.level = level
     self.evolution = evolution
     self.mode = mode or 'stats'
