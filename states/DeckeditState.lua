@@ -156,14 +156,23 @@ function DeckeditState:loadRemainingImages()
             end
         end
     else
-        for k, pair in pairs(P1cards) do --This could potential cause loading images multiple times, should be reworked to use imagesInfo table I think
-            if not self.P1deckList[pair[1]] and not P1cardsOnDisplayList[pair[1]] then
+        local decodeQueue = {} --As these images don't need pushing to objects later, it's simpler just to create a separate queue to check there's no duplicates and then queue those
+        for k, pair in pairs(P1cards) do
+            if not self.P1deckList[pair[1]] and not P1cardsOnDisplayList[pair[1]] then --Make sure that the images hasn't already been queued to load by the card objects that have been created
+                local imageName;
                 if Characters[pair[1]]['filename'] then
-                    love.thread.getChannel("imageDecoderQueue"):push('Characters/' .. Characters[pair[1]]['filename'] .. '/' .. Characters[pair[1]]['filename'])
+                    imageName = 'Characters/' .. Characters[pair[1]]['filename'] .. '/' .. Characters[pair[1]]['filename']
                 else
-                    love.thread.getChannel("imageDecoderQueue"):push('Characters/' .. pair[1] .. '/' .. pair[1])
+                    imageName = 'Characters/' .. pair[1] .. '/' .. pair[1]
+                end
+
+                if not decodeQueue[imageName] then --If image hasn't already been added to the decode queue, add it
+                    decodeQueue[imageName] = true
                 end
             end
+        end
+        for k, pair in pairs(decodeQueue) do
+            love.thread.getChannel("imageDecoderQueue"):push(k)
         end
     end
     if not self.imagesInfo['Graphics/Blank Card'] then
