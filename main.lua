@@ -129,7 +129,7 @@ function love.load()
                 bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
                 P1deckCards = {}
             end
-            if love.filesystem.getInfo('Player 1 deck.txt') ~= nil and bitser.loadLoveFile('Player 1 deck.txt') ~= nil then
+            if love.filesystem.getInfo('Player 1 cards.txt') ~= nil and bitser.loadLoveFile('Player 1 cards.txt') ~= nil then
                 P1cards = bitser.loadLoveFile('Player 1 cards.txt')
                 for k, pair in pairs(P1cards) do
                     if P1cards[k] ~= nil and not Characters[P1cards[k][1]] then
