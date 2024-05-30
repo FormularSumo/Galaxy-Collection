@@ -14,8 +14,9 @@ function DeckeditState:init()
     self:reloadDeck()
 
     for k, pair in pairs(self.imagesInfo) do
-        if pair[2] == false then
+        if pair[2] == false then --Check that this image hasn't already been pushed
             love.thread.getChannel("imageDecoderQueue"):push(k)
+            pair[2] = true --Mark image as pushed
         end
     end
     self:loadRemainingImages()
@@ -464,8 +465,7 @@ function DeckeditState:update()
     for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
         local result = love.thread.getChannel("imageDecoderOutput"):pop()
         self.images[result[1]] = love.graphics.newImage(result[2])
-        if self.imagesInfo[result[1]] and self.imagesInfo[result[1]][2] == false then --Check that this image needs pushing to an object, eg not if queued in loadRemainingImages
-            self.imagesInfo[result[1]][2] = true --Mark this image as having been created
+        if self.imagesInfo[result[1]] then --Check that this image needs pushing to an object, eg not if queued in loadRemainingImages
             for i=1,#self.imagesInfo[result[1]][1] do
                 self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]]) --Update the image attribute for all objects that use this image
             end
