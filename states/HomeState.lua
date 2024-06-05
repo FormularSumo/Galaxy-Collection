@@ -22,7 +22,17 @@ function HomeState:enter(partial)
             songs[0] = love.audio.newSource('Music/Across The Stars.oga','stream')
         end
     end
+end
 
+function HomeState:exit()
+    for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
+        local result = love.thread.getChannel("imageDecoderOutput"):pop()
+        if result[1] == "Graphics/Evolution" then
+            evolutionImage = love.graphics.newImage(result[2])
+        elseif result[1] == "Graphics/Evolution Max" then
+            evolutionMaxImage = love.graphics.newImage(result[2])
+        end
+    end
 end
 
 function HomeState:back()

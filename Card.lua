@@ -236,14 +236,14 @@ end
 function Card:render()
     if self.image then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
         love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-        if self.evolution == 4 then
-            love.graphics.draw(evolutionMax,self.x+self.width-evolutionMax:getWidth()-4,self.y+4)
-        elseif self.evolution > 0 then
-            love.graphics.draw(evolution,self.x+115-5,self.y+3,math.rad(90))
+        if self.evolution == 4 and evolutionMaxImage then --In theory on a very slow system/very quickly changing state this might not have loaded yet
+            love.graphics.draw(evolutionMaxImage,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
+        elseif self.evolution > 0 and evolutionImage then
+            love.graphics.draw(evolutionImage,self.x+115-5,self.y+3,math.rad(90))
             if self.evolution > 1 then
-                love.graphics.draw(evolution,self.x+115-6-evolution:getHeight(),self.y+3,math.rad(90))
+                love.graphics.draw(evolutionImage,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
                 if self.evolution > 2 then
-                    love.graphics.draw(evolution,self.x+115-7-evolution:getHeight()*2,self.y+3,math.rad(90))
+                    love.graphics.draw(evolutionImage,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
                 end
             end
         end

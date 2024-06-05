@@ -19,9 +19,6 @@ function DeckeditState:init()
         imageDecoderThreads[i]:start()
     end
 
-    evolution = love.graphics.newImage('Graphics/Evolution.png')
-    evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
-
     background['Name'] = 'Death Star Control Room'
     background['Video'] = false
     createBackground()
@@ -506,6 +503,4 @@ function DeckeditState:exit()
     P1deck = nil
     P1cards = nil
     P1strength = nil
-    evolution = nil
-    evolutionMax = nil
 end

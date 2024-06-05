@@ -61,9 +61,12 @@ function love.load()
     for i = 1, math.max(love.system.getProcessorCount()-1,2) do --Creates as many threads as the system has minus 1, but at least 1.
         imageDecoderThreads[i] = love.thread.newThread("ImageDecoderThread.lua")
     end
-    love.thread.getChannel("imageDecoderQueue")
+    love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution")
+    love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution Max")
     love.thread.getChannel("imageDecoderOutput")
-    
+    imageDecoderThreads[1]:start()
+    imageDecoderThreads[2]:start() --No point starting more than 2 as there's only 2 images being decoded
+
     gui = {}
     songs = {}
     background = {}

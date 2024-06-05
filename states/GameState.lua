@@ -65,9 +65,6 @@ function GameState:init()
     self.P1angle = math.rad(210)
     self.P2angle = math.rad(150)
     self.next = next
-
-    evolution = love.graphics.newImage('Graphics/Evolution.png')
-    evolutionMax = love.graphics.newImage('Graphics/Evolution Max.png')
 end
 
 function GameState:enter(Background)
@@ -532,6 +529,4 @@ function GameState:exit()
     P2deck = nil
     winner = nil
     P2deckCards = nil
-    evolution= nil
-    evolutionMax = nil
 end
