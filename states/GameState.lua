@@ -346,7 +346,7 @@ function GameState:update(dt)
                 self.imagesInfo[result[1]] = nil
             end
 
-            if self.timer < 7 then
+            if self.timer < 7 then --Because moveAimTimer is created after timer, 7 seconds into a battle this will always be false
                 for k, pair in pairs(P1deck) do
                     pair:move()
                 end
@@ -375,8 +375,8 @@ function GameState:update(dt)
             else
                 if self.P2length > 42 then
                     for i=0,5 do
-                        if not P2deck[36+self.currentRows[i]] and P2deckCards(self.Nextcards[i]) ~= nil then
-                            P2deck[36+self.currentRows[i]] = Card(P2deckCards(self.Nextcards[i]),2,36+self.currentRows[i],12,self.images,self.imagesInfo)
+                        if not P2deck[42+self.currentRows[i]] and P2deckCards(self.Nextcards[i]) ~= nil then
+                            P2deck[42+self.currentRows[i]] = Card(P2deckCards(self.Nextcards[i]),2,42+self.currentRows[i],13,self.images,self.imagesInfo)
                             self.Nextcards[i] = self.Nextcards[i] + 6
                         end
                     end
