@@ -34,7 +34,11 @@ function createBackground()
         background['Background'] = love.graphics.newVideo('Backgrounds/' .. background['Name'] .. '.ogv')
         background['Background']:play()
     else
-        background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.jpg')
+        if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.jpg') then
+            background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.jpg')
+        else
+            background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.png')
+        end
     end
 end
 
