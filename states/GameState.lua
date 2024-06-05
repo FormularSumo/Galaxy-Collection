@@ -303,16 +303,6 @@ end
 
 function GameState:update(dt)
     if paused == false and not winner then
-        for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
-            local result = love.thread.getChannel("imageDecoderOutput"):pop()
-            self.images[result[1]] = love.graphics.newImage(result[2])
-            self.imagesInfo[result[1]][2] = true
-            for i=1,#self.imagesInfo[result[1]][1] do
-                self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
-            end
-            self.imagesInfo[result[1]] = nil
-        end
-
         dt = dt * self.gamespeed
         self.timer = self.timer + dt
         if self.timer >= 7.4 then self.timer = self.timer - 1 end
@@ -346,6 +336,15 @@ function GameState:update(dt)
 
         if self.moveAimTimer >= 1 then
             self.moveAimTimer = self.moveAimTimer - 1
+            for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
+                local result = love.thread.getChannel("imageDecoderOutput"):pop()
+                self.images[result[1]] = love.graphics.newImage(result[2])
+                self.imagesInfo[result[1]][2] = true
+                for i=1,#self.imagesInfo[result[1]][1] do
+                    self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
+                end
+                self.imagesInfo[result[1]] = nil
+            end
 
             if self.timer < 7 then
                 for k, pair in pairs(P1deck) do
