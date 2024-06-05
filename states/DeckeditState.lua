@@ -57,9 +57,11 @@ function DeckeditState:loadCards(reload) --Initial card loading and sorting
         end
     end
 
-    table.sort(P1cards,compareCharacterStrength)
+    local compare = compareCharacterStrength
+    local cards = P1cards
+    table.sort(cards,compare)
     local Temporary = {}
-    for k, pair in pairs(P1cards) do
+    for k, pair in pairs(cards) do
         Temporary[k-1] = pair
     end
     P1cards = Temporary

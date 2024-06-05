@@ -146,6 +146,9 @@ end
 
 function characterStrength(character)
     if character == nil then return 0 end
+    local stats;
+    local modifier;
+    local offense;
     if character[1] then
         stats = Characters[character[1]]
         modifier = ((character[2] + (60 - character[2]) / 1.7) / 60) * (1 - ((4 - character[3]) * 0.1))
@@ -157,17 +160,21 @@ function characterStrength(character)
     if stats['range'] == 1 then
         offense = ((stats['meleeOffense']*modifier)/800)^4 * 0.9
     else
-        rangedOffense = stats['rangedOffense'] or stats['meleeOffense']
+        local meleeOffense = ((stats['meleeOffense']*modifier)/800)^4
+        local rangedOffense;
 
-        rangedOffense = (rangedOffense/800)^4
-        meleeOffense = ((stats['meleeOffense']*modifier)/800)^4
+        if stats['rangedOffense'] then
+            rangedOffense = ((stats['rangedOffense'])/800)^4
+        else
+            rangedOffense = meleeOffense
+        end
 
-        rangeFactor = ((stats['range']-1.5)/20)^0.55*4.6
+        local rangeFactor = ((stats['range']-1.5)/20)^0.55*4.6
         
         if rangedOffense < meleeOffense then
             offense = meleeOffense * 0.9 + rangedOffense * 0.1 * rangeFactor^0.1
         else
-            rangeProportion = rangeFactor / (rangeFactor + 1)
+            local rangeProportion = rangeFactor / (rangeFactor + 1)
             offense = meleeOffense * (1-rangeProportion) + rangedOffense * rangeProportion + (rangedOffense * rangeFactor^0.1 - rangedOffense) * 0.1
         end
     end
@@ -178,7 +185,8 @@ function characterStrength(character)
 end
 
 function compareCharacterStrength(character1, character2)
-    return characterStrength(character1) > characterStrength(character2)
+    local strength = characterStrength
+    return strength(character1) > strength(character2)
 end
 
 function tutorial()
