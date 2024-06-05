@@ -4,7 +4,6 @@ function DeckeditState:init()
     P1deck = {}
     self.images = {}
     self.imagesInfo = {}
-    P1strength = 0
     self:loadCards(false)
     self.cardsOnDisplay = {}
     self.page = 0
