@@ -464,8 +464,8 @@ function GameState:update(dt)
                         gui[k] = nil
                     end
                 end
-                self.images = {}
-                self.imagesInfo = {}
+                self.images = nil
+                self.imagesInfo = nil
                 collectgarbage()
             end
         end
