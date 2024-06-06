@@ -168,7 +168,7 @@ function characterStrength(character)
         local rangedOffense;
 
         if stats['rangedOffense'] then
-            rangedOffense = ((stats['rangedOffense'])/800)^4
+            rangedOffense = ((stats['rangedOffense']*modifier)/800)^4
         else
             rangedOffense = meleeOffense
         end
