@@ -8,20 +8,20 @@ function Card:init(card,team,number,column,images,imagesInfo)
     self.level = card[2] or 1
     self.evolution = card[3] or 0
 
-    local imageName;
+    local imagePath;
     if self.stats['filename'] then
-        imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+        imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
     else
-        imageName = 'Characters/' .. card[1] .. '/' .. card[1]
+        imagePath = 'Characters/' .. card[1] .. '/' .. card[1]
     end
 
-    if images[imageName] then
-        self:init2(images[imageName])
+    if images[imagePath] then
+        self:init2(images[imagePath])
     else
-        if imagesInfo[imageName] then
-            table.insert(imagesInfo[imageName][1],self)
+        if imagesInfo[imagePath] then
+            table.insert(imagesInfo[imagePath][1],self)
         else
-            imagesInfo[imageName] = {{self}, false}
+            imagesInfo[imagePath] = {{self}, false}
         end
     end
 

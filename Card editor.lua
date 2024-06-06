@@ -7,25 +7,25 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images,im
     self.scaling = 1
 
     if self.name == 'Blank' then
-        self.imageName = 'Graphics/Blank Card'
+        self.imagePath = 'Graphics/Blank Card'
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
-            self.imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+            self.imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
         else
-            self.imageName = 'Characters/' .. self.name .. '/' .. self.name
+            self.imagePath = 'Characters/' .. self.name .. '/' .. self.name
         end
         self.level = level or 1
         self.evolution = evolution or 0
     end
 
-    if images[self.imageName] then
-        self:init2(images[self.imageName])
+    if images[self.imagePath] then
+        self:init2(images[self.imagePath])
     else
-        if imagesInfo[self.imageName] then
-            table.insert(imagesInfo[self.imageName],self)
+        if imagesInfo[self.imagePath] then
+            table.insert(imagesInfo[self.imagePath],self)
         else
-            imagesInfo[self.imageName] = {self}
+            imagesInfo[self.imagePath] = {self}
         end
     end
 
@@ -90,7 +90,7 @@ function CardEditor:CardViewer()
         gui['CardViewer'] = nil
         collectgarbage()
     end
-    gui['CardViewer'] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number,self,self.mode)
+    gui['CardViewer'] = CardViewer(self.name,self.imagePath,self.level,self.evolution,self.inDeck,self.number,self,self.mode)
 end
 
 function CardEditor:update()

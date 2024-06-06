@@ -5,22 +5,22 @@ function ProjectileManager:init(name,team,xoffset,yoffset,images,imagesInfo)
 
     self.projectiles = {}
     for i=1,self.projectileCount do
-        local imageName;
+        local imagePath;
         if name['projectile' .. tostring(i)] then
-            imageName = 'Graphics/' .. name['projectile'..tostring(i)]
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],imageName)
+            imagePath = 'Graphics/' .. name['projectile'..tostring(i)]
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],imagePath)
         else
-            imageName = 'Graphics/' .. name['projectile1']
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],imageName)
+            imagePath = 'Graphics/' .. name['projectile1']
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],imagePath)
         end
 
-        if images[imageName] then
-            self.projectiles[i]:init2(images[imageName])
+        if images[imagePath] then
+            self.projectiles[i]:init2(images[imagePath])
         else
-            if imagesInfo[imageName] then
-                table.insert(imagesInfo[imageName][1],self.projectiles[i])
+            if imagesInfo[imagePath] then
+                table.insert(imagesInfo[imagePath][1],self.projectiles[i])
             else
-                imagesInfo[imageName] = {{self.projectiles[i]}, false}
+                imagesInfo[imagePath] = {{self.projectiles[i]}, false}
             end
         end
     end

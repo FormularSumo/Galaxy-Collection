@@ -7,21 +7,21 @@ function WeaponManager:init(name,team,xoffset,yoffset,card,images,imagesInfo)
 
     self.weapons = {}
     for i=1,self.weaponCount do
-        local imageName;
+        local imagePath;
         if name['weapon' .. tostring(i)] then
-            imageName = 'Graphics/' .. name['weapon'..tostring(i)]
+            imagePath = 'Graphics/' .. name['weapon'..tostring(i)]
         else
-            imageName = 'Graphics/' .. name['weapon1']
+            imagePath = 'Graphics/' .. name['weapon1']
         end
-        self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,imageName)
+        self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,imagePath)
 
-        if images[imageName] then
-            self.weapons[i]:init2(images[imageName])
+        if images[imagePath] then
+            self.weapons[i]:init2(images[imagePath])
         else
-            if imagesInfo[imageName] then
-                table.insert(imagesInfo[imageName][1],self.weapons[i])
+            if imagesInfo[imagePath] then
+                table.insert(imagesInfo[imagePath][1],self.weapons[i])
             else
-                imagesInfo[imageName] = {{self.weapons[i]}, false}
+                imagesInfo[imagePath] = {{self.weapons[i]}, false}
             end
         end
     end

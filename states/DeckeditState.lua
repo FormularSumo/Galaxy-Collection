@@ -151,15 +151,15 @@ function DeckeditState:loadRemainingImages()
         local decodeQueue = {} --As these images don't need pushing to objects later, it's simpler just to create a separate queue to check there's no duplicates and then queue those
         for k, pair in pairs(P1cards) do
             if not self.P1deckList[pair[1]] and not P1cardsOnDisplayList[pair[1]] then --Make sure that the images hasn't already been queued to load by the card objects that have been created
-                local imageName;
+                local imagePath;
                 if Characters[pair[1]]['filename'] then
-                    imageName = 'Characters/' .. Characters[pair[1]]['filename'] .. '/' .. Characters[pair[1]]['filename']
+                    imagePath = 'Characters/' .. Characters[pair[1]]['filename'] .. '/' .. Characters[pair[1]]['filename']
                 else
-                    imageName = 'Characters/' .. pair[1] .. '/' .. pair[1]
+                    imagePath = 'Characters/' .. pair[1] .. '/' .. pair[1]
                 end
 
-                if not decodeQueue[imageName] then --If image hasn't already been added to the decode queue, add it
-                    decodeQueue[imageName] = true
+                if not decodeQueue[imagePath] then --If image hasn't already been added to the decode queue, add it
+                    decodeQueue[imagePath] = true
                 end
             end
         end
@@ -261,7 +261,7 @@ function DeckeditState:updateCardViewer(direction) --Updates which card is selec
                 self.cardDisplayedNumber = self.cardDisplayedNumber -1
             end
         end
-        if P1deck[self.cardDisplayedNumber].imageName == nil then
+        if P1deck[self.cardDisplayedNumber].imagePath == nil then
             self:updateCardViewer(direction)
         else
             P1deck[self.cardDisplayedNumber]:CardViewer()
@@ -274,7 +274,7 @@ function DeckeditState:updateCardViewer(direction) --Updates which card is selec
                 end
                 self.cardsOnDisplay[0]:CardViewer()
             else
-                if self.cardsOnDisplay[self.cardDisplayedNumber+1].imageName ~= nil then
+                if self.cardsOnDisplay[self.cardDisplayedNumber+1].imagePath ~= nil then
                     self.cardsOnDisplay[self.cardDisplayedNumber+1]:CardViewer()
                 else
                     self:updateCardsOnDisplay(0,true)
@@ -296,7 +296,7 @@ function DeckeditState:updateCardViewer(direction) --Updates which card is selec
     end
 end
 
-function DeckeditState:enterStats(name,imageName,level,evolution,inDeck,number)
+function DeckeditState:enterStats(name,imagePath,level,evolution,inDeck,number)
     self.subState = 'info'
     self.gui = gui
     gui = {}
