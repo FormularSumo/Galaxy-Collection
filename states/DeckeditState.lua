@@ -218,7 +218,7 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
     self:reloadDeck()
 end
 
-function DeckeditState:updateGui() --Update GUI with cards so that they're displayed+update correctly
+function DeckeditState:updateGui() --Update GUI with cards so that they display+update correctly
     for k, v in pairs(P1deck) do
         if k < 6 then
             gui[k+16] = v
