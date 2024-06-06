@@ -3,7 +3,7 @@ function love.load()
     push = require 'push'
     Class = require 'class'
     bitser = require 'bitser'
-    moonshine = require 'moonshine'
+    local moonshine = require 'moonshine'
     
     require 'Card'
     require 'Button'
@@ -20,10 +20,10 @@ function love.load()
     require 'states/ExitState'
     require 'campaign'
     require 'other functions'
+    require 'WeaponManager'
     require 'Weapon'
-    require 'Weapon2'
+    require 'ProjectileManager'
     require 'Projectile'
-    require 'Projectile2'
     require 'Card editor'
     require 'Remove card'
     require 'Card viewer'
@@ -57,6 +57,16 @@ function love.load()
 
     backgroundCanvas = love.graphics.newCanvas(1920,1080)
     
+    imageDecoderThreads = {}
+    for i = 1, math.max(love.system.getProcessorCount()-1,2) do --Creates as many threads as the system has minus 1, but at least 1.
+        imageDecoderThreads[i] = love.thread.newThread("ImageDecoderThread.lua")
+    end
+    love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution")
+    love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution Max")
+    love.thread.getChannel("imageDecoderOutput")
+    imageDecoderThreads[1]:start()
+    imageDecoderThreads[2]:start() --No point starting more than 2 as there's only 2 images being decoded
+
     gui = {}
     songs = {}
     background = {}
@@ -102,7 +112,7 @@ function love.load()
     Settings = bitser.loadLoveFile('Settings.txt')
     love.audio.setVolume(Settings['volume_level'])
 
-    if love.filesystem.getInfo('Player 1 deck.txt') == nil and love.filesystem.getInfo('Player 1 cards.txt') == nil and love.filesystem.getInfo('User Data.txt') == nil then
+    if love.filesystem.getInfo('Player 1 cards.txt') == nil and love.filesystem.getInfo('User Data.txt') == nil then
         tutorial()
     
     else
@@ -120,9 +130,8 @@ function love.load()
                     end
                 end
                 bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
-                P1deckCards = {}
             end
-            if love.filesystem.getInfo('Player 1 deck.txt') ~= nil and bitser.loadLoveFile('Player 1 deck.txt') ~= nil then
+            if love.filesystem.getInfo('Player 1 cards.txt') ~= nil and bitser.loadLoveFile('Player 1 cards.txt') ~= nil then
                 P1cards = bitser.loadLoveFile('Player 1 cards.txt')
                 for k, pair in pairs(P1cards) do
                     if P1cards[k] ~= nil and not Characters[P1cards[k][1]] then
@@ -134,15 +143,14 @@ function love.load()
             end
         end
 
-        if love.filesystem.getInfo('Player 1 deck.txt') == nil or bitser.loadLoveFile('Player 1 deck.txt') == nil then
+        if love.filesystem.getInfo('Player 1 deck.txt') == nil then
             P1deckCards = {}
-            bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+        else
+            P1deckCards = bitser.loadLoveFile('Player 1 deck.txt') or {} --In case save file has corrupted, or is a pre-bitser file
         end
 
         if love.filesystem.getInfo('Player 1 cards.txt') == nil or bitser.loadLoveFile('Player 1 cards.txt') == nil then
-            P1cards = {}
-            bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
-            P1cards = nil
+            bitser.dumpLoveFile('Player 1 cards.txt',{})
         end
     end
 
