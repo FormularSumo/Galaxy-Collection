@@ -8,10 +8,10 @@ function ProjectileManager:init(name,team,xoffset,yoffset,images,imagesInfo)
         local imagePath;
         if name['projectile' .. tostring(i)] then
             imagePath = 'Graphics/' .. name['projectile'..tostring(i)]
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],imagePath)
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],name['projectile'..tostring(i)])
         else
             imagePath = 'Graphics/' .. name['projectile1']
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],imagePath)
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],name['projectile1'])
         end
 
         if images[imagePath] then

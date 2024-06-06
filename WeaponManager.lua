@@ -10,10 +10,11 @@ function WeaponManager:init(name,team,xoffset,yoffset,card,images,imagesInfo)
         local imagePath;
         if name['weapon' .. tostring(i)] then
             imagePath = 'Graphics/' .. name['weapon'..tostring(i)]
+            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name['weapon'..tostring(i)])
         else
             imagePath = 'Graphics/' .. name['weapon1']
+            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name['weapon1'])
         end
-        self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,imagePath)
 
         if images[imagePath] then
             self.weapons[i]:init2(images[imagePath])
