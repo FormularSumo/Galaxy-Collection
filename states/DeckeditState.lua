@@ -496,7 +496,7 @@ function DeckeditState:renderForeground()
         love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength+0.5)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2,900)
     end
 end
-P1deckEdit
+
 function DeckeditState:exit()
     P1deck = nil
     P1cards = nil
