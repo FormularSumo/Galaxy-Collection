@@ -68,7 +68,11 @@ function GameState:init()
 end
 
 function GameState:enter(Background)
-    background = love.graphics.newImage('Backgrounds/' .. Background[1] .. '.jpg')
+    if love.filesystem.getInfo('Backgrounds/' .. Background[1] .. '.jpg') then
+        background = love.graphics.newImage('Backgrounds/' .. Background[1] .. '.jpg')
+    else
+        background = love.graphics.newImage('Backgrounds/' .. Background[1] .. '.png')
+    end
 
     songs[0] = love.audio.newSource('Music/' .. Background[5],'stream')
 
