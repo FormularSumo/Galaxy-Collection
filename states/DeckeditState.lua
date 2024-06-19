@@ -19,9 +19,7 @@ function DeckeditState:init()
         imageDecoderThreads[i]:start()
     end
 
-    background['Name'] = 'Death Star Control Room'
-    background['Video'] = false
-    createBackground()
+    background = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
     gui[1] = Button(function() gStateMachine:change('HomeState','music','music') end,'Main Menu',font80,nil,'centre',20)
     gui[2] = Button(function() self:resetDeck('strongest') end,'Auto',font80,nil,'centre',200)
     gui[3] = Button(function() self:resetDeck('blank') end,'Clear',font80,nil,'centre',380)
@@ -48,7 +46,7 @@ function DeckeditState:loadCards(reload) --Initial card loading and sorting
             end
         end
     else
-        for k, pair in pairs(bitser.loadLoveFile('Player 1 cards.txt')) do
+        for k, pair in pairs(binser.readFile('Player 1 cards.txt')) do
             count = count + 1
             P1cards[count] = pair
         end
@@ -210,10 +208,10 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
             P1cards[k-1] = pair
         end
     end
-    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+    binser.writeFile('Player 1 deck.txt',P1deckCards)
 
     if not sandbox then
-        bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+        binser.writeFile('Player 1 cards.txt',P1cards)
     end
     self:reloadDeck()
 end
@@ -498,7 +496,7 @@ function DeckeditState:renderForeground()
         love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength+0.5)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2,900)
     end
 end
-
+P1deckEdit
 function DeckeditState:exit()
     P1deck = nil
     P1cards = nil
