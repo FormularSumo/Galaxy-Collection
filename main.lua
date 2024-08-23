@@ -55,16 +55,9 @@ function love.load()
     blur.vignette.radius = 1
 
     backgroundCanvas = love.graphics.newCanvas(1920,1080)
+    evolutionImage = love.graphics.newImage('Graphics/Evolution.png')
+    evolutionMaxImage = love.graphics.newImage('Graphics/Evolution Max.png')
     
-    imageDecoderThreads = {}
-    for i = 1, math.max(love.system.getProcessorCount()-1,1) do --Creates as many threads as the system has minus 1, but at least 1.
-        imageDecoderThreads[i] = love.thread.newThread("ImageDecoderThread.lua")
-    end
-    love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution")
-    love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution Max")
-    love.thread.getChannel("imageDecoderOutput")
-    imageDecoderThreads[1]:start()
-
     gui = {}
     songs = {}
     paused = false

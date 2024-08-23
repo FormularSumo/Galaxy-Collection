@@ -4,7 +4,6 @@ function GameState:init()
     P1deck = {}
     P2deck = {}
     self.images = {}
-    self.imagesInfo = {}
     self.gamespeed = 1
     self.Nextcards = {
         [0] = 18,
@@ -49,18 +48,11 @@ function GameState:init()
 
     for i=0,math.min(18,math.max(self.P1length,self.P2length)) do
         if P1deckCards[i] then
-            P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6),self.images,self.imagesInfo)
+            P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6),self.images)
         end
         if P2deckCards(i) then
-            P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6),self.images,self.imagesInfo)
+            P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6),self.images)
         end
-    end
-    for k, pair in pairs(self.imagesInfo) do
-        love.thread.getChannel("imageDecoderQueue"):push(k) --It's unnecessary to check here if images have already been pushed, as this is the first time they any are pushed
-        pair[2] = true --Mark image as pushed
-    end
-    for i = 1,#imageDecoderThreads do
-        imageDecoderThreads[i]:start()
     end
     self.P1angle = math.rad(210)
     self.P2angle = math.rad(150)
@@ -332,15 +324,6 @@ function GameState:update(dt)
 
         if self.moveAimTimer >= 1 then
             self.moveAimTimer = self.moveAimTimer - 1
-            for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
-                local result = love.thread.getChannel("imageDecoderOutput"):pop()
-                self.images[result[1]] = love.graphics.newImage(result[2])
-                self.imagesInfo[result[1]][2] = true
-                for i=1,#self.imagesInfo[result[1]][1] do
-                    self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
-                end
-                self.imagesInfo[result[1]] = nil
-            end
 
             if self.timer < 7 then --Because moveAimTimer is created after timer, 7 seconds into a battle this will always be false
                 for k, pair in pairs(P1deck) do
@@ -353,18 +336,9 @@ function GameState:update(dt)
                 if self.timer > 3 and self.P2length > self.timer * 6 then
                     for i=0,5 do
                         if P2deckCards(self.Nextcards[i]) then
-                            P2deck[self.Nextcards[i]] = Card(P2deckCards(self.Nextcards[i]),2,self.Nextcards[i],12,self.images,self.imagesInfo)
+                            P2deck[self.Nextcards[i]] = Card(P2deckCards(self.Nextcards[i]),2,self.Nextcards[i],12,self.images)
                             self.Nextcards[i] = self.Nextcards[i] + 6
                         end
-                    end
-                    for k, pair in pairs(self.imagesInfo) do
-                        if pair[2] == false then
-                            love.thread.getChannel("imageDecoderQueue"):push(k)
-                            pair[2] = true --Mark image as pushed
-                        end
-                    end
-                    for i = 1,#imageDecoderThreads do
-                        imageDecoderThreads[i]:start()
                     end
                 end
 
@@ -372,18 +346,9 @@ function GameState:update(dt)
                 if self.P2length > 42 then
                     for i=0,5 do
                         if not P2deck[42+self.currentRows[i]] and P2deckCards(self.Nextcards[i]) ~= nil then
-                            P2deck[42+self.currentRows[i]] = Card(P2deckCards(self.Nextcards[i]),2,42+self.currentRows[i],13,self.images,self.imagesInfo)
+                            P2deck[42+self.currentRows[i]] = Card(P2deckCards(self.Nextcards[i]),2,42+self.currentRows[i],13,self.images)
                             self.Nextcards[i] = self.Nextcards[i] + 6
                         end
-                    end
-                    for k, pair in pairs(self.imagesInfo) do
-                        if pair[2] == false then
-                            love.thread.getChannel("imageDecoderQueue"):push(k)
-                            pair[2] = true --Mark image as pushed
-                        end
-                    end
-                    for i = 1,#imageDecoderThreads do
-                        imageDecoderThreads[i]:start()
                     end
                 end
 
@@ -461,7 +426,6 @@ function GameState:update(dt)
                     end
                 end
                 self.images = nil
-                self.imagesInfo = nil
                 collectgarbage()
             end
         end
