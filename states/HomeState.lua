@@ -8,7 +8,7 @@ end
 
 function HomeState:enter(partial)
     if partial ~= true then --If partial is equal to 'music' or false or nil
-        background = love.graphics.newImage('Backgrounds/Starry Sky.jpg')
+        background = love.graphics.newImage('Backgrounds/Starry Sky.png')
     end
     if not partial then --If partial is set to false or nil
         if love.math.random(0,1) == 1 then
