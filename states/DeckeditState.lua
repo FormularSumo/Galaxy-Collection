@@ -211,7 +211,7 @@ function DeckeditState:updateCardViewer(direction) --Updates which card is selec
                 self.cardDisplayedNumber = self.cardDisplayedNumber -1
             end
         end
-        if P1deck[self.cardDisplayedNumber].imagePath == nil then
+        if P1deck[self.cardDisplayedNumber].name == 'Blank' then
             self:updateCardViewer(direction)
         else
             P1deck[self.cardDisplayedNumber]:CardViewer()
@@ -224,7 +224,7 @@ function DeckeditState:updateCardViewer(direction) --Updates which card is selec
                 end
                 self.cardsOnDisplay[0]:CardViewer()
             else
-                if self.cardsOnDisplay[self.cardDisplayedNumber+1].imageName ~= nil then
+                if self.cardsOnDisplay[self.cardDisplayedNumber+1].name ~= 'Blank' then
                     self.cardsOnDisplay[self.cardDisplayedNumber+1]:CardViewer()
                 else
                     self:updateCardsOnDisplay(0,true)
