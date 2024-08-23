@@ -160,10 +160,10 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
             P1cards[k-1] = pair
         end
     end
-    binser.writeFile('Player 1 deck.txt',P1deckCards)
+    love.filesystem.write('Player 1 deck.txt',binser.s(P1deckCards))
 
     if not sandbox then
-        binser.writeFile('Player 1 cards.txt',P1cards)
+        love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
     end
     self:reloadDeck()
 end

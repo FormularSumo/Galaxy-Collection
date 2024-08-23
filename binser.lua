@@ -491,10 +491,10 @@ local function newbinser()
         return serialize_to_file(name, "ab", ...)
     end
 
-    local function deserialize(str, index)
+    local function deserialize(str)
         assert(type(str) == "string", "Expected string to deserialize.")
         local vals = {}
-        index = index or 1
+        index = 1 --love.filesystem.read() returns both the file data and size, which gets passed as the parameter index here. I don't ever provide an index, so easiest solution is to always set it as 1
         local visited = {}
         local len = 0
         local val

@@ -95,10 +95,10 @@ function love.load()
             ['volume_level'] = 0.5,
             ['FPS_counter'] = false,
         }
-        binser.writeFile('Settings.txt',Settings)
+        love.filesystem.write('Settings.txt',binser.s(Settings))
     end
 
-    Settings = binser.readFile('Settings.txt')
+    Settings = binser.d(love.filesystem.read('Settings.txt'))
     love.audio.setVolume(Settings['volume_level'])
 
     if love.filesystem.getInfo('Player 1 cards.txt') == nil and love.filesystem.getInfo('User Data.txt') == nil then
@@ -108,26 +108,26 @@ function love.load()
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
             if Settings['videos'] == nil then Settings['videos'] = true end
-            binser.writeFile('User Data.txt',UserData)
+            love.filesystem.write('User Data.txt',binser.s(UserData))
 
             --If any save data is from pre 0.11 (doesn't contain userdata, character levels or evolutions), delete it to avoid crashing
-            if love.filesystem.getInfo('Player 1 deck.txt') ~= nil and binser.readFile('Player 1 deck.txt') ~= nil then
-                P1deckCards = binser.readFile('Player 1 deck.txt')
+            if love.filesystem.getInfo('Player 1 deck.txt') ~= nil and binser.d(love.filesystem.read('Player 1 deck.txt')) ~= nil then
+                P1deckCards = binser.d(love.filesystem.read('Player 1 deck.txt'))
                 for k, pair in pairs(P1deckCards) do
                     if P1deckCards[k] ~= nil and not Characters[P1deckCards[k][1]] then
                         P1deckCards[k] = nil
                     end
                 end
-                binser.writeFile('Player 1 deck.txt',P1deckCards)
+                love.filesystem.write('Player 1 deck.txt',binser.s(P1deckCards))
             end
-            if love.filesystem.getInfo('Player 1 cards.txt') ~= nil and binser.readFile('Player 1 cards.txt') ~= nil then
-                P1cards = binser.readFile('Player 1 cards.txt')
+            if love.filesystem.getInfo('Player 1 cards.txt') ~= nil and binser.d(love.filesystem.read('Player 1 cards.txt')) ~= nil then
+                P1cards = binser.d(love.filesystem.read('Player 1 cards.txt'))
                 for k, pair in pairs(P1cards) do
                     if P1cards[k] ~= nil and not Characters[P1cards[k][1]] then
                         P1cards[k] = nil
                     end
                 end
-                binser.writeFile('Player 1 cards.txt',P1cards)
+                love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
                 P1cards = nil
             end
         end
@@ -135,11 +135,11 @@ function love.load()
         if love.filesystem.getInfo('Player 1 deck.txt') == nil then
             P1deckCards = {}
         else
-            P1deckCards = binser.readFile('Player 1 deck.txt') or {} --In case save file has corrupted, or is a pre-binser file
+            P1deckCards = binser.d(love.filesystem.read('Player 1 deck.txt')) or {} --In case save file has corrupted, or is a pre-binser file
         end
 
-        if love.filesystem.getInfo('Player 1 cards.txt') == nil or binser.readFile('Player 1 cards.txt') == nil then
-            binser.writeFile('Player 1 cards.txt',{})
+        if love.filesystem.getInfo('Player 1 cards.txt') == nil or binser.d(love.filesystem.read('Player 1 cards.txt')) == nil then
+            love.filesystem.write('Player 1 cards.txt',binser.s({}))
         end
     end
 
@@ -193,7 +193,7 @@ function love.keypressed(key,scancode,isrepeat)
                 love.audio.setVolume(0)
             end
             Settings['volume_level'] = love.audio.getVolume()
-            binser.writeFile('Settings.txt', Settings)
+            love.filesystem.read(binser.s('Settings.txt', Settings))
         end
     end
     if key == 'up' or key == 'down' then

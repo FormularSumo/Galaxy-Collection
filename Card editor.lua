@@ -52,10 +52,10 @@ function CardEditor:swap()
         end
 
         if mouseTrapped.inDeck or self.inDeck then
-            binser.writeFile('Player 1 deck.txt',P1deckCards)
+            love.filesystem.write('Player 1 deck.txt',binser.s(P1deckCards))
         end
         if not sandbox and (not mouseTrapped.inDeck or not self.inDeck) then
-            binser.writeFile('Player 1 cards.txt',P1cards)
+            love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
         end
 
         if not (mouseTrapped.inDeck and self.inDeck) then
