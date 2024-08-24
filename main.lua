@@ -58,8 +58,12 @@ function love.load()
     backgroundCanvas = love.graphics.newCanvas(1920,1080)
     
     imageDecoderThreads = {}
-    for i = 1, math.max(love.system.getProcessorCount()-1,1) do --Creates as many threads as the system has minus 1, but at least 1.
-        imageDecoderThreads[i] = love.thread.newThread("ImageDecoderThread.lua")
+    if OS == "Android" then --For some reason Android and ChromeOS devices 
+        imageDecoderThreads[1] = love.thread.newThread("ImageDecoderThread.lua")
+    else
+        for i = 1, math.max(love.system.getProcessorCount()-1,1) do --Creates as many threads as the system has minus 1, but at least 1.
+            imageDecoderThreads[i] = love.thread.newThread("ImageDecoderThread.lua")
+        end
     end
     love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution")
     love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution Max")
