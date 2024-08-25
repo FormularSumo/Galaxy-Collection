@@ -1969,6 +1969,14 @@ Characters = {
     ['projectileCount'] = 2
 },
 
+['Feral'] = {
+    ['meleeOffense'] = 10039,
+    ['defense'] = 8820,
+    ['evade'] = 0.03,
+    ['range'] = 1,
+    ['weapon1'] = 'Nightbrother Weapon'
+},
+
 ['Fifth Brother'] = {
     ['meleeOffense'] = 15735,
     ['rangedOffense'] = 15755,
