@@ -3059,15 +3059,15 @@ Characters = {
 },
 
 ['Karis'] = {
-    ['meleeOffense'] = 8770,
-    ['rangedOffense'] = 9746,
-    ['defense'] = 9335,
-    ['evade'] = 0.03,
+    ['meleeOffense'] = 8769,
+    ['rangedOffense'] = 9745,
+    ['defense'] = 9334,
+    ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Purple Laser',
     ['projectile1'] = 'Fire',
     ['projectileCount'] = 2,
-    ['weapon1'] = 'Sword',
+    ['weapon1'] = 'Nightsister Sword',
     ['weaponCount'] = 2
 },
 
@@ -3651,6 +3651,17 @@ Characters = {
     ['weapon1'] = 'Mother Talzin Sword'
 },
 
+['Naa\'leeth'] = {
+    ['meleeOffense'] = 8343,
+    ['rangedOffense'] = 9916,
+    ['defense'] = 9366,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['projectile1'] = 'Purple Laser',
+    ['projectile2'] = 'Fire',
+    ['projectileCount'] = 2
+},
+
 ['Naga Sadow'] = {
     ['meleeOffense'] = 18215,
     ['rangedOffense'] = 18315,
@@ -3706,6 +3717,26 @@ Characters = {
     ['range'] = 1,
     ['weapon1'] = 'Nightbrother Weapon'
 },
+
+['Nightsister Acolyte'] = {
+    ['meleeOffense'] = 8332,
+    ['rangedOffense'] = 9907,
+    ['defense'] = 9357,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['projectile1'] = 'Purple Laser',
+    ['projectile2'] = 'Fire',
+    ['projectileCount'] = 2
+},
+
+['Nightsister Initiate'] = {
+    ['meleeOffense'] = 9993,
+    ['defense'] = 8759,
+    ['evade'] = 0.04,
+    ['range'] = 1,
+    ['weapon1'] = 'Nightsister Sword'
+},
+
 
 ['Nightsister Merrin'] = {
     ['meleeOffense'] = 16638,
@@ -4833,7 +4864,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 3,
     ['projectile1'] = 'Fire',
-    ['weapon1'] = 'Sword',
+    ['weapon1'] = 'Nightsister Sword',
     ['weaponCount'] = 2
 },
 

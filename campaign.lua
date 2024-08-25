@@ -128,6 +128,37 @@ function geonosis(number)
     if number < 204 then return {'B1 Battle Droid',60,4} end
 end
 
+function dathomir(number)
+    if number == 'max' then return 205 end
+
+    if number == 32 then return {'Savage Opress',60,4} end
+    if number == 33 then return {'Maul',60,4} end
+
+    if number == 42 then return {'Karis',60,4} end
+    if number == 43 then return {'Asajj Ventress',60,4} end
+    if number == 44 then return {'Naa\'leeth',60,4} end
+
+    if number == 64 then return {'Morgan Elsbeth',60,4} end
+    if number == 65 then return {'Talia',60,4} end
+
+    if number == 122 then return {'Mother Talzin',60,4} end
+    if number == 123 then return {'Taron Malicos',60,4} end
+
+    if number < 198 then
+        local randint = love.math.random()
+        if randint <= 0.5 then return {'Nightsister Zombie',60,4} end
+        if randint <= 0.67 then return {'Nightsister Acolyte',60,4} end
+        if randint <= 0.84 then return {'Nightsister Initiate',60,4} end
+        if randint <= 0.92 then return {'Nightbrother Warrior',60,4} end
+        return {'Nightbrother Archer',60,4}
+    end
+
+    if number == 200 then return {'Old Daka',60,4} end
+    if number == 201 then return {'Nightsister Merrin',60,4} end
+
+    if number < 204 then return {'Nightsister Spirit',60,4} end
+end
+
 function sithTriumvirate(number)
     if number == 'max' then return 18 end
 
