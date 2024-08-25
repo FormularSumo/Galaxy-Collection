@@ -3688,6 +3688,17 @@ Characters = {
     ['projectile1'] = 'Red Laser'
 },
 
+['Nightsister Acolyte'] = {
+    ['meleeOffense'] = 8332,
+    ['rangedOffense'] = 9907,
+    ['defense'] = 9357,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['projectile1'] = 'Purple Laser',
+    ['projectile2'] = 'Fire',
+    ['projectileCount'] = 2
+},
+
 ['Nightbrother Archer'] = {
     ['meleeOffense'] = 8417,
     ['rangedOffense'] = 9884,
