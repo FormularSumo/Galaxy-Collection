@@ -193,7 +193,7 @@ function love.keypressed(key,scancode,isrepeat)
                 love.audio.setVolume(0)
             end
             Settings['volume_level'] = love.audio.getVolume()
-            love.filesystem.read(binser.s('Settings.txt', Settings))
+            love.filesystem.write('Settings.txt',binser.s(Settings))
         end
     end
     if key == 'up' or key == 'down' then
