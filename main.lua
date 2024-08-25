@@ -2,7 +2,7 @@ function love.load()
     --Libraries and other files that are required
     push = require 'push'
     Class = require 'class'
-    bitser = require 'bitser'
+    binser = require 'binser'
     local moonshine = require 'moonshine'
     
     require 'Card'
@@ -17,7 +17,6 @@ function love.load()
     require 'states/SettingsState'
     require 'states/CampaignState'
     require 'states/DeckeditState'
-    require 'states/ExitState'
     require 'campaign'
     require 'other functions'
     require 'WeaponManager'
@@ -56,26 +55,11 @@ function love.load()
     blur.vignette.radius = 1
 
     backgroundCanvas = love.graphics.newCanvas(1920,1080)
+    evolutionImage = love.graphics.newImage('Graphics/Evolution.png')
+    evolutionMaxImage = love.graphics.newImage('Graphics/Evolution Max.png')
     
-    imageDecoderThreads = {}
-    if OS == "Android" then --For some reason Android and ChromeOS devices 
-        imageDecoderThreads[1] = love.thread.newThread("ImageDecoderThread.lua")
-    else
-        for i = 1, math.max(love.system.getProcessorCount()-1,1) do --Creates as many threads as the system has minus 1, but at least 1.
-            imageDecoderThreads[i] = love.thread.newThread("ImageDecoderThread.lua")
-        end
-    end
-    love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution")
-    love.thread.getChannel("imageDecoderQueue"):push("Graphics/Evolution Max")
-    love.thread.getChannel("imageDecoderOutput")
-    imageDecoderThreads[1]:start()
-    if imageDecoderThreads[2] then 
-        imageDecoderThreads[2]:start() --No point starting more than 2 as there's only 2 images being decoded
-    end
-
     gui = {}
     songs = {}
-    background = {}
     paused = false
 
     UserData = {}
@@ -110,12 +94,11 @@ function love.load()
             ['pause_on_loose_focus'] = true,
             ['volume_level'] = 0.5,
             ['FPS_counter'] = false,
-            ['videos'] = true
         }
-        bitser.dumpLoveFile('Settings.txt',Settings)
+        love.filesystem.write('Settings.txt',binser.s(Settings))
     end
 
-    Settings = bitser.loadLoveFile('Settings.txt')
+    Settings = binser.d(love.filesystem.read('Settings.txt'))
     love.audio.setVolume(Settings['volume_level'])
 
     if love.filesystem.getInfo('Player 1 cards.txt') == nil and love.filesystem.getInfo('User Data.txt') == nil then
@@ -125,26 +108,26 @@ function love.load()
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
             if Settings['videos'] == nil then Settings['videos'] = true end
-            bitser.dumpLoveFile('User Data.txt',UserData)
+            love.filesystem.write('User Data.txt',binser.s(UserData))
 
             --If any save data is from pre 0.11 (doesn't contain userdata, character levels or evolutions), delete it to avoid crashing
-            if love.filesystem.getInfo('Player 1 deck.txt') ~= nil and bitser.loadLoveFile('Player 1 deck.txt') ~= nil then
-                P1deckCards = bitser.loadLoveFile('Player 1 deck.txt')
+            if love.filesystem.getInfo('Player 1 deck.txt') ~= nil and binser.d(love.filesystem.read('Player 1 deck.txt')) ~= nil then
+                P1deckCards = binser.d(love.filesystem.read('Player 1 deck.txt'))
                 for k, pair in pairs(P1deckCards) do
                     if P1deckCards[k] ~= nil and not Characters[P1deckCards[k][1]] then
                         P1deckCards[k] = nil
                     end
                 end
-                bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+                love.filesystem.write('Player 1 deck.txt',binser.s(P1deckCards))
             end
-            if love.filesystem.getInfo('Player 1 cards.txt') ~= nil and bitser.loadLoveFile('Player 1 cards.txt') ~= nil then
-                P1cards = bitser.loadLoveFile('Player 1 cards.txt')
+            if love.filesystem.getInfo('Player 1 cards.txt') ~= nil and binser.d(love.filesystem.read('Player 1 cards.txt')) ~= nil then
+                P1cards = binser.d(love.filesystem.read('Player 1 cards.txt'))
                 for k, pair in pairs(P1cards) do
                     if P1cards[k] ~= nil and not Characters[P1cards[k][1]] then
                         P1cards[k] = nil
                     end
                 end
-                bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+                love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
                 P1cards = nil
             end
         end
@@ -152,11 +135,11 @@ function love.load()
         if love.filesystem.getInfo('Player 1 deck.txt') == nil then
             P1deckCards = {}
         else
-            P1deckCards = bitser.loadLoveFile('Player 1 deck.txt') or {} --In case save file has corrupted, or is a pre-bitser file
+            P1deckCards = binser.d(love.filesystem.read('Player 1 deck.txt')) or {} --In case save file has corrupted, or is a pre-binser file
         end
 
-        if love.filesystem.getInfo('Player 1 cards.txt') == nil or bitser.loadLoveFile('Player 1 cards.txt') == nil then
-            bitser.dumpLoveFile('Player 1 cards.txt',{})
+        if love.filesystem.getInfo('Player 1 cards.txt') == nil or binser.d(love.filesystem.read('Player 1 cards.txt')) == nil then
+            love.filesystem.write('Player 1 cards.txt',binser.s({}))
         end
     end
 
@@ -167,7 +150,6 @@ function love.load()
         ['SettingsState'] = function() return SettingsState() end,
         ['CampaignState'] = function() return CampaignState() end,
         ['DeckeditState'] = function() return DeckeditState() end,
-        ['ExitState'] = function() return ExitState() end,
     }
     gStateMachine:change('HomeState')
 end
@@ -179,15 +161,6 @@ end
 function love.focus(InFocus)
     focus = InFocus
     if Settings['pause_on_loose_focus'] and not (paused and gStateMachine.state == 'GameState' and not winner) then pause(not focus) end --Pause/play game if pause_on_loose_focus setting is on
-end
-
-function love.lowmemory()
-    if toggleSetting('videos',false) ~= false then
-        if GameState == "SettingsState" then
-            gui[3]:toggle()
-        end
-        updateBackground()
-    end
 end
 
 function love.joystickadded()
@@ -220,7 +193,7 @@ function love.keypressed(key,scancode,isrepeat)
                 love.audio.setVolume(0)
             end
             Settings['volume_level'] = love.audio.getVolume()
-            bitser.dumpLoveFile('Settings.txt', Settings)
+            love.filesystem.write('Settings.txt',binser.s(Settings))
         end
     end
     if key == 'up' or key == 'down' then
@@ -258,7 +231,7 @@ function love.keyreleased(key)
     if key == 'return' or key == 'kpenter' then
         love.mouse.buttonsReleased[1] = true
         if not (love.mouse.isDown(1) or love.keyboard.wasDown('return') or love.keyboard.wasDown('kpenter')) then mouseDown = false end
-    elseif key == 'escape' then
+    elseif key == 'backspace' then
         gStateMachine:back()
     end
     -- gStateMachine:keyreleased(key)
@@ -451,7 +424,7 @@ function love.update(dt)
         if yscroll < -maxScroll then yscroll = -maxScroll rawyscroll = 0 end
     end
 
-    --Manage song queue and background video looping
+    --Manage song queue
     if not paused then
         if songs[0] and not songs[currentSong]:isPlaying() then
             if songs[currentSong+1] then
@@ -460,11 +433,6 @@ function love.update(dt)
                 currentSong = 0
             end
             songs[currentSong]:play()
-        end
-
-        if background['Video'] and not background['Background']:isPlaying() then
-            background['Background']:seek(background['Seek'])
-            background['Background']:play() 
         end
     end
 
@@ -502,8 +470,8 @@ function love.draw()
         else
             push.start()
         end
-        if background['Background'] then
-            love.graphics.draw(background['Background'])
+        if background then
+            love.graphics.draw(background)
         end
         if gStateMachine.state == 'GameState' and not winner and not paused then
             for k, pair in pairs(gui) do
