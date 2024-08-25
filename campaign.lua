@@ -131,6 +131,7 @@ end
 function dathomir(number)
     if number == 'max' then return 205 end
 
+    if number == 31 then return {'Feral',60,4} end
     if number == 32 then return {'Savage Opress',60,4} end
     if number == 33 then return {'Maul',60,4} end
 
