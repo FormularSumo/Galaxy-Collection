@@ -4864,7 +4864,7 @@ Characters = {
     ['evade'] = 0.05,
     ['range'] = 3,
     ['projectile1'] = 'Fire',
-    ['weapon1'] = 'Sword',
+    ['weapon1'] = 'Nightsister Sword',
     ['weaponCount'] = 2
 },
 
