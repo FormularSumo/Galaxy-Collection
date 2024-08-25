@@ -3651,6 +3651,17 @@ Characters = {
     ['weapon1'] = 'Mother Talzin Sword'
 },
 
+['Naa\'leeth'] = {
+    ['meleeOffense'] = 8343,
+    ['rangedOffense'] = 9916,
+    ['defense'] = 9366,
+    ['evade'] = 0.04,
+    ['range'] = 3,
+    ['projectile1'] = 'Purple Laser',
+    ['projectile2'] = 'Fire',
+    ['projectileCount'] = 2
+},
+
 ['Naga Sadow'] = {
     ['meleeOffense'] = 18215,
     ['rangedOffense'] = 18315,
