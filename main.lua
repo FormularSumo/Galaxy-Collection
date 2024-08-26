@@ -112,10 +112,9 @@ function love.load()
             ['FPS_counter'] = false,
             ['videos'] = true
         }
-        bitser.dumpLoveFile('Settings.txt',Settings)
+    else
+        Settings = bitser.loadLoveFile('Settings.txt')
     end
-
-    Settings = bitser.loadLoveFile('Settings.txt')
     love.audio.setVolume(Settings['volume_level'])
 
     if love.filesystem.getInfo('Player 1 cards.txt') == nil and love.filesystem.getInfo('User Data.txt') == nil then

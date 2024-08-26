@@ -204,4 +204,5 @@ function tutorial()
     bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
     bitser.dumpLoveFile('Player 1 cards.txt',{})
     UserData['Credits'] = 100
+    bitser.dumpLoveFile('User Data.txt',UserData)
 end
