@@ -9,7 +9,8 @@ function DeckeditState:init()
     self.page = 0
     self.cardsOnDisplayAreBlank = false
     self.subState = 'deck'
-    self:reloadDeck()
+    self:reloadDeck(true)
+    self:updateCardsOnDisplay()
 
     for k, pair in pairs(self.imagesInfo) do
         love.thread.getChannel("imageDecoderQueue"):push(k)
@@ -62,7 +63,7 @@ function DeckeditState:loadCards() --Initial card loading and sorting
     P1cards = Temporary
 end
 
-function DeckeditState:reloadDeck() --Using the deck layout that's already been defined, create and store each of these cards in the relevant tables
+function DeckeditState:reloadDeck(partial) --Using the deck layout that's already been defined, create and store each of these cards in the relevant tables
     local P1column = 2
     local rowCorrectment = 0
     P1strength = 0
@@ -85,7 +86,9 @@ function DeckeditState:reloadDeck() --Using the deck layout that's already been 
             P1deck[i] = CardEditor('Blank',row,P1column,i,nil,nil,true,self.images,self.imagesInfo)
         end
     end
-    self:updateCardsOnDisplay()
+    if not partial then
+        self:updateGui()
+    end
 end
 
 function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the cards which are currently displayed in the inventory with new ones
@@ -219,7 +222,8 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
     if not sandbox then
         bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
     end
-    self:reloadDeck()
+    self:reloadDeck(partial)
+    self:updateCardsOnDisplay()
 end
 
 function DeckeditState:updateGui() --Update GUI with cards so that they display+update correctly
