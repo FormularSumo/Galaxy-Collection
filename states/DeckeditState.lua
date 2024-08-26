@@ -411,7 +411,7 @@ function DeckeditState:keypressed(key)
                                 repositionMouse(22)
                             elseif k == 22 then
                                 repositionMouse(21)
-                            elseif gui[k-6] and k - 6 ~= 1 then
+                            elseif gui[k-6] and k - 6 > 3 then
                                 repositionMouse(k-6)
                             else
                                 repositionMouse(mouseTouching.row+24+12)
