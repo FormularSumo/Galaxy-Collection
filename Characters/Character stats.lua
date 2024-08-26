@@ -742,6 +742,14 @@ Characters = {
     ['weapon1'] = 'Vibroblade'
 },
 
+['Brother Viscus'] = {
+    ['meleeOffense'] = 10041,
+    ['defense'] = 8825,
+    ['evade'] = 0.03,
+    ['range'] = 1,
+    ['weapon1'] = 'Nightbrother Weapon'
+},
+
 ['Burg'] = {
     ['meleeOffense'] = 15307,
     ['rangedOffense'] = 12619,
@@ -3660,9 +3668,9 @@ Characters = {
 },
 
 ['Naa\'leeth'] = {
-    ['meleeOffense'] = 8343,
-    ['rangedOffense'] = 9916,
-    ['defense'] = 9366,
+    ['meleeOffense'] = 8347,
+    ['rangedOffense'] = 9920,
+    ['defense'] = 9370,
     ['evade'] = 0.04,
     ['range'] = 3,
     ['projectile1'] = 'Purple Laser',
