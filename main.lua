@@ -107,7 +107,6 @@ function love.load()
     else
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
-            if Settings['videos'] == nil then Settings['videos'] = true end
             love.filesystem.write('User Data.txt',binser.s(UserData))
 
             --If any save data is from pre 0.11 (doesn't contain userdata, character levels or evolutions), delete it to avoid crashing

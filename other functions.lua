@@ -7,9 +7,6 @@ function pause(pause)
     if songs[0] then
         if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
     end
-    if background['Video'] then
-        if paused then background['Background']:pause() else background['Background']:play() end
-    end
     if not (winner and gStateMachine.state == 'GameState') then
         gStateMachine:pause()
         if gStateMachine.state == 'GameState' and not blurred then
