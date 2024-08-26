@@ -113,7 +113,7 @@ function love.load()
             ['volume_level'] = 0.5,
             ['FPS_counter'] = false,
             ['videos'] = true,
-            ['active_deck'] = 'Player 1 cards.txt'
+            ['active_deck'] = 'Player 1 deck.txt'
         }
     else
         Settings = bitser.loadLoveFile('Settings.txt')
