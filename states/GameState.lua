@@ -6,7 +6,7 @@ function GameState:init()
     self.images = {}
     self.imagesInfo = {}
     self.gamespeed = 1
-    self.Nextcards = {
+    self.P1Nextcards = {
         [0] = 18,
         [1] = 19,
         [2] = 20,
@@ -14,7 +14,15 @@ function GameState:init()
         [4] = 22,
         [5] = 23,
     }
-    self.currentRows = {
+    self.P2Nextcards = {
+        [0] = 18,
+        [1] = 19,
+        [2] = 20,
+        [3] = 21,
+        [4] = 22,
+        [5] = 23,
+    }
+    self.P1currentRows = {
         [0] = 0,
         [1] = 1,
         [2] = 2,
@@ -22,7 +30,23 @@ function GameState:init()
         [4] = 4,
         [5] = 5,
     }
-    self.initialRows = {
+    self.P2currentRows = {
+        [0] = 0,
+        [1] = 1,
+        [2] = 2,
+        [3] = 3,
+        [4] = 4,
+        [5] = 5,
+    }
+    self.P1initialRows = {
+        [0] = 0,
+        [1] = 1,
+        [2] = 2,
+        [3] = 3,
+        [4] = 4,
+        [5] = 5,
+    }
+    self.P2initialRows = {
         [0] = 0,
         [1] = 1,
         [2] = 2,
@@ -205,12 +229,16 @@ function GameState:MoveDown(deck,row)
         self.rowsMoved[row] = true
         if deck == P1deck then
             if not self.P1rows[row] then return end
+            self.P1currentRows[self.P1initialRows[row]] = self.P1currentRows[self.P1initialRows[row]] + 1
+
+            self.P1initialRows[row+1] = self.P1initialRows[row]
+            self.P1initialRows[row] = nil
         else
             if not self.P2rows[row] then return end
-            self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] + 1
+            self.P2currentRows[self.P2initialRows[row]] = self.P2currentRows[self.P2initialRows[row]] + 1
 
-            self.initialRows[row+1] = self.initialRows[row]
-            self.initialRows[row] = nil
+            self.P2initialRows[row+1] = self.P2initialRows[row]
+            self.P2initialRows[row] = nil
         end
         for k, pair in pairs(deck) do
             if deck[k].row == row then
@@ -229,12 +257,16 @@ function GameState:MoveUp(deck,row)
         self.rowsMoved[row] = true
         if deck == P1deck then
             if not self.P1rows[row] then return end
+            self.P1currentRows[self.P1initialRows[row]] = self.P1currentRows[self.P1initialRows[row]] - 1
+
+            self.P1initialRows[row-1] = self.P1initialRows[row]
+            self.P1initialRows[row] = nil
         else
             if not self.P2rows[row] then return end
-            self.currentRows[self.initialRows[row]] = self.currentRows[self.initialRows[row]] - 1
+            self.P2currentRows[self.P2initialRows[row]] = self.P2currentRows[self.P2initialRows[row]] - 1
 
-            self.initialRows[row-1] = self.initialRows[row]
-            self.initialRows[row] = nil
+            self.P2initialRows[row-1] = self.P2initialRows[row]
+            self.P2initialRows[row] = nil
         end 
         for k, pair in pairs(deck) do
             if deck[k].row == row then
@@ -354,11 +386,21 @@ function GameState:update(dt)
                     pair:move()
                 end
                 
-                if self.timer > 3 and self.P2length > self.timer * 6 then
-                    for i=0,5 do
-                        if P2deckCards(self.Nextcards[i]) then
-                            P2deck[self.Nextcards[i]] = Card(P2deckCards(self.Nextcards[i]),2,self.Nextcards[i],12,self.images,self.imagesInfo)
-                            self.Nextcards[i] = self.Nextcards[i] + 6
+                if self.timer > 3 and (self.P2length > self.timer * 6 or self.P1length > self.timer * 6) then
+                    if self.P1length > self.timer * 6 then
+                        for i=0,5 do
+                            if P1deckCards[self.P1Nextcards[i]] then
+                                P1deck[self.P1Nextcards[i]] = Card(P1deckCards[self.P1Nextcards[i]],1,self.P1Nextcards[i],-1,self.images,self.imagesInfo)
+                                self.P1Nextcards[i] = self.P1Nextcards[i] + 6
+                            end
+                        end
+                    end
+                    if self.P2length > self.timer * 6 then
+                        for i=0,5 do
+                            if P2deckCards(self.P2Nextcards[i]) then
+                                P2deck[self.P2Nextcards[i]] = Card(P2deckCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.images,self.imagesInfo)
+                                self.P2Nextcards[i] = self.P2Nextcards[i] + 6
+                            end
                         end
                     end
                     for k, pair in pairs(self.imagesInfo) do
@@ -373,11 +415,21 @@ function GameState:update(dt)
                 end
 
             else
-                if self.P2length > 42 then
-                    for i=0,5 do
-                        if not P2deck[42+self.currentRows[i]] and P2deckCards(self.Nextcards[i]) ~= nil then
-                            P2deck[42+self.currentRows[i]] = Card(P2deckCards(self.Nextcards[i]),2,42+self.currentRows[i],13,self.images,self.imagesInfo)
-                            self.Nextcards[i] = self.Nextcards[i] + 6
+                if self.P2length > 42 or self.P1length > 42 then
+                    if self.P1length > 42 then
+                        for i=0,5 do
+                            if not P1deck[42+self.P1currentRows[i]] and P1deckCards[self.P1Nextcards[i]] ~= nil then
+                                P1deck[42+self.P1currentRows[i]] = Card(P1deckCards[self.P1Nextcards[i]],1,42+self.P1currentRows[i],-2,self.images,self.imagesInfo)
+                                self.P1Nextcards[i] = self.P1Nextcards[i] + 6
+                            end
+                        end
+                    end
+                    if self.P2length > 42 then
+                        for i=0,5 do
+                            if not P2deck[42+self.P2currentRows[i]] and P2deckCards(self.P2Nextcards[i]) ~= nil then
+                                P2deck[42+self.P2currentRows[i]] = Card(P2deckCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.images,self.imagesInfo)
+                                self.P2Nextcards[i] = self.P2Nextcards[i] + 6
+                            end
                         end
                     end
                     for k, pair in pairs(self.imagesInfo) do
