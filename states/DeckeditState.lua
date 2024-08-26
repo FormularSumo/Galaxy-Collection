@@ -42,10 +42,8 @@ function DeckeditState:loadCards(reload) --Initial card loading and sorting
 
     if sandbox then
         for k, pair in pairs(Characters) do
-            if not self.P1deckList[k] then --Prevent cards already in deck also existing in inventory
-                count = count + 1
-                P1cards[count] = {k,60,4}
-            end
+            count = count + 1
+            P1cards[count] = {k,60,4}
         end
     else
         for k, pair in pairs(bitser.loadLoveFile('Player 1 cards.txt')) do
@@ -178,10 +176,12 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
     local count = 0
     local sortedCharacters = {}
  
-    for k, pair in pairs(P1deckCards) do
-        if pair ~= 'Blank' then
-            count = count + 1
-            sortedCharacters[count] = pair
+    if not sandbox then
+        for k, pair in pairs(P1deckCards) do
+            if pair ~= 'Blank' then
+                count = count + 1
+                sortedCharacters[count] = pair
+            end
         end
     end
     for k, pair in pairs(P1cards) do
@@ -190,7 +190,9 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
     end
 
     P1deckCards = {}
-    P1cards = {}
+    if not sandbox then
+        P1cards = {}
+    end
 
     table.sort(sortedCharacters,compareCharacterStrength)
 
@@ -198,7 +200,7 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
         for k, pair in ipairs(sortedCharacters) do
             if k-1 < 18 then
                 P1deckEdit(k-1,pair, true)
-            else
+            elseif not sandbox then
                 P1cards[k-19] = pair
             end
         end
@@ -206,8 +208,10 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
         for i = 0,18 do
             P1deckEdit(i,nil,true)
         end
-        for k, pair in ipairs(sortedCharacters) do
-            P1cards[k-1] = pair
+        if not sandbox then
+            for k, pair in ipairs(sortedCharacters) do
+                P1cards[k-1] = pair
+            end
         end
     end
     bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
