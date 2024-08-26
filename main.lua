@@ -101,7 +101,7 @@ function love.load()
     keyHoldTimer = 0
     keyPressedTimer = love.timer.getTime()
     mouseLocked = false
-    sandbox = false
+    sandbox = true
     yscroll = 0
     rawyscroll = 0
 

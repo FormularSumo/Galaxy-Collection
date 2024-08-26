@@ -58,12 +58,13 @@ function CardEditor:swap()
                 self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
             end
+            gStateMachine.current:updateGui()
         else
             --Swap stats between the two card being swapped
             self.row, self.column, self.number, self.x, self.y, self.inDeck, mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck = mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck, self.row, self.column, self.number, self.x, self.y, self.inDeck
 
             if mouseTrapped.inDeck then
-                P1deck[mouseTrapped.number] = mouseTrapped --Update gui
+                P1deck[mouseTrapped.number] = mouseTrapped
                 P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution},true)
             else --Only happens if not in sandbox
                 P1cardsEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution},true)
@@ -85,6 +86,7 @@ function CardEditor:swap()
 
             if not (mouseTrapped.inDeck and self.inDeck) then
                 gStateMachine.current:loadCards()
+                gStateMachine.current:updateCardsOnDisplay()
                 if self.inDeck then
                     if self.level ~= nil then P1strength = P1strength + characterStrength({self.name,self.level,self.evolution}) end
                     if mouseTrapped.level ~= nil then P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) end
@@ -92,6 +94,8 @@ function CardEditor:swap()
                     if mouseTrapped.level ~= nil then P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) end
                     if self.level ~= nil then P1strength = P1strength - characterStrength({self.name,self.level,self.evolution}) end
                 end
+            else
+                gStateMachine.current:updateGui()
             end
         end
         mouseTrapped = false
