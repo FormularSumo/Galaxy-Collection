@@ -170,6 +170,7 @@ function DeckeditState:loadRemainingImages()
     end
     love.thread.getChannel("imageDecoderQueue"):push('Graphics/Evolution Big')
     love.thread.getChannel("imageDecoderQueue"):push('Graphics/Evolution Max Big')
+    self.P1deckList = nil
 end
 
 function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre-defined buttons
