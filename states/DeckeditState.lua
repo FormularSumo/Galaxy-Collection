@@ -203,6 +203,8 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
                 P1deckEdit(k-1,pair, true)
             elseif not sandbox then
                 P1cards[k-19] = pair
+            else
+                break
             end
         end
     elseif deck == 'blank' then
