@@ -173,7 +173,7 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
     love.filesystem.write(Settings['active_deck'],binser.s(P1deckCards))
 
     if not sandbox then
-        love.filesystem.write(Settings['active_deck'],binser.s(P1cards))
+        love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
     end
     self:reloadDeck(partial)
     self:updateCardsOnDisplay()
