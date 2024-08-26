@@ -224,7 +224,7 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
     bitser.dumpLoveFile(Settings['active_deck'],P1deckCards)
 
     if not sandbox then
-        bitser.dumpLoveFile(Settings['active_deck'],P1cards)
+        bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
     end
     self:reloadDeck(partial)
     self:updateCardsOnDisplay()
