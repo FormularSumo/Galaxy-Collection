@@ -77,7 +77,7 @@ function CardEditor:swap()
                 love.filesystem.write(Settings['active_deck'],binser.s(P1deckCards))
             end
             if not sandbox and (not mouseTrapped.inDeck or not self.inDeck) then
-                love.filesystem.write('Player 1 cards.txt',binser.s(P1cards)
+                love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
             end
 
             if not (mouseTrapped.inDeck and self.inDeck) then

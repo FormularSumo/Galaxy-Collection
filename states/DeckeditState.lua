@@ -183,7 +183,7 @@ function DeckeditState:changeDeck(deck) --Changes active deck to be 1, 2 or 3
     if Settings['active_deck'] ~= deck then --Don't change if this is the already active one
         Settings['active_deck'] = deck
         love.filesystem.write('Settings.txt',binser.s(Settings))
-        P1deckCards = binser.d(ove.filsystem.read(Settings['active_deck']))
+        P1deckCards = binser.d(love.filesystem.read(Settings['active_deck']))
         self:reloadDeck()
     end
 end

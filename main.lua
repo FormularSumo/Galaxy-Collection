@@ -145,13 +145,13 @@ function love.load()
         end
 
         local function loadDeck(deck)
-            if love.filesystem.getInfo(deck) == nil or bitser.loadLoveFile(deck) == nil then
-                bitser.dumpLoveFile(deck,{})
+            if love.filesystem.getInfo(deck) == nil or binser.d(love.filesystem.read((deck))) == nil then
+                love.filesystem.write(deck,binser.s({}))
                 if Settings['active_deck'] == deck then 
                     P1deckCards = {}
                 end
             elseif Settings['active_deck'] == deck then
-                P1deckCards = bitser.loadLoveFile(deck)
+                P1deckCards = binser.d(love.filesystem.read(deck))
             end
         end
 
