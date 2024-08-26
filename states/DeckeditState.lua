@@ -23,12 +23,16 @@ function DeckeditState:init()
     background['Name'] = 'Death Star Control Room'
     background['Video'] = false
     createBackground()
-    gui[1] = Button(function() gStateMachine:change('HomeState','music','music') end,'Main Menu',font80,nil,'centre',20)
-    gui[2] = Button(function() self:resetDeck('strongest') end,'Auto',font80,nil,'centre',200)
-    gui[3] = Button(function() self:resetDeck('blank') end,'Clear',font80,nil,'centre',380)
+    gui[1] = Button(function() gStateMachine:change('HomeState','music','music') end,'Main Menu',font70,nil,'centre',20)
+    gui[2] = Button(function() self:resetDeck('strongest') end,'Auto',font80,nil,960-love.graphics.newText(font80,'Auto'):getWidth()/2-160,200)
+    gui[3] = Button(function() self:resetDeck('blank') end,'Clear',font80,nil,960-love.graphics.newText(font80,'Clear'):getWidth()/2+160,200)
+    gui[4] = Button(function() self:changeDeck('Player 1 deck.txt') end,'1',font80SWrunes,nil,960-love.graphics.newText(font80SWrunes,'1'):getWidth()/2-90,770)
+    gui[5] = Button(function() self:changeDeck('Player 1 deck 2.txt') end,'2',font80SWrunes,nil,'centre',770)
+    gui[6] = Button(function() self:changeDeck('Player 1 deck 3.txt') end,'3',font80SWrunes,nil,960-love.graphics.newText(font80SWrunes,'3'):getWidth()/2+90,770)
+    gui['Deck'] = Text('Deck',font90SW,'centre',670)
     gui['RemoveCard'] = RemoveCard()
-    gui[22] = Button(function() self:updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,nil,nil,true)
-    gui[23] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,nil,nil,true)
+    gui[25] = Button(function() self:updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,nil,nil,true)
+    gui[26] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,nil,nil,true)
 end
 
 
@@ -47,7 +51,7 @@ function DeckeditState:loadCards() --Initial card loading and sorting
             P1cards[count] = {k,60,4}
         end
     else
-        for k, pair in pairs(bitser.loadLoveFile('Player 1 cards.txt')) do
+        for k, pair in pairs(bitser.loadLoveFile(Settings['active_deck'])) do
             count = count + 1
             P1cards[count] = pair
         end
@@ -217,27 +221,36 @@ function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre
             end
         end
     end
-    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+    bitser.dumpLoveFile(Settings['active_deck'],P1deckCards)
 
     if not sandbox then
-        bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+        bitser.dumpLoveFile(Settings['active_deck'],P1cards)
     end
     self:reloadDeck(partial)
     self:updateCardsOnDisplay()
 end
 
+function DeckeditState:changeDeck(deck) --Changes active deck to be 1, 2 or 3
+    if Settings['active_deck'] ~= deck then --Don't change if this is the already active one
+        Settings['active_deck'] = deck
+        bitser.dumpLoveFile('Settings.txt', Settings)
+        P1deckCards = bitser.loadLoveFile(Settings['active_deck'])
+        self:reloadDeck()
+    end
+end
+
 function DeckeditState:updateGui() --Update GUI with cards so that they display+update correctly
     for k, v in pairs(P1deck) do
         if k < 6 then
-            gui[k+16] = v
+            gui[k+19] = v
         elseif k < 12 then
-            gui[k+4] = v
+            gui[k+7] = v
         else
-            gui[k-8] = v
+            gui[k-5] = v
         end
     end
     for k, v in pairs(self.cardsOnDisplay) do
-        gui[k+24] = v
+        gui[k+27] = v
     end
     collectgarbage()
 end
@@ -333,7 +346,11 @@ end
 
 function DeckeditState:back()
     if self.subState == 'deck' then
-        gStateMachine:change('HomeState','music','music')
+        if mouseTrapped then
+            mouseTrapped = false
+        else
+            gStateMachine:change('HomeState','music','music')
+        end
     else
         self:exitStats()
     end
@@ -361,60 +378,88 @@ function DeckeditState:keypressed(key)
                     if v == mouseTouching then
                         if key == 'right' then
                             if k == 1 then
-                                repositionMouse(24)
+                                repositionMouse(27)
                             elseif k == 2 then
-                                repositionMouse(25)
-                            elseif k == 3 then
-                                repositionMouse(26)   
-                            elseif k == 16 then
-                                repositionMouse(1)
-                            elseif k == 17 then
-                                repositionMouse(2)
-                            elseif k == 18 then
                                 repositionMouse(3)
-                            elseif (k < 20 and k > 16) or (k == 20 and gui['RemoveCard'].visible == false) then
-                                repositionMouse(k+8)
-                            elseif k == 20 then
-                                repositionMouse(gui['RemoveCard'])
-                            elseif k == 21 then
-                                repositionMouse(22)
-                            elseif k == 22 then
-                                repositionMouse(23)
-                            elseif k == 23 then
-                                repositionMouse(29)
+                            elseif k == 3 then
+                                repositionMouse(28)
+                            elseif k == 4 then
+                                repositionMouse(5)
+                            elseif k == 5 then
+                                repositionMouse(6)
+                            elseif k == 6 then
+                                repositionMouse(31)
+                            elseif k < 25 and k > 18 then
+                                if not mouseTrapped then
+                                    if k == 19 then
+                                        repositionMouse(1)
+                                    elseif k == 20 then
+                                        repositionMouse(2)
+                                    elseif k == 21 or k == 22 then
+                                        repositionMouse(k+8)
+                                    elseif k == 23 then
+                                        repositionMouse(4)
+                                    elseif k == 24 then
+                                        repositionMouse(25)
+                                    end
+                                else
+                                    if k == 22 and gui['RemoveCard'].visible == true then
+                                        repositionMouse(gui['RemoveCard'])
+                                    else
+                                        repositionMouse(k+8)
+                                    end
+                                end
+                            elseif k == 25 then
+                                repositionMouse(26)
+                            elseif k == 26 then
+                                repositionMouse(32)
                             elseif gui[k+6] then
                                 repositionMouse(k+6)
                             else
-                                repositionMouse(mouseTouching.row+4)
+                                repositionMouse(mouseTouching.row+7)
                             end
                         end
                         if key == 'left' then
                             if k == 1 then
-                                repositionMouse(16)
+                                repositionMouse(19)
                             elseif k == 2 then
-                                repositionMouse(17)
+                                repositionMouse(20)
                             elseif k == 3 then
-                                repositionMouse(18)
-                            elseif k == 24 then
-                                repositionMouse(1)
-                            elseif k == 25 then
                                 repositionMouse(2)
-                            elseif k == 26 then
-                                repositionMouse(3)
-                            elseif (k < 28 and k > 24) or (k == 28 and gui['RemoveCard'].visible == false) then
-                                repositionMouse(k-8) 
-                            elseif k == 28 then
-                                repositionMouse(gui['RemoveCard'])
-                            elseif k == 29 then
+                            elseif k == 4 then
                                 repositionMouse(23)
-                            elseif k == 23 then
-                                repositionMouse(22)
-                            elseif k == 22 then
-                                repositionMouse(21)
-                            elseif gui[k-6] and k - 6 > 3 then
+                            elseif k == 5 then
+                                repositionMouse(4)
+                            elseif k == 6 then
+                                repositionMouse(5)
+                            elseif (k < 33 and k > 26) then
+                                if not mouseTrapped then
+                                    if k == 27 then
+                                        repositionMouse(1)
+                                    elseif k == 28 then
+                                        repositionMouse(3)
+                                    elseif k == 29 or k == 30 then
+                                        repositionMouse(k-8)
+                                    elseif k == 31 then
+                                        repositionMouse(6)
+                                    elseif k == 32 then
+                                        repositionMouse(26)
+                                    end
+                                else
+                                    if k == 30 and gui['RemoveCard'].visible == true then
+                                        repositionMouse(gui['RemoveCard'])
+                                    else
+                                        repositionMouse(k-8)
+                                    end
+                                end
+                            elseif k == 26 then
+                                repositionMouse(25)
+                            elseif k == 25 then
+                                repositionMouse(24)
+                            elseif gui[k-6] and k - 6 > 6 then
                                 repositionMouse(k-6)
                             else
-                                repositionMouse(mouseTouching.row+24+12)
+                                repositionMouse(mouseTouching.row+27+12)
                             end
                         end
                         return
@@ -422,18 +467,18 @@ function DeckeditState:keypressed(key)
                 end
                 if mouseTouching == gui['RemoveCard'] then
                     if key == 'left' then
-                        repositionMouse(20)
+                        repositionMouse(22)
                     elseif key == 'right' then
-                        repositionMouse(28)
+                        repositionMouse(30)
                     end
                 end
             else    
                 for k, v in ipairs(gui) do
                     if v == mouseTouching then
-                        if key == 'right' and k == 2 then
-                            repositionMouse(3)
-                        elseif key == 'left' and k == 3 then
-                            repositionMouse(2)
+                        if key == 'right' and k == 5 then
+                            repositionMouse(6)
+                        elseif key == 'left' and k == 6 then
+                            repositionMouse(5)
                         end
                     end
                 end
@@ -501,7 +546,10 @@ function DeckeditState:renderForeground()
     if self.subState == 'deck' then
         love.graphics.setColor(0,0,0,0.4)
         love.graphics.rectangle('fill',VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2-20,890,font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))+40,69,20)
-        love.graphics.setColor(1,1,1,1)
+        love.graphics.setColor(0,0,0,0.6)
+        love.graphics.rectangle('fill',VIRTUALWIDTH/2-font80SWrunes:getWidth('123')/2-52,660,font80SWrunes:getWidth('123')+93,200,35,25)
+        love.graphics.setColor(1,1,1,0.2)
+        love.graphics.rectangle('line',VIRTUALWIDTH/2-font80SWrunes:getWidth('123')/2-52,660,font80SWrunes:getWidth('123')+93,200,35,25)
         love.graphics.setColor(1,1,1,1)
         love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength+0.5)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2,900)
     end

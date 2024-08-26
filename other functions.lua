@@ -135,7 +135,7 @@ function P1deckEdit(position,name,nosave)
     P1deckCards[position] = name
 
     if not nosave then
-        bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+        bitser.dumpLoveFile(Settings['active_deck'],P1deckCards)
     end
 end
 
@@ -202,6 +202,8 @@ function tutorial()
     P1deckEdit(4,{'R2-D2',60,4},true)
 
     bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+    bitser.dumpLoveFile('Player 1 deck 2.txt',{})
+    bitser.dumpLoveFile('Player 1 deck 3.txt',{})
     bitser.dumpLoveFile('Player 1 cards.txt',{})
     UserData['Credits'] = 100
     bitser.dumpLoveFile('User Data.txt',UserData)

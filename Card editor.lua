@@ -82,10 +82,10 @@ function CardEditor:swap()
             end
 
             if mouseTrapped.inDeck or self.inDeck then
-                bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+                bitser.dumpLoveFile(Settings['active_deck'],P1deckCards)
             end
             if not sandbox and (not mouseTrapped.inDeck or not self.inDeck) then
-                bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+                bitser.dumpLoveFile(Settings['active_deck'],P1cards)
             end
 
             if not (mouseTrapped.inDeck and self.inDeck) then
