@@ -9,14 +9,18 @@ function RemoveCard:init()
 end
 
 function RemoveCard:swap()
-    P1deck[mouseTrapped.number] = CardEditor('Blank',mouseTrapped.row,mouseTrapped.column,mouseTrapped.number,nil,nil,true,gStateMachine.current.images,gStateMachine.current.imagesInfo)
-    if not sandbox then --Not necessary if in sandbox as inventory is always reloaded from all characters, not save file
+    P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Reduce deck strength by card removed, before card is set as blank
+
+    --Edit card removed to be a blank card
+    P1deck[mouseTrapped.number].name, P1deck[mouseTrapped.number].level, P1deck[mouseTrapped.number].evolution, P1deck[mouseTrapped.number].imagePath, P1deck[mouseTrapped.number].image, P1deck[mouseTrapped.number].deleting = 'Blank', nil, nil, 'Graphics/Blank Card', gStateMachine.current.images['Graphics/Blank Card'], nil
+
+    if not sandbox then --Not necessary in sandbox as inventory does not change
         P1cardsEdit(-1,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
+        gStateMachine.current:loadCards()
     end
     P1deckEdit(mouseTrapped.number,nil)
-    P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
     collectgarbage()
-    gStateMachine.current:loadCards()
+
     if love.mouse.isVisible() == false then
         if mouseTrapped.number < 6 then
             repositionMouse(gui[mouseTrapped.number+16])

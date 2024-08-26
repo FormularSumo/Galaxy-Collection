@@ -42,41 +42,58 @@ end
 
 function CardEditor:swap()
     self.clicked = false
-    if mouseTrapped2 == self and not (not self.inDeck and not mouseTrapped.inDeck) then
-        self.row, self.column, self.number, self.x, self.y, self.inDeck, mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck = mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck, self.row, self.column, self.number, self.x, self.y, self.inDeck
-
-        if mouseTrapped.inDeck then
-            P1deck[mouseTrapped.number] = mouseTrapped
-            P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution},true)
-        elseif not sandbox then --Not necessary if in sandbox as inventory is always reloaded from all characters, not save file
-            P1cardsEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution},true)
-        end
-
-        if self.inDeck then
-            P1deck[self.number] = self
-            P1deckEdit(self.number,{self.name,self.level,self.evolution},true)
-        elseif not sandbox then
-            P1cardsEdit(self.number,{self.name,self.level,self.evolution},true)
-        end
-
-        if mouseTrapped.inDeck or self.inDeck then
-            bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
-        end
-        if not sandbox and (not mouseTrapped.inDeck or not self.inDeck) then
-            bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
-        end
-
-        if not (mouseTrapped.inDeck and self.inDeck) then
-            gStateMachine.current:loadCards()
-            if self.inDeck then
-                if self.level ~= nil then P1strength = P1strength + characterStrength({self.name,self.level,self.evolution}) end
-                if mouseTrapped.level ~= nil then P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) end
+    if mouseTrapped2 == self and not (not self.inDeck and not mouseTrapped.inDeck) then --If not touching another card or both cards in are inventory, abort
+        if sandbox and not (self.inDeck and mouseTrapped.inDeck) then --If both cards are in deck, below logic suffices. Otherwise, we don't want to move cards out of inventory in sandbox as it doesn't change, and we can avoid reloading it by doing so.
+            if mouseTrapped.inDeck then
+                if mouseTrapped.name ~= 'Blank' then --If card in deck being replaced is not blank, lower overall strength by its strength
+                    P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
+                end
+                --Copy data from inventory card to deck card
+                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
+                P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
             else
-                if mouseTrapped.level ~= nil then P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) end
-                if self.level ~= nil then P1strength = P1strength - characterStrength({self.name,self.level,self.evolution}) end
+                if self.name ~= 'Blank' then
+                    P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
+                end
+                self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
+                P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
+            end
+        else
+            --Swap stats between the two card being swapped
+            self.row, self.column, self.number, self.x, self.y, self.inDeck, mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck = mouseTrapped.row, mouseTrapped.column, mouseTrapped.number, mouseTrapped.x, mouseTrapped.y, mouseTrapped.inDeck, self.row, self.column, self.number, self.x, self.y, self.inDeck
+
+            if mouseTrapped.inDeck then
+                P1deck[mouseTrapped.number] = mouseTrapped --Update gui
+                P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution},true)
+            else --Only happens if not in sandbox
+                P1cardsEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution},true)
+            end
+
+            if self.inDeck then
+                P1deck[self.number] = self
+                P1deckEdit(self.number,{self.name,self.level,self.evolution},true)
+            else
+                P1cardsEdit(self.number,{self.name,self.level,self.evolution},true)
+            end
+
+            if mouseTrapped.inDeck or self.inDeck then
+                bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
+            end
+            if not sandbox and (not mouseTrapped.inDeck or not self.inDeck) then
+                bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+            end
+
+            if not (mouseTrapped.inDeck and self.inDeck) then
+                gStateMachine.current:loadCards()
+                if self.inDeck then
+                    if self.level ~= nil then P1strength = P1strength + characterStrength({self.name,self.level,self.evolution}) end
+                    if mouseTrapped.level ~= nil then P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) end
+                else
+                    if mouseTrapped.level ~= nil then P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) end
+                    if self.level ~= nil then P1strength = P1strength - characterStrength({self.name,self.level,self.evolution}) end
+                end
             end
         end
-
         mouseTrapped = false
         mouseTrapped2 = false
     end
