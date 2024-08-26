@@ -4,7 +4,7 @@ function DeckeditState:init()
     P1deck = {}
     self.images = {}
     self.imagesInfo = {}
-    self:loadCards(false)
+    self:loadCards()
     self.cardsOnDisplay = {}
     self.page = 0
     self.cardsOnDisplayAreBlank = false
@@ -31,7 +31,7 @@ function DeckeditState:init()
 end
 
 
-function DeckeditState:loadCards(reload) --Initial card loading and sorting
+function DeckeditState:loadCards() --Initial card loading and sorting
     P1cards = {}
     local count = 0
 
@@ -60,9 +60,6 @@ function DeckeditState:loadCards(reload) --Initial card loading and sorting
         Temporary[k-1] = pair
     end
     P1cards = Temporary
-    if reload ~= false then
-        self:updateCardsOnDisplay()
-    end
 end
 
 function DeckeditState:reloadDeck() --Using the deck layout that's already been defined, create and store each of these cards in the relevant tables
