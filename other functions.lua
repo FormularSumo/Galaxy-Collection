@@ -7,9 +7,6 @@ function pause(pause)
     if songs[0] then
         if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
     end
-    if background['Video'] then
-        if paused then background['Background']:pause() else background['Background']:play() end
-    end
     if not (winner and gStateMachine.state == 'GameState') then
         gStateMachine:pause()
         if gStateMachine.state == 'GameState' and not blurred then
@@ -20,40 +17,9 @@ function pause(pause)
     end
 end
 
-function loadBattle(background,videos,seek,r,g,b,music,level)
+function loadBattle(background,r,g,b,music,level)
     P2deckCards = level
-    if videos and Settings['videos'] then
-        gStateMachine:change('GameState',{background, true, seek, r, g, b, music})
-    else
-        gStateMachine:change('GameState',{background, false, seek, r, g, b, music})
-    end
-end
-
-function createBackground()
-    if background['Video'] then
-        background['Background'] = love.graphics.newVideo('Backgrounds/' .. background['Name'] .. '.ogv')
-        background['Background']:play()
-    else
-        if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.jpg') then
-            background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.jpg')
-        else
-            background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.png')
-        end
-    end
-end
-
-function updateBackground()
-    if Settings['videos'] then
-        if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.ogv') then
-            background['Video'] = true
-        else
-            return
-        end
-    else
-        background['Video'] = false
-    end
-    createBackground()
-    collectgarbage()
+    gStateMachine:change('GameState',{background, r, g, b, music})
 end
 
 function repositionMouse(index)
@@ -93,8 +59,8 @@ function toggleSetting(setting,toggle)
         Settings[setting] = toggle
     else
         Settings[setting] = not Settings[setting]
-    end
-    bitser.dumpLoveFile('Settings.txt',Settings)
+    endif self.move
+    love.filesystem.write('Settings.txt',binser.s(Settings))
 end
 
 function controllerBinds(button)
@@ -135,7 +101,7 @@ function P1deckEdit(position,name,nosave)
     P1deckCards[position] = name
 
     if not nosave then
-        bitser.dumpLoveFile(Settings['active_deck'],P1deckCards)
+        love.filesystem.write(Settings['active_deck'],binser.s(P1deckCards))
     end
 end
 
@@ -144,7 +110,7 @@ function P1cardsEdit(position,name,nosave)
     P1cards[position] = name
 
     if not nosave then
-        bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+        love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
     end
 end
 
@@ -201,10 +167,10 @@ function tutorial()
     P1deckEdit(3,{'C-3PO',60,4},true)
     P1deckEdit(4,{'R2-D2',60,4},true)
 
-    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
-    bitser.dumpLoveFile('Player 1 deck 2.txt',{})
-    bitser.dumpLoveFile('Player 1 deck 3.txt',{})
-    bitser.dumpLoveFile('Player 1 cards.txt',{})
+    love.filesystem.write('Player 1 deck.txt',binser.s(P1deckCards))
+    love.filesystem.write('Player 1 deck 2.txt',{})
+    love.filesystem.write('Player 1 deck 3.txt',{})
+    love.filesystem.write('Player 1 cards.txt',binser.s({}))
     UserData['Credits'] = 100
     bitser.dumpLoveFile('User Data.txt',UserData)
 end
