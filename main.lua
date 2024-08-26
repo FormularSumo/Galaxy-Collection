@@ -155,8 +155,8 @@ function love.load()
             end
         end
 
-        loadDeck('Player 1 deck 1.txt')
         loadDeck('Player 1 deck 2.txt')
+        loadDeck('Player 1 deck 3.txt')
     end
 
     -- initialize state machine with all state-returning functions
