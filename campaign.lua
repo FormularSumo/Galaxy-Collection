@@ -134,6 +134,7 @@ function dathomir(number)
     if number == 31 then return {'Feral',60,4} end
     if number == 32 then return {'Savage Opress',60,4} end
     if number == 33 then return {'Maul',60,4} end
+    if number == 34 then return {'Brother Viscus',60,4} end
 
     if number == 42 then return {'Karis',60,4} end
     if number == 43 then return {'Asajj Ventress',60,4} end

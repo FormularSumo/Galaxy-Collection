@@ -59,7 +59,7 @@ function toggleSetting(setting,toggle)
         Settings[setting] = toggle
     else
         Settings[setting] = not Settings[setting]
-    end
+    endif self.move
     love.filesystem.write('Settings.txt',binser.s(Settings))
 end
 
@@ -101,7 +101,7 @@ function P1deckEdit(position,name,nosave)
     P1deckCards[position] = name
 
     if not nosave then
-        love.filesystem.write('Player 1 deck.txt',binser.s(P1deckCards))
+        love.filesystem.write(Settings['active_deck'],binser.s(P1deckCards))
     end
 end
 
@@ -168,6 +168,9 @@ function tutorial()
     P1deckEdit(4,{'R2-D2',60,4},true)
 
     love.filesystem.write('Player 1 deck.txt',binser.s(P1deckCards))
+    love.filesystem.write('Player 1 deck 2.txt',{})
+    love.filesystem.write('Player 1 deck 3.txt',{})
     love.filesystem.write('Player 1 cards.txt',binser.s({}))
     UserData['Credits'] = 100
+    bitser.dumpLoveFile('User Data.txt',UserData)
 end
