@@ -1,7 +1,7 @@
 RemoveCard = Class{__includes = BaseState}
 
 function RemoveCard:init()
-    self.image = love.graphics.newImage('Buttons/X.png')
+    self.image = love.graphics.newImage('Buttons/Remove.png')
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
     self.x = VIRTUALWIDTH / 2 - self.width / 2
