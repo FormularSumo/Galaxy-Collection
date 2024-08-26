@@ -438,8 +438,8 @@ end
 
 function DeckeditState:update()
     if self.subState == 'deck' then
-        self.left = 22
-        self.right = 23
+        self.left = 25
+        self.right = 26
     elseif gui['CardViewer'].mode == 'stats' and sandbox then
         self.left = 7
         self.right = 8
