@@ -51,12 +51,16 @@ function CardEditor:swap()
                 --Copy data from inventory card to deck card
                 mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
                 P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
+                P1deck[mouseTrapped.number] = mouseTrapped
+                P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
             else
                 if self.name ~= 'Blank' then
                     P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
                 end
                 self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
+                P1deck[self.number] = self
+                P1deckEdit(self.number,{self.name,self.level,self.evolution})
             end
             gStateMachine.current:updateGui()
         else
