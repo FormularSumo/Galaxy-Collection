@@ -96,7 +96,7 @@ function love.load()
             ['pause_on_loose_focus'] = true,
             ['volume_level'] = 0.5,
             ['FPS_counter'] = false,
-            ['active_deck'] = 'Player 1 cards.txt'
+            ['active_deck'] = 'Player 1 deck.txt'
         }
     else
         Settings = binser.d(love.filesystem.read('Settings.txt'))
