@@ -4,7 +4,6 @@ function GameState:init()
     P1deck = {}
     P2deck = {}
     self.images = {}
-    self.imagesInfo = {}
     self.gamespeed = 1
     self.P1Nextcards = {
         [0] = 18,
@@ -73,18 +72,11 @@ function GameState:init()
 
     for i=0,math.min(18,math.max(self.P1length,self.P2length)) do
         if P1deckCards[i] then
-            P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6),self.images,self.imagesInfo)
+            P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6),self.images)
         end
         if P2deckCards(i) then
-            P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6),self.images,self.imagesInfo)
+            P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6),self.images)
         end
-    end
-    for k, pair in pairs(self.imagesInfo) do
-        love.thread.getChannel("imageDecoderQueue"):push(k) --It's unnecessary to check here if images have already been pushed, as this is the first time they any are pushed
-        pair[2] = true --Mark image as pushed
-    end
-    for i = 1,#imageDecoderThreads do
-        imageDecoderThreads[i]:start()
     end
     self.P1angle = math.rad(210)
     self.P2angle = math.rad(150)
@@ -92,29 +84,25 @@ function GameState:init()
 end
 
 function GameState:enter(Background)
-    background['Name'] = Background[1]
-    background['Video'] = Background[2]
-    background['Seek'] = Background[3]
-        
-    createBackground()
+    if love.filesystem.getInfo('Backgrounds/' .. Background[1] .. '.jpg') then
+        background = love.graphics.newImage('Backgrounds/' .. Background[1] .. '.jpg')
+    else
+        background = love.graphics.newImage('Backgrounds/' .. Background[1] .. '.png')
+    end
 
-    songs[0] = love.audio.newSource('Music/' .. Background[7],'stream')
+    songs[0] = love.audio.newSource('Music/' .. Background[5],'stream')
 
-    if Background[4] == nil then r = 0 else r = Background[4] end
-    if Background[5] == nil then g = 0 else g = Background[5] end
-    if Background[6] == nil then b = 0 else b = Background[6] end
+    if Background[2] == nil then r = 0 else r = Background[2] end
+    if Background[3] == nil then g = 0 else g = Background[3] end
+    if Background[4] == nil then b = 0 else b = Background[4] end
     gui[1] = Button(pause,'Pause',font100,nil,1591,0,r,g,b) -- 35 pixels from right as font100:getWidth('Pause') = 294
     gui[2] = Slider(1591,130,300,16,function(percentage) self.gamespeed = percentage * 4 end,0.3,0.3,0.3,r,g,b,0.25,0.25)
     gui['SpeedLabel'] = Text('Speed',font80,'centre',410,r,g,b,false)
-    gui[3] = Slider('centre',570,300,16,function(percentage) love.audio.setVolume(percentage) Settings['volume_level'] = percentage end,0.3,0.3,0.3,r,g,b,Settings['volume_level'],0.5,function() bitser.dumpLoveFile('Settings.txt',Settings) end,false,false)
+    gui[3] = Slider('centre',570,300,16,function(percentage) love.audio.setVolume(percentage) Settings['volume_level'] = percentage end,0.3,0.3,0.3,r,g,b,Settings['volume_level'],0.5,function() love.filesystem.write('Settings.txt',binser.s(Settings)) end,false,false)
     gui['VolumeLabel'] = Text('Volume',font80,'centre',600,r,g,b,false)
     gui[4] = Button(function() gStateMachine:change('HomeState') end,'Main Menu',font80,nil,'centre',1080-220-font80:getHeight('Main Menu'),r,g,b,nil,false)
 
-    if Settings['videos'] == false or not background['Video'] then --If background is picture or videos are disabled in settings 
-        self.timer = 0 --Equals to 1 second delay before characters appear
-    else
-        self.timer = -(background['Seek'] - 1), 0 --If background has a starting animation (such as fade in), delay character spawning until it's finished
-    end
+    self.timer = 0 --All levels have a 1 second delay before spawing characters
     self.moveAimTimer = self.timer
     self.attackTimer = self.timer - 0.9
     love.timer.step()
@@ -368,15 +356,6 @@ function GameState:update(dt)
 
         if self.moveAimTimer >= 1 then
             self.moveAimTimer = self.moveAimTimer - 1
-            for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
-                local result = love.thread.getChannel("imageDecoderOutput"):pop()
-                self.images[result[1]] = love.graphics.newImage(result[2])
-                self.imagesInfo[result[1]][2] = true
-                for i=1,#self.imagesInfo[result[1]][1] do
-                    self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
-                end
-                self.imagesInfo[result[1]] = nil
-            end
 
             if self.timer < 7 then --Because moveAimTimer is created after timer, 7 seconds into a battle this will always be false
                 for k, pair in pairs(P1deck) do
@@ -390,7 +369,7 @@ function GameState:update(dt)
                     if self.P1length > self.timer * 6 then
                         for i=0,5 do
                             if P1deckCards[self.P1Nextcards[i]] then
-                                P1deck[self.P1Nextcards[i]] = Card(P1deckCards[self.P1Nextcards[i]],1,self.P1Nextcards[i],-1,self.images,self.imagesInfo)
+                                P1deck[self.P1Nextcards[i]] = Card(P1deckCards[self.P1Nextcards[i]],1,self.P1Nextcards[i],-1,self.images)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
@@ -398,19 +377,10 @@ function GameState:update(dt)
                     if self.P2length > self.timer * 6 then
                         for i=0,5 do
                             if P2deckCards(self.P2Nextcards[i]) then
-                                P2deck[self.P2Nextcards[i]] = Card(P2deckCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.images,self.imagesInfo)
+                                P2deck[self.P2Nextcards[i]] = Card(P2deckCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.images)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
-                    end
-                    for k, pair in pairs(self.imagesInfo) do
-                        if pair[2] == false then
-                            love.thread.getChannel("imageDecoderQueue"):push(k)
-                            pair[2] = true --Mark image as pushed
-                        end
-                    end
-                    for i = 1,#imageDecoderThreads do
-                        imageDecoderThreads[i]:start()
                     end
                 end
 
@@ -419,7 +389,7 @@ function GameState:update(dt)
                     if self.P1length > 42 then
                         for i=0,5 do
                             if not P1deck[42+self.P1currentRows[i]] and P1deckCards[self.P1Nextcards[i]] ~= nil then
-                                P1deck[42+self.P1currentRows[i]] = Card(P1deckCards[self.P1Nextcards[i]],1,42+self.P1currentRows[i],-2,self.images,self.imagesInfo)
+                                P1deck[42+self.P1currentRows[i]] = Card(P1deckCards[self.P1Nextcards[i]],1,42+self.P1currentRows[i],-2,self.images)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
@@ -427,19 +397,10 @@ function GameState:update(dt)
                     if self.P2length > 42 then
                         for i=0,5 do
                             if not P2deck[42+self.P2currentRows[i]] and P2deckCards(self.P2Nextcards[i]) ~= nil then
-                                P2deck[42+self.P2currentRows[i]] = Card(P2deckCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.images,self.imagesInfo)
+                                P2deck[42+self.P2currentRows[i]] = Card(P2deckCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.images)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
-                    end
-                    for k, pair in pairs(self.imagesInfo) do
-                        if pair[2] == false then
-                            love.thread.getChannel("imageDecoderQueue"):push(k)
-                            pair[2] = true --Mark image as pushed
-                        end
-                    end
-                    for i = 1,#imageDecoderThreads do
-                        imageDecoderThreads[i]:start()
                     end
                 end
 
@@ -517,7 +478,6 @@ function GameState:update(dt)
                     end
                 end
                 self.images = nil
-                self.imagesInfo = nil
                 collectgarbage()
             end
         end
