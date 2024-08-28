@@ -442,11 +442,11 @@ function love.update(dt)
 
     --Manage song queue
     if not paused then
-        if songs[0] and not songs[currentSong]:isPlaying() then
+        if songs[1] and not songs[currentSong]:isPlaying() then
             if songs[currentSong+1] then
                 currentSong = currentSong+1
             else
-                currentSong = 0
+                currentSong = 1
             end
             songs[currentSong]:play()
         end

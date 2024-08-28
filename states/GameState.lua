@@ -90,7 +90,7 @@ function GameState:enter(Background)
         background = love.graphics.newImage('Backgrounds/' .. Background[1] .. '.png')
     end
 
-    songs[0] = love.audio.newSource('Music/' .. Background[5],'stream')
+    songs[1] = love.audio.newSource('Music/' .. Background[5],'stream')
 
     if Background[2] == nil then r = 0 else r = Background[2] end
     if Background[3] == nil then g = 0 else g = Background[3] end

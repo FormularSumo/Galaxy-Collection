@@ -4,7 +4,7 @@ function pause(pause)
     else
         paused = not paused
     end
-    if songs[0] then
+    if songs[1] then
         if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
     end
     if not (winner and gStateMachine.state == 'GameState') then
@@ -94,7 +94,7 @@ function wrap(str, limit)
             return "\n"..word
           end
     end)
-  end
+end
   
 function P1deckEdit(position,name,nosave)
     if name and name[1] == 'Blank' then name = nil end
