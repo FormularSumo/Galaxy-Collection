@@ -1,6 +1,6 @@
 DeckeditState = Class{__includes = BaseState}
 
-function DeckeditState:init()
+function DeckeditState:enter()
     P1deck = {}
     self.images = {}
     self.imagesInfo = {}

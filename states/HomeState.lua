@@ -1,11 +1,5 @@
 HomeState = Class{__includes = BaseState}
 
-function HomeState:init()
-    gui[1] = Button(function() gStateMachine:change('CampaignState',true,true) end,'Campaign',font100,nil,'centre',100)
-    gui[2] = Button(function() gStateMachine:change('DeckeditState','music','music') end,'Deck Editor',font100,nil,'centre','centre')
-    gui[3] = Button(function() gStateMachine:change('SettingsState',true,true) end,'Settings',font100,nil,'centre',980-font100:getHeight('Settings'))
-end
-
 function HomeState:enter(partial)
     if partial ~= true then --If partial is equal to 'music' or false or nil
         background['Name'], background['Video'], background['Seek'] = backgroundInfo('Starry Sky')
@@ -17,6 +11,10 @@ function HomeState:enter(partial)
         songs[3] = love.audio.newSource('Music/Fallen Order.oga','stream')
         self:shuffle(songs)
     end
+
+    gui[1] = Button(function() gStateMachine:change('CampaignState',true,true) end,'Campaign',font100,nil,'centre',100)
+    gui[2] = Button(function() gStateMachine:change('DeckeditState','music','music') end,'Deck Editor',font100,nil,'centre','centre')
+    gui[3] = Button(function() gStateMachine:change('SettingsState',true,true) end,'Settings',font100,nil,'centre',980-font100:getHeight('Settings'))
 end
 
 function HomeState:shuffle(t)
