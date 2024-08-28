@@ -209,7 +209,7 @@ function GameState:Move2(deck)
             self:MoveDown(deck,0)
         end
         if self.rows[3] == false then
-            if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and self.enemyRows[3])  then
+            if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and self.enemyRows[3]) then
                 self:MoveDown(deck,2)
                 self:MoveDown(deck,1)
                 self:MoveDown(deck,0)
