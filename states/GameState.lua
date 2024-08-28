@@ -1,6 +1,7 @@
 GameState = Class{__includes = BaseState}
 
-function GameState:init()
+function GameState:enter(infoTable)
+    P2deckCards = infoTable[3]
     P1deck = {}
     P2deck = {}
     self.images = {}
@@ -89,28 +90,21 @@ function GameState:init()
     self.P1angle = math.rad(210)
     self.P2angle = math.rad(150)
     self.next = next
-end
 
-function GameState:enter(Background)
-    background['Name'] = Background[1]
-    background['Video'] = Background[2]
-    background['Seek'] = Background[3]
-        
+
+    background['Name'], background['Video'], background['Seek'], rgb = backgroundInfo(infoTable[1])
     createBackground()
 
-    songs[1] = love.audio.newSource('Music/' .. Background[7],'stream')
+    songs[1] = love.audio.newSource('Music/' .. infoTable[2],'stream')
 
-    if Background[4] == nil then r = 0 else r = Background[4] end
-    if Background[5] == nil then g = 0 else g = Background[5] end
-    if Background[6] == nil then b = 0 else b = Background[6] end
-    gui[1] = Button(pause,'Pause',font100,nil,1591,0,{r,g,b}) -- 35 pixels from right as font100:getWidth('Pause') = 294
-    gui[2] = Slider(1591,130,300,16,function(percentage) self.gamespeed = percentage * 4 end,{0.3,0.3,0.3},{r,g,b},0.25,0.25)
-    gui['SpeedLabel'] = Text('Speed',font80,'centre',410,{r,g,b},false)
-    gui[3] = Slider('centre',570,300,16,function(percentage) love.audio.setVolume(percentage) Settings['volume_level'] = percentage end,{0.3,0.3,0.3},{r,g,b},Settings['volume_level'],0.5,function() bitser.dumpLoveFile('Settings.txt',Settings) end,false,false)
-    gui['VolumeLabel'] = Text('Volume',font80,'centre',600,{r,g,b},false)
-    gui[4] = Button(function() gStateMachine:change('HomeState') end,'Main Menu',font80,nil,'centre',1080-220-font80:getHeight('Main Menu'),{r,g,b},nil,false)
+    gui[1] = Button(pause,'Pause',font100,nil,1591,0,rgb) -- 35 pixels from right as font100:getWidth('Pause') = 294
+    gui[2] = Slider(1591,130,300,16,function(percentage) self.gamespeed = percentage * 4 end,{0.3,0.3,0.3},rgb,0.25,0.25)
+    gui['SpeedLabel'] = Text('Speed',font80,'centre',410,rgb,false)
+    gui[3] = Slider('centre',570,300,16,function(percentage) love.audio.setVolume(percentage) Settings['volume_level'] = percentage end,{0.3,0.3,0.3},rgb,Settings['volume_level'],0.5,function() bitser.dumpLoveFile('Settings.txt',Settings) end,false,false)
+    gui['VolumeLabel'] = Text('Volume',font80,'centre',600,rgb,false)
+    gui[4] = Button(function() gStateMachine:change('HomeState') end,'Main Menu',font80,nil,'centre',1080-220-font80:getHeight('Main Menu'),rgb,nil,false)
 
-    if Settings['videos'] == false or not background['Video'] then --If background is picture or videos are disabled in settings 
+    if not background['Video'] then --backgroundInfo works this out via Setting and background
         self.timer = 0 --Equals to 1 second delay before characters appear
     else
         self.timer = -(background['Seek'] - 1), 0 --If background has a starting animation (such as fade in), delay character spawning until it's finished
@@ -571,7 +565,7 @@ end
 
 function GameState:renderForeground()
     if winner then 
-        love.graphics.print({{r,g,b},'Winner: ' .. winner},35,110)
+        love.graphics.print({rgb,'Winner: ' .. winner},35,110)
     end
 end
 

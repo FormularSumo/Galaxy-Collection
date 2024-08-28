@@ -20,24 +20,13 @@ function pause(pause)
     end
 end
 
-function loadBattle(background,videos,seek,r,g,b,music,level)
-    P2deckCards = level
-    if videos and Settings['videos'] then
-        gStateMachine:change('GameState',{background, true, seek, r, g, b, music})
-    else
-        gStateMachine:change('GameState',{background, false, seek, r, g, b, music})
-    end
-end
-
 function createBackground()
     if background['Video'] then
-        background['Background'] = love.graphics.newVideo('Backgrounds/' .. background['Name'] .. '.ogv')
+        background['Background'] = love.graphics.newVideo(background['Name'])
         background['Background']:play()
     else
-        if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.jpg') then
-            background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.jpg')
-        else
-            background['Background'] = love.graphics.newImage('Backgrounds/' .. background['Name'] .. '.png')
+        if love.filesystem.getInfo(background['Name']) then
+            background['Background'] = love.graphics.newImage(background['Name'])
         end
     end
 end

@@ -276,19 +276,21 @@ end
 
 
 function backgroundInfo(name)
-    if Settings[videos] then
-        if backgroundName == 'Sand Dunes' then
+    local file, video, seek, rgb
+    if Settings['videos'] and love.filesystem.getInfo('Backgrounds/' .. name .. '.ogv') then
+        if name == 'Sand Dunes' then
             seek = 2
             rgb = {0,0,0}
         end
-        file = name .. '.ogv'
+        file =  'Backgrounds/' .. name .. '.ogv'
+        video = true
     else
         if name == 'Belsavis' then
             rgb = {0,0,0}
-        elseif name == 'Sand Dunes' then
+        elseif name == 'Starry Sky' then
             rgb = {0,0,0}
-            file = name .. '.png'
+            file = 'Backgrounds/' .. name .. '.png'
         end
     end
-    return file or name .. '.jpg', video or false, seek or 0, rgb or {1,1,1}
+    return file or 'Backgrounds/' .. name .. '.jpg', video or false, seek or 0, rgb or {1,1,1}
 end
