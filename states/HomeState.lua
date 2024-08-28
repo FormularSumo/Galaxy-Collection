@@ -28,6 +28,9 @@ function HomeState:shuffle(t)
     end
 end
 
+function HomeState:back()
+    gStateMachine:change('ExitState',true,true)
+end
 
 function HomeState:exit()
     for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
@@ -38,8 +41,4 @@ function HomeState:exit()
             evolutionMaxImage = love.graphics.newImage(result[2])
         end
     end
-end
-
-function HomeState:back()
-    gStateMachine:change('ExitState',true,true)
 end
