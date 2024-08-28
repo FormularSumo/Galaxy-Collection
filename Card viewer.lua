@@ -216,10 +216,10 @@ function CardViewer:createStats()
     if sandbox then
         gui['Evolution'] = Text('Evolution',font60SW,'centre',950)
         gui['Evolution'].x = gui['Evolution'].x + 270
-        gui[3] = Button(function() self:changeStat('Level',-1) end,nil,nil,'Minus',1920/2+40,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,nil,nil,true)
-        gui[4] = Button(function() self:changeStat('Level',1) end,nil,nil,'Plus',1920/2+500,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,nil,nil,true)
-        gui[5] = Button(function() self:changeStat('Evolution',-1) end,nil,nil,'Minus',1920/2+20,950+gui['Evolution'].height/2,nil,nil,nil,nil,nil,true)
-        gui[6] = Button(function() self:changeStat('Evolution',1) end,nil,nil,'Plus',1920/2+520,950+gui['Evolution'].height/2,nil,nil,nil,nil,nil,true)
+        gui[3] = Button(function() self:changeStat('Level',-1) end,nil,nil,'Minus',1920/2+40,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,true)
+        gui[4] = Button(function() self:changeStat('Level',1) end,nil,nil,'Plus',1920/2+500,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,true)
+        gui[5] = Button(function() self:changeStat('Evolution',-1) end,nil,nil,'Minus',1920/2+20,950+gui['Evolution'].height/2,nil,nil,nil,true)
+        gui[6] = Button(function() self:changeStat('Evolution',1) end,nil,nil,'Plus',1920/2+520,950+gui['Evolution'].height/2,nil,nil,nil,true)
     end
 end
 
