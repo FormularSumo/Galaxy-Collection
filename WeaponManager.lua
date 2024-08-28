@@ -1,29 +1,19 @@
 WeaponManager = Class{__includes = BaseState}
 
-function WeaponManager:init(name,team,xoffset,yoffset,card,images,imagesInfo)
+function WeaponManager:init(name,team,xoffset,yoffset,card,images)
     self.show = false
 
     self.weaponCount = name['weaponCount'] or 1
 
     self.weapons = {}
     for i=1,self.weaponCount do
-        local imagePath;
         if name['weapon' .. tostring(i)] then
-            imagePath = 'Graphics/' .. name['weapon'..tostring(i)]
-            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name['weapon'..tostring(i)])
-        else
-            imagePath = 'Graphics/' .. name['weapon1']
-            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name['weapon1'])
-        end
-
-        if images[imagePath] then
-            self.weapons[i]:init2(images[imagePath])
-        else
-            if imagesInfo[imagePath] then
-                table.insert(imagesInfo[imagePath][1],self.weapons[i])
-            else
-                imagesInfo[imagePath] = {{self.weapons[i]}, false}
+            if not images[name['weapon'..tostring(i)]] then
+                images[name['weapon'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['weapon'..tostring(i)]..'.png')
             end
+            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,images[name['weapon'..tostring(i)]],name['weapon'..tostring(i)])
+        else 
+            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,images[name['weapon1']],images[name['weapon1']])
         end
     end
 end
