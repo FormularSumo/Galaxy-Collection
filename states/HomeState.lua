@@ -14,15 +14,20 @@ function HomeState:enter(partial)
         createBackground()
     end
     if not partial then --If partial is set to false or nil
-        if love.math.random(0,1) == 1 then
-            songs[0] = love.audio.newSource('Music/Ahsoka\'s Theme.oga','stream')
-            songs[1] = love.audio.newSource('Music/Across The Stars.oga','stream')
-        else
-            songs[1] = love.audio.newSource('Music/Ahsoka\'s Theme.oga','stream')
-            songs[0] = love.audio.newSource('Music/Across The Stars.oga','stream')
-        end
+        songs[1] = love.audio.newSource('Music/Ahsoka\'s Theme.oga','stream')
+        songs[2] = love.audio.newSource('Music/Across The Stars.oga','stream')
+        songs[3] = love.audio.newSource('Music/Fallen Order.oga','stream')
+        self:shuffle(songs)
     end
 end
+
+function HomeState:shuffle(t)
+    for i = #t, 2, -1 do
+        local j = love.math.random(i)
+        t[i], t[j] = t[j], t[i]
+    end
+end
+
 
 function HomeState:exit()
     for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do

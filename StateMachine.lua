@@ -69,9 +69,9 @@ function StateMachine:change(stateName, enterParams, exitParams)
 	self.current = self.states[stateName]()
 	self.state = stateName
 	self.current:enter(enterParams)
-	if songs[0] and not exitParams then
-		currentSong = 0
-		songs[0]:play()
+	if songs[1] and not exitParams then
+		currentSong = 1
+		songs[1]:play()
 	end
     if not love.mouse.isVisible() and gui[1] then
         repositionMouse(1)
