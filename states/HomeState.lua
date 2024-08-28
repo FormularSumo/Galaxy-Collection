@@ -8,7 +8,7 @@ end
 
 function HomeState:enter(partial)
     if partial ~= true then --If partial is equal to 'music' or false or nil
-        background['Name'], background['Video'], background['Seek'], rgb = backgroundInfo('Starry Sky')
+        background['Name'], background['Video'], background['Seek'] = backgroundInfo('Starry Sky')
         createBackground()
     end
     if not partial then --If partial is set to false or nil
