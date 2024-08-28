@@ -41,4 +41,4 @@ function HomeState:exit()
             evolutionMaxImage = love.graphics.newImage(result[2])
         end
     end
-end
+end 
