@@ -8,10 +8,7 @@ end
 
 function HomeState:enter(partial)
     if partial ~= true then --If partial is equal to 'music' or false or nil
-        background['Name'] = 'Starry Sky'
-        background['Video'] = Settings['videos']
-        background['Seek'] = 0
-        createBackground()
+        background = love.graphics.newImage('Backgrounds/Starry Sky.png')
     end
     if not partial then --If partial is set to false or nil
         songs[1] = love.audio.newSource('Music/Ahsoka\'s Theme.oga','stream')
@@ -28,18 +25,5 @@ function HomeState:shuffle(t)
     end
 end
 
-
-function HomeState:exit()
-    for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
-        local result = love.thread.getChannel("imageDecoderOutput"):pop()
-        if result[1] == "Graphics/Evolution" then
-            evolutionImage = love.graphics.newImage(result[2])
-        elseif result[1] == "Graphics/Evolution Max" then
-            evolutionMaxImage = love.graphics.newImage(result[2])
-        end
-    end
-end
-
 function HomeState:back()
-    gStateMachine:change('ExitState',true,true)
 end
