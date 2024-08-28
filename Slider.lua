@@ -1,16 +1,12 @@
 Slider = Class{}
 
-function Slider:init(x,y,width,height,func,r1,g1,b1,r2,g2,b2,percentage,trap,func2,default,visible)
+function Slider:init(x,y,width,height,func,rgb1,rgb2,percentage,trap,func2,default,visible)
     self.width = width
     self.height = height
 
     self.func = func
-    self.r1 = r1
-    self.g1 = g1
-    self.b1 = b1
-    self.r2 = r2
-    self.b2 = b2
-    self.g2 = g2
+    self.rgb1 = rgb1 or {0.3,0.3,0.3}
+    self.rgb2 = rgb2 or {1,1,1}
     self.percentage = percentage
     self.func2 = func2
     if trap ~= nil then 
@@ -123,12 +119,12 @@ end
 
 function Slider:render()
     if self.visible then
-        love.graphics.setColor(self.r1,self.g1,self.b1)
+        love.graphics.setColor(self.rgb1)
         love.graphics.rectangle('fill',self.x,self.y,self.width,self.height,5)
         if (mouseTouching == self and not touchLocked) or mouseTrapped == self then
             love.graphics.setColor(66/255,169/255,229/255)
         else
-            love.graphics.setColor(self.r2,self.g2,self.b2)
+            love.graphics.setColor(self.rgb2)
         end
         love.graphics.rectangle('fill',self.x,self.y,self.width*self.percentage,self.height,5)
         love.graphics.circle('fill',(self.x + (self.width*self.percentage)),(self.y + self.height / 2),self.height*self.radiusToCircle)
