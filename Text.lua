@@ -1,6 +1,6 @@
 Text = Class{}
 
-function Text:init(text,font,x,y,r,g,b,visible)
+function Text:init(text,font,x,y,rgb,visible)
     self.font = font or love.graphics.getFont()
     
     self.centreX = x == 'centre'
@@ -19,9 +19,7 @@ function Text:init(text,font,x,y,r,g,b,visible)
         self.y = y
     end
 
-    self.r = r or 1
-    self.g = g or 1
-    self.b = b or 1
+    self.rgb = rgb or {1,1,1}
     if visible == nil then self.visible = true else self.visible = visible end
 end
 
@@ -42,7 +40,7 @@ end
 
 function Text:render()
     if self.visible then
-        love.graphics.setColor(self.r,self.g,self.b)
+        love.graphics.setColor(self.rgb)
         love.graphics.draw(self.text, self.x, self.y)
         love.graphics.setColor(1,1,1)
     end

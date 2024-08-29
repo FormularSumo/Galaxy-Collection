@@ -17,7 +17,7 @@ function love.load()
     require 'states/SettingsState'
     require 'states/CampaignState'
     require 'states/DeckeditState'
-    require 'campaign'
+    require 'levels'
     require 'other functions'
     require 'WeaponManager'
     require 'Weapon'

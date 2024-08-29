@@ -17,11 +17,6 @@ function pause(pause)
     end
 end
 
-function loadBattle(background,r,g,b,music,level)
-    P2deckCards = level
-    gStateMachine:change('GameState',{background, r, g, b, music})
-end
-
 function repositionMouse(index)
     if gui[index] then
         mouseTouching = gui[index]

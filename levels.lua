@@ -273,3 +273,15 @@ function maxed(number)
     if number == 16 then return {'Force Priestess',60,4} end
     if number == 17 then return {'Sith Eternal Emperor',60,4} end
 end
+
+
+function backgroundInfo(name)
+    local file, rgb
+    if name == 'Sand Dunes' or name == 'Belsavis' then
+        rgb = {0,0,0}
+    elseif name == 'Starry Sky' then
+        rgb = {0,0,0}
+        file = 'Backgrounds/' .. name .. '.png'
+    end
+    return file or 'Backgrounds/' .. name .. '.jpg', rgb or {1,1,1}
+end

@@ -1,6 +1,6 @@
 DeckeditState = Class{__includes = BaseState}
 
-function DeckeditState:init()
+function DeckeditState:enter()
     P1deck = {}
     self.images = {
         evolutionBig = love.graphics.newImage('Graphics/Evolution Big.png'), 
@@ -15,7 +15,8 @@ function DeckeditState:init()
     self:reloadDeck(true)
     self:updateCardsOnDisplay()
 
-    background = love.graphics.newImage('Backgrounds/Death Star Control Room.jpg')
+    background = backgroundInfo('Death Star Control Room')
+    background = love.graphics.newImage(background)
     gui[1] = Button(function() gStateMachine:change('HomeState','music','music') end,'Main Menu',font70,nil,'centre',20)
     gui[2] = Button(function() self:resetDeck('strongest') end,'Auto',font80,nil,960-love.graphics.newText(font80,'Auto'):getWidth()/2-160,200)
     gui[3] = Button(function() self:resetDeck('blank') end,'Clear',font80,nil,960-love.graphics.newText(font80,'Clear'):getWidth()/2+160,200)
@@ -24,8 +25,8 @@ function DeckeditState:init()
     gui[6] = Button(function() self:changeDeck('Player 1 deck 3.txt') end,'3',font80SWrunes,nil,960-love.graphics.newText(font80SWrunes,'3'):getWidth()/2+90,770)
     gui['Deck'] = Text('Deck',font90SW,'centre',670)
     gui['RemoveCard'] = RemoveCard()
-    gui[25] = Button(function() self:updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,nil,nil,true)
-    gui[26] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,nil,nil,true)
+    gui[25] = Button(function() self:updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,true)
+    gui[26] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,true)
 end
 
 
@@ -272,11 +273,11 @@ function DeckeditState:enterStats(name,imagePath,level,evolution,inDeck,number)
     gui = {}
     gui[2] = Button(function() gStateMachine:back() end,nil,font80,'X',1800,120)
     if sandbox then
-        gui[7] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,nil,nil,true)
-        gui[8] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,nil,nil,true)
+        gui[7] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,true)
+        gui[8] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,true)
     else
-        gui[3] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,nil,nil,true)
-        gui[4] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,nil,nil,true)
+        gui[3] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,true)
+        gui[4] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,true)
     end
 end
 
