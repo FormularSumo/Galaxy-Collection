@@ -1,7 +1,64 @@
 GameState = Class{__includes = BaseState}
 
 function GameState:enter(infoTable)
-    P2deckCards = infoTable[3]
+    if type(infoTable[3]) == 'string' then --If player 2 is using a table rather than function (ie it's a saved deck rather than s saved level), create a wrapper function around it
+        self.P2length = 0 --Easier to work out here than later as we have access to the original table as well as wrapper function
+
+        if infoTable[3] == Settings['active_table'] then
+            self.P2battleCards = function(index) return infoTable[3][index] end
+            for k, v in pairs(infoTable[3]) do
+                if k > self.P2length then
+                    self.P2length = k
+                end
+            end
+        else
+            local deckTable = bitser.loadLoveFile(infoTable[3])
+            self.P2battleCards = function(index) return deckTable[index] end
+            for k, v in pairs(deckTable) do
+                if k > self.P2length then
+                    self.P2length = k
+                end
+            end
+        end
+    else
+        self.P2battleCards = infoTable[3]
+        self.P2length = self.P2battleCards('max')
+    end
+
+    if infoTable[4] then --Campaign doesn't pass player 1 deck as the active deck will always be used, but sandbox does as it can be any deck or level
+        if type(infoTable[4]) == 'string' then
+            self.P1length = 0
+
+            if infoTable[4] == Settings['active_table'] then
+                self.P1battleCards = function(index) return infoTable[4][index] end
+                for k, v in pairs(infoTable[4]) do
+                    if k > self.P1length then
+                        self.P1length = k
+                    end
+                end
+            else
+                local deckTable = bitser.loadLoveFile(infoTable[4])
+                self.P1battleCards = function(index) return deckTable[index] end
+                for k, v in pairs(deckTable) do
+                    if k > self.P1length then
+                        self.P1length = k
+                    end
+                end
+            end
+        else
+            self.P1battleCards = infoTable[4]
+            self.P1length = self.P1battleCards('max')
+        end
+    else
+        self.P1length = 0
+        self.P1battleCards = function(index) return P1deckCards[index] end
+        for k, pair in pairs(P1deckCards) do
+            if k > self.P1length then
+                self.P1length = k
+            end
+        end
+    end
+
     P1deck = {}
     P2deck = {}
     self.images = {}
@@ -64,20 +121,12 @@ function GameState:enter(infoTable)
         [5] = false,
     }
 
-    self.P1length = 0
-    for k, pair in pairs(P1deckCards) do
-        if k > self.P1length then
-            self.P1length = k
-        end
-    end
-    self.P2length = P2deckCards('max')
-
     for i=0,math.min(18,math.max(self.P1length,self.P2length)) do
-        if P1deckCards[i] then
-            P1deck[i] = Card(P1deckCards[i],1,i,-1 - math.floor((i)/6),self.images,self.imagesInfo)
+        if self.P1battleCards(i) then
+            P1deck[i] = Card(self.P1battleCards(i),1,i,-1 - math.floor((i)/6),self.images,self.imagesInfo)
         end
-        if P2deckCards(i) then
-            P2deck[i] = Card(P2deckCards(i),2,i,12 + math.floor((i)/6),self.images,self.imagesInfo)
+        if self.P2battleCards(i) then
+            P2deck[i] = Card(self.P2battleCards(i),2,i,12 + math.floor((i)/6),self.images,self.imagesInfo)
         end
     end
     for k, pair in pairs(self.imagesInfo) do
@@ -383,16 +432,16 @@ function GameState:update(dt)
                 if self.timer > 3 and (self.P2length > self.timer * 6 or self.P1length > self.timer * 6) then
                     if self.P1length > self.timer * 6 then
                         for i=0,5 do
-                            if P1deckCards[self.P1Nextcards[i]] then
-                                P1deck[self.P1Nextcards[i]] = Card(P1deckCards[self.P1Nextcards[i]],1,self.P1Nextcards[i],-1,self.images,self.imagesInfo)
+                            if self.P1battleCards(self.P1Nextcards[i]) then
+                                P1deck[self.P1Nextcards[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,self.P1Nextcards[i],-1,self.images,self.imagesInfo)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
                     end
                     if self.P2length > self.timer * 6 then
                         for i=0,5 do
-                            if P2deckCards(self.P2Nextcards[i]) then
-                                P2deck[self.P2Nextcards[i]] = Card(P2deckCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.images,self.imagesInfo)
+                            if self.P2battleCards(self.P2Nextcards[i]) then
+                                P2deck[self.P2Nextcards[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.images,self.imagesInfo)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
@@ -412,16 +461,16 @@ function GameState:update(dt)
                 if self.P2length > 42 or self.P1length > 42 then
                     if self.P1length > 42 then
                         for i=0,5 do
-                            if not P1deck[42+self.P1currentRows[i]] and P1deckCards[self.P1Nextcards[i]] ~= nil then
-                                P1deck[42+self.P1currentRows[i]] = Card(P1deckCards[self.P1Nextcards[i]],1,42+self.P1currentRows[i],-2,self.images,self.imagesInfo)
+                            if not P1deck[42+self.P1currentRows[i]] and self.P1battleCards(self.P1Nextcards[i]) ~= nil then
+                                P1deck[42+self.P1currentRows[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,42+self.P1currentRows[i],-2,self.images,self.imagesInfo)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
                     end
                     if self.P2length > 42 then
                         for i=0,5 do
-                            if not P2deck[42+self.P2currentRows[i]] and P2deckCards(self.P2Nextcards[i]) ~= nil then
-                                P2deck[42+self.P2currentRows[i]] = Card(P2deckCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.images,self.imagesInfo)
+                            if not P2deck[42+self.P2currentRows[i]] and self.P2battleCards(self.P2Nextcards[i]) ~= nil then
+                                P2deck[42+self.P2currentRows[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.images,self.imagesInfo)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
@@ -573,5 +622,5 @@ function GameState:exit()
     P1deck = nil
     P2deck = nil
     winner = nil
-    P2deckCards = nil
+    self.P2battleCards = nil
 end

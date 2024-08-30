@@ -8,7 +8,7 @@ function SandboxState:enter()
     -- gui['VolumeLabel'] = Text('Volume',font80,'centre',360)
     -- gui[3] = Button(function() toggleSetting('videos') gui[3]:toggle() updateBackground() end,function() return 'Videos: ' .. tostring(Settings['videos']) end,font80,nil,'centre',574)
 
-    gui[5] = Button(function() gStateMachine:change('GameState',{'Endor', 'Imperial March Duet.mp3', endor},nil,nil) end,'Begin',font100,nil,'centre',850) --Placeholder gamestate function
+    gui[5] = Button(function() gStateMachine:change('GameState',{'Endor', 'Fallen Order.oga', 'Player 1 deck 2.txt', endor},nil,nil) end,'Begin',font100,nil,'centre',850) --Placeholder gamestate function
 
 end
 
