@@ -2,7 +2,8 @@ HomeState = Class{__includes = BaseState}
 
 function HomeState:enter(partial)
     if partial ~= true then --If partial is equal to 'music' or false or nil
-        background['Name'], background['Video'], background['Seek'] = backgroundInfo('Starry Sky')
+        background['Name'] = 'Starry Sky'
+        background['Filename'], background['Video'] = backgroundInfo(background['Name'])
         createBackground()
     end
     if not partial then --If partial is set to false or nil

@@ -281,6 +281,8 @@ function backgroundInfo(name)
         if name == 'Sand Dunes' then
             seek = 2
             rgb = {0,0,0}
+        else
+            seek = 0
         end
         file =  'Backgrounds/' .. name .. '.ogv'
         video = true
@@ -292,5 +294,5 @@ function backgroundInfo(name)
             file = 'Backgrounds/' .. name .. '.png'
         end
     end
-    return file or 'Backgrounds/' .. name .. '.jpg', video or false, seek or 0, rgb or {1,1,1}
+    return file or 'Backgrounds/' .. name .. '.jpg', video or false, seek or nil, rgb or {1,1,1}
 end
