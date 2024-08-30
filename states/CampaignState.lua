@@ -1,7 +1,7 @@
 CampaignState = Class{__includes = BaseState}
 
 function CampaignState:enter()
-    gui[1] = Button(function() gStateMachine:change('HomeState',true,true) end,'Main Menu',font80,nil,35,20,{1,1,1})
+    gui[1] = Button(function() gStateMachine:change('HomeState',true,true) end,'Main Menu',font70,nil,35,20,{1,1,1})
     gui[2] = Button(function() gStateMachine:change('GameState',{'Endor', 'Imperial March Duet.mp3', endor}) end,'Endor',font80,nil,'centre',40,{1,1,1},true)
     gui[3] = Button(function() gStateMachine:change('GameState',{'Sand Dunes', 'Binary Sunset.oga', mosEisley}) end,'Mos Eisley',font80,nil,'centre',170,{1,1,1},true)
     gui[4] = Button(function() gStateMachine:change('GameState',{'Sand Dunes', 'Throne Room.oga', mosEspa}) end,'Mos Espa',font80,nil,'centre',300,{1,1,1},true)

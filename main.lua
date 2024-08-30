@@ -17,6 +17,7 @@ function love.load()
     require 'states/SettingsState'
     require 'states/CampaignState'
     require 'states/DeckeditState'
+    require 'states/SandboxState'
     require 'states/ExitState'
     require 'levels'
     require 'other functions'
@@ -184,6 +185,7 @@ function love.load()
         ['SettingsState'] = function() return SettingsState() end,
         ['CampaignState'] = function() return CampaignState() end,
         ['DeckeditState'] = function() return DeckeditState() end,
+        ['SandboxState'] = function() return SandboxState() end,
         ['ExitState'] = function() return ExitState() end,
     }
     gStateMachine:change('HomeState')
