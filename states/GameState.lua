@@ -142,7 +142,7 @@ function GameState:enter(infoTable)
 
 
     background['Name'] = infoTable[1]
-    background['Filename'], background['Video'], background['Seek'], rgb = backgroundInfo(background['Name'])
+    background['Filename'],background['Video'],background['Seek'], rgb = backgroundInfo(background['Name'])
     createBackground()
 
     songs[1] = love.audio.newSource('Music/' .. infoTable[2],'stream')

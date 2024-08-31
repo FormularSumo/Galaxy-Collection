@@ -21,7 +21,7 @@ function DeckeditState:enter()
     end
 
     background['Name'] = 'Death Star Control Room'
-    background['Filename'], background['Video'] = backgroundInfo(background['Name'])
+    background['Filename'],background['Video'] = backgroundInfo(background['Name'])
     createBackground()
     gui[1] = Button(function() gStateMachine:change('HomeState','music','music') end,'Main Menu',font70,nil,'centre',50)
     gui[2] = Button(function() self:resetDeck('strongest') end,'Auto',font80,nil,960-love.graphics.newText(font80,'Auto'):getWidth()/2-160,203)
