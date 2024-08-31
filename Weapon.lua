@@ -1,12 +1,12 @@
 Weapon = Class{__includes = BaseState}
 
-function Weapon:init(number,team,xoffset,yoffset,card,imageName)
+function Weapon:init(number,team,xoffset,yoffset,card,image,imageName)
     self.number = number
     self.team = team
     self.xoffset = xoffset
     self.yoffset = yoffset
     self.card = card
-
+    self.image = image
     self.double = imageName == 'Inquisitor Lightsaber' or imageName == 'Double Red Lightsaber' or imageName == 'Double Blue Lightsaber' or imageName == 'Double Green Lightsaber' or imageName == 'Double Yellow Lightsaber' or imageName == 'Double Purple Lightsaber' or imageName == 'Electrostaff' or imageName == 'Staff' or imageName == 'Kallus\' Bo-Rifle' or imageName == 'Bo-Rifle' or imageName == 'Phasma\'s Spear' or imageName == 'War Sword' or imageName == 'Chirrut\'s Staff'
     self.short = imageName == 'Dagger of Mortis' or imageName == 'Lightning' or imageName == 'Knife' or imageName == 'Flamethrower' or imageName == 'Truncheon' or imageName == 'Embo\'s Shield' or imageName == 'Tool 1' or imageName == 'Tool 2' or imageName == 'Kyuzo Petar' or imageName == 'Vine' or imageName == 'Nightsister Sword' or imageName == 'Vibrosword' or imageName == 'Riot Control Baton' or imageName == 'Z6 Riot Control Baton' or imageName == 'Cane' or imageName == 'Shock Prod' or imageName == 'Fusioncutter' or imageName == 'Axe' or imageName == 'Spear'
     if imageName == 'Riot Control Shield' or imageName == 'Embo\'s Shield' then
@@ -16,10 +16,7 @@ function Weapon:init(number,team,xoffset,yoffset,card,imageName)
         self.static = imageName == 'Lightning' or imageName == 'Flamethrower' or imageName == 'Shock Prod' or imageName == 'Riot Control Shield'
         self.shield = false
     end
-end
 
-function Weapon:init2(image)
-    self.image = image
     self.width,self.height = self.image:getDimensions()
     if self.double or self.shield then self.yoriginoffset = self.height/2 end
 
@@ -70,11 +67,9 @@ function Weapon:init2(image)
 end
 
 function Weapon:render(angle)
-    if self.image then
-        if self.static then
-            love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
-        else
-            love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,angle,self.scalefactorx,1,self.width/2,self.yoriginoffset)
-        end
+    if self.static then
+        love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
+    else
+        love.graphics.draw(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,angle,self.scalefactorx,1,self.width/2,self.yoriginoffset)
     end
 end
