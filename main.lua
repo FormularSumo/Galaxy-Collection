@@ -46,12 +46,12 @@ function love.load()
     font60 = love.graphics.newFont(60)
     font70 = love.graphics.newFont(70)
     font80 = love.graphics.newFont(80)
+    font100 = love.graphics.newFont(100)
     font40SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',40)
     font50SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',50)
     font60SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',60)
     font90SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',90)
     font80SWrunes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
-    font100 = love.graphics.newFont(100)
     love.graphics.setFont(font80)
 
     blur = moonshine(moonshine.effects.fastgaussianblur).chain(moonshine.effects.vignette)
@@ -114,7 +114,11 @@ function love.load()
             ['volume_level'] = 0.5,
             ['FPS_counter'] = false,
             ['videos'] = true,
-            ['active_deck'] = 'Player 1 deck.txt'
+            ['active_deck'] = 'Player 1 deck.txt',
+            ['P1_selection'] = 1,
+            ['P2_selection'] = 4,
+            ['background_selection'] = 1,
+            ['music_selection'] = 1
         }
     else
         Settings = bitser.loadLoveFile('Settings.txt')
@@ -128,7 +132,6 @@ function love.load()
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
             if Settings['videos'] == nil then Settings['videos'] = true end
-            if Settings['active_deck'] == nil then Settings['active_deck'] = 'Player 1 deck.txt' end
             bitser.dumpLoveFile('User Data.txt',UserData)
 
             --If any save data is from pre 0.11 (doesn't contain userdata, character levels or evolutions), delete it to avoid crashing
@@ -162,21 +165,27 @@ function love.load()
         if love.filesystem.getInfo('Player 1 cards.txt') == nil or bitser.loadLoveFile('Player 1 cards.txt') == nil then
             bitser.dumpLoveFile('Player 1 cards.txt',{})
         end
-
-        local function loadDeck(deck)
-            if love.filesystem.getInfo(deck) == nil or bitser.loadLoveFile(deck) == nil then
-                bitser.dumpLoveFile(deck,{})
-                if Settings['active_deck'] == deck then 
-                    P1deckCards = {}
-                end
-            elseif Settings['active_deck'] == deck then
-                P1deckCards = bitser.loadLoveFile(deck)
-            end
-        end
-
-        loadDeck('Player 1 deck 2.txt')
-        loadDeck('Player 1 deck 3.txt')
     end
+
+    if Settings['active_deck'] == nil then Settings['active_deck'] = 'Player 1 deck.txt' end
+    if Settings['P1_selection'] == nil then Settings['P1_selection'] = 1 end
+    if Settings['P2_selection'] == nil then Settings['P2_selection'] = 4 end
+    if Settings['background_selection'] == nil then Settings['background_selection'] = 1 end
+    if Settings['music_selection'] == nil then Settings['music_selection'] = 1 end
+
+    local function loadDeck(deck)
+        if love.filesystem.getInfo(deck) == nil or bitser.loadLoveFile(deck) == nil then
+            bitser.dumpLoveFile(deck,{})
+            if Settings['active_deck'] == deck then 
+                P1deckCards = {}
+            end
+        elseif Settings['active_deck'] == deck then
+            P1deckCards = bitser.loadLoveFile(deck)
+        end
+    end
+
+    loadDeck('Player 1 deck 2.txt')
+    loadDeck('Player 1 deck 3.txt')
 
     -- initialize state machine with all state-returning functions
     gStateMachine = StateMachine {
