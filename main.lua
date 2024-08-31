@@ -128,7 +128,7 @@ function love.load()
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
             if Settings['videos'] == nil then Settings['videos'] = true end
-            if Settings['active_deck'] == nil then Settings['active_deck'] = 1 end
+            if Settings['active_deck'] == nil then Settings['active_deck'] = 'Player 1 deck.txt' end
             bitser.dumpLoveFile('User Data.txt',UserData)
 
             --If any save data is from pre 0.11 (doesn't contain userdata, character levels or evolutions), delete it to avoid crashing
