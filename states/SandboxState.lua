@@ -97,7 +97,7 @@ end
 function retriveMusic(index) --Can't make self or can't reference in updateCarousel annoyingly
     if index == 'max' then return 10
     elseif index == 1 then
-        return {'Across the Stars', 'Across The Stars.oga'}
+        return {'Across The Stars', 'Across The Stars.oga'}
     elseif index == 2 then
         return {'Ahsoka\'s Theme', 'Ahsoka\'s Theme.oga'}
     elseif index == 3 then
