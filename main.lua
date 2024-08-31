@@ -163,6 +163,7 @@ function love.load()
             end
         elseif Settings['active_deck'] == deck then
             P1deckCards = binser.d(love.filesystem.read(deck))
+        end
     end
 
     loadDeck('Player 1 deck 2.txt')

@@ -151,7 +151,7 @@ function SandboxState:updateCarousel(carouselName,direction)
     end
 
     gui[carouselName]:updateText(retrive(Settings[carousel])[1])
-    bitser.dumpLoveFile('Settings.txt', Settings)
+    love.filesystem.write('Settings.txt',binser.s(Settings))
 end
 
 function SandboxState:back()

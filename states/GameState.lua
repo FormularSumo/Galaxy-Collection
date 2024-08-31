@@ -12,7 +12,7 @@ function GameState:enter(infoTable)
                 end
             end
         else
-            local deckTable = bitser.loadLoveFile(infoTable[3])
+            local deckTable = binser.d(love.filesystem.read(infoTable[3]))
             self.P2battleCards = function(index) return deckTable[index] end
             for k, v in pairs(deckTable) do
                 if k > self.P2length then
@@ -37,7 +37,7 @@ function GameState:enter(infoTable)
                     end
                 end
             else
-                local deckTable = bitser.loadLoveFile(infoTable[4])
+                local deckTable = binser.d(love.filesystem.read(infoTable[4]))
                 self.P1battleCards = function(index) return deckTable[index] end
                 for k, v in pairs(deckTable) do
                     if k > self.P1length then
