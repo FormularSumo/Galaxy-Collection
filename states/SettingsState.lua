@@ -7,7 +7,7 @@ function SettingsState:enter()
     gui['VolumeLabel'] = Text('Volume',font80,'centre',480)
 
     if OS ~= 'Android' then
-        gui[4] = Button(function() toggleSetting('pause_on_loose_focus') gui[5]:toggle() end,function() return ('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus'])) end,font80,nil,'centre',848)
+        gui[4] = Button(function() toggleSetting('pause_on_loose_focus') gui[4]:toggle() end,function() return ('Pause on losing Window focus: ' .. tostring(Settings['pause_on_loose_focus'])) end,font80,nil,'centre',680)
     end
 end
 
