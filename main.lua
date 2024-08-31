@@ -17,6 +17,7 @@ function love.load()
     require 'states/SettingsState'
     require 'states/CampaignState'
     require 'states/DeckeditState'
+    require 'states/SandboxState'
     require 'levels'
     require 'other functions'
     require 'WeaponManager'
@@ -44,12 +45,12 @@ function love.load()
     font60 = love.graphics.newFont(60)
     font70 = love.graphics.newFont(70)
     font80 = love.graphics.newFont(80)
+    font100 = love.graphics.newFont(100)
     font40SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',40)
     font50SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',50)
     font60SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',60)
     font90SW = love.graphics.newFont('Fonts/Distant Galaxy.ttf',90)
     font80SWrunes = love.graphics.newFont('Fonts/Aurebesh Bold.ttf',80)
-    font100 = love.graphics.newFont(100)
     love.graphics.setFont(font80)
 
     blur = moonshine(moonshine.effects.fastgaussianblur).chain(moonshine.effects.vignette)
@@ -96,7 +97,11 @@ function love.load()
             ['pause_on_loose_focus'] = true,
             ['volume_level'] = 0.5,
             ['FPS_counter'] = false,
-            ['active_deck'] = 'Player 1 deck.txt'
+            ['active_deck'] = 'Player 1 deck.txt',
+            ['P1_selection'] = 1,
+            ['P2_selection'] = 4,
+            ['background_selection'] = 1,
+            ['music_selection'] = 1
         }
     else
         Settings = binser.d(love.filesystem.read('Settings.txt'))
@@ -109,7 +114,6 @@ function love.load()
     else
         if love.filesystem.getInfo('User Data.txt') == nil then
             UserData['Credits'] = 0
-            if Settings['active_deck'] == nil then Settings['active_deck'] = 1 end
             love.filesystem.write('User Data.txt',binser.s(UserData))
 
             --If any save data is from pre 0.11 (doesn't contain userdata, character levels or evolutions), delete it to avoid crashing
@@ -143,21 +147,27 @@ function love.load()
         if love.filesystem.getInfo('Player 1 cards.txt') == nil or binser.d(love.filesystem.read('Player 1 cards.txt')) == nil then
             love.filesystem.write('Player 1 cards.txt',binser.s({}))
         end
-
-        local function loadDeck(deck)
-            if love.filesystem.getInfo(deck) == nil or binser.d(love.filesystem.read((deck))) == nil then
-                love.filesystem.write(deck,binser.s({}))
-                if Settings['active_deck'] == deck then 
-                    P1deckCards = {}
-                end
-            elseif Settings['active_deck'] == deck then
-                P1deckCards = binser.d(love.filesystem.read(deck))
-            end
-        end
-
-        loadDeck('Player 1 deck 2.txt')
-        loadDeck('Player 1 deck 3.txt')
     end
+
+    if Settings['active_deck'] == nil then Settings['active_deck'] = 'Player 1 deck.txt' end
+    if Settings['P1_selection'] == nil then Settings['P1_selection'] = 1 end
+    if Settings['P2_selection'] == nil then Settings['P2_selection'] = 4 end
+    if Settings['background_selection'] == nil then Settings['background_selection'] = 1 end
+    if Settings['music_selection'] == nil then Settings['music_selection'] = 1 end
+
+    local function loadDeck(deck)
+        if love.filesystem.getInfo(deck) == nil or binser.d(love.filesystem.read((deck))) == nil then
+            love.filesystem.write(deck,binser.s({}))
+            if Settings['active_deck'] == deck then 
+                P1deckCards = {}
+            end
+        elseif Settings['active_deck'] == deck then
+            P1deckCards = binser.d(love.filesystem.read(deck))
+        end
+    end
+
+    loadDeck('Player 1 deck 2.txt')
+    loadDeck('Player 1 deck 3.txt')
 
     -- initialize state machine with all state-returning functions
     gStateMachine = StateMachine {
@@ -166,6 +176,7 @@ function love.load()
         ['SettingsState'] = function() return SettingsState() end,
         ['CampaignState'] = function() return CampaignState() end,
         ['DeckeditState'] = function() return DeckeditState() end,
+        ['SandboxState'] = function() return SandboxState() end,
     }
     gStateMachine:change('HomeState')
 end
