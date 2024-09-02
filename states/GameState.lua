@@ -635,5 +635,4 @@ function GameState:exit()
     P1deck = nil
     P2deck = nil
     winner = nil
-    self.P2battleCards = nil
-end
+    end
