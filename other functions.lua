@@ -22,25 +22,17 @@ end
 
 function createBackground()
     if background['Video'] then
-        background['Background'] = love.graphics.newVideo(background['Name'])
+        background['Background'] = love.graphics.newVideo(background['Filename'])
         background['Background']:play()
     else
-        if love.filesystem.getInfo(background['Name']) then
-            background['Background'] = love.graphics.newImage(background['Name'])
+        if love.filesystem.getInfo(background['Filename']) then
+            background['Background'] = love.graphics.newImage(background['Filename'])
         end
     end
 end
 
 function updateBackground()
-    if Settings['videos'] then
-        if love.filesystem.getInfo('Backgrounds/' .. background['Name'] .. '.ogv') then
-            background['Video'] = true
-        else
-            return
-        end
-    else
-        background['Video'] = false
-    end
+    background['Filename'], background['Video'], background['Seek'] = backgroundInfo(background['Name'])
     createBackground()
     collectgarbage()
 end
