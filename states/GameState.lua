@@ -284,7 +284,6 @@ function GameState:Move1()
             self:MoveDown(P1deck,2)
             self:MoveDown(P1deck,1)
             self:MoveDown(P1deck,0)
-            print("h")
             self:MoveUp(P2deck,2)
             self:MoveUp(P2deck,3)
             self:MoveUp(P2deck,4)
@@ -299,7 +298,6 @@ function GameState:Move1()
             return true
         --Make sure rows line up if in middle 4 rows
         elseif (self.P1rows[1] and self.P1rows[2] and self.P1rows[3]) and (self.P2rows[2] and self.P2rows[3] and self.P2rows[4]) then
-            print("hhhhh")
             self:MoveUp(P2deck,2)
             self:MoveUp(P2deck,3)
             self:MoveUp(P2deck,4)
@@ -308,6 +306,23 @@ function GameState:Move1()
             self:MoveUp(P1deck,2)
             self:MoveUp(P1deck,3)
             self:MoveUp(P1deck,4)
+            return true
+        end
+    elseif self.P1rowsRemaining == 5 and self.P2rowsRemaining == 5 then
+        --Make sure rows line up if in middle 6 rows
+        if not self.P1rows[5] and self.P2rows[5] then
+            self:MoveUp(P2deck,1)
+            self:MoveUp(P2deck,2)
+            self:MoveUp(P2deck,3)
+            self:MoveUp(P2deck,4)
+            self:MoveUp(P2deck,5)
+            return true
+        elseif not self.P2rows[5] and self.P1rows[5] then
+            self:MoveUp(P1deck,1)
+            self:MoveUp(P1deck,2)
+            self:MoveUp(P1deck,3)
+            self:MoveUp(P1deck,4)
+            self:MoveUp(P1deck,5)
             return true
         end
     end
@@ -409,7 +424,7 @@ function GameState:MoveUp(deck,row)
             self.P2initialRows[row] = nil
         end 
         for k, pair in pairs(deck) do
-            -- print(deck[k].number .. '  ' .. deck[k].row)
+            -- print(deck[k].number .. '  ' .. deck[k].row) --to debug movement bug
             if deck[k].row == row then
                 deck[k].number = deck[k].number - 1
                 deck[k].targetY = deck[k].targetY - 180
