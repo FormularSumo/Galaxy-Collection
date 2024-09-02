@@ -7,8 +7,8 @@ function endor(number)
     if number == 3 then return {'Teebo',60,4} end
     if number == 4 then return {'Chief Chirpa',60,4} end
     if number == 5 then return {'Logray',60,4} end
-    if number == 8 then return {'Ewok Elder',60,4} end
-    if number == 9 then return {'Ewok Scout',60,4} end
+    -- if number == 8 then return {'Ewok Elder',60,4} end
+    -- if number == 9 then return {'Ewok Scout',60,4} end
 end
 
 function mosEisley(number)

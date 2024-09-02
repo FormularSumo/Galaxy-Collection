@@ -117,21 +117,38 @@ end
 function GameState:Move()
     self:RowsRemaining(P1deck)
     self:RowsRemaining(P2deck)
-    if self.P1rowsRemaining == 1 and self.P2rowsRemaining == 1 then
-        if not self.P1rows[3] and self.P2rows[3] then
-            if self.P1rows[3] then
-                self:MoveUp(P1deck,3)
-            end
-            if self.P2rows[3] then
+    if self.P1rowsRemaining == 1 and self.P2rowsRemaining == 1 then --If there's only one row left on both teams, ensure they                                            always align with each other in the most efficient way possible
+        if not (self.P1rows[3] and self.P2rows[3]) and not (self.P1rows[2] and self.P2rows[2]) then
+            if (self.P1rows[0] or self.P1rows[1]) and self.P2rows[3] then --If one player's row is in the top two rows, other player's row will move to upper centre to meet faster
+                self:MoveDown(P1deck,1)
+                self:MoveDown(P1deck,0)
                 self:MoveUp(P2deck,3)
+                return
+            elseif (self.P2rows[0] or self.P2rows[1]) and self.P1rows[3] then
+                self:MoveDown(P2deck,1)
+                self:MoveDown(P2deck,0)
+                self:MoveUp(P1deck,3)
+                return
+            elseif (self.P1rows[4] or self.P1rows[5]) and self.P2rows[2] then --If one player's row is in the bottom two rows, other player's row will move to lower centre to meet faster
+                self:MoveUp(P1deck,4)
+                self:MoveUp(P1deck,5)
+                self:MoveDown(P2deck,2)
+                return
+            elseif (self.P2rows[4] or self.P2rows[5]) and self.P1rows[2] then
+                self:MoveUp(P2deck,4)
+                self:MoveUp(P2deck,5)
+                self:MoveDown(P1deck,2)
+                return
+            elseif self.P1rows[2] and self.P2rows[3] then --Make sure rows line up if in middle two rows
+                self:MoveUp(P2deck,3)
+                return
+            elseif self.P2rows[2] and self.P1rows[3] then
+                self:MoveUp(P1deck,3)
+                return
             end
-        end
-        if (self.P1rows[2] or self.P1rows[3]) and (self.P2rows[2] or self.P2rows[3]) then
-            return
         end 
     end
    
-
     self:Move2(P1deck,self.P1rows)
     self:Move2(P2deck,self.P2rows)
 end
