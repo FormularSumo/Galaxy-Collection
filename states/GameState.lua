@@ -131,10 +131,9 @@ function GameState:Move()
         end 
     end
    
-    self.rows = self.P1rows
-    self:Move2(P1deck)
-    self.rows = self.P2rows
-    self:Move2(P2deck)
+
+    self:Move2(P1deck,self.P1rows)
+    self:Move2(P2deck,self.P2rows)
 end
 
 function GameState:RowsRemaining(deck)
@@ -165,7 +164,7 @@ function GameState:RowsRemaining(deck)
     end
 end
 
-function GameState:Move2(deck)
+function GameState:Move2(deck,rows)
     self.rowsMoved = {
         [0] = false,
         [1] = false,
@@ -174,19 +173,19 @@ function GameState:Move2(deck)
         [4] = false,
         [5] = false,
     }
-    if self.rows[0] == false and self.rows[1] == false and self.rows[5] == true then
+    if rows[0] == false and rows[1] == false and rows[5] == true then
         self:MoveUp(deck,2)
         self:MoveUp(deck,3)
         self:MoveUp(deck,4)
         self:MoveUp(deck,5)
-    elseif self.rows[4] == false and self.rows[5] == false and self.rows[0] == true then
+    elseif rows[4] == false and rows[5] == false and rows[0] == true then
         self:MoveDown(deck,3)
         self:MoveDown(deck,2)
         self:MoveDown(deck,1)
         self:MoveDown(deck,0)
     else
-        if self.rows[2] == false then
-            if (self.rows[0] == false and self.rows[5] == true) or (self.rows[1] == false and self.rows[4] == true) or ((self.rowsRemaining == 1 and self.enemyRows[2]) and (self.rows[5] or not self.rows[0] and self.rows[4])) then
+        if rows[2] == false then
+            if (rows[0] == false and rows[5] == true) or (rows[1] == false and rows[4] == true) then
                 self:MoveUp(deck,3)
                 self:MoveUp(deck,4)
                 self:MoveUp(deck,5)
@@ -195,11 +194,11 @@ function GameState:Move2(deck)
                 self:MoveDown(deck,0)
             end
         end
-        if self.rows[1] == false then 
+        if rows[1] == false then
             self:MoveDown(deck,0)
         end
-        if self.rows[3] == false then
-            if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and self.enemyRows[3]) then
+        if rows[3] == false then
+            if (rows[5] == false and rows[0] == true) or (rows[4] == false and rows[1] == true) then
                 self:MoveDown(deck,2)
                 self:MoveDown(deck,1)
                 self:MoveDown(deck,0)
@@ -208,7 +207,7 @@ function GameState:Move2(deck)
                 self:MoveUp(deck,5)
             end
         end
-        if self.rows[4] == false then
+        if rows[4] == false then
             self:MoveUp(deck,5)
         end
     end
