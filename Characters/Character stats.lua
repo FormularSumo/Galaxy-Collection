@@ -5494,7 +5494,6 @@ Characters = {
     ['projectile1'] = 'Blue Force Blast',
     ['projectileCount'] = 2,
     ['weapon1'] = 'Yoda Lightsaber'
-    
 },
 
 ['Young Anakin Skywalker'] = {
@@ -5522,6 +5521,18 @@ Characters = {
     ['evade'] = 0.03,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser'
+},
+
+['Young Qui-Gon Jinn'] = {
+    ['meleeOffense'] = 15977,
+    ['rangedOffense'] = 14977,
+    ['defense'] = 15563,
+    ['evade'] = 0.04,
+    ['range'] = 2,
+    ['projectile1'] = 'Blue Force Blast',
+    ['projectileCount'] = 2,
+    ['weapon1'] = 'Green Lightsaber'
+
 },
 
 ['Yuthura Ban'] = {
