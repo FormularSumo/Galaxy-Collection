@@ -388,13 +388,17 @@ function GameState:MoveDown(deck,row)
             self.P2initialRows[row+1] = self.P2initialRows[row]
             self.P2initialRows[row] = nil
         end
+        local deckIndexes = {} -- This is used to save a copy of the current card indexes (numbers) so they don't get incorrectly overwritten when modifying the table
         for k, pair in pairs(deck) do
-            if deck[k].row == row then
-                deck[k].number = deck[k].number + 1
-                deck[k].targetY = deck[k].targetY + 180
-                deck[k].row = row + 1
-                deck[k+1] = deck[k]
-                deck[k] = nil
+            table.insert(deckIndexes,k)
+        end
+        for k, pair in pairs(deckIndexes) do
+            if deck[pair].row == row then
+                deck[pair].number = deck[pair].number + 1
+                deck[pair].targetY = deck[pair].targetY + 180
+                deck[pair].row = row + 1
+                deck[pair+1] = deck[pair]
+                deck[pair] = nil
             end
         end
     end
@@ -420,15 +424,18 @@ function GameState:MoveUp(deck,row)
 
             self.P2initialRows[row-1] = self.P2initialRows[row]
             self.P2initialRows[row] = nil
-        end 
+        end
+        local deckIndexes = {} -- This is used to save a copy of the current card indexes (numbers) so they don't get incorrectly overwritten when modifying the table
         for k, pair in pairs(deck) do
-            -- print(deck[k].number .. '  ' .. deck[k].row) --to debug movement bug
-            if deck[k].row == row then
-                deck[k].number = deck[k].number - 1
-                deck[k].targetY = deck[k].targetY - 180
-                deck[k].row = row - 1
-                deck[k-1] = deck[k]
-                deck[k] = nil
+            table.insert(deckIndexes,k)
+        end
+        for k, pair in pairs(deckIndexes) do
+            if deck[pair].row == row then
+                deck[pair].number = deck[pair].number - 1
+                deck[pair].targetY = deck[pair].targetY - 180
+                deck[pair].row = row - 1
+                deck[pair-1] = deck[pair]
+                deck[pair] = nil
             end
         end
     end
