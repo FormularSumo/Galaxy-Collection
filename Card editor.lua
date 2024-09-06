@@ -11,15 +11,15 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images)
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
-            self.imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+            self.imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
         else
-            self.imageName = 'Characters/' .. self.name .. '/' .. self.name
+            self.imagePath = 'Characters/' .. self.name .. '/' .. self.name
         end
-        if images[self.imageName] then
-            self.image = images[self.imageName]
+        if images[self.imagePath] then
+            self.image = images[self.imagePath]
         else
-            images[self.imageName] = love.graphics.newImage(self.imageName .. '.png')
-            self.image = images[self.imageName]
+            images[self.imagePath] = love.graphics.newImage(self.imagePath .. '.png')
+            self.image = images[self.imagePath]
         end
         self.level = level or 1
         self.evolution = evolution or 0
@@ -41,7 +41,7 @@ function CardEditor:swap()
                     P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
                 end
                 --Copy data from inventory card to deck card
-                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imageName, mouseTrapped.image = self.name, self.level, self.evolution, self.imageName, self.image
+                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
                 P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
                 P1deck[mouseTrapped.number] = mouseTrapped
                 P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
@@ -49,7 +49,7 @@ function CardEditor:swap()
                 if self.name ~= 'Blank' then
                     P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
                 end
-                self.name, self.level, self.evolution, self.imageName, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imageName, mouseTrapped.image
+                self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
                 P1deck[self.number] = self
                 P1deckEdit(self.number,{self.name,self.level,self.evolution})
@@ -107,7 +107,7 @@ function CardEditor:CardViewer()
         gui['CardViewer'] = nil
         collectgarbage()
     end
-    gui['CardViewer'] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number,self,self.mode)
+    gui['CardViewer'] = CardViewer(self.name,self.imagePath,self.level,self.evolution,self.inDeck,self.number,self,self.mode)
 end
 
 function CardEditor:update()

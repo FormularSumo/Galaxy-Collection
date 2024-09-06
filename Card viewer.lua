@@ -1,6 +1,6 @@
 CardViewer = Class{__includes = BaseState}
 
-function CardViewer:init(name,imageName,level,evolution,inDeck,number,parent,mode)
+function CardViewer:init(name,imagePath,level,evolution,inDeck,number,parent,mode)
     self.name = name
     self.stats = Characters[name]
     self.statsOnDisplay = {}
@@ -24,7 +24,7 @@ function CardViewer:init(name,imageName,level,evolution,inDeck,number,parent,mod
     self:updateEvolution()
 
     --Create image which toggles between displaying stats and description
-    gui[1] = Button(function() self:swapMode() end,nil,nil,imageName .. '.jpg',390,540)
+    gui[1] = Button(function() self:swapMode() end,nil,nil,imagePath .. '.jpg',390,540)
 end
 
 function CardViewer:updateEvolution()
