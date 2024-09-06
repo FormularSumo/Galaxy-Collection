@@ -226,7 +226,7 @@ function GameState:RowsRemaining(deck)
     end
 end
 
---This function handles odd block movements, where there's a consolidated 1/3/5 rows on both teams. This is to ensure they always meet, as quickly as possible.
+--This function handles odd block movements, where there's a consolidated 1/3/5 rows on both teams. This is to ensure they always meet/centre with each other, as quickly as possible.
 function GameState:Move1()
     if self.P1rowsRemaining == 1 and self.P2rowsRemaining == 1 then
         --If one player's row is in the top two rows, other player's row will move to upper centre to meet faster
@@ -322,6 +322,66 @@ function GameState:Move1()
             self:MoveUp(P1deck,4)
             self:MoveUp(P1deck,5)
             return true
+        end
+    elseif self.P1rowsRemaining == 1 and self.P2rowsRemaining == 3 then
+        --Make sure rows centre if there's a 1 against 3 situation
+        if (self.P2rows[2] and self.P2rows[3] and self.P2rows[4]) then
+            if self.P1rows[0] or self.P1rows[1] or self.P1rows[2] then
+                self:MoveUp(P2deck,2)
+                self:MoveUp(P2deck,3)
+                self:MoveUp(P2deck,4)
+                if self.P1rows[0] then
+                    self:MoveDown(P1deck,0)
+                elseif self.P1rows[1] then
+                    self:MoveDown(P1deck,1)
+                end
+                return true
+            end
+        elseif (self.P2rows[1] and self.P2rows[2] and self.P2rows[3]) then
+            if self.P1rows[4] or self.P1rows[5] then
+                self:MoveDown(P2deck,3)
+                self:MoveDown(P2deck,2)
+                self:MoveDown(P2deck,1)
+                if self.P1rows[4] then
+                    self:MoveUp(P1deck,4)
+                elseif self.P1rows[5] then
+                    self:MoveUp(P1deck,5)
+                end
+                return true
+            elseif self.P1rows[3] then
+                self:MoveUp(P1deck,3)
+                return true
+            end
+        end
+    elseif self.P1rowsRemaining == 3 and self.P2rowsRemaining == 1 then
+        --Make sure rows centre if there's a 1 against 3 situation
+        if (self.P1rows[2] and self.P1rows[3] and self.P1rows[4]) then
+            if self.P2rows[0] or self.P2rows[1] or self.P2rows[2] then
+                self:MoveUp(P1deck,2)
+                self:MoveUp(P1deck,3)
+                self:MoveUp(P1deck,4)
+                if self.P2rows[0] then
+                    self:MoveDown(P2deck,0)
+                elseif self.P2rows[1] then
+                    self:MoveDown(P2deck,1)
+                end
+                return true
+            end
+        elseif (self.P1rows[1] and self.P1rows[2] and self.P1rows[3]) then
+            if self.P2rows[4] or self.P2rows[5] then
+                self:MoveDown(P1deck,3)
+                self:MoveDown(P1deck,2)
+                self:MoveDown(P1deck,1)
+                if self.P2rows[4] then
+                    self:MoveUp(P2deck,4)
+                elseif self.P2rows[5] then
+                    self:MoveUp(P2deck,5)
+                end
+                return true
+            elseif self.P2rows[3] then
+                self:MoveUp(P2deck,3)
+                return true
+            end
         end
     end
 end
