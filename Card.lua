@@ -8,18 +8,18 @@ function Card:init(card,team,number,column,images)
     self.level = card[2] or 1
     self.evolution = card[3] or 0
 
-    local imagePath;
+    local imageName;
     if self.stats['filename'] then
-        imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+        imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
     else
-        imagePath = 'Characters/' .. card[1] .. '/' .. card[1]
+        imageName = 'Characters/' .. card[1] .. '/' .. card[1]
     end
 
-    if images[imagePath] then
-        self.image = images[imagePath]
+    if images[imageName] then
+        self.image = images[imageName]
     else
-        images[imagePath] = love.graphics.newImage(imagePath .. '.png')
-        self.image = images[imagePath]
+        images[imageName] = love.graphics.newImage(imageName .. '.png')
+        self.image = images[imageName]
     end
 
     self.width,self.height = self.image:getDimensions()
