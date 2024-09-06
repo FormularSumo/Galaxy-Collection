@@ -746,11 +746,21 @@ function GameState:update(dt)
                     end
                 end
 
+                local deckIndexes = {} -- This is used to save a copy of the current card indexes (numbers) so they don't get incorrectly overwritten when modifying the table
                 for k, pair in pairs(P1deck) do
-                    pair:move2()
+                    table.insert(deckIndexes,k)
+                end
+                for k, pair in pairs(deckIndexes) do
+                    P1deck[pair]:move2()
+                end
+                for k, pair in pairs(deckIndexes) do --Empty table
+                    deckIndexes[k] = nil
                 end 
                 for k, pair in pairs(P2deck) do
-                    pair:move2()
+                    table.insert(deckIndexes,k)
+                end
+                for k, pair in pairs(deckIndexes) do
+                    P2deck[pair]:move2()
                 end
             end
 
