@@ -231,24 +231,36 @@ function GameState:Move1()
     if self.P1rowsRemaining == 1 and self.P2rowsRemaining == 1 then
         --If one player's row is in the top two rows, other player's row will move to upper centre to meet faster
         if (self.P1rows[0] or self.P1rows[1]) and self.P2rows[3] then
-            self:MoveDown(P1deck,1)
-            self:MoveDown(P1deck,0)
+            if self.P1rows[0] then
+                self:MoveDown(P1deck,0)
+            else
+                self:MoveDown(P1deck,1)
+            end
             self:MoveUp(P2deck,3)
             return true
         elseif (self.P2rows[0] or self.P2rows[1]) and self.P1rows[3] then
-            self:MoveDown(P2deck,1)
-            self:MoveDown(P2deck,0)
+            if self.P1rows[0] then
+                self:MoveDown(P2deck,0)
+            else
+                self:MoveDown(P2deck,1)
+            end
             self:MoveUp(P1deck,3)
             return true
         --If one player's row is in the bottom two rows, other player's row will move to lower centre to meet faster
         elseif (self.P1rows[4] or self.P1rows[5]) and self.P2rows[2] then
-            self:MoveUp(P1deck,4)
-            self:MoveUp(P1deck,5)
+            if self.P1rows[4] then
+                self:MoveUp(P1deck,4)
+            else
+                self:MoveUp(P1deck,5)
+            end
             self:MoveDown(P2deck,2)
             return true
         elseif (self.P2rows[4] or self.P2rows[5]) and self.P1rows[2] then
-            self:MoveUp(P2deck,4)
-            self:MoveUp(P2deck,5)
+            if self.P1rows[4] then
+                self:MoveUp(P2deck,4)
+            else
+                self:MoveUp(P2deck,5)
+            end
             self:MoveDown(P1deck,2)
             return true
         --Make sure rows line up if in middle two rows
@@ -344,7 +356,7 @@ function GameState:Move1()
                 self:MoveDown(P2deck,1)
                 if self.P1rows[4] then
                     self:MoveUp(P1deck,4)
-                elseif self.P1rows[5] then
+                else
                     self:MoveUp(P1deck,5)
                 end
                 return true
@@ -374,7 +386,7 @@ function GameState:Move1()
                 self:MoveDown(P1deck,1)
                 if self.P2rows[4] then
                     self:MoveUp(P2deck,4)
-                elseif self.P2rows[5] then
+                else
                     self:MoveUp(P2deck,5)
                 end
                 return true
