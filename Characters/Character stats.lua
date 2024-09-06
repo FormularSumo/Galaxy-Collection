@@ -3936,7 +3936,6 @@ Characters = {
     ['weapon1'] = 'Blue Lightsaber'
 },
 
-            
 ['Padawan Qui-Gon Jinn'] = {
     ['meleeOffense'] = 15977,
     ['rangedOffense'] = 14977,
