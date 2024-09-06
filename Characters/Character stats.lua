@@ -1270,9 +1270,9 @@ Characters = {
 },
 
 ['Commander Luke Skywalker'] = {
-    ['meleeOffense'] = 15832,
-    ['rangedOffense'] = 15529,
-    ['defense'] = 15400,
+    ['meleeOffense'] = 15810,
+    ['rangedOffense'] = 15507,
+    ['defense'] = 15378,
     ['evade'] = 0.04,
     ['range'] = 2,
     ['projectile1'] = 'Red Laser',
