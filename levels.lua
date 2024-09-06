@@ -1,16 +1,16 @@
 function endor(number)
     if number == 'max' then return 10 end
 
-    -- if number == 0 then return {'Tokkat',60,4} end
-    -- if number == 1 then return {'Teebo',60,4} end/
-    -- if number == 2 then return {'Wicket W Warrick',60,4} end
-    -- if number == 3 then return {'Paploo',60,4} end
-    -- if number == 4 then return {'Chief Chirpa',60,/4} end
+    if number == 0 then return {'Tokkat',60,4} end
+    if number == 1 then return {'Teebo',60,4} end
+    if number == 2 then return {'Wicket W Warrick',60,4} end
+    if number == 3 then return {'Paploo',60,4} end
+    if number == 4 then return {'Chief Chirpa',60,4} end
     if number == 5 then return {'Logray',60,4} end
-    -- if number == 7 then return {'Ewok Scout',60,4} end
-    -- if number == 8 then return {'Ewok Elder',60,4} end
-    -- if number == 9 then return {'Ewok Elder',60,4} end
-    -- if number == 10 then return {'Ewok Scout',60,4} end
+    if number == 7 then return {'Ewok Scout',60,4} end
+    if number == 8 then return {'Ewok Elder',60,4} end
+    if number == 9 then return {'Ewok Elder',60,4} end
+    if number == 10 then return {'Ewok Scout',60,4} end
 end
 
 function mosEisley(number)

@@ -395,6 +395,76 @@ function GameState:Move1()
                 return true
             end
         end
+    elseif self.P1rowsRemaining == 3 and self.P2rowsRemaining == 5 then
+        --Make sure rows centre if there's a 3 against 5 situation
+        if self.P2rows[5] then
+            if (self.P1rows[0] or self.P1rows[3]) and self.P1rows[1] and self.P1rows[2] then
+                self:MoveUp(P2deck,1)
+                self:MoveUp(P2deck,2)
+                self:MoveUp(P2deck,3)
+                self:MoveUp(P2deck,4)
+                self:MoveUp(P2deck,5)
+                if self.P1rows[0] then
+                    self:MoveDown(P1deck,2)
+                    self:MoveDown(P1deck,1)
+                    self:MoveDown(P1deck,0)
+                end
+                return true
+            end
+        elseif self.P2rows[0] then
+            if (self.P1rows[2] or self.P1rows[5]) and self.P1rows[3] and self.P1rows[4] then
+                if self.P1rows[5] then
+                    self:MoveDown(P2deck,4)
+                    self:MoveDown(P2deck,3)
+                    self:MoveDown(P2deck,2)
+                    self:MoveDown(P2deck,1)
+                    self:MoveDown(P2deck,0)
+                    self:MoveUp(P1deck,3)
+                    self:MoveUp(P1deck,4)
+                    self:MoveUp(P1deck,5)
+                else
+                    self:MoveUp(P1deck,2)
+                    self:MoveUp(P1deck,3)
+                    self:MoveUp(P1deck,4)
+                end
+                return true
+            end
+        end
+    elseif self.P1rowsRemaining == 5 and self.P2rowsRemaining == 3 then
+        --Make sure rows centre if there's a 3 against 5 situation
+        if self.P1rows[5] then
+            if (self.P2rows[0] or self.P2rows[3]) and self.P2rows[1] and self.P2rows[2] then
+                self:MoveUp(P1deck,1)
+                self:MoveUp(P1deck,2)
+                self:MoveUp(P1deck,3)
+                self:MoveUp(P1deck,4)
+                self:MoveUp(P1deck,5)
+                if self.P2rows[0] then
+                    self:MoveDown(P2deck,2)
+                    self:MoveDown(P2deck,1)
+                    self:MoveDown(P2deck,0)
+                end
+                return true
+            end
+        elseif self.P1rows[0] then
+            if (self.P2rows[2] or self.P2rows[5]) and self.P2rows[3] and self.P2rows[4] then
+                if self.P2rows[5] then
+                    self:MoveDown(P1deck,4)
+                    self:MoveDown(P1deck,3)
+                    self:MoveDown(P1deck,2)
+                    self:MoveDown(P1deck,1)
+                    self:MoveDown(P1deck,0)
+                    self:MoveUp(P2deck,3)
+                    self:MoveUp(P2deck,4)
+                    self:MoveUp(P2deck,5)
+                else
+                    self:MoveUp(P2deck,2)
+                    self:MoveUp(P2deck,3)
+                    self:MoveUp(P2deck,4)
+                end
+                return true
+            end
+        end
     end
 end
 
