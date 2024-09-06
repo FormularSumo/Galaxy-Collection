@@ -317,7 +317,7 @@ function DeckeditState:updateCardViewer(direction) --Updates which card is selec
     end
 end
 
-function DeckeditState:enterStats(name,imagePath,level,evolution,inDeck,number)
+function DeckeditState:enterStats()
     self.subState = 'info'
     self.gui = gui
     gui = {}
