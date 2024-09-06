@@ -453,13 +453,15 @@ function love.update(dt)
 
     --Manage song queue
     if not paused then
-        if songs[1] and not songs[currentSong]:isPlaying() then
-            if songs[currentSong+1] then
-                currentSong = currentSong+1
-            else
-                currentSong = 1
+        if songs[1] and not songs[currentSong]:isPlaying() then --Check if a song is currently playing
+            if songs[currentSong]:tell() == 0 then --Check that the current song isn't playing because it's finished rather than because the system is lagging a lot
+                if songs[currentSong+1] then
+                    currentSong = currentSong+1
+                else
+                    currentSong = 1
+                end
             end
-            songs[currentSong]:play()
+            songs[currentSong]:play() --We want this to happen regardless of whether we switch to the next song, as at this point the game is not paused but no song is playing (presumably stopped due to lag)
         end
     end
 
