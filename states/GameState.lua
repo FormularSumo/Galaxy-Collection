@@ -111,7 +111,15 @@ function GameState:enter(infoTable)
         [4] = 4,
         [5] = 5,
     }
-    self.rowsMoved = {
+    self.P1rowsMoved = {
+        [0] = false,
+        [1] = false,
+        [2] = false,
+        [3] = false,
+        [4] = false,
+        [5] = false,
+    }
+    self.P2rowsMoved = {
         [0] = false,
         [1] = false,
         [2] = false,
@@ -150,36 +158,35 @@ function GameState:enter(infoTable)
     love.timer.step()
 end
 
-function GameState:Move()
+function GameState:Move() --Handles moving rows up and down
     self:RowsRemaining(P1deck)
     self:RowsRemaining(P2deck)
-    if self.P1rowsRemaining == 1 and self.P2rowsRemaining == 1 then
-        if not self.P1rows[3] and self.P2rows[3] then
-            if self.P1rows[3] then
-                self:MoveUp(P1deck,3)
-            end
-            if self.P2rows[3] then
-                self:MoveUp(P2deck,3)
-            end
-        end
-        if (self.P1rows[2] or self.P1rows[3]) and (self.P2rows[2] or self.P2rows[3]) then
-            return
-        end 
+
+    if not self:Move1() then --Special movement cases
+        self:Move2(P1deck,self.P1rows) --General-purpose movement
+        self:Move2(P2deck,self.P2rows)
+        self.P1rowsMoved = {
+            [0] = false,
+            [1] = false,
+            [2] = false,
+            [3] = false,
+            [4] = false,
+            [5] = false,
+        }
+        self.P2rowsMoved = {
+            [0] = false,
+            [1] = false,
+            [2] = false,
+            [3] = false,
+            [4] = false,
+            [5] = false,
+        }
     end
-   
-    self.rows = self.P1rows
-    self.enemyRows = self.P2rows
-    self.rowsRemaining = self.P2rowsRemaining
-    self:Move2(P1deck)
-    self.rows = self.P2rows
-    self.enemyRows = self.P1rows
-    self.rowsRemaining = self.P1rowsRemaining
-    self:Move2(P2deck)
 end
 
 function GameState:RowsRemaining(deck)
-    self.rowsRemaining = 0
-    self.rows = {
+    local rowsRemaining = 0
+    local rows = {
         [0] = false,
         [1] = false,
         [2] = false,
@@ -189,44 +196,278 @@ function GameState:RowsRemaining(deck)
     }
 
     for k, pair in pairs(deck) do
-        if self.rows[pair.row] == false then
-            self.rows[pair.row] = true
-            self.rowsRemaining = self.rowsRemaining + 1
-            if self.rowsRemaining == 6 then break end
+        if rows[pair.row] == false then
+            rows[pair.row] = true
+            rowsRemaining = rowsRemaining + 1
+            if rowsRemaining == 6 then break end
         end
     end
 
     if deck == P1deck then
-        self.P1rows = self.rows
-        self.P1rowsRemaining = self.rowsRemaining
+        self.P1rows = rows
+        self.P1rowsRemaining = rowsRemaining
     else
-        self.P2rows = self.rows
-        self.P2rowsRemaining = self.rowsRemaining
+        self.P2rows = rows
+        self.P2rowsRemaining = rowsRemaining
     end
 end
 
-function GameState:Move2(deck)
-    self.rowsMoved = {
-        [0] = false,
-        [1] = false,
-        [2] = false,
-        [3] = false,
-        [4] = false,
-        [5] = false,
-    }
-    if self.rows[0] == false and self.rows[1] == false and self.rows[5] == true then
+--This function handles odd block movements, where there's a consolidated 1/3/5 rows on both teams. This is to ensure they always meet/centre with each other, as quickly as possible.
+function GameState:Move1()
+    if self.P1rowsRemaining == 1 and self.P2rowsRemaining == 1 then
+        --If one player's row is in the top two rows, other player's row will move to upper centre to meet faster
+        if (self.P1rows[0] or self.P1rows[1]) and self.P2rows[3] then
+            if self.P1rows[0] then
+                self:MoveDown(P1deck,0)
+            else
+                self:MoveDown(P1deck,1)
+            end
+            self:MoveUp(P2deck,3)
+            return true
+        elseif (self.P2rows[0] or self.P2rows[1]) and self.P1rows[3] then
+            if self.P1rows[0] then
+                self:MoveDown(P2deck,0)
+            else
+                self:MoveDown(P2deck,1)
+            end
+            self:MoveUp(P1deck,3)
+            return true
+        --If one player's row is in the bottom two rows, other player's row will move to lower centre to meet faster
+        elseif (self.P1rows[4] or self.P1rows[5]) and self.P2rows[2] then
+            if self.P1rows[4] then
+                self:MoveUp(P1deck,4)
+            else
+                self:MoveUp(P1deck,5)
+            end
+            self:MoveDown(P2deck,2)
+            return true
+        elseif (self.P2rows[4] or self.P2rows[5]) and self.P1rows[2] then
+            if self.P1rows[4] then
+                self:MoveUp(P2deck,4)
+            else
+                self:MoveUp(P2deck,5)
+            end
+            self:MoveDown(P1deck,2)
+            return true
+        --Make sure rows line up if in middle two rows
+        elseif self.P1rows[2] and self.P2rows[3] then
+            self:MoveUp(P2deck,3)
+            return true
+        elseif self.P2rows[2] and self.P1rows[3] then
+            self:MoveUp(P1deck,3)
+            return true
+        end
+    elseif self.P1rowsRemaining == 3 and self.P2rowsRemaining == 3 then
+        -- If one player's rows are in the top three rows, other player's rows will move to upper centre to meet faster
+        if (self.P1rows[3] and self.P1rows[4] and self.P1rows[5]) and (self.P2rows[1] and self.P2rows[2] and self.P2rows[3]) then
+            self:MoveUp(P1deck,3)
+            self:MoveUp(P1deck,4)
+            self:MoveUp(P1deck,5)
+            self:MoveDown(P2deck,3)
+            self:MoveDown(P2deck,2)
+            self:MoveDown(P2deck,1)
+            return true
+        elseif (self.P2rows[3] and self.P2rows[4] and self.P2rows[5]) and (self.P1rows[1] and self.P1rows[2] and self.P1rows[3]) then
+            self:MoveUp(P2deck,3)
+            self:MoveUp(P2deck,4)
+            self:MoveUp(P2deck,5)
+            self:MoveDown(P1deck,3)
+            self:MoveDown(P1deck,2)
+            self:MoveDown(P1deck,1)
+            return true
+        --If one player's rows are in the bottom three rows, other player's rows will down to lower centre to meet faster
+        elseif (self.P1rows[0] and self.P1rows[1] and self.P1rows[2]) and (self.P2rows[2] and self.P2rows[3] and self.P2rows[4]) then
+            self:MoveDown(P1deck,2)
+            self:MoveDown(P1deck,1)
+            self:MoveDown(P1deck,0)
+            self:MoveUp(P2deck,2)
+            self:MoveUp(P2deck,3)
+            self:MoveUp(P2deck,4)
+            return true
+        elseif (self.P2rows[0] and self.P2rows[1] and self.P2rows[2]) and (self.P1rows[2] and self.P1rows[3] and self.P1rows[4]) then
+            self:MoveDown(P2deck,2)
+            self:MoveDown(P2deck,1)
+            self:MoveDown(P2deck,0)
+            self:MoveUp(P1deck,2)
+            self:MoveUp(P1deck,3)
+            self:MoveUp(P1deck,4)
+            return true
+        --Make sure rows line up if in middle 4 rows
+        elseif (self.P1rows[1] and self.P1rows[2] and self.P1rows[3]) and (self.P2rows[2] and self.P2rows[3] and self.P2rows[4]) then
+            self:MoveUp(P2deck,2)
+            self:MoveUp(P2deck,3)
+            self:MoveUp(P2deck,4)
+            return true
+        elseif (self.P2rows[1] and self.P2rows[2] and self.P2rows[3]) and (self.P1rows[2] and self.P1rows[3] and self.P1rows[4]) then
+            self:MoveUp(P1deck,2)
+            self:MoveUp(P1deck,3)
+            self:MoveUp(P1deck,4)
+            return true
+        end
+    elseif self.P1rowsRemaining == 5 and self.P2rowsRemaining == 5 then
+        --Make sure rows line up if in middle 6 rows
+        if self.P1rows[0] and self.P2rows[5] then
+            self:MoveUp(P2deck,1)
+            self:MoveUp(P2deck,2)
+            self:MoveUp(P2deck,3)
+            self:MoveUp(P2deck,4)
+            self:MoveUp(P2deck,5)
+            return true
+        elseif self.P2rows[0] and self.P1rows[5] then
+            self:MoveUp(P1deck,1)
+            self:MoveUp(P1deck,2)
+            self:MoveUp(P1deck,3)
+            self:MoveUp(P1deck,4)
+            self:MoveUp(P1deck,5)
+            return true
+        end
+    elseif self.P1rowsRemaining == 1 and self.P2rowsRemaining == 3 then
+        --Make sure rows centre if there's a 1 against 3 situation
+        if (self.P2rows[2] and self.P2rows[3] and self.P2rows[4]) then
+            if self.P1rows[0] or self.P1rows[1] or self.P1rows[2] then
+                self:MoveUp(P2deck,2)
+                self:MoveUp(P2deck,3)
+                self:MoveUp(P2deck,4)
+                if self.P1rows[0] then
+                    self:MoveDown(P1deck,0)
+                elseif self.P1rows[1] then
+                    self:MoveDown(P1deck,1)
+                end
+                return true
+            end
+        elseif (self.P2rows[1] and self.P2rows[2] and self.P2rows[3]) then
+            if self.P1rows[4] or self.P1rows[5] then
+                self:MoveDown(P2deck,3)
+                self:MoveDown(P2deck,2)
+                self:MoveDown(P2deck,1)
+                if self.P1rows[4] then
+                    self:MoveUp(P1deck,4)
+                else
+                    self:MoveUp(P1deck,5)
+                end
+                return true
+            elseif self.P1rows[3] then
+                self:MoveUp(P1deck,3)
+                return true
+            end
+        end
+    elseif self.P1rowsRemaining == 3 and self.P2rowsRemaining == 1 then
+        --Make sure rows centre if there's a 1 against 3 situation
+        if (self.P1rows[2] and self.P1rows[3] and self.P1rows[4]) then
+            if self.P2rows[0] or self.P2rows[1] or self.P2rows[2] then
+                self:MoveUp(P1deck,2)
+                self:MoveUp(P1deck,3)
+                self:MoveUp(P1deck,4)
+                if self.P2rows[0] then
+                    self:MoveDown(P2deck,0)
+                elseif self.P2rows[1] then
+                    self:MoveDown(P2deck,1)
+                end
+                return true
+            end
+        elseif (self.P1rows[1] and self.P1rows[2] and self.P1rows[3]) then
+            if self.P2rows[4] or self.P2rows[5] then
+                self:MoveDown(P1deck,3)
+                self:MoveDown(P1deck,2)
+                self:MoveDown(P1deck,1)
+                if self.P2rows[4] then
+                    self:MoveUp(P2deck,4)
+                else
+                    self:MoveUp(P2deck,5)
+                end
+                return true
+            elseif self.P2rows[3] then
+                self:MoveUp(P2deck,3)
+                return true
+            end
+        end
+    elseif self.P1rowsRemaining == 3 and self.P2rowsRemaining == 5 then
+        --Make sure rows centre if there's a 3 against 5 situation
+        if self.P2rows[5] then
+            if (self.P1rows[0] or self.P1rows[3]) and self.P1rows[1] and self.P1rows[2] then
+                self:MoveUp(P2deck,1)
+                self:MoveUp(P2deck,2)
+                self:MoveUp(P2deck,3)
+                self:MoveUp(P2deck,4)
+                self:MoveUp(P2deck,5)
+                if self.P1rows[0] then
+                    self:MoveDown(P1deck,2)
+                    self:MoveDown(P1deck,1)
+                    self:MoveDown(P1deck,0)
+                end
+                return true
+            end
+        elseif self.P2rows[0] then
+            if (self.P1rows[2] or self.P1rows[5]) and self.P1rows[3] and self.P1rows[4] then
+                if self.P1rows[5] then
+                    self:MoveDown(P2deck,4)
+                    self:MoveDown(P2deck,3)
+                    self:MoveDown(P2deck,2)
+                    self:MoveDown(P2deck,1)
+                    self:MoveDown(P2deck,0)
+                    self:MoveUp(P1deck,3)
+                    self:MoveUp(P1deck,4)
+                    self:MoveUp(P1deck,5)
+                else
+                    self:MoveUp(P1deck,2)
+                    self:MoveUp(P1deck,3)
+                    self:MoveUp(P1deck,4)
+                end
+                return true
+            end
+        end
+    elseif self.P1rowsRemaining == 5 and self.P2rowsRemaining == 3 then
+        --Make sure rows centre if there's a 3 against 5 situation
+        if self.P1rows[5] then
+            if (self.P2rows[0] or self.P2rows[3]) and self.P2rows[1] and self.P2rows[2] then
+                self:MoveUp(P1deck,1)
+                self:MoveUp(P1deck,2)
+                self:MoveUp(P1deck,3)
+                self:MoveUp(P1deck,4)
+                self:MoveUp(P1deck,5)
+                if self.P2rows[0] then
+                    self:MoveDown(P2deck,2)
+                    self:MoveDown(P2deck,1)
+                    self:MoveDown(P2deck,0)
+                end
+                return true
+            end
+        elseif self.P1rows[0] then
+            if (self.P2rows[2] or self.P2rows[5]) and self.P2rows[3] and self.P2rows[4] then
+                if self.P2rows[5] then
+                    self:MoveDown(P1deck,4)
+                    self:MoveDown(P1deck,3)
+                    self:MoveDown(P1deck,2)
+                    self:MoveDown(P1deck,1)
+                    self:MoveDown(P1deck,0)
+                    self:MoveUp(P2deck,3)
+                    self:MoveUp(P2deck,4)
+                    self:MoveUp(P2deck,5)
+                else
+                    self:MoveUp(P2deck,2)
+                    self:MoveUp(P2deck,3)
+                    self:MoveUp(P2deck,4)
+                end
+                return true
+            end
+        end
+    end
+end
+
+function GameState:Move2(deck,rows)
+    if rows[0] == false and rows[1] == false and rows[5] == true then
         self:MoveUp(deck,2)
         self:MoveUp(deck,3)
         self:MoveUp(deck,4)
         self:MoveUp(deck,5)
-    elseif self.rows[4] == false and self.rows[5] == false and self.rows[0] == true then
+    elseif rows[4] == false and rows[5] == false and rows[0] == true then
         self:MoveDown(deck,3)
         self:MoveDown(deck,2)
         self:MoveDown(deck,1)
         self:MoveDown(deck,0)
     else
-        if self.rows[2] == false then
-            if (self.rows[0] == false and self.rows[5] == true) or (self.rows[1] == false and self.rows[4] == true) or ((self.rowsRemaining == 1 and self.enemyRows[2]) and (self.rows[5] or not self.rows[0] and self.rows[4])) then
+        if rows[2] == false then
+            if (rows[0] == false and rows[5] == true) or (rows[1] == false and rows[4] == true) then
                 self:MoveUp(deck,3)
                 self:MoveUp(deck,4)
                 self:MoveUp(deck,5)
@@ -235,11 +476,11 @@ function GameState:Move2(deck)
                 self:MoveDown(deck,0)
             end
         end
-        if self.rows[1] == false then 
+        if rows[1] == false then
             self:MoveDown(deck,0)
         end
-        if self.rows[3] == false then
-            if (self.rows[5] == false and self.rows[0] == true) or (self.rows[4] == false and self.rows[1] == true) or (self.rowsRemaining == 1 and self.enemyRows[3]) then
+        if rows[3] == false then
+            if (rows[5] == false and rows[0] == true) or (rows[4] == false and rows[1] == true) then
                 self:MoveDown(deck,2)
                 self:MoveDown(deck,1)
                 self:MoveDown(deck,0)
@@ -248,15 +489,20 @@ function GameState:Move2(deck)
                 self:MoveUp(deck,5)
             end
         end
-        if self.rows[4] == false then
+        if rows[4] == false then
             self:MoveUp(deck,5)
         end
     end
 end
 
 function GameState:MoveDown(deck,row)
-    if not self.rowsMoved[row] then
-        self.rowsMoved[row] = true
+    if deck == P1deck then
+        rowsMoved = self.P1rowsMoved
+    else
+        rowsMoved = self.P2rowsMoved
+    end
+    if not rowsMoved[row] then
+        rowsMoved[row] = true
         if deck == P1deck then
             if not self.P1rows[row] then return end
             self.P1currentRows[self.P1initialRows[row]] = self.P1currentRows[self.P1initialRows[row]] + 1
@@ -270,21 +516,30 @@ function GameState:MoveDown(deck,row)
             self.P2initialRows[row+1] = self.P2initialRows[row]
             self.P2initialRows[row] = nil
         end
+        local deckIndexes = {} -- This is used to save a copy of the current card indexes (numbers) so they don't get incorrectly overwritten when modifying the table
         for k, pair in pairs(deck) do
-            if deck[k].row == row then
-                deck[k].number = deck[k].number + 1
-                deck[k].targetY = deck[k].targetY + 180
-                deck[k].row = row + 1
-                deck[k+1] = deck[k]
-                deck[k] = nil
+            table.insert(deckIndexes,k)
+        end
+        for k, pair in pairs(deckIndexes) do
+            if deck[pair].row == row then
+                deck[pair].number = deck[pair].number + 1
+                deck[pair].targetY = deck[pair].targetY + 180
+                deck[pair].row = row + 1
+                deck[pair+1] = deck[pair]
+                deck[pair] = nil
             end
         end
     end
 end
 
 function GameState:MoveUp(deck,row)
-    if not self.rowsMoved[row] then
-        self.rowsMoved[row] = true
+    if deck == P1deck then
+        rowsMoved = self.P1rowsMoved
+    else
+        rowsMoved = self.P2rowsMoved
+    end
+    if not rowsMoved[row] then
+        rowsMoved[row] = true
         if deck == P1deck then
             if not self.P1rows[row] then return end
             self.P1currentRows[self.P1initialRows[row]] = self.P1currentRows[self.P1initialRows[row]] - 1
@@ -297,14 +552,18 @@ function GameState:MoveUp(deck,row)
 
             self.P2initialRows[row-1] = self.P2initialRows[row]
             self.P2initialRows[row] = nil
-        end 
+        end
+        local deckIndexes = {} -- This is used to save a copy of the current card indexes (numbers) so they don't get incorrectly overwritten when modifying the table
         for k, pair in pairs(deck) do
-            if deck[k].row == row then
-                deck[k].number = deck[k].number - 1
-                deck[k].targetY = deck[k].targetY - 180
-                deck[k].row = row - 1
-                deck[k-1] = deck[k]
-                deck[k] = nil
+            table.insert(deckIndexes,k)
+        end
+        for k, pair in pairs(deckIndexes) do
+            if deck[pair].row == row then
+                deck[pair].number = deck[pair].number - 1
+                deck[pair].targetY = deck[pair].targetY - 180
+                deck[pair].row = row - 1
+                deck[pair-1] = deck[pair]
+                deck[pair] = nil
             end
         end
     end
@@ -581,5 +840,4 @@ function GameState:exit()
     P1deck = nil
     P2deck = nil
     winner = nil
-    self.P2battleCards = nil
-end
+    end
