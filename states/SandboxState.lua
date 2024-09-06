@@ -1,35 +1,34 @@
 SandboxState = Class{__includes = BaseState}
 
 function SandboxState:enter()
-    gui[1] = Button(function() gStateMachine:change('HomeState',true,true) end,'Main Menu',font70,nil,'centre',20)
+    gui[1] = Button(function() gStateMachine:change('HomeState',true,true) end,'Main Menu',font70,nil,35,20,{1,1,1})
 
-    gui['Player 1 label'] = Text('Player 1',font60,'centre',140)
-    gui['Player 1 deck'] = Text(retriveDeck(Settings['P1_selection'])[1],font80,'centre',220)
-    gui[2] = Button(function() self:updateCarousel('Player 1 deck','left') end,nil,nil,'Left Arrow',VIRTUALWIDTH/2-225,184,nil,nil,nil,true)
-    gui[3] = Button(function() self:updateCarousel('Player 1 deck','right') end,nil,nil,'Right Arrow',VIRTUALWIDTH/2+225,184,nil,nil,nil,true)
-
-    gui['Player 2 label'] = Text('Player 2',font60,'centre',340)
-    gui['Player 2 deck'] = Text(retriveDeck(Settings['P2_selection'])[1],font80,'centre',420)
-    gui[4] = Button(function() self:updateCarousel('Player 2 deck','left') end,nil,nil,'Left Arrow',VIRTUALWIDTH/2-225,384,nil,nil,nil,true)
-    gui[5] = Button(function() self:updateCarousel('Player 2 deck','right') end,nil,nil,'Right Arrow',VIRTUALWIDTH/2+225,384,nil,nil,nil,true)
-
-    gui['Background label'] = Text('Background',font60,'centre',540)
-    gui['Background'] = Text(retriveBackground(Settings['background_selection'])[1],font80,'centre',620)
-    gui[6] = Button(function() self:updateCarousel('Background','left') end,nil,nil,'Left Arrow',VIRTUALWIDTH/2-285,584,nil,nil,nil,true)
-    gui[7] = Button(function() self:updateCarousel('Background','right') end,nil,nil,'Right Arrow',VIRTUALWIDTH/2+285,584,nil,nil,nil,true)
-
-    gui['Music label'] = Text('Music',font60,'centre',740)
-    gui['Music'] = Text(retriveMusic(Settings['music_selection'])[1],font80,'centre',820)
-    gui[8] = Button(function() self:updateCarousel('Music','left') end,nil,nil,'Left Arrow',VIRTUALWIDTH/2-190,784,nil,nil,nil,true)
-    gui[9] = Button(function() self:updateCarousel('Music','right') end,nil,nil,'Right Arrow',VIRTUALWIDTH/2+190,784,nil,nil,nil,true)
-
-    gui[10] = Button(function() gStateMachine:change('GameState',{
+    gui[2] = Button(function() gStateMachine:change('GameState',{
         retriveBackground(Settings['background_selection'])[1],
         retriveMusic(Settings['music_selection'])[2],
         retriveDeck(Settings['P2_selection'])[2],
         retriveDeck(Settings['P1_selection'])[2]
-    },nil,nil) end,'Begin',font100,nil,'centre',950)
+    },nil,nil) end,'Begin',font100,nil,'centre',70)
 
+    gui['Player 1 label'] = Text('Player 1',font60,'centre',340)
+    gui['Player 1 deck'] = Text(retriveDeck(Settings['P1_selection'])[1],font80,'centre',250)
+    gui[3] = Button(function() self:updateCarousel('Player 1 deck','left') end,nil,nil,'Left Arrow',345,299,nil,nil,nil,true)
+    gui[4] = Button(function() self:updateCarousel('Player 1 deck','right') end,nil,nil,'Right Arrow',1567,299,nil,nil,nil,true)
+
+    gui['Player 2 label'] = Text('Player 2',font60,'centre',550)
+    gui['Player 2 deck'] = Text(retriveDeck(Settings['P2_selection'])[1],font80,'centre',460)
+    gui[5] = Button(function() self:updateCarousel('Player 2 deck','left') end,nil,nil,'Left Arrow',345,509,nil,nil,nil,true)
+    gui[6] = Button(function() self:updateCarousel('Player 2 deck','right') end,nil,nil,'Right Arrow',1567,509,nil,nil,nil,true)
+
+    gui['Background label'] = Text('Background',font60,'centre',760)
+    gui['Background'] = Text(retriveBackground(Settings['background_selection'])[1],font80,'centre',670)
+    gui[7] = Button(function() self:updateCarousel('Background','left') end,nil,nil,'Left Arrow',345,719,nil,nil,nil,true)
+    gui[8] = Button(function() self:updateCarousel('Background','right') end,nil,nil,'Right Arrow',1567,719,nil,nil,nil,true)
+
+    gui['Music label'] = Text('Music',font60,'centre',970)
+    gui['Music'] = Text(retriveMusic(Settings['music_selection'])[1],font80,'centre',880)
+    gui[9] = Button(function() self:updateCarousel('Music','left') end,nil,nil,'Left Arrow',345,929,nil,nil,nil,true)
+    gui[10] = Button(function() self:updateCarousel('Music','right') end,nil,nil,'Right Arrow',1567,929,nil,nil,nil,true)
 end
 
 function retriveDeck(index) --Can't make self or can't reference in updateCarousel annoyingly
