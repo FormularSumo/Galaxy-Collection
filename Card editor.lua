@@ -1,43 +1,35 @@
 CardEditor = Class{__includes = BaseState}
 
-function CardEditor:init(name,row,column,number,level,evolution,inDeck,images,imagesInfo)
+function CardEditor:init(name,row,column,number,level,evolution,inDeck,images)
     self.name = name
     self.row = row
     self.column = column
     self.scaling = 1
 
     if self.name == 'Blank' then
-        self.imagePath = 'Graphics/Blank Card'
+        self.image = images['blankCard']
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
-            self.imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+            self.imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
         else
-            self.imagePath = 'Characters/' .. self.name .. '/' .. self.name
+            self.imageName = 'Characters/' .. self.name .. '/' .. self.name
+        end
+        if images[self.imageName] then
+            self.image = images[self.imageName]
+        else
+            images[self.imageName] = love.graphics.newImage(self.imageName .. '.png')
+            self.image = images[self.imageName]
         end
         self.level = level or 1
         self.evolution = evolution or 0
     end
 
-    if images[self.imagePath] then
-        self:init2(images[self.imagePath])
-    else
-        if imagesInfo[self.imagePath] then
-            table.insert(imagesInfo[self.imagePath],self)
-        else
-            imagesInfo[self.imagePath] = {self}
-        end
-    end
-
-    self.width,self.height = 115,173 --Shouldn't really be hardcoded, but no cards have been loaded at this point so there's not much alternative
+    self.width,self.height = self.image:getDimensions()
     self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
     self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.number = number
     self.inDeck = inDeck
-end
-
-function CardEditor:init2(image)
-    self.image = image
 end
 
 function CardEditor:swap()
@@ -49,7 +41,7 @@ function CardEditor:swap()
                     P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
                 end
                 --Copy data from inventory card to deck card
-                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
+                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imageName, mouseTrapped.image = self.name, self.level, self.evolution, self.imageName, self.image
                 P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
                 P1deck[mouseTrapped.number] = mouseTrapped
                 P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
@@ -57,7 +49,7 @@ function CardEditor:swap()
                 if self.name ~= 'Blank' then
                     P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
                 end
-                self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
+                self.name, self.level, self.evolution, self.imageName, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imageName, mouseTrapped.image
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
                 P1deck[self.number] = self
                 P1deckEdit(self.number,{self.name,self.level,self.evolution})
@@ -82,10 +74,10 @@ function CardEditor:swap()
             end
 
             if mouseTrapped.inDeck or self.inDeck then
-                bitser.dumpLoveFile(Settings['active_deck'],P1deckCards)
+                love.filesystem.write(Settings['active_deck'],binser.s(P1deckCards))
             end
             if not sandbox and (not mouseTrapped.inDeck or not self.inDeck) then
-                bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+                love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
             end
 
             if not (mouseTrapped.inDeck and self.inDeck) then
@@ -115,7 +107,7 @@ function CardEditor:CardViewer()
         gui['CardViewer'] = nil
         collectgarbage()
     end
-    gui['CardViewer'] = CardViewer(self.name,self.imagePath,self.level,self.evolution,self.inDeck,self.number,self,self.mode)
+    gui['CardViewer'] = CardViewer(self.name,self.imageName,self.level,self.evolution,self.inDeck,self.number,self,self.mode)
 end
 
 function CardEditor:update()
@@ -192,23 +184,21 @@ function CardEditor:update()
 end
 
 function CardEditor:render()
-    if self.image then
-        if self.deleting then
-            love.graphics.setColor(1,0,0)
-            love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
-            love.graphics.setColor(1,1,1)
-        end
-        love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
-        if self.name ~= 'Blank' then
-            if self.evolution == 4 and evolutionMaxImage then --In theory on a very slow system/very quickly changing state this might not have loaded yet
-                love.graphics.draw(evolutionMaxImage,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
-            elseif self.evolution > 0 and evolutionImage then
-                love.graphics.draw(evolutionImage,self.x+115-5,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
-                if self.evolution > 1 then
-                    love.graphics.draw(evolutionImage,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
-                    if self.evolution > 2 then
-                        love.graphics.draw(evolutionImage,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
-                    end
+    if self.deleting then
+        love.graphics.setColor(1,0,0)
+        love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
+        love.graphics.setColor(1,1,1)
+    end
+    love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+    if self.name ~= 'Blank' then
+        if self.evolution == 4 then
+            love.graphics.draw(evolutionMaxImage,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
+        elseif self.evolution > 0 then
+            love.graphics.draw(evolutionImage,self.x+115-5,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+            if self.evolution > 1 then
+                love.graphics.draw(evolutionImage,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                if self.evolution > 2 then
+                    love.graphics.draw(evolutionImage,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
                 end
             end
         end

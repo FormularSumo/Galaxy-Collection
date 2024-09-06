@@ -1,6 +1,6 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number,column,images,imagesInfo)
+function Card:init(card,team,number,column,images)
     self.team = team
     self.number = number
 
@@ -8,24 +8,21 @@ function Card:init(card,team,number,column,images,imagesInfo)
     self.level = card[2] or 1
     self.evolution = card[3] or 0
 
-    local imagePath;
+    local imageName;
     if self.stats['filename'] then
-        imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+        imageName = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
     else
-        imagePath = 'Characters/' .. card[1] .. '/' .. card[1]
+        imageName = 'Characters/' .. card[1] .. '/' .. card[1]
     end
 
-    if images[imagePath] then
-        self:init2(images[imagePath])
+    if images[imageName] then
+        self.image = images[imageName]
     else
-        if imagesInfo[imagePath] then
-            table.insert(imagesInfo[imagePath][1],self)
-        else
-            imagesInfo[imagePath] = {{self}, false}
-        end
+        images[imageName] = love.graphics.newImage(imageName .. '.png')
+        self.image = images[imageName]
     end
 
-    self.width,self.height = 115,173 --Shouldn't really be hardcoded, but no cards have been loaded at this point so there's not much alternative
+    self.width,self.height = self.image:getDimensions()
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.meleeOffense = self.stats['meleeOffense'] * (self.modifier)
@@ -72,10 +69,6 @@ function Card:init(card,team,number,column,images,imagesInfo)
     self.x = self.targetX
     self.targetY = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.y = self.targetY
-end
-
-function Card:init2(image)
-    self.image = image
 end
 
 function Card:distance(target)
@@ -234,33 +227,31 @@ function Card:update(dt)
 end
 
 function Card:render()
-    if self.image then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
-        love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-        if self.evolution == 4 and evolutionMaxImage then --In theory on a very slow system/very quickly changing state this might not have loaded yet
-            love.graphics.draw(evolutionMaxImage,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
-        elseif self.evolution > 0 and evolutionImage then
-            love.graphics.draw(evolutionImage,self.x+115-5,self.y+3,math.rad(90))
-            if self.evolution > 1 then
-                love.graphics.draw(evolutionImage,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
-                if self.evolution > 2 then
-                    love.graphics.draw(evolutionImage,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
-                end
+    love.graphics.draw(self.image,self.x,self.y,0,1,sx)
+    if self.evolution == 4 then
+        love.graphics.draw(evolutionMaxImage,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
+    elseif self.evolution > 0 then
+        love.graphics.draw(evolutionImage,self.x+115-5,self.y+3,math.rad(90))
+        if self.evolution > 1 then
+            love.graphics.draw(evolutionImage,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
+            if self.evolution > 2 then
+                love.graphics.draw(evolutionImage,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
             end
         end
-                
-        if self.health < 1000 then
-            love.graphics.setColor(0.3,0.3,0.3)
-            love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
-            if self.dodge == 0 then
-                love.graphics.setColor(1,0.82,0)
-            else
-                self.colour = self.dodge / self.attacksTaken
-                self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
-                love.graphics.setColor(self.colour,self.colour,self.colour)
-            end
-            love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
-            love.graphics.setColor(1,1,1)
+    end
+            
+    if self.health < 1000 then
+        love.graphics.setColor(0.3,0.3,0.3)
+        love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
+        if self.dodge == 0 then
+            love.graphics.setColor(1,0.82,0)
+        else
+            self.colour = self.dodge / self.attacksTaken
+            self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
+            love.graphics.setColor(self.colour,self.colour,self.colour)
         end
+        love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
+        love.graphics.setColor(1,1,1)
     end
 
     -- if self.number == 15 and self.team == 2 then
