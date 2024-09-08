@@ -5,7 +5,7 @@ function RemoveCard:init()
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
     self.x = VIRTUALWIDTH / 2 - self.width / 2
-    self.y = 450
+    self.y = 385
 end
 
 function RemoveCard:swap()
