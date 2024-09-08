@@ -353,7 +353,7 @@ function DeckeditState:keypressed(key)
                                         repositionMouse(25)
                                     end
                                 else
-                                    if k == 22 and gui['RemoveCard'].visible == true then
+                                    if k == 21 and gui['RemoveCard'].visible == true then
                                         repositionMouse(gui['RemoveCard'])
                                     else
                                         repositionMouse(k+8)
@@ -396,7 +396,7 @@ function DeckeditState:keypressed(key)
                                         repositionMouse(26)
                                     end
                                 else
-                                    if k == 30 and gui['RemoveCard'].visible == true then
+                                    if k == 29 and gui['RemoveCard'].visible == true then
                                         repositionMouse(gui['RemoveCard'])
                                     else
                                         repositionMouse(k-8)
@@ -417,9 +417,9 @@ function DeckeditState:keypressed(key)
                 end
                 if mouseTouching == gui['RemoveCard'] then
                     if key == 'left' then
-                        repositionMouse(22)
+                        repositionMouse(21)
                     elseif key == 'right' then
-                        repositionMouse(30)
+                        repositionMouse(29)
                     end
                 end
             else    
