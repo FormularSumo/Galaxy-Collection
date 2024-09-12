@@ -26,7 +26,7 @@ function DeckeditState:enter()
     gui['Deck'] = Text('Deck',font90SW,'centre',670)
     gui['RemoveCard'] = RemoveCard()
     gui[25] = Button(function() self:updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,true)
-    gui[26] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Right Arrow','centre right',1030,nil,nil,nil,true)
+    gui[26] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Left Arrow','centre right',1030,nil,nil,nil,true,true)
 end
 
 
@@ -274,10 +274,10 @@ function DeckeditState:enterStats()
     gui[2] = Button(function() gStateMachine:back() end,nil,font80,'X',1800,120)
     if sandbox then
         gui[7] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,true)
-        gui[8] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,true)
+        gui[8] = Button(function() self:updateCardViewer('right') end,nil,nil,'Left Arrow',1920-58,1029,nil,nil,nil,true,true)
     else
         gui[3] = Button(function() self:updateCardViewer('left') end,nil,nil,'Left Arrow',58,1029,nil,nil,nil,true)
-        gui[4] = Button(function() self:updateCardViewer('right') end,nil,nil,'Right Arrow',1920-58,1029,nil,nil,nil,true)
+        gui[4] = Button(function() self:updateCardViewer('right') end,nil,nil,'Left Arrow',1920-58,1029,nil,nil,nil,true,true)
     end
 end
 
