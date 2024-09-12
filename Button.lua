@@ -1,6 +1,6 @@
 Button = Class{}
 
-function Button:init(func,text,font,bgImage,x,y,rgb,scroll,visible,held)
+function Button:init(func,text,font,bgImage,x,y,rgb,scroll,visible,held,flip)
     self.func = func
     self.font = font or love.graphics.getFont()
     self.scaling = 1
@@ -53,6 +53,14 @@ function Button:init(func,text,font,bgImage,x,y,rgb,scroll,visible,held)
     self.scroll = scroll
     if visible == nil then self.visible = true else self.visible = visible end
     if held == true then self.timer = 0 end
+    self.flip = flip
+    if flip then
+        self.imageX = self.imageX + self.imageWidth
+        self.imageY = self.imageY + self.imageHeight
+        self.imageRotation = math.rad(180)
+    else
+        self.imageRotation = 0
+    end
 end
 
 function Button:updateText(text,x,y,font)
@@ -151,7 +159,7 @@ end
 function Button:render()
     if self.visible then
         if self.bgImage ~= nil then
-            love.graphics.draw(self.bgImage, self.imageX, self.imageY,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.imageWidth,(-1+self.scaling)/2*self.imageHeight)
+            love.graphics.draw(self.bgImage, self.imageX, self.imageY,self.imageRotation,self.scaling,self.scaling,(-1+self.scaling)/2*self.imageWidth,(-1+self.scaling)/2*self.imageHeight)
         end
         if (mouseTouching == self or mouseTrapped == self) and not touchLocked and not(self.scroll and lastClickIsTouch) then
             love.graphics.setColor(66/255,169/255,229/255)
