@@ -75,10 +75,11 @@ function CardViewer:updateStats(stat)
         self.statsOnDisplay['Melee Offense']:updateText('Melee Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
         self.statsOnDisplay['Ranged Offense']:updateText('Ranged Offense: ' .. math.floor(self.stats['rangedOffense'] * self.modifier+0.5))
         self.statsOnDisplay['Ranged Offense'].x = self.statsOnDisplay['Ranged Offense'].x + 270
+        self.statsOnDisplay['Melee Offense'].x = self.statsOnDisplay['Melee Offense'].x + 270
     else
-        self.statsOnDisplay['Melee Offense']:updateText('Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
+        self.statsOnDisplay['Offense']:updateText('Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
+        self.statsOnDisplay['Offense'].x = self.statsOnDisplay['Offense'].x + 270
     end
-    self.statsOnDisplay['Melee Offense'].x = self.statsOnDisplay['Melee Offense'].x + 270
     self.statsOnDisplay['Defense']:updateText('Defense: ' .. math.floor(self.stats['defense'] * self.modifier+0.5))
     self.statsOnDisplay['Defense'].x = self.statsOnDisplay['Defense'].x + 270
     self.statsOnDisplay['Overall Strength']:updateText('Overall Strength: ' .. math.floor(characterStrength({self.name,self.level,self.evolution})+0.5))
