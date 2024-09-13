@@ -1,12 +1,24 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number,column,images,imagesInfo)
+function Card:init(card,team,number,column,images,imagesInfo,evolutionSpriteBatch,evolutionMaxSpriteBatch)
     self.team = team
     self.number = number
 
     self.stats = Characters[card[1]]
     self.level = card[2] or 1
     self.evolution = card[3] or 0
+
+    if self.evolution == 4 then
+        self.evolutionMaxSprite = evolutionMaxSpriteBatch:add()
+    elseif self.evolution > 0 then
+        self.evolution1Sprite = evolutionSpriteBatch:add()
+        if self.evolution > 1 then
+            self.evolution2Sprite = evolutionSpriteBatch:add()
+            if self.evolution > 2 then
+                self.evolution3Sprite = evolutionSpriteBatch:add()
+            end
+        end
+    end
 
     local imagePath;
     if self.stats['filename'] then
@@ -72,10 +84,25 @@ function Card:init(card,team,number,column,images,imagesInfo)
     self.x = self.targetX
     self.targetY = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.y = self.targetY
+    self.dodge = 0
 end
 
 function Card:init2(image)
     self.image = image
+end
+
+function Card:delete(evolutionSpriteBatch,evolutionMaxSpriteBatch)
+    if self.evolutionMaxSprite then
+        evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,0,0,0,0,0) --Unfortunately closest thing to deleting Sprites there is
+    elseif self.evolution > 0 and evolutionImage then
+        evolutionSpriteBatch:set(self.evolution1Sprite,0,0,0,0,0)
+        if self.evolution > 1 then
+            evolutionSpriteBatch:set(self.evolution2Sprite,0,0,0,0,0)
+            if self.evolution > 2 then
+                evolutionSpriteBatch:set(self.evolution3Sprite,0,0,0,0,0)
+            end
+        end
+    end
 end
 
 function Card:distance(target)
@@ -233,33 +260,38 @@ function Card:update(dt)
     end
 end
 
-function Card:render()
+function Card:renderHealthBar1()
+    if self.health < 1000 then
+        love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
+    end
+end
+
+function Card:renderHealthBar2()
+    if self.health < 1000 then
+        if self.dodge == 0 then
+            love.graphics.setColor(1,0.82,0)
+        else
+            self.colour = self.dodge / self.attacksTaken
+            self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
+            love.graphics.setColor(self.colour,self.colour,self.colour)
+        end
+        love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
+    end
+end
+
+function Card:render(evolutionSpriteBatch,evolutionMaxSpriteBatch)
     if self.image then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
         love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-        if self.evolution == 4 and evolutionMaxImage then --In theory on a very slow system/very quickly changing state this might not have loaded yet
-            love.graphics.draw(evolutionMaxImage,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
-        elseif self.evolution > 0 and evolutionImage then
-            love.graphics.draw(evolutionImage,self.x+115-5,self.y+3,math.rad(90))
+        if self.evolution == 4 then
+            evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
+        elseif self.evolution > 0 then
+            evolutionSpriteBatch:set(self.evolution1Sprite,self.x+115-5,self.y+3,math.rad(90))
             if self.evolution > 1 then
-                love.graphics.draw(evolutionImage,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
+                evolutionSpriteBatch:set(self.evolution2Sprite,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
                 if self.evolution > 2 then
-                    love.graphics.draw(evolutionImage,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
+                    evolutionSpriteBatch:set(self.evolution3Sprite,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
                 end
             end
-        end
-                
-        if self.health < 1000 then
-            love.graphics.setColor(0.3,0.3,0.3)
-            love.graphics.rectangle('fill',self.x-2,self.y-4,self.width+4,10,5,5)
-            if self.dodge == 0 then
-                love.graphics.setColor(1,0.82,0)
-            else
-                self.colour = self.dodge / self.attacksTaken
-                self.colour = self.colour + (1-self.colour) / 2 --Proportionally increases brightness of self.colour so it's between 0.5 and 1 rather than 0 and 1 
-                love.graphics.setColor(self.colour,self.colour,self.colour)
-            end
-            love.graphics.rectangle('fill',self.x-2,self.y-4,(self.width+4)/(1000/self.health),10,5,5)
-            love.graphics.setColor(1,1,1)
         end
     end
 
