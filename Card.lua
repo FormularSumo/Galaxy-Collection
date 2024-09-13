@@ -91,7 +91,7 @@ function Card:init2(image)
     self.image = image
 end
 
-function Card:delete(evolutionSpriteBatch,evolutionMaxSpriteBatch)
+function Card:deleteEvolutionSprites(evolutionSpriteBatch,evolutionMaxSpriteBatch)
     if self.evolutionMaxSprite then
         evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,0,0,0,0,0) --Unfortunately closest thing to deleting Sprites there is
     elseif self.evolution > 0 and evolutionImage then

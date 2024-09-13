@@ -800,13 +800,13 @@ function GameState:update(dt)
 
             for k, pair in pairs(P1deck) do
                 if pair.health <= 0 then
-                    pair:delete(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                    pair:deleteEvolutionSprites(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                     P1deck[k] = nil
                 end
             end
             for k, pair in pairs(P2deck) do
                 if pair.health <= 0 then
-                    pair:delete(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                    pair:deleteEvolutionSprites(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                     P2deck[k] = nil
                 end
             end
