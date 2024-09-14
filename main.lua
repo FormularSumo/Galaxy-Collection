@@ -57,7 +57,6 @@ function love.load()
     blur.fastgaussianblur.sigma = 5
     blur.vignette.radius = 1
 
-    backgroundCanvas = love.graphics.newCanvas(1920,1080)
     evolutionImage = love.graphics.newImage('Graphics/Evolution.png')
     evolutionMaxImage = love.graphics.newImage('Graphics/Evolution Max.png')
     
@@ -492,63 +491,36 @@ function love.update(dt)
 end
 
 function love.draw()
-    if blurred ~= true then
-        if blurred == 1 then
-            love.graphics.setCanvas(backgroundCanvas)
-            love.graphics.clear()
-        else
-            push.start()
+    push.start()
+
+    --In case a state wants to draw the background itself, eg for effects or draw batching using a canvas
+    if gStateMachine:renderBackground() == nil then
+        love.graphics.draw(background)
+    end
+
+    gStateMachine:renderNormal()
+
+    for k, pair in pairs(gui) do
+        if mouseTouching ~= pair and mouseTrapped ~= pair then
+            pair:render()
         end
-        if background then
-            love.graphics.draw(background)
-        end
-        if gStateMachine.state == 'GameState' and not winner and not paused then
-            for k, pair in pairs(gui) do
-                if mouseTouching ~= pair and mouseTrapped ~= pair then
-                    pair:render()
-                end
-            end
-        end
-        gStateMachine:renderBackground()
-        if blurred == 1 then
-            blur(function() love.graphics.draw(backgroundCanvas) end)
-            blurred = true
-            love.graphics.setCanvas()
-            push.start()
-            love.graphics.draw(backgroundCanvas)
-        end
-    else
-        push.start()
-        love.graphics.draw(backgroundCanvas)
     end
 
     gStateMachine:renderForeground()
-    if not(gStateMachine.state == 'GameState' and not winner and not paused) then
-        for k, pair in pairs(gui) do
-            if mouseTouching ~= pair and mouseTrapped ~= pair then
-                pair:render()
-            end
-        end
-        if gStateMachine.state == 'DeckeditState' and gStateMachine.current.subState == 'deck' then --Needed to render the evolutions icons above cards in deckeditor, as cards are GUI elements
-            love.graphics.draw(gStateMachine.current.evolutionSpriteBatch)
-            love.graphics.draw(gStateMachine.current.evolutionMaxSpriteBatch)
-        end
-    end
+
     if mouseTrapped then
-        mouseTrapped:render()
         if mouseTouching and mouseTouching ~= mouseTrapped then 
             mouseTouching:render()
         end
+        mouseTrapped:render()
     elseif mouseTouching then
         mouseTouching:render() 
     end
 
     --For GUI elements that need rendering in front of mouseTouching (eg evolution icons)
-    if not(gStateMachine.state == 'GameState' and not winner and not paused) then
-        for k, pair in pairs(gui) do
-            if pair.renderInFront then
-                pair:renderInFront()
-            end
+    for k, pair in pairs(gui) do
+        if pair.renderInFront then
+            pair:renderInFront()
         end
     end
 

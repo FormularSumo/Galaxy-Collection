@@ -26,4 +26,5 @@ function BaseState:keypressed() end
 function BaseState:keyreleased() end
 function BaseState:back() gStateMachine:change('HomeState') end
 function BaseState:renderBackground() end
+function BaseState:renderNormal() end
 function BaseState:renderForeground() end

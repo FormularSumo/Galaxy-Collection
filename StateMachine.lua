@@ -64,8 +64,6 @@ function StateMachine:change(stateName, enterParams, exitParams)
     mouseLocked = false
     yscroll = 0
     rawyscroll = 0
-    blurred = nil
-    collectgarbage()
 	self.current = self.states[stateName]()
 	self.state = stateName
 	self.current:enter(enterParams)
@@ -81,6 +79,7 @@ function StateMachine:change(stateName, enterParams, exitParams)
 	else
 		maxScroll = 0
 	end
+    collectgarbage()
 end
 
 function StateMachine:update(dt)
@@ -100,7 +99,11 @@ function StateMachine:keypressed(key,isrepeat)
 end
 
 function StateMachine:renderBackground()
-	self.current:renderBackground()
+	return self.current:renderBackground()
+end
+
+function StateMachine:renderNormal()
+	self.current:renderNormal()
 end
 
 function StateMachine:renderForeground()

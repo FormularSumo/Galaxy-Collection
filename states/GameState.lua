@@ -143,6 +143,7 @@ function GameState:enter(infoTable)
     self.P2angle = math.rad(150)
     self.next = next
 
+    backgroundCanvas = love.graphics.newCanvas(1920,1080) --Somehow making this "self" causes Moonshine to not work at all
     background, rgb = backgroundInfo(infoTable[1])
     background = love.graphics.newImage(background)
 
@@ -573,30 +574,40 @@ function GameState:MoveUp(deck,row)
 end
 
 function GameState:pause()
-    if paused == true then
-        gui[1]:updateText('Play','centre',220,font80)
-        gui[2]:updatePosition('centre',380)
-        if not winner then
-            gui[4]:updateText('Main Menu','centre',1080-220-font80:getHeight('Main Menu'))
+    if not winner then
+        if paused == true then
+            gui[1]:updateText('Play','centre',220,font80)
+            gui[2]:updatePosition('centre',380)
+            if not winner then
+                gui[4]:updateText('Main Menu','centre',1080-220-font80:getHeight('Main Menu'))
+            end
+            gui[2].default = false
+            gui[3].default = true
+            gui[4].visible = true
+            gui['SpeedLabel'].visible = true
+            gui[3].visible = true
+            gui['VolumeLabel'].visible = true
+
+            love.graphics.origin()
+            love.graphics.setCanvas(backgroundCanvas)
+            love.graphics.clear()
+            love.graphics.draw(background)
+            self:renderBattle()
+            blur(function() love.graphics.draw(backgroundCanvas) end)
+            love.graphics.setCanvas()
+        else
+            gui[1]:updateText('Pause',1591,0,font100)
+            gui[2]:updatePosition('1591',130,1591,0)
+            gui[4]:updateText('Main Menu',35,20)
+            gui[2].default = true
+            gui[3].default = false
+            if not winner then
+                gui[4].visible = false
+            end
+            gui['SpeedLabel'].visible = false
+            gui[3].visible = false
+            gui['VolumeLabel'].visible = false
         end
-        gui[2].default = false
-        gui[3].default = true
-        gui[4].visible = true
-        gui['SpeedLabel'].visible = true
-        gui[3].visible = true
-        gui['VolumeLabel'].visible = true
-    else
-        gui[1]:updateText('Pause',1591,0,font100)
-        gui[2]:updatePosition('1591',130,1591,0)
-        gui[4]:updateText('Main Menu',35,20)
-        gui[2].default = true
-        gui[3].default = false
-        if not winner then
-            gui[4].visible = false
-        end
-        gui['SpeedLabel'].visible = false
-        gui[3].visible = false
-        gui['VolumeLabel'].visible = false
     end
 end
 
@@ -800,15 +811,15 @@ function GameState:update(dt)
     end
 end
 
-function GameState:renderBackground()
+function GameState:renderBattle()
     if P1deck ~= nil then
         for k, pair in pairs(P1deck) do
-            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch,self.imagesIndexes,self.imagesArrayLayer)
         end
     end
     if P2deck ~= nil then
         for k, pair in pairs(P2deck) do
-            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch,self.imagesIndexes,self.imagesArrayLayer)
         end
     end
 
@@ -878,8 +889,17 @@ function GameState:renderBackground()
     love.graphics.setColor(1,1,1)
 end
 
+function GameState:renderBackground()
+    if paused and not winner then
+        love.graphics.draw(backgroundCanvas)
+        return true
+    end
+end
+
 function GameState:renderForeground()
-    if winner then 
+    if not winner and not paused then
+        self:renderBattle()
+    elseif winner then
         love.graphics.print({rgb,'Winner: ' .. winner},35,110)
     end
 end
@@ -888,4 +908,5 @@ function GameState:exit()
     P1deck = nil
     P2deck = nil
     winner = nil
-    end
+    backgroundCanvas = nil
+end

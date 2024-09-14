@@ -20,18 +20,17 @@ function Card:init(card,team,number,column,images,evolutionSpriteBatch,evolution
         end
     end
 
-    local imagePath;
     if self.stats['filename'] then
-        imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+        self.imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
     else
-        imagePath = 'Characters/' .. card[1] .. '/' .. card[1]
+        self.imagePath = 'Characters/' .. card[1] .. '/' .. card[1]
     end
 
-    if images[imagePath] then
-        self.image = images[imagePath]
+    if images[self.imagePath] then
+        self.image = images[self.imagePath]
     else
-        images[imagePath] = love.graphics.newImage(imagePath .. '.png')
-        self.image = images[imagePath]
+        images[self.imagePath] = love.graphics.newImage(self.imagePath .. '.png')
+        self.image = images[self.imagePath]
     end
 
     self.width,self.height = 115,173
@@ -50,13 +49,13 @@ function Card:init(card,team,number,column,images,evolutionSpriteBatch,evolution
     self.rangedOffenseStat = (self.rangedOffense/800)^4
 
     if self.stats['projectile1'] then
-        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height, images, imagesInfo)
+        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height, images)
         if self.projectileManager.projectileCount > 1 then
             self.rangedOffense = self.rangedOffense / (self.projectileManager.projectileCount^0.2)
         end
     end
     if self.stats['weapon1'] then
-        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self, images, imagesInfo)
+        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self, images)
     end
 
     self.meleeProjectile = self.weaponManager == nil and (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain')

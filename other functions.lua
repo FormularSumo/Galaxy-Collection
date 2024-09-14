@@ -7,14 +7,7 @@ function pause(pause)
     if songs[1] then
         if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
     end
-    if not (winner and gStateMachine.state == 'GameState') then
-        gStateMachine:pause()
-        if gStateMachine.state == 'GameState' and not blurred then
-            blurred = 1
-        else
-            blurred = nil
-        end
-    end
+    gStateMachine:pause()
 end
 
 function repositionMouse(index)
