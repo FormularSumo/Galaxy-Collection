@@ -1,6 +1,6 @@
 CardEditor = Class{__includes = BaseState}
 
-function CardEditor:init(name,row,column,number,level,evolution,inDeck,images,imagesInfo)
+function CardEditor:init(name,row,column,number,level,evolution,inDeck,graphics,imagesInfo,imagesIndexes)
     self.name = name
     self.row = row
     self.column = column
@@ -25,19 +25,16 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images,im
         self:updateEvolutionSprites()
     end
 
-    if images[self.imagePath] then
-        self:init2(images[self.imagePath])
+    if imagesIndexes[self.imagePath] then
+        self.image = true
     else
         if imagesInfo[self.imagePath] then
             table.insert(imagesInfo[self.imagePath],self)
         else
             imagesInfo[self.imagePath] = {self}
         end
+        self.image = false
     end
-end
-
-function CardEditor:init2(image)
-    self.image = image
 end
 
 function CardEditor:deleteEvolutionSprites()
@@ -92,7 +89,7 @@ function CardEditor:swap()
                 end
                 mouseTrapped:deleteEvolutionSprites()
                 -- Copy data from inventory card to deck card
-                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
+                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath = self.name, self.level, self.evolution, self.imagePath
                 mouseTrapped:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
                 P1deck[mouseTrapped.number] = mouseTrapped
@@ -102,7 +99,7 @@ function CardEditor:swap()
                     P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
                 end
                 self:deleteEvolutionSprites()
-                self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
+                self.name, self.level, self.evolution, self.imagePath = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath
                 self:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
                 P1deck[self.number] = self
@@ -244,7 +241,9 @@ function CardEditor:render()
             love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
             love.graphics.setColor(1,1,1)
         end
-        love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+        love.graphics.drawLayer(gStateMachine.current.imagesArrayLayer,gStateMachine.current.imagesIndexes[self.imagePath],self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+
+        -- love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
         if self.name ~= 'Blank' then
             if self.evolution == 4 then
                 gStateMachine.current.evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)

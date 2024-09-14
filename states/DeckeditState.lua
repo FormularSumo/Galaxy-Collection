@@ -2,8 +2,10 @@ DeckeditState = Class{__includes = BaseState}
 
 function DeckeditState:enter()
     P1deck = {}
-    self.images = {}
+    self.graphics = {}
     self.imagesInfo = {}
+    self.imagesIndexes = {}
+    self.cardImageData = {}
     self:loadCards()
     self.cardsOnDisplay = {}
     self.page = 0
@@ -88,14 +90,14 @@ function DeckeditState:reloadDeck(partial) --Using the deck layout that's alread
         row = i - rowCorrectment
         if P1deckCards[i] ~= nil then
             if P1deckCards[i][1] ~= nil then
-                P1deck[i] = CardEditor(P1deckCards[i][1],row,P1column,i,P1deckCards[i][2],P1deckCards[i][3],true,self.images,self.imagesInfo)
+                P1deck[i] = CardEditor(P1deckCards[i][1],row,P1column,i,P1deckCards[i][2],P1deckCards[i][3],true,self.graphics,self.imagesInfo,self.imagesIndexes)
                 P1strength = P1strength + characterStrength({P1deckCards[i][1],P1deckCards[i][2],P1deckCards[i][3]})
             else
-                P1deck[i] = CardEditor(P1deckCards[i],row,P1column,i,1,0,true,self.images,self.imagesInfo)
+                P1deck[i] = CardEditor(P1deckCards[i],row,P1column,i,1,0,true,self.graphics,self.imagesInfo,self.imagesIndexes)
                 P1strength = P1strength + characterStrength(P1deckCards[i])
             end
         else
-            P1deck[i] = CardEditor('Blank',row,P1column,i,nil,nil,true,self.images,self.imagesInfo)
+            P1deck[i] = CardEditor('Blank',row,P1column,i,nil,nil,true,self.graphics,self.imagesInfo,self.imagesIndexes)
         end
     end
     if not partial then
@@ -130,10 +132,10 @@ function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the car
             row = i - rowCorrectment
             y = i+(self.page*18)
             if P1cards[y] ~= nil then
-                self.cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false,self.images,self.imagesInfo)
+                self.cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false,self.graphics,self.imagesInfo,self.imagesIndexes)
                 self.cardsOnDisplayAreBlank = false
             else
-                self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false,self.images,self.imagesInfo)
+                self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false,self.graphics,self.imagesInfo,self.imagesIndexes)
             end
         end
 
@@ -162,9 +164,9 @@ function DeckeditState:loadRemainingImages()
             end
         end
     else
-        local decodeQueue = {} --As these images don't need pushing to objects later, it's simpler just to create a separate queue to check there's no duplicates and then queue those
+        local decodeQueue = {} --As these graphics don't need pushing to objects later, it's simpler just to create a separate queue to check there's no duplicates and then queue those
         for k, pair in pairs(P1cards) do
-            if not self.P1deckList[pair[1]] and not P1cardsOnDisplayList[pair[1]] then --Make sure that the images hasn't already been queued to load by the card objects that have been created
+            if not self.P1deckList[pair[1]] and not P1cardsOnDisplayList[pair[1]] then --Make sure that the graphics hasn't already been queued to load by the card objects that have been created
                 local imagePath;
                 if Characters[pair[1]]['filename'] then
                     imagePath = 'Characters/' .. Characters[pair[1]]['filename'] .. '/' .. Characters[pair[1]]['filename']
@@ -530,15 +532,38 @@ function DeckeditState:update()
         end
     end
 
-    for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
-        local result = love.thread.getChannel("imageDecoderOutput"):pop()
-        self.images[result[1]] = love.graphics.newImage(result[2])
-        if self.imagesInfo[result[1]] then --Check that this image needs pushing to an object, eg not if queued in loadRemainingImages
-            for i=1,#self.imagesInfo[result[1]] do
-                self.imagesInfo[result[1]][i]:init2(self.images[result[1]]) --Update the image attribute for all objects that use this image
+    if love.thread.getChannel("imageDecoderOutput"):peek() then
+        -- for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
+        --     local result = love.thread.getChannel("imageDecoderOutput"):pop()
+        --     self.graphics[result[1]] = love.graphics.newImage(result[2])
+        --     if self.imagesInfo[result[1]] then --Check that this image needs pushing to an object, eg not if queued in loadRemainingImages
+            --         for i=1,#self.imagesInfo[result[1]] do
+            --             self.imagesInfo[result[1]][i].image = true --Update the image attribute for all objects that use this image
+            --         end
+        --         self.imagesInfo[result[1]] = nil
+        --     end   
+        -- end
+        
+        for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
+            local result = love.thread.getChannel("imageDecoderOutput"):pop()
+            local width, height;
+            width, height = result[2]:getDimensions()
+            
+            if width == 115 and height == 173 then --Ie if Card, not evolution
+                self.imagesIndexes[result[1]] = #self.cardImageData+1
+                table.insert(self.cardImageData,result[2])
+                if self.imagesInfo[result[1]] then --Check that this image needs pushing to an object, eg not if queued in loadRemainingImages
+                    for i=1,#self.imagesInfo[result[1]] do
+                        self.imagesInfo[result[1]][i].image = true
+                    end
+                end
+            else
+                self.graphics[result[1]] = love.graphics.newImage(result[2])
             end
+
             self.imagesInfo[result[1]] = nil
-        end   
+        end
+        self.imagesArrayLayer = love.graphics.newArrayImage(self.cardImageData)
     end
 end
 
