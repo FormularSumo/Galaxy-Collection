@@ -12,6 +12,9 @@ function DeckeditState:enter()
     self.page = 0
     self.cardsOnDisplayAreBlank = false
     self.subState = 'deck'
+    self.evolutionSpriteBatch = love.graphics.newSpriteBatch(evolutionImage,612) --Presumably having a smaller limit has some benefit, so set it to to highest it can be. Love2d can automatically exapnd it if needed.
+    self.evolutionMaxSpriteBatch = love.graphics.newSpriteBatch(evolutionMaxImage,204)
+
     self:reloadDeck(true)
     self:updateCardsOnDisplay()
 
@@ -28,7 +31,6 @@ function DeckeditState:enter()
     gui[25] = Button(function() self:updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,true)
     gui[26] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Left Arrow','centre right',1030,nil,nil,nil,true,true)
 end
-
 
 function DeckeditState:loadCards() --Initial card loading and sorting
     P1cards = {}
@@ -99,7 +101,11 @@ function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the car
             self.page = direction
         end
 
-        self.cardsOnDisplay = {}
+        for k, pair in pairs(self.cardsOnDisplay) do
+            pair:deleteEvolutionSprites()
+            self.cardsOnDisplay[k] = nil
+        end
+
         local column = 9
         local rowCorrectment = 0
         self.cardsOnDisplayAreBlank = true

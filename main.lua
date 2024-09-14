@@ -529,6 +529,10 @@ function love.draw()
                 pair:render()
             end
         end
+        if gStateMachine.state == 'DeckeditState' and gStateMachine.current.subState == 'deck' then --Needed to render the evolutions icons above cards in deckeditor, as cards are GUI elements
+            love.graphics.draw(gStateMachine.current.evolutionSpriteBatch)
+            love.graphics.draw(gStateMachine.current.evolutionMaxSpriteBatch)
+        end
     end
     if mouseTrapped then
         mouseTrapped:render()
@@ -542,7 +546,7 @@ function love.draw()
     --For GUI elements that need rendering in front of mouseTouching (eg evolution icons)
     if not(gStateMachine.state == 'GameState' and not winner and not paused) then
         for k, pair in pairs(gui) do
-            if pair.renderInFront and mouseTouching ~= pair and mouseTrapped ~= pair then
+            if pair.renderInFront then
                 pair:renderInFront()
             end
         end

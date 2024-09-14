@@ -75,10 +75,11 @@ function CardViewer:updateStats(stat)
         self.statsOnDisplay['Melee Offense']:updateText('Melee Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
         self.statsOnDisplay['Ranged Offense']:updateText('Ranged Offense: ' .. math.floor(self.stats['rangedOffense'] * self.modifier+0.5))
         self.statsOnDisplay['Ranged Offense'].x = self.statsOnDisplay['Ranged Offense'].x + 270
+        self.statsOnDisplay['Melee Offense'].x = self.statsOnDisplay['Melee Offense'].x + 270
     else
-        self.statsOnDisplay['Melee Offense']:updateText('Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
+        self.statsOnDisplay['Offense']:updateText('Offense: ' .. math.floor(self.stats['meleeOffense'] * self.modifier+0.5))
+        self.statsOnDisplay['Offense'].x = self.statsOnDisplay['Offense'].x + 270
     end
-    self.statsOnDisplay['Melee Offense'].x = self.statsOnDisplay['Melee Offense'].x + 270
     self.statsOnDisplay['Defense']:updateText('Defense: ' .. math.floor(self.stats['defense'] * self.modifier+0.5))
     self.statsOnDisplay['Defense'].x = self.statsOnDisplay['Defense'].x + 270
     self.statsOnDisplay['Overall Strength']:updateText('Overall Strength: ' .. math.floor(characterStrength({self.name,self.level,self.evolution})+0.5))
@@ -91,7 +92,11 @@ function CardViewer:saveStats()
     if gStateMachine.current.cardDisplayedInDeck then
         P1deckEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
         self.parent.level = self.level
-        self.parent.evolution = self.evolution
+        if self.parent.evolution ~= self.evolution then
+            self.parent:deleteEvolutionSprites()
+            self.parent.evolution = self.evolution
+            self.parent:updateEvolutionSprites()
+        end
     else
         P1cardsEdit(gStateMachine.current.cardDisplayedNumber+(gStateMachine.current.page * 18),{self.name, self.level, self.evolution})
         if not gStateMachine.current.sort then
