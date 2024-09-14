@@ -10,6 +10,7 @@ end
 
 function RemoveCard:swap()
     P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Reduce deck strength by card removed, before card is set as blank
+    gStateMachine.current:createDeckeditorBackground()
 
     --Edit card removed to be a blank card
     P1deck[mouseTrapped.number]:deleteEvolutionSprites()

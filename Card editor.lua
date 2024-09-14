@@ -105,6 +105,7 @@ function CardEditor:swap()
                 P1deck[self.number] = self
                 P1deckEdit(self.number,{self.name,self.level,self.evolution})
             end
+            gStateMachine.current:createDeckeditorBackground()
             gStateMachine.current:updateGui()
         else
             --Swap stats between the two card being swapped
@@ -141,6 +142,7 @@ function CardEditor:swap()
                     if mouseTrapped.level ~= nil then P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) end
                     if self.level ~= nil then P1strength = P1strength - characterStrength({self.name,self.level,self.evolution}) end
                 end
+                gStateMachine.current:createDeckeditorBackground()
             else
                 gStateMachine.current:updateGui()
             end
@@ -176,7 +178,7 @@ function CardEditor:update()
             elseif math.abs(mouseLastX - mousePressedX) < 10 and math.abs(mouseLastY - mousePressedY) < 10 and love.timer.getTime() - mousePressedTime < 0.15 and self.name ~= 'Blank'then
                 gStateMachine.current:enterStats()
                 self:CardViewer()
-                gStateMachine.current:updateStatsBackground()
+                gStateMachine.current:createCardViewerBackground()
             else
                 self:swap()
             end
@@ -197,7 +199,7 @@ function CardEditor:update()
         if mouseDown and mousePressedX > self.x and mousePressedX < self.x + self.width and mousePressedY > self.y and mousePressedY < self.y + self.height and love.timer.getTime() - mousePressedTime > 0.3 and self.name ~= 'Blank' then
             gStateMachine.current:enterStats()
             self:CardViewer()
-            gStateMachine.current:updateStatsBackground()
+            gStateMachine.current:createCardViewerBackground()
             mouseDown = false
             mouseLocked = false
         end

@@ -87,7 +87,7 @@ function CardViewer:updateStats(stat)
     self.statsOnDisplay['Overall Strength'].x = self.statsOnDisplay['Overall Strength'].x + 270
     
     self.statsUpdated = true
-    gStateMachine.current:updateStatsBackground()
+    gStateMachine.current:createCardViewerBackground()
 end
 
 function CardViewer:saveStats()
@@ -144,7 +144,7 @@ function CardViewer:swapMode()
             gui[6].visible = true
         end
     end
-    gStateMachine.current:updateStatsBackground()
+    gStateMachine.current:createCardViewerBackground()
 end
 
 function CardViewer:createBiography()

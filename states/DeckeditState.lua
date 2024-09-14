@@ -35,10 +35,11 @@ function DeckeditState:enter()
     gui[4] = Button(function() self:changeDeck('Player 1 deck.txt') end,'1',font80SWrunes,nil,960-love.graphics.newText(font80SWrunes,'1'):getWidth()/2-90,760)
     gui[5] = Button(function() self:changeDeck('Player 1 deck 2.txt') end,'2',font80SWrunes,nil,'centre',760)
     gui[6] = Button(function() self:changeDeck('Player 1 deck 3.txt') end,'3',font80SWrunes,nil,960-love.graphics.newText(font80SWrunes,'3'):getWidth()/2+90,760)
-    gui['Deck'] = Text('Deck',font90SW,'centre',670)
+    self.deckText = Text('Deck',font90SW,'centre',670)
     gui['RemoveCard'] = RemoveCard()
     gui[25] = Button(function() self:updateCardsOnDisplay('left') end,nil,nil,'Left Arrow','centre left',1030,nil,nil,nil,true)
     gui[26] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Left Arrow','centre right',1030,nil,nil,nil,true,true)
+    self:createDeckeditorBackground()
 end
 
 function DeckeditState:loadCards() --Initial card loading and sorting
@@ -103,6 +104,7 @@ function DeckeditState:reloadDeck(partial) --Using the deck layout that's alread
     end
     if not partial then
         self:updateGui()
+        self:createDeckeditorBackground()
     end
 end
 
@@ -346,29 +348,6 @@ function DeckeditState:enterStats()
     end
 end
 
-function DeckeditState:updateStatsBackground()
-    love.graphics.origin()
-    love.graphics.setCanvas(self.backgroundCanvas)
-    love.graphics.clear()
-    love.graphics.draw(background['Background'])
-    love.graphics.setColor(0,0,0,0.5)
-    love.graphics.rectangle('fill',50,50,1820,980,20)
-    love.graphics.setColor(1,1,1,1)
-    love.graphics.rectangle('line',50,50,1820,980,20)
-    love.graphics.rectangle('line',51,51,1818,978,20)
-    love.graphics.rectangle('line',52,52,1816,976,20)
-    love.graphics.setColor(1,1,1,1)
-    local cardViewer = gui['CardViewer']
-    if cardViewer.mode == 'stats' then
-        for k, pair in pairs(cardViewer.statsOnDisplay) do
-            pair:render()
-        end
-    elseif cardViewer.biography then
-        cardViewer.biography:render()
-    end
-    love.graphics.setCanvas()
-end
-
 function DeckeditState:exitStats()
     if gui['CardViewer'].statsUpdated then
         gui['CardViewer']:saveStats()
@@ -380,6 +359,7 @@ function DeckeditState:exitStats()
     gui = self.gui
     self.gui = nil
     self:updateGui()
+    self:createDeckeditorBackground()
 end
 
 function DeckeditState:back()
@@ -580,24 +560,52 @@ function DeckeditState:update()
     end
 end
 
-function DeckeditState:renderBackground()
-    if self.subState == 'info' then
-        love.graphics.draw(self.backgroundCanvas)
-        return true
+function DeckeditState:createDeckeditorBackground()
+    love.graphics.origin()
+    love.graphics.setCanvas(self.backgroundCanvas)
+    love.graphics.clear()
+    love.graphics.draw(background['Background'])
+    love.graphics.setColor(0,0,0,0.4)
+    love.graphics.rectangle('fill',VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2-20,890,font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))+40,69,20)
+    love.graphics.setColor(0,0,0,0.6)
+    love.graphics.rectangle('fill',VIRTUALWIDTH/2-font80SWrunes:getWidth('123')/2-52,660,font80SWrunes:getWidth('123')+93,190,35,25)
+    love.graphics.setColor(1,1,1,0.2)
+    love.graphics.rectangle('line',VIRTUALWIDTH/2-font80SWrunes:getWidth('123')/2-52,660,font80SWrunes:getWidth('123')+93,190,35,25)
+    love.graphics.setColor(1,1,1,1)
+    love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength+0.5)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2,900)
+    self.deckText:render()
+    love.graphics.setCanvas()
+end
+
+function DeckeditState:createCardViewerBackground()
+    love.graphics.origin()
+    love.graphics.setCanvas(self.backgroundCanvas)
+    love.graphics.clear()
+    love.graphics.draw(background['Background'])
+    love.graphics.setColor(0,0,0,0.5)
+    love.graphics.rectangle('fill',50,50,1820,980,20)
+    love.graphics.setColor(1,1,1,1)
+    love.graphics.rectangle('line',50,50,1820,980,20)
+    love.graphics.rectangle('line',51,51,1818,978,20)
+    love.graphics.rectangle('line',52,52,1816,976,20)
+    love.graphics.setColor(1,1,1,1)
+    local cardViewer = gui['CardViewer']
+    if cardViewer.mode == 'stats' then
+        for k, pair in pairs(cardViewer.statsOnDisplay) do
+            pair:render()
+        end
+    elseif cardViewer.biography then
+        cardViewer.biography:render()
     end
+    love.graphics.setCanvas()
+end
+
+function DeckeditState:renderBackground()
+    love.graphics.draw(self.backgroundCanvas)
+    return true
 end
 
 function DeckeditState:renderNormal()
-    if self.subState == 'deck' then --This should probably be background canvas as well
-        love.graphics.setColor(0,0,0,0.4)
-        love.graphics.rectangle('fill',VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2-20,890,font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))+40,69,20)
-        love.graphics.setColor(0,0,0,0.6)
-        love.graphics.rectangle('fill',VIRTUALWIDTH/2-font80SWrunes:getWidth('123')/2-52,660,font80SWrunes:getWidth('123')+93,190,35,25)
-        love.graphics.setColor(1,1,1,0.2)
-        love.graphics.rectangle('line',VIRTUALWIDTH/2-font80SWrunes:getWidth('123')/2-52,660,font80SWrunes:getWidth('123')+93,190,35,25)
-        love.graphics.setColor(1,1,1,1)
-        love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength+0.5)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2,900)
-    end
 end
 
 function DeckeditState:renderForeground()
