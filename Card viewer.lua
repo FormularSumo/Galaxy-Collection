@@ -86,6 +86,7 @@ function CardViewer:updateStats(stat)
     self.statsOnDisplay['Overall Strength'].x = self.statsOnDisplay['Overall Strength'].x + 270
     
     self.statsUpdated = true
+    gStateMachine.current:updateStatsBackground()
 end
 
 function CardViewer:saveStats()
@@ -112,7 +113,7 @@ function CardViewer:swapMode()
             self:createBiography()
         end
         if sandbox then
-            gui['Evolution'].visible = false
+            self.statsOnDisplay['Evolution'].visible = false
             gui[3].visible = false
             gui[4].visible = false
             gui[5].visible = false
@@ -134,13 +135,14 @@ function CardViewer:swapMode()
         elseif sandbox then
             gui[3] = self.hiddenbuttons[1]
             gui[4] = self.hiddenbuttons[2]
-            gui['Evolution'].visible = true
+            self.statsOnDisplay['Evolution'].visible = true
             gui[3].visible = true
             gui[4].visible = true
             gui[5].visible = true
             gui[6].visible = true
         end
     end
+    gStateMachine.current:updateStatsBackground()
 end
 
 function CardViewer:createBiography()
@@ -219,12 +221,12 @@ function CardViewer:createStats()
     end
 
     if sandbox then
-        gui['Evolution'] = Text('Evolution',font60SW,'centre',950)
-        gui['Evolution'].x = gui['Evolution'].x + 270
+        self.statsOnDisplay['Evolution'] = Text('Evolution',font60SW,'centre',950)
+        self.statsOnDisplay['Evolution'].x = self.statsOnDisplay['Evolution'].x + 270
         gui[3] = Button(function() self:changeStat('Level',-1) end,nil,nil,'Minus',1920/2+40,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,true)
         gui[4] = Button(function() self:changeStat('Level',1) end,nil,nil,'Plus',1920/2+500,self.statsOnDisplay['Level'].y+self.statsOnDisplay['Level'].height/2,nil,nil,nil,true)
-        gui[5] = Button(function() self:changeStat('Evolution',-1) end,nil,nil,'Minus',1920/2+20,950+gui['Evolution'].height/2,nil,nil,nil,true)
-        gui[6] = Button(function() self:changeStat('Evolution',1) end,nil,nil,'Plus',1920/2+520,950+gui['Evolution'].height/2,nil,nil,nil,true)
+        gui[5] = Button(function() self:changeStat('Evolution',-1) end,nil,nil,'Minus',1920/2+20,950+self.statsOnDisplay['Evolution'].height/2,nil,nil,nil,true)
+        gui[6] = Button(function() self:changeStat('Evolution',1) end,nil,nil,'Plus',1920/2+520,950+self.statsOnDisplay['Evolution'].height/2,nil,nil,nil,true)
     end
 end
 
@@ -251,13 +253,6 @@ function CardViewer:update()
 end
 
 function CardViewer:render()
-    if self.mode == 'stats' then
-        for k, pair in pairs(self.statsOnDisplay) do
-            pair:render()
-        end
-    elseif self.biography then
-        self.biography:render()
-    end
 end
 
 function CardViewer:renderInFront() --Unfortunately no more of these draw arguments can be stored easily as variables as they all depend on the scaling of the card image. This could be updated separately when it changes but currently isn't.

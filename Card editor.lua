@@ -176,6 +176,7 @@ function CardEditor:update()
             elseif math.abs(mouseLastX - mousePressedX) < 10 and math.abs(mouseLastY - mousePressedY) < 10 and love.timer.getTime() - mousePressedTime < 0.15 and self.name ~= 'Blank'then
                 gStateMachine.current:enterStats()
                 self:CardViewer()
+                gStateMachine.current:updateStatsBackground()
             else
                 self:swap()
             end
@@ -196,6 +197,7 @@ function CardEditor:update()
         if mouseDown and mousePressedX > self.x and mousePressedX < self.x + self.width and mousePressedY > self.y and mousePressedY < self.y + self.height and love.timer.getTime() - mousePressedTime > 0.3 and self.name ~= 'Blank' then
             gStateMachine.current:enterStats()
             self:CardViewer()
+            gStateMachine.current:updateStatsBackground()
             mouseDown = false
             mouseLocked = false
         end

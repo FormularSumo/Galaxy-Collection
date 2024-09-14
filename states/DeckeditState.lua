@@ -25,6 +25,7 @@ function DeckeditState:enter()
         imageDecoderThreads[i]:start()
     end
 
+    self.backgroundCanvas = love.graphics.newCanvas(1920,1080)
     background['Name'] = 'Death Star Control Room'
     background['Filename'],background['Video'] = backgroundInfo(background['Name'])
     createBackground()
@@ -345,6 +346,29 @@ function DeckeditState:enterStats()
     end
 end
 
+function DeckeditState:updateStatsBackground()
+    love.graphics.origin()
+    love.graphics.setCanvas(self.backgroundCanvas)
+    love.graphics.clear()
+    love.graphics.draw(background['Background'])
+    love.graphics.setColor(0,0,0,0.5)
+    love.graphics.rectangle('fill',50,50,1820,980,20)
+    love.graphics.setColor(1,1,1,1)
+    love.graphics.rectangle('line',50,50,1820,980,20)
+    love.graphics.rectangle('line',51,51,1818,978,20)
+    love.graphics.rectangle('line',52,52,1816,976,20)
+    love.graphics.setColor(1,1,1,1)
+    local cardViewer = gui['CardViewer']
+    if cardViewer.mode == 'stats' then
+        for k, pair in pairs(cardViewer.statsOnDisplay) do
+            pair:render()
+        end
+    elseif cardViewer.biography then
+        cardViewer.biography:render()
+    end
+    love.graphics.setCanvas()
+end
+
 function DeckeditState:exitStats()
     if gui['CardViewer'].statsUpdated then
         gui['CardViewer']:saveStats()
@@ -558,18 +582,13 @@ end
 
 function DeckeditState:renderBackground()
     if self.subState == 'info' then
-        love.graphics.setColor(0,0,0,0.5)
-        love.graphics.rectangle('fill',50,50,1820,980,20)
-        love.graphics.setColor(1,1,1,1)
-        love.graphics.rectangle('line',50,50,1820,980,20)
-        love.graphics.rectangle('line',51,51,1818,978,20)
-        love.graphics.rectangle('line',52,52,1816,976,20)
-        love.graphics.setColor(1,1,1,1)
+        love.graphics.draw(self.backgroundCanvas)
+        return true
     end
 end
 
-function DeckeditState:renderForeground()
-    if self.subState == 'deck' then
+function DeckeditState:renderNormal()
+    if self.subState == 'deck' then --This should probably be background canvas as well
         love.graphics.setColor(0,0,0,0.4)
         love.graphics.rectangle('fill',VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2-20,890,font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))+40,69,20)
         love.graphics.setColor(0,0,0,0.6)
@@ -578,6 +597,13 @@ function DeckeditState:renderForeground()
         love.graphics.rectangle('line',VIRTUALWIDTH/2-font80SWrunes:getWidth('123')/2-52,660,font80SWrunes:getWidth('123')+93,190,35,25)
         love.graphics.setColor(1,1,1,1)
         love.graphics.print('Formation strength: ' .. tostring(math.floor(P1strength+0.5)),font50SW,VIRTUALWIDTH/2-font50SW:getWidth('Formation strength: ' .. math.floor(P1strength+0.5))/2,900)
+    end
+end
+
+function DeckeditState:renderForeground()
+    if self.subState == 'deck' then
+        love.graphics.draw(gStateMachine.current.evolutionSpriteBatch)
+        love.graphics.draw(gStateMachine.current.evolutionMaxSpriteBatch)
     end
 end
 

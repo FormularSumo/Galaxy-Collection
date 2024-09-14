@@ -10,14 +10,7 @@ function pause(pause)
     if background['Video'] then
         if paused then background['Background']:pause() else background['Background']:play() end
     end
-    if not (winner and gStateMachine.state == 'GameState') then
-        gStateMachine:pause()
-        if gStateMachine.state == 'GameState' and not blurred then
-            blurred = 1
-        else
-            blurred = nil
-        end
-    end
+    gStateMachine:pause()
 end
 
 function createBackground()
