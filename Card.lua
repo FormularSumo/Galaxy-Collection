@@ -37,7 +37,7 @@ function Card:init(card,team,number,column,graphics,imagesInfo,imagesIndexes,evo
         self.image = false
     end
 
-    self.width,self.height = 115,173 --Shouldn't really be hardcoded, but no cards have been loaded at this point so there's not much alternative
+    self.width,self.height = 115,173
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.meleeOffense = self.stats['meleeOffense'] * (self.modifier)

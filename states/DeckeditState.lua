@@ -533,17 +533,6 @@ function DeckeditState:update()
     end
 
     if love.thread.getChannel("imageDecoderOutput"):peek() then
-        -- for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
-        --     local result = love.thread.getChannel("imageDecoderOutput"):pop()
-        --     self.graphics[result[1]] = love.graphics.newImage(result[2])
-        --     if self.imagesInfo[result[1]] then --Check that this image needs pushing to an object, eg not if queued in loadRemainingImages
-            --         for i=1,#self.imagesInfo[result[1]] do
-            --             self.imagesInfo[result[1]][i].image = true --Update the image attribute for all objects that use this image
-            --         end
-        --         self.imagesInfo[result[1]] = nil
-        --     end   
-        -- end
-        
         for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
             local result = love.thread.getChannel("imageDecoderOutput"):pop()
             local width, height;

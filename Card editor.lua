@@ -243,7 +243,6 @@ function CardEditor:render()
         end
         love.graphics.drawLayer(gStateMachine.current.imagesArrayLayer,gStateMachine.current.imagesIndexes[self.imagePath],self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
 
-        -- love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
         if self.name ~= 'Blank' then
             if self.evolution == 4 then
                 gStateMachine.current.evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
