@@ -541,10 +541,10 @@ function love.draw()
     gStateMachine:renderForeground()
 
     if mouseTrapped then
-        mouseTrapped:render()
         if mouseTouching and mouseTouching ~= mouseTrapped then 
             mouseTouching:render()
         end
+        mouseTrapped:render()
     elseif mouseTouching then
         mouseTouching:render() 
     end
