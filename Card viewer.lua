@@ -6,6 +6,7 @@ function CardViewer:init(name,imagePath,level,evolution,inDeck,number,parent,mod
     self.statsOnDisplay = {}
     self.level = level
     self.evolution = evolution
+    self.initialPower = characterStrength({self.name,self.level,self.evolution})
     self.mode = mode or 'stats'
     if self.mode == 'stats' then
         self:createStats()
@@ -98,6 +99,7 @@ function CardViewer:saveStats()
             self.parent.evolution = self.evolution
             self.parent:updateEvolutionSprites()
         end
+        P1strength = P1strength - self.initialPower + characterStrength({self.name,self.level,self.evolution})
     else
         P1cardsEdit(gStateMachine.current.cardDisplayedNumber+(gStateMachine.current.page * 18),{self.name, self.level, self.evolution})
         if not gStateMachine.current.sort then
@@ -158,7 +160,7 @@ function CardViewer:createStats()
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.y = 0
 
-    self:createStat(math.floor(characterStrength({self.name,self.level,self.evolution})+0.5),'Overall Strength')
+    self:createStat(math.floor(self.initialPower+0.5),'Overall Strength')
     self.y = self.y + 30
 
     self:createStat(self.level,'Level')
