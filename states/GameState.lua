@@ -62,6 +62,8 @@ function GameState:enter(infoTable)
     P1deck = {}
     P2deck = {}
     self.images = {}
+    self.imagesIndexes = {}
+    self.cardImageData = {}
     self.imagesInfo = {}
     self.gamespeed = 1
     self.P1Nextcards = {
@@ -674,14 +676,28 @@ function GameState:update(dt)
 
         if self.moveAimTimer >= 1 then
             self.moveAimTimer = self.moveAimTimer - 1
-            for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
-                local result = love.thread.getChannel("imageDecoderOutput"):pop()
-                self.images[result[1]] = love.graphics.newImage(result[2])
-                self.imagesInfo[result[1]][2] = true
-                for i=1,#self.imagesInfo[result[1]][1] do
-                    self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
+            if love.thread.getChannel("imageDecoderOutput"):peek() then
+                for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
+                    local result = love.thread.getChannel("imageDecoderOutput"):pop()
+                    self.imagesInfo[result[1]][2] = true
+                    local width, height;
+                    width, height = result[2]:getDimensions()
+                    if width == 115 and height == 173 then --Ie if Card, not weapon/projectile
+                        self.imagesIndexes[result[1]] = #self.cardImageData+1
+                        table.insert(self.cardImageData,result[2])
+                        for i=1,#self.imagesInfo[result[1]][1] do
+                            self.imagesInfo[result[1]][1][i].image = true
+                        end
+                    else
+                        self.images[result[1]] = love.graphics.newImage(result[2])
+                        for i=1,#self.imagesInfo[result[1]][1] do
+                            self.imagesInfo[result[1]][1][i]:init2(self.images[result[1]])
+                        end 
+                    end
+
+                    self.imagesInfo[result[1]] = nil
                 end
-                self.imagesInfo[result[1]] = nil
+                self.imagesArrayLayer = love.graphics.newArrayImage(self.cardImageData)
             end
 
             if self.timer < 7 then --Because moveAimTimer is created after timer, 7 seconds into a battle this will always be false
@@ -845,12 +861,12 @@ end
 function GameState:renderBackground()
     if P1deck ~= nil then
         for k, pair in pairs(P1deck) do
-            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch,self.imagesIndexes,self.imagesArrayLayer)
         end
     end
     if P2deck ~= nil then
         for k, pair in pairs(P2deck) do
-            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch,self.imagesIndexes,self.imagesArrayLayer)
         end
     end
 

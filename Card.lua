@@ -20,21 +20,21 @@ function Card:init(card,team,number,column,images,imagesInfo,evolutionSpriteBatc
         end
     end
 
-    local imagePath;
     if self.stats['filename'] then
-        imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
+        self.imagePath = 'Characters/' .. self.stats['filename'] .. '/' .. self.stats['filename']
     else
-        imagePath = 'Characters/' .. card[1] .. '/' .. card[1]
+        self.imagePath = 'Characters/' .. card[1] .. '/' .. card[1]
     end
 
-    if images[imagePath] then
-        self:init2(images[imagePath])
+    if images[self.imagePath] then
+        self.image = true
     else
-        if imagesInfo[imagePath] then
-            table.insert(imagesInfo[imagePath][1],self)
+        if imagesInfo[self.imagePath] then
+            table.insert(imagesInfo[self.imagePath][1],self)
         else
-            imagesInfo[imagePath] = {{self}, false}
+            imagesInfo[self.imagePath] = {{self}, false}
         end
+        self.image = false
     end
 
     self.width,self.height = 115,173 --Shouldn't really be hardcoded, but no cards have been loaded at this point so there's not much alternative
@@ -85,10 +85,6 @@ function Card:init(card,team,number,column,images,imagesInfo,evolutionSpriteBatc
     self.targetY = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.y = self.targetY
     self.dodge = 0
-end
-
-function Card:init2(image)
-    self.image = image
 end
 
 function Card:deleteEvolutionSprites(evolutionSpriteBatch,evolutionMaxSpriteBatch)
@@ -279,9 +275,9 @@ function Card:renderHealthBar2()
     end
 end
 
-function Card:render(evolutionSpriteBatch,evolutionMaxSpriteBatch)
+function Card:render(evolutionSpriteBatch,evolutionMaxSpriteBatch,imagesIndexes,imagesArrayLayer)
     if self.image then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
-        love.graphics.draw(self.image,self.x,self.y,0,1,sx)
+        love.graphics.drawLayer(imagesArrayLayer,imagesIndexes[self.imagePath],self.x,self.y,0,1,sx)
         if self.evolution == 4 then
             evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
         elseif self.evolution > 0 then
