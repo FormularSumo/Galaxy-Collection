@@ -1,6 +1,6 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number,column,images,imagesIndexes,imagesInfo,evolutionSpriteBatch,evolutionMaxSpriteBatch)
+function Card:init(card,team,number,column,images,imagesInfo,imagesIndexes,evolutionSpriteBatch,evolutionMaxSpriteBatch)
     self.team = team
     self.number = number
 

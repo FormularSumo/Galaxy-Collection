@@ -136,10 +136,10 @@ function GameState:enter(infoTable)
 
     for i=0,math.min(18,math.max(self.P1length,self.P2length)) do
         if self.P1battleCards(i) then
-            P1deck[i] = Card(self.P1battleCards(i),1,i,-1 - math.floor((i)/6),self.images,self.imagesIndexes,self.imagesInfo,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            P1deck[i] = Card(self.P1battleCards(i),1,i,-1 - math.floor((i)/6),self.images,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
         end
         if self.P2battleCards(i) then
-            P2deck[i] = Card(self.P2battleCards(i),2,i,12 + math.floor((i)/6),self.images,self.imagesIndexes,self.imagesInfo,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            P2deck[i] = Card(self.P2battleCards(i),2,i,12 + math.floor((i)/6),self.images,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
         end
     end
     for k, pair in pairs(self.imagesInfo) do
@@ -712,7 +712,7 @@ function GameState:update(dt)
                     if self.P1length > self.timer * 6 then
                         for i=0,5 do
                             if self.P1battleCards(self.P1Nextcards[i]) then
-                                P1deck[self.P1Nextcards[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,self.P1Nextcards[i],-1,self.imageIndexes,self.imagesInfo,self.evolutionSpriteBatch,self.evolutionSpriteBatch)
+                                P1deck[self.P1Nextcards[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,self.P1Nextcards[i],-1,self.images,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionSpriteBatch)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
@@ -720,7 +720,7 @@ function GameState:update(dt)
                     if self.P2length > self.timer * 6 then
                         for i=0,5 do
                             if self.P2battleCards(self.P2Nextcards[i]) then
-                                P2deck[self.P2Nextcards[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.imagesIndex,self.imagesInfo,self.evolutionSpriteBatch,self.evolutionSpriteBatch)
+                                P2deck[self.P2Nextcards[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.images,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionSpriteBatch)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
@@ -741,7 +741,7 @@ function GameState:update(dt)
                     if self.P1length > 42 then
                         for i=0,5 do
                             if not P1deck[42+self.P1currentRows[i]] and self.P1battleCards(self.P1Nextcards[i]) ~= nil then
-                                P1deck[42+self.P1currentRows[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,42+self.P1currentRows[i],-2,self.images,self.imagesIndexes,self.imagesInfo,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                                P1deck[42+self.P1currentRows[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,42+self.P1currentRows[i],-2,self.images,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
@@ -749,7 +749,7 @@ function GameState:update(dt)
                     if self.P2length > 42 then
                         for i=0,5 do
                             if not P2deck[42+self.P2currentRows[i]] and self.P2battleCards(self.P2Nextcards[i]) ~= nil then
-                                P2deck[42+self.P2currentRows[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.images,self.imagesIndexes,self.imagesInfo,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                                P2deck[42+self.P2currentRows[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.images,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
