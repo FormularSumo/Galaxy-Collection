@@ -1,6 +1,6 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number,column,images,imagesInfo,imagesIndexes,evolutionSpriteBatch,evolutionMaxSpriteBatch)
+function Card:init(card,team,number,column,graphics,imagesInfo,imagesIndexes,evolutionSpriteBatch,evolutionMaxSpriteBatch)
     self.team = team
     self.number = number
 
@@ -53,13 +53,13 @@ function Card:init(card,team,number,column,images,imagesInfo,imagesIndexes,evolu
     self.rangedOffenseStat = (self.rangedOffense/800)^4
 
     if self.stats['projectile1'] then
-        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height, images, imagesInfo)
+        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height, graphics, imagesInfo)
         if self.projectileManager.projectileCount > 1 then
             self.rangedOffense = self.rangedOffense / (self.projectileManager.projectileCount^0.2)
         end
     end
     if self.stats['weapon1'] then
-        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self, images, imagesInfo)
+        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self, graphics, imagesInfo)
     end
 
     self.meleeProjectile = self.weaponManager == nil and (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain')

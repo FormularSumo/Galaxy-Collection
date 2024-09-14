@@ -1,6 +1,6 @@
 ProjectileManager = Class{__includes = BaseState}
 
-function ProjectileManager:init(name,team,xoffset,yoffset,images,imagesInfo)
+function ProjectileManager:init(name,team,xoffset,yoffset,graphics,imagesInfo)
     self.projectileCount = name['projectileCount'] or 1
 
     self.projectiles = {}
@@ -14,8 +14,8 @@ function ProjectileManager:init(name,team,xoffset,yoffset,images,imagesInfo)
             self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],name['projectile1'])
         end
 
-        if images[imagePath] then
-            self.projectiles[i]:init2(images[imagePath])
+        if graphics[imagePath] then
+            self.projectiles[i]:init2(graphics[imagePath])
         else
             if imagesInfo[imagePath] then
                 table.insert(imagesInfo[imagePath][1],self.projectiles[i])

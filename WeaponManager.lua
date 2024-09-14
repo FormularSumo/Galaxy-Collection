@@ -1,6 +1,6 @@
 WeaponManager = Class{__includes = BaseState}
 
-function WeaponManager:init(name,team,xoffset,yoffset,card,images,imagesInfo)
+function WeaponManager:init(name,team,xoffset,yoffset,card,graphics,imagesInfo)
     self.show = false
 
     self.weaponCount = name['weaponCount'] or 1
@@ -16,8 +16,8 @@ function WeaponManager:init(name,team,xoffset,yoffset,card,images,imagesInfo)
             self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name['weapon1'])
         end
 
-        if images[imagePath] then
-            self.weapons[i]:init2(images[imagePath])
+        if graphics[imagePath] then
+            self.weapons[i]:init2(graphics[imagePath])
         else
             if imagesInfo[imagePath] then
                 table.insert(imagesInfo[imagePath][1],self.weapons[i])
