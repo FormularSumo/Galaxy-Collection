@@ -1961,7 +1961,7 @@ Characters = {
     ['meleeOffense'] = 8539,
     ['rangedOffense'] = 9879,
     ['defense'] = 9067,
-    ['evade'] = 0.8939,
+    ['evade'] = 0.03,
     ['range'] = 5,
     ['projectile1'] = 'Red Laser'
 },
