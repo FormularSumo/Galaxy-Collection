@@ -5,7 +5,7 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images)
     self.row = row
     self.column = column
     self.scaling = 1
-    self.width,self.height = self.image:getDimensions()
+    self.width,self.height = 115,173
     self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
     self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.number = number
