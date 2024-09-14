@@ -856,31 +856,23 @@ function GameState:renderBackground()
     love.graphics.setColor(0.3,0.3,0.3)
     if P1deck ~= nil then
         for k, pair in pairs(P1deck) do
-            if pair.heatlh ~= 1000 then
-                pair:renderHealthBar1()
-            end
+            pair:renderHealthBar1()
         end
     end
     if P2deck ~= nil then
         for k, pair in pairs(P2deck) do
-            if pair.heatlh ~= 1000 then
-                pair:renderHealthBar1()
-            end
+            pair:renderHealthBar1()
         end
     end
 
     if P1deck ~= nil then
         for k, pair in pairs(P1deck) do
-            if pair.heatlh ~= 1000 then
-                pair:renderHealthBar2()
-            end
+            pair:renderHealthBar2()
         end
     end
     if P2deck ~= nil then
         for k, pair in pairs(P2deck) do
-            if pair.heatlh ~= 1000 then
-                pair:renderHealthBar2()
-            end
+            pair:renderHealthBar2()
         end
     end
     love.graphics.setColor(1,1,1)
