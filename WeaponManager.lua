@@ -1,6 +1,6 @@
 WeaponManager = Class{__includes = BaseState}
 
-function WeaponManager:init(name,team,xoffset,yoffset,card,images)
+function WeaponManager:init(name,team,xoffset,yoffset,card,graphics)
     self.show = false
 
     self.weaponCount = name['weaponCount'] or 1
@@ -8,12 +8,12 @@ function WeaponManager:init(name,team,xoffset,yoffset,card,images)
     self.weapons = {}
     for i=1,self.weaponCount do
         if name['weapon' .. tostring(i)] then
-            if not images[name['weapon'..tostring(i)]] then
-                images[name['weapon'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['weapon'..tostring(i)]..'.png')
+            if not graphics[name['weapon'..tostring(i)]] then
+                graphics[name['weapon'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['weapon'..tostring(i)]..'.png')
             end
-            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,images[name['weapon'..tostring(i)]],name['weapon'..tostring(i)])
+            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,graphics[name['weapon'..tostring(i)]],name['weapon'..tostring(i)])
         else 
-            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,images[name['weapon1']],images[name['weapon1']])
+            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,graphics[name['weapon1']],images[name['weapon1']])
         end
     end
 end

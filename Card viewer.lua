@@ -29,13 +29,13 @@ end
 
 function CardViewer:updateEvolution()
     if self.evolution == 4 then
-        self.evolutionImage = gStateMachine.current.images['evolutionMaxBig']
+        self.evolutionImage = gStateMachine.current.graphics['evolutionMaxBig']
         if self.evolutionImage then
             self.evolutionWidth = self.evolutionImage:getWidth()
             self.evolutionX = 690 - self.evolutionWidth-12 - 8
         end
     else
-        self.evolutionImage = gStateMachine.current.images['evolutionBig']
+        self.evolutionImage = gStateMachine.current.graphics['evolutionBig']
         if self.evolutionImage then
             self.evolutionWidth = self.evolutionImage:getWidth()
             self.evolutionHeight = self.evolutionImage:getHeight()

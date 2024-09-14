@@ -2,11 +2,12 @@ DeckeditState = Class{__includes = BaseState}
 
 function DeckeditState:enter()
     P1deck = {}
-    self.images = {
+    self.graphics = {
         evolutionBig = love.graphics.newImage('Graphics/Evolution Big.png'), 
         evolutionMaxBig = love.graphics.newImage('Graphics/Evolution Max Big.png'),
-        blankCard = love.graphics.newImage('Graphics/Blank Card.png')
     }
+    self.imagesIndexes = {}
+    self.cardImageData = {}
     self:loadCards()
     self.cardsOnDisplay = {}
     self.page = 0
@@ -82,19 +83,20 @@ function DeckeditState:reloadDeck(partial) --Using the deck layout that's alread
         row = i - rowCorrectment
         if P1deckCards[i] ~= nil then
             if P1deckCards[i][1] ~= nil then
-                P1deck[i] = CardEditor(P1deckCards[i][1],row,P1column,i,P1deckCards[i][2],P1deckCards[i][3],true,self.images)
+                P1deck[i] = CardEditor(P1deckCards[i][1],row,P1column,i,P1deckCards[i][2],P1deckCards[i][3],true,self.graphics,self.imagesIndexes,self.cardImageData)
                 P1strength = P1strength + characterStrength({P1deckCards[i][1],P1deckCards[i][2],P1deckCards[i][3]})
             else
-                P1deck[i] = CardEditor(P1deckCards[i],row,P1column,i,1,0,true,self.images)
+                P1deck[i] = CardEditor(P1deckCards[i],row,P1column,i,1,0,true,self.graphics,self.imagesIndexes,self.cardImageData)
                 P1strength = P1strength + characterStrength(P1deckCards[i])
             end
         else
-            P1deck[i] = CardEditor('Blank',row,P1column,i,nil,nil,true,self.images)
+            P1deck[i] = CardEditor('Blank',row,P1column,i,nil,nil,true,self.graphics,self.imagesIndexes,self.cardImageData)
         end
     end
     if not partial then
         self:updateGui()
     end
+    self.imagesArrayLayer = love.graphics.newArrayImage(self.cardImageData)
 end
 
 function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the cards which are currently displayed in the inventory with new ones
@@ -124,10 +126,10 @@ function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the car
             row = i - rowCorrectment
             y = i+(self.page*18)
             if P1cards[y] ~= nil then
-                self.cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false,self.images)
+                self.cardsOnDisplay[i] = CardEditor(P1cards[y][1],row,column,y,P1cards[y][2],P1cards[y][3],false,self.graphics,self.imagesIndexes,self.cardImageData)
                 self.cardsOnDisplayAreBlank = false
             else
-                self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false,self.images)
+                self.cardsOnDisplay[i] = CardEditor('Blank',row,column,y,nil,nil,false,self.graphics,self.imagesIndexes,self.cardImageData)
             end
         end
 
@@ -137,6 +139,7 @@ function DeckeditState:updateCardsOnDisplay(direction,visible) --Replace the car
     else
         return false
     end
+    self.imagesArrayLayer = love.graphics.newArrayImage(self.cardImageData)
 end
 
 function DeckeditState:resetDeck(deck) --Resets deck editor using one of the pre-defined buttons

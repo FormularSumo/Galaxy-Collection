@@ -1,6 +1,6 @@
 CardEditor = Class{__includes = BaseState}
 
-function CardEditor:init(name,row,column,number,level,evolution,inDeck,images)
+function CardEditor:init(name,row,column,number,level,evolution,inDeck,graphics,imagesIndexes,cardImageData)
     self.name = name
     self.row = row
     self.column = column
@@ -12,7 +12,7 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images)
     self.inDeck = inDeck
 
     if self.name == 'Blank' then
-        self.image = images['blankCard']
+        self.imagePath = 'Graphics/Blank Card'
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
@@ -20,15 +20,14 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images)
         else
             self.imagePath = 'Characters/' .. self.name .. '/' .. self.name
         end
-        if images[self.imagePath] then
-            self.image = images[self.imagePath]
-        else
-            images[self.imagePath] = love.graphics.newImage(self.imagePath .. '.png')
-            self.image = images[self.imagePath]
-        end
         self.level = level or 1
         self.evolution = evolution or 0
         self:updateEvolutionSprites()
+    end
+
+    if not imagesIndexes[self.imagePath] then
+        imagesIndexes[self.imagePath] = #cardImageData+1
+        table.insert(cardImageData,love.image.newImageData(self.imagePath .. '.png'))
     end
 end
 
@@ -61,13 +60,13 @@ function CardEditor:updateEvolutionSprites()
         local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
 
         if self.evolution == 4 then
-            self.evolutionMaxSprite = evolutionMaxSpriteBatch:add(self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
+            self.evolutionMaxSprite = evolutionMaxSpriteBatch:add(0,0,0,0,0)
         elseif self.evolution > 0 then
-            self.evolution1Sprite = evolutionSpriteBatch:add(self.x+115-5,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+            self.evolution1Sprite = evolutionSpriteBatch:add(0,0,0,0,0)
             if self.evolution > 1 then
-                self.evolution2Sprite = evolutionSpriteBatch:add(self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                self.evolution2Sprite = evolutionSpriteBatch:add(0,0,0,0,0)
                 if self.evolution > 2 then
-                    self.evolution3Sprite = evolutionSpriteBatch:add(self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                    self.evolution3Sprite = evolutionSpriteBatch:add(0,0,0,0,0)
                 end
             end
         end
@@ -84,7 +83,7 @@ function CardEditor:swap()
                 end
                 mouseTrapped:deleteEvolutionSprites()
                 -- Copy data from inventory card to deck card
-                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
+                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath = self.name, self.level, self.evolution, self.imagePath
                 mouseTrapped:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
                 P1deck[mouseTrapped.number] = mouseTrapped
@@ -94,7 +93,7 @@ function CardEditor:swap()
                     P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
                 end
                 self:deleteEvolutionSprites()
-                self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
+                self.name, self.level, self.evolution, self.imagePath = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath
                 self:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
                 P1deck[self.number] = self
@@ -235,7 +234,9 @@ function CardEditor:render()
         love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
         love.graphics.setColor(1,1,1)
     end
-    love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+    love.graphics.drawLayer(gStateMachine.current.imagesArrayLayer,gStateMachine.current.imagesIndexes[self.imagePath],self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+
+    -- love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
     if self.name ~= 'Blank' then
         if self.evolution == 4 then
             gStateMachine.current.evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
