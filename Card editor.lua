@@ -17,6 +17,7 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images,im
         end
         self.level = level or 1
         self.evolution = evolution or 0
+        self:updateEvolutionSprites()
     end
 
     if images[self.imagePath] then
@@ -40,6 +41,44 @@ function CardEditor:init2(image)
     self.image = image
 end
 
+function CardEditor:deleteEvolutionSprites()
+    local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
+    local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
+
+    if self.evolutionMaxSprite then
+        evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,0,0,0,0,0) --Unfortunately closest thing to deleting Sprites there is
+        self.evolutionMaxSprite = nil
+    elseif self.evolution > 0 and evolutionImage then
+        evolutionSpriteBatch:set(self.evolution1Sprite,0,0,0,0,0)
+        self.evolutionMax1Sprite = nil
+        if self.evolution > 1 then
+            evolutionSpriteBatch:set(self.evolution2Sprite,0,0,0,0,0)
+            self.evolutionMax2Sprite = nil
+            if self.evolution > 2 then
+                evolutionSpriteBatch:set(self.evolution3Sprite,0,0,0,0,0)
+                self.evolutionMax3Sprite = nil
+            end
+        end
+    end
+end
+
+function CardEditor:updateEvolutionSprites()
+    local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
+    local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
+
+    if self.evolution == 4 then
+        self.evolutionMaxSprite = evolutionMaxSpriteBatch:add()
+    elseif self.evolution > 0 then
+        self.evolution1Sprite = evolutionSpriteBatch:add()
+        if self.evolution > 1 then
+            self.evolution2Sprite = evolutionSpriteBatch:add()
+            if self.evolution > 2 then
+                self.evolution3Sprite = evolutionSpriteBatch:add()
+            end
+        end
+    end
+end
+
 function CardEditor:swap()
     self.clicked = false
     if mouseTrapped2 == self and not (not self.inDeck and not mouseTrapped.inDeck) then --If not touching another card or both cards in are inventory, abort
@@ -48,8 +87,10 @@ function CardEditor:swap()
                 if mouseTrapped.name ~= 'Blank' then --If card in deck being replaced is not blank, lower overall strength by its strength
                     P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
                 end
-                --Copy data from inventory card to deck card
+                mouseTrapped:deleteEvolutionSprites()
+                -- --Copy data from inventory card to deck card
                 mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
+                mouseTrapped:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
                 P1deck[mouseTrapped.number] = mouseTrapped
                 P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
@@ -57,7 +98,9 @@ function CardEditor:swap()
                 if self.name ~= 'Blank' then
                     P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
                 end
+                self:deleteEvolutionSprites()
                 self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
+                self:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
                 P1deck[self.number] = self
                 P1deckEdit(self.number,{self.name,self.level,self.evolution})
@@ -200,15 +243,31 @@ function CardEditor:render()
         end
         love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
         if self.name ~= 'Blank' then
-            if self.evolution == 4 and evolutionMaxImage then --In theory on a very slow system/very quickly changing state this might not have loaded yet
-                love.graphics.draw(evolutionMaxImage,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
-            elseif self.evolution > 0 and evolutionImage then
-                love.graphics.draw(evolutionImage,self.x+115-5,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+            if self.evolution == 4 then
+                gStateMachine.current.evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
+            elseif self.evolution > 0 then
+                gStateMachine.current.evolutionSpriteBatch:set(self.evolution1Sprite,self.x+115-5,self.y+3,math.rad(90))
                 if self.evolution > 1 then
-                    love.graphics.draw(evolutionImage,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                    gStateMachine.current.evolutionSpriteBatch:set(self.evolution2Sprite,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
                     if self.evolution > 2 then
-                        love.graphics.draw(evolutionImage,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                        gStateMachine.current.evolutionSpriteBatch:set(self.evolution3Sprite,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
                     end
+                end
+            end
+        end
+    end
+end
+
+function CardEditor:renderInFront() --This is needed to ensure that the selected/hovered card's evolution is drawn on top of the card
+    if self.name ~= 'Blank' and mouseTouching == self then
+        if self.evolution == 4 and evolutionMaxImage then --In theory on a very slow system/very quickly changing state this might not have loaded yet
+            love.graphics.draw(evolutionMaxImage,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4,0,self.scaling,self.scaling,(-1+self.scaling)/2*-self.width*0.6,(-1+self.scaling)/2*self.height)
+        elseif self.evolution > 0 and evolutionImage then
+            love.graphics.draw(evolutionImage,self.x+115-5,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+            if self.evolution > 1 then
+                love.graphics.draw(evolutionImage,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                if self.evolution > 2 then
+                    love.graphics.draw(evolutionImage,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
                 end
             end
         end

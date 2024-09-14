@@ -92,7 +92,11 @@ function CardViewer:saveStats()
     if gStateMachine.current.cardDisplayedInDeck then
         P1deckEdit(gStateMachine.current.cardDisplayedNumber,{self.name, self.level, self.evolution})
         self.parent.level = self.level
-        self.parent.evolution = self.evolution
+        if self.parent.evolution ~= self.evolution then
+            self.parent:deleteEvolutionSprites()
+            self.parent.evolution = self.evolution
+            self.parent:updateEvolutionSprites()
+        end
     else
         P1cardsEdit(gStateMachine.current.cardDisplayedNumber+(gStateMachine.current.page * 18),{self.name, self.level, self.evolution})
         if not gStateMachine.current.sort then
