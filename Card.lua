@@ -1,6 +1,6 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number,column,images,imagesInfo,evolutionSpriteBatch,evolutionMaxSpriteBatch)
+function Card:init(card,team,number,column,images,evolutionSpriteBatch,evolutionMaxSpriteBatch)
     self.team = team
     self.number = number
 
@@ -28,16 +28,13 @@ function Card:init(card,team,number,column,images,imagesInfo,evolutionSpriteBatc
     end
 
     if images[imagePath] then
-        self:init2(images[imagePath])
+        self.image = images[imagePath]
     else
-        if imagesInfo[imagePath] then
-            table.insert(imagesInfo[imagePath][1],self)
-        else
-            imagesInfo[imagePath] = {{self}, false}
-        end
+        images[imagePath] = love.graphics.newImage(imagePath .. '.png')
+        self.image = images[imagePath]
     end
 
-    self.width,self.height = 115,173 --Shouldn't really be hardcoded, but no cards have been loaded at this point so there's not much alternative
+    self.width,self.height = self.image:getDimensions()
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.meleeOffense = self.stats['meleeOffense'] * (self.modifier)
@@ -85,10 +82,6 @@ function Card:init(card,team,number,column,images,imagesInfo,evolutionSpriteBatc
     self.targetY = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.y = self.targetY
     self.dodge = 0
-end
-
-function Card:init2(image)
-    self.image = image
 end
 
 function Card:deleteEvolutionSprites(evolutionSpriteBatch,evolutionMaxSpriteBatch)
@@ -280,17 +273,15 @@ function Card:renderHealthBar2()
 end
 
 function Card:render(evolutionSpriteBatch,evolutionMaxSpriteBatch)
-    if self.image then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
-        love.graphics.draw(self.image,self.x,self.y,0,1,sx)
-        if self.evolution == 4 then
-            evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
-        elseif self.evolution > 0 then
-            evolutionSpriteBatch:set(self.evolution1Sprite,self.x+115-5,self.y+3,math.rad(90))
-            if self.evolution > 1 then
-                evolutionSpriteBatch:set(self.evolution2Sprite,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
-                if self.evolution > 2 then
-                    evolutionSpriteBatch:set(self.evolution3Sprite,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
-                end
+    love.graphics.draw(self.image,self.x,self.y,0,1,sx)
+    if self.evolution == 4 then
+        evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
+    elseif self.evolution > 0 then
+        evolutionSpriteBatch:set(self.evolution1Sprite,self.x+115-5,self.y+3,math.rad(90))
+        if self.evolution > 1 then
+            evolutionSpriteBatch:set(self.evolution2Sprite,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
+            if self.evolution > 2 then
+                evolutionSpriteBatch:set(self.evolution3Sprite,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
             end
         end
     end
