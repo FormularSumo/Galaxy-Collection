@@ -34,7 +34,7 @@ function Card:init(card,team,number,column,images,evolutionSpriteBatch,evolution
         self.image = images[imagePath]
     end
 
-    self.width,self.height = self.image:getDimensions()
+    self.width,self.height = 115,173
     self.health = 1000
     self.modifier = ((self.level + (60 - self.level) / 1.7) / 60) * (1 - ((4 - self.evolution) * 0.1))
     self.meleeOffense = self.stats['meleeOffense'] * (self.modifier)
