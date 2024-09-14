@@ -5,6 +5,11 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images)
     self.row = row
     self.column = column
     self.scaling = 1
+    self.width,self.height = self.image:getDimensions()
+    self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
+    self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
+    self.number = number
+    self.inDeck = inDeck
 
     if self.name == 'Blank' then
         self.image = images['blankCard']
@@ -25,47 +30,45 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,images)
         self.evolution = evolution or 0
         self:updateEvolutionSprites()
     end
-
-    self.width,self.height = self.image:getDimensions()
-    self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
-    self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
-    self.number = number
-    self.inDeck = inDeck
 end
 
 function CardEditor:deleteEvolutionSprites()
-    local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
-    local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
+    if self.name ~= 'Blank' then
+        local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
+        local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
 
-    if self.evolutionMaxSprite then
-        evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,0,0,0,0,0) --Unfortunately closest thing to deleting Sprites there is
-        self.evolutionMaxSprite = nil
-    elseif self.evolution > 0 and evolutionImage then
-        evolutionSpriteBatch:set(self.evolution1Sprite,0,0,0,0,0)
-        self.evolutionMax1Sprite = nil
-        if self.evolution > 1 then
-            evolutionSpriteBatch:set(self.evolution2Sprite,0,0,0,0,0)
-            self.evolutionMax2Sprite = nil
-            if self.evolution > 2 then
-                evolutionSpriteBatch:set(self.evolution3Sprite,0,0,0,0,0)
-                self.evolutionMax3Sprite = nil
+        if self.evolutionMaxSprite then
+            evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,0,0,0,0,0) --Unfortunately closest thing to deleting Sprites there is
+            self.evolutionMaxSprite = nil
+        elseif self.evolution > 0 and evolutionImage then
+            evolutionSpriteBatch:set(self.evolution1Sprite,0,0,0,0,0)
+            self.evolutionMax1Sprite = nil
+            if self.evolution > 1 then
+                evolutionSpriteBatch:set(self.evolution2Sprite,0,0,0,0,0)
+                self.evolutionMax2Sprite = nil
+                if self.evolution > 2 then
+                    evolutionSpriteBatch:set(self.evolution3Sprite,0,0,0,0,0)
+                    self.evolutionMax3Sprite = nil
+                end
             end
         end
     end
 end
 
 function CardEditor:updateEvolutionSprites()
-    local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
-    local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
+    if self.name ~= 'Blank' then
+        local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
+        local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
 
-    if self.evolution == 4 then
-        self.evolutionMaxSprite = evolutionMaxSpriteBatch:add()
-    elseif self.evolution > 0 then
-        self.evolution1Sprite = evolutionSpriteBatch:add()
-        if self.evolution > 1 then
-            self.evolution2Sprite = evolutionSpriteBatch:add()
-            if self.evolution > 2 then
-                self.evolution3Sprite = evolutionSpriteBatch:add()
+        if self.evolution == 4 then
+            self.evolutionMaxSprite = evolutionMaxSpriteBatch:add(self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
+        elseif self.evolution > 0 then
+            self.evolution1Sprite = evolutionSpriteBatch:add(self.x+115-5,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+            if self.evolution > 1 then
+                self.evolution2Sprite = evolutionSpriteBatch:add(self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                if self.evolution > 2 then
+                    self.evolution3Sprite = evolutionSpriteBatch:add(self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
+                end
             end
         end
     end
@@ -80,7 +83,7 @@ function CardEditor:swap()
                     P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
                 end
                 mouseTrapped:deleteEvolutionSprites()
-                -- --Copy data from inventory card to deck card
+                -- Copy data from inventory card to deck card
                 mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
                 mouseTrapped:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck

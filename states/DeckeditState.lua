@@ -67,6 +67,12 @@ function DeckeditState:reloadDeck(partial) --Using the deck layout that's alread
     local P1column = 2
     local rowCorrectment = 0
     P1strength = 0
+
+    if not parital then
+        for k, pair in pairs(P1deck) do
+            pair:deleteEvolutionSprites()
+        end
+    end
     
     for i=0,17,1 do
         if i % 6 == 0 and i ~= 0 then
