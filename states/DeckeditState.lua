@@ -605,9 +605,6 @@ function DeckeditState:renderBackground()
     return true
 end
 
-function DeckeditState:renderNormal()
-end
-
 function DeckeditState:renderForeground()
     if self.subState == 'deck' then
         love.graphics.draw(gStateMachine.current.evolutionSpriteBatch)
