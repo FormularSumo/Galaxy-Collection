@@ -326,14 +326,15 @@ function GameState:Move1()
         end
     elseif self.P1rowsRemaining == 5 and self.P2rowsRemaining == 5 then
         --Make sure rows line up if in middle 6 rows
-        if self.P1rows[0] and self.P2rows[5] then
+        if (self.P1rows[0] and self.P1rows[1] and self.P1rows[2] and self.P1rows[3] and self.P1rows[4]) and (self.P2rows[1] and self.P2rows[2] and self.P2rows[3] and self.P2rows[4] and self.P2rows[5]) then
             self:MoveUp(P2deck,1)
             self:MoveUp(P2deck,2)
             self:MoveUp(P2deck,3)
             self:MoveUp(P2deck,4)
             self:MoveUp(P2deck,5)
             return true
-        elseif self.P2rows[0] and self.P1rows[5] then
+        end
+        if (self.P2rows[0] and self.P2rows[1] and self.P2rows[2] and self.P2rows[3] and self.P2rows[4]) and (self.P1rows[1] and self.P1rows[2] and self.P1rows[3] and self.P1rows[4] and self.P1rows[5]) then
             self:MoveUp(P1deck,1)
             self:MoveUp(P1deck,2)
             self:MoveUp(P1deck,3)
@@ -403,7 +404,7 @@ function GameState:Move1()
         end
     elseif self.P1rowsRemaining == 3 and self.P2rowsRemaining == 5 then
         --Make sure rows centre if there's a 3 against 5 situation
-        if self.P2rows[5] then
+        if (self.P2rows[1] and self.P2rows[2] and self.P2rows[3] and self.P2rows[4] and self.P2rows[5]) then
             if (self.P1rows[0] or self.P1rows[3]) and self.P1rows[1] and self.P1rows[2] then
                 self:MoveUp(P2deck,1)
                 self:MoveUp(P2deck,2)
@@ -417,7 +418,7 @@ function GameState:Move1()
                 end
                 return true
             end
-        elseif self.P2rows[0] then
+        elseif (self.P2rows[0] and self.P2rows[1] and self.P2rows[2] and self.P2rows[3] and self.P2rows[4]) then
             if (self.P1rows[2] or self.P1rows[5]) and self.P1rows[3] and self.P1rows[4] then
                 if self.P1rows[5] then
                     self:MoveDown(P2deck,4)
@@ -438,7 +439,7 @@ function GameState:Move1()
         end
     elseif self.P1rowsRemaining == 5 and self.P2rowsRemaining == 3 then
         --Make sure rows centre if there's a 3 against 5 situation
-        if self.P1rows[5] then
+        if (self.P1rows[1] and self.P1rows[2] and self.P1rows[3] and self.P1rows[4] and self.P1rows[5]) then
             if (self.P2rows[0] or self.P2rows[3]) and self.P2rows[1] and self.P2rows[2] then
                 self:MoveUp(P1deck,1)
                 self:MoveUp(P1deck,2)
@@ -452,7 +453,7 @@ function GameState:Move1()
                 end
                 return true
             end
-        elseif self.P1rows[0] then
+        elseif (self.P1rows[0] and self.P1rows[1] and self.P1rows[2] and self.P1rows[3] and self.P1rows[4]) then
             if (self.P2rows[2] or self.P2rows[5]) and self.P2rows[3] and self.P2rows[4] then
                 if self.P2rows[5] then
                     self:MoveDown(P1deck,4)
