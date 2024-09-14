@@ -9,13 +9,13 @@ function Card:init(card,team,number,column,images,imagesInfo,evolutionSpriteBatc
     self.evolution = card[3] or 0
 
     if self.evolution == 4 then
-        self.evolutionMaxSprite = evolutionMaxSpriteBatch:add()
+        self.evolutionMaxSprite = evolutionMaxSpriteBatch:add(0,0,0,0,0)
     elseif self.evolution > 0 then
-        self.evolution1Sprite = evolutionSpriteBatch:add()
+        self.evolution1Sprite = evolutionSpriteBatch:add(0,0,0,0,0)
         if self.evolution > 1 then
-            self.evolution2Sprite = evolutionSpriteBatch:add()
+            self.evolution2Sprite = evolutionSpriteBatch:add(0,0,0,0,0)
             if self.evolution > 2 then
-                self.evolution3Sprite = evolutionSpriteBatch:add()
+                self.evolution3Sprite = evolutionSpriteBatch:add(0,0,0,0,0)
             end
         end
     end
