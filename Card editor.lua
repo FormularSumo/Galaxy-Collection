@@ -42,38 +42,42 @@ function CardEditor:init2(image)
 end
 
 function CardEditor:deleteEvolutionSprites()
-    local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
-    local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
+    if self.name ~= 'Blank' then
+        local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
+        local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
 
-    if self.evolutionMaxSprite then
-        evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,0,0,0,0,0) --Unfortunately closest thing to deleting Sprites there is
-        self.evolutionMaxSprite = nil
-    elseif self.evolution > 0 and evolutionImage then
-        evolutionSpriteBatch:set(self.evolution1Sprite,0,0,0,0,0)
-        self.evolutionMax1Sprite = nil
-        if self.evolution > 1 then
-            evolutionSpriteBatch:set(self.evolution2Sprite,0,0,0,0,0)
-            self.evolutionMax2Sprite = nil
-            if self.evolution > 2 then
-                evolutionSpriteBatch:set(self.evolution3Sprite,0,0,0,0,0)
-                self.evolutionMax3Sprite = nil
+        if self.evolutionMaxSprite then
+            evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,0,0,0,0,0) --Unfortunately closest thing to deleting Sprites there is
+            self.evolutionMaxSprite = nil
+        elseif self.evolution > 0 and evolutionImage then
+            evolutionSpriteBatch:set(self.evolution1Sprite,0,0,0,0,0)
+            self.evolutionMax1Sprite = nil
+            if self.evolution > 1 then
+                evolutionSpriteBatch:set(self.evolution2Sprite,0,0,0,0,0)
+                self.evolutionMax2Sprite = nil
+                if self.evolution > 2 then
+                    evolutionSpriteBatch:set(self.evolution3Sprite,0,0,0,0,0)
+                    self.evolutionMax3Sprite = nil
+                end
             end
         end
     end
 end
 
 function CardEditor:updateEvolutionSprites()
-    local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
-    local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
+    if self.name ~= 'Blank' then
+        local evolutionSpriteBatch = gStateMachine.current.evolutionSpriteBatch
+        local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
 
-    if self.evolution == 4 then
-        self.evolutionMaxSprite = evolutionMaxSpriteBatch:add()
-    elseif self.evolution > 0 then
-        self.evolution1Sprite = evolutionSpriteBatch:add()
-        if self.evolution > 1 then
-            self.evolution2Sprite = evolutionSpriteBatch:add()
-            if self.evolution > 2 then
-                self.evolution3Sprite = evolutionSpriteBatch:add()
+        if self.evolution == 4 then
+            self.evolutionMaxSprite = evolutionMaxSpriteBatch:add()
+        elseif self.evolution > 0 then
+            self.evolution1Sprite = evolutionSpriteBatch:add()
+            if self.evolution > 1 then
+                self.evolution2Sprite = evolutionSpriteBatch:add()
+                if self.evolution > 2 then
+                    self.evolution3Sprite = evolutionSpriteBatch:add()
+                end
             end
         end
     end
