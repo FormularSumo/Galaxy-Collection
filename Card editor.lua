@@ -69,7 +69,6 @@ function CardEditor:updateEvolutionSprites()
         local evolutionMaxSpriteBatch = gStateMachine.current.evolutionMaxSpriteBatch
 
         if self.evolution == 4 then
-            print(self.name .. self.x)
             self.evolutionMaxSprite = evolutionMaxSpriteBatch:add(self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
         elseif self.evolution > 0 then
             self.evolution1Sprite = evolutionSpriteBatch:add(self.x+115-5,self.y+3,math.rad(90),self.scaling,self.scaling,(-1+self.scaling)/2*self.width*1.4,(1-self.scaling)/2*-self.height*0.6)
@@ -102,7 +101,7 @@ function CardEditor:swap()
                 if self.name ~= 'Blank' then
                     P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
                 end
-                -- self:deleteEvolutionSprites()
+                self:deleteEvolutionSprites()
                 self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
                 self:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
