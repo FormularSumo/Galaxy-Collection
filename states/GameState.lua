@@ -954,6 +954,12 @@ function GameState:renderBackground()
     end
 end
 
+function GameState:renderNormal()
+    if winner then
+        self:renderBattle()
+    end
+end
+
 function GameState:renderForeground()
     if not winner and not paused then
         self:renderBattle()
