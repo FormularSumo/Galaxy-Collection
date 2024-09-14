@@ -38,7 +38,6 @@ function DeckeditState:enter()
     gui[26] = Button(function() self:updateCardsOnDisplay('right') end,nil,nil,'Left Arrow','centre right',1030,nil,nil,nil,true,true)
 end
 
-
 function DeckeditState:loadCards() --Initial card loading and sorting
     P1cards = {}
     local count = 0
