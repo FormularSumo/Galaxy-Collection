@@ -280,6 +280,7 @@ function DeckeditState:updateCardViewer(direction) --Updates which card is selec
             end
         end
     end
+    self:createCardViewerBackground()
 end
 
 function DeckeditState:enterStats()
