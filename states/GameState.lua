@@ -143,7 +143,7 @@ function GameState:enter(infoTable)
         end
     end
     for k, pair in pairs(self.imagesInfo) do
-        love.thread.getChannel("imageDecoderQueue"):push(k) --It's unnecessary to check here if graphics have already been pushed, as this is the first time they any are pushed
+        love.thread.getChannel("imageDecoderQueue"):push(k) --It's unnecessary to check here if images have already been pushed, as this is the first time they any are pushed
         pair[2] = true --Mark image as pushed
     end
     for i = 1,#imageDecoderThreads do
