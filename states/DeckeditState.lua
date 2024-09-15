@@ -170,7 +170,7 @@ function DeckeditState:loadRemainingImages()
         local decodeQueue = {} --As these graphics don't need pushing to objects later, it's simpler just to create a separate queue to check there's no duplicates and then queue those
         for k, pair in pairs(P1cards) do
             if not self.P1deckList[pair[1]] and not P1cardsOnDisplayList[pair[1]] then --Make sure that the graphics hasn't already been queued to load by the card objects that have been created
-                local imagePath;
+                local imagePath
                 if Characters[pair[1]]['filename'] then
                     imagePath = 'Characters/' .. Characters[pair[1]]['filename'] .. '/' .. Characters[pair[1]]['filename']
                 else
@@ -604,7 +604,7 @@ function DeckeditState:update()
     if love.thread.getChannel("imageDecoderOutput"):peek() then
         for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
             local result = love.thread.getChannel("imageDecoderOutput"):pop()
-            local width, height;
+            local width, height
             width, height = result[2]:getDimensions()
             
             if width == 115 and height == 173 then --Ie if Card, not evolution

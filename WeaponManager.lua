@@ -6,13 +6,15 @@ function WeaponManager:init(name,team,xoffset,yoffset,card,graphics,imagesInfo)
 
     self.weapons = {}
     for i=1,self.weaponCount do
-        local imagePath;
-        if name['weapon' .. tostring(i)] then
+        local imagePath
+        local nameString = 'weapon' .. tostring(i)
+        if name[nameString] then
             imagePath = 'Graphics/' .. name['weapon'..tostring(i)]
-            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name['weapon'..tostring(i)],imagePath)
+            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name[nameString],imagePath)
         else
-            imagePath = 'Graphics/' .. name['weapon1']
-            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name['weapon1'],imagePath)
+            nameString = 'weapon1'
+            imagePath = 'Graphics/' .. name[nameString]
+            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name[nameString],imagePath)
         end
 
         if graphics[imagePath] then

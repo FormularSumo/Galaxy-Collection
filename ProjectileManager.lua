@@ -5,13 +5,15 @@ function ProjectileManager:init(name,team,xoffset,yoffset,graphics,imagesInfo)
 
     self.projectiles = {}
     for i=1,self.projectileCount do
-        local imagePath;
-        if name['projectile' .. tostring(i)] then
-            imagePath = 'Graphics/' .. name['projectile'..tostring(i)]
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],name['projectile'..tostring(i)],imagePath)
+        local imagePath
+        local nameString = 'projectile' .. tostring(i)
+        if name[nameString] then
+            imagePath = 'Graphics/' .. name[nameString          ]
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],name[nameString],imagePath)
         else
-            imagePath = 'Graphics/' .. name['projectile1']
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],name['projectile1'],imagePath)
+            nameString = 'projectile1'
+            imagePath = 'Graphics/' .. name[nameString]
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],name[nameString],imagePath)
         end
 
         if graphics[imagePath] then

@@ -124,9 +124,9 @@ end
 
 function characterStrength(character)
     if character == nil then return 0 end
-    local stats;
-    local modifier;
-    local offense;
+    local stats
+    local modifier
+    local offense
     if character[1] then
         stats = Characters[character[1]]
         modifier = ((character[2] + (60 - character[2]) / 1.7) / 60) * (1 - ((4 - character[3]) * 0.1))
@@ -139,7 +139,7 @@ function characterStrength(character)
         offense = ((stats['meleeOffense']*modifier)/800)^4 * 0.9
     else
         local meleeOffense = ((stats['meleeOffense']*modifier)/800)^4
-        local rangedOffense;
+        local rangedOffense
 
         if stats['rangedOffense'] then
             rangedOffense = ((stats['rangedOffense']*modifier)/800)^4

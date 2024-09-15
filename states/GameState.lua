@@ -692,7 +692,7 @@ function GameState:update(dt)
                 for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
                     local result = love.thread.getChannel("imageDecoderOutput"):pop()
                     self.imagesInfo[result[1]][2] = true
-                    local width, height;
+                    local width, height
                     width, height = result[2]:getDimensions()
                     if width == 115 and height == 173 then --Ie if Card, not weapon/projectile
                         self.imagesIndexes[result[1]] = #self.imagesData+1
