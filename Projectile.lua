@@ -11,7 +11,7 @@ function Projectile:init(team,xoffset,yoffset,range,imageName,imagePath)
 end
 
 function Projectile:init2(image)
-    self.image = image:add(0,0,0,0,0)
+    self.imageSpriteIndex = image:add(0,0,0,0,0)
     self.width,self.height = image:getTexture():getDimensions()
     
     if self.team == 1 then
@@ -24,7 +24,7 @@ function Projectile:init2(image)
 end
 
 function Projectile:fire(card,card2)
-    if self.image then --Otherwise in theory it could crash if image decoding hasn't finished yet (would have to be extremely slow hardware)
+    if self.imageSpriteIndex then --Otherwise in theory it could crash if image decoding hasn't finished yet (would have to be extremely slow hardware)
         self.show = true
         if self.inverse then
             self.x = card2.x + self.xoffset
@@ -52,7 +52,7 @@ function Projectile:fire(card,card2)
 end
 
 function Projectile:update(dt)
-    if self.show and self.image then
+    if self.show and self.imageSpriteIndex then
         self.x = self.x + (self.xDistance * dt) / 0.9
         self.y = self.y + (self.yDistance * dt) / 0.9
     end
@@ -60,11 +60,11 @@ end
 
 function Projectile:hideProjectile(graphics)
     self.show = false
-    graphics[self.imagePath]:set(self.image,0,0,0,0,0)
+    graphics[self.imagePath]:set(self.imageSpriteIndex,0,0,0,0,0)
 end
 
 function Projectile:render(graphics)
     if self.show and self.xDistance then --Checking if self.xDistance means that if somehow Projectile:fire wasn't run because the image wasn't loaded, a projectile with no destination/movement won't be shown (rather non will)
-        graphics[self.imagePath]:set(self.image,self.x,self.y,self.angle)
+        graphics[self.imagePath]:set(self.imageSpriteIndex,self.x,self.y,self.angle)
     end
 end

@@ -20,7 +20,7 @@ function Weapon:init(number,team,xoffset,yoffset,card,imageName,imagePath)
 end
 
 function Weapon:init2(image)
-    self.image = image:add(0,0,0,0,0)
+    self.imageSpriteIndex = image:add(0,0,0,0,0)
     self.width,self.height = image:getTexture():getDimensions()
     
     if self.double or self.shield then self.yoriginoffset = self.height/2 end
@@ -72,17 +72,17 @@ function Weapon:init2(image)
 end
 
 function Weapon:hideWeapon(graphics)
-    if self.image then
-        graphics[self.imagePath]:set(self.image,0,0,0,0,0)
+    if self.imageSpriteIndex then
+        graphics[self.imagePath]:set(self.imageSpriteIndex,0,0,0,0,0)
     end
 end
 
 function Weapon:render(graphics,angle)
-    if self.image then
+    if self.imageSpriteIndex then
         if self.static then
-            graphics[self.imagePath]:set(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
+            graphics[self.imagePath]:set(self.imageSpriteIndex,self.card.x+self.xoffset,self.card.y+self.yoffset,0,self.scalefactorx,1,self.width/2,self.yoriginoffset)
         else
-            graphics[self.imagePath]:set(self.image,self.card.x+self.xoffset,self.card.y+self.yoffset,angle,self.scalefactorx,1,self.width/2,self.yoriginoffset)
+            graphics[self.imagePath]:set(self.imageSpriteIndex,self.card.x+self.xoffset,self.card.y+self.yoffset,angle,self.scalefactorx,1,self.width/2,self.yoriginoffset)
         end
     end
 end
