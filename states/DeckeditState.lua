@@ -491,13 +491,29 @@ function DeckeditState:keypressed(key)
                         repositionMouse(29)
                     end
                 end
-            else    
+            else
                 for k, v in ipairs(gui) do
                     if v == mouseTouching then
-                        if key == 'right' and k == 5 then
-                            repositionMouse(6)
-                        elseif key == 'left' and k == 6 then
-                            repositionMouse(5)
+                        if key == 'right' then
+                            if k == 1 then
+                                repositionMouse(2)
+                            elseif k == 3 then
+                                repositionMouse(4)
+                            elseif k == 5 then
+                                repositionMouse(6)
+                            elseif k == 7 then
+                                repositionMouse(8)
+                            end
+                        elseif key == 'left' then
+                            if k == 2 then
+                                repositionMouse(1)
+                            elseif k == 4 then
+                                repositionMouse(3)
+                            elseif k == 6 then
+                                repositionMouse(5)
+                            elseif k == 8 then
+                                repositionMouse(7)
+                            end
                         end
                     end
                 end
