@@ -1,10 +1,10 @@
 Projectile = Class{__includes = BaseState}
 
-function Projectile:init(team,xoffset,yoffset,range,image,imageName)
+function Projectile:init(team,xoffset,yoffset,range,imageSpriteBatch,imageName)
     self.team = team
     self.range = range
-    self.image = image:add(0,0,0,0,0)
-    self.width,self.height = image:getTexture():getDimensions()
+    self.imageSpriteIndex = imageSpriteBatch:add(0,0,0,0,0)
+    self.width,self.height = imageSpriteBatch:getTexture():getDimensions()
     self.imageName = imageName
 
     if self.team == 1 then
@@ -44,7 +44,7 @@ function Projectile:fire(card,card2)
 end
 
 function Projectile:update(dt)
-    if self.show and self.image then
+    if self.show and self.imageSpriteIndex then
         self.x = self.x + (self.xDistance * dt) / 0.9
         self.y = self.y + (self.yDistance * dt) / 0.9
     end
@@ -52,11 +52,11 @@ end
 
 function Projectile:hideProjectile(graphics)
     self.show = false
-    graphics[self.imageName]:set(self.image,0,0,0,0,0)
+    graphics[self.imageName]:set(self.imageSpriteIndex,0,0,0,0,0)
 end
 
 function Projectile:render(graphics)
     if self.show then
-        graphics[self.imageName]:set(self.image,self.x,self.y,self.angle)
+        graphics[self.imageName]:set(self.imageSpriteIndex,self.x,self.y,self.angle)
     end
 end
