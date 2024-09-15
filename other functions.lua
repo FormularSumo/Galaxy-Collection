@@ -7,27 +7,7 @@ function pause(pause)
     if songs[1] then
         if paused then songs[currentSong]:pause() else songs[currentSong]:play() end
     end
-    if background['Video'] then
-        if paused then background['Background']:pause() else background['Background']:play() end
-    end
     gStateMachine:pause()
-end
-
-function createBackground()
-    if background['Video'] then
-        background['Background'] = love.graphics.newVideo(background['Filename'])
-        background['Background']:play()
-    else
-        if love.filesystem.getInfo(background['Filename']) then
-            background['Background'] = love.graphics.newImage(background['Filename'])
-        end
-    end
-end
-
-function updateBackground()
-    background['Filename'], background['Video'], background['Seek'] = backgroundInfo(background['Name'])
-    createBackground()
-    collectgarbage()
 end
 
 function repositionMouse(index)
@@ -68,7 +48,7 @@ function toggleSetting(setting,toggle)
     else
         Settings[setting] = not Settings[setting]
     end
-    bitser.dumpLoveFile('Settings.txt',Settings)
+    love.filesystem.write('Settings.txt',binser.s(Settings))
 end
 
 function controllerBinds(button)
@@ -109,7 +89,7 @@ function P1deckEdit(position,name,nosave)
     P1deckCards[position] = name
 
     if not nosave then
-        bitser.dumpLoveFile(Settings['active_deck'],P1deckCards)
+        love.filesystem.write(Settings['active_deck'],binser.s(P1deckCards))
     end
 end
 
@@ -118,7 +98,7 @@ function P1cardsEdit(position,name,nosave)
     P1cards[position] = name
 
     if not nosave then
-        bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+        love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
     end
 end
 
@@ -175,10 +155,10 @@ function tutorial()
     P1deckEdit(3,{'C-3PO',60,4},true)
     P1deckEdit(4,{'R2-D2',60,4},true)
 
-    bitser.dumpLoveFile('Player 1 deck.txt',P1deckCards)
-    bitser.dumpLoveFile('Player 1 deck 2.txt',{})
-    bitser.dumpLoveFile('Player 1 deck 3.txt',{})
-    bitser.dumpLoveFile('Player 1 cards.txt',{})
+    love.filesystem.write('Player 1 deck.txt',binser.s(P1deckCards))
+    love.filesystem.write('Player 1 deck 2.txt',binser.s({}))
+    love.filesystem.write('Player 1 deck 3.txt',binser.s({}))
+    love.filesystem.write('Player 1 cards.txt',binser.s({}))
     UserData['Credits'] = 100
-    bitser.dumpLoveFile('User Data.txt',UserData)
+    love.filesystem.write('User Data.txt',binser.s(UserData))
 end

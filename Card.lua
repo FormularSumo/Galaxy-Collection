@@ -1,6 +1,6 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number,column,graphics,imagesInfo,imagesIndexes,evolutionSpriteBatch,evolutionMaxSpriteBatch)
+function Card:init(card,team,number,column,images,graphics,evolutionSpriteBatch,evolutionMaxSpriteBatch)
     self.team = team
     self.number = number
 
@@ -26,15 +26,11 @@ function Card:init(card,team,number,column,graphics,imagesInfo,imagesIndexes,evo
         self.imagePath = 'Characters/' .. card[1] .. '/' .. card[1]
     end
 
-    if imagesIndexes[self.imagePath] then
-        self.image = true
+    if images[self.imagePath] then
+        self.image = images[self.imagePath]
     else
-        if imagesInfo[self.imagePath] then
-            table.insert(imagesInfo[self.imagePath][1],self)
-        else
-            imagesInfo[self.imagePath] = {{self}, false}
-        end
-        self.image = false
+        images[self.imagePath] = love.graphics.newImage(self.imagePath .. '.png')
+        self.image = images[self.imagePath]
     end
 
     self.width,self.height = 115,173
@@ -53,13 +49,13 @@ function Card:init(card,team,number,column,graphics,imagesInfo,imagesIndexes,evo
     self.rangedOffenseStat = (self.rangedOffense/800)^4
 
     if self.stats['projectile1'] then
-        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height, graphics, imagesInfo)
+        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height, graphics)
         if self.projectileManager.projectileCount > 1 then
             self.rangedOffense = self.rangedOffense / (self.projectileManager.projectileCount^0.2)
         end
     end
     if self.stats['weapon1'] then
-        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self, graphics, imagesInfo)
+        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self, graphics)
     end
 
     self.meleeProjectile = self.weaponManager == nil and (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain')
@@ -284,18 +280,16 @@ function Card:renderHealthBar2()
     end
 end
 
-function Card:render(evolutionSpriteBatch,evolutionMaxSpriteBatch,imagesIndexes,imagesArrayLayer)
-    if self.image then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
-        love.graphics.drawLayer(imagesArrayLayer,imagesIndexes[self.imagePath],self.x,self.y,0,1)
-        if self.evolution == 4 then
-            evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
-        elseif self.evolution > 0 then
-            evolutionSpriteBatch:set(self.evolution1Sprite,self.x+115-5,self.y+3,math.rad(90))
-            if self.evolution > 1 then
-                evolutionSpriteBatch:set(self.evolution2Sprite,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
-                if self.evolution > 2 then
-                    evolutionSpriteBatch:set(self.evolution3Sprite,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
-                end
+function Card:render(evolutionSpriteBatch,evolutionMaxSpriteBatch)
+    love.graphics.draw(self.image,self.x,self.y,0,1)
+    if self.evolution == 4 then
+        evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
+    elseif self.evolution > 0 then
+        evolutionSpriteBatch:set(self.evolution1Sprite,self.x+115-5,self.y+3,math.rad(90))
+        if self.evolution > 1 then
+            evolutionSpriteBatch:set(self.evolution2Sprite,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
+            if self.evolution > 2 then
+                evolutionSpriteBatch:set(self.evolution3Sprite,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
             end
         end
     end
