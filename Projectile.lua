@@ -1,18 +1,19 @@
 Projectile = Class{__includes = BaseState}
 
-function Projectile:init(team,xoffset,yoffset,range,imageName)
+function Projectile:init(team,xoffset,yoffset,range,imageName,imagePath)
     self.team = team
     self.xoffset = xoffset
     self.yoffset = yoffset
     self.range = range
+    self.imagePath = imagePath
 
     self.inverse = imageName == 'Force Drain'
 end
 
 function Projectile:init2(image)
-    self.image = image
-    self.width,self.height = self.image:getDimensions()
-
+    self.image = image:add(0,0,0,0,0)
+    self.width,self.height = image:getTexture():getDimensions()
+    
     if self.team == 1 then
         self.xoffset = self.xoffset / 2 - self.width / 2
         self.yoffset = self.yoffset / 2 - self.height / 2
@@ -57,8 +58,13 @@ function Projectile:update(dt)
     end
 end
 
-function Projectile:render()
-    if self.show and self.xDistance then --Checking if self.xDistance here instead of self.image means that if somehow Projectile:fire wasn't run because the image wasn't loaded, a projectile with no destination/movement won't be shown (rather non will)
-        love.graphics.draw(self.image,self.x,self.y,self.angle)
+function Projectile:hideProjectile(graphics)
+    self.show = false
+    graphics[self.imagePath]:set(self.image,0,0,0,0,0)
+end
+
+function Projectile:render(graphics)
+    if self.show and self.xDistance then --Checking if self.xDistance means that if somehow Projectile:fire wasn't run because the image wasn't loaded, a projectile with no destination/movement won't be shown (rather non will)
+        graphics[self.imagePath]:set(self.image,self.x,self.y,self.angle)
     end
 end

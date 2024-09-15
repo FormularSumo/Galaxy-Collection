@@ -5,7 +5,7 @@ function DeckeditState:enter()
     self.graphics = {}
     self.imagesInfo = {}
     self.imagesIndexes = {}
-    self.cardImageData = {}
+    self.imagesData = {}
     self:loadCards()
     self.cardsOnDisplay = {}
     self.page = 0
@@ -608,8 +608,8 @@ function DeckeditState:update()
             width, height = result[2]:getDimensions()
             
             if width == 115 and height == 173 then --Ie if Card, not evolution
-                self.imagesIndexes[result[1]] = #self.cardImageData+1
-                table.insert(self.cardImageData,result[2])
+                self.imagesIndexes[result[1]] = #self.imagesData+1
+                table.insert(self.imagesData,result[2])
                 if self.imagesInfo[result[1]] then --Check that this image needs pushing to an object, eg not if queued in loadRemainingImages
                     for i=1,#self.imagesInfo[result[1]] do
                         self.imagesInfo[result[1]][i].image = true
@@ -621,7 +621,7 @@ function DeckeditState:update()
 
             self.imagesInfo[result[1]] = nil
         end
-        self.imagesArrayLayer = love.graphics.newArrayImage(self.cardImageData)
+        self.imagesArrayLayer = love.graphics.newArrayImage(self.imagesData)
     end
 end
 

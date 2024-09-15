@@ -101,6 +101,15 @@ function Card:deleteEvolutionSprites(evolutionSpriteBatch,evolutionMaxSpriteBatc
     end
 end
 
+function Card:deleteGraphics(graphics)
+    if self.weaponManager then
+        self.weaponManager:hideWeapons(graphics)
+    end
+    if self.projectileManager then
+        self.projectileManager:hideProjectiles(graphics)
+    end
+end
+
 function Card:distance(target)
     return math.abs(self.column - target.column) + math.abs(self.row - target.row)
 end
@@ -169,7 +178,7 @@ function Card:aim()
         end
     end
     if self.weaponManager then
-        self.weaponManager.show = self.meleeAttack
+        self.weaponManager:visibility(self.meleeAttack)
     end
 end
 
@@ -196,12 +205,12 @@ function Card:target(range)
     end
 end
 
-function Card:attack()
+function Card:attack(graphics)
     for k, pair in pairs(self.targets) do
         self:attack2(pair)
         self.targets[k] = nil
     end
-    if self.projectileManager then self.projectileManager:hide() end
+    if self.projectileManager then self.projectileManager:hideProjectiles(graphics) end
 end
 
 function Card:attack2(target)

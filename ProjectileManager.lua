@@ -8,10 +8,10 @@ function ProjectileManager:init(name,team,xoffset,yoffset,graphics,imagesInfo)
         local imagePath;
         if name['projectile' .. tostring(i)] then
             imagePath = 'Graphics/' .. name['projectile'..tostring(i)]
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],name['projectile'..tostring(i)])
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],name['projectile'..tostring(i)],imagePath)
         else
             imagePath = 'Graphics/' .. name['projectile1']
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],name['projectile1'])
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],name['projectile1'],imagePath)
         end
 
         if graphics[imagePath] then
@@ -23,12 +23,6 @@ function ProjectileManager:init(name,team,xoffset,yoffset,graphics,imagesInfo)
                 imagesInfo[imagePath] = {{self.projectiles[i]}, false}
             end
         end
-    end
-end
-
-function ProjectileManager:hide()
-    for k, pair in pairs(self.projectiles) do
-        pair.show = false
     end
 end
 
@@ -48,8 +42,16 @@ function ProjectileManager:update(dt)
     end
 end
 
-function ProjectileManager:render()
+function ProjectileManager:hideProjectiles(graphics)
     for k, pair in pairs(self.projectiles) do
-        pair:render()
+        pair:hideProjectile(graphics)
+    end
+end
+
+function ProjectileManager:render(graphics)
+    if graphics then
+        for k, pair in pairs(self.projectiles) do
+            pair:render(graphics)
+        end
     end
 end
