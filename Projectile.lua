@@ -10,9 +10,9 @@ function Projectile:init(team,xoffset,yoffset,range,imageName,imagePath)
     self.inverse = imageName == 'Force Drain'
 end
 
-function Projectile:init2(image)
-    self.imageSpriteIndex = image:add(0,0,0,0,0)
-    self.width,self.height = image:getTexture():getDimensions()
+function Projectile:init2(imageSpriteBatch)
+    self.imageSpriteIndex = imageSpriteBatch:add(0,0,0,0,0)
+    self.width,self.height = imageSpriteBatch:getTexture():getDimensions()
     
     if self.team == 1 then
         self.xoffset = self.xoffset / 2 - self.width / 2

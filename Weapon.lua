@@ -19,9 +19,9 @@ function Weapon:init(number,team,xoffset,yoffset,card,imageName,imagePath)
     end
 end
 
-function Weapon:init2(image)
-    self.imageSpriteIndex = image:add(0,0,0,0,0)
-    self.width,self.height = image:getTexture():getDimensions()
+function Weapon:init2(imageSpriteBatch)
+    self.imageSpriteIndex = imageSpriteBatch:add(0,0,0,0,0)
+    self.width,self.height = imageSpriteBatch:getTexture():getDimensions()
     
     if self.double or self.shield then self.yoriginoffset = self.height/2 end
 
