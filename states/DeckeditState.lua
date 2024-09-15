@@ -325,7 +325,7 @@ end
 
 function DeckeditState:keypressed(key)
     if key == 'right' or key == 'left' or key == 'dpright' or key == 'dpleft' then
-        if love.mouse.isVisible() or key == 'dpright' or key == 'dpleft' then
+        if love.mouse.isVisible() or key == 'dpright' or key == 'dpleft' or (self.subState == 'info' and (gui['CardViewer'].mode == 'biography' or not sandbox)) then
             if key == 'right' or key == 'dpright' then
                 if self.subState == 'deck' then
                     self:updateCardsOnDisplay('right')
@@ -439,16 +439,80 @@ function DeckeditState:keypressed(key)
                         repositionMouse(29)
                     end
                 end
-            else    
-                for k, v in ipairs(gui) do
-                    if v == mouseTouching then
-                        if key == 'right' and k == 5 then
-                            repositionMouse(6)
-                        elseif key == 'left' and k == 6 then
-                            repositionMouse(5)
+            else
+                if gui['CardViewer'].mode == 'stats' and sandbox then
+                    for k, v in ipairs(gui) do
+                        if v == mouseTouching then
+                            if key == 'right' then
+                                if k == 1 then
+                                    repositionMouse(3)
+                                elseif k == 3 then
+                                    repositionMouse(4)
+                                elseif k == 4 then
+                                    repositionMouse(2)
+                                elseif k == 5 then
+                                    repositionMouse(6)
+                                elseif k == 6 then
+                                    repositionMouse(8)
+                                elseif k == 7 then
+                                    repositionMouse(5)
+                                end
+                            elseif key == 'left' then
+                                if k == 2 then
+                                    repositionMouse(4)
+                                elseif k == 4 then
+                                    repositionMouse(3)
+                                elseif k == 3 then
+                                    repositionMouse(1)
+                                elseif k == 5 then
+                                    repositionMouse(7)
+                                elseif k == 6 then
+                                    repositionMouse(5)
+                                elseif k == 8 then
+                                    repositionMouse(6)
+                                end
+                            end
+                            return
                         end
                     end
                 end
+            end
+        end
+    elseif self.subState == 'info' and (key == 'up' or key == 'down') then
+        --It feels a bit counterintuative for the mouse to move down to the left arrow when you enable mouse snapping while hovering over Card, so changing that behaviour here
+        if mouseTouching == false or love.mouse.isVisible() then
+            repositionMouse(1)
+            return true --True cancels the default up/down behaviour in love.keypressed
+        else
+            if gui['CardViewer'].mode == 'stats' and sandbox then
+                for k, v in ipairs(gui) do
+                    if v == mouseTouching then
+                        if key == 'down' then
+                            if k == 1 then
+                                repositionMouse(7)
+                            elseif k == 2 then
+                                repositionMouse(8)
+                            elseif k == 3 then
+                                repositionMouse(5)
+                            elseif k == 4 then
+                                repositionMouse(6)
+                            end
+                        elseif key == 'up' then
+                            if k == 7 then
+                                repositionMouse(1)
+                            elseif k == 8 then
+                                repositionMouse(2)
+                            elseif k == 5 then
+                                repositionMouse(3)
+                            elseif k == 6 then
+                                repositionMouse(4)
+                            end
+                        end
+                        return true
+                    end
+                end
+            else
+                return true
             end
         end
     end

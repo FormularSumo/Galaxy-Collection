@@ -95,7 +95,7 @@ function StateMachine:back()
 end
 
 function StateMachine:keypressed(key,isrepeat)
-	self.current:keypressed(key,isrepeat)
+	return self.current:keypressed(key,isrepeat)
 end
 
 function StateMachine:renderBackground()

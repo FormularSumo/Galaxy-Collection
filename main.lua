@@ -222,28 +222,29 @@ function love.keypressed(key,scancode,isrepeat)
             love.filesystem.write('Settings.txt',binser.s(Settings))
         end
     end
-    if key == 'up' or key == 'down' then
-        if mouseTouching == false then
-            repositionMouse(1)
-        else
-            for k, v in ipairs(gui) do
-                if v == mouseTouching then
-                    if key == 'up' then
-                        if gui[k-1] and (gui[k-1].visible or gui[k-1].visible == nil) then
-                            repositionMouse(k-1)
+    if gStateMachine:keypressed(key,isrepeat) == nil then --Allow state to override up/down behaviour if desired
+        if key == 'up' or key == 'down' then
+            if mouseTouching == false then
+                repositionMouse(1)
+            else
+                for k, v in ipairs(gui) do
+                    if v == mouseTouching then
+                        if key == 'up' then
+                            if gui[k-1] and (gui[k-1].visible or gui[k-1].visible == nil) then
+                                repositionMouse(k-1)
+                            end
                         end
-                    end
-                    if key == 'down' then
-                        if gui[k+1] and (gui[k+1].visible or gui[k+1].visible == nil) then
-                            repositionMouse(k+1)
+                        if key == 'down' then
+                            if gui[k+1] and (gui[k+1].visible or gui[k+1].visible == nil) then
+                                repositionMouse(k+1)
+                            end
                         end
+                        break
                     end
-                    break
                 end
             end
         end
     end
-    gStateMachine:keypressed(key,isrepeat)
     -- for k, pair in pairs(gui) do
     --     if pair.keypressed then
     --         pair:keypressed(key,isrepeat)
