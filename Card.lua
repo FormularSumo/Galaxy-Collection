@@ -281,7 +281,7 @@ function Card:renderHealthBar2()
 end
 
 function Card:render(evolutionSpriteBatch,evolutionMaxSpriteBatch)
-    love.graphics.draw(self.image,self.x,self.y,0,1,sx)
+    love.graphics.draw(self.image,self.x,self.y,0,1)
     if self.evolution == 4 then
         evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
     elseif self.evolution > 0 then
