@@ -3,8 +3,9 @@ Projectile = Class{__includes = BaseState}
 function Projectile:init(team,xoffset,yoffset,range,image,imageName)
     self.team = team
     self.range = range
-    self.image = image
-    self.width,self.height = self.image:getDimensions()
+    self.image = image:add(0,0,0,0,0)
+    self.width,self.height = image:getTexture():getDimensions()
+    self.imageName = imageName
 
     if self.team == 1 then
         self.xoffset = xoffset / 2 - self.width / 2
@@ -49,8 +50,13 @@ function Projectile:update(dt)
     end
 end
 
-function Projectile:render()
+function Projectile:hideProjectile(graphics)
+    self.show = false
+    graphics[self.imageName]:set(self.image,0,0,0,0,0)
+end
+
+function Projectile:render(graphics)
     if self.show then
-        love.graphics.draw(self.image,self.x,self.y,self.angle)
+        graphics[self.imageName]:set(self.image,self.x,self.y,self.angle)
     end
 end

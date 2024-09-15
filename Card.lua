@@ -1,6 +1,6 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number,column,images,evolutionSpriteBatch,evolutionMaxSpriteBatch)
+function Card:init(card,team,number,column,images,graphics,evolutionSpriteBatch,evolutionMaxSpriteBatch)
     self.team = team
     self.number = number
 
@@ -49,13 +49,13 @@ function Card:init(card,team,number,column,images,evolutionSpriteBatch,evolution
     self.rangedOffenseStat = (self.rangedOffense/800)^4
 
     if self.stats['projectile1'] then
-        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height, images)
+        self.projectileManager = ProjectileManager(self.stats, self.team, self.width, self.height, graphics)
         if self.projectileManager.projectileCount > 1 then
             self.rangedOffense = self.rangedOffense / (self.projectileManager.projectileCount^0.2)
         end
     end
     if self.stats['weapon1'] then
-        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self, images)
+        self.weaponManager = WeaponManager(self.stats, self.team, self.width, self.height, self, graphics)
     end
 
     self.meleeProjectile = self.weaponManager == nil and (self.stats['projectile1'] == 'Lightning' or self.stats['projectile1'] == 'Force Blast' or self.stats['projectile1'] == 'Force Drain')
@@ -94,6 +94,15 @@ function Card:deleteEvolutionSprites(evolutionSpriteBatch,evolutionMaxSpriteBatc
                 evolutionSpriteBatch:set(self.evolution3Sprite,0,0,0,0,0)
             end
         end
+    end
+end
+
+function Card:deleteGraphics(graphics)
+    if self.weaponManager then
+        self.weaponManager:hideWeapons(graphics)
+    end
+    if self.projectileManager then
+        self.projectileManager:hideProjectiles(graphics)
     end
 end
 
@@ -165,7 +174,7 @@ function Card:aim()
         end
     end
     if self.weaponManager then
-        self.weaponManager.show = self.meleeAttack
+        self.weaponManager:visibility(self.meleeAttack)
     end
 end
 
@@ -192,12 +201,12 @@ function Card:target(range)
     end
 end
 
-function Card:attack()
+function Card:attack(graphics)
     for k, pair in pairs(self.targets) do
         self:attack2(pair)
         self.targets[k] = nil
     end
-    if self.projectileManager then self.projectileManager:hide() end
+    if self.projectileManager then self.projectileManager:hideProjectiles(graphics) end
 end
 
 function Card:attack2(target)

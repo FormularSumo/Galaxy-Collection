@@ -1,24 +1,18 @@
 ProjectileManager = Class{__includes = BaseState}
 
-function ProjectileManager:init(name,team,xoffset,yoffset,images)
+function ProjectileManager:init(name,team,xoffset,yoffset,graphics)
     self.projectileCount = name['projectileCount'] or 1
 
     self.projectiles = {}
     for i=1,self.projectileCount do
         if name['projectile' .. tostring(i)] then
-            if not images[name['projectile'..tostring(i)]] then
-                images[name['projectile'..tostring(i)]] = love.graphics.newImage('Graphics/'..name['projectile'..tostring(i)]..'.png')
+            if not graphics[name['projectile'..tostring(i)]] then
+                graphics[name['projectile'..tostring(i)]] = love.graphics.newSpriteBatch(love.graphics.newImage('Graphics/'..name['projectile'..tostring(i)]..'.png'))
             end
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],images[name['projectile'..tostring(i)]],name['projectile'..tostring(i)])
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],graphics[name['projectile'..tostring(i)]],name['projectile'..tostring(i)])
         else 
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],images[name['projectile1']],name['projectile1'])
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],graphics[name['projectile1']],name['projectile1'])
         end
-    end
-end
-
-function ProjectileManager:hide()
-    for k, pair in pairs(self.projectiles) do
-        pair.show = false
     end
 end
 
@@ -38,8 +32,16 @@ function ProjectileManager:update(dt)
     end
 end
 
-function ProjectileManager:render()
+function ProjectileManager:hideProjectiles(graphics)
     for k, pair in pairs(self.projectiles) do
-        pair:render()
+        pair:hideProjectile(graphics)
+    end
+end
+
+function ProjectileManager:render(graphics)
+    if graphics then
+        for k, pair in pairs(self.projectiles) do
+            pair:render(graphics)
+        end
     end
 end

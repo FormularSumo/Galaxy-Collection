@@ -61,7 +61,8 @@ function GameState:enter(infoTable)
 
     P1deck = {}
     P2deck = {}
-    self.images = {}
+    self.cardImages = {}
+    self.graphics = {}
     self.gamespeed = 1
     self.P1Nextcards = {
         [0] = 18,
@@ -133,10 +134,10 @@ function GameState:enter(infoTable)
 
     for i=0,math.min(18,math.max(self.P1length,self.P2length)) do
         if self.P1battleCards(i) then
-            P1deck[i] = Card(self.P1battleCards(i),1,i,-1 - math.floor((i)/6),self.images,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            P1deck[i] = Card(self.P1battleCards(i),1,i,-1 - math.floor((i)/6),self.cardImages,self.graphics,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
         end
         if self.P2battleCards(i) then
-            P2deck[i] = Card(self.P2battleCards(i),2,i,12 + math.floor((i)/6),self.images,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            P2deck[i] = Card(self.P2battleCards(i),2,i,12 + math.floor((i)/6),self.cardImages,self.graphics,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
         end
     end
     self.P1angle = math.rad(210)
@@ -685,7 +686,7 @@ function GameState:update(dt)
                     if self.P1length > self.timer * 6 then
                         for i=0,5 do
                             if self.P1battleCards(self.P1Nextcards[i]) then
-                                P1deck[self.P1Nextcards[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,self.P1Nextcards[i],-1,self.images,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                                P1deck[self.P1Nextcards[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,self.P1Nextcards[i],-1,self.cardImages,self.graphics,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
@@ -693,7 +694,7 @@ function GameState:update(dt)
                     if self.P2length > self.timer * 6 then
                         for i=0,5 do
                             if self.P2battleCards(self.P2Nextcards[i]) then
-                                P2deck[self.P2Nextcards[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.images,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                                P2deck[self.P2Nextcards[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.cardImages,self.graphics,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
@@ -705,7 +706,7 @@ function GameState:update(dt)
                     if self.P1length > 42 then
                         for i=0,5 do
                             if not P1deck[42+self.P1currentRows[i]] and self.P1battleCards(self.P1Nextcards[i]) ~= nil then
-                                P1deck[42+self.P1currentRows[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,42+self.P1currentRows[i],-2,self.images,self,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                                P1deck[42+self.P1currentRows[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,42+self.P1currentRows[i],-2,self.cardImages,self.graphics,self,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
@@ -713,7 +714,7 @@ function GameState:update(dt)
                     if self.P2length > 42 then
                         for i=0,5 do
                             if not P2deck[42+self.P2currentRows[i]] and self.P2battleCards(self.P2Nextcards[i]) ~= nil then
-                                P2deck[42+self.P2currentRows[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.images,self,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                                P2deck[42+self.P2currentRows[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.cardImages,self.graphics,self,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
@@ -763,21 +764,23 @@ function GameState:update(dt)
             end
 
             for k, pair in pairs(P1deck) do
-                pair:attack()
+                pair:attack(self.graphics)
             end
             for k, pair in pairs(P2deck) do
-                pair:attack()
+                pair:attack(self.graphics)
             end
 
             for k, pair in pairs(P1deck) do
                 if pair.health <= 0 then
                     pair:deleteEvolutionSprites(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                    pair:deleteGraphics(self.graphics)
                     P1deck[k] = nil
                 end
             end
             for k, pair in pairs(P2deck) do
                 if pair.health <= 0 then
                     pair:deleteEvolutionSprites(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                    pair:deleteGraphics(self.graphics)
                     P2deck[k] = nil
                 end
             end
@@ -805,7 +808,8 @@ function GameState:update(dt)
                         gui[k] = nil
                     end
                 end
-                self.images = nil
+                self.cardImages = nil
+                self.graphics = nil
                 collectgarbage()
             end
         end
@@ -813,81 +817,85 @@ function GameState:update(dt)
 end
 
 function GameState:renderBattle()
-    if P1deck ~= nil then
-        for k, pair in pairs(P1deck) do
-            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch,self.imagesIndexes,self.imagesArrayLayer)
+    if P1deck ~= nil or P2deck~= nil then
+        if P1deck ~= nil then
+            for k, pair in pairs(P1deck) do
+                pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            end
         end
-    end
-    if P2deck ~= nil then
-        for k, pair in pairs(P2deck) do
-            pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch,self.imagesIndexes,self.imagesArrayLayer)
+        if P2deck ~= nil then
+            for k, pair in pairs(P2deck) do
+                pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            end
         end
-    end
 
-    if P1deck ~= nil or P2deck ~= nil then --Because sprite don't get fully deleted from the sprite batch, Love2d will keep attempting to draw the spritebatch otherwise
         if self.evolutionMaxSpriteBatch:getCount() > 0 then
             love.graphics.draw(self.evolutionMaxSpriteBatch)
         end
         if self.evolutionSpriteBatch:getCount() > 0 then
             love.graphics.draw(self.evolutionSpriteBatch)
         end
-    end
 
-    if self.timer > 6.4 then
+        if not winner then 
+            if self.timer > 6.4 then
+                if P1deck ~= nil then
+                    for k, pair in pairs(P1deck) do
+                        if pair.weaponManager ~= nil then
+                            pair.weaponManager:render(self.graphics,self.P1angle)
+                        end
+                    end
+                end
+                if P2deck ~= nil then
+                    for k, pair in pairs(P2deck) do
+                        if pair.weaponManager ~= nil then
+                            pair.weaponManager:render(self.graphics,self.P2angle)
+                        end
+                    end
+                end
+            end
+
+            if P1deck ~= nil and P2deck ~= nil then
+                for k, pair in pairs(P1deck) do
+                    if pair.projectileManager ~= nil then
+                        pair.projectileManager:render(self.graphics)
+                    end
+                end
+                for k, pair in pairs(P2deck) do
+                    if pair.projectileManager ~= nil then
+                        pair.projectileManager:render(self.graphics)
+                    end
+                end
+
+                for k, pair in pairs(self.graphics) do
+                    love.graphics.draw(pair)
+                end
+            end
+        end
+
+        love.graphics.setColor(0.3,0.3,0.3)
         if P1deck ~= nil then
             for k, pair in pairs(P1deck) do
-                if pair.weaponManager ~= nil then
-                    pair.weaponManager:render(self.P1angle)
-                end
+                pair:renderHealthBar1()
             end
         end
         if P2deck ~= nil then
             for k, pair in pairs(P2deck) do
-                if pair.weaponManager ~= nil then
-                    pair.weaponManager:render(self.P2angle)
-                end
+                pair:renderHealthBar1()
             end
         end
-    end
 
-    if P1deck ~= nil then
-        for k, pair in pairs(P1deck) do
-            if pair.projectileManager ~= nil then
-                pair.projectileManager:render()
+        if P1deck ~= nil then
+            for k, pair in pairs(P1deck) do
+                pair:renderHealthBar2()
             end
         end
-    end
-    if P2deck ~= nil then
-        for k, pair in pairs(P2deck) do
-            if pair.projectileManager ~= nil then
-                pair.projectileManager:render()
+        if P2deck ~= nil then
+            for k, pair in pairs(P2deck) do
+                pair:renderHealthBar2()
             end
         end
+        love.graphics.setColor(1,1,1)
     end
-
-    love.graphics.setColor(0.3,0.3,0.3)
-    if P1deck ~= nil then
-        for k, pair in pairs(P1deck) do
-            pair:renderHealthBar1()
-        end
-    end
-    if P2deck ~= nil then
-        for k, pair in pairs(P2deck) do
-            pair:renderHealthBar1()
-        end
-    end
-
-    if P1deck ~= nil then
-        for k, pair in pairs(P1deck) do
-            pair:renderHealthBar2()
-        end
-    end
-    if P2deck ~= nil then
-        for k, pair in pairs(P2deck) do
-            pair:renderHealthBar2()
-        end
-    end
-    love.graphics.setColor(1,1,1)
 end
 
 function GameState:renderBackground()
