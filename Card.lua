@@ -286,7 +286,7 @@ end
 
 function Card:render(evolutionSpriteBatch,evolutionMaxSpriteBatch,imagesIndexes,imagesArrayLayer)
     if self.image then --In theory this could cause cards not to render but it'd have to be on a very very slow system for this to happen
-        love.graphics.drawLayer(imagesArrayLayer,imagesIndexes[self.imagePath],self.x,self.y,0,1,sx)
+        love.graphics.drawLayer(imagesArrayLayer,imagesIndexes[self.imagePath],self.x,self.y,0,1)
         if self.evolution == 4 then
             evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
         elseif self.evolution > 0 then
