@@ -6,11 +6,12 @@ function WeaponManager:init(name,team,xoffset,yoffset,card,graphics)
 
     self.weapons = {}
     for i=1,self.weaponCount do
-        if name['weapon' .. tostring(i)] then
+        local nameString = name['weapon' .. tostring(i)]
+        if nameString then
             if not graphics[name['weapon'..tostring(i)]] then
-                graphics[name['weapon'..tostring(i)]] = love.graphics.newSpriteBatch(love.graphics.newImage('Graphics/'..name['weapon'..tostring(i)]..'.png'))
+                graphics[name['weapon'..tostring(i)]] = love.graphics.newSpriteBatch(love.graphics.newImage('Graphics/'..nameString..'.png'))
             end
-            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,graphics[name['weapon'..tostring(i)]],name['weapon'..tostring(i)])
+            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,graphics[nameString],nameString)
         else 
             self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,graphics[name['weapon1']],name['weapon1'])
         end

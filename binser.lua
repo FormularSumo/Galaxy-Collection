@@ -708,7 +708,7 @@ local function newbinser()
         end
         serializers[name] = nil
         deserializers[name] = nil
-        resources_by_name[name] = nil;
+        resources_by_name[name] = nil
         return metatable
     end
 

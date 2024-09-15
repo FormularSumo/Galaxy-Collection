@@ -5,11 +5,12 @@ function ProjectileManager:init(name,team,xoffset,yoffset,graphics)
 
     self.projectiles = {}
     for i=1,self.projectileCount do
-        if name['projectile' .. tostring(i)] then
-            if not graphics[name['projectile'..tostring(i)]] then
-                graphics[name['projectile'..tostring(i)]] = love.graphics.newSpriteBatch(love.graphics.newImage('Graphics/'..name['projectile'..tostring(i)]..'.png'))
+        local nameString = 'projectile' .. tostring(i)
+        if name[nameString] then
+            if not graphics[name[nameString]] then
+                graphics[name[nameString]] = love.graphics.newSpriteBatch(love.graphics.newImage('Graphics/'..name[nameString]..'.png'))
             end
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],graphics[name['projectile'..tostring(i)]],name['projectile'..tostring(i)])
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],graphics[name[nameString]],name[nameString])
         else 
             self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],graphics[name['projectile1']],name['projectile1'])
         end
