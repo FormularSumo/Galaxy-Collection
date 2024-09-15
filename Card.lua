@@ -1,6 +1,6 @@
 Card = Class{__includes = BaseState}
 
-function Card:init(card,team,number,column,images,graphics,evolutionSpriteBatch,evolutionMaxSpriteBatch)
+function Card:init(card,team,number,column,cardImages,graphics,evolutionSpriteBatch,evolutionMaxSpriteBatch)
     self.team = team
     self.number = number
 
@@ -26,11 +26,11 @@ function Card:init(card,team,number,column,images,graphics,evolutionSpriteBatch,
         self.imagePath = 'Characters/' .. card[1] .. '/' .. card[1]
     end
 
-    if images[self.imagePath] then
-        self.image = images[self.imagePath]
+    if cardImages[self.imagePath] then
+        self.image = cardImages[self.imagePath]
     else
-        images[self.imagePath] = love.graphics.newImage(self.imagePath .. '.png')
-        self.image = images[self.imagePath]
+        cardImages[self.imagePath] = love.graphics.newImage(self.imagePath .. '.png')
+        self.image = cardImages[self.imagePath]
     end
 
     self.width,self.height = 115,173
