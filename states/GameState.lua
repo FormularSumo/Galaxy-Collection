@@ -12,7 +12,7 @@ function GameState:enter(infoTable)
                 end
             end
         else
-            local deckTable = bitser.loadLoveFile(infoTable[3])
+            local deckTable = binser.d(love.filesystem.read(infoTable[3]))
             self.P2battleCards = function(index) return deckTable[index] end
             for k, v in pairs(deckTable) do
                 if k > self.P2length then
@@ -37,7 +37,7 @@ function GameState:enter(infoTable)
                     end
                 end
             else
-                local deckTable = bitser.loadLoveFile(infoTable[4])
+                local deckTable = binser.d(love.filesystem.read(infoTable[4]))
                 self.P1battleCards = function(index) return deckTable[index] end
                 for k, v in pairs(deckTable) do
                     if k > self.P1length then
@@ -61,10 +61,8 @@ function GameState:enter(infoTable)
 
     P1deck = {}
     P2deck = {}
+    self.cardImages = {}
     self.graphics = {}
-    self.imagesInfo = {}
-    self.imagesIndexes = {}
-    self.imagesData = {}
     self.gamespeed = 1
     self.P1Nextcards = {
         [0] = 18,
@@ -136,28 +134,19 @@ function GameState:enter(infoTable)
 
     for i=0,math.min(18,math.max(self.P1length,self.P2length)) do
         if self.P1battleCards(i) then
-            P1deck[i] = Card(self.P1battleCards(i),1,i,-1 - math.floor((i)/6),self.graphics,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            P1deck[i] = Card(self.P1battleCards(i),1,i,-1 - math.floor((i)/6),self.cardImages,self.graphics,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
         end
         if self.P2battleCards(i) then
-            P2deck[i] = Card(self.P2battleCards(i),2,i,12 + math.floor((i)/6),self.graphics,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+            P2deck[i] = Card(self.P2battleCards(i),2,i,12 + math.floor((i)/6),self.cardImages,self.graphics,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
         end
-    end
-    for k, pair in pairs(self.imagesInfo) do
-        love.thread.getChannel("imageDecoderQueue"):push(k) --It's unnecessary to check here if images have already been pushed, as this is the first time they any are pushed
-        pair[2] = true --Mark image as pushed
-    end
-    for i = 1,#imageDecoderThreads do
-        imageDecoderThreads[i]:start()
     end
     self.P1angle = math.rad(210)
     self.P2angle = math.rad(150)
     self.next = next
 
-
     backgroundCanvas = love.graphics.newCanvas(1920,1080) --Somehow making this "self" causes Moonshine to not work at all
-    background['Name'] = infoTable[1]
-    background['Filename'],background['Video'],background['Seek'], rgb = backgroundInfo(background['Name'])
-    createBackground()
+    background, rgb = backgroundInfo(infoTable[1])
+    background = love.graphics.newImage(background)
 
     songs[1] = love.audio.newSource('Music/' .. infoTable[2],'stream')
 
@@ -168,11 +157,7 @@ function GameState:enter(infoTable)
     gui['VolumeLabel'] = Text('Volume',font80,'centre',600,rgb,false)
     gui[4] = Button(function() gStateMachine:change('HomeState') end,'Main Menu',font80,nil,'centre',1080-220-font80:getHeight('Main Menu'),rgb,nil,false)
 
-    if not background['Video'] then --backgroundInfo works this out via Setting and background
-        self.timer = 0 --Equals to 1 second delay before characters appear
-    else
-        self.timer = -(background['Seek'] - 1), 0 --If background has a starting animation (such as fade in), delay character spawning until it's finished
-    end
+    self.timer = 0 --All levels have a 1 second delay before spawing characters
     self.moveAimTimer = self.timer
     self.attackTimer = self.timer - 0.9
     love.timer.step()
@@ -608,7 +593,7 @@ function GameState:pause()
             love.graphics.origin()
             love.graphics.setCanvas(backgroundCanvas)
             love.graphics.clear()
-            love.graphics.draw(background['Background'])
+            love.graphics.draw(background)
             self:renderBattle()
             blur(function() love.graphics.draw(backgroundCanvas) end)
             love.graphics.setCanvas()
@@ -688,29 +673,6 @@ function GameState:update(dt)
 
         if self.moveAimTimer >= 1 then
             self.moveAimTimer = self.moveAimTimer - 1
-            if love.thread.getChannel("imageDecoderOutput"):peek() then
-                for i = 1, love.thread.getChannel("imageDecoderOutput"):getCount() do
-                    local result = love.thread.getChannel("imageDecoderOutput"):pop()
-                    self.imagesInfo[result[1]][2] = true
-                    local width, height;
-                    width, height = result[2]:getDimensions()
-                    if width == 115 and height == 173 then --Ie if Card, not weapon/projectile
-                        self.imagesIndexes[result[1]] = #self.imagesData+1
-                        table.insert(self.imagesData,result[2])
-                        for i=1,#self.imagesInfo[result[1]][1] do
-                            self.imagesInfo[result[1]][1][i].image = true
-                        end
-                    else
-                        self.graphics[result[1]] = love.graphics.newSpriteBatch(love.graphics.newImage(result[2]))
-                        for i=1,#self.imagesInfo[result[1]][1] do
-                            self.imagesInfo[result[1]][1][i]:init2(self.graphics[result[1]])
-                        end
-                    end
-
-                    self.imagesInfo[result[1]] = nil
-                end
-                self.imagesArrayLayer = love.graphics.newArrayImage(self.imagesData)
-            end
 
             if self.timer < 7 then --Because moveAimTimer is created after timer, 7 seconds into a battle this will always be false
                 for k, pair in pairs(P1deck) do
@@ -724,7 +686,7 @@ function GameState:update(dt)
                     if self.P1length > self.timer * 6 then
                         for i=0,5 do
                             if self.P1battleCards(self.P1Nextcards[i]) then
-                                P1deck[self.P1Nextcards[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,self.P1Nextcards[i],-1,self.graphics,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionSpriteBatch)
+                                P1deck[self.P1Nextcards[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,self.P1Nextcards[i],-1,self.cardImages,self.graphics,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
@@ -732,19 +694,10 @@ function GameState:update(dt)
                     if self.P2length > self.timer * 6 then
                         for i=0,5 do
                             if self.P2battleCards(self.P2Nextcards[i]) then
-                                P2deck[self.P2Nextcards[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.graphics,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionSpriteBatch)
+                                P2deck[self.P2Nextcards[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,self.P2Nextcards[i],12,self.cardImages,self.graphics,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
-                    end
-                    for k, pair in pairs(self.imagesInfo) do
-                        if pair[2] == false then
-                            love.thread.getChannel("imageDecoderQueue"):push(k)
-                            pair[2] = true --Mark image as pushed
-                        end
-                    end
-                    for i = 1,#imageDecoderThreads do
-                        imageDecoderThreads[i]:start()
                     end
                 end
 
@@ -753,7 +706,7 @@ function GameState:update(dt)
                     if self.P1length > 42 then
                         for i=0,5 do
                             if not P1deck[42+self.P1currentRows[i]] and self.P1battleCards(self.P1Nextcards[i]) ~= nil then
-                                P1deck[42+self.P1currentRows[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,42+self.P1currentRows[i],-2,self.graphics,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                                P1deck[42+self.P1currentRows[i]] = Card(self.P1battleCards(self.P1Nextcards[i]),1,42+self.P1currentRows[i],-2,self.cardImages,self.graphics,self,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P1Nextcards[i] = self.P1Nextcards[i] + 6
                             end
                         end
@@ -761,19 +714,10 @@ function GameState:update(dt)
                     if self.P2length > 42 then
                         for i=0,5 do
                             if not P2deck[42+self.P2currentRows[i]] and self.P2battleCards(self.P2Nextcards[i]) ~= nil then
-                                P2deck[42+self.P2currentRows[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.graphics,self.imagesInfo,self.imagesIndexes,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
+                                P2deck[42+self.P2currentRows[i]] = Card(self.P2battleCards(self.P2Nextcards[i]),2,42+self.P2currentRows[i],13,self.cardImages,self.graphics,self,self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
                                 self.P2Nextcards[i] = self.P2Nextcards[i] + 6
                             end
                         end
-                    end
-                    for k, pair in pairs(self.imagesInfo) do
-                        if pair[2] == false then
-                            love.thread.getChannel("imageDecoderQueue"):push(k)
-                            pair[2] = true --Mark image as pushed
-                        end
-                    end
-                    for i = 1,#imageDecoderThreads do
-                        imageDecoderThreads[i]:start()
                     end
                 end
 
@@ -864,8 +808,8 @@ function GameState:update(dt)
                         gui[k] = nil
                     end
                 end
+                self.cardImages = nil
                 self.graphics = nil
-                self.imagesInfo = nil
                 collectgarbage()
             end
         end
@@ -876,12 +820,12 @@ function GameState:renderBattle()
     if P1deck ~= nil or P2deck~= nil then
         if P1deck ~= nil then
             for k, pair in pairs(P1deck) do
-                pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch,self.imagesIndexes,self.imagesArrayLayer)
+                pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
             end
         end
         if P2deck ~= nil then
             for k, pair in pairs(P2deck) do
-                pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch,self.imagesIndexes,self.imagesArrayLayer)
+                pair:render(self.evolutionSpriteBatch,self.evolutionMaxSpriteBatch)
             end
         end
 

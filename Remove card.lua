@@ -14,7 +14,7 @@ function RemoveCard:swap()
 
     --Edit card removed to be a blank card
     P1deck[mouseTrapped.number]:deleteEvolutionSprites()
-    P1deck[mouseTrapped.number].name, P1deck[mouseTrapped.number].level, P1deck[mouseTrapped.number].evolution, P1deck[mouseTrapped.number].imagePath, P1deck[mouseTrapped.number].deleting = 'Blank', nil, nil, 'Graphics/Blank Card', nil
+    P1deck[mouseTrapped.number].name, P1deck[mouseTrapped.number].level, P1deck[mouseTrapped.number].evolution, P1deck[mouseTrapped.number].imagePath, P1deck[mouseTrapped.number].image, P1deck[mouseTrapped.number].deleting = 'Blank', nil, nil, 'blankCard', gStateMachine.current.images['blankCard'], nil
 
     if not sandbox then --Not necessary in sandbox as inventory does not change
         P1cardsEdit(-1,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})

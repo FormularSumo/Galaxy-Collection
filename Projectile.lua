@@ -1,54 +1,46 @@
 Projectile = Class{__includes = BaseState}
 
-function Projectile:init(team,xoffset,yoffset,range,imageName,imagePath)
+function Projectile:init(team,xoffset,yoffset,range,imageSpriteBatch,imageName)
     self.team = team
-    self.xoffset = xoffset
-    self.yoffset = yoffset
     self.range = range
-    self.imagePath = imagePath
+    self.imageSpriteIndex = imageSpriteBatch:add(0,0,0,0,0)
+    self.width,self.height = imageSpriteBatch:getTexture():getDimensions()
+    self.imageName = imageName
 
+    if self.team == 1 then
+        self.xoffset = xoffset / 2 - self.width / 2
+        self.yoffset = yoffset / 2 - self.height / 2
+    else
+        self.xoffset = xoffset / 2 + self.width / 2
+        self.yoffset = yoffset / 2 + self.height / 2
+    end
     self.inverse = imageName == 'Force Drain'
 end
 
-function Projectile:init2(imageSpriteBatch)
-    self.imageSpriteIndex = imageSpriteBatch:add(0,0,0,0,0)
-    self.width,self.height = imageSpriteBatch:getTexture():getDimensions()
-    
-    if self.team == 1 then
-        self.xoffset = self.xoffset / 2 - self.width / 2
-        self.yoffset = self.yoffset / 2 - self.height / 2
-    else
-        self.xoffset = self.xoffset / 2 + self.width / 2
-        self.yoffset = self.yoffset / 2 + self.height / 2
-    end
-end
-
 function Projectile:fire(card,card2)
-    if self.imageSpriteIndex then --Otherwise in theory it could crash if image decoding hasn't finished yet (would have to be extremely slow hardware)
-        self.show = true
-        if self.inverse then
-            self.x = card2.x + self.xoffset
-            self.finalX = card.targetX + self.xoffset
-            self.y = card2.y + self.yoffset
-            self.finalY = card.targetY + self.yoffset
-        else
-            self.x = card.x + self.xoffset
-            self.finalX = card2.targetX + self.xoffset
-            self.y = card.y + self.yoffset
-            self.finalY = card2.targetY + self.yoffset
-        end
-
-        if (self.team == 1 and not self.inverse) or (self.team == 2 and self.inverse) then
-            self.finalX = self.finalX - 20
-        else
-            self.finalX = self.finalX + 20
-        end
-
-        self.xDistance = tonumber(self.finalX-self.x)
-        self.yDistance = tonumber(self.finalY-self.y)
-        self.angle = math.atan(self.yDistance/self.xDistance)
-        if self.team == 2 then self.angle = self.angle + math.rad(180) end
+    self.show = true
+    if self.inverse then
+        self.x = card2.x + self.xoffset
+        self.finalX = card.targetX + self.xoffset
+        self.y = card2.y + self.yoffset
+        self.finalY = card.targetY + self.yoffset
+    else
+        self.x = card.x + self.xoffset
+        self.finalX = card2.targetX + self.xoffset
+        self.y = card.y + self.yoffset
+        self.finalY = card2.targetY + self.yoffset
     end
+
+    if (self.team == 1 and not self.inverse) or (self.team == 2 and self.inverse) then
+        self.finalX = self.finalX - 20
+    else
+        self.finalX = self.finalX + 20
+    end
+
+    self.xDistance = tonumber(self.finalX-self.x)
+    self.yDistance = tonumber(self.finalY-self.y)
+    self.angle = math.atan(self.yDistance/self.xDistance)
+    if self.team == 2 then self.angle = self.angle + math.rad(180) end
 end
 
 function Projectile:update(dt)
@@ -60,11 +52,11 @@ end
 
 function Projectile:hideProjectile(graphics)
     self.show = false
-    graphics[self.imagePath]:set(self.imageSpriteIndex,0,0,0,0,0)
+    graphics[self.imageName]:set(self.imageSpriteIndex,0,0,0,0,0)
 end
 
 function Projectile:render(graphics)
-    if self.show and self.xDistance then --Checking if self.xDistance means that if somehow Projectile:fire wasn't run because the image wasn't loaded, a projectile with no destination/movement won't be shown (rather non will)
-        graphics[self.imagePath]:set(self.imageSpriteIndex,self.x,self.y,self.angle)
+    if self.show then
+        graphics[self.imageName]:set(self.imageSpriteIndex,self.x,self.y,self.angle)
     end
 end

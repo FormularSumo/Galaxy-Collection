@@ -1,18 +1,18 @@
 CardEditor = Class{__includes = BaseState}
 
-function CardEditor:init(name,row,column,number,level,evolution,inDeck,graphics,imagesInfo,imagesIndexes)
+function CardEditor:init(name,row,column,number,level,evolution,inDeck,images)
     self.name = name
     self.row = row
     self.column = column
     self.scaling = 1
-    self.width,self.height = 115,173 --Shouldn't really be hardcoded, but no cards have been loaded at this point so there's not much alternative
+    self.width,self.height = 115,173
     self.x = ((VIRTUALWIDTH / 12) * self.column) + 22
     self.y = ((VIRTUALHEIGHT / 6) * self.row + (self.height / 48))
     self.number = number
     self.inDeck = inDeck
 
     if self.name == 'Blank' then
-        self.imagePath = 'Graphics/Blank Card'
+        self.image = images['blankCard']
     else
         self.stats = Characters[self.name]
         if self.stats['filename'] then
@@ -20,20 +20,15 @@ function CardEditor:init(name,row,column,number,level,evolution,inDeck,graphics,
         else
             self.imagePath = 'Characters/' .. self.name .. '/' .. self.name
         end
+        if images[self.imagePath] then
+            self.image = images[self.imagePath]
+        else
+            images[self.imagePath] = love.graphics.newImage(self.imagePath .. '.png')
+            self.image = images[self.imagePath]
+        end
         self.level = level or 1
         self.evolution = evolution or 0
         self:updateEvolutionSprites()
-    end
-
-    if imagesIndexes[self.imagePath] then
-        self.image = true
-    else
-        if imagesInfo[self.imagePath] then
-            table.insert(imagesInfo[self.imagePath],self)
-        else
-            imagesInfo[self.imagePath] = {self}
-        end
-        self.image = false
     end
 end
 
@@ -89,7 +84,7 @@ function CardEditor:swap()
                 end
                 mouseTrapped:deleteEvolutionSprites()
                 -- Copy data from inventory card to deck card
-                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath = self.name, self.level, self.evolution, self.imagePath
+                mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
                 mouseTrapped:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
                 P1deck[mouseTrapped.number] = mouseTrapped
@@ -99,7 +94,7 @@ function CardEditor:swap()
                     P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
                 end
                 self:deleteEvolutionSprites()
-                self.name, self.level, self.evolution, self.imagePath = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath
+                self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
                 self:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
                 P1deck[self.number] = self
@@ -126,10 +121,10 @@ function CardEditor:swap()
             end
 
             if mouseTrapped.inDeck or self.inDeck then
-                bitser.dumpLoveFile(Settings['active_deck'],P1deckCards)
+                love.filesystem.write(Settings['active_deck'],binser.s(P1deckCards))
             end
             if not sandbox and (not mouseTrapped.inDeck or not self.inDeck) then
-                bitser.dumpLoveFile('Player 1 cards.txt',P1cards)
+                love.filesystem.write('Player 1 cards.txt',binser.s(P1cards))
             end
 
             if not (mouseTrapped.inDeck and self.inDeck) then
@@ -239,24 +234,21 @@ function CardEditor:update()
 end
 
 function CardEditor:render()
-    if self.image then
-        if self.deleting then
-            love.graphics.setColor(1,0,0)
-            love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
-            love.graphics.setColor(1,1,1)
-        end
-        love.graphics.drawLayer(gStateMachine.current.imagesArrayLayer,gStateMachine.current.imagesIndexes[self.imagePath],self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
-
-        if self.name ~= 'Blank' then
-            if self.evolution == 4 then
-                gStateMachine.current.evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
-            elseif self.evolution > 0 then
-                gStateMachine.current.evolutionSpriteBatch:set(self.evolution1Sprite,self.x+115-5,self.y+3,math.rad(90))
-                if self.evolution > 1 then
-                    gStateMachine.current.evolutionSpriteBatch:set(self.evolution2Sprite,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
-                    if self.evolution > 2 then
-                        gStateMachine.current.evolutionSpriteBatch:set(self.evolution3Sprite,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
-                    end
+    if self.deleting then
+        love.graphics.setColor(1,0,0)
+        love.graphics.rectangle('fill',self.x-self.width*(self.scaling-1),self.y-self.height*(self.scaling-1),self.width+self.width*(self.scaling-1)*2,self.height+self.height*(self.scaling-1)*2)
+        love.graphics.setColor(1,1,1)
+    end
+    love.graphics.draw(self.image,self.x,self.y,0,self.scaling,self.scaling,(-1+self.scaling)/2*self.width,(-1+self.scaling)/2*self.height)
+    if self.name ~= 'Blank' then
+        if self.evolution == 4 then
+            gStateMachine.current.evolutionMaxSpriteBatch:set(self.evolutionMaxSprite,self.x+self.width-evolutionMaxImage:getWidth()-4,self.y+4)
+        elseif self.evolution > 0 then
+            gStateMachine.current.evolutionSpriteBatch:set(self.evolution1Sprite,self.x+115-5,self.y+3,math.rad(90))
+            if self.evolution > 1 then
+                gStateMachine.current.evolutionSpriteBatch:set(self.evolution2Sprite,self.x+115-6-evolutionImage:getHeight(),self.y+3,math.rad(90))
+                if self.evolution > 2 then
+                    gStateMachine.current.evolutionSpriteBatch:set(self.evolution3Sprite,self.x+115-7-evolutionImage:getHeight()*2,self.y+3,math.rad(90))
                 end
             end
         end

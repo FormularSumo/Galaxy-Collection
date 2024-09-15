@@ -1,27 +1,17 @@
 ProjectileManager = Class{__includes = BaseState}
 
-function ProjectileManager:init(name,team,xoffset,yoffset,graphics,imagesInfo)
+function ProjectileManager:init(name,team,xoffset,yoffset,graphics)
     self.projectileCount = name['projectileCount'] or 1
 
     self.projectiles = {}
     for i=1,self.projectileCount do
-        local imagePath;
         if name['projectile' .. tostring(i)] then
-            imagePath = 'Graphics/' .. name['projectile'..tostring(i)]
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],name['projectile'..tostring(i)],imagePath)
-        else
-            imagePath = 'Graphics/' .. name['projectile1']
-            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],name['projectile1'],imagePath)
-        end
-
-        if graphics[imagePath] then
-            self.projectiles[i]:init2(graphics[imagePath])
-        else
-            if imagesInfo[imagePath] then
-                table.insert(imagesInfo[imagePath][1],self.projectiles[i])
-            else
-                imagesInfo[imagePath] = {{self.projectiles[i]}, false}
+            if not graphics[name['projectile'..tostring(i)]] then
+                graphics[name['projectile'..tostring(i)]] = love.graphics.newSpriteBatch(love.graphics.newImage('Graphics/'..name['projectile'..tostring(i)]..'.png'))
             end
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'..tostring(i)] or name['range'],graphics[name['projectile'..tostring(i)]],name['projectile'..tostring(i)])
+        else 
+            self.projectiles[i] = Projectile(team,xoffset,yoffset,name['range'],graphics[name['projectile1']],name['projectile1'])
         end
     end
 end
