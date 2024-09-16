@@ -13,6 +13,29 @@ function endor(number)
     if number == 10 then return {'Ewok Scout',60,4} end
 end
 
+function imperialCommand(number)
+    if number == 'max' then return 18 end   
+
+    if number == 0 then return {'Imperial Stormtrooper',60,4} end
+    if number == 1 then return {'Governor Pryce',60,4} end
+    if number == 2 then return {'Grand Admiral Thrawn',60,4} end
+    if number == 3 then return {'Gideon Hask',60,4} end
+    if number == 4 then return {'Imperial Security Droid',60,4} end
+    if number == 5 then return {'Imperial Stormtrooper',60,4} end
+    if number == 6 then return {'Imperial Navy Trooper',60,4} end
+    if number == 7 then return {'Vice Admiral Rampart',60,4} end
+    if number == 8 then return {'Grand Moff Tarkin',60,4} end
+    if number == 9 then return {'Director Krennic',0,4} end
+    if number == 10 then return {'General Veers',60,4} end
+    if number == 11 then return {'Imperial Navy Trooper',60,4} end
+    if number == 12 then return {'Colonel Starck',60,4} end
+    if number == 13 then return {'Admiral Ozzel',60,4} end
+    if number == 14 then return {'Admiral Piett',60,4} end
+    if number == 15 then return {'Kassius Konstantine',60,4} end
+    if number == 16 then return {'Captain Needa',60,4} end
+    if number == 17 then return {'Moff Jerjerrod',60,4} end
+end
+
 function mosEisley(number)
     if number == 'max' then return 18 end
 
