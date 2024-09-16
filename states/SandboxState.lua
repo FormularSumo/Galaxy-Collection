@@ -10,25 +10,27 @@ function SandboxState:enter()
         retriveDeck(Settings['P1_selection'])[2]
     },nil,nil) end,'Begin',font100,nil,'centre',70)
 
+    local arrowX = 145
+
     gui['Player 1 label'] = Text('Player 1',font60,'centre',340)
     gui['Player 1 deck'] = Text(retriveDeck(Settings['P1_selection'])[1],font80,'centre',250)
-    gui[3] = Button(function() self:updateCarousel('Player 1 deck','left') end,nil,nil,'Left Arrow',345,299,nil,nil,nil,true)
-    gui[4] = Button(function() self:updateCarousel('Player 1 deck','right') end,nil,nil,'Left Arrow',1567,299,nil,nil,nil,true,true)
+    gui[3] = Button(function() self:updateCarousel('Player 1 deck','left') end,nil,nil,'Left Arrow',54+arrowX,299,nil,nil,nil,true)
+    gui[4] = Button(function() self:updateCarousel('Player 1 deck','right') end,nil,nil,'Left Arrow',VIRTUALWIDTH-54-arrowX,299,nil,nil,nil,true,true)
 
     gui['Player 2 label'] = Text('Player 2',font60,'centre',550)
     gui['Player 2 deck'] = Text(retriveDeck(Settings['P2_selection'])[1],font80,'centre',460)
-    gui[5] = Button(function() self:updateCarousel('Player 2 deck','left') end,nil,nil,'Left Arrow',345,509,nil,nil,nil,true)
-    gui[6] = Button(function() self:updateCarousel('Player 2 deck','right') end,nil,nil,'Left Arrow',1567,509,nil,nil,nil,true,true)
+    gui[5] = Button(function() self:updateCarousel('Player 2 deck','left') end,nil,nil,'Left Arrow',54+arrowX,509,nil,nil,nil,true)
+    gui[6] = Button(function() self:updateCarousel('Player 2 deck','right') end,nil,nil,'Left Arrow',VIRTUALWIDTH-54-arrowX,509,nil,nil,nil,true,true)
 
     gui['Background label'] = Text('Background',font60,'centre',760)
     gui['Background'] = Text(retriveBackground(Settings['background_selection'])[1],font80,'centre',670)
-    gui[7] = Button(function() self:updateCarousel('Background','left') end,nil,nil,'Left Arrow',345,719,nil,nil,nil,true)
-    gui[8] = Button(function() self:updateCarousel('Background','right') end,nil,nil,'Left Arrow',1567,719,nil,nil,nil,true,true)
+    gui[7] = Button(function() self:updateCarousel('Background','left') end,nil,nil,'Left Arrow',54+arrowX,719,nil,nil,nil,true)
+    gui[8] = Button(function() self:updateCarousel('Background','right') end,nil,nil,'Left Arrow',VIRTUALWIDTH-54-arrowX,719,nil,nil,nil,true,true)
 
     gui['Music label'] = Text('Music',font60,'centre',970)
     gui['Music'] = Text(retriveMusic(Settings['music_selection'])[1],font80,'centre',880)
-    gui[9] = Button(function() self:updateCarousel('Music','left') end,nil,nil,'Left Arrow',345,929,nil,nil,nil,true)
-    gui[10] = Button(function() self:updateCarousel('Music','right') end,nil,nil,'Left Arrow',1567,929,nil,nil,nil,true,true)
+    gui[9] = Button(function() self:updateCarousel('Music','left') end,nil,nil,'Left Arrow',54+arrowX,929,nil,nil,nil,true)
+    gui[10] = Button(function() self:updateCarousel('Music','right') end,nil,nil,'Left Arrow',VIRTUALWIDTH-54-arrowX,929,nil,nil,nil,true,true)
 end
 
 function retriveDeck(index) --Can't make self or can't reference in updateCarousel annoyingly
@@ -42,26 +44,28 @@ function retriveDeck(index) --Can't make self or can't reference in updateCarous
     elseif index == 4 then
         return {'Endor',endor}
     elseif index == 5 then
-        return {'Mos Eisley', mosEisley}
+        return {'Imperial Command',imperialCommand}
     elseif index == 6 then
-        return {'Mos Espa',mosEspa}
+        return {'Mos Eisley', mosEisley}
     elseif index == 7 then
-        return {'Throne Room',throneRoom}
+        return {'Mos Espa',mosEspa}
     elseif index == 8 then
-        return {'Kamino',kamino}
+        return {'Throne Room',throneRoom}
     elseif index == 9 then
-        return {'Geonosis',geonosis}
+        return {'Kamino',kamino}
     elseif index == 10 then
-        return {'Dathomir',dathomir}
+        return {'Geonosis',geonosis}
     elseif index == 11 then
-        return {'Sith Trimuvirate',sithTriumvirate}
+        return {'Dathomir',dathomir}
     elseif index == 12 then
-        return {'Jedi Council Chamber',jediCouncilChamber}
+        return {'Sith Trimuvirate',sithTriumvirate}
     elseif index == 13 then
-        return {'Maxed Light Side',maxedLightSide}
+        return {'Jedi Council Chamber',jediCouncilChamber}
     elseif index == 14 then
-        return {'Maxed Dark Side',maxedDarkSide}
+        return {'Maxed Light Side',maxedLightSide}
     elseif index == 15 then
+        return {'Maxed Dark Side',maxedDarkSide}
+    elseif index == 16 then
         return {'Maxed',maxed}
     end
 end
@@ -87,8 +91,10 @@ function retriveBackground(index) --Can't make self or can't reference in update
     elseif index == 9 then
         return {'Sith Triumvirate'}
     elseif index == 10 then
-        return {'Starry Sky'}
+        return {'Star Destroyer Command Bridge'}
     elseif index == 11 then
+        return {'Starry Sky'}
+    elseif index == 12 then
         return {'Voss'}
     end
 end
