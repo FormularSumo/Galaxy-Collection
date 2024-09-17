@@ -659,7 +659,7 @@ function DeckeditState:createCardViewerBackground()
         for k, pair in pairs(cardViewer.statsOnDisplay) do
             pair:render()
         end
-    elseif cardViewer.biography then
+    else
         cardViewer.biography:render()
     end
     love.graphics.setCanvas()

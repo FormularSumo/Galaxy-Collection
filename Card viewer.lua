@@ -150,10 +150,10 @@ end
 function CardViewer:createBiography()
     if self.stats['biography'] then
         self.biography = Text(wrap(self.stats['biography'],40),font40SW,'centre',90)
-        self.biography.x = self.biography.x + 270
     else
-        self.biography = false
+        self.biography = Text(wrap("No biography currently :(",40),font40SW,'centre',90)
     end
+    self.biography.x = self.biography.x + 270
 end
 
 function CardViewer:createStats()
