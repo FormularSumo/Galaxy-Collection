@@ -69,9 +69,7 @@ function Weapon:init(number,team,xoffset,yoffset,card,imageSpriteBatch,imageName
 end
 
 function Weapon:hideWeapon(graphics)
-    if self.imageSpriteIndex then
-        graphics[self.imageName]:set(self.imageSpriteIndex,0,0,0,0,0)
-    end
+    graphics[self.imageName]:set(self.imageSpriteIndex,0,0,0,0,0)
 end
 
 function Weapon:render(graphics,angle)

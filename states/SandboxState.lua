@@ -34,7 +34,7 @@ function SandboxState:enter()
 end
 
 function retriveDeck(index) --Can't make self or can't reference in updateCarousel annoyingly
-    if index == 'max' then return 15
+    if index == 'max' then return 16
     elseif index == 1 then
         return {'Deck 1','Player 1 deck.txt'}
     elseif index == 2 then
@@ -71,30 +71,34 @@ function retriveDeck(index) --Can't make self or can't reference in updateCarous
 end
 
 function retriveBackground(index) --Can't make self or can't reference in updateCarousel annoyingly
-    if index == 'max' then return 11
+    if index == 'max' then return 14
     elseif index == 1 then
         return {'Belsavis'}
     elseif index == 2 then
-        return {'Dathomir'}
+        return {'Coruscant'}
     elseif index == 3 then
-        return {'Death Star Control Room'}
+        return {'Dathomir Plains'}
     elseif index == 4 then
-        return {'Endor'}
+        return {'Dathomir Swamps'}
     elseif index == 5 then
-        return {'Geonosis'}
+        return {'Death Star Control Room'}
     elseif index == 6 then
-        return {'Kamino'}
+        return {'Endor'}
     elseif index == 7 then
-        return {'Order 66'}
+        return {'Geonosis'}
     elseif index == 8 then
-        return {'Sand Dunes'}
+        return {'Kamino'}
     elseif index == 9 then
-        return {'Sith Triumvirate'}
+        return {'Order 66'}
     elseif index == 10 then
-        return {'Star Destroyer Command Bridge'}
+        return {'Sand Dunes'}
     elseif index == 11 then
-        return {'Starry Sky'}
+        return {'Sith Triumvirate'}
     elseif index == 12 then
+        return {'Star Destroyer Command Bridge'}
+    elseif index == 13 then
+        return {'Starry Sky'}
+    elseif index == 14 then
         return {'Voss'}
     end
 end
