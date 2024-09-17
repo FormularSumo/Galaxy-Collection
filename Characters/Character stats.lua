@@ -5607,7 +5607,8 @@ Characters = {
     ['meleeOffense'] = 18667,
     ['defense'] = 20362,
     ['evade'] = 0.01,
-    ['range'] = 2
+    ['range'] = 2,
+    ['biography'] = 'Native to the planet Malastare, the Zillo Beasts were thought to be extinct until one was awoken by an electro-proton bomb during the Clone Wars. At nearly a 100m tall and weighing 60 kilotonnes when fully grown, these reptiles feed on immense amounts of electrical energy - able to rapidly grow in size and regenerate damaged limbs whilst doing so. Their plated armor is unaffected by explosions, blasters and lightsabers, which led Palpatine to attempt to clone them for military use during and after the Fall of the Republic.'
 },
 
 ['Zuckuss'] = {
