@@ -71,30 +71,32 @@ function retriveDeck(index) --Can't make self or can't reference in updateCarous
 end
 
 function retriveBackground(index) --Can't make self or can't reference in updateCarousel annoyingly
-    if index == 'max' then return 12
+    if index == 'max' then return 13
     elseif index == 1 then
         return {'Belsavis'}
     elseif index == 2 then
-        return {'Dathomir'}
+        return {'Coruscant'}
     elseif index == 3 then
-        return {'Death Star Control Room'}
+        return {'Dathomir'}
     elseif index == 4 then
-        return {'Endor'}
+        return {'Death Star Control Room'}
     elseif index == 5 then
-        return {'Geonosis'}
+        return {'Endor'}
     elseif index == 6 then
-        return {'Kamino'}
+        return {'Geonosis'}
     elseif index == 7 then
-        return {'Order 66'}
+        return {'Kamino'}
     elseif index == 8 then
-        return {'Sand Dunes'}
+        return {'Order 66'}
     elseif index == 9 then
-        return {'Sith Triumvirate'}
+        return {'Sand Dunes'}
     elseif index == 10 then
-        return {'Star Destroyer Command Bridge'}
+        return {'Sith Triumvirate'}
     elseif index == 11 then
-        return {'Starry Sky'}
+        return {'Star Destroyer Command Bridge'}
     elseif index == 12 then
+        return {'Starry Sky'}
+    elseif index == 13 then
         return {'Voss'}
     end
 end
