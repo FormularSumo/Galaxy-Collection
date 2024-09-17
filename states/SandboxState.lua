@@ -34,7 +34,7 @@ function SandboxState:enter()
 end
 
 function retriveDeck(index) --Can't make self or can't reference in updateCarousel annoyingly
-    if index == 'max' then return 15
+    if index == 'max' then return 16
     elseif index == 1 then
         return {'Deck 1','Player 1 deck.txt'}
     elseif index == 2 then
@@ -71,7 +71,7 @@ function retriveDeck(index) --Can't make self or can't reference in updateCarous
 end
 
 function retriveBackground(index) --Can't make self or can't reference in updateCarousel annoyingly
-    if index == 'max' then return 11
+    if index == 'max' then return 12
     elseif index == 1 then
         return {'Belsavis'}
     elseif index == 2 then
