@@ -59,8 +59,10 @@ function Projectile:update(dt)
 end
 
 function Projectile:hideProjectile(graphics)
-    self.show = false
-    graphics[self.imagePath]:set(self.imageSpriteIndex,0,0,0,0,0)
+    if self.imageSpriteIndex then
+        self.show = false
+        graphics[self.imagePath]:set(self.imageSpriteIndex,0,0,0,0,0)
+    end
 end
 
 function Projectile:render(graphics)
