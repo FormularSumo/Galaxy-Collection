@@ -27,7 +27,7 @@ function Weapon:init2(imageSpriteBatch)
 
     --Modify X/Y offset based on whether short and/or static
     if self.shield then
-        self.xoffset = self.xoffset * 0.95
+        self.xoffset = self.xoffset * 0.97
         self.yoffset = self.yoffset * 0.4
     elseif not self.short then
         self.xoffset = self.xoffset * 0.35
