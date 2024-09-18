@@ -26,16 +26,18 @@ end
 function Projectile:fire(card,card2)
     if self.imageSpriteIndex then --Otherwise in theory it could crash if image decoding hasn't finished yet (would have to be extremely slow hardware)
         self.show = true
+        local xRandom = (love.math.random()-0.5) * 50
+        local yRandom = (love.math.random()-0.5) * 75
         if self.inverse then
             self.x = card2.x + self.xoffset
-            self.finalX = card.targetX + self.xoffset
+            self.finalX = card.targetX + self.xoffset + xRandom
             self.y = card2.y + self.yoffset
-            self.finalY = card.targetY + self.yoffset
+            self.finalY = card.targetY + self.yoffset + yRandom
         else
             self.x = card.x + self.xoffset
-            self.finalX = card2.targetX + self.xoffset
+            self.finalX = card2.targetX + self.xoffset + xRandom
             self.y = card.y + self.yoffset
-            self.finalY = card2.targetY + self.yoffset
+            self.finalY = card2.targetY + self.yoffset + yRandom
         end
 
         if (self.team == 1 and not self.inverse) or (self.team == 2 and self.inverse) then

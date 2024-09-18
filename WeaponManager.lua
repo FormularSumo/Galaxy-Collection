@@ -4,6 +4,9 @@ function WeaponManager:init(name,team,xoffset,yoffset,card,graphics,imagesInfo)
     self.show = false
     self.weaponCount = name['weaponCount'] or 1
 
+    local xoffset = xoffset + (love.math.random()-0.5) * 10
+    local yoffset = yoffset + (love.math.random()-0.5) * 30
+
     self.weapons = {}
     local weaponNumber = 1
     for i=1,self.weaponCount do
