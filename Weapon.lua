@@ -50,16 +50,16 @@ function Weapon:init2(imageSpriteBatch)
 
     --Modify X/Y offset based on what number weapon is
     if self.double then
-        self.xoffset = self.xoffset + self.height / 4
+        self.xoffset = (math.min(self.xoffset + self.height / 4,115))
         self.yoffset = self.yoffset - self.height / 5
         if self.number ~= 1 then
-            self.xoffset = self.xoffset + 30
+            self.xoffset = (math.min(self.xoffset + 30,115))
             self.yoffset = self.yoffset - 20
         end
     elseif self.number ~= 1 and not self.shield then
         self.yoffset = self.yoffset - (self.number-1) * 20
         if self.number % 2 == 0 then
-            if not self.short then self.xoffset = self.xoffset + 40 else self.xoffset = self.xoffset + 30 end        
+            if not self.short then self.xoffset = (math.min(self.xoffset + 40,115)) else self.xoffset = self.xoffset + 30 end
         end
     end
 

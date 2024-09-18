@@ -5,16 +5,17 @@ function WeaponManager:init(name,team,xoffset,yoffset,card,graphics,imagesInfo)
     self.weaponCount = name['weaponCount'] or 1
 
     self.weapons = {}
+    local weaponNumber = 1
     for i=1,self.weaponCount do
         local imagePath
         local nameString = 'weapon' .. tostring(i)
         if name[nameString] then
             imagePath = 'Graphics/' .. name['weapon'..tostring(i)]
-            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name[nameString],imagePath)
+            self.weapons[i] = Weapon(weaponNumber,team,xoffset,yoffset,card,name[nameString],imagePath)
         else
             nameString = 'weapon1'
             imagePath = 'Graphics/' .. name[nameString]
-            self.weapons[i] = Weapon(i,team,xoffset,yoffset,card,name[nameString],imagePath)
+            self.weapons[i] = Weapon(weaponNumber,team,xoffset,yoffset,card,name[nameString],imagePath)
         end
 
         if graphics[imagePath] then
@@ -26,6 +27,11 @@ function WeaponManager:init(name,team,xoffset,yoffset,card,graphics,imagesInfo)
                 imagesInfo[imagePath] = {{self.weapons[i]}, false}
             end
         end
+
+        if not self.weapons[i].shield then
+            weaponNumber = weaponNumber + 1
+        end
+
     end
 end
 
