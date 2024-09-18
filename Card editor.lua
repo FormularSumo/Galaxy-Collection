@@ -225,7 +225,7 @@ function CardEditor:update()
             mouseTouching = self
         end
     elseif mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
-        if self.name ~= 'Blank' or not love.mouse.isVisible() then
+        if self.name ~= 'Blank' or (mouseTrapped and self.inDeck) or not love.mouse.isVisible() then
             self.scaling = 1.04
         else
             self.scaling = 1
