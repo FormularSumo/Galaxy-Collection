@@ -14,6 +14,7 @@ function Weapon:init(number,team,xoffset,yoffset,card,imageName,imagePath)
     if imageName == 'Riot Control Shield' or imageName == 'Embo\'s Shield' then
         self.static = true
         self.shield = true
+        gStateMachine.current.graphicsShields[imagePath] = true
     else
         self.static = imageName == 'Lightning' or imageName == 'Flamethrower' or imageName == 'Shock Prod' or imageName == 'Riot Control Shield'
         self.shield = false
