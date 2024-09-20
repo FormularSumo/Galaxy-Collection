@@ -10,10 +10,12 @@ function Weapon:init(number,team,xoffset,yoffset,card,imageSpriteBatch,imageName
     self.imageName = imageName
 
     self.double = imageName == 'Inquisitor Lightsaber' or imageName == 'Double Red Lightsaber' or imageName == 'Double Blue Lightsaber' or imageName == 'Double Green Lightsaber' or imageName == 'Double Yellow Lightsaber' or imageName == 'Double Purple Lightsaber' or imageName == 'Electrostaff' or imageName == 'Staff' or imageName == 'Kallus\' Bo-Rifle' or imageName == 'Bo-Rifle' or imageName == 'Phasma\'s Spear' or imageName == 'War Sword' or imageName == 'Chirrut\'s Staff'
-    self.short = imageName == 'Dagger of Mortis' or imageName == 'Lightning' or imageName == 'Knife' or imageName == 'Flamethrower' or imageName == 'Truncheon' or imageName == 'Embo\'s Shield' or imageName == 'Tool 1' or imageName == 'Tool 2' or imageName == 'Kyuzo Petar' or imageName == 'Vine' or imageName == 'Nightsister Sword'or imageName == 'Nightbrother Weapon' or imageName == 'Vibrosword' or imageName == 'Riot Control Baton' or imageName == 'Z6 Riot Control Baton' or imageName == 'Cane' or imageName == 'Shock Prod' or imageName == 'Fusioncutter' or imageName == 'Axe' or imageName == 'Spear'
+    self.short = imageName == 'Lightning' or imageName == 'Flamethrower' or imageName == 'Nightbrother Weapon' or imageName == 'Nightsister Sword' or imageName == 'Yoda Lightsaber' or imageName == 'Vine' or imageName == 'Vibrosword' or imageName == 'Shock Prod' or imageName == 'Glaive' or imageName == 'Scepter' or imageName == 'War Club'
+    self.superShort = imageName == 'Knife' or imageName == 'Spear' or imageName == 'Riot Control Baton' or imageName == 'Cane' or imageName == 'Fusioncutter' or imageName == 'Dagger of Mortis' or imageName == 'Truncheon' or imageName == 'Tool 1' or imageName == 'Tool 2' or imageName == 'Kyuzo Petar' or imageName == 'Z6 Riot Control Baton' or imageName == 'Axe'
     if imageName == 'Riot Control Shield' or imageName == 'Embo\'s Shield' then
         self.static = true
         self.shield = true
+        gStateMachine.current.graphicsShields[imageName] = true
     else
         self.static = imageName == 'Lightning' or imageName == 'Flamethrower' or imageName == 'Shock Prod' or imageName == 'Riot Control Shield'
         self.shield = false
@@ -24,21 +26,21 @@ function Weapon:init(number,team,xoffset,yoffset,card,imageSpriteBatch,imageName
 
     --Modify X/Y offset based on whether short and/or static
     if self.shield then
-        self.xoffset = self.xoffset * 0.95
+        self.xoffset = self.xoffset * 0.97
         self.yoffset = self.yoffset * 0.4
-    elseif not self.short then
+    elseif not (self.short or self.superShort) then
         self.xoffset = self.xoffset * 0.35
         self.yoffset = self.yoffset * 0.7
     else   
-        if self.short and self.static then
+        if self.static then
             self.xoffset = self.xoffset + self.width / 2
-        else
+            self.yoffset = self.yoffset * 0.5 - self.height / 2
+        elseif self.short then
             self.xoffset = self.xoffset * 0.65
-        end
-        if not self.static then
             self.yoffset = self.yoffset * 0.6
         else
-            self.yoffset = self.yoffset * 0.5 - self.height / 2
+            self.xoffset = self.xoffset * 0.85      
+            self.yoffset = self.yoffset * 0.6
         end
         if not self.xoffset then self.xoffset = 0 end
         if not self.yoffset then self.yoffset = 0 end
@@ -46,16 +48,16 @@ function Weapon:init(number,team,xoffset,yoffset,card,imageSpriteBatch,imageName
 
     --Modify X/Y offset based on what number weapon is
     if self.double then
-        self.xoffset = self.xoffset + self.height / 4
+        self.xoffset = (math.min(self.xoffset + self.height / 4,115))
         self.yoffset = self.yoffset - self.height / 5
         if self.number ~= 1 then
-            self.xoffset = self.xoffset + 30
+            self.xoffset = (math.min(self.xoffset + 30,115))
             self.yoffset = self.yoffset - 20
         end
     elseif self.number ~= 1 and not self.shield then
         self.yoffset = self.yoffset - (self.number-1) * 20
         if self.number % 2 == 0 then
-            if not self.short then self.xoffset = self.xoffset + 40 else self.xoffset = self.xoffset + 30 end        
+            if not self.short then self.xoffset = (math.min(self.xoffset + 40,115)) else self.xoffset = self.xoffset + 30 end
         end
     end
 

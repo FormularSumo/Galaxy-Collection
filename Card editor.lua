@@ -79,21 +79,21 @@ function CardEditor:swap()
     if mouseTrapped2 == self and not (not self.inDeck and not mouseTrapped.inDeck) then --If not touching another card or both cards in are inventory, abort
         if sandbox and not (self.inDeck and mouseTrapped.inDeck) then --If both cards are in deck, below logic suffices. Otherwise, we don't want to move cards out of inventory in sandbox as it doesn't change, and we can avoid reloading it by doing so.
             if mouseTrapped.inDeck then
-                if mouseTrapped.name ~= 'Blank' then --If card in deck being replaced is not blank, lower overall strength by its strength
-                    P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
-                end
+                P1strength = P1strength - characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
                 mouseTrapped:deleteEvolutionSprites()
                 -- Copy data from inventory card to deck card
                 mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image = self.name, self.level, self.evolution, self.imagePath, self.image
-                mouseTrapped:updateEvolutionSprites()
-                P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
+                if mouseTrapped.name ~= 'Blank' then --If card in inventory being swapped with is not blank, lower overall strength by its strength
+                    mouseTrapped:updateEvolutionSprites()
+                    P1strength = P1strength + characterStrength({mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution}) --Increase overall strength by strength of new card added to deck
+                end
                 P1deck[mouseTrapped.number] = mouseTrapped
                 P1deckEdit(mouseTrapped.number,{mouseTrapped.name,mouseTrapped.level,mouseTrapped.evolution})
             else
                 if self.name ~= 'Blank' then
                     P1strength = P1strength - characterStrength({self.name,self.level,self.evolution})
+                    self:deleteEvolutionSprites()
                 end
-                self:deleteEvolutionSprites()
                 self.name, self.level, self.evolution, self.imagePath, self.image = mouseTrapped.name, mouseTrapped.level, mouseTrapped.evolution, mouseTrapped.imagePath, mouseTrapped.image
                 self:updateEvolutionSprites()
                 P1strength = P1strength + characterStrength({self.name,self.level,self.evolution})
@@ -220,7 +220,7 @@ function CardEditor:update()
             mouseTouching = self
         end
     elseif mouseX > self.x and mouseX < self.x + self.width and mouseY > self.y and mouseY < self.y + self.height then
-        if self.name ~= 'Blank' or not love.mouse.isVisible() then
+        if self.name ~= 'Blank' or (mouseTrapped and self.inDeck) or not love.mouse.isVisible() then
             self.scaling = 1.04
         else
             self.scaling = 1

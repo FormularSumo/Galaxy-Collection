@@ -19,16 +19,18 @@ end
 
 function Projectile:fire(card,card2)
     self.show = true
+    local xRandom = (love.math.random()-0.5) * 50
+    local yRandom = (love.math.random()-0.5) * 75
     if self.inverse then
         self.x = card2.x + self.xoffset
-        self.finalX = card.targetX + self.xoffset
+        self.finalX = card.targetX + self.xoffset + xRandom
         self.y = card2.y + self.yoffset
-        self.finalY = card.targetY + self.yoffset
+        self.finalY = card.targetY + self.yoffset + yRandom
     else
         self.x = card.x + self.xoffset
-        self.finalX = card2.targetX + self.xoffset
+        self.finalX = card2.targetX + self.xoffset + xRandom
         self.y = card.y + self.yoffset
-        self.finalY = card2.targetY + self.yoffset
+        self.finalY = card2.targetY + self.yoffset + yRandom
     end
 
     if (self.team == 1 and not self.inverse) or (self.team == 2 and self.inverse) then
@@ -38,7 +40,7 @@ function Projectile:fire(card,card2)
     end
 
     self.xDistance = tonumber(self.finalX-self.x)
-    self.yDistance = tonumber(self.finalY-self.y)
+    self.yDistance = tonumber(self.finalY-self.y)   
     self.angle = math.atan(self.yDistance/self.xDistance)
     if self.team == 2 then self.angle = self.angle + math.rad(180) end
 end

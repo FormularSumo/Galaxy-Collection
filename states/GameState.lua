@@ -64,6 +64,7 @@ function GameState:enter(infoTable)
     self.cardImages = {}
     self.graphics = {}
     self.gamespeed = 1
+    self.graphicsShields = {}
     self.P1Nextcards = {
         [0] = 18,
         [1] = 19,
@@ -866,8 +867,21 @@ function GameState:renderBattle()
                     end
                 end
 
-                for k, pair in pairs(self.graphics) do
-                    love.graphics.draw(pair)
+                if self.graphicsShields ~= {} then --Statistically most battles will not contain shields, so don't both checking for them if so
+                    for k, pair in pairs(self.graphics) do
+                        if self.graphicsShields[k] then
+                            love.graphics.draw(pair)
+                        end
+                    end
+                    for k, pair in pairs(self.graphics) do
+                        if not self.graphicsShields[k] then
+                            love.graphics.draw(pair)
+                        end
+                    end
+                else
+                    for k, pair in pairs(self.graphics) do
+                        love.graphics.draw(pair)
+                    end
                 end
             end
         end
