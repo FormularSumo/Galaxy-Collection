@@ -311,7 +311,7 @@ end
 function love.mousepressed(x,y,button,istouch)
     love.mouse.buttonsPressed[button] = true
     mouseDown = true
-    mousePressedX, mousePressedY = push.toGame(love.mouse.getPosition())
+    mousePressedX, mousePressedY = push.toGame(x,y)
     mousePressedTime = love.timer.getTime()
 end
 
